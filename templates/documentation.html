@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if title %}{{ title }} - {% endif %}System Documentation - DSR Circuits</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .header-container {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-container h1 {
+            margin: 0;
+            font-size: 24px;
+            display: inline-block;
+        }
+        
+        .documentation-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .export-buttons {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .export-buttons button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .export-buttons button:hover {
+            background: #2980b9;
+        }
+        
+        .documentation-content {
+            line-height: 1.6;
+        }
+        
+        .documentation-content h1,
+        .documentation-content h2,
+        .documentation-content h3 {
+            color: #2c3e50;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        
+        .documentation-content h1 {
+            font-size: 28px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .documentation-content h2 {
+            font-size: 22px;
+            color: #34495e;
+        }
+        
+        .documentation-content h3 {
+            font-size: 18px;
+            color: #7f8c8d;
+        }
+        
+        .documentation-content code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #e74c3c;
+        }
+        
+        .documentation-content pre {
+            background: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            margin: 15px 0;
+        }
+        
+        .documentation-content pre code {
+            background: none;
+            color: #ecf0f1;
+            padding: 0;
+        }
+        
+        .documentation-content table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .documentation-content th,
+        .documentation-content td {
+            border: 1px solid #bdc3c7;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .documentation-content th {
+            background: #34495e;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .documentation-content tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+        
+        .documentation-content a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .documentation-content a:hover {
+            text-decoration: underline;
+        }
+        
+        .documentation-content blockquote {
+            border-left: 4px solid #3498db;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #f8f9fa;
+            color: #2c3e50;
+        }
+        
+        .documentation-content ul,
+        .documentation-content ol {
+            margin: 15px 0;
+            padding-left: 30px;
+        }
+        
+        .documentation-content li {
+            margin: 8px 0;
+        }
+        
+        .toc {
+            background: #ecf0f1;
+            padding: 20px;
+            border-radius: 5px;
+            margin: 20px 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        .toc h3 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        .toc ul {
+            margin: 10px 0;
+        }
+        
+        .toc a {
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        
+        .toc a:hover {
+            color: #3498db;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                margin: 0;
+            }
+            
+            .header-container {
+                background: #2c3e50 !important;
+                -webkit-print-color-adjust: exact;
+            }
+            
+            .export-buttons {
+                display: none;
+            }
+            
+            .documentation-container {
+                box-shadow: none;
+                border: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <h1>📚 {% if title %}{{ title }}{% else %}System Documentation{% endif %}</h1>
+    </div>
+    
+    <div class="documentation-container">
+        <div class="export-buttons">
+            <!-- Left side buttons -->
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <button onclick="window.location.href='/home'">🏠 Home</button>
+            </div>
+            
+            <!-- Right side export buttons -->
+            <div style="display: flex; gap: 8px; margin-left: auto;">
+                <button onclick="exportToPDF()">📄 Export to PDF</button>
+            </div>
+        </div>
+        
+        <div class="documentation-content" id="documentationContent">
+            <!-- Documentation content will be loaded here -->
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script>
+        // Check if content was passed from server
+        {% if content %}
+            document.getElementById('documentationContent').innerHTML = {{ content|tojson|safe }};
+            generateTableOfContents();
+        {% else %}
+            // Load documentation content
+            fetch('/api/documentation/content')
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('documentationContent').innerHTML = html;
+                    generateTableOfContents();
+                })
+                .catch(error => {
+                    console.error('Error loading documentation:', error);
+                    document.getElementById('documentationContent').innerHTML = 
+                        '<p style="color: #e74c3c;">Error loading documentation content.</p>';
+                });
+        {% endif %}
+        
+        function generateTableOfContents() {
+            const content = document.getElementById('documentationContent');
+            const headings = content.querySelectorAll('h1, h2, h3');
+            
+            if (headings.length > 3) {
+                const toc = document.createElement('div');
+                toc.className = 'toc';
+                toc.innerHTML = '<h3>📋 Table of Contents</h3><ul></ul>';
+                
+                const tocList = toc.querySelector('ul');
+                
+                headings.forEach((heading, index) => {
+                    const id = `section-${index}`;
+                    heading.id = id;
+                    
+                    const li = document.createElement('li');
+                    li.style.marginLeft = `${(parseInt(heading.tagName.charAt(1)) - 1) * 20}px`;
+                    
+                    const link = document.createElement('a');
+                    link.href = `#${id}`;
+                    link.textContent = heading.textContent;
+                    
+                    li.appendChild(link);
+                    tocList.appendChild(li);
+                });
+                
+                content.insertBefore(toc, content.firstChild);
+            }
+        }
+        
+        function exportToPDF() {
+            const element = document.querySelector('.documentation-container');
+            const opt = {
+                margin: 1,
+                filename: 'DSR_Circuits_Documentation.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { 
+                    scale: 2,
+                    useCORS: true,
+                    scrollY: 0
+                },
+                jsPDF: { 
+                    unit: 'in', 
+                    format: 'letter', 
+                    orientation: 'portrait' 
+                }
+            };
+            
+            // Show loading indicator
+            const originalContent = element.innerHTML;
+            element.innerHTML = '<div style="text-align: center; padding: 50px;"><h3>Generating PDF...</h3><p>Please wait while your documentation is being prepared.</p></div>';
+            
+            html2pdf().from(element).set(opt).save().then(() => {
+                // Restore original content
+                element.innerHTML = originalContent;
+                generateTableOfContents();
+            }).catch((error) => {
+                console.error('PDF generation error:', error);
+                element.innerHTML = originalContent;
+                generateTableOfContents();
+                alert('Error generating PDF. Please try again.');
+            });
+        }
+    </script>
+</body>
+</html>

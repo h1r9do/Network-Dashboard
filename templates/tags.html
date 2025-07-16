@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag Management - DSR Circuits</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .header-container {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .header-container h1 {
+            margin: 0;
+            font-size: 24px;
+            display: inline-block;
+        }
+        .row-count {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 14px;
+            color: #ecf0f1;
+            font-weight: 400;
+        }
+        .tags-table-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .export-buttons {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .export-buttons button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .export-buttons button:hover {
+            background: #2980b9;
+        }
+        .action-button-special {
+            background: #27ae60 !important;
+        }
+        .action-button-special:hover {
+            background: #229954 !important;
+        }
+        .action-button-secondary {
+            background: #95a5a6 !important;
+        }
+        .action-button-secondary:hover {
+            background: #7f8c8d !important;
+        }
+        .controls {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .filter-group {
+            display: inline-block;
+            margin-right: 20px;
+            margin-bottom: 10px;
+        }
+        .filter-group label {
+            margin-right: 5px;
+            font-weight: bold;
+        }
+        .filter-group input, .filter-group select {
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .action-buttons {
+            margin-top: 10px;
+        }
+        .action-button {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .action-button:hover {
+            background-color: #229954;
+        }
+        .action-button.secondary {
+            background-color: #95a5a6;
+        }
+        .action-button.secondary:hover {
+            background-color: #7f8c8d;
+        }
+        .stats {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .stats-item {
+            display: inline-block;
+            margin-right: 30px;
+        }
+        .table-container {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            border: 1px solid #2980b9;
+        }
+        td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #eee;
+        }
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        .tag {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            margin: 2px;
+            font-size: 12px;
+        }
+        .tag.discount-tire {
+            background-color: #e74c3c;
+        }
+        .tag.warehouse {
+            background-color: #f39c12;
+        }
+        .tag.mdc {
+            background-color: #9b59b6;
+        }
+        .tag.regional-office {
+            background-color: #16a085;
+        }
+        .tag.full-service {
+            background-color: #2ecc71;
+        }
+        .tag.call-center {
+            background-color: #e67e22;
+        }
+        .edit-icon {
+            cursor: pointer;
+            color: #3498db;
+            margin-left: 10px;
+        }
+        .edit-icon:hover {
+            color: #2980b9;
+        }
+        .checkbox-cell {
+            text-align: center;
+        }
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #666;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: black;
+        }
+        .tag-selector {
+            margin: 20px 0;
+        }
+        .tag-checkbox {
+            display: block;
+            margin: 10px 0;
+        }
+        .tag-checkbox input {
+            margin-right: 10px;
+        }
+        .modal-buttons {
+            margin-top: 20px;
+            text-align: right;
+        }
+        .modal-button {
+            padding: 8px 16px;
+            margin-left: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .modal-button.primary {
+            background-color: #3498db;
+            color: white;
+        }
+        .modal-button.primary:hover {
+            background-color: #2980b9;
+        }
+        .modal-button.cancel {
+            background-color: #95a5a6;
+            color: white;
+        }
+        .modal-button.cancel:hover {
+            background-color: #7f8c8d;
+        }
+        .bulk-actions {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #ecf0f1;
+            border-radius: 4px;
+            display: none;
+        }
+        .selected-count {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <h1>Meraki Device Tag Management</h1>
+        <div class="row-count" id="rowCount">Loading device data...</div>
+    </div>
+
+    <div class="tags-table-container">
+        <!-- Export Buttons -->
+        <div class="export-buttons">
+            <!-- Left side buttons -->
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <button onclick="window.location.href='/home'">🏠 Home</button>
+                <button onclick="window.location.href='/inventory-details'">📋 Inventory Details</button>
+                <button class="action-button-special" onclick="refreshData()">🔄 Refresh</button>
+                <button class="action-button-secondary" onclick="selectAll()">☑️ Select All Visible</button>
+                <button class="action-button-secondary" onclick="downloadCSVTemplate()">📋 Upload Instructions</button>
+                <button class="action-button-secondary" onclick="showCSVUploadModal()">📤 Upload Edited CSV</button>
+            </div>
+            
+            <!-- Right side export buttons -->
+            <div style="display: flex; gap: 8px; margin-left: auto;">
+                <button onclick="exportToExcel()">📊 Export to Excel</button>
+                <button onclick="exportToPDF()">📄 Export to PDF</button>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="filter-group">
+                <label for="searchInput">Search:</label>
+                <input type="text" id="searchInput" placeholder="Network or device name...">
+            </div>
+            <div class="filter-group">
+                <label for="tagFilter">Filter by Tag:</label>
+                <select id="tagFilter">
+                    <option value="">All Tags</option>
+                    <option value="Discount-Tire">Discount Tire</option>
+                    <option value="Warehouse">Warehouse</option>
+                    <option value="MDC">MDC</option>
+                    <option value="Regional_Office">Regional Office</option>
+                    <option value="Full_Service_Store">Full Service</option>
+                    <option value="Call_Center">Call Center</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="untaggedFilter">
+                    <input type="checkbox" id="untaggedFilter"> Show only untagged
+                </label>
+            </div>
+            
+            <div class="action-buttons">
+                <button class="action-button-secondary" onclick="deselectAll()">Deselect All</button>
+                <button class="action-button-special" onclick="bulkEditTags()">Edit Selected Tags</button>
+            </div>
+        </div>
+
+        <div class="stats">
+            <span class="stats-item">Total Networks: <strong id="totalNetworks">0</strong></span>
+            <span class="stats-item">Total Devices: <strong id="totalDevices">0</strong></span>
+            <span class="stats-item">Selected: <strong id="selectedCount">0</strong></span>
+        </div>
+
+        <div class="bulk-actions" id="bulkActions">
+            <span class="selected-count"><span id="bulkSelectedCount">0</span> networks selected</span>
+            <button class="action-button" onclick="bulkEditTags()">Edit Tags</button>
+            <button class="action-button secondary" onclick="deselectAll()">Cancel</button>
+        </div>
+
+        <div class="table-container">
+            <table id="tagsTable">
+                <thead>
+                    <tr>
+                        <th style="width: 40px;"><input type="checkbox" id="selectAllCheckbox" onchange="toggleSelectAll()"></th>
+                        <th>Network Name</th>
+                        <th>Device Serial</th>
+                        <th>Device Name</th>
+                        <th>Model</th>
+                        <th>Current Tags</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                    <tr>
+                        <td colspan="7" class="loading">Loading tag data...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Tag Edit Modal -->
+    <div id="tagModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">Edit Tags</h2>
+            <p id="modalDescription"></p>
+            
+            <div class="tag-selector" id="tagSelector">
+                <!-- Tags will be populated here -->
+            </div>
+            
+            <div class="modal-buttons">
+                <button class="modal-button cancel" onclick="closeModal()">Cancel</button>
+                <button class="modal-button primary" onclick="saveTags()">Save Tags</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let allData = [];
+        let filteredData = [];
+        let availableTags = [];
+        let editingNetwork = null;
+        let editingDevice = null;
+        let bulkEditNetworks = [];
+
+        // Load data on page load
+        window.onload = function() {
+            refreshData();
+        };
+
+        function refreshData() {
+            document.getElementById('tableBody').innerHTML = '<tr><td colspan="7" class="loading">Loading tag data...</td></tr>';
+            document.getElementById('rowCount').textContent = 'Loading device data...';
+            
+            fetch('/api/tags/inventory')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        allData = data.networks;
+                        availableTags = data.available_tags;
+                        document.getElementById('totalNetworks').textContent = data.total_networks;
+                        document.getElementById('totalDevices').textContent = data.total_devices;
+                        
+                        // Populate tag filter
+                        populateTagFilter();
+                        
+                        // Apply filters and display
+                        applyFilters();
+                        updateRowCount();
+                    } else {
+                        alert('Error loading data: ' + data.error);
+                    }
+                })
+                .catch(error => {
+                    alert('Error loading data: ' + error);
+                });
+        }
+
+        function updateRowCount() {
+            const totalNetworks = document.getElementById('totalNetworks').textContent;
+            const totalDevices = document.getElementById('totalDevices').textContent;
+            const visibleRows = document.querySelectorAll('#tableBody tr:not([style*="display: none"])').length;
+            document.getElementById('rowCount').textContent = `Showing ${visibleRows} of ${totalNetworks} networks (${totalDevices} devices)`;
+        }
+
+        function exportToExcel() {
+            // Create CSV content from visible table data with Action column for upload
+            const table = document.getElementById('tagsTable');
+            const rows = table.querySelectorAll('tr');
+            let csvContent = '';
+            
+            // Add header row with Action column
+            const headerCells = rows[0].querySelectorAll('th');
+            const headerRow = Array.from(headerCells).slice(1, -1).map(cell => `"${cell.textContent.trim()}"`).join(',') + ',"Action"';
+            csvContent += headerRow + '\n';
+            
+            // Add data rows (skip header, hidden rows, and Actions column, add Action column)
+            for (let i = 1; i < rows.length; i++) {
+                const row = rows[i];
+                if (row.style.display !== 'none') {
+                    const cells = row.querySelectorAll('td');
+                    // Get all data columns except checkbox and Actions column, then add Action column
+                    const rowData = Array.from(cells).slice(1, -1).map(cell => {
+                        let text = cell.textContent.trim();
+                        // Clean up the Current Tags column (remove edit button text)
+                        if (text.includes('Edit Tags')) {
+                            text = text.replace('Edit Tags', '').trim();
+                        }
+                        return `"${text}"`;
+                    }).join(',') + ',"UPDATE"';
+                    csvContent += rowData + '\n';
+                }
+            }
+            
+            // Download CSV
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = 'meraki_device_tags.csv';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+
+        function exportToPDF() {
+            window.print();
+        }
+
+        function populateTagFilter() {
+            const filter = document.getElementById('tagFilter');
+            filter.innerHTML = '<option value="">All Tags</option>';
+            
+            // Add predefined location tags
+            const locationTags = [
+                {value: 'Discount-Tire', label: 'Discount Tire'},
+                {value: 'Warehouse', label: 'Warehouse'},
+                {value: 'MDC', label: 'MDC'},
+                {value: 'Regional_Office', label: 'Regional Office'},
+                {value: 'Full_Service_Store', label: 'Full Service'},
+                {value: 'Call_Center', label: 'Call Center'}
+            ];
+            
+            locationTags.forEach(tag => {
+                const option = document.createElement('option');
+                option.value = tag.value;
+                option.textContent = tag.label;
+                filter.appendChild(option);
+            });
+            
+            // Add separator
+            if (availableTags.length > 0) {
+                const separator = document.createElement('option');
+                separator.disabled = true;
+                separator.textContent = '──────────';
+                filter.appendChild(separator);
+                
+                // Add other tags found in inventory
+                availableTags.forEach(tag => {
+                    if (!locationTags.find(t => t.value === tag)) {
+                        const option = document.createElement('option');
+                        option.value = tag;
+                        option.textContent = tag;
+                        filter.appendChild(option);
+                    }
+                });
+            }
+        }
+
+        function applyFilters() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const tagFilter = document.getElementById('tagFilter').value;
+            const untaggedOnly = document.getElementById('untaggedFilter').checked;
+            
+            filteredData = allData.filter(network => {
+                // Search filter
+                if (searchTerm && !network.network_name.toLowerCase().includes(searchTerm)) {
+                    return false;
+                }
+                
+                // Tag filter
+                if (tagFilter || untaggedOnly) {
+                    const hasTag = network.devices.some(device => {
+                        if (untaggedOnly && device.tags.length > 0) return false;
+                        if (tagFilter && !device.tags.includes(tagFilter)) return false;
+                        return true;
+                    });
+                    if (!hasTag) return false;
+                }
+                
+                return true;
+            });
+            
+            displayData();
+        }
+
+        function displayData() {
+            const tbody = document.getElementById('tableBody');
+            tbody.innerHTML = '';
+            
+            if (filteredData.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align: center;">No networks found</td></tr>';
+                return;
+            }
+            
+            filteredData.forEach(network => {
+                network.devices.forEach((device, index) => {
+                    const row = document.createElement('tr');
+                    
+                    // Checkbox
+                    const checkboxCell = document.createElement('td');
+                    checkboxCell.className = 'checkbox-cell';
+                    if (index === 0) {
+                        const checkbox = document.createElement('input');
+                        checkbox.type = 'checkbox';
+                        checkbox.className = 'network-checkbox';
+                        checkbox.value = network.network_name;
+                        checkbox.onchange = updateSelectedCount;
+                        checkboxCell.appendChild(checkbox);
+                        checkboxCell.rowSpan = network.devices.length;
+                    }
+                    if (index === 0) row.appendChild(checkboxCell);
+                    
+                    // Network name
+                    const networkCell = document.createElement('td');
+                    if (index === 0) {
+                        networkCell.textContent = network.network_name;
+                        networkCell.rowSpan = network.devices.length;
+                        row.appendChild(networkCell);
+                    }
+                    
+                    // Device details
+                    row.innerHTML += `
+                        <td>${device.device_serial}</td>
+                        <td>${device.device_name || '-'}</td>
+                        <td>${device.model}</td>
+                        <td>${formatTags(device.tags)}</td>
+                        <td>
+                            <span class="edit-icon" onclick="editDeviceTags('${network.network_name}', '${device.device_serial}')" title="Edit device tags">✏️</span>
+                        </td>
+                    `;
+                    
+                    tbody.appendChild(row);
+                });
+            });
+            
+            updateSelectedCount();
+            updateRowCount();
+        }
+
+        function formatTags(tags) {
+            if (!tags || tags.length === 0) return '<span style="color: #999;">No tags</span>';
+            
+            return tags.map(tag => {
+                let className = 'tag';
+                if (tag === 'Discount-Tire') className += ' discount-tire';
+                else if (tag === 'Warehouse') className += ' warehouse';
+                else if (tag === 'MDC') className += ' mdc';
+                else if (tag.includes('Regional') && tag.includes('Office')) className += ' regional-office';
+                else if (tag.includes('Full') && tag.includes('Service')) className += ' full-service';
+                else if (tag.includes('Call') && tag.includes('Center')) className += ' call-center';
+                
+                return `<span class="${className}">${tag}</span>`;
+            }).join(' ');
+        }
+
+        function selectAll() {
+            document.querySelectorAll('.network-checkbox').forEach(cb => cb.checked = true);
+            updateSelectedCount();
+        }
+
+        function deselectAll() {
+            document.querySelectorAll('.network-checkbox').forEach(cb => cb.checked = false);
+            document.getElementById('selectAllCheckbox').checked = false;
+            updateSelectedCount();
+        }
+
+        function toggleSelectAll() {
+            const selectAll = document.getElementById('selectAllCheckbox').checked;
+            document.querySelectorAll('.network-checkbox').forEach(cb => cb.checked = selectAll);
+            updateSelectedCount();
+        }
+
+        function updateSelectedCount() {
+            const selected = document.querySelectorAll('.network-checkbox:checked').length;
+            document.getElementById('selectedCount').textContent = selected;
+            document.getElementById('bulkSelectedCount').textContent = selected;
+            
+            const bulkActions = document.getElementById('bulkActions');
+            if (selected > 0) {
+                bulkActions.style.display = 'block';
+            } else {
+                bulkActions.style.display = 'none';
+            }
+        }
+
+        function editDeviceTags(networkName, deviceSerial) {
+            editingNetwork = networkName;
+            editingDevice = deviceSerial;
+            bulkEditNetworks = [];
+            
+            // Find device data
+            const network = allData.find(n => n.network_name === networkName);
+            const device = network.devices.find(d => d.device_serial === deviceSerial);
+            
+            document.getElementById('modalTitle').textContent = 'Edit Device Tags';
+            document.getElementById('modalDescription').textContent = `${networkName} - ${deviceSerial}`;
+            
+            showTagSelector(device.tags);
+        }
+
+        function bulkEditTags() {
+            const selected = document.querySelectorAll('.network-checkbox:checked');
+            if (selected.length === 0) return;
+            
+            bulkEditNetworks = Array.from(selected).map(cb => cb.value);
+            editingDevice = null;
+            editingNetwork = null;
+            
+            document.getElementById('modalTitle').textContent = 'Edit Tags for Multiple Networks';
+            document.getElementById('modalDescription').textContent = `Editing tags for ${bulkEditNetworks.length} network(s)`;
+            
+            showTagSelector([]);
+        }
+
+        function showTagSelector(currentTags) {
+            const selector = document.getElementById('tagSelector');
+            selector.innerHTML = '';
+            
+            // Predefined location tags
+            const locationTags = [
+                {value: 'Discount-Tire', label: 'Discount Tire'},
+                {value: 'Warehouse', label: 'Warehouse'},
+                {value: 'MDC', label: 'MDC'},
+                {value: 'Regional_Office', label: 'Regional Office'},
+                {value: 'Full_Service_Store', label: 'Full Service Store'},
+                {value: 'Call_Center', label: 'Call Center'}
+            ];
+            
+            locationTags.forEach(tag => {
+                const label = document.createElement('label');
+                label.className = 'tag-checkbox';
+                label.innerHTML = `
+                    <input type="checkbox" value="${tag.value}" ${currentTags.includes(tag.value) ? 'checked' : ''}>
+                    ${tag.label}
+                `;
+                selector.appendChild(label);
+            });
+            
+            document.getElementById('tagModal').style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('tagModal').style.display = 'none';
+            editingNetwork = null;
+            editingDevice = null;
+            bulkEditNetworks = [];
+        }
+
+        function saveTags() {
+            const selectedTags = Array.from(document.querySelectorAll('#tagSelector input:checked'))
+                .map(cb => cb.value);
+            
+            if (editingDevice) {
+                // Update single device
+                updateDeviceTags(editingDevice, selectedTags);
+            } else if (bulkEditNetworks.length > 0) {
+                // Bulk update
+                bulkUpdateTags(bulkEditNetworks, selectedTags);
+            }
+        }
+
+        function updateDeviceTags(deviceSerial, tags) {
+            fetch(`/api/tags/device/${deviceSerial}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ tags: tags })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    closeModal();
+                    refreshData();
+                    alert('Tags updated successfully');
+                } else {
+                    alert('Error updating tags: ' + data.error);
+                }
+            })
+            .catch(error => {
+                alert('Error updating tags: ' + error);
+            });
+        }
+
+        function bulkUpdateTags(networks, tags) {
+            const updates = networks.map(network => ({
+                network_name: network,
+                tags: tags
+            }));
+            
+            fetch('/api/tags/bulk', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ updates: updates })
+            })
+            .then(response => response.json())
+            .then(data => {
+                closeModal();
+                refreshData();
+                
+                if (data.success) {
+                    alert(`Successfully updated ${data.total_success} networks`);
+                } else {
+                    alert(`Updated ${data.total_success} networks, ${data.total_errors} errors`);
+                }
+            })
+            .catch(error => {
+                alert('Error updating tags: ' + error);
+            });
+        }
+
+        function downloadCSVTemplate() {
+            // Create CSV template with instructions for export-edit-upload workflow
+            const csvContent = `# MERAKI TAGS UPLOAD TEMPLATE
+#
+# WORKFLOW:
+# 1. Use "Export to Excel" button to download current device data
+# 2. Edit the exported CSV file:
+#    - Column F (Current Tags): Update with new tags (comma-separated)
+#    - Add Column G (Action): Set to UPDATE or ADD
+# 3. Upload the edited file using "Upload CSV" button
+#
+# EXAMPLE FORMAT:
+Network Name,Device Serial,Device Name,Model,Current Tags,Action
+ALB 01,Q2KY-ABC1-DEF2,MX68-HW,MX68,"Discount-Tire,Full_Service_Store",UPDATE
+ALB 02,Q2KY-XYZ3-GHI4,MX67-HW,MX67,Warehouse,ADD
+#
+# INSTRUCTIONS:
+# - Column F (Current Tags): Enter desired tags separated by commas
+# - Column G (Action): UPDATE (replace all tags) or ADD (append to existing)
+# - Available tags: Discount-Tire, Warehouse, MDC, Regional_Office, Full_Service_Store, Call_Center
+# - Network Name and Device Serial must match exactly as shown in export
+# - Leave other columns unchanged
+#
+# TIP: It's easier to export current data first, then edit that file!`;
+
+            // Download CSV
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = 'meraki_tags_upload_instructions.csv';
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        }
+
+        function showCSVUploadModal() {
+            const modalHtml = `
+                <div class="modal fade" id="csvUploadModal" style="display: block; background-color: rgba(0,0,0,0.5);">
+                    <div class="modal-dialog" style="margin: 50px auto; max-width: 600px;">
+                        <div class="modal-content" style="background: white; border-radius: 5px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+                            <div class="modal-header" style="padding: 15px; border-bottom: 1px solid #ddd; background-color: #f8f9fa;">
+                                <h5 class="modal-title" style="margin: 0; color: #2c3e50;">Upload CSV Tags</h5>
+                                <button type="button" onclick="closeCSVModal()" style="background: none; border: none; font-size: 20px; float: right;">&times;</button>
+                            </div>
+                            <div class="modal-body" style="padding: 20px;">
+                                <div style="margin-bottom: 15px;">
+                                    <p><strong>Upload an edited export CSV file to bulk update Meraki device tags:</strong></p>
+                                    <div style="background: #e7f3ff; padding: 10px; border-radius: 4px; margin-bottom: 10px;">
+                                        <strong>📋 Recommended Workflow:</strong>
+                                        <ol style="margin: 5px 0 0 20px; color: #0056b3;">
+                                            <li>Click "📊 Export to Excel" to download current data</li>
+                                            <li>Edit Column F (Current Tags) with desired tags</li>
+                                            <li>Add Column G (Action) - set to UPDATE or ADD</li>
+                                            <li>Upload the edited file here</li>
+                                        </ol>
+                                    </div>
+                                    <ul style="margin-left: 20px; color: #666; font-size: 13px;">
+                                        <li><strong>Column F (Current Tags):</strong> Comma-separated tags (e.g., "Discount-Tire,Warehouse")</li>
+                                        <li><strong>Column G (Action):</strong> UPDATE (replace all) or ADD (append to existing)</li>
+                                        <li><strong>Available tags:</strong> Discount-Tire, Warehouse, MDC, Regional_Office, Full_Service_Store, Call_Center</li>
+                                        <li>Leave Network Name, Device Serial, Device Name, Model columns unchanged</li>
+                                    </ul>
+                                </div>
+                                <div style="margin-bottom: 20px;">
+                                    <input type="file" id="csvFileInput" accept=".csv" style="width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                                </div>
+                                <div id="csvPreview" style="display: none;">
+                                    <h6>Preview (first 5 rows):</h6>
+                                    <div id="csvPreviewContent" style="background: #f8f9fa; padding: 10px; border-radius: 4px; font-family: monospace; font-size: 12px; max-height: 200px; overflow-y: auto;"></div>
+                                </div>
+                            </div>
+                            <div class="modal-footer" style="padding: 15px; border-top: 1px solid #ddd; text-align: right;">
+                                <button type="button" onclick="closeCSVModal()" style="background: #6c757d; color: white; border: none; padding: 8px 16px; border-radius: 4px; margin-right: 10px;">Cancel</button>
+                                <button type="button" onclick="uploadCSV()" id="uploadButton" disabled style="background: #007bff; color: white; border: none; padding: 8px 16px; border-radius: 4px;">Upload & Process</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Remove existing modal if any
+            const existingModal = document.getElementById('csvUploadModal');
+            if (existingModal) {
+                existingModal.remove();
+            }
+            
+            // Add modal to page
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
+            
+            // Add file input change listener
+            document.getElementById('csvFileInput').addEventListener('change', previewCSV);
+        }
+
+        function previewCSV() {
+            const fileInput = document.getElementById('csvFileInput');
+            const uploadButton = document.getElementById('uploadButton');
+            const preview = document.getElementById('csvPreview');
+            const previewContent = document.getElementById('csvPreviewContent');
+            
+            if (fileInput.files.length === 0) {
+                uploadButton.disabled = true;
+                preview.style.display = 'none';
+                return;
+            }
+            
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+            
+            reader.onload = function(e) {
+                const text = e.target.result;
+                const lines = text.split('\\n').filter(line => line.trim() && !line.startsWith('#'));
+                
+                if (lines.length === 0) {
+                    alert('CSV file appears to be empty or contains only comments');
+                    return;
+                }
+                
+                // Show first 5 lines as preview
+                const previewLines = lines.slice(0, 6); // Header + 5 data rows
+                previewContent.textContent = previewLines.join('\\n');
+                preview.style.display = 'block';
+                uploadButton.disabled = false;
+            };
+            
+            reader.readAsText(file);
+        }
+
+        function uploadCSV() {
+            const fileInput = document.getElementById('csvFileInput');
+            if (fileInput.files.length === 0) {
+                alert('Please select a CSV file');
+                return;
+            }
+            
+            const formData = new FormData();
+            formData.append('csv_file', fileInput.files[0]);
+            
+            // Show uploading state
+            const uploadButton = document.getElementById('uploadButton');
+            uploadButton.disabled = true;
+            uploadButton.textContent = 'Processing...';
+            
+            fetch('/api/tags/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                closeCSVModal();
+                if (data.success) {
+                    alert(`CSV Upload Complete!\\n\\nProcessed: ${data.total_processed} rows\\nSuccessful: ${data.total_success}\\nErrors: ${data.total_errors}\\n\\n${data.message}`);
+                    refreshData(); // Refresh the page data
+                } else {
+                    alert('Upload failed: ' + data.error);
+                }
+            })
+            .catch(error => {
+                closeCSVModal();
+                alert('Upload error: ' + error);
+            });
+        }
+
+        function closeCSVModal() {
+            const modal = document.getElementById('csvUploadModal');
+            if (modal) {
+                modal.remove();
+            }
+        }
+
+        // Event listeners
+        document.getElementById('searchInput').addEventListener('input', applyFilters);
+        document.getElementById('tagFilter').addEventListener('change', applyFilters);
+        document.getElementById('untaggedFilter').addEventListener('change', applyFilters);
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('tagModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+            // Also handle CSV modal
+            const csvModal = document.getElementById('csvUploadModal');
+            if (event.target == csvModal) {
+                closeCSVModal();
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Broadband Provisioning Tracking System for Discount Tire</title>
+    <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .header-container {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header-container h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .circuit-table-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .filter-controls {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+        .filter-control {
+            padding: 5px;
+        }
+        .filter-control input, .filter-control select {
+            width: 100%;
+            padding: 6px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+        .circuit-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .circuit-table thead th {
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            background-color: #3498db;
+            color: white;
+        }
+        .circuit-table tbody tr {
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .circuit-table tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .circuit-table tbody tr:hover {
+            background-color: #f1f8ff;
+        }
+        .circuit-table td {
+            padding: 12px 15px;
+            color: #333;
+        }
+        .cost-cell {
+            font-weight: bold;
+            color: #27ae60;
+        }
+        .export-buttons {
+            margin-bottom: 15px;
+        }
+        .export-buttons button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            margin-right: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .export-buttons button:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <h1>Discount Tire Active Circuit Master List</h1> <!-- Only title changed -->
+    </div>
+
+    <div class="circuit-table-container">
+        <!-- Export Buttons -->
+        <div class="export-buttons">
+            <button id="exportExcel">Export to Excel</button>
+            <button id="exportPDF">Export to PDF</button>
+            <button id="historicalData" onclick="window.location.href='/dsrhistorical'">Historical Data</button> <!-- Only button added -->
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="filter-controls">
+            <div class="filter-control">
+                <input type="text" id="siteFilter" placeholder="Filter Site Name...">
+            </div>
+            <div class="filter-control">
+                <select id="aProviderFilter">
+                    <option value="">All A Providers</option>
+                </select>
+            </div>
+            <div class="filter-control">
+                <select id="aSpeedFilter">
+                    <option value="">All A Speeds</option>
+                </select>
+            </div>
+            <div class="filter-control">
+                <input type="text" id="aCostFilter" placeholder="Filter A Cost...">
+            </div>
+            <div class="filter-control">
+                <select id="bProviderFilter">
+                    <option value="">All B Providers</option>
+                </select>
+            </div>
+            <div class="filter-control">
+                <select id="bSpeedFilter">
+                    <option value="">All B Speeds</option>
+                </select>
+            </div>
+            <div class="filter-control">
+                <input type="text" id="bCostFilter" placeholder="Filter B Cost...">
+            </div>
+        </div>
+
+        <!-- Data Table -->
+        <table id="circuitTable" class="circuit-table">
+            <thead>
+                <tr>
+                    <th>Site Name</th>
+                    <th>A Provider</th>
+                    <th>A Speed</th>
+                    <th>A Cost</th>
+                    <th>B Provider</th>
+                    <th>B Speed</th>
+                    <th>B Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for site_name, circuits in grouped_data.items() %}
+                <tr>
+                    <td><strong>{{ site_name }}</strong></td>
+                    <td>
+                        {% for circuit in circuits %}
+                            {% if circuit.get('Circuit Purpose', '').lower() == 'primary' %}
+                                {{ circuit.get('provider_name', 'N/A') }}
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for circuit in circuits %}
+                            {% if circuit.get('Circuit Purpose', '').lower() == 'primary' %}
+                                {{ circuit.get('details_ordered_service_speed', 'N/A') }}
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td class="cost-cell">
+                        {% for circuit in circuits %}
+                            {% if circuit.get('Circuit Purpose', '').lower() == 'primary' %}
+                                {% if circuit.get('billing_monthly_cost', '') %}
+                                    ${{ "%.2f"|format(circuit.get('billing_monthly_cost', 0)|float) }}
+                                {% else %}
+                                    $0.00
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for circuit in circuits %}
+                            {% if circuit.get('Circuit Purpose', '').lower() == 'secondary' %}
+                                {{ circuit.get('provider_name', 'N/A') }}
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td>
+                        {% for circuit in circuits %}
+                            {% if circuit.get('Circuit Purpose', '').lower() == 'secondary' %}
+                                {{ circuit.get('details_ordered_service_speed', 'N/A') }}
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                    <td class="cost-cell">
+                        {% for circuit in circuits %}
+                            {% if circuit.get('Circuit Purpose', '').lower() == 'secondary' %}
+                                {% if circuit.get('billing_monthly_cost', '') %}
+                                    ${{ "%.2f"|format(circuit.get('billing_monthly_cost', 0)|float) }}
+                                {% else %}
+                                    $0.00
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="7">No circuit data available</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        // Initialize DataTable
+        var table = $('#circuitTable').DataTable({
+            paging: false,
+            scrollY: "600px",
+            scrollCollapse: true,
+            dom: 't'
+        });
+
+        // Initialize filters
+        function initFilters() {
+            // Initialize dropdown filters
+            initDropdownFilter(1, '#aProviderFilter');
+            initDropdownFilter(2, '#aSpeedFilter');
+            initDropdownFilter(4, '#bProviderFilter');
+            initDropdownFilter(5, '#bSpeedFilter');
+            
+            // Initialize text filters
+            $('#siteFilter').on('keyup', function() {
+                table.column(0).search(this.value).draw();
+            });
+            
+            $('#aCostFilter').on('keyup', function() {
+                table.column(3).search(this.value).draw();
+            });
+            
+            $('#bCostFilter').on('keyup', function() {
+                table.column(6).search(this.value).draw();
+            });
+        }
+        
+        function initDropdownFilter(columnIndex, selector) {
+            var column = table.column(columnIndex);
+            var select = $(selector)
+                .on('change', function() {
+                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                    column.search(val ? '^' + val + '$' : '', true, false).draw();
+                });
+            
+            column.data().unique().sort().each(function(d, j) {
+                if (d) {
+                    select.append('<option value="' + d + '">' + d + '</option>');
+                }
+            });
+        }
+        
+        // Initialize export buttons
+        $('#exportExcel').on('click', function() {
+            table.button('.buttons-excel').trigger();
+        });
+        
+        $('#exportPDF').on('click', function() {
+            table.button('.buttons-pdf').trigger();
+        });
+        
+        // Add buttons for export
+        new $.fn.dataTable.Buttons(table, {
+            buttons: [
+                {
+                    extend: 'excelHtml5',
+                    text: 'Excel',
+                    className: 'buttons-excel',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'pdfHtml5',
+                    text: 'PDF',
+                    className: 'buttons-pdf',
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                }
+            ]
+        });
+        
+        // Initialize filters
+        initFilters();
+    });
+    </script>
+</body>
+</html>

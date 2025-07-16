@@ -1,0 +1,492 @@
+{
+  "description": "Standard Discount Tire Store Firewall Rules Template",
+  "source": "NEO 07",
+  "version": "1.0",
+  "vlan_mapping": {
+    "old_to_new": {
+      "1": "100",
+      "101": "200",
+      "201": "410",
+      "300": "300",
+      "301": "301",
+      "800": "800",
+      "801": "400",
+      "802": "remove",
+      "803": "803",
+      "900": "900"
+    }
+  },
+  "rules": [
+    {
+      "comment": "Deny to scam website per infosec",
+      "policy": "deny",
+      "protocol": "any",
+      "srcPort": "Any",
+      "srcCidr": "Any",
+      "destPort": "Any",
+      "destCidr": "5.188.231.142/32,dtcphx.com",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Deny LAN to Guest",
+      "policy": "deny",
+      "protocol": "any",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(100).*,VLAN(200).*,VLAN(410).*,VLAN(301).*,VLAN(300).*",
+      "destPort": "Any",
+      "destCidr": "VLAN(800).*,VLAN(400).*",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Deny Guest to RFC1918",
+      "policy": "deny",
+      "protocol": "any",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(800).*,VLAN(400).*",
+      "destPort": "Any",
+      "destCidr": "10.0.0.0/8,192.168.0.0/16,172.12.0.0/12",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Gmail Access CHG0046975",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(100).*,VLAN(300).*",
+      "destPort": "80,443",
+      "destCidr": "mail.google.com",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Allow ping",
+      "policy": "allow",
+      "protocol": "icmp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(100).*",
+      "destPort": "Any",
+      "destCidr": "Any",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "access to Card Readers",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(100).*",
+      "destPort": "5100,5015,5016",
+      "destCidr": "VLAN(410).*",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Data Vlan to Splunk Collectors ",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(100).*",
+      "destPort": "9997,8089",
+      "destCidr": "10.105.4.162/32,10.105.4.253/32,10.105.4.81/32,10.105.4.199/32,10.105.4.237/32,10.105.4.5/32",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "permit CCard PED to VANTIV - VHQ",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(410).*",
+      "destPort": "443",
+      "destCidr": "199.71.106.30/32,199.71.106.0/20,64.57.144.0/20",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Allow to data VLAN",
+      "policy": "allow",
+      "protocol": "any",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(410).*",
+      "destPort": "Any",
+      "destCidr": "VLAN(100).*",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Allow CC to TokenX",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(410).*",
+      "destPort": "443",
+      "destCidr": "discounttire.tokenex.com,api.tokenex.com",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "EPX Updates",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(410).*",
+      "destPort": "2600",
+      "destCidr": "198.252.230.155/32",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Deny any to CC",
+      "policy": "deny",
+      "protocol": "any",
+      "srcPort": "Any",
+      "srcCidr": "Any",
+      "destPort": "Any",
+      "destCidr": "VLAN(410).*",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "SRS Server",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(301).*",
+      "destPort": "8000",
+      "destCidr": "10.0.175.198/32",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "NTP bonehead for Scanners",
+      "policy": "allow",
+      "protocol": "udp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(301).*,VLAN(300).*",
+      "destPort": "123",
+      "destCidr": "18.26.4.105/32",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Meraki access for SW",
+      "policy": "allow",
+      "protocol": "udp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(100).30,VLAN(100).29",
+      "destPort": "7351",
+      "destCidr": "199.231.78.0/24,108.161.147.0/24,64.62.142.12/32,54.193.207.248/32,209.206.48.0/20,158.115.147.160/32,216.157.128.0/20,158.115.128.0/19",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Backup configuration downloads, Splash pages",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(100).30,VLAN(100).29,VLAN(300).*",
+      "destPort": "80,443,7734,7752",
+      "destCidr": "64.62.142.2/32,108.161.147.0/24,199.231.78.0/24,209.206.48.0/20,158.115.147.160/32,216.157.128.0/20,158.115.128.0/19",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Backup Meraki cloud communication, Throughput tests live tool, Backup firmware downloads",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(100).30,VLAN(100).29",
+      "destPort": "443,80,7734,7752",
+      "destCidr": "54.193.207.248/32,108.161.147.0/24,199.231.78.0/24,209.206.48.0/20,158.115.128.0/19,216.157.128.0/20",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Access Meraki cloud communication",
+      "policy": "allow",
+      "protocol": "udp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(300).*",
+      "destPort": "7351,9350,9351",
+      "destCidr": "64.62.142.12/32,54.193.207.248/32,108.161.147.0/24,199.231.78.0/24,74.50.56.161/32,209.206.48.0/20,158.115.147.160/32,158.115.128.0/19,216.157.128.0/20",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Backup configuration downloads, Splash pages",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(300).*",
+      "destPort": "80,443,7734,7752",
+      "destCidr": "108.161.147.0/24,199.231.78.0/24,64.62.142.2/32,74.50.56.161/32,54.193.207.248/32,158.115.147.160/32",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Allow Scanners to inventory servers",
+      "policy": "allow",
+      "protocol": "any",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(301).*",
+      "destPort": "Any",
+      "destCidr": "205.139.50.92/32,205.139.50.93/32,205.139.50.181/32,205.139.51.22/32,205.139.51.0/32,205.139.51.166/32",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(301).*",
+      "destPort": "80,443",
+      "destCidr": "205.139.50.0/23,209.208.230.0/23,199.106.140.0/23,63.128.72.0/24,63.128.76.0/24,192.30.64.0/20,216.253.141.0/24,192.30.68.0/20,192.30.71.80/32,192.30.71.112/32",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "",
+      "policy": "allow",
+      "protocol": "udp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(301).*",
+      "destPort": "7351",
+      "destCidr": "64.62.142.12/32,54.193.207.248/32,108.161.147.0/24,199.231.87.0/24,74.50.56.161/32,209.206.48.0/20",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(301).*",
+      "destPort": "80",
+      "destCidr": "54.193.207.248/32",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(301).*",
+      "destPort": "80,443,7734,7732",
+      "destCidr": "108.161.147.0/24,199.231.78.0/24,64.62.142.2/32,74.50.56.161/32",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "NEW Airwatch to Scanner Vlan",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(301).*",
+      "destPort": "80,443",
+      "destCidr": "52.207.131.208/32,52.207.186.27/32,52.44.65.104/32,63.128.77.234/32,63.128.77.238/32,209.66.96.114/32,209.208.228.194/32,209.208.228.198/32,216.235.137.253/32,64.14.29.39/32",
+      "syslogEnabled": true
+    },
+    {
+      "comment": "Fiori",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "Any",
+      "destPort": "8050",
+      "destCidr": "10.103.80.174/32",
+      "syslogEnabled": true
+    },
+    {
+      "comment": "Deny RFC 1918",
+      "policy": "deny",
+      "protocol": "any",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(100).*",
+      "destPort": "Any",
+      "destCidr": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Allow HTTP/HTTPS to WWW",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(100).*",
+      "destPort": "80,8080,443",
+      "destCidr": "Any",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Allow Flash",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(100).*",
+      "destPort": "1935",
+      "destCidr": "Any",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Scanner HTTPS",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(301).*",
+      "destPort": "443",
+      "destCidr": "Any",
+      "syslogEnabled": true
+    },
+    {
+      "comment": "VTV App Prod APIs",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(301).*",
+      "destPort": "443",
+      "destCidr": "n1kht2wi17.execute-api.us-west-2.amazonaws.com,j059ljofa9.execute-api.us-west-2.amazonaws.com,eonj7rnj3i.execute-api.us-west-2.amazonaws.com,trhy03bcjl.execute-api.us-west-2.amazonaws.com,mbqged4sef.execute-api.us-west-2.amazonaws.com",
+      "syslogEnabled": true
+    },
+    {
+      "comment": "MFA for VTV",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(301).*",
+      "destPort": "80,443",
+      "destCidr": "okta-retail.discounttire.com,Discounttire-retail.okta.com,Discounttire-retail.customdomains.okta.com,ok7-custom-crtrs.okta.com,login.okta.com,ok7static.oktacdn.com,ajax.googleapis.com",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Logging APIs for VTV",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(301).*",
+      "destPort": "80,443",
+      "destCidr": "ssl.google-analytics.com,www.google-analytics.com,www.googletagmanager.com,tags.tiqcdn.com,bf62460umu.bf.dynatrace.com,in.appcenter.ms,as1380.awmdm.com,blnzcsd5jg.execute-api.us-west-2.amazonaws.com,7ymfjkdbxg.execute-api.us-west-2.amazonaws.com,6hnslhw74m.execute-api.us-west-2.amazonaws.com,swlax93y53.execute-api.us-west-2.amazonaws.com,bf62460umu.bf.dynatrace.com",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "AirWatch Content Delivery",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(301).*",
+      "destPort": "443",
+      "destCidr": "awcm1380.awmdm.com,ds1380.awmdm.com,cdnus04.awmdm.com",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "CHG0035073 - WaitList PROD/QA",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(301).*",
+      "destPort": "80,443",
+      "destCidr": "waitlist-management.qa.discounttire.com,waitlist-server.qa.discounttire.com,waitlist-mobile.discounttire.com,waitlist-management.discounttire.com,waitlist-display.discounttire.com,waitlist-server.discounttire.com",
+      "syslogEnabled": true
+    },
+    {
+      "comment": "Allow MS Teams Authentication-TCP",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(100).*",
+      "destPort": "80,443",
+      "destCidr": "*.teams.microsoft.com,teams.microsoft.com,13.107.64.0/18,52.112.0.0/14,52.122.0.0/15,52.238.119.141/32,52.244.160.207/32",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Allow IMAP / Outlook Authentication",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(100).*",
+      "destPort": "80,143,443,993",
+      "destCidr": "204.79.197.215/32,191.234.140.0/22,150.171.32.0/22,132.245.0.0/16,131.253.33.215/32,52.96.0.0/14,40.104.0.0/15,40.96.0.0/13,23.103.160.0/20,13.107.128.0/22,13.107.18.10/31,13.107.6.152/31",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Office365",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(100).*",
+      "destPort": "80,443",
+      "destCidr": "13.107.6.171/32,13.107.140.6/32,52.108.0.0/14,52.238.106.116/32,52.244.37.168/32,52.244.203.72/32,52.244.207.172/32,52.244.223.198/32,52.247.150.191/32,1.80.125.22/32,13.91.91.243/32,13.107.6.156/31,13.107.7.190/31,13.107.9.156/31,40.81.156.154/32,40.90.218.198/32,52.108.0.0/14,52.174.56.180/32,52.183.75.62/32,52.184.165.82/32,104.42.230.91/32,157.55.145.0/25,157.55.155.0/25,157.55.227.192/26,20.190.128.0/18,40.126.0.0/18,13.107.64.0/18,52.112.0.0/14,52.120.0.0/14,52.238.119.141/32,52.244.160.207/32",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "",
+      "policy": "deny",
+      "protocol": "any",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(301).*",
+      "destPort": "Any",
+      "destCidr": "Any",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "IOT Internet Access",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(400).*",
+      "destPort": "80,443",
+      "destCidr": "Any",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Allow NTP Access for IOT",
+      "policy": "allow",
+      "protocol": "udp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(400).*",
+      "destPort": "123",
+      "destCidr": "pool.ntp.org",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Polycom Windows NTP",
+      "policy": "allow",
+      "protocol": "udp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(200).*",
+      "destPort": "123",
+      "destCidr": "OBJ(3790904986339115074)",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Polycom Google Services",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(200).*",
+      "destPort": "5228",
+      "destCidr": "OBJ(3790904986339115064),OBJ(3790904986339115065),OBJ(3790904986339115066),OBJ(3790904986339115067)",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Polycom HTTP and HTTPS",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(200).*",
+      "destPort": "80,443",
+      "destCidr": "Any",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Polycom Voice VLAN Deny All",
+      "policy": "deny",
+      "protocol": "any",
+      "srcPort": "Any",
+      "srcCidr": "VLAN(200).*",
+      "destPort": "Any",
+      "destCidr": "Any",
+      "syslogEnabled": true
+    },
+    {
+      "comment": "Deny all",
+      "policy": "deny",
+      "protocol": "any",
+      "srcPort": "Any",
+      "srcCidr": "Any",
+      "destPort": "Any",
+      "destCidr": "Any",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Default rule",
+      "policy": "allow",
+      "protocol": "Any",
+      "srcPort": "Any",
+      "srcCidr": "Any",
+      "destPort": "Any",
+      "destCidr": "Any",
+      "syslogEnabled": false
+    }
+  ],
+  "notes": "Rules with group object references removed for TST 01 deployment"
+}

@@ -1,0 +1,1537 @@
+{
+  "timestamp": "2025-07-13T12:41:35.466393",
+  "total_sites_in_db": 1433,
+  "sites_with_less_than_2_circuits": 102,
+  "sites_needing_circuits": [
+    {
+      "site_name": "AMERICA's TIRE",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Spectrum"
+      ],
+      "existing_speeds": [
+        "300.0M x 20.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "AMERICAS TIRE CO",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "NSA"
+      ],
+      "existing_speeds": [
+        "750.0M x 35.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "AZP 00",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Cox Business/BOI"
+      ],
+      "existing_speeds": [
+        "500.0M x 35.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "AZP 00 NEW",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Cox Business/BOI "
+      ],
+      "existing_speeds": [
+        "50.0M x 10.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "AZPB 20",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "AT&T"
+      ],
+      "existing_speeds": [
+        "Cell"
+      ],
+      "existing_data_sources": [
+        "Non-DSR"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "AZP_00",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "AT&T"
+      ],
+      "existing_speeds": [
+        "Cell"
+      ],
+      "existing_data_sources": [
+        "Non-DSR"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "CAL 13N",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Spectrum"
+      ],
+      "existing_speeds": [
+        "100.0M x 10.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "CAL 25",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Spectrum"
+      ],
+      "existing_speeds": [
+        "600.0M x 35.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "CAL W01",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "AT&T"
+      ],
+      "existing_speeds": [
+        "Cell"
+      ],
+      "existing_data_sources": [
+        "Non-DSR"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "CAN 08",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Comcast Workplace"
+      ],
+      "existing_speeds": [
+        "300.0M x 30.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "CAN 30",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "AT&T Broadband II"
+      ],
+      "existing_speeds": [
+        "1000.0M x 1000.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "CAN W00",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Comcast Workplace"
+      ],
+      "existing_speeds": [
+        "250.0M x 25.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "CANW02",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "NSA"
+      ],
+      "existing_speeds": [
+        null
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "CAX 01 Perris",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "NaN"
+      ],
+      "existing_speeds": [
+        null
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "COD 16",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Comcast Workplace"
+      ],
+      "existing_speeds": [
+        "250.0M x 25.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "Cog 02",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Comcast"
+      ],
+      "existing_speeds": [
+        "750.0M x 35.0M"
+      ],
+      "existing_data_sources": [
+        "Non-DSR"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "DISCOUNT TIRE",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "NaN"
+      ],
+      "existing_speeds": [
+        null
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "DTC Desert Ridge Corporate Center II - 1",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "CenturyLink Fiber Plus"
+      ],
+      "existing_speeds": [
+        "100.0M x 100.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "DTC Desert Ridge Corporate Center II - 2",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Cox Business/BOI"
+      ],
+      "existing_speeds": [
+        "200.0M x 20.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "Discount Tire",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Spectrum"
+      ],
+      "existing_speeds": [
+        "200.0M x 10.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "FLJ000",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "NaN"
+      ],
+      "existing_speeds": [
+        null
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "FLT 01",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "MetroNet"
+      ],
+      "existing_speeds": [
+        "300.0M x 300.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "Flight Department",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Verizon"
+      ],
+      "existing_speeds": [
+        "Cell"
+      ],
+      "existing_data_sources": [
+        "Non-DSR"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "GAA 02",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Comcast Workplace"
+      ],
+      "existing_speeds": [
+        "300.0M x 25.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "GAA 04",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "NaN"
+      ],
+      "existing_speeds": [
+        null
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "GAA 05",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "AT&T Broadband II"
+      ],
+      "existing_speeds": [
+        "300.0M x 300.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "GAA 09",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Spectrum"
+      ],
+      "existing_speeds": [
+        "60.0M x 4.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "GAA00 -B",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "NaN"
+      ],
+      "existing_speeds": [
+        null
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "GAX 01",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "AT&T Broadband II"
+      ],
+      "existing_speeds": [
+        "100.0M x 20.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "HPL020N",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Comcast Workplace"
+      ],
+      "existing_speeds": [
+        "300.0M x 30.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "IAQ 01",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Mediacom/BOI"
+      ],
+      "existing_speeds": [
+        "300.0M x 20.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "ILC 10",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Comcast Workplace"
+      ],
+      "existing_speeds": [
+        "250.0M x 25.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "ILC 41",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Verizon"
+      ],
+      "existing_speeds": [
+        "Cell"
+      ],
+      "existing_data_sources": [
+        "Non-DSR"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "ILC 42",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Verizon"
+      ],
+      "existing_speeds": [
+        "Cell"
+      ],
+      "existing_data_sources": [
+        "Non-DSR"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "ILC 43",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Verizon"
+      ],
+      "existing_speeds": [
+        "Cell"
+      ],
+      "existing_data_sources": [
+        "Non-DSR"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "ILC 44",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Verizon"
+      ],
+      "existing_speeds": [
+        "Cell"
+      ],
+      "existing_data_sources": [
+        "Non-DSR"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "ILC 45",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Verizon"
+      ],
+      "existing_speeds": [
+        "Cell"
+      ],
+      "existing_data_sources": [
+        "Non-DSR"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "ILC 46",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Verizon"
+      ],
+      "existing_speeds": [
+        "Cell"
+      ],
+      "existing_data_sources": [
+        "Non-DSR"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "ILC000",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "NaN"
+      ],
+      "existing_speeds": [
+        null
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "INI 07",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Spectrum"
+      ],
+      "existing_speeds": [
+        "750.0M x 35.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "INI00",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Comcast Workplace"
+      ],
+      "existing_speeds": [
+        "300.0M x 30.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "INI000",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "NaN"
+      ],
+      "existing_speeds": [
+        null
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "INX 01",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Comcast Workplace"
+      ],
+      "existing_speeds": [
+        "250.0M x 25.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "KSK00",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Spectrum"
+      ],
+      "existing_speeds": [
+        "50.0M x 5.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "KSKW00",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "AT&T Broadband II"
+      ],
+      "existing_speeds": [
+        "100.0M x 20.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "MIA 02",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Comcast Workplace"
+      ],
+      "existing_speeds": [
+        "300.0M x 25.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "MIF 18",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Comcast Workplace"
+      ],
+      "existing_speeds": [
+        "250.0M x 25.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "MIL 28 ",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Comcast Workplace"
+      ],
+      "existing_speeds": [
+        "500.0M x 30.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "MIW00",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "NaN"
+      ],
+      "existing_speeds": [
+        null
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "MNM 00",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Comcast Workplace"
+      ],
+      "existing_speeds": [
+        "750.0M x 35.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "MNM 09 -B",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Comcast Workplace"
+      ],
+      "existing_speeds": [
+        "750.0M x 35.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "MNM_00",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "AT&T"
+      ],
+      "existing_speeds": [
+        "Cell"
+      ],
+      "existing_data_sources": [
+        "Non-DSR"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "MOS 00N",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "NaN"
+      ],
+      "existing_speeds": [
+        null
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "NCC 12",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Spectrum"
+      ],
+      "existing_speeds": [
+        "100.0M x 10.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "NCC 29",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Spectrum"
+      ],
+      "existing_speeds": [
+        "400.0M x 20.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "NCC_00",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Charter Communications"
+      ],
+      "existing_speeds": [
+        "600.0M x 35.0M"
+      ],
+      "existing_data_sources": [
+        "Non-DSR"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "NMS 01",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Comcast Workplace"
+      ],
+      "existing_speeds": [
+        "250.0M x 25.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "NVL 10",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Cox Business/BOI"
+      ],
+      "existing_speeds": [
+        "100.0M x 20.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "NVL00",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Cox Business/BOI"
+      ],
+      "existing_speeds": [
+        "50.0M x 10.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "NVL_00",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "AT&T"
+      ],
+      "existing_speeds": [
+        "Cell"
+      ],
+      "existing_data_sources": [
+        "Non-DSR"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "NVR 03",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Spectrum"
+      ],
+      "existing_speeds": [
+        "100.0M x 7.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "NVRW01",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Spectrum"
+      ],
+      "existing_speeds": [
+        "100.0M x 7.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "NaN",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Spectrum"
+      ],
+      "existing_speeds": [
+        "600.0M x 35.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "New Mexico Warehouse Tire-B",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "NaN"
+      ],
+      "existing_speeds": [
+        null
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "OHC 02",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "NaN"
+      ],
+      "existing_speeds": [
+        null
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "OKO00",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Cox Business/BOI"
+      ],
+      "existing_speeds": [
+        "300.0M x 50.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "OKT 00",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "NaN"
+      ],
+      "existing_speeds": [
+        null
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "ONH 06",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Spectrum"
+      ],
+      "existing_speeds": [
+        "600.0M x 35.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "ORP 06",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Comcast Workplace"
+      ],
+      "existing_speeds": [
+        "300.0M x 30.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "SSGA01",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "NaN"
+      ],
+      "existing_speeds": [
+        null
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "Syddan",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "NaN"
+      ],
+      "existing_speeds": [
+        null
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "TNNW00",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "NaN"
+      ],
+      "existing_speeds": [
+        null
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "TXA 03",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Spectrum"
+      ],
+      "existing_speeds": [
+        "750.0M x 35.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "TXD 14",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Spectrum"
+      ],
+      "existing_speeds": [
+        "100.0M x 7.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "TXD 49",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Spectrum"
+      ],
+      "existing_speeds": [
+        "100M x 7M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "TXD 65 -B",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Spectrum"
+      ],
+      "existing_speeds": [
+        "750.0M x 35.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "TXE 04",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Spectrum"
+      ],
+      "existing_speeds": [
+        "300.0M x 20.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "TXH 07",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Comcast Workplace"
+      ],
+      "existing_speeds": [
+        "250.0M x 25.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "TXH 13",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Comcast Workplace"
+      ],
+      "existing_speeds": [
+        "250.0M x 25.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "TXH 19",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Comcast Workplace"
+      ],
+      "existing_speeds": [
+        "250.0M x 25.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "TXH 32",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Comcast Workplace"
+      ],
+      "existing_speeds": [
+        "250.0M x 25.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "TXH 38",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Comcast Workplace"
+      ],
+      "existing_speeds": [
+        "250.0M x 25.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "TXHT00",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Comcast"
+      ],
+      "existing_speeds": [
+        "300.0M x 30.0M"
+      ],
+      "existing_data_sources": [
+        "Non-DSR"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "TXS 00",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "AT&T Broadband II"
+      ],
+      "existing_speeds": [
+        "300.0M x 300.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "TXS 00 - Second Circuit",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Spectrum"
+      ],
+      "existing_speeds": [
+        null
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "TXS 04",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Spectrum"
+      ],
+      "existing_speeds": [
+        "600.0M x 35.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "TXS000",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Spectrum"
+      ],
+      "existing_speeds": [
+        "750.0M x 35.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "TXSW00",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "AT&T Broadband II"
+      ],
+      "existing_speeds": [
+        "100.0M x 20.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "UTS 00",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Zayo Communications"
+      ],
+      "existing_speeds": [
+        "100.0M x 100.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "UTS 08",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Comcast Workplace"
+      ],
+      "existing_speeds": [
+        "300.0M x 25.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "UTS 24 - New",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "NaN"
+      ],
+      "existing_speeds": [
+        null
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "UTSW00",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "NaN"
+      ],
+      "existing_speeds": [
+        null
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "UTSW02",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Comcast Workplace"
+      ],
+      "existing_speeds": [
+        "750.0M x 35.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "UTS_00",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Verizon"
+      ],
+      "existing_speeds": [
+        "Cell"
+      ],
+      "existing_data_sources": [
+        "Non-DSR"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "VAR 08",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Verizon"
+      ],
+      "existing_speeds": [
+        "Cell"
+      ],
+      "existing_data_sources": [
+        "Non-DSR"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "VAR_00",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "AT&T"
+      ],
+      "existing_speeds": [
+        "Cell"
+      ],
+      "existing_data_sources": [
+        "Non-DSR"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "WDAZ01",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Cox Business/BOI"
+      ],
+      "existing_speeds": [
+        "50.0M x 10.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "WDC01",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "NaN"
+      ],
+      "existing_speeds": [
+        null
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "WDGA01_01",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "AT&T Broadband II"
+      ],
+      "existing_speeds": [
+        "300.0M x 300.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "WDIL 01",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "NaN"
+      ],
+      "existing_speeds": [
+        null
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "WDOH01",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Road Runner/BOC "
+      ],
+      "existing_speeds": [
+        "50.0M x 5.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    },
+    {
+      "site_name": "WDTX01",
+      "current_circuit_count": 1,
+      "existing_providers": [
+        "Road Runner/BOC "
+      ],
+      "existing_speeds": [
+        "50.0M x 5.0M"
+      ],
+      "existing_data_sources": [
+        "csv_import"
+      ],
+      "excel_data_found": false,
+      "potential_circuits": []
+    }
+  ]
+}

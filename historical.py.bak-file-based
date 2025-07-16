@@ -1,0 +1,382 @@
+"""
+HISTORICAL DATA AND CHANGE LOG ANALYSIS
+=======================================
+
+Purpose:
+    - Historical circuit data analysis and change tracking
+    - Circuit change log generation with detailed comparisons
+    - Time-series analysis of circuit status and configuration changes
+    - Trend analysis and reporting
+
+Pages Served:
+    - /dsrhistorical (historical data and change log interface)
+
+Templates Used:
+    - dsrhistorical.html (change log interface with time period selection)
+
+API Endpoints:
+    - /api/circuit-changelog (POST) - Generate change log for specified time period
+
+Key Functions:
+    - Multi-file data comparison across time periods
+    - Change detection and categorization
+    - Statistical analysis of changes over time
+    - Flexible time period selection (24h, week, month, quarter, year, custom)
+    - Export functionality for change reports
+
+Dependencies:
+    - utils.py (data comparison functions, CSV processing)
+    - TRACKING_DATA_DIR for historical CSV files
+    - tracking_data_YYYY-MM-DD.csv files for time-series data
+
+Data Processing:
+    - Sequential file comparison for change detection
+    - Circuit fingerprinting for accurate tracking
+    - Status change categorization and impact assessment
+    - Time-based filtering and validation
+
+Features:
+    - Flexible time period selection
+    - Detailed change categorization
+    - Statistical summaries
+    - Error handling for missing data periods
+    - Export capabilities
+    - Change impact analysis
+"""
+
+from flask import Blueprint, render_template, jsonify, request
+import glob
+import os
+import re
+from datetime import datetime, timedelta
+from utils import (
+    TRACKING_DATA_DIR, read_csv_safely, compare_dataframes_improved, 
+    generate_summary
+)
+
+# Create Blueprint
+historical_bp = Blueprint('historical', __name__)
+
+@historical_bp.route('/dsrhistorical')
+def historical():
+    """
+    Historical data and change log interface
+    
+    Provides interface for selecting time periods and generating
+    detailed change logs comparing circuit data over time.
+    
+    Returns:
+        Rendered dsrhistorical.html template
+    """
+    print("📈 Loading historical data interface")
+    return render_template('dsrhistorical.html')
+
+@historical_bp.route('/api/circuit-changelog', methods=['POST'])
+def circuit_changelog():
+    """
+    Generate circuit change log for specified time period
+    
+    Compares circuit data across multiple tracking files to identify
+    and categorize changes over the requested time period.
+    
+    Request Parameters:
+        timePeriod (str): One of 'last_24_hours', 'last_week', 'last_month', 
+                         'last_quarter', 'last_year', 'custom'
+        customStart (str): Start date for custom range (YYYY-MM-DD)
+        customEnd (str): End date for custom range (YYYY-MM-DD)
+    
+    Returns:
+        JSON response with:
+        - Detailed change data
+        - Summary statistics
+        - Period information
+        OR error information with helpful guidance
+    """
+    try:
+        time_period = request.form.get('timePeriod', 'last_week')
+        custom_start = request.form.get('customStart')
+        custom_end = request.form.get('customEnd')
+        
+        print(f"🔍 Generating changelog for period: {time_period}")
+        print(f"🔍 TRACKING_DATA_DIR: {TRACKING_DATA_DIR}")
+        print(f"🔍 Directory exists: {os.path.exists(TRACKING_DATA_DIR)}")
+        
+        # Find all tracking CSV files with the EXACT pattern
+        tracking_pattern = os.path.join(TRACKING_DATA_DIR, "tracking_data_*.csv")
+        all_files = glob.glob(tracking_pattern)
+        
+        # Filter to only files that match the exact pattern
+        valid_pattern = re.compile(r'tracking_data_\d{4}-\d{2}-\d{2}\.csv$')
+        exact_match_files = []
+        
+        for file_path in all_files:
+            filename = os.path.basename(file_path)
+            if valid_pattern.match(filename):
+                exact_match_files.append(file_path)
+            else:
+                print(f"⚠️  Skipping non-standard file: {filename}")
+        
+        print(f"📂 Found {len(exact_match_files)} files matching exact pattern: tracking_data_YYYY-MM-DD.csv")
+        print(f"📂 Sample files: {[os.path.basename(f) for f in exact_match_files[:5]]}{'...' if len(exact_match_files) > 5 else ''}")
+        
+        if not exact_match_files:
+            print(f"❌ No tracking files found matching pattern tracking_data_YYYY-MM-DD.csv in {TRACKING_DATA_DIR}")
+            return jsonify({
+                "error": "No Valid Tracking Data Files Found", 
+                "detailed_error": f"No tracking data files found matching pattern 'tracking_data_YYYY-MM-DD.csv' in {TRACKING_DATA_DIR}.",
+                "suggested_action": "Ensure files are named exactly like 'tracking_data_2025-06-18.csv' (no additional suffixes)."
+            }), 400
+        
+        # Parse dates from valid files
+        available_dates = []
+        valid_files = []
+        
+        for file_path in exact_match_files:
+            try:
+                filename = os.path.basename(file_path)
+                date_str = filename.replace('tracking_data_', '').replace('.csv', '')
+                file_date = datetime.strptime(date_str, '%Y-%m-%d')
+                available_dates.append(file_date)
+                valid_files.append(filename)
+            except ValueError as e:
+                print(f"⚠️  Invalid date in filename: {filename} - {e}")
+                continue
+        
+        print(f"📊 Valid date files: {len(valid_files)}")
+        if valid_files:
+            print(f"📊 Valid file examples: {valid_files[:3]}{'...' if len(valid_files) > 3 else ''}")
+        
+        if not available_dates:
+            return jsonify({
+                "error": "No Valid Tracking Data Files Found",
+                "detailed_error": f"Found {len(exact_match_files)} files, but none have valid dates. Expected format: 'tracking_data_YYYY-MM-DD.csv'",
+                "suggested_action": "Check file naming convention. Files should be named exactly like 'tracking_data_2025-06-18.csv'"
+            }), 400
+        
+        available_dates.sort()
+        oldest_date = available_dates[0]
+        newest_date = available_dates[-1]
+        
+        print(f"📊 Available data from {oldest_date.strftime('%Y-%m-%d')} to {newest_date.strftime('%Y-%m-%d')}")
+        
+        # Calculate requested date range - FIXED: Use date() for proper comparison
+        today = datetime.now().date()
+        
+        if time_period == 'custom':
+            if not custom_start or not custom_end:
+                return jsonify({"error": "Custom date range requires both start and end dates"}), 400
+            start_date = datetime.strptime(custom_start, '%Y-%m-%d').date()
+            end_date = datetime.strptime(custom_end, '%Y-%m-%d').date()
+        elif time_period == 'last_24_hours':
+            # FIXED: For 24 hours, we need today and yesterday
+            end_date = today
+            start_date = today - timedelta(days=1)  # Yesterday
+            print(f"🔍 24-hour period: Looking for {start_date} and {end_date}")
+        elif time_period == 'last_week':
+            end_date = today
+            start_date = today - timedelta(days=7)
+        elif time_period == 'last_month':
+            end_date = today
+            start_date = today - timedelta(days=30)
+        elif time_period == 'last_quarter':
+            end_date = today
+            start_date = today - timedelta(days=90)
+        elif time_period == 'last_year':
+            end_date = today
+            start_date = today - timedelta(days=365)
+        else:
+            end_date = today
+            start_date = today - timedelta(days=7)
+        
+        print(f"📅 Requested changelog from {start_date} to {end_date}")
+        
+        if start_date > end_date:
+            return jsonify({
+                "error": "Invalid Date Range",
+                "detailed_error": f"Start date ({start_date}) is after end date ({end_date}).",
+                "suggested_action": "Please ensure the start date is before the end date."
+            }), 400
+        
+        # Convert available_dates to date objects for comparison
+        available_dates_only = [d.date() for d in available_dates]
+        oldest_date_only = min(available_dates_only)
+        newest_date_only = max(available_dates_only)
+        
+        # Validate requested date range against available data
+        if start_date < oldest_date_only:
+            days_requested = (end_date - start_date).days
+            oldest_date_str = oldest_date_only.strftime('%B %d, %Y')
+            newest_date_str = newest_date_only.strftime('%B %d, %Y')
+            
+            return jsonify({
+                "error": f"No Data Available for Requested Period",
+                "detailed_error": f"You requested data going back {days_requested} days (starting {start_date.strftime('%B %d, %Y')}), but our tracking data only goes back to {oldest_date_str}.\n\nAvailable data range: {oldest_date_str} to {newest_date_str}\n\nPlease select a date range within this period or use a shorter time frame.",
+                "available_from": oldest_date_only.strftime('%Y-%m-%d'),
+                "available_to": newest_date_only.strftime('%Y-%m-%d'),
+                "requested_from": start_date.strftime('%Y-%m-%d'),
+                "suggested_action": f"Try selecting 'Custom Range' and choose dates between {oldest_date_str} and {newest_date_str}"
+            }), 400
+        
+        if start_date > newest_date_only:
+            newest_date_str = newest_date_only.strftime('%B %d, %Y')
+            
+            return jsonify({
+                "error": f"Future Date Selected",
+                "detailed_error": f"You selected a start date of {start_date.strftime('%B %d, %Y')}, but our latest data is from {newest_date_str}.\n\nPlease select a date range within our available data period.",
+                "available_from": oldest_date_only.strftime('%Y-%m-%d'),
+                "available_to": newest_date_only.strftime('%Y-%m-%d'),
+                "requested_from": start_date.strftime('%Y-%m-%d'),
+                "suggested_action": f"Select dates up to {newest_date_str}"
+            }), 400
+        
+        # Filter files by the validated date range - FIXED: Compare date to date
+        relevant_files = []
+        for file_path in exact_match_files:
+            try:
+                filename = os.path.basename(file_path)
+                date_str = filename.replace('tracking_data_', '').replace('.csv', '')
+                file_date = datetime.strptime(date_str, '%Y-%m-%d').date()  # Convert to date
+                
+                if start_date <= file_date <= end_date:
+                    relevant_files.append({
+                        'path': file_path,
+                        'date': file_date,
+                        'date_str': date_str
+                    })
+            except ValueError:
+                print(f"⚠️  Skipping file with invalid date format: {filename}")
+                continue
+        
+        relevant_files.sort(key=lambda x: x['date'])
+        print(f"📂 Found {len(relevant_files)} relevant files in requested range")
+        print(f"📂 Relevant files: {[os.path.basename(f['path']) for f in relevant_files]}")
+        
+        # FIXED: Special handling for 24 hours - only need 2 consecutive days
+        if time_period == 'last_24_hours':
+            # For 24 hours, we only need yesterday and today files
+            yesterday_file = None
+            today_file = None
+            
+            # Look for exactly yesterday and today in the relevant files
+            for file_info in relevant_files:
+                if file_info['date'] == start_date:  # Yesterday
+                    yesterday_file = file_info
+                elif file_info['date'] == end_date:  # Today
+                    today_file = file_info
+            
+            if not yesterday_file:
+                return jsonify({
+                    "error": "Missing Yesterday's Data",
+                    "detailed_error": f"24-hour changelog requires yesterday's data ({start_date.strftime('%B %d, %Y')}) for comparison, but the file 'tracking_data_{start_date}.csv' was not found.\n\nAvailable files: {[os.path.basename(f['path']) for f in relevant_files]}",
+                    "available_from": oldest_date_only.strftime('%Y-%m-%d'),
+                    "available_to": newest_date_only.strftime('%Y-%m-%d'),
+                    "suggested_action": "Try 'Last Week' instead, or wait for yesterday's data to be generated."
+                }), 400
+                
+            if not today_file:
+                return jsonify({
+                    "error": "Missing Today's Data", 
+                    "detailed_error": f"24-hour changelog requires today's data ({end_date.strftime('%B %d, %Y')}) for comparison, but the file 'tracking_data_{end_date}.csv' was not found.\n\nAvailable files: {[os.path.basename(f['path']) for f in relevant_files]}",
+                    "available_from": oldest_date_only.strftime('%Y-%m-%d'),
+                    "available_to": newest_date_only.strftime('%Y-%m-%d'),
+                    "suggested_action": "Try 'Last Week' instead, or wait for today's data to be generated."
+                }), 400
+            
+            # For 24 hours, we only need these 2 files - override relevant_files
+            relevant_files = [yesterday_file, today_file]
+            print(f"🔍 24-hour comparison: Using only {yesterday_file['date_str']} and {today_file['date_str']}")
+        
+        elif len(relevant_files) < 2:
+            # Original logic for other time periods...
+            oldest_date_str = oldest_date_only.strftime('%B %d, %Y')
+            newest_date_str = newest_date_only.strftime('%B %d, %Y')
+            
+            if len(relevant_files) == 0:
+                return jsonify({
+                    "error": f"No Data Available for Selected Period",
+                    "detailed_error": f"No tracking data found for the period from {start_date.strftime('%B %d, %Y')} to {end_date.strftime('%B %d, %Y')}.\n\nOur tracking data is available from {oldest_date_str} to {newest_date_str}.\n\nPlease select a date range within this period.",
+                    "available_from": oldest_date_only.strftime('%Y-%m-%d'),
+                    "available_to": newest_date_only.strftime('%Y-%m-%d'),
+                    "suggested_action": f"Select dates between {oldest_date_str} and {newest_date_str}"
+                }), 400
+            else:
+                return jsonify({
+                    "error": f"Insufficient Data for Comparison",
+                    "detailed_error": f"Found only {len(relevant_files)} data file(s) in the requested period. At least 2 data points are needed to generate a changelog showing changes over time.\n\nAvailable data: {oldest_date_str} to {newest_date_str}\n\nTry selecting a longer date range or a period with more data points.",
+                    "available_from": oldest_date_only.strftime('%Y-%m-%d'),
+                    "available_to": newest_date_only.strftime('%Y-%m-%d'),
+                    "suggested_action": f"Select a longer date range within {oldest_date_str} to {newest_date_str}"
+                }), 400
+        
+        changes = []
+        
+        # Compare consecutive files
+        for i in range(1, len(relevant_files)):
+            prev_file = relevant_files[i-1]
+            curr_file = relevant_files[i]
+            
+            print(f"🔄 Comparing {os.path.basename(prev_file['path'])} vs {os.path.basename(curr_file['path'])}")
+            
+            try:
+                # Read CSV files with robust parsing options
+                df_prev = read_csv_safely(prev_file['path'])
+                df_curr = read_csv_safely(curr_file['path'])
+                
+                if df_prev is None or df_curr is None:
+                    print(f"⚠️  Skipping comparison due to parsing errors")
+                    continue
+                
+                # Find changes between the two files
+                file_changes = compare_dataframes_improved(df_prev, df_curr, curr_file['date_str'])
+                changes.extend(file_changes)
+                
+            except Exception as e:
+                print(f"❌ Error comparing files {prev_file['path']} and {curr_file['path']}: {e}")
+                continue
+        
+        # If no changes found, return helpful message
+        if len(changes) == 0:
+            period_desc = time_period.replace('_', ' ').title()
+            return jsonify({
+                "error": f"No Changes Found",
+                "detailed_error": f"No circuit changes were detected during the {period_desc} period ({start_date} to {end_date}).\n\nThis could mean:\n• No circuits were modified during this time\n• All changes were too minor to detect\n• The data files are identical\n\nTry selecting a longer time period to see historical changes.",
+                "data": [],
+                "summary": {
+                    "total_changes": 0,
+                    "changes_by_type": {},
+                    "period_days": (end_date - start_date).days,
+                    "changes_per_day": 0,
+                    "most_common_change": "None"
+                },
+                "period": {
+                    "description": period_desc,
+                    "start": start_date.strftime('%Y-%m-%d'),
+                    "end": end_date.strftime('%Y-%m-%d')
+                }
+            }), 200  # Return 200 instead of 400 for "no changes"
+        
+        # Generate summary statistics
+        summary = generate_summary(changes, datetime.combine(start_date, datetime.min.time()), datetime.combine(end_date, datetime.min.time()))
+        
+        response = {
+            "data": changes,
+            "summary": summary,
+            "period": {
+                "description": time_period.replace('_', ' ').title(),
+                "start": start_date.strftime('%Y-%m-%d'),
+                "end": end_date.strftime('%Y-%m-%d')
+            }
+        }
+        
+        print(f"✅ Generated {len(changes)} changes")
+        return jsonify(response)
+        
+    except Exception as e:
+        print(f"❌ Error generating changelog: {e}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({
+            "error": "System Error", 
+            "detailed_error": f"An unexpected error occurred while generating the changelog: {str(e)}",
+            "suggested_action": "Please try again or contact support if the problem persists."
+        }), 500

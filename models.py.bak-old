@@ -1,0 +1,214 @@
+#!/usr/bin/env python3
+"""
+Database models for DSR Circuits Application
+SQLAlchemy models for optimized database operations
+"""
+
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
+from sqlalchemy import Index, text
+import json
+
+db = SQLAlchemy()
+
+class Circuit(db.Model):
+    """Circuit data model optimized for fast queries"""
+    
+    __tablename__ = 'circuits'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    record_number = db.Column(db.String(50))
+    site_name = db.Column(db.String(100), nullable=False, index=True)
+    site_id = db.Column(db.String(50))
+    circuit_purpose = db.Column(db.String(50), index=True)
+    status = db.Column(db.String(100), index=True)
+    substatus = db.Column(db.String(100))
+    provider_name = db.Column(db.String(100), index=True)
+    details_service_speed = db.Column(db.String(100))
+    details_ordered_service_speed = db.Column(db.String(100))
+    billing_monthly_cost = db.Column(db.Numeric(10, 2))
+    ip_address_start = db.Column(db.String(45))  # Support IPv6
+    date_record_updated = db.Column(db.DateTime, index=True)
+    milestone_service_activated = db.Column(db.DateTime)
+    assigned_to = db.Column(db.String(100))
+    sctask = db.Column(db.String(50))
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+    data_source = db.Column(db.String(50), default='csv_import')
+    
+    # Additional fields
+    address_1 = db.Column(db.String(200))
+    city = db.Column(db.String(100))
+    state = db.Column(db.String(10))
+    zipcode = db.Column(db.String(20))
+    primary_contact_name = db.Column(db.String(100))
+    primary_contact_email = db.Column(db.String(100))
+    billing_install_cost = db.Column(db.Numeric(10, 2))
+    milestone_enabled = db.Column(db.DateTime)
+    target_enablement_date = db.Column(db.Date)
+    details_provider = db.Column(db.String(100))
+    details_provider_phone = db.Column(db.String(50))
+    billing_account = db.Column(db.String(100))
+    fingerprint = db.Column(db.String(255), index=True)
+    last_csv_file = db.Column(db.String(100))
+    
+    # Relationships
+    history = db.relationship('CircuitHistory', backref='circuit', lazy='dynamic')
+    
+    def to_dict(self):
+        """Convert model to dictionary for JSON serialization"""
+        return {
+            'id': self.id,
+            'site_name': self.site_name,
+            'site_id': self.site_id,
+            'circuit_purpose': self.circuit_purpose,
+            'status': self.status,
+            'substatus': self.substatus,
+            'provider_name': self.provider_name,
+            'details_service_speed': self.details_service_speed,
+            'billing_monthly_cost': float(self.billing_monthly_cost) if self.billing_monthly_cost else None,
+            'ip_address_start': self.ip_address_start,
+            'date_record_updated': self.date_record_updated.isoformat() if self.date_record_updated else None,
+            'assigned_to': self.assigned_to,
+            'sctask': self.sctask,
+            'city': self.city,
+            'state': self.state
+        }
+    
+    @staticmethod
+    def get_status_counts():
+        """Get count of circuits by status - optimized query"""
+        from sqlalchemy import func
+        return db.session.query(
+            Circuit.status,
+            func.count(Circuit.id).label('count')
+        ).group_by(Circuit.status).all()
+    
+    @staticmethod
+    def get_recent_enablements(days=30):
+        """Get recently enabled circuits"""
+        from sqlalchemy import and_, or_
+        from datetime import datetime, timedelta
+        
+        cutoff_date = datetime.utcnow() - timedelta(days=days)
+        enabled_statuses = ['enabled', 'service activated', 'circuit enabled']
+        
+        return db.session.query(Circuit).filter(
+            and_(
+                Circuit.milestone_enabled >= cutoff_date,
+                or_(*[Circuit.status.ilike(f'%{status}%') for status in enabled_statuses])
+            )
+        ).order_by(Circuit.milestone_enabled.desc()).all()
+
+class CircuitHistory(db.Model):
+    """Circuit change history for tracking modifications"""
+    
+    __tablename__ = 'circuit_history'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    circuit_id = db.Column(db.Integer, db.ForeignKey('circuits.id'), nullable=False, index=True)
+    change_date = db.Column(db.Date, nullable=False, index=True)
+    change_type = db.Column(db.String(50))  # 'enabled', 'status_change', 'provider_change'
+    field_changed = db.Column(db.String(100))
+    old_value = db.Column(db.Text)
+    new_value = db.Column(db.Text)
+    csv_file_source = db.Column(db.String(100))
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'circuit_id': self.circuit_id,
+            'change_date': self.change_date.isoformat() if self.change_date else None,
+            'change_type': self.change_type,
+            'field_changed': self.field_changed,
+            'old_value': self.old_value,
+            'new_value': self.new_value,
+            'csv_file_source': self.csv_file_source
+        }
+
+class DailySummary(db.Model):
+    """Daily summary statistics for performance"""
+    
+    __tablename__ = 'daily_summaries'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    summary_date = db.Column(db.Date, nullable=False, unique=True, index=True)
+    total_circuits = db.Column(db.Integer)
+    enabled_count = db.Column(db.Integer)
+    ready_count = db.Column(db.Integer)
+    customer_action_count = db.Column(db.Integer)
+    construction_count = db.Column(db.Integer)
+    planning_count = db.Column(db.Integer)
+    csv_file_processed = db.Column(db.String(100))
+    processing_time_seconds = db.Column(db.Numeric(10, 3))
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    
+    def to_dict(self):
+        return {
+            'summary_date': self.summary_date.isoformat() if self.summary_date else None,
+            'total_circuits': self.total_circuits,
+            'enabled_count': self.enabled_count,
+            'ready_count': self.ready_count,
+            'customer_action_count': self.customer_action_count,
+            'construction_count': self.construction_count,
+            'planning_count': self.planning_count,
+            'processing_time_seconds': float(self.processing_time_seconds) if self.processing_time_seconds else None
+        }
+
+class ProviderMapping(db.Model):
+    """Provider name mappings for normalization"""
+    
+    __tablename__ = 'provider_mappings'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    original_name = db.Column(db.String(200), nullable=False)
+    canonical_name = db.Column(db.String(100), nullable=False)
+    mapping_type = db.Column(db.String(50))  # 'manual', 'ip_lookup', 'fuzzy_match'
+    confidence_score = db.Column(db.Numeric(3, 2))
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    
+    __table_args__ = (
+        Index('ix_provider_mapping_unique', 'original_name', 'canonical_name', unique=True),
+    )
+    
+    @staticmethod
+    def get_canonical_name(original_name):
+        """Get canonical provider name with caching"""
+        if not original_name:
+            return None
+            
+        mapping = ProviderMapping.query.filter_by(
+            original_name=original_name.lower().strip()
+        ).first()
+        
+        return mapping.canonical_name if mapping else original_name
+
+class CircuitAssignment(db.Model):
+    """Circuit assignments for team tracking"""
+    
+    __tablename__ = 'circuit_assignments'
+    
+    id = db.Column(db.Integer, primary_key=True)
+    site_name = db.Column(db.String(100), nullable=False, index=True)
+    sctask = db.Column(db.String(50), index=True)
+    assigned_to = db.Column(db.String(100))
+    assignment_date = db.Column(db.DateTime, default=datetime.utcnow)
+    status = db.Column(db.String(50), default='active')
+    notes = db.Column(db.Text)
+    created_by = db.Column(db.String(100))
+    
+    __table_args__ = (
+        Index('ix_assignment_unique', 'site_name', 'sctask', unique=True),
+    )
+    
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'site_name': self.site_name,
+            'sctask': self.sctask,
+            'assigned_to': self.assigned_to,
+            'assignment_date': self.assignment_date.isoformat() if self.assignment_date else None,
+            'status': self.status,
+            'notes': self.notes
+        }

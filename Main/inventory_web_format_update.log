@@ -1,0 +1,31 @@
+2025-07-10 10:29:37,402 - INFO - ============================================================
+2025-07-10 10:29:37,402 - INFO - Starting Production Inventory Web Format Update
+2025-07-10 10:29:37,402 - INFO - Timestamp: 20250710_102937
+2025-07-10 10:29:37,402 - INFO - ============================================================
+2025-07-10 10:29:37,402 - INFO - Processing inventory data for web format using 548-row logic
+2025-07-10 10:29:37,493 - INFO - Loaded 130 devices from database
+2025-07-10 10:29:37,574 - INFO - Successfully updated inventory_web_format table with 551 entries
+2025-07-10 10:29:37,575 - INFO - Processed 105 devices
+2025-07-10 10:29:37,578 - INFO - ============================================================
+2025-07-10 10:29:37,579 - INFO - Production update completed successfully!
+2025-07-10 10:29:37,579 - INFO - Execution time: 0.18 seconds
+2025-07-10 10:29:37,579 - INFO - Web format table updated with processed inventory data
+2025-07-10 10:29:37,579 - INFO - ============================================================
+2025-07-10 11:34:21,945 - INFO - ============================================================
+2025-07-10 11:34:21,945 - INFO - Starting Production Inventory Web Format Update
+2025-07-10 11:34:21,945 - INFO - Timestamp: 20250710_113421
+2025-07-10 11:34:21,945 - INFO - ============================================================
+2025-07-10 11:34:21,945 - INFO - Processing inventory data for web format using 548-row logic
+2025-07-10 11:34:22,040 - INFO - Loaded 130 devices from database
+2025-07-10 11:34:22,118 - INFO - Successfully updated inventory_web_format table with 551 entries
+2025-07-10 11:34:22,119 - INFO - Processed 105 devices
+2025-07-10 11:34:22,119 - INFO - Site distribution:
+2025-07-10 11:34:22,119 - INFO -   AZ-Scottsdale-HQ-Corp: 50 devices
+2025-07-10 11:34:22,119 - INFO -   AZ-Alameda-DC: 44 devices
+2025-07-10 11:34:22,119 - INFO -   Equinix-Seattle: 10 devices
+2025-07-10 11:34:22,119 - INFO -   AZ-Desert-Ridge: 1 devices
+2025-07-10 11:34:22,123 - INFO - ============================================================
+2025-07-10 11:34:22,123 - INFO - Production update completed successfully!
+2025-07-10 11:34:22,123 - INFO - Execution time: 0.18 seconds
+2025-07-10 11:34:22,123 - INFO - Web format table updated with processed inventory data
+2025-07-10 11:34:22,123 - INFO - ============================================================

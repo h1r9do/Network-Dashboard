@@ -1,0 +1,1784 @@
+Site Name,Interface,Status,DSR Provider,ARIN Provider,Match,Action Taken
+ALB 01,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ALB 03,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+ALM 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+ALM 02,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+ALM 03,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+ALM 04,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ALN 01,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+ALN 02,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ALS 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+ALS 02,WAN1,MATCH,C Spire,C Spire Fiber,Yes,Updated
+ARL 01,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ARL 03,WAN1,MATCH,Conway Corporation,Conway Corporation,Yes,Updated
+ARL 05,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ARO 03,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ARO 04,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+ARO 05,WAN1,MATCH,Yelcot Communications,YELCOT TELEPHONE COMPANY,Yes,Updated
+AZC 01,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZK 01,WAN1,MATCH,Frontier,"Frontier Communications of America, Inc.",Yes,Updated
+AZM 01,WAN1,MATCH,Orbitel Communications,"Orbitel Communications, LLC",Yes,Updated
+AZN 04,WAN1,MATCH,AT&T,AT&T,Yes,Updated
+AZP 01,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 05,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 07,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 08,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 09,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 10,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 11,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 13,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 14,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 16,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 17,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 18,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 19,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 20,WAN1,MATCH,Saddleback Communications,Saddleback Communications,Yes,Updated
+AZP 21,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 22,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 23,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 24,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 25,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 26,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 27,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 28,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 29,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 30,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 31,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 32,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 33,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 34,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 35,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 37,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 38,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 39,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 41,WAN1,MATCH,AT&T,AT&T,Yes,Updated
+AZP 42,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 43,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 45,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 46,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 47,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 48,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 49,WAN1,MATCH,CenturyLink/Qwest,CenturyLink Communications,Yes,Updated
+AZP 50,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 51,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 53,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 54,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 55,WAN1,MATCH,CenturyLink Fiber Plus,CenturyLink,Yes,Updated
+AZP 57,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 58,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 59,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 61,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZP 62,WAN1,MATCH,Cox Business/BOI ,Cox Communications,Yes,Updated
+AZS 01,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZT 01,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZT 02,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZT 03,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZT 06,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+AZT 07,WAN1,MATCH,Cox Business,Cox Communications,Yes,Updated
+AZT 09,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+AZT 10,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZT 11,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+AZT 12,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZT 13,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZT 14,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+AZY 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAL 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAL 02,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAL 05,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAL 06,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAL 07,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAL 08,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAL 09,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAL 10,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAL 11,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+CAL 12,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAL 15,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAL 17,WAN1,MATCH,Frontier,Frontier Communications,Yes,Updated
+CAL 18,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAL 19,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAL 20,WAN1,MATCH,Frontier,Frontier Communications,Yes,Updated
+CAL 21,WAN1,MATCH,AT&T Broadband,AT&T,Yes,Updated
+CAL 22,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAL 24,WAN1,MATCH,Frontier,Frontier Communications,Yes,Updated
+CAL 24,WAN1,MATCH,Frontier Fios,Frontier Communications,Yes,Updated
+CAL 26,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAL 28,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAL 31,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAL 33,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+CAL 37,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAL 38,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAL 40,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAL 42,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAL 48,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+CAL 49,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN_00,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+CAN 02,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 04,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+CAN 05,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+CAN 07,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+CAN 10,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+CAN 11,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+CAN 12,WAN1,MATCH,Etheric Networks,"Etheric Networks, Inc.",Yes,Updated
+CAN 13,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+CAN 15,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 16,WAN1,MATCH,Frontier,Frontier Communications,Yes,Updated
+CAN 17,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+CAN 18,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 19,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAN 20,WAN1,MATCH,Consolidated Communications,"Consolidated Communications,",Yes,Updated
+CAN 21,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+CAN 26,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+CAN 29,WAN1,MATCH,AT&T Broadband II,"AT&T Enterprises, LLC",Yes,Updated
+CAN 30,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 32,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 33,WAN1,MATCH,Comcast Workplace,"Comcast Cable Communications, Inc",Yes,Updated
+CAN 34,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+CAN 36,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAN 38,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 41,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+CAN 42,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+CAN 43,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 44,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+CAN 45,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 46,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 47,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+CAN 48,WAN1,MATCH,Spectrum,Charter Communications LLC,Yes,Updated
+CAN 49,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 50,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+CAN 51,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAN 52,WAN1,MATCH,Consolidated Communications,"Consolidated Communications, Inc.",Yes,Updated
+CAN 54,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 55,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+CAN 56,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+CAN 57,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 60,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 61,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAO 01,WAN1,MATCH,AT&T,AT&T,Yes,Updated
+CAO 01,WAN1,MATCH,AT&T,AT&T,Yes,Updated
+CAO 05,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAS_00,WAN1,MATCH,AT&T,AT&T,Yes,Updated
+CAS 01,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+CAS 06,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAS 07,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAS 09,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+CAS 10,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAS 11,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAS 12,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAS 15,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAS 16,WAN1,MATCH,Cox Business,Cox Communications,Yes,Updated
+CAS 17,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+CAS 19,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+CAS 20,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAS 21,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAS 22,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+CAS 23,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAS 27,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+CAS 31,WAN1,MATCH,Frontier Fios,Frontier Communications,Yes,Updated
+CAS 32,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAS 33,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAS 35,WAN1,MATCH,Frontier,Frontier Communications,Yes,Updated
+CAS 36,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAS 37,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+CAS 40,WAN1,MATCH,Frontier,Frontier Communications,Yes,Updated
+CAS 41,WAN1,MATCH,Frontier,Frontier Communications,Yes,Updated
+CAS 43,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAS 46,WAN1,MATCH,AT&T,AT&T,Yes,Updated
+CAS 47,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAS 49,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAS 51,WAN1,MATCH,Cox Business/BOI ,Cox Communications,Yes,Updated
+CAS 53,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+COB 01,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COD 01,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+COD 02,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COD 03,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+COD 04,WAN1,MATCH,Comcast Workplace,Comcast Cable Communications,Yes,Updated
+COD 05,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COD 06,WAN1,MATCH,Lumen,CenturyLink,Yes,Updated
+COD 07,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COD 08,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+COD 09,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+COD 10,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COD 11,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COD 13,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+COD 14,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COD 18,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COD 19,WAN1,MATCH,CenturyLink Fiber Plus,CenturyLink,Yes,Updated
+COD 20,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COD 21,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COD 24,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COD 25,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COD 26,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COD 27,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COD 29,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COD 30,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COD 32,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COD 34,WAN1,MATCH,Lumen/Qwest,CenturyLink,Yes,Updated
+COD 36,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COD 37,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COD 39,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COD 40,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COD 42,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COG 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+Cog 02,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+COG 03,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+CON 02,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COP 02,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COP 03,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COS 01,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COS 02,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COS 03,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COS 04,WAN1,MATCH,CenturyLink Fiber Plus,CenturyLink,Yes,Updated
+COS 06,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COS 07,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+COW 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+COW 02,WAN1,MATCH,Elevate Internet,ELEVATE,Yes,Updated
+FLD 01,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+FLD 02,WAN1,MATCH,Spectrum,"Charter Communications, Inc",Yes,Updated
+FLD 04,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+FLF 01,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+FLG 01,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+FLG 03,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+FLJ 01,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+FLJ 02,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+FLJ 03,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+FLJ 05,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+FLJ 07,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+FLJ 10,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+FLJ 11,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+FLJ 12,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+FLM 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+FLM 02,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+FLO 01,WAN1,MATCH,Spectrum,"Charter Communications, Inc",Yes,Updated
+FLO 02,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+FLO 04,WAN1,MATCH,Spectrum,"Charter Communications, Inc",Yes,Updated
+FLO 05,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+FLO 06,WAN1,MATCH,Spectrum,"Charter Communications, Inc",Yes,Updated
+FLO 08,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+FLO 09,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+FLO 10,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+FLO 11,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+FLO 12,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+FLO 13,WAN1,MATCH,Spectrum,Charter Communications LLC,Yes,Updated
+FLO 14,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+FLO 15,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+FLO 16,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+FLP 01,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+FLP 02,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+FLP 04,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+FLS 01,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+FLS 02,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+FLS 03,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+FLS 04,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+GAA 06,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+GAA 07,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+GAA 11,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+GAA 17,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+GAA 22,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+GAA 24,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+GAA 26,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+GAA 29,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+GAA 31,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+GAA 32,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+GAA 38,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+GAA 39,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+GAA 41,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+GAA 42,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+GAA 43,WAN1,MATCH,AT&T,AT&T,Yes,Updated
+GAA 44,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+GAACALLCNTR,WAN1,MATCH,AT&T,AT&T,Yes,Updated
+GAA W00,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+GAE 01,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+GAE 02,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+GAE 03,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+GAN 01,WAN1,MATCH,Comcast Workplace,"Comcast Cable Communications, LLC",Yes,Updated
+IAD 03,WAN1,MATCH,EB2-Centurylink Fiber,CenturyLink,Yes,Updated
+IDB 01,WAN1,MATCH,Cable One ,"CABLE ONE, INC.",Yes,Updated
+IDN 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+ILC_00,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+ILC 05,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+ILC 08,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+ILC 11,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+ILC 12,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+ILC 13,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+ILC 14,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+ILC 16,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+ILC 21,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ILC 25,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+ILC 27,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+ILC 30,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+ILC 32,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+ILC 33,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ILC 34,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ILC 35,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+ILC 36,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+ILC 37,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+ILR 01,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+ILR 02,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+ILW 02,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+INC 01,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+INC 03,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+INE 02,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+INI 01,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+INI 06,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+INI 07,WAN1,MATCH,Spectrum,"Charter Communications, Inc",Yes,Updated
+INI 08,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+INI 10,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+INI 12,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+INI 13,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+INI 14,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+INI 15,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+INI 16,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+INJ 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+INN 01,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+INW 02,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+INW 03,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+KSK_00,WAN1,MATCH,Charter Communications,Charter Communications,Yes,Updated
+KSK 02,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+KSK 05,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+KSK 06,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+KSL 01,WAN1,MATCH,Midcontinent,Midcontinent Communications,Yes,Updated
+KSM 01,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+KSM 02,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+KST 01,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+KSW 02,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+KSW 03,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+KYB 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+KYL 02,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+KYL 03,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+LAS 01,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+LAS 03,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MIA 01,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MIA 04,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MIA 16,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MIAC02,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MID 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MID 04,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MID 06,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MID 10,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MID 11,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MID 12,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MID 22,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MID 23,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MID 26,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MID 27,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MIF 05,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+MIF 25,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MIG 09,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MIG 23,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MIG 24,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MIG 29,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MIG 30,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MIH 27,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MIK 06,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MIK 14,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MIK 30,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MIK 31,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MIL 00,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MIL 11,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MIL 28,WAN1,MATCH,Comcast Direct,"Comcast Cable Communications, Inc.",Yes,Updated
+MIM 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MIN 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MIS 12,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MIS 17,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MIS 20,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MNM 01,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MNM 02,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+MNM 03,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+MNM 06,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MNM 07,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MNM 08,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MNM 09,WAN1,MATCH,DSR Comcast,"Comcast IP Services, L.L.C.",Yes,Updated
+MNM 10,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MNM 11,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+MNM 13,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MNM 14,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MNM 15,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MNM 17,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MNM 18,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MNM 21,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MNM 22,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MNM 23,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MNM 24,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+MNM 26,WAN1,MATCH,Comcast Workplace,Comcast Cable Communications,Yes,Updated
+MNM 27,WAN1,MATCH,CenturyLink Fiber Plus,CenturyLink,Yes,Updated
+MNM 29,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+MNM 31,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MOK 02,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MOK 03,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MOK 05,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MOK 06,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MOO 04,WAN1,MATCH,Brightspeed,Level 3,Yes,Updated
+MOR 01,WAN1,MATCH,Fidelity Communications,"Fidelity Cablevision, LLC",Yes,Updated
+MOS 02,WAN1,MATCH,AT&T,AT&T,Yes,Updated
+MOS 02,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MOS 03,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MOS 04,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MOS 05,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MOS 07,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MOS 08,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MOS 09,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MOS 10,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MSN 01,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MSN 02,WAN1,MATCH,C Spire,C Spire Fiber,Yes,Updated
+MTB 01,WAN1,MATCH,Spectrum ,Charter Communications,Yes,Updated
+MTM 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+MTM 02,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC_00,WAN1,MATCH,Charter Communications,Charter Communications,Yes,Updated
+NCC 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 02,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 04,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 05,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 06,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 07,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 08,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+NCC 09,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 10,WAN1,MATCH,Spectrum,"SPECTRUM CONSULTANTS, INC",Yes,Updated
+NCC 13,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 14,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 16,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 17,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 18,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 19,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 21,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 23,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 24,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 25,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 26,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+NCC 27,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 33,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 36,WAN1,MATCH,Spectrum,Charter Communications Inc,Yes,Updated
+NCC 37,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 39,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 40,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 41,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 42,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+NCC 44,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 45,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 47,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 52,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCN 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NDG 01,WAN1,MATCH,Midcontinent,Midcontinent Communications,Yes,Updated
+NEO 05,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+NEO 06,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+NMA_00,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+NMA 02,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+NMA 03,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+NMA 04,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+NMA 06,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+NMA 07,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+NMA 08,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+NMA 10,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+NMA 12,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+NMAW00,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+NMF 01,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+NMH 01,WAN1,MATCH,Windstream,Windstream Communications LLC,Yes,Updated
+NML 01,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+NMS 02,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+NVL 03,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+NVL 04,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+NVL 05,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+NVL 06,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+NVL 08,WAN1,MATCH,CenturyLink Fiber Plus,CenturyLink,Yes,Updated
+NVL 09,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+NVL 11,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+NVL 13,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+NVL 14,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+NVL 17,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+NVL 22,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+NVL 23,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+NVL 24,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+NVL 26,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+NVR 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NVR 02,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+NVR 04,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+OHC 03,WAN1,MATCH,Spectrum,Charter Communications Inc,Yes,Updated
+OHC 04,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+OHC 05,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+OHC 07,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+OHC 10,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+OHD 02,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+OHD 03,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+OHD 04,WAN1,MATCH,Spectrum,Charter Communications Inc,Yes,Updated
+OHL 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+OHN 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+OHN 02,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+OHN 03,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+OHN 05,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+OHS 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+OHS 03,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+OHS 04,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+OHS 05,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+OHT 01,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+OHT 02,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+OKE 01,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+OKO 02,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+OKO 03,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+OKO 05,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+OKO 07,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+OKO 08,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+OKO 09,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+OKO 10,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+OKO 11,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+OKO 15,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+OKT 01,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+OKT 05,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+OKT 06,WAN1,MATCH,Cox Business/BOI ,Cox Communications,Yes,Updated
+OKT 07,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+OKT 08,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+ORM 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+ORM 02,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+ORP 01,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+ORP 02,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+ORP 04,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+ORP 05,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+ORP 07,WAN1,MATCH,Ziply Fiber,Ziply Fiber,Yes,Updated
+ORP 09,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+ORP 11,WAN1,MATCH,Comcast Workplace,"Comcast Cable Communications, Inc.",Yes,Updated
+ORP 12,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+PAN 01,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+PAP 02,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+PAW 01,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+PAW 02,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+SCC 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+SCC 04,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+SCC 05,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+SCC 06,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+SCC 07,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+SCC 08,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+SCC 09,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+SCC 10,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+SCC 11,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+SCC 12,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+SCC 13,WAN1,MATCH,Hargray Telephone Co.,"Hargray Communications Group, Inc.",Yes,Updated
+SCC 14,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+SCC 16,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+SCC 18,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+SCC 19,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+SDR 01,WAN1,MATCH,Midcontinent,Midcontinent Communications,Yes,Updated
+SDS 01,WAN1,MATCH,Midcontinent,Midcontinent Communications,Yes,Updated
+TNC 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TNC 02,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TNC 03,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TNE 02,WAN1,MATCH,Spectrum ,Charter Communications,Yes,Updated
+TNK 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TNK 02,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TNK 03,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TNM 02,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TNM 03,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TNM 05,WAN1,MATCH,Spectrum ,Charter Communications,Yes,Updated
+TNN_00,WAN1,MATCH,AT&T,AT&T,Yes,Updated
+TNN 03,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TNN 04,WAN1,MATCH,Comcast Workplace,"Comcast Cable Communications, LLC",Yes,Updated
+TNN 05,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TNN 07,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TNN 09,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TNN 10,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TNN 12,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TNN 13,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TNN 16,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXA 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXA 02,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXA 03,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXA 04,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXA 05,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXA 06,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXA 07,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXA 08,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXA 10,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXA 11,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXA 12,WAN1,MATCH,Frontier,Frontier Communications,Yes,Updated
+TXA 14,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXA 15,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXA 16,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXA 17,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXA 18,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXA 19,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXA 20,WAN1,MATCH,Spectrum,Charter Communications Inc,Yes,Updated
+TXA 22,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXA 23,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXC 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXC 03,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXC 04,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXC 05,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXC 08,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXC 09,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXC 10,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXC 12,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXC 13,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXC 14,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXC 17,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXC 20,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 02,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 04,WAN1,MATCH,Spectrum,Charter Communications Inc,Yes,Updated
+TXD 05,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 06,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 08,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 09,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 10,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 12,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 13,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 15,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 17,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 18,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 19,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 20,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 23,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 25,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 29,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 30,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 31,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 32,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 33,WAN1,MATCH,Spectrum,Charter Communications Inc,Yes,Updated
+TXD 34,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 35,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 36,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 37,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 39,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 41,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 43,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 46,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 47,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 48,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 52,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 54,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 55,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 56,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 57,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 59,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 60,WAN1,MATCH,Spectrum Business,Charter Communications,Yes,Updated
+TXD 61,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 62,WAN1,MATCH,Cable One,"CABLE ONE, INC.",Yes,Updated
+TXD 64,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 65,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 66,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 68,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 69,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 70,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 72,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 73,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 74,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 75,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 77,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 78,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 80,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 82,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 83,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 84,WAN1,MATCH,VyVe,Vyve Broadband,Yes,Updated
+TXD 85,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 86,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 87,WAN1,MATCH,Frontier FIOS,Frontier Communications,Yes,Updated
+TXD 89,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 90,WAN1,MATCH,East Texas Broadband,East Texas Broadband,Yes,Updated
+TXD 91,WAN1,MATCH,Frontier FIOS,Frontier Communications,Yes,Updated
+TXD 92,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 95,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 96,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXE 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXE 02,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXE 03,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXE 05,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXE 06,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXE 07,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXG 01,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXH_00,WAN1,MATCH,AT&T,AT&T,Yes,Updated
+TXH 01,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXH 02,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 03,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 12,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 15,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 16,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 18,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 21,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 25,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+TXH 26,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXH 27,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 28,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+TXH 29,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 30,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 31,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 37,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 44,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+TXH 46,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 49,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 50,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXH 51,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 54,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 57,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 59,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXH 63,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 64,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+TXH 67,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 68,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 70,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+TXH 71,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXH 73,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 75,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 78,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 79,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 79,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 83,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 84,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 86,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+TXH 90,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 92,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 93,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXH 94,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 96,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 97,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXH SE Flex DTU,WAN1,MATCH,Comcast Workplace,"Comcast Cable Communications, LLC",Yes,Updated
+TXHT00,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+TXL 04,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXL 05,WAN1,MATCH,Vexus,Vexus Fiber,Yes,Updated
+TXM 01,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXN 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXO 01,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXO 02,WAN1,MATCH,Cable One ,"CABLE ONE, INC.",Yes,Updated
+TXS 02,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXS 05,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXS 06,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXS 07,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXS 08,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXS 09,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXS 11,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXS 15,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXS 17,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXS 18,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXS 19,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXS 20,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXS 21,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXS 22,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXS 23,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXS 25,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXS 27,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXS 28,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+UTS 01,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+UTS 02,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+UTS 03,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+UTS 04,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+UTS 05,WAN1,MATCH,Comcast Workplace,Comcast Cable Communications,Yes,Updated
+UTS 06,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+UTS 09,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+UTS 14,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+UTS 15,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+UTS 17,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+UTS 18,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+UTS 19,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+UTS 20,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+UTS 21,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+UTS 23,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+UTS 24,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+UTS 25,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+UTS W01,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+UTS W02,WAN1,MATCH,DSR Comcast Cable,"Comcast Cable Communications, LLC",Yes,Updated
+VAB 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+VAB 02,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+VAB 03,WAN1,MATCH,Verizon FIOS,Verizon,Yes,Updated
+VAB 04,WAN1,MATCH,Verizon FIOS,Verizon,Yes,Updated
+VAB 05,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+VAB 06,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+VAB 07,WAN1,MATCH,Verizon FIOS  ,Verizon,Yes,Updated
+VAB 08,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+VAB 09,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+VAF 01 - appliance,WAN1,MATCH,Comcast,Comcast Cable Communications,Yes,Updated
+VAF 02,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+VAR 01,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+VAR 02,WAN1,MATCH,Comcast Workplace,"Comcast Cable Communications, LLC",Yes,Updated
+VAR 04,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+VAR 05,WAN1,MATCH,EB2-Verizon Fiber,Verizon,Yes,Updated
+VAR 06,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+VAR 07,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+VAT 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+VAW 02,WAN1,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+VAW 03,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+WAE 01,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+WAE 02,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+WAE 03,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+WAS 01,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+WAS 02,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+WAS 04,WAN1,MATCH,Centurylink Fiber-Plus,CenturyLink,Yes,Updated
+WAS 06,WAN1,MATCH,CenturyLink Fiber Plus,CenturyLink,Yes,Updated
+WAS 08,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+WAS 09,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+WAS 11,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+WAS 13,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+WAS 14,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+WAS 15,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+WAS 17,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+WAS 19,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+WAS 22,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+WAS 26,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+WAS 27,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+WAS 29,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+WAS W00,WAN1,MATCH,Comcast,Comcast,Yes,Updated
+WAV 01,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+WAV 02,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+WAY 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+WDTD 01,WAN1,MATCH,AT&T,AT&T,Yes,Updated
+WIA 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+WIC 01,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+WIE 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+WIE 02,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+WIL 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+WIM 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+WIM 02,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+WIM 03,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+WIM 04,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+WIM 05,WAN1,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+WIW 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+WVE 01,WAN1,MATCH,Comcast Workplace,Comcast,Yes,Updated
+WYO 01,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+WYO 02,WAN1,MATCH,Spectrum,Charter Communications,Yes,Updated
+ARL 02,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+ARL 04,WAN1,MISMATCH,Altice West,Optimum,No,Skipped
+ARL 06,WAN1,MISMATCH,Altice West,CenturyLink,No,Skipped
+ARO 01,WAN1,MISMATCH,Cox Business/BOI,AT&T,No,Skipped
+ARO 02,WAN1,MISMATCH,Cox Business/BOI,AT&T,No,Skipped
+ARO 06,WAN1,MISMATCH,AT&T Broadband II,Cox Communications,No,Skipped
+AZF 01,WAN1,MISMATCH,CenturyLink Fiber Plus ,Cox Communications,No,Skipped
+AZF 02,WAN1,MISMATCH,Altice West,Optimum,No,Skipped
+AZH 01,WAN1,MISMATCH,Altice West,Optimum,No,Skipped
+AZN 02,WAN1,MISMATCH,EB2-CableOne Cable,"Cable One, Inc.",No,Skipped
+AZN 03,WAN1,MISMATCH,Sparklight,"Cable One, Inc.",No,Skipped
+AZN 05,WAN1,MISMATCH,TransWorld,FAIRNET LLC,No,Skipped
+AZN 06,WAN1,MISMATCH,Sparklight,"Cable One, Inc.",No,Skipped
+AZP 36,WAN1,MISMATCH,Wyyerd Fiber,ZONA COMMUNICATIONS,No,Skipped
+AZP 60,WAN1,MISMATCH,Mediacom/BOI,Mediacom Communications Corporation,No,Skipped
+AZY 02,WAN1,MISMATCH,Spectrum,Customer Static IP Range at YUM02,No,Skipped
+CAL 03,WAN1,MISMATCH,GTT Ethernet,Frontier Communications,No,Skipped
+CAL 04,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+CAL 13,WAN1,MISMATCH,EB2-Frontier Fiber,Frontier Communications,No,Skipped
+CAL 14,WAN1,MISMATCH,One Ring Networks,"Skyriver Communications, Inc.",No,Skipped
+CAL 23,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+CAL 29,WAN1,MISMATCH,Frontier,AT&T,No,Skipped
+CAL 35,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+CAL 41,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+CAL 43,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+CAL 44,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+CAL 46,WAN1,MISMATCH,EB2-Frontier Fiber,Frontier Communications,No,Skipped
+CAL 47,WAN1,MISMATCH,One Ring Networks ,Frontier Communications Corporation,No,Skipped
+CAL 50,WAN1,MISMATCH,EB2-Frontier Fiber,Charter Communications,No,Skipped
+CAN 03,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+CAN 14,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+CAN 22,WAN1,MISMATCH,Vista Broadband,Comcast,No,Skipped
+CAN 23,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+CAN 24,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+CAN 28,WAN1,MISMATCH,Comcast Workplace,Frontier Communications,No,Skipped
+CAN 31,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+CAN 37,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+CAN 39,WAN1,MISMATCH,Astound,Wave Broadband,No,Skipped
+CAN 53,WAN1,MISMATCH,Comcast Workplace,Vast Networks,No,Skipped
+CAN 58,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+CAO 03,WAN1,MISMATCH,GTT Ethernet,Frontier Communications,No,Skipped
+CAO 06,WAN1,MISMATCH,Cox Business/BOI,AT&T,No,Skipped
+CAS 03,WAN1,MISMATCH,Cox Business/BOI,AT&T,No,Skipped
+CAS 04,WAN1,MISMATCH,Cox Business/BOI,AT&T,No,Skipped
+CAS 05,WAN1,MISMATCH,Cox Business/BOI,AT&T,No,Skipped
+CAS 08,WAN1,MISMATCH,Cox Business/BOI,AT&T,No,Skipped
+CAS 14,WAN1,MISMATCH,Cox Business/BOI,AT&T,No,Skipped
+CAS 18,WAN1,MISMATCH,Cox Business/BOI,AT&T,No,Skipped
+CAS 24,WAN1,MISMATCH,Spectrum,VERMONT PARK PLAZA,No,Skipped
+CAS 25,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+CAS 28,WAN1,MISMATCH,Cox Business/BOI,AT&T,No,Skipped
+CAS 34,WAN1,MISMATCH,Cox Business/BOI,AT&T,No,Skipped
+CAS 38,WAN1,MISMATCH,Cox Business/BOI,AT&T,No,Skipped
+CAS 39,WAN1,MISMATCH,Spectrum,VERMONT PARK PLAZA,No,Skipped
+CAS 44,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+CAS 48,WAN1,MISMATCH,EB2-Frontier Fiber,Frontier Communications,No,Skipped
+CAS 50,WAN1,MISMATCH,GTT Ethernet,Frontier Communications,No,Skipped
+COD 28,WAN1,MISMATCH,Comcast Workplace,WYATT CREATIVE,No,Skipped
+COD 31,WAN1,MISMATCH,MallCom Networks,"Lrm-Com, Inc.",No,Skipped
+COD 35,WAN1,MISMATCH,LiveWire Net,Comcast,No,Skipped
+COD 41,WAN1,MISMATCH,Lumen,Level 3 Parent,No,Skipped
+CON 03,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+COS 05,WAN1,MISMATCH,Comcast Workplace,Unite Private Networks LLC.,No,Skipped
+COX 01,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+FLG 02,WAN1,MISMATCH,Cox Business/BOI,Ocala Fiber Network,No,Skipped
+FLJ 06,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+FLJ 09,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+FLO 03,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+FLO 07,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+FLP 03,WAN1,MISMATCH,Mediacom/BOI,AT&T,No,Skipped
+FLT 01,WAN1,MISMATCH,MetroNet,Comcast,No,Skipped
+GAA 03,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+GAA 05,WAN1,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+GAA 08,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+GAA 19,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+GAA 33,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+GAA 34,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+GAA 35,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+GAA 36,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+GAA 37,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+GAA 40,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+GAA 43,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+GAA 45,WAN1,MISMATCH,Mediacom/BOI,AT&T,No,Skipped
+GAA 46,WAN1,MISMATCH,AT&T Broadband II,Mediacom Communications Corporation,No,Skipped
+GAS 01,WAN1,MISMATCH,Mediacom/BOI,AT&T,No,Skipped
+IAC 01,WAN1,MISMATCH,Mediacom/BOI,Mediacom Communications Corporation,No,Skipped
+IAC 02,WAN1,MISMATCH,Mediacom/BOI,Mediacom Communications Corporation,No,Skipped
+IAD 01,WAN1,MISMATCH,Mediacom/BOI,Mediacom Communications Corporation,No,Skipped
+IAD 02,WAN1,MISMATCH,Mediacom/BOI,Metronet,No,Skipped
+IAD 04,WAN1,MISMATCH,Mediacom/BOI,Mediacom Communications Corporation,No,Skipped
+IAD 05,WAN1,MISMATCH,Mediacom/BOI,Mediacom Communications Corporation,No,Skipped
+IAF 01,WAN1,MISMATCH,Mediacom/BOI,Fort Dodge Fiber,No,Skipped
+IAI 01,WAN1,MISMATCH,Mediacom/BOI,Metronet,No,Skipped
+IAN 01,WAN1,MISMATCH,Mediacom/BOI,Mediacom Communications Corporation,No,Skipped
+IAN 02,WAN1,MISMATCH,Mediacom/BOI,Mediacom Communications Corporation,No,Skipped
+IAN 03,WAN1,MISMATCH,Mediacom/BOI,Mediacom Communications Corporation,No,Skipped
+IAQ 01,WAN1,MISMATCH,Mediacom/BOI,Mediacom Communications Corporation,No,Skipped
+IAQ 02,WAN1,MISMATCH,Mediacom/BOI,Mediacom Communications Corporation,No,Skipped
+IAS 01,WAN1,MISMATCH,Sparklight,Metronet,No,Skipped
+IDB 03,WAN1,MISMATCH,EB2-CableOne Cable,"CABLE ONE, INC.",No,Skipped
+IDB 04,WAN1,MISMATCH,CenturyLink Fiber Plus,"CABLE ONE, INC.",No,Skipped
+IDB 05,WAN1,MISMATCH,EB2-CableOne Cable,"CABLE ONE, INC.",No,Skipped
+IDB 06,WAN1,MISMATCH,EB2-CableOne Cable,Direct Communications Cable LLC,No,Skipped
+IDB 07,WAN1,MISMATCH,EB2-CableOne Cable,"CABLE ONE, INC.",No,Skipped
+ILC 03,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+ILC 07,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+ILC 17,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+ILC 22,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+ILS 01,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+ILW 01,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+INC 02,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+INE 01,WAN1,MISMATCH,Astound,RCN,No,Skipped
+INF 03,WAN1,MISMATCH,Comcast Workplace,Metronet,No,Skipped
+INF 04,WAN1,MISMATCH,GTT Ethernet,Frontier Communications,No,Skipped
+INI_00,WAN1,MISMATCH,DSR Cincinnati Bell ADSL,Altafiber,No,Skipped
+INI 02,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+INL 01,WAN1,MISMATCH,Comcast Workplace,Metronet,No,Skipped
+KSK 03,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+KSK 04,WAN1,MISMATCH,Spectrum,"AT&T Enterprises, LLC",No,Skipped
+KSW 01,WAN1,MISMATCH,Cox Business/BOI,AT&T,No,Skipped
+KYE 01,WAN1,MISMATCH,Comcast Workplace,Windstream Communications,No,Skipped
+KYL 01,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+LAS 02,WAN1,MISMATCH,Altice West,Suddenlink Communications,No,Skipped
+MIB 01,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+MID 20,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+MID 25,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+MIF 26,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+MIG 08,WAN1,MISMATCH,Comcast Workplace,GLOBAL AUTOMOTIVE,No,Skipped
+MIP 01,WAN1,MISMATCH,Spectrum,Winn Telecom,No,Skipped
+MIT 26,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+MNM 12,WAN1,MISMATCH,Spectrum,Metronet,No,Skipped
+MNM 19,WAN1,MISMATCH,MetroNet,Deutsche Telekom,No,Skipped
+MNM 20,WAN1,MISMATCH,Spectrum,Metronet,No,Skipped
+MOK 01,WAN1,MISMATCH,Spectrum,"AT&T Enterprises, LLC",No,Skipped
+MOK 07,WAN1,MISMATCH,Spectrum ,AT&T,No,Skipped
+MON 01,WAN1,MISMATCH,Altice West,Optimum,No,Skipped
+MOO 01,WAN1,MISMATCH,ComcastAgg CableOne,"CABLE ONE, INC.",No,Skipped
+MOO 02,WAN1,MISMATCH,Mediacom/BOI,Mediacom Communications Corporation,No,Skipped
+MOO 03,WAN1,MISMATCH,Mediacom/BOI,Mediacom Communications Corporation,No,Skipped
+MOS 01,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+MOS 06,WAN1,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+MOS 12,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+NCC 03,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+NCC 11,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+NCC 15,WAN1,MISMATCH,Spectrum,Windstream Communications LLC,No,Skipped
+NCC 20,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+NCC 28,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+NCC 30,WAN1,MISMATCH,Spectrum,CARDINAL INNOVATIONS HEALTHCARE SOLUTIONS,No,Skipped
+NCC 35,WAN1,MISMATCH,Altice,Optimum,No,Skipped
+NCC 43,WAN1,MISMATCH,Spectrum,Windstream Communications LLC,No,Skipped
+NCC 46,WAN1,MISMATCH,Spectrum,Windstream Communications LLC,No,Skipped
+NCC 51,WAN1,MISMATCH,Altice West,Optimum,No,Skipped
+NEG 01,WAN1,MISMATCH,Spectrum,Cogent Communications,No,Skipped
+NEL 01,WAN1,MISMATCH,Spectrum,Allo Communications LLC,No,Skipped
+NEO 01,WAN1,MISMATCH,Cox Business/BOI,Great Plains Communications LLC,No,Skipped
+NEO 03,WAN1,MISMATCH,Cox Business/BOI,Great Plains Communications LLC,No,Skipped
+NEO 04,WAN1,MISMATCH,Cox Business/BOI,Great Plains Communications,No,Skipped
+NEO 07,WAN1,MISMATCH,Cox Business/BOI,Great Plains Communications,No,Skipped
+NMA 01,WAN1,MISMATCH,Comcast Workplace,Unite Private Networks LLC.,No,Skipped
+NMA 05,WAN1,MISMATCH,Comcast Workplace,Unite Private Networks LLC.,No,Skipped
+NMA 09,WAN1,MISMATCH,SparkLight,"CABLE ONE, INC.",No,Skipped
+NMA 11,WAN1,MISMATCH,TDS Cable,"TULAROSA COMMUNICATIONS, INC.",No,Skipped
+NMC 01,WAN1,MISMATCH,Altice West,Plateau Telecommunications Incorporated,No,Skipped
+NMR 01,WAN1,MISMATCH,Sparklight,Plateau Telecommunications Incorporated,No,Skipped
+NMS 03,WAN1,MISMATCH,Comcast Workplace,NMSURF,No,Skipped
+NVL 25,WAN1,MISMATCH,CenturyLink Fiber Plus,DISCOUNT TIRE NVL 25,No,Skipped
+NVR 05,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+OHC 06,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+OHC 08,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+OHN 04,WAN1,MISMATCH,Windstream,Charter Communications,No,Skipped
+OHN 06,WAN1,MISMATCH,Armstrong Cable,Charter Communications,No,Skipped
+OHS 02,WAN1,MISMATCH,Spectrum,Altafiber,No,Skipped
+OKA 01,WAN1,MISMATCH,SparkLight,"Cable One, Inc.",No,Skipped
+OKO 04,WAN1,MISMATCH,Cox Business/BOI,AT&T,No,Skipped
+OKO 06,WAN1,MISMATCH,Cox Business/BOI,AT&T,No,Skipped
+OKO 12,WAN1,MISMATCH,AT&T Broadband II,Clarity Telecom LLC,No,Skipped
+OKO 13,WAN1,MISMATCH,Cox Business/BOI,AT&T,No,Skipped
+OKO 14,WAN1,MISMATCH,Vyve,AT&T,No,Skipped
+OKT 02,WAN1,MISMATCH,Cox Business/BOI,AT&T,No,Skipped
+OKT 03,WAN1,MISMATCH,Cox Business/BOI,AT&T,No,Skipped
+ORP 08,WAN1,MISMATCH,TDS Telecom,Comcast,No,Skipped
+ORP 10,WAN1,MISMATCH,Comcast Workplace,"PSINet,",No,Skipped
+PAC 01,WAN1,MISMATCH,Breezeline,Comcast Cable Communications,No,Skipped
+PAN 02,WAN1,MISMATCH,EB2-Penteledata Cable,EarthLink,No,Skipped
+PAP 01,WAN1,MISMATCH,EB2-RCN Cable,RCN,No,Skipped
+SCA 01,WAN1,MISMATCH,Breezeline (Formerly Atlantic Broadband),"Atlantic Broadband, LLC",No,Skipped
+SCC 02,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+SCC 03,WAN1,MISMATCH,Comporium Com DDSL,"Comporium, Inc",No,Skipped
+SCC 15,WAN1,MISMATCH,Spectrum,"Farmers Telephone Cooperative, Inc.",No,Skipped
+SCC 17,WAN1,MISMATCH,Spectrum,Frontier Communications,No,Skipped
+TNM 04,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+TNN 08,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+TNN 14,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TNN 15,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+TXA 09,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXA 13,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXA 21,WAN1,MISMATCH,Altice,Optimum,No,Skipped
+TXC 06,WAN1,MISMATCH,Altice,AT&T,No,Skipped
+TXC 07,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXC 11,WAN1,MISMATCH,Altice,Cebridge Connections,No,Skipped
+TXC 15,WAN1,MISMATCH,Spectrum,MITEL,No,Skipped
+TXC 16,WAN1,MISMATCH,Altice,Optimum,No,Skipped
+TXC 18,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXC 19,WAN1,MISMATCH,Spectrum,Vexus Fiber,No,Skipped
+TXC 21,WAN1,MISMATCH,Spectrum,"Big Bend Telephone Company, Inc.",No,Skipped
+TXD 11,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXD 22,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXD 26,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXD 28,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXD 38,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXD 40,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXD 42,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXD 44,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXD 45,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXD 50,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXD 51,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXD 58,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXD 63,WAN1,MISMATCH,Cable One,Windstream Communications,No,Skipped
+TXD 67,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXD 76,WAN1,MISMATCH,Altice,Conterra Ultra Broadband LLC,No,Skipped
+TXD 79,WAN1,MISMATCH,Altice,Optimum,No,Skipped
+TXD 81,WAN1,MISMATCH,Spectrum,Frontier Communications Corporation,No,Skipped
+TXD 88,WAN1,MISMATCH,Altice West,Optimum,No,Skipped
+TXD 93,WAN1,MISMATCH,Altice West,Classic Communications,No,Skipped
+TXD 94,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXH 10,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+TXH 20,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+TXH 22,WAN1,MISMATCH,Altice,Optimum,No,Skipped
+TXH 23,WAN1,MISMATCH,Altice West,Optimum,No,Skipped
+TXH 33,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+TXH 39,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+TXH 43,WAN1,MISMATCH,Altice West,AT&T,No,Skipped
+TXH 45,WAN1,MISMATCH,Comcast Workplace,LONE STAR ICE HOUSE,No,Skipped
+TXH 48,WAN1,MISMATCH,Altice,Optimum,No,Skipped
+TXH 53,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+TXH 58,WAN1,MISMATCH,Comcast Workplace,Charter Communications,No,Skipped
+TXH 60,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+TXH 61,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+TXH 62,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXH 66,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+TXH 69,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXH 72,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+TXH 74,WAN1,MISMATCH,Altice,Optimum,No,Skipped
+TXH 77,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+TXH 80,WAN1,MISMATCH,Comcast Workplace,FIDELITY NATIONAL TITLE,No,Skipped
+TXH 81,WAN1,MISMATCH,Rise Broadband,Metronet,No,Skipped
+TXH 85,WAN1,MISMATCH,Altice West,Optimum,No,Skipped
+TXH 87,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+TXH 88,WAN1,MISMATCH,Comcast Workplace,VESCO BUSINESS PRODUCTS,No,Skipped
+TXH 89,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+TXH 91,WAN1,MISMATCH,Livcom,Telcom Supply,No,Skipped
+TXH 95,WAN1,MISMATCH,Comcast Workplace,AT&T,No,Skipped
+TXL 01,WAN1,MISMATCH,Altice West,Vexus Fiber,No,Skipped
+TXL 02,WAN1,MISMATCH,Altice,Optimum,No,Skipped
+TXL 03,WAN1,MISMATCH,Altice,Optimum,No,Skipped
+TXM 02,WAN1,MISMATCH,Altice,Optimum,No,Skipped
+TXM 03,WAN1,MISMATCH,Altice,AT&T,No,Skipped
+TXS 12,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXS 13,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXS 14,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXS 16,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXS 24,WAN1,MISMATCH,Spectrum,"AT&T Enterprises, LLC",No,Skipped
+TXS 26,WAN1,MISMATCH,Spectrum,GVTC-DIALUP DYNAMIC POOL,No,Skipped
+TXS 29,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXS 30,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXS 31,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+TXW 01,WAN1,MISMATCH,Altice,AT&T,No,Skipped
+TXW 02,WAN1,MISMATCH,Altice,Optimum,No,Skipped
+TXW 03,WAN1,MISMATCH,Altice West,Optimum,No,Skipped
+TXW 04,WAN1,MISMATCH,Altice,Optimum,No,Skipped
+TXW 05,WAN1,MISMATCH,Altice,Optimum,No,Skipped
+TXW 06,WAN1,MISMATCH,Altice West,Optimum,No,Skipped
+TXW 07,WAN1,MISMATCH,Altice West,Optimum,No,Skipped
+TXW 08,WAN1,MISMATCH,Harris Broadband,"Grande Communications Networks, LLC",No,Skipped
+TXW 09,WAN1,MISMATCH,Altice,Optimum,No,Skipped
+UTS 12,WAN1,MISMATCH,TDS Cable,Frontier Communications,No,Skipped
+UTS 22,WAN1,MISMATCH,Centracom,Private Customer,No,Skipped
+VAR 03,WAN1,MISMATCH,Comcast Workplace,Verizon,No,Skipped
+VAW 01,WAN1,MISMATCH,Comcast Workplace,Ntelos - WYBO FTTP Static Range,No,Skipped
+WAE 04,WAN1,MISMATCH,Spectrum,Ziply Fiber,No,Skipped
+WAS 18,WAN1,MISMATCH,Spectrum,Ziply Fiber,No,Skipped
+WAS 20,WAN1,MISMATCH,Comcast Workplace,CASEINTEL CORPORATION,No,Skipped
+WAS 21,WAN1,MISMATCH,Comcast Workplace,VICTORY STUDIOS,No,Skipped
+WAS 23,WAN1,MISMATCH,ComcastAgg CLink,CenturyLink,No,Skipped
+WAS 28,WAN1,MISMATCH,Comcast Workplace,Wave Broadband,No,Skipped
+WIA 02,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+WIG 01,WAN1,MISMATCH,Spectrum,CINCINNATI TENANT,No,Skipped
+WIM 06,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+WIO 01,WAN1,MISMATCH,Spectrum,AT&T,No,Skipped
+WYO 03,WAN1,MISMATCH,Mountain West Technologies,Titan Electric ,No,Skipped
+ALB 01,WAN2,MATCH,Spectrum,Charter Communications,Yes,Updated
+ALM 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ALM 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ALM 03,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ALM 04,WAN2,MATCH,Spectrum,Charter Communications,Yes,Updated
+ALN 02,WAN2,MATCH,Comcast Workplace,Comcast,Yes,Updated
+ALS 01,WAN2,MATCH,Comcast Workplace,Comcast,Yes,Updated
+ARL 01,WAN2,MATCH,Comcast Workplace,Comcast,Yes,Updated
+ARL 03,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ARL 04,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ARL 05,WAN2,MATCH,Ritter Communications,Ritter Communications,Yes,Updated
+ARO 03,WAN2,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+ARO 04,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ARO 05,WAN2,MATCH,Ritter Communications,Ritter Communications,Yes,Updated
+AZP 09,WAN2,MATCH,EB2-Lumen DSL,CenturyLink,Yes,Updated
+AZP 18,WAN2,MATCH,EB2-CenturyLink DSL,CenturyLink,Yes,Updated
+AZP 21,WAN2,MATCH,CenturyLink/Embarq,CenturyLink,Yes,Updated
+AZP 24,WAN2,MATCH,EB2-Centurylink DSL,CenturyLink,Yes,Updated
+AZP 26,WAN2,MATCH,EB2-Centurylink DSL,CenturyLink,Yes,Updated
+AZP 27,WAN2,MATCH,CenturyLink/Qwest,CenturyLink,Yes,Updated
+AZP 28,WAN2,MATCH,CenturyLink/Qwest,CenturyLink,Yes,Updated
+AZP 29,WAN2,MATCH,EB2-Lumen DSL,CenturyLink,Yes,Updated
+AZP 30,WAN2,MATCH,EB2-Centurylink DSL,CenturyLink,Yes,Updated
+AZP 37,WAN2,MATCH,CenturyLink/Qwest ,CenturyLink,Yes,Updated
+AZP 43,WAN2,MATCH,CenturyLink ,"CenturyLink Communications, LLC",Yes,Updated
+AZP 46,WAN2,MATCH,EB2-Centurylink DSL,CenturyLink,Yes,Updated
+AZP 54,WAN2,MATCH,CenturyLink/Qwest,CenturyLink,Yes,Updated
+AZT 02,WAN2,MATCH,EB2-Centurylink DSL,CenturyLink,Yes,Updated
+CAL 02,WAN2,MATCH,Frontier MetroFiber,Frontier Communications,Yes,Updated
+CAL 08,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAL 21,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAL 22,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAL 26,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAL 49,WAN2,MATCH,Spectrum,Charter Communications,Yes,Updated
+CAN_00,WAN2,MATCH,AT&T,AT&T,Yes,Updated
+CAN 05,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 10,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 13,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 17,WAN2,MATCH,AT&T Broadband,AT&T,Yes,Updated
+CAN 19,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 21,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 22,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 33,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 39,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 41,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 47,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 48,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 51,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 56,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAN 60,WAN2,MATCH,Comcast Workplace,Comcast,Yes,Updated
+CAN 61,WAN2,MATCH,Comcast Workplace,Comcast,Yes,Updated
+CAS_00,WAN2,MATCH,Cox Communications,Cox Communications,Yes,Updated
+CAS 07,WAN2,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+CAS 10,WAN2,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+CAS 22,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAS 23,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAS 24,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAS 27,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAS 31,WAN2,MATCH,Spectrum,Charter Communications Inc,Yes,Updated
+CAS 39,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAS 43,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAS 51,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+CAS 53,WAN2,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+COB 01,WAN2,MATCH,EB2-Centurylink DSL,CenturyLink,Yes,Updated
+COD 21,WAN2,MATCH,CenturyLink/Qwest,CenturyLink,Yes,Updated
+COD 25,WAN2,MATCH,EB2-Centurylink DSL,CenturyLink,Yes,Updated
+COD 32,WAN2,MATCH,CenturyLink/Qwest,CenturyLink,Yes,Updated
+COG 01,WAN2,MATCH,EB2-Centurylink DSL,CenturyLink,Yes,Updated
+COP 03,WAN2,MATCH,EB2-Centurylink DSL,CenturyLink,Yes,Updated
+COS 03,WAN2,MATCH,EB2-Centurylink DSL,CenturyLink,Yes,Updated
+FLD 01,WAN2,MATCH,Spectrum,"Charter Communications, Inc",Yes,Updated
+FLD 04,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+FLG 03,WAN2,MATCH,Comcast Workplace,Comcast,Yes,Updated
+FLJ 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+FLJ 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+FLJ 05,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+FLJ 07,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+FLJ 10,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+FLJ 12,WAN2,MATCH,Comcast Workplace,Comcast,Yes,Updated
+FLM 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+FLM 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+FLO 04,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+FLO 06,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+FLO 12,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+FLO 14,WAN2,MATCH,Spectrum,Charter Communications,Yes,Updated
+FLO 15,WAN2,MATCH,Spectrum,Charter Communications,Yes,Updated
+FLP 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+FLP 04,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+FLS 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+FLS 03,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+FLS 04,WAN2,MATCH,Comcast Workplace,Comcast,Yes,Updated
+GAA 06,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+GAA 11,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+GAA 17,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+GAA 24,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+GAA 26,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+GAA 29,WAN2,MATCH,Comcast Workplace,Comcast,Yes,Updated
+GAA 32,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+GAA 39,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+GAACALLCNTR,WAN2,MATCH,Charter Communications,Charter Communications,Yes,Updated
+GAE 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+GAE 03,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+GAN 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+IAC 01,WAN2,MATCH,EB2-Lumen DSL,"CenturyLink Communications, LLC",Yes,Updated
+IAC 02,WAN2,MATCH,ImOn Communications,ImOn Communications,Yes,Updated
+IAD 01,WAN2,MATCH,Metronet,Metronet,Yes,Updated
+IAD 04,WAN2,MATCH,Metronet,Metronet,Yes,Updated
+IAD 05,WAN2,MATCH,Metronet,Metronet,Yes,Updated
+IAN 02,WAN2,MATCH,Century Link/Qwest,CenturyLink,Yes,Updated
+IDB 03,WAN2,MATCH,EB2-Centurylink DSL,CenturyLink,Yes,Updated
+IDB 05,WAN2,MATCH,EB2-Centurylink DSL,CenturyLink,Yes,Updated
+IDB 07,WAN2,MATCH,EB2-Centurylink DSL,CenturyLink,Yes,Updated
+ILC_00,WAN2,MATCH,AT&T,AT&T,Yes,Updated
+ILC 05,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ILC 08,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ILC 14,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ILC 21,WAN2,MATCH,Comcast Workplace,Comcast,Yes,Updated
+ILC 25,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ILC 27,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ILC 30,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ILC 32,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ILC 34,WAN2,MATCH,Comcast Workplace,Comcast,Yes,Updated
+ILC 35,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ILC 36,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ILC 37,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+ILW 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+INE 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+INE 02,WAN2,MATCH,Spectrum,Charter Communications,Yes,Updated
+INI_00,WAN2,MATCH,Charter Communications,Charter Communications,Yes,Updated
+INI 01,WAN2,MATCH,Comcast Workplace,Comcast,Yes,Updated
+INI 08,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+INI 12,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+INI 13,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+INI 15,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+INI 16,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+INJ 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+INN 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+INW 03,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+KSK_00,WAN2,MATCH,AT&T,AT&T,Yes,Updated
+KSK 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+KSK 05,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+KSL 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+KSM 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+KSM 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+KST 01,WAN2,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+KSW 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+KSW 03,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+KYB 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+KYL 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+KYL 03,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+LAS 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+LAS 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MIA 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MIA 04,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MIA 16,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MID 04,WAN2,MATCH,Spectrum,Charter Communications,Yes,Updated
+MID 06,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MID 10,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MID 11,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MID 12,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MID 22,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MID 26,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MID 27,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MIF 25,WAN2,MATCH,Comcast Workplace,Comcast,Yes,Updated
+MIG 08,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MIG 09,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MIG 24,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MIG 29,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MIG 30,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MIH 27,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MIK 06,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MIK 14,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MIK 30,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MIK 31,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MIL 00,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MIM 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MIS 12,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MIS 17,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MIS 20,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MNM 07,WAN2,MATCH,EB2-Centurylink DSL,CenturyLink,Yes,Updated
+MNM 08,WAN2,MATCH,EB2-Centurylink DSL,"CenturyLink Communications, LLC",Yes,Updated
+MNM 13,WAN2,MATCH,EB2-Lumen DSL,CenturyLink,Yes,Updated
+MNM 22,WAN2,MATCH,EB2-Centurylink DSL,CenturyLink,Yes,Updated
+MNM 23,WAN2,MATCH,EB2-Centurylink DSL,"CenturyLink Communications, LLC",Yes,Updated
+MOK 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MOK 03,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MOK 05,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MOK 06,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MON 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MOO 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MOO 03,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MOS 03,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MOS 04,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MOS 05,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MSN 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+MSN 02,WAN2,MATCH,Comcast Workplace,Comcast,Yes,Updated
+NCC 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+NCC 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+NCC 04,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+NCC 05,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+NCC 06,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+NCC 07,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+NCC 08,WAN2,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 09,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+NCC 10,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+NCC 16,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+NCC 17,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+NCC 23,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+NCC 24,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+NCC 25,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+NCC 33,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+NCC 35,WAN2,MATCH,Metronet,Metronet,Yes,Updated
+NCC 36,WAN2,MATCH,GreenLight,Greenlight,Yes,Updated
+NCC 37,WAN2,MATCH,MetroNet,Metronet,Yes,Updated
+NCC 39,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+NCC 41,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+NCC 42,WAN2,MATCH,Spectrum,Charter Communications,Yes,Updated
+NCC 45,WAN2,MATCH,Brightspeed,Level 3 Parent,Yes,Updated
+NCC 47,WAN2,MATCH,MetroNet,Metronet,Yes,Updated
+NCC 52,WAN2,MATCH,Metronet,Metronet,Yes,Updated
+NMA_00,WAN2,MATCH,CenturyLink,CenturyLink,Yes,Updated
+NMA 04,WAN2,MATCH,Unite Private Networks,Unite Private Networks LLC.,Yes,Updated
+NMA 09,WAN2,MATCH,Comcast Workplace,Comcast,Yes,Updated
+NMF 01,WAN2,MATCH,EB2-Centurylink DSL,"CenturyLink Communications, LLC",Yes,Updated
+NMS 02,WAN2,MATCH,CenturyLink,CenturyLink,Yes,Updated
+NVL 08,WAN2,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+NVR 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+NVR 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+NVR 04,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+OHC 03,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+OHC 07,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+OHC 10,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+OHD 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+OHD 04,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+OHN 02,WAN2,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+OHN 05,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+OHS 03,WAN2,MATCH,Altafiber,Altafiber,Yes,Updated
+OHS 04,WAN2,MATCH,Altafiber,Altafiber,Yes,Updated
+OHT 01,WAN2,MATCH,Buckeye Broadband Business,"Buckeye Cablevision,",Yes,Updated
+OHT 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+OKA 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+OKO 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+OKO 03,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+OKO 05,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+OKO 07,WAN2,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+OKO 08,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+OKO 09,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+OKO 10,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+OKO 11,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+OKO 15,WAN2,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+OKT 05,WAN2,MATCH,BTC Broadband,BTC Broadband,Yes,Updated
+OKT 06,WAN2,MATCH,BTC Broadband,BTC Broadband Inc.,Yes,Updated
+ORM 01,WAN2,MATCH,Hunter Communications,HUNTER COMMUNICATIONS,Yes,Updated
+ORM 02,WAN2,MATCH,Hunter Communications,HUNTER COMMUNICATIONS,Yes,Updated
+SCA 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+SCC 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+SCC 04,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+SCC 05,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+SCC 06,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+SCC 10,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+SCC 11,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+SCC 12,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+SCC 16,WAN2,MATCH,WideOpenWest,WideOpenWest Finance LLC,Yes,Updated
+SCC 18,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+SCC 19,WAN2,MATCH,Spectrum,Charter Communications,Yes,Updated
+SDS 01,WAN2,MATCH,EB2-Centurylink DSL,"CenturyLink Communications, LLC",Yes,Updated
+TNC 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TNC 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TNC 03,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TNK 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TNM 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TNM 03,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TNM 05,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TNN_00,WAN2,MATCH,Comcast,Comcast,Yes,Updated
+TNN 03,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TNN 04,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TNN 07,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TNN 09,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TNN 10,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TNN 13,WAN2,MATCH,Spectrum,Charter Communications,Yes,Updated
+TNN 16,WAN2,MATCH,AT&T Broadband II ,AT&T,Yes,Updated
+TXA 04,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXA 05,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXA 06,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXA 08,WAN2,MATCH,Unite Private Networks,Unite Private Networks.,Yes,Updated
+TXA 10,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXA 14,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXA 15,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXA 16,WAN2,MATCH,Unite Private Networks,Unite Private Networks LLC.,Yes,Updated
+TXA 19,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXA 21,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXC 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXC 03,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXC 08,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXC 09,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXC 12,WAN2,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXC 13,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXC 14,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXC 16,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXC 17,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXC 20,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 04,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 06,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 09,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 10,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 12,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 13,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 17,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 18,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 19,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 29,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 30,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 32,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 35,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 37,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 39,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 41,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 46,WAN2,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 47,WAN2,MATCH,Longview Cable,Longview Cable TV,Yes,Updated
+TXD 48,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 52,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 54,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 56,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 57,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 61,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 64,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 66,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 69,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 73,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 74,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 75,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 79,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 83,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 88,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXD 89,WAN2,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 90,WAN2,MATCH,CenturyLink/Embarq,CenturyLink,Yes,Updated
+TXD 91,WAN2,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 92,WAN2,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXD 96,WAN2,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXE 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXE 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXE 03,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXE 05,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXE 06,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXE 07,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXH_00,WAN2,MATCH,Comcast,Comcast,Yes,Updated
+TXH 01,WAN2,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXH 03,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXH 12,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXH 15,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXH 18,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXH 21,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXH 27,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXH 29,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXH 30,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXH 31,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXH 37,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXH 59,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXH 67,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXH 78,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXH 84,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXH 88,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXH 90,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXH 93,WAN2,MATCH,Comcast Workplace,Comcast,Yes,Updated
+TXH 94,WAN2,MATCH,Consolidated Communications,"Consolidated Communications, Inc.",Yes,Updated
+TXL 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXL 03,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXL 04,WAN2,MATCH,Vexus Fiber,Vexus Fiber,Yes,Updated
+TXL 05,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXM 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXN 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXO 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXS 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXS 05,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXS 06,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXS 07,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXS 11,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXS 15,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXS 17,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXS 19,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXS 20,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXS 21,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXS 22,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXS 27,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXS 28,WAN2,MATCH,Spectrum,Charter Communications,Yes,Updated
+TXW 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXW 04,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXW 05,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXW 07,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+TXW 08,WAN2,MATCH,Unite Private Networks,Unite Private Networks LLC.,Yes,Updated
+UTS 03,WAN2,MATCH,EB2-Lumen DSL,CenturyLink,Yes,Updated
+UTS 04,WAN2,MATCH,EB2-Lumen DSL,CenturyLink,Yes,Updated
+UTS 06,WAN2,MATCH,EB2-Centurylink DSL,CenturyLink,Yes,Updated
+UTS 18,WAN2,MATCH,EB2-Centurylink DSL,CenturyLink,Yes,Updated
+UTS 22,WAN2,MATCH,CenturyLink/Qwest,CenturyLink Communications,Yes,Updated
+VAB 06,WAN2,MATCH,EB2-Verizon Fiber,Verizon,Yes,Updated
+VAB 07,WAN2,MATCH,Cox Business/BOI,Cox Communications,Yes,Updated
+VAR 05,WAN2,MATCH,Comcast Workplace,Comcast,Yes,Updated
+VAT 01,WAN2,MATCH,Point Broadband,Point Broadband Fiber Holding,Yes,Updated
+WAS 19,WAN2,MATCH,EB2-Centurylink DSL,CenturyLink,Yes,Updated
+WAS 27,WAN2,MATCH,CenturyLink/Qwest,CenturyLink,Yes,Updated
+WIA 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+WIC 01,WAN2,MATCH,Spectrum,Charter Communications,Yes,Updated
+WIE 01,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+WIE 02,WAN2,MATCH,Spectrum,Charter Communications,Yes,Updated
+WIL 01,WAN2,MATCH,MetroNet,Metronet,Yes,Updated
+WIM 02,WAN2,MATCH,AT&T Broadband II,AT&T,Yes,Updated
+WYO 03,WAN2,MATCH,Spectrum,Charter Communications,Yes,Updated
+ALS 02,WAN2,MISMATCH,Brightspeed,CenturyLink,No,Skipped
+ARL 02,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+ARL 06,WAN2,MISMATCH,Brightspeed,Optimum,No,Skipped
+ARO 01,WAN2,MISMATCH,AT&T Broadband II,Cox Communications,No,Skipped
+ARO 02,WAN2,MISMATCH,AT&T Broadband II,Cox Communications,No,Skipped
+ARO 06,WAN2,MISMATCH,Cox Business/BOI,"AT&T Enterprises, LLC",No,Skipped
+AZF 02,WAN2,MISMATCH,Lightpath ,Optimum,No,Skipped
+AZK 01,WAN2,MISMATCH,Allo Communications,Customer Public IP Range at KGM01,No,Skipped
+AZP 22,WAN2,MISMATCH,EB2-Centurylink DSL,"Ocotillo Technologies, Inc.",No,Skipped
+AZT 12,WAN2,MISMATCH,Lumen Qwest,Micro Import Service,No,Skipped
+AZT 13,WAN2,MISMATCH,GTT/ESA2 ADSL,CenturyLink,No,Skipped
+AZT 14,WAN2,MISMATCH,Login,"Login, Inc.",No,Skipped
+AZY 02,WAN2,MISMATCH,Allo Communications,Charter Communications,No,Skipped
+CAL 01,WAN2,MISMATCH,EB2-Frontier Fiber,Frontier Communications,No,Skipped
+CAL 04,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+CAL 09,WAN2,MISMATCH,EB2-Frontier Fiber,Frontier Communications,No,Skipped
+CAL 23,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+CAL 35,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+CAL 41,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+CAL 43,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+CAL 44,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+CAL 47,WAN2,MISMATCH,EB2-Frontier Fiber,"Skyriver Communications, Inc.",No,Skipped
+CAL 50,WAN2,MISMATCH,Spectrum,Frontier Communications,No,Skipped
+CAN 03,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+CAN 14,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+CAN 23,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+CAN 24,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+CAN 28,WAN2,MISMATCH,EB2-Frontier Fiber,Comcast,No,Skipped
+CAN 31,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+CAN 37,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+CAN 53,WAN2,MISMATCH,Vast Networks,Comcast,No,Skipped
+CAN 55,WAN2,MISMATCH,Succeed-net,Succeed.Net,No,Skipped
+CAN 58,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+CAO 03,WAN2,MISMATCH,EB2-Frontier Fiber,Frontier Communications,No,Skipped
+CAO 06,WAN2,MISMATCH,AT&T Broadband II,Cox Communications,No,Skipped
+CAS 03,WAN2,MISMATCH,AT&T Broadband II,Cox Communications,No,Skipped
+CAS 04,WAN2,MISMATCH,AT&T Broadband II,Cox Communications,No,Skipped
+CAS 05,WAN2,MISMATCH,AT&T Broadband II,Cox Communications,No,Skipped
+CAS 08,WAN2,MISMATCH,AT&T Broadband II,Cox Communications,No,Skipped
+CAS 14,WAN2,MISMATCH,AT&T Broadband II,Cox Communications,No,Skipped
+CAS 18,WAN2,MISMATCH,AT&T Broadband II,Cox Communications,No,Skipped
+CAS 25,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+CAS 28,WAN2,MISMATCH,AT&T Broadband II,Cox Communications,No,Skipped
+CAS 34,WAN2,MISMATCH,AT&T Broadband II,Cox Communications,No,Skipped
+CAS 38,WAN2,MISMATCH,AT&T Broadband II,Cox Communications,No,Skipped
+CAS 44,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+CAS 50,WAN2,MISMATCH,EB2-Frontier Fiber,Frontier Communications,No,Skipped
+COD 26,WAN2,MISMATCH,EB2-Centurylink DSL,Western Disposal,No,Skipped
+COD 35,WAN2,MISMATCH,Comcast Workplace,"Live Wire Networks, Inc",No,Skipped
+CON 03,WAN2,MISMATCH,FORT COLLINS CONNEXION,Comcast,No,Skipped
+COS 05,WAN2,MISMATCH,Unite Private Networks,Comcast,No,Skipped
+FLG 02,WAN2,MISMATCH,Ocala Fiber Network,Cox Communications,No,Skipped
+FLJ 06,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+FLJ 09,WAN2,MISMATCH,AT&T Broadband II,Cisco Test,No,Skipped
+FLO 03,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+FLO 07,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+GAA 03,WAN2,MISMATCH,AT&T Broadband II,"Comcast Cable Communications, LLC",No,Skipped
+GAA 08,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+GAA 19,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+GAA 33,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+GAA 34,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+GAA 35,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+GAA 36,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+GAA 37,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+GAA 38,WAN2,MISMATCH,EB2-Hargray Cable,"Hargray Communications Group, Inc.",No,Skipped
+GAA 40,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+GAA 44,WAN2,MISMATCH,EB2-Windstream Fiber,Windstream Communications LLC,No,Skipped
+GAA 45,WAN2,MISMATCH,AT&T Broadband II,Mediacom Communications Corporation,No,Skipped
+GAA 46,WAN2,MISMATCH,Mediacom/BOI,AT&T,No,Skipped
+GAE 01,WAN2,MISMATCH,EB2-Hargray Cable,"Hargray Communications Group, Inc.",No,Skipped
+GAS 01,WAN2,MISMATCH,AT&T Broadband II,Mediacom Communications Corporation,No,Skipped
+IAD 02,WAN2,MISMATCH,MetroNet,Mediacom Communications Corporation,No,Skipped
+IAF 01,WAN2,MISMATCH,Fort Dodge Fiber,Mediacom Communications Corporation,No,Skipped
+IAI 01,WAN2,MISMATCH,Metronet,Mediacom Communications Corporation,No,Skipped
+IAN 01,WAN2,MISMATCH,Cedar Falls Utilities,"The Municipal Communications Utility of the City of Cedar Falls, Iowa",No,Skipped
+IAQ 02,WAN2,MISMATCH,MetroNet,DVNPIAAAG03 public /32 pools,No,Skipped
+IAS 01,WAN2,MISMATCH,MetroNet,"CABLE ONE, INC.",No,Skipped
+IDB 04,WAN2,MISMATCH,EB2-CableOne Cable,CenturyLink,No,Skipped
+IDB 06,WAN2,MISMATCH,Direct Communications,"CABLE ONE, INC.",No,Skipped
+IDN 01,WAN2,MISMATCH,EB2-Ziply Fiber,Ziply Fiber,No,Skipped
+ILC 03,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+ILC 07,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+ILC 17,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+ILC 22,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+ILS 01,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+ILW 01,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+INC 02,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+INF 03,WAN2,MISMATCH,MetroNet,Comcast,No,Skipped
+INF 04,WAN2,MISMATCH,EB2-Frontier Fiber,"Frontier Communications of America, Inc.",No,Skipped
+INI 02,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+INL 01,WAN2,MISMATCH,MetroNet,Comcast,No,Skipped
+KSK 03,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+KSK 04,WAN2,MISMATCH,AT&T Broadband II,Charter Communications Inc,No,Skipped
+KSW 01,WAN2,MISMATCH,AT&T Broadband II,Cox Communications,No,Skipped
+KYE 01,WAN2,MISMATCH,EB2-Windstream Fiber,Comcast Cable Communications,No,Skipped
+KYL 01,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+MIB 01,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+MID 20,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+MID 25,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+MIF 26,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+MIG 23,WAN2,MISMATCH,EB2-Frontier Fiber,Frontier Communications,No,Skipped
+MIP 01,WAN2,MISMATCH,Winn Telecom,Charter Communications,No,Skipped
+MIT 26,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+MNM 12,WAN2,MISMATCH,Metronet,Charter Communications,No,Skipped
+MNM 15,WAN2,MISMATCH,Metronet,Jaguar Communications,No,Skipped
+MNM 20,WAN2,MISMATCH,MetroNet,Charter Communications,No,Skipped
+MNM 27,WAN2,MISMATCH,CTC,CONSOLIDATED TELEPHONE COMPANY,No,Skipped
+MOK 01,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+MOK 07,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+MOR 01,WAN2,MISMATCH,EB2-Sparklight Cable,"Fidelity Cablevision, LLC",No,Skipped
+MOS 01,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+MOS 06,WAN2,MISMATCH,Spectrum,AT&T,No,Skipped
+MOS 08,WAN2,MISMATCH,Brightspeed,CenturyLink,No,Skipped
+MOS 12,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+NCC 03,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+NCC 11,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+NCC 13,WAN2,MISMATCH,Lumos Networks,"North State Telephone, LLC",No,Skipped
+NCC 15,WAN2,MISMATCH,EB2-Windstream Fiber,Charter Communications,No,Skipped
+NCC 20,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+NCC 28,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+NCC 40,WAN2,MISMATCH,EB2-Windstream Fiber,Windstream Communications,No,Skipped
+NCC 43,WAN2,MISMATCH,EB2-Windstream Fiber,Charter Communications,No,Skipped
+NCC 46,WAN2,MISMATCH,Windstream,Charter Communications,No,Skipped
+NCN 01,WAN2,MISMATCH,Brightspeed,CenturyLink,No,Skipped
+NEG 01,WAN2,MISMATCH,Allo Communications,Charter Communications,No,Skipped
+NEL 01,WAN2,MISMATCH,Allo Communications,Charter Communications,No,Skipped
+NEO 01,WAN2,MISMATCH,Great Plains Communications,Cox Communications,No,Skipped
+NEO 03,WAN2,MISMATCH,Great Plains Communications,Cox Communications,No,Skipped
+NEO 04,WAN2,MISMATCH,Great Plains Communications,Cox Communications,No,Skipped
+NEO 05,WAN2,MISMATCH,EB2-Centurylink DSL,Malinda Jepsen,No,Skipped
+NEO 06,WAN2,MISMATCH,EB2-Centurylink DSL,Diane Allen,No,Skipped
+NEO 07,WAN2,MISMATCH,Great Plains Communications,Cox Communications,No,Skipped
+NMA 01,WAN2,MISMATCH,Unite Private Networks,Comcast,No,Skipped
+NMA 11,WAN2,MISMATCH,Tularosa Basin Telephone Company,DISCOUNT TIRE ,No,Skipped
+NMC 01,WAN2,MISMATCH,Plateau Telecommunications,Optimum,No,Skipped
+NMH 01,WAN2,MISMATCH,EB2-TDS Cable,Frontier Communications,No,Skipped
+NMR 01,WAN2,MISMATCH,Plateau Telecommunications,"CABLE ONE, INC.",No,Skipped
+NMS 03,WAN2,MISMATCH,"NMSurf, Inc.",Comcast,No,Skipped
+NVR 05,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+OHC 06,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+OHC 08,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+OHL 01,WAN2,MISMATCH,Telephone Service Company (TSC),Hanson Communications - Ohio,No,Skipped
+OHN 01,WAN2,MISMATCH,EB2-Windstream Fiber,Windstream Communications LLC,No,Skipped
+OHN 04,WAN2,MISMATCH,Spectrum,Windstream Communications LLC,No,Skipped
+OHS 02,WAN2,MISMATCH,Altafiber,NCS,No,Skipped
+OHS 05,WAN2,MISMATCH,Altafiber,Fuse Internet Access,No,Skipped
+OKO 04,WAN2,MISMATCH,AT&T Broadband II,Cox Communications,No,Skipped
+OKO 06,WAN2,MISMATCH,AT&T Broadband II,Cox Communications,No,Skipped
+OKO 12,WAN2,MISMATCH,BluePeak Communications ,AT&T,No,Skipped
+OKO 13,WAN2,MISMATCH,AT&T Broadband II,Cox Communications,No,Skipped
+OKO 14,WAN2,MISMATCH,AT&T Broadband II,Vyve Broadband,No,Skipped
+OKT 01,WAN2,MISMATCH,EB2-Windstream Fiber,Windstream Communications,No,Skipped
+OKT 02,WAN2,MISMATCH,AT&T Broadband II,Cox Communications,No,Skipped
+OKT 03,WAN2,MISMATCH,AT&T Broadband II,Cox Communications,No,Skipped
+OKT 08,WAN2,MISMATCH,EB2-Windstream Fiber,Windstream Communications LLC,No,Skipped
+ORP 10,WAN2,MISMATCH,HiLight Internet,Comcast,No,Skipped
+PAC 01,WAN2,MISMATCH,Comcast Workplace,Breezeline,No,Skipped
+PAP 01,WAN2,MISMATCH,EB2-Penteledata Cable,PenTeleData House Account,No,Skipped
+SCC 02,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+SCC 07,WAN2,MISMATCH,Comporium Com DIA,"Comporium,",No,Skipped
+SCC 08,WAN2,MISMATCH,EB2-Windstream Fiber,Windstream Communications LLC,No,Skipped
+SCC 09,WAN2,MISMATCH,Comporium Com,Rock Hill Telephone Company,No,Skipped
+SCC 15,WAN2,MISMATCH,Farmers Telephone Cooperative (FTC),Charter Communications,No,Skipped
+SCC 17,WAN2,MISMATCH,EB2-Frontier Fiber,Charter Communications,No,Skipped
+TNM 04,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+TNN 08,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+TNN 14,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TNN 15,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+TXA 07,WAN2,MISMATCH,Astound,Grande Communications SAN MARCOS Static,No,Skipped
+TXA 09,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXA 13,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXC 06,WAN2,MISMATCH,AT&T Broadband II,Optimum,No,Skipped
+TXC 07,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXC 11,WAN2,MISMATCH,EB2-CableOne Cable,"CABLE ONE, INC.",No,Skipped
+TXC 15,WAN2,MISMATCH,EB2-CableOne Cable,New Wave Communications,No,Skipped
+TXC 18,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXC 19,WAN2,MISMATCH,Vexus,Charter Communications,No,Skipped
+TXC 21,WAN2,MISMATCH,Big Bend Telephone,Charter Communications,No,Skipped
+TXD 08,WAN2,MISMATCH,EB2-Frontier Fiber,Frontier Communications Corporation,No,Skipped
+TXD 11,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXD 22,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXD 26,WAN2,MISMATCH,AT&T Broadband II,Charter Communications Inc,No,Skipped
+TXD 28,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXD 38,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXD 40,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXD 42,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXD 44,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXD 45,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXD 50,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXD 51,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXD 58,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXD 59,WAN2,MISMATCH,EB2-Frontier Fiber,Frontier Communications,No,Skipped
+TXD 63,WAN2,MISMATCH,EB2-Windstream Fiber,"CABLE ONE, INC.",No,Skipped
+TXD 67,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXD 77,WAN2,MISMATCH,EB2-Frontier Fiber,Frontier Communications,No,Skipped
+TXD 81,WAN2,MISMATCH,EB2-Frontier Fiber,Charter Communications,No,Skipped
+TXD 94,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXH 10,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+TXH 20,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+TXH 33,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+TXH 39,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+TXH 43,WAN2,MISMATCH,AT&T Broadband II,Optimum,No,Skipped
+TXH 53,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+TXH 58,WAN2,MISMATCH,Spectrum,Comcast,No,Skipped
+TXH 60,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+TXH 61,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+TXH 62,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXH 66,WAN2,MISMATCH,AT&T Broadband II,PPO CHECK,No,Skipped
+TXH 69,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXH 72,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+TXH 77,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+TXH 81,WAN2,MISMATCH,Metronet,"JAB Wireless, INC.",No,Skipped
+TXH 87,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+TXH 89,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+TXH 92,WAN2,MISMATCH,Brightspeed,"CenturyLink Communications, LLC",No,Skipped
+TXH 95,WAN2,MISMATCH,AT&T Broadband II,Comcast,No,Skipped
+TXL 01,WAN2,MISMATCH,Vexus,Optimum,No,Skipped
+TXM 03,WAN2,MISMATCH,AT&T Broadband II,Optimum,No,Skipped
+TXO 01,WAN2,MISMATCH,EB2-CableOne Cable,"CABLE ONE, INC.",No,Skipped
+TXS 09,WAN2,MISMATCH,Spectrum,STARBUCKS,No,Skipped
+TXS 13,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXS 14,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXS 16,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXS 18,WAN2,MISMATCH,EB2-Windstream Fiber,Windstream Communications LLC,No,Skipped
+TXS 23,WAN2,MISMATCH,GVTC Communications,"Guadalupe Valley Telephone Cooperative,",No,Skipped
+TXS 26,WAN2,MISMATCH,GVTC Communications,Charter Communications,No,Skipped
+TXS 29,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXS 30,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXS 31,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+TXW 01,WAN2,MISMATCH,AT&T Broadband II,Optimum,No,Skipped
+TXW 09,WAN2,MISMATCH,Vexus,NTSC,No,Skipped
+UTS 05,WAN2,MISMATCH,Centracom,Private Customer,No,Skipped
+UTS 09,WAN2,MISMATCH,EB2-Centurylink DSL,MindQuest,No,Skipped
+UTS 14,WAN2,MISMATCH,First Digital,"FirstDigital Communications, LLC",No,Skipped
+UTS 20,WAN2,MISMATCH,First Digital,"AT&T Enterprises, LLC",No,Skipped
+UTS 24,WAN2,MISMATCH,Spanish Fork Community Network,Google,No,Skipped
+UTS 25,WAN2,MISMATCH,Centracom,Private Customer,No,Skipped
+VAB 03,WAN2,MISMATCH,Cox Business/BOI,"AT&T Enterprises, LLC",No,Skipped
+VAR 03,WAN2,MISMATCH,EB2-Verizon Fiber,Comcast,No,Skipped
+VAW 01,WAN2,MISMATCH,Lumos Networks,Comcast,No,Skipped
+WAE 03,WAN2,MISMATCH,Pocketinet Communications,Northwest Open Access Network,No,Skipped
+WAE 04,WAN2,MISMATCH,EB2-Ziply Fiber,Charter Communications,No,Skipped
+WAS 01,WAN2,MISMATCH,EB2-Ziply Fiber,Ziply Fiber,No,Skipped
+WAS 13,WAN2,MISMATCH,Astound,Wave Broadband,No,Skipped
+WAS 17,WAN2,MISMATCH,EB2-Ziply Fiber,Ziply Fiber,No,Skipped
+WAS 18,WAN2,MISMATCH,LocalTel,Charter Communications,No,Skipped
+WAS 26,WAN2,MISMATCH,EB2-Ziply Fiber,Ziply Fiber,No,Skipped
+WAS 28,WAN2,MISMATCH,Astound,RAND L KOLER AND ASSOCIA,No,Skipped
+WDTD 01,WAN2,MISMATCH,ATT,Verizon Business,No,Skipped
+WIA 02,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+WIM 06,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped
+WIO 01,WAN2,MISMATCH,AT&T Broadband II,Charter Communications,No,Skipped

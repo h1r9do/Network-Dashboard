@@ -1,0 +1,236 @@
+<!-- Tab 2: Corp Network Executive Summary - Rich Format like Tab 1 -->
+<div class="eol-summary-container">
+    <h2>Corporate Network End-of-Life Summary</h2>
+    
+    <!-- Overall Summary -->
+    <div class="overall-summary">
+        <h3>Data Center & Corporate Network Status</h3>
+        <div class="summary-stats">
+            <div class="stat-box">
+                <div class="stat-number">{{ corp_executive.overall.total_devices }}</div>
+                <div class="stat-label">Total Devices</div>
+            </div>
+            <div class="stat-box stat-active">
+                <div class="stat-number">{{ corp_executive.overall.active_devices }}</div>
+                <div class="stat-label">Active ({{ corp_executive.overall.active_percentage }}%)</div>
+            </div>
+            <div class="stat-box stat-eos">
+                <div class="stat-number">{{ corp_executive.overall.eos_devices }}</div>
+                <div class="stat-label">End of Sale ({{ corp_executive.overall.eos_percentage }}%)</div>
+            </div>
+            <div class="stat-box stat-eol">
+                <div class="stat-number">{{ corp_executive.overall.eol_devices }}</div>
+                <div class="stat-label">End of Life ({{ corp_executive.overall.eol_percentage }}%)</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Critical Data Center Infrastructure Alert -->
+    {% if corp_executive.datacenter_alerts.has_critical_risks %}
+    <div class="mx-security-alert">
+        <div class="alert-header">
+            <span class="alert-icon">🏢</span>
+            <h3>Critical Risk: Data Center Core Infrastructure End-of-Support</h3>
+            <span class="alert-badge">SEVERE</span>
+        </div>
+        <div class="alert-content">
+            <div class="mx-stats">
+                <div class="stat-item">
+                    <span class="stat-value">{{ corp_executive.datacenter_alerts.nexus_stats.total }}</span>
+                    <span class="stat-label">Total Nexus Core Switches</span>
+                </div>
+                <div class="stat-item critical">
+                    <span class="stat-value">{{ corp_executive.datacenter_alerts.nexus_stats.eol }}</span>
+                    <span class="stat-label">Already End-of-Life</span>
+                </div>
+                <div class="stat-item urgent">
+                    <span class="stat-value">{{ corp_executive.datacenter_alerts.nexus_stats.eol_percentage }}%</span>
+                    <span class="stat-label">Core Infrastructure at Risk</span>
+                </div>
+            </div>
+            
+            <div class="impact-section">
+                <h4>🚨 Critical Business Impacts of Data Center EOL Equipment:</h4>
+                
+                <div class="impact-grid">
+                    <div class="impact-category security">
+                        <h5>🔒 Security Vulnerabilities</h5>
+                        <ul>
+                            <li>Core switches without security patches</li>
+                            <li>Firewall rules may not function properly</li>
+                            <li>Compliance violations (SOX, PCI)</li>
+                            <li>No vendor security advisories</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="impact-category operational">
+                        <h5>⚙️ Operational Impacts</h5>
+                        <ul>
+                            <li>No vendor support for outages</li>
+                            <li>No software updates available</li>
+                            <li>Incompatibility with new systems</li>
+                            <li>No replacement hardware (RMA)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="impact-category business">
+                        <h5>💼 Business Continuity</h5>
+                        <ul>
+                            <li>Data center outages affect all stores</li>
+                            <li>Core system failures cascade</li>
+                            <li>Extended recovery times</li>
+                            <li>Business application disruptions</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="impact-category financial">
+                        <h5>💰 Financial Exposure</h5>
+                        <ul>
+                            <li>Emergency replacements: 5-10x cost</li>
+                            <li>Downtime: $100K+ per hour</li>
+                            <li>Compliance fines</li>
+                            <li>Lost productivity company-wide</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="risk-summary">
+                    <p><strong>Executive Summary:</strong> Data center core infrastructure (Nexus switches, firewalls, routers) forms the backbone of all IT operations. Unlike edge devices, failure of core infrastructure affects <strong>ALL stores and corporate operations simultaneously</strong>. The {{ corp_executive.datacenter_alerts.nexus_stats.eol_percentage }}% of core switches at EOL represents an unacceptable business risk requiring immediate capital planning.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    <!-- By Device Type -->
+    <div class="device-type-summary">
+        <h3>Status by Infrastructure Type</h3>
+        <div class="device-type-grid">
+            {% for device_type in corp_executive.by_device_type %}
+            <div class="device-type-card">
+                <div class="device-type-header">
+                    <h4>{{ device_type.device_type }}</h4>
+                    <span class="device-count">{{ device_type.total_devices }} devices</span>
+                </div>
+                <div class="status-breakdown">
+                    <div class="status-bar">
+                        <div class="status-segment status-active" 
+                             style="width: {{ device_type.active_percentage }}%"
+                             title="Active: {{ device_type.active }} models"></div>
+                        <div class="status-segment status-eos" 
+                             style="width: {{ device_type.eos_percentage }}%"
+                             title="End of Sale: {{ device_type.end_of_sale }} models"></div>
+                        <div class="status-segment status-eol" 
+                             style="width: {{ device_type.eol_percentage }}%"
+                             title="End of Life: {{ device_type.end_of_life }} models"></div>
+                    </div>
+                    <div class="status-labels">
+                        <span class="label-active">{{ device_type.active_percentage }}% Active</span>
+                        <span class="label-eos">{{ device_type.eos_percentage }}% EOS</span>
+                        <span class="label-eol">{{ device_type.eol_percentage }}% EOL</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    <!-- Year-by-Year EOL Timeline -->
+    <div class="eol-timeline-summary">
+        <h3>Corporate Infrastructure End of Support Timeline</h3>
+        <div class="timeline-container">
+            {% for year_data in corp_executive.eol_timeline %}
+                {% if year_data.total_devices > 0 %}
+                <div class="timeline-year {{ 'past-year' if year_data.is_past else 'future-year' }} {{ 'current-year' if year_data.is_current else '' }}">
+                    <div class="year-header">
+                        <h4>{{ year_data.year }}</h4>
+                        <span class="year-total">{{ year_data.total_devices }} devices</span>
+                        {% if year_data.is_past %}
+                            <span class="year-status past">Already EOL</span>
+                        {% elif year_data.is_current %}
+                            <span class="year-status current">This Year</span>
+                        {% else %}
+                            <span class="year-status future">Future EOL</span>
+                        {% endif %}
+                    </div>
+                    <div class="device-type-breakdown">
+                        {% for device_type, count in year_data.by_device_type.items() %}
+                            {% if count > 0 %}
+                            <div class="device-type-item">
+                                <span class="device-type-name">{{ device_type }}</span>
+                                <span class="device-type-count">{{ count }}</span>
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    
+    <!-- Critical Planning Insights -->
+    <div class="critical-insights-section">
+        <h3>Data Center & Corporate Infrastructure Planning Insights</h3>
+        
+        <!-- Immediate Action Required -->
+        {% if corp_executive.critical_insights.immediate_action %}
+        <div class="insight-category urgent">
+            <h4>⚡ Immediate Action Required</h4>
+            <div class="insight-items">
+                {% for insight in corp_executive.critical_insights.immediate_action %}
+                <div class="insight-item urgent">
+                    <span class="insight-icon">🔥</span>
+                    <span class="insight-text">{{ insight.message }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        
+        <!-- Critical Years -->
+        {% if corp_executive.critical_insights.critical_years %}
+        <div class="insight-category critical">
+            <h4>📅 Critical EOL Years</h4>
+            <div class="insight-items">
+                {% for insight in corp_executive.critical_insights.critical_years %}
+                <div class="insight-item critical">
+                    <span class="insight-icon">⚠️</span>
+                    <span class="insight-text">{{ insight.message }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        
+        <!-- Major Infrastructure Refreshes -->
+        {% if corp_executive.critical_insights.major_refreshes %}
+        <div class="insight-category major">
+            <h4>🔄 Major Infrastructure Refreshes</h4>
+            <div class="insight-items">
+                {% for insight in corp_executive.critical_insights.major_refreshes %}
+                <div class="insight-item major">
+                    <span class="insight-icon">🏢</span>
+                    <span class="insight-text">{{ insight.message }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        
+        <!-- Budget Planning Priorities -->
+        {% if corp_executive.critical_insights.budget_planning %}
+        <div class="insight-category budget">
+            <h4>💰 Budget Planning Priorities</h4>
+            <div class="insight-items">
+                {% for insight in corp_executive.critical_insights.budget_planning %}
+                <div class="insight-item budget {{ insight.priority.lower() }}-priority">
+                    <span class="insight-icon">💵</span>
+                    <span class="insight-text">{{ insight.message }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>

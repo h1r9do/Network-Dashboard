@@ -1,0 +1,104 @@
+site_name,site_id,circuit_purpose,provider_name,speed,monthly_cost,wan1_provider,wan2_provider,wan1_arin_provider,wan2_arin_provider,exclusion_reason,arin_could_match
+AZP 00,AZP000,Primary,Cox Business/BOI,300.0M x 30.0M,387.24,,,,,1. No Meraki device,No
+CAL000,CAL000,Primary,Frontier FIOS,500.0M x 500.0M,59.99,,,,,1. No Meraki device,No
+CAL000,CAL000 -B,Secondary,Spectrum,600.0M x 35.0M,172.23,,,,,1. No Meraki device,No
+CALW01,CALW01,Primary,EB2-Frontier Fiber,1000.0M x 1000.0M,339.00,,,,,1. No Meraki device,No
+CAN00,CAN00,Primary,Comcast Workplace,250.0M x 25.0M,186.18,,,,,1. No Meraki device,No
+CAN00,CAN00 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,,,,,1. No Meraki device,No
+CAS00,CAS00 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,,,,,1. No Meraki device,No
+CAS00,CAS00,Primary,Cox Business/BOI,300.0M x 30.0M,266.67,,,,,1. No Meraki device,No
+COD00,COD00,Primary,Comcast Workplace,600.0M x 35.0M,234.45,,,,,1. No Meraki device,No
+FLJ 00,FLJ 00,Primary,Comcast Workplace,300.0M x 30.0M,175.56,,,,,1. No Meraki device,No
+FLJ 00,FLJ 00 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,,,,,1. No Meraki device,No
+GAA 00,GAA 00,Primary,AT&T Broadband II,1000.0M x 1000.0M,165.01,,,,,1. No Meraki device,No
+GAA 00,GAA 00 -B,Secondary,Comcast Workplace,600.0M x 35.0M,234.45,,,,,1. No Meraki device,No
+GAACALLCTR,GAACALLCTR -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,,,,,1. No Meraki device,No
+GAACALLCTR,GAACALLCTR,Primary,Spectrum,600.0M x 35.0M,244.45,,,,,1. No Meraki device,No
+ILC00,ILC00 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,,,,,1. No Meraki device,No
+ILC00,ILC00,Primary,Comcast Workplace,300.0M x 30.0M,175.56,,,,,1. No Meraki device,No
+ILR01,ILR01,Primary,Comcast Workplace,600.0M x 35.0M,234.45,,,,,1. No Meraki device,No
+ILX 01,ILX 01,Primary,Comcast Workplace,250.0M x 25.0M,186.18,,,,,1. No Meraki device,No
+INIW00,INIW00 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,,,,,1. No Meraki device,No
+INIW00,INIW00,Primary,Comcast Workplace,250.0M x 25.0M,186.18,,,,,1. No Meraki device,No
+KONFARA,KONFARA,Primary,Cox Business/BOI,500.0M x 50.0M,342.23,,,,,1. No Meraki device,No
+KSK00N,KSK00N,Primary,Spectrum,300.0M x 20.0M,207.45,,,,,1. No Meraki device,No
+KSK00N,KSK00N -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,,,,,1. No Meraki device,No
+KYN 00,KYN 00 -B,Secondary,Spectrum,600.0M x 35.0M,172.23,,,,,1. No Meraki device,No
+KYN 00,KYN 00,Primary,Cincinnati Bell,400.0M x 200.0M,84.99,,,,,1. No Meraki device,No
+MIA00,MIA00,Primary,Comcast Workplace,600.0M x 35.0M,234.45,,,,,1. No Meraki device,No
+MIHW00,MIHW00,Primary,Comcast Workplace,250.0M x 25.0M,186.18,,,,,1. No Meraki device,No
+MNM 00,MNM 00 New,Primary,Comcast Workplace,600.0M x 35.0M,234.45,,,,,1. No Meraki device,No
+MNM 09 -B,MNM 09 -B,Secondary,Comcast Workplace,600.0M x 35.0M,234.45,,,,,1. No Meraki device,No
+MNMW01,MNMW01,Primary,Comcast Workplace,600.0M x 35.0M,234.45,,,,,1. No Meraki device,No
+MOS 00,MOS 00,Primary,Spectrum,600.0M x 35.0M,172.23,,,,,1. No Meraki device,No
+MOS 00,MOS 00-B,Secondary,AT&T Broadband II,1000.0M x 1000.0M,165.01,,,,,1. No Meraki device,No
+MOS XX,MOS XX,Primary,Spectrum,600.0M x 35.0M,172.23,,,,,1. No Meraki device,No
+MOS XX,MOS XX -B,Secondary,AT&T Broadband II,1000.0M x 1000.0M,165.01,,,,,1. No Meraki device,No
+NCC00,NCC00 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,,,,,1. No Meraki device,No
+NCC W00,NCC W00,Primary,Spectrum,600.0M x 35.0M,244.45,,,,,1. No Meraki device,No
+NMA00,NMA00- B,Secondary,EB2-Centurylink DSL,100.0M x 10.0M,128.00,,,,,1. No Meraki device,No
+NMA00,NMA00,Primary,Comcast Workplace,300.0M x 30.0M,175.56,,,,,1. No Meraki device,No
+NMA Call Center,NMA Call Center,Primary,Comcast Workplace,600.0M x 35.0M,234.45,,,,,1. No Meraki device,No
+NNM 09,NNM 09,Primary,Comcast Workplace,600.0M x 35.0M,234.45,,,,,1. No Meraki device,No
+NVL000,NVL000,Primary,Cox Business/BOI,300.0M x 30.0M,266.67,,,,,1. No Meraki device,No
+NVLW 01,NVLW 01,Primary,Cox Business/BOI,300.0M x 30.0M,266.67,,,,,1. No Meraki device,No
+OKO00,OKO00,Primary,Cox Business/BOI,300.0M x 30.0M,266.67,,,,,1. No Meraki device,No
+TNN00,TNN00,Primary,Comcast Workplace,300.0M x 30.0M,175.56,,,,,1. No Meraki device,No
+TNN00,TNN00 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,,,,,1. No Meraki device,No
+TXD 00,TXD 00,Primary,Spectrum,600.0M x 35.0M,244.45,,,,,1. No Meraki device,No
+TXD00,TXD00,Primary,Spectrum,600.0M x 35.0M,172.23,,,,,1. No Meraki device,No
+TXH00,TXH00,Primary,Comcast Workplace,300.0M x 30.0M,175.56,,,,,1. No Meraki device,No
+TXH00,TXH00 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,,,,,1. No Meraki device,No
+TXH Training,TXH Training,Primary,Comcast Workplace,300.0M x 30.0M,175.56,,,,,1. No Meraki device,No
+TXHW00,TXHW00 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,,,,,1. No Meraki device,No
+TXHW00,TXHW00,Primary,Comcast Workplace,600.0M x 35.0M,234.45,,,,,1. No Meraki device,No
+TXS 00,TXS 00 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,,,,,1. No Meraki device,No
+TXS000,TXS 00,Primary,Spectrum,600.0M x 35.0M,244.45,,,,,1. No Meraki device,No
+UTS 00,UTS 00,Primary,Zayo Communications,100.0M x 100.0M,495.00,,,,,1. No Meraki device,No
+UTSW01,UTSW01,Primary,Comcast Workplace,600.0M x 35.0M,234.45,,,,,1. No Meraki device,No
+UTSW02,UTSW02,Primary,Comcast Workplace,600.0M x 35.0M,234.45,,,,,1. No Meraki device,No
+VAF 01,VAF 01,Primary,Comcast Workplace,250.0M x 25.0M,186.18,,,,,1. No Meraki device,No
+VAR 00,VAR 00,Primary,Comcast Workplace,600.0M x 35.0M,234.45,,,,,1. No Meraki device,No
+WAS00,WAS00,Primary,Ziply Fiber,1000.0M x 1000.0M,200.00,,,,,1. No Meraki device,No
+WDGA01_01,WDGA01_01 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,,,,,1. No Meraki device,No
+WDIL01,WDIL01,Primary,AT&T Broadband II,1000.0M x 1000.0M,165.01,,,,,1. No Meraki device,No
+WDTD01,WDTD01,Primary,AT&T Broadband II,1000.0M x 1000.0M,165.00,,,,,1. No Meraki device,No
+COX 01,WDCO01,Primary,Comcast Workplace,600.0M x 35.0M,234.45,,Comcast Workplace,,Private IP,2. No Discount-Tire tag,No
+COX 01,WDCO01,Primary,Comcast Workplace,600.0M x 35.0M,234.45,,Comcast Workplace,AT&T,Comcast,2. No Discount-Tire tag,Yes - WAN2
+MIAC02,MIAC02,Primary,AT&T Broadband II,1000.0M x 200.0M,165.00,AT&T Broadband II,Digi,AT&T,Private IP,2. No Discount-Tire tag,Yes - WAN1
+MIL 00,MIL 00,Primary,Comcast Workplace,250.0M x 25.0M,186.18,Comcast Workplace,AT&T Broadband II,Comcast,AT&T,2. No Discount-Tire tag,Yes - WAN1
+MIL 00,MIL 00 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,Comcast Workplace,AT&T Broadband II,Comcast,AT&T,2. No Discount-Tire tag,Yes - WAN2
+NMAW00,NMAW00,Primary,Comcast Workplace,600.0M x 35.0M,234.45,Comcast Workplace,Digi,Comcast,AT&T,2. No Discount-Tire tag,Yes - WAN1
+TXH SE Flex DTU,TXH SE Flex DTU,Primary,Comcast Workplace,600.0M x 35.0M,234.45,Comcast Workplace,,Private IP,,2. No Discount-Tire tag,No
+LAB 01,LAB 01 -B,Secondary,REV Business,100.0M x 100.0M,100.00,: Cox Business/BOI,: REV Business,Cox Communications,IBM Cloud,3. Lab site,No
+LAB 01,LAB 01,Primary,Cox Business/BOI,300.0M x 30.0M,266.67,: Cox Business/BOI,: REV Business,Cox Communications,IBM Cloud,3. Lab site,Yes - WAN1
+LAB 02,LAB 02 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,: Cox Business/BOI,: AT&T Broadband II,Cox Communications,AT&T,3. Lab site,Yes - WAN2
+LAB 02,LAB 02,Primary,Cox Business/BOI,300.0M x 30.0M,266.67,: Cox Business/BOI,: AT&T Broadband II,Cox Communications,AT&T,3. Lab site,Yes - WAN1
+LAB 03,LAB 03- B,Secondary,AT&T Broadband II,1000.0M x 1000.0M,165.01,: AT&T Broadband II,: Cox Business/BOI,AT&T,Cox Communications,3. Lab site,Yes - WAN1
+LAB 03,LAB 03,Primary,Cox Business/BOI,300.0M x 30.0M,266.67,: AT&T Broadband II,: Cox Business/BOI,AT&T,Cox Communications,3. Lab site,Yes - WAN2
+LAB 04,LAB 04,Primary,AT&T Broadband II,1000.0M x 1000.0M,165.01,: AT&T Broadband II,,AT&T,Private IP,3. Lab site,Yes - WAN1
+LAB 06,LAB 06- B,Secondary,Cox Business/BOI,300.0M x 30.0M,266.67,: AT&T Broadband II,: Cox Business/BOI,AT&T,Cox Communications,3. Lab site,Yes - WAN2
+LAB 06,LAB 06,Primary,AT&T Broadband II,1000.0M x 1000.0M,165.01,: AT&T Broadband II,: Cox Business/BOI,AT&T,Cox Communications,3. Lab site,Yes - WAN1
+AZF 02,AZF 02,Primary,Altice West,500.0M x 50.0M,222.23,Lightpath ,Lightpath,Optimum,Optimum,8. Provider mismatch,No
+AZH 01,AZH 01,Primary,Altice West,500.0M x 50.0M,212.77,Optimum,Digi,Optimum,AT&T,8. Provider mismatch,No
+AZT 14,AZT 14 -B,Secondary,Login,100.0M x 20.0M,450.00,Cox Business/BOI,"Login, Inc.",Cox Communications,"Login, Inc.",8. Provider mismatch,No
+CAN 22,CAN 22,Primary,Vista Broadband,15.0M x 15.0M,250.00,Comcast Workplace,AT&T Broadband II,Comcast,AT&T,8. Provider mismatch,No
+CAN 58,CAN 58 -B,Secondary,AT&T Broadband II,1000.0M x 1000.0M,165.01,Private Customer - AT&T Internet Services,Comcast Workplace,AT&T,Comcast,8. Provider mismatch,Yes - WAN1
+CAS 13,CAS 13 -B,Secondary,AT&T Broadband II,1000.0M x 1000.0M,165.01,,,,,8. Provider mismatch,No
+CAS 13,CAS 13,Primary,Cox Business/BOI,300.0M x 30.0M,266.67,,,,,8. Provider mismatch,No
+FLP 03,FLP 03,Primary,Mediacom/BOI,300.0M x 20.0M,244.69,AT&T Broadband II,,AT&T,,8. Provider mismatch,No
+GAA 03,GAA 03 -B,Secondary,AT&T Broadband II,1000.0M x 1000.0M,165.01,Private Customer - AT&T Internet Services,Comcast Workplace,AT&T,Private IP,8. Provider mismatch,Yes - WAN1
+MOS 12,MOS 12 -B,Secondary,AT&T Broadband II,1000.0M x 1000.0M,165.01,Private Customer - AT&T Internet Services,Spectrum,AT&T,Charter Communications,8. Provider mismatch,Yes - WAN1
+OKA 01,OKA 01,Primary,SparkLight,300.0M x 30.0M,224.99,AT&T Broadband II,AT&T Broadband II,"Cable One, Inc.",AT&T,8. Provider mismatch,No
+TXD 28,TXD 28 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,Spectrum,Spectrum,AT&T,Charter Communications,8. Provider mismatch,Yes - WAN1
+TXD 33,TXD 33 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,Spectrum,,Private IP,,8. Provider mismatch,No
+TXD 50,TXD 50,Primary,Spectrum,600.0M x 35.0M,244.45,Private Customer - AT&T Internet Services,Charter Communications Inc,AT&T,Charter Communications,8. Provider mismatch,Yes - WAN2
+TXD 50,TXD 50 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,Private Customer - AT&T Internet Services,Charter Communications Inc,AT&T,Charter Communications,8. Provider mismatch,Yes - WAN1
+TXH 23,TXH 23,Primary,Altice West,500.0M x 50.0M,222.23,Optimum,Digi,Optimum,Private IP,8. Provider mismatch,No
+TXH 43,TXH 43,Primary,Altice West,500.0M x 50.0M,222.23,"AT&T Enterprises, LLC",Optimum,AT&T,Optimum,8. Provider mismatch,No
+TXH 74,TXH 74,Primary,Altice,500.0M x 50.0M,212.77,Optimum,VZW Cell,Private IP,Private IP,8. Provider mismatch,No
+TXH 85,TXH 85,Primary,Altice West,500.0M x 50.0M,222.23,Optimum,Verizon Business,Optimum,Verizon,8. Provider mismatch,No
+TXH 92,TXH 92- B,Secondary,Brightspeed,80.0M x 10.0M,149.99,Comcast Workplace,CenturyLink Communications LLC,Comcast,Private IP,8. Provider mismatch,No
+TXW 03,TXW 03,Primary,Altice West,500.0M x 50.0M,222.23,Optimum,Digi,Optimum,Private IP,8. Provider mismatch,No
+TXW 06,TXW 06,Primary,Altice West,500.0M x 50.0M,222.23,Optimum,Digi,Optimum,Private IP,8. Provider mismatch,No
+VAB 03,VAB 03 -B,Secondary,Cox Business/BOI,300.0M x 30.0M,266.67,Verizon FIOS,DSR Cox Cable,Verizon,Private IP,8. Provider mismatch,No

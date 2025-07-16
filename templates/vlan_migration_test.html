@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VLAN Migration Test - TST 01 - DSR Circuits</title>
+    
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <!-- Bootstrap 4 (matching DSR Circuits) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- DSR Circuits Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        
+        .navbar {
+            background-color: #343a40;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 500;
+            color: #fff !important;
+        }
+        
+        .navbar-nav .nav-link {
+            color: rgba(255,255,255,0.8) !important;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: #fff !important;
+        }
+        
+        .card {
+            box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+            border: none;
+            margin-bottom: 20px;
+        }
+        
+        .card-header {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+            font-weight: 600;
+        }
+        
+        .migration-console {
+            background-color: #000;
+            color: #0f0;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 12px;
+            padding: 15px;
+            height: 500px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        
+        .phase-backup { color: #17a2b8; }
+        .phase-clear { color: #ffc107; }
+        .phase-migrate { color: #fd7e14; }
+        .phase-restore { color: #6f42c1; }
+        .phase-validation { color: #20c997; }
+        .phase-complete { color: #28a745; }
+        .phase-error { color: #dc3545; }
+        .phase-warning { color: #ffc107; }
+        .phase-reset { color: #007bff; }
+        
+        .btn-action {
+            min-width: 150px;
+        }
+        
+        .status-badge {
+            font-size: 14px;
+            padding: 5px 10px;
+        }
+        
+        .vlan-badge {
+            margin: 2px;
+            font-size: 14px;
+        }
+        
+        .test-notice {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        
+        .workflow-step {
+            padding: 15px;
+            margin: 10px 0;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            border-left: 4px solid #007bff;
+        }
+        
+        .workflow-step.active {
+            background-color: #e7f3ff;
+            border-left-color: #0056b3;
+        }
+        
+        .workflow-step.complete {
+            border-left-color: #28a745;
+        }
+        
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #007bff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="/home">
+            <i class="fas fa-network-wired"></i> DSR Circuits
+        </a>
+        <span class="navbar-text text-warning ml-3">
+            <i class="fas fa-flask"></i> Test Mode - TST 01 Only
+        </span>
+        <div class="navbar-nav ml-auto">
+            <a class="nav-link" href="/vlan-migration">
+                <i class="fas fa-rocket"></i> Production Tool
+            </a>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-4">
+        <!-- Test Notice -->
+        <div class="test-notice">
+            <i class="fas fa-exclamation-triangle"></i> <strong>Test Environment:</strong> 
+            This tool is configured to work only with TST 01 for testing purposes. 
+            It allows you to reset TST 01 to legacy configuration and test the migration process.
+        </div>
+
+        <!-- Page Header -->
+        <div class="row mb-4">
+            <div class="col">
+                <h1><i class="fas fa-flask text-primary"></i> VLAN Migration Test - TST 01</h1>
+                <p class="text-muted">Test VLAN migration process with reset capability</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Left Column - Controls -->
+            <div class="col-md-4">
+                <!-- Network Status Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-info-circle"></i> TST 01 Status</h5>
+                    </div>
+                    <div class="card-body" id="networkStatus">
+                        <div class="text-center">
+                            <div class="spinner-border text-primary" role="status">
+                                <span class="sr-only">Loading...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Test Workflow Card -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-tasks"></i> Test Workflow</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="workflow-step" id="step1">
+                            <h6><i class="fas fa-undo"></i> Step 1: Reset to Legacy Config</h6>
+                            <p class="mb-2">Reset TST 01 to legacy configuration</p>
+                            <button class="btn btn-warning btn-action" id="resetBtn" onclick="resetNetwork()">
+                                <i class="fas fa-undo"></i> Reset to Legacy
+                            </button>
+                        </div>
+                        
+                        <div class="workflow-step" id="step2">
+                            <h6><i class="fas fa-exchange-alt"></i> Step 2: Run Migration</h6>
+                            <p class="mb-2">Apply new template configuration</p>
+                            <button class="btn btn-primary btn-action" id="migrateBtn" onclick="runMigration()" disabled>
+                                <i class="fas fa-play"></i> Apply Template
+                            </button>
+                        </div>
+                        
+                        <div class="workflow-step" id="step3">
+                            <h6><i class="fas fa-check-circle"></i> Step 3: Validation</h6>
+                            <p class="mb-0">Automatic validation after migration</p>
+                            <div id="validationResult"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Job Status Card -->
+                <div class="card" id="jobStatusCard" style="display: none;">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="fas fa-cog fa-spin"></i> Job Status</h5>
+                    </div>
+                    <div class="card-body">
+                        <div id="jobStatus"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Console Output -->
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5 class="mb-0"><i class="fas fa-terminal"></i> Console Output</h5>
+                        <button class="btn btn-sm btn-secondary" onclick="clearConsole()">
+                            <i class="fas fa-eraser"></i> Clear
+                        </button>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="migration-console" id="console">Waiting for operation...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let currentJob = null;
+        let pollInterval = null;
+        let logIndex = 0;
+
+        // Initialize on page load
+        $(document).ready(function() {
+            loadNetworkStatus();
+            checkJobStatus();
+        });
+
+        // Load network status
+        function loadNetworkStatus() {
+            $.ajax({
+                url: '/api/vlan-migration-test/network-info',
+                method: 'GET',
+                success: function(data) {
+                    displayNetworkStatus(data.network);
+                },
+                error: function(xhr) {
+                    $('#networkStatus').html(
+                        '<div class="alert alert-danger">Failed to load network status</div>'
+                    );
+                }
+            });
+        }
+
+        // Display network status
+        function displayNetworkStatus(network) {
+            let vlanHtml = '';
+            let legacyVlans = [];
+            let newVlans = [];
+            
+            network.vlans.forEach(vlan => {
+                if (['1', '101', '201', '801'].includes(vlan.id)) {
+                    legacyVlans.push(vlan);
+                } else if (['100', '200', '410', '400'].includes(vlan.id)) {
+                    newVlans.push(vlan);
+                }
+            });
+
+            let statusHtml = `
+                <h6>${network.name}</h6>
+                <p class="text-muted mb-2">Network ID: ${network.id}</p>
+                
+                <div class="mb-3">
+                    <strong>Legacy VLANs:</strong><br>
+                    ${legacyVlans.length > 0 ? 
+                        legacyVlans.map(v => `<span class="badge badge-warning vlan-badge">VLAN ${v.id}</span>`).join('') :
+                        '<span class="text-muted">None</span>'
+                    }
+                </div>
+                
+                <div class="mb-3">
+                    <strong>New VLANs:</strong><br>
+                    ${newVlans.length > 0 ? 
+                        newVlans.map(v => `<span class="badge badge-success vlan-badge">VLAN ${v.id}</span>`).join('') :
+                        '<span class="text-muted">None</span>'
+                    }
+                </div>
+                
+                <div class="mb-3">
+                    <strong>Firewall Rules:</strong> ${network.firewall_rule_count}
+                </div>
+                
+                <div>
+                    <strong>Migration Status:</strong><br>
+                    ${network.needs_migration ? 
+                        '<span class="badge badge-warning status-badge">Needs Migration</span>' :
+                        '<span class="badge badge-success status-badge">Already Migrated</span>'
+                    }
+                </div>
+            `;
+            
+            $('#networkStatus').html(statusHtml);
+            
+            // Enable/disable buttons based on status
+            if (network.needs_migration) {
+                $('#resetBtn').prop('disabled', true).removeClass('btn-warning').addClass('btn-secondary');
+                $('#migrateBtn').prop('disabled', false).removeClass('btn-secondary').addClass('btn-primary');
+                $('#step1').addClass('complete');
+                $('#step2').addClass('active');
+            } else {
+                $('#resetBtn').prop('disabled', false).removeClass('btn-secondary').addClass('btn-warning');
+                $('#migrateBtn').prop('disabled', true).removeClass('btn-primary').addClass('btn-secondary');
+                $('#step1').addClass('active');
+                $('#step2').removeClass('active complete');
+            }
+        }
+
+        // Reset network to Legacy Config
+        function resetNetwork() {
+            if (!confirm('Reset TST 01 to Legacy Configuration? This will restore legacy VLANs (1, 101, 201, 801).')) {
+                return;
+            }
+
+            $('#resetBtn').prop('disabled', true).html(
+                '<i class="fas fa-spinner fa-spin"></i> Resetting...'
+            );
+            
+            clearConsole();
+            addToConsole('Starting reset to Legacy Configuration...', 'reset');
+
+            $.ajax({
+                url: '/api/vlan-migration-test/reset',
+                method: 'POST',
+                success: function(data) {
+                    currentJob = data.job_id;
+                    startPolling();
+                    $('#jobStatusCard').show();
+                    updateJobStatus('reset', 'running');
+                },
+                error: function(xhr) {
+                    $('#resetBtn').prop('disabled', false).html(
+                        '<i class="fas fa-undo"></i> Reset Network'
+                    );
+                    addToConsole('Error: ' + xhr.responseJSON.error, 'error');
+                }
+            });
+        }
+
+        // Run migration
+        function runMigration() {
+            if (!confirm('Start VLAN migration for TST 01? This will apply the new template configuration.')) {
+                return;
+            }
+
+            $('#migrateBtn').prop('disabled', true).html(
+                '<i class="fas fa-spinner fa-spin"></i> Migrating...'
+            );
+            
+            clearConsole();
+            addToConsole('Starting migration to New Template Config...', 'start');
+
+            $.ajax({
+                url: '/api/vlan-migration-test/migrate',
+                method: 'POST',
+                success: function(data) {
+                    currentJob = data.job_id;
+                    startPolling();
+                    $('#jobStatusCard').show();
+                    updateJobStatus('migration', 'running');
+                    $('#step2').removeClass('active').addClass('complete');
+                    $('#step3').addClass('active');
+                },
+                error: function(xhr) {
+                    $('#migrateBtn').prop('disabled', false).html(
+                        '<i class="fas fa-play"></i> Apply Template'
+                    );
+                    addToConsole('Error: ' + xhr.responseJSON.error, 'error');
+                }
+            });
+        }
+
+        // Start polling for job status
+        function startPolling() {
+            logIndex = 0;
+            pollInterval = setInterval(checkJobStatus, 1000);
+        }
+
+        // Check job status
+        function checkJobStatus() {
+            if (!currentJob && !pollInterval) return;
+
+            $.ajax({
+                url: '/api/vlan-migration-test/status?since=' + logIndex,
+                method: 'GET',
+                success: function(data) {
+                    if (data.status === 'idle') {
+                        stopPolling();
+                        return;
+                    }
+
+                    // Update console with new logs
+                    if (data.console_logs && data.console_logs.length > 0) {
+                        data.console_logs.forEach(log => {
+                            addToConsole(log.message, log.phase);
+                        });
+                        logIndex = data.log_index;
+                    }
+
+                    // Update job status
+                    updateJobStatus(data.type, data.status);
+
+                    // Handle completion
+                    if (data.status === 'completed' || data.status === 'failed') {
+                        stopPolling();
+                        
+                        if (data.type === 'reset') {
+                            $('#resetBtn').prop('disabled', false).html(
+                                '<i class="fas fa-undo"></i> Reset Network'
+                            );
+                            if (data.status === 'completed') {
+                                loadNetworkStatus();
+                            }
+                        } else if (data.type === 'migration') {
+                            $('#migrateBtn').prop('disabled', false).html(
+                                '<i class="fas fa-play"></i> Start Migration'
+                            );
+                            if (data.status === 'completed') {
+                                loadNetworkStatus();
+                                displayValidationResult(data.validation_status, data.validation_details);
+                            }
+                        }
+                        
+                        if (data.duration) {
+                            addToConsole(`\nTotal duration: ${data.duration}`, 'complete');
+                        }
+                    }
+                }
+            });
+        }
+
+        // Stop polling
+        function stopPolling() {
+            if (pollInterval) {
+                clearInterval(pollInterval);
+                pollInterval = null;
+            }
+            currentJob = null;
+        }
+
+        // Update job status display
+        function updateJobStatus(type, status) {
+            let statusHtml = '<div class="d-flex align-items-center">';
+            
+            if (status === 'running' || status === 'initializing' || status === 'validating') {
+                statusHtml += '<div class="loading-spinner"></div>';
+            }
+            
+            let statusBadge = '';
+            switch(status) {
+                case 'running':
+                    statusBadge = '<span class="badge badge-primary ml-2">Running</span>';
+                    break;
+                case 'completed':
+                    statusBadge = '<span class="badge badge-success ml-2">Completed</span>';
+                    break;
+                case 'failed':
+                    statusBadge = '<span class="badge badge-danger ml-2">Failed</span>';
+                    break;
+                case 'validating':
+                    statusBadge = '<span class="badge badge-info ml-2">Validating</span>';
+                    break;
+            }
+            
+            statusHtml += statusBadge + '</div>';
+            
+            if (type === 'reset') {
+                statusHtml += '<p class="mb-0 mt-2">Resetting to legacy configuration...</p>';
+            } else if (type === 'migration') {
+                statusHtml += '<p class="mb-0 mt-2">Applying new template configuration...</p>';
+            }
+            
+            $('#jobStatus').html(statusHtml);
+        }
+
+        // Display validation result
+        function displayValidationResult(status, details) {
+            let resultHtml = '';
+            
+            if (status === 'passed') {
+                resultHtml = `
+                    <div class="alert alert-success mt-3">
+                        <i class="fas fa-check-circle"></i> Validation Passed
+                        <p class="mb-0 mt-1">Configuration matches new template (100% match)</p>
+                    </div>
+                `;
+            } else if (status === 'warning') {
+                resultHtml = `
+                    <div class="alert alert-warning mt-3">
+                        <i class="fas fa-exclamation-triangle"></i> Validation Warning
+                        <p class="mb-0 mt-1">Check console for details</p>
+                    </div>
+                `;
+            }
+            
+            $('#validationResult').html(resultHtml);
+        }
+
+        // Add message to console
+        function addToConsole(message, phase) {
+            const timestamp = new Date().toLocaleTimeString();
+            const $console = $('#console');
+            
+            let colorClass = 'phase-' + phase;
+            let line = `[${timestamp}] <span class="${colorClass}">${message}</span>\n`;
+            
+            if ($console.text() === 'Waiting for operation...') {
+                $console.html(line);
+            } else {
+                $console.append(line);
+            }
+            
+            // Auto-scroll to bottom
+            $console.scrollTop($console[0].scrollHeight);
+        }
+
+        // Clear console
+        function clearConsole() {
+            $('#console').text('Waiting for operation...');
+            logIndex = 0;
+        }
+    </script>
+</body>
+</html>

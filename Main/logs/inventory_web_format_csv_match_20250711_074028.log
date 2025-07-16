@@ -1,0 +1,7 @@
+2025-07-11 07:40:28,462 - INFO - ============================================================
+2025-07-11 07:40:28,462 - INFO - Starting Inventory Web Format Update - CSV Match Version
+2025-07-11 07:40:28,462 - INFO - Timestamp: 20250711_074028
+2025-07-11 07:40:28,462 - INFO - ============================================================
+2025-07-11 07:40:28,471 - ERROR - Error processing inventory: connection to server at "localhost" (127.0.0.1), port 5432 failed: connection to server at "localhost" (127.0.0.1), port 5432 failed: FATAL:  Ident authentication failed for user "dtadmin"
+
+2025-07-11 07:40:28,471 - ERROR - Update failed

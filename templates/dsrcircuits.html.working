@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const pushButton = document.querySelector(".push-meraki-button");
+    if (pushButton) {
+        pushButton.addEventListener("click", function () {
+            Swal.fire({
+                title: "Pushing to Meraki...",
+                html: "Please wait while updates are processed.",
+                allowOutsideClick: false,
+                didOpen: () => Swal.showLoading()
+            });
+
+            fetch("/push_to_meraki", { method: "POST" })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Network response was not OK");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const pushCount = data.new_push_count || 0;
+                    const skippedCount = data.skipped || 0;
+                    const pushedList = (data.new_pushes || []).join("<br>");
+
+                    Swal.fire({
+                        icon: "success",
+                        title: `Push to Meraki Complete`,
+                        html: `
+                            <p><strong>${pushCount}</strong> new site(s) pushed.</p>
+                            <p><strong>${skippedCount}</strong> skipped (already pushed).</p>
+                            <hr>
+                            <pre style="text-align:left">${pushedList}</pre>
+                        `,
+                        width: 700
+                    });
+                })
+                .catch(error => {
+                    Swal.fire({
+                        icon: "error",
+                        title: "Error pushing to Meraki",
+                        text: error.toString()
+                    });
+                });
+        });
+    }
+});
+</script>
+
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <meta charset="UTF-8">
+    <title>Broadband Provisioning Tracking System for Discount Tire</title>
+    <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <!-- Select2 CSS for enhanced dropdowns -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .header-container {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .header-container h1 {
+            margin: 0;
+            font-size: 24px;
+            display: inline-block;
+        }
+        .row-count {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 14px;
+            color: #ecf0f1;
+            font-weight: 400;
+        }
+        .circuit-table-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .filter-controls {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+        .filter-control {
+            padding: 5px;
+        }
+        .filter-control input, .filter-control select {
+            width: 100%;
+            padding: 6px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+        .circuit-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .circuit-table thead th {
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            background-color: #3498db;
+            color: white;
+        }
+        .circuit-table tbody tr {
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .circuit-table tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .circuit-table tbody tr:hover {
+            background-color: #f1f8ff;
+        }
+        .circuit-table td {
+            padding: 12px 15px;
+            color: #333;
+        }
+        .cost-cell {
+            font-weight: bold;
+            color: #27ae60;
+        }
+        .export-buttons {
+            margin-bottom: 15px;
+        }
+        .export-buttons button, .confirm-button, .push-meraki-button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            margin-right: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .export-buttons button:hover, .confirm-button:hover, .push-meraki-button:hover {
+            background: #2980b9;
+        }
+        .export-buttons button.active {
+            background: #27ae60;
+        }
+        .confirm-button.confirmed-edit {
+            background: #f39c12; /* Orange for "Confirmed - Edit?" */
+            color: white;
+        }
+        .confirm-button.confirmed-edit:hover {
+            background: #e67e22;
+        }
+        .push-meraki-button {
+            background: #2ecc71; /* Green for "Push to Meraki" */
+        }
+        .push-meraki-button:hover {
+            background: #27ae60;
+        }
+        /* Select2 customization */
+        .select2-container--default .select2-selection--single {
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            height: 34px;
+        }
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            line-height: 34px;
+            padding-left: 8px;
+            font-size: 13px;
+        }
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+            height: 32px;
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            overflow: auto;
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .modal-header {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .modal-section {
+            margin-bottom: 15px;
+        }
+        .modal-section h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        .modal-section p, .modal-section table, .modal-section input, .modal-section select, .modal-section button {
+            font-size: 14px;
+            color: #333;
+        }
+        .modal-section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .modal-section th, .modal-section td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .modal-section th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+        .modal-section .config-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .modal-section .config-row label {
+            flex: 0 0 120px;
+            margin-right: 10px;
+        }
+        .modal-section .config-row input, .modal-section .config-row select {
+            flex: 1;
+            margin-right: 10px;
+        }
+        .modal-section .config-row .checkbox-container {
+            flex: 0 0 150px;
+            display: flex;
+            align-items: center;
+        }
+        .modal-section .provider-suggestion {
+            color: #e74c3c;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .modal-ok-button {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .modal-ok-button.disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+        .modal-ok-button.active {
+            background: #219653;
+        }
+        .modal-footer {
+            text-align: right;
+            margin-top: 20px;
+        }
+        .modal-footer button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .modal-footer button:hover {
+            background: #2980b9;
+        }
+        .modal-footer .submit-btn {
+            background: #27ae60;
+        }
+        .modal-footer .submit-btn:hover {
+            background: #219653;
+        }
+        .disabled-input {
+            background-color: #f0f0f0;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <h1>Discount Tire Active Circuit Master List</h1>
+        <div class="row-count" id="rowCount">Showing 0 of 0 rows</div>
+    </div>
+
+    <div class="circuit-table-container">
+        <!-- Export Buttons -->
+        <div class="export-buttons">
+            <button id="exportExcel">Export to Excel</button>
+            <button id="exportPDF">Export to PDF</button>
+            <button id="historicalData" onclick="window.location.href='/dsrhistorical'">Historical Data</button>
+            <button id="speedFilter">WAN 2 > WAN 1 Speed</button>
+            <button id="pushToMeraki" class="push-meraki-button">Push to Meraki</button>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="filter-controls">
+            <div class="filter-control">
+                <input type="text" id="siteFilter" placeholder="Filter Site Name...">
+            </div>
+            <div class="filter-control">
+                <select id="wan1ProviderFilter">
+                    <option value="">All WAN1 Providers</option>
+                    {% for network in grouped_data %}
+                        {% if network.wan1.provider %}
+                            <option value="{{ network.wan1.provider }}">{{ network.wan1.provider }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="filter-control">
+                <select id="wan1SpeedFilter">
+                    <option value="">All WAN1 Speeds</option>
+                    {% for network in grouped_data %}
+                        {% if network.wan1.speed %}
+                            <option value="{{ network.wan1.speed }}">{{ network.wan1.speed }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="filter-control">
+                <input type="text" id="wan1CostFilter" placeholder="Filter WAN1 Cost...">
+            </div>
+            <div class="filter-control">
+                <select id="wan1RoleFilter">
+                    <option value="">All WAN1 Roles</option>
+                    <option value="Primary">Primary</option>
+                    <option value="Secondary">Secondary</option>
+                </select>
+            </div>
+            <div class="filter-control">
+                <select id="wan2ProviderFilter">
+                    <option value="">All WAN2 Providers</option>
+                    {% for network in grouped_data %}
+                        {% if network.wan2.provider %}
+                            <option value="{{ network.wan2.provider }}">{{ network.wan2.provider }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="filter-control">
+                <select id="wan2SpeedFilter">
+                    <option value="">All WAN2 Speeds</option>
+                    {% for network in grouped_data %}
+                        {% if network.wan2.speed %}
+                            <option value="{{ network.wan2.speed }}">{{ network.wan2.speed }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="filter-control">
+                <input type="text" id="wan2CostFilter" placeholder="Filter WAN2 Cost...">
+            </div>
+            <div class="filter-control">
+                <select id="wan2RoleFilter">
+                    <option value="">All WAN2 Roles</option>
+                    <option value="Primary">Primary</option>
+                    <option value="Secondary">Secondary</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- DataTable -->
+        <table id="circuitTable" class="circuit-table">
+            <thead>
+                <tr>
+                    <th>Site Name</th>
+                    <th>WAN 1 Provider</th>
+                    <th>WAN 1 Speed</th>
+                    <th>WAN 1 Cost</th>
+                    <th>WAN 1 Role</th>
+                    <th>WAN 2 Provider</th>
+                    <th>WAN 2 Speed</th>
+                    <th>WAN 2 Cost</th>
+                    <th>WAN 2 Role</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="circuitData">
+                {% if error %}
+                    <tr>
+                        <td colspan="10">{{ error }}</td>
+                    </tr>
+                {% else %}
+                    {% for entry in grouped_data %}
+                        <tr>
+                            <td>{{ entry.network_name }}</td>
+                            <td>{{ entry.wan1.provider if entry.wan1.provider else 'N/A' }}</td>
+                            <td>{{ entry.wan1.speed if entry.wan1.speed else 'N/A' }}</td>
+                            <td class="cost-cell" data-cost="{{ entry.wan1.monthly_cost }}">{{ entry.wan1.monthly_cost if entry.wan1.monthly_cost is not none else 'null' }}</td>
+                            <td data-role="{{ entry.wan1.circuit_role }}">{{ entry.wan1.circuit_role if entry.wan1.circuit_role else 'null' }}</td>
+                            <td>{{ entry.wan2.provider if entry.wan2.provider else 'N/A' }}</td>
+                            <td>{{ entry.wan2.speed if entry.wan2.speed else 'N/A' }}</td>
+                            <td class="cost-cell" data-cost="{{ entry.wan2.monthly_cost }}">{{ entry.wan2.monthly_cost if entry.wan2.monthly_cost is not none else 'null' }}</td>
+                            <td data-role="{{ entry.wan2.circuit_role }}">{{ entry.wan2.circuit_role if entry.wan2.circuit_role else 'null' }}</td>
+                            <td>
+                                {% if entry.wan1.confirmed and entry.wan2.confirmed %}
+                                    <button class="confirm-button confirmed-edit" data-site="{{ entry.network_name }}">Confirmed - Edit?</button>
+                                {% else %}
+                                    <button class="confirm-button" data-site="{{ entry.network_name }}">Confirm</button>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% else %}
+                        <tr>
+                            <td colspan="10">No circuit data available</td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Modal for Confirm Popup -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">Confirm Circuit Data for <span id="modalSiteName"></span></div>
+            <div class="modal-section">
+                <h3>Meraki MX Notes</h3>
+                <p id="modalRawNotes"></p>
+            </div>
+            <div class="modal-section">
+                <h3>DSR Data</h3>
+                <table id="modalDsrData">
+                    <thead>
+                        <tr>
+                            <th>Site Name</th>
+                            <th>Date</th>
+                            <th>DSR Circuit Purpose</th>
+                            <th>Status</th>
+                            <th>Provider Name</th>
+                            <th>Speed</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody id="modalDsrDataBody"></tbody>
+                </table>
+            </div>
+            <div class="modal-section">
+                <h3>ARIN Info</h3>
+                <p id="wan1ArinInfo"></p>
+                <p id="wan2ArinInfo"></p>
+            </div>
+            <div class="modal-section">
+                <h3>WAN 1 Configuration</h3>
+                <div class="config-row">
+                    <label>From Meraki Notes:</label>
+                    <input type="text" id="wan1ProviderNotes" readonly />
+                    <input type="text" id="wan1SpeedNotes" readonly />
+                    <button id="wan1OkNotes" class="modal-ok-button">OK</button>
+                </div>
+                <div class="config-row">
+                    <label>From DSR Data:</label>
+                    <input type="text" id="wan1ProviderDSR" readonly />
+                    <input type="text" id="wan1SpeedDSR" readonly />
+                    <button id="wan1OkDSR" class="modal-ok-button">OK</button>
+                </div>
+                <div class="config-row">
+                    <label>Custom:</label>
+                    <input type="text" id="wan1ProviderCustom" />
+                    <p id="wan1ProviderSuggestion" class="provider-suggestion"></p>
+                    <select id="wan1DownloadSpeedCustom">
+                        <option value="">Select</option>
+                        {% for speed in ['10', '20', '30', '50', '75', '100', '150', '200', '300', '400', '500', '600', '800', '1000'] %}
+                            <option value="{{ speed }}M">{{ speed }}M</option>
+                        {% endfor %}
+                    </select>
+                    <select id="wan1UploadSpeedCustom">
+                        <option value="">Select</option>
+                        {% for speed in ['10', '20', '30', '50', '75', '100', '150', '200', '300', '400', '500', '600', '800', '1000'] %}
+                            <option value="{{ speed }}M">{{ speed }}M</option>
+                        {% endfor %}
+                    </select>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="wan1CellSatellite" />
+                        <label for="wan1CellSatellite">Cell or Satellite</label>
+                        <select id="wan1CellType" style="display: none;">
+                            <option value="Satellite">Satellite</option>
+                            <option value="Cell">Cell</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-section">
+                <h3>WAN 2 Configuration</h3>
+                <div class="config-row">
+                    <label>From Meraki Notes:</label>
+                    <input type="text" id="wan2ProviderNotes" readonly />
+                    <input type="text" id="wan2SpeedNotes" readonly />
+                    <button id="wan2OkNotes" class="modal-ok-button">OK</button>
+                </div>
+                <div class="config-row">
+                    <label>From DSR Data:</label>
+                    <input type="text" id="wan2ProviderDSR" readonly />
+                    <input type="text" id="wan2SpeedDSR" readonly />
+                    <button id="wan2OkDSR" class="modal-ok-button">OK</button>
+                </div>
+                <div class="config-row">
+                    <label>Custom:</label>
+                    <input type="text" id="wan2ProviderCustom" />
+                    <p id="wan2ProviderSuggestion" class="provider-suggestion"></p>
+                    <select id="wan2DownloadSpeedCustom">
+                        <option value="">Select</option>
+                        {% for speed in ['10', '20', '30', '50', '75', '100', '150', '200', '300', '400', '500', '600', '800', '1000'] %}
+                            <option value="{{ speed }}M">{{ speed }}M</option>
+                        {% endfor %}
+                    </select>
+                    <select id="wan2UploadSpeedCustom">
+                        <option value="">Select</option>
+                        {% for speed in ['10', '20', '30', '50', '75', '100', '150', '200', '300', '400', '500', '600', '800', '1000'] %}
+                            <option value="{{ speed }}M">{{ speed }}M</option>
+                        {% endfor %}
+                    </select>
+                    <div class="checkbox-container">
+                        <input type="checkbox" id="wan2CellSatellite" />
+                        <label for="wan2CellSatellite">Cell or Satellite</label>
+                        <select id="wan2CellType" style="display: none;">
+                            <option value="Satellite">Satellite</option>
+                            <option value="Cell">Cell</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="closeModal">Close</button>
+                <button id="submitModal" class="submit-btn" disabled>Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <!-- Select2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        // Initialize DataTable
+        var table = $('#circuitTable').DataTable({
+            paging: false,
+            scrollCollapse: true,
+            dom: 't'
+        });
+
+        // Track speed filter state
+        var speedFilterActive = false;
+
+        // Parse download speed
+        function parseDownloadSpeed(speed) {
+            if (!speed || speed === 'N/A' || speed === 'null' || speed === 'Cell' || speed === 'Satellite' || speed === 'TBD' || speed === 'Unknown') {
+                return 0;
+            }
+            var match = speed.match(/^([\d.]+)[MG]\s*[xX]\s*([\d.]+)[MG]$/i);
+            if (match) {
+                return parseFloat(match[1]);
+            }
+            return 0;
+        }
+
+        // Custom filter for WAN 2 speed > WAN 1 speed
+        $.fn.dataTable.ext.search.push(
+            function(settings, data, dataIndex) {
+                if (!speedFilterActive) {
+                    return true;
+                }
+                var wan1Speed = parseDownloadSpeed(data[2]);
+                var wan2Speed = parseDownloadSpeed(data[6]);
+                return wan2Speed > wan1Speed;
+            }
+        );
+
+        // Update row count
+        function updateRowCount() {
+            var filteredCount = table.rows({ search: 'applied' }).count();
+            var totalCount = table.rows().count();
+            $('#rowCount').text(`Showing ${filteredCount} of ${totalCount} rows`);
+        }
+
+        // Initialize filters
+        function initFilters() {
+            initRoleFilter(4, '#wan1RoleFilter');
+            initRoleFilter(8, '#wan2RoleFilter');
+            initProviderFilter(1, '#wan1ProviderFilter');
+            initProviderFilter(5, '#wan2ProviderFilter');
+            initDropdownFilter(2, '#wan1SpeedFilter');
+            initDropdownFilter(6, '#wan2SpeedFilter');
+            
+            $('#siteFilter').on('keyup', function() {
+                table.column(0).search(this.value).draw();
+            });
+            
+            $('#wan1CostFilter').on('keyup', function() {
+                table.column(3).search(this.value).draw();
+            });
+            
+            $('#wan2CostFilter').on('keyup', function() {
+                table.column(7).search(this.value).draw();
+            });
+        }
+        
+        // Role filter
+        function initRoleFilter(columnIndex, selector) {
+            var column = table.column(columnIndex);
+            var select = $(selector)
+                .on('change', function() {
+                    var val = $(this).val();
+                    if (val) {
+                        column.search('^' + val + '$', true, false).draw();
+                    } else {
+                        column.search('').draw();
+                    }
+                });
+        }
+        
+        // Provider filter
+        function initProviderFilter(columnIndex, selector) {
+            var column = table.column(columnIndex);
+            var select = $(selector)
+                .empty()
+                .append('<option value="">All WAN ' + (columnIndex === 1 ? '1' : '2') + ' Providers</option>')
+                .on('change', function() {
+                    var val = $(this).val();
+                    column.search(val).draw();
+                });
+            
+            var providers = column.data().unique().sort().filter(function(d) {
+                return d && d !== 'N/A' && d !== 'null';
+            });
+            
+            providers.each(function(d, j) {
+                select.append('<option value="' + d + '">' + d + '</option>');
+            });
+            
+            $(selector).select2({
+                placeholder: "Select or type a provider",
+                allowClear: true,
+                width: '100%'
+            });
+        }
+        
+        // Dropdown filter
+        function initDropdownFilter(columnIndex, selector) {
+            var column = table.column(columnIndex);
+            var select = $(selector)
+                .empty()
+                .append('<option value="">All WAN ' + (columnIndex === 2 ? '1' : '2') + ' Speeds</option>')
+                .on('change', function() {
+                    var val = $(this).val();
+                    column.search(val).draw();
+                });
+            
+            column.data().unique().sort().each(function(d, j) {
+                if (d && d !== 'N/A' && d !== 'null') {
+                    select.append('<option value="' + d + '">' + d + '</option>');
+                }
+            });
+        }
+        
+        // Export buttons
+        $('#exportExcel').on('click', function() {
+            table.button('.buttons-excel').trigger();
+        });
+        
+        $('#exportPDF').on('click', function() {
+            table.button('.buttons-pdf').trigger();
+        });
+        
+        // Speed filter button
+        $('#speedFilter').on('click', function() {
+            speedFilterActive = !speedFilterActive;
+            $(this).toggleClass('active');
+            table.draw();
+        });
+        
+        // Add export buttons
+        new $.fn.dataTable.Buttons(table, {
+            buttons: [
+                {
+                    extend: 'excelHtml5',
+                    text: 'Excel',
+                    className: 'buttons-excel',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'pdfHtml5',
+                    text: 'PDF',
+                    className: 'buttons-pdf',
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                }
+            ]
+        });
+
+        // Provider validation
+        var providerKeywords = {
+            'spectrum': 'Charter Communications',
+            'charter': 'Charter Communications',
+            'at&t': 'AT&T',
+            'att': 'AT&T',
+            'comcast': 'Comcast',
+            'verizon': 'Verizon Business',
+            'vz': 'Verizon Business',
+            'cox': 'Cox Communications',
+            'yelcot': 'Yelcot Telephone Company',
+            'ritter': 'Ritter Communications',
+            'conway': 'Conway Corporation',
+            'altice': 'Optimum',
+            'brightspeed': 'Level 3',
+            'clink': 'CenturyLink',
+            'lumen': 'CenturyLink',
+            'c spire': 'C Spire Fiber',
+            'orbitelcomm': 'Orbitel Communications, LLC',
+            'sparklight': 'Cable One, Inc.',
+            'lightpath': 'Optimum',
+            'vzg': 'Verizon Business',
+            'digi': 'Verizon Business',
+            'centurylink': 'CenturyLink',
+            'mediacom': 'Mediacom Communications Corporation',
+            'frontier': 'Frontier Communications',
+            'cable one': 'Cable One, Inc.',
+            'qwest': 'CenturyLink',
+            'cox business': 'Cox Communications',
+            'consolidatedcomm': 'Consolidated Communications, Inc.',
+            'consolidated': 'Consolidated Communications, Inc.'
+        };
+
+        function validateProvider(inputId, suggestionId) {
+            var value = $('#' + inputId).val().toLowerCase().trim();
+            var suggestion = '';
+            for (var keyword in providerKeywords) {
+                if (value.includes(keyword)) {
+                    if (value !== providerKeywords[keyword].toLowerCase()) {
+                        suggestion = 'Suggested: ' + providerKeywords[keyword];
+                    }
+                    break;
+                }
+            }
+            $('#' + suggestionId).text(suggestion);
+        }
+
+        // Track selected OK buttons
+        var selectedOk = { wan1: null, wan2: null };
+
+        // Confirm button handler
+        $('.confirm-button').on('click', function() {
+            var siteName = $(this).data('site');
+            var isConfirmedEdit = $(this).hasClass('confirmed-edit');
+            if (isConfirmedEdit) {
+                // Allow re-editing by removing confirmed status
+                $.ajax({
+                    url: '/confirm/' + encodeURIComponent(siteName) + '/reset',
+                    type: 'POST',
+                    success: function(response) {
+                        if (response.success) {
+                            $(this).text('Confirm').removeClass('confirmed-edit').prop('disabled', false);
+                            table.draw();
+                        } else {
+                            alert('Error resetting confirmation: ' + response.error);
+                        }
+                    }.bind(this),
+                    error: function(xhr) {
+                        alert('Error resetting confirmation: ' + (xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error'));
+                    }
+                });
+                return;
+            }
+            $.ajax({
+                url: '/confirm/' + encodeURIComponent(siteName),
+                type: 'POST',
+                success: function(response) {
+                    if (response.error) {
+                        alert('Error: ' + response.error);
+                        return;
+                    }
+                    $('#modalSiteName').text(siteName);
+                    $('#modalRawNotes').text(response.raw_notes || 'No notes available');
+                    
+                    $('#modalDsrDataBody').empty();
+                    if (response.csv_data && response.csv_data.length > 0) {
+                        response.csv_data.forEach(function(row) {
+                            $('#modalDsrDataBody').append(
+                                '<tr>' +
+                                '<td>' + (row['Site Name'] || '') + '</td>' +
+                                '<td>' + (row['date'] || '') + '</td>' +
+                                '<td>' + (row['Circuit Purpose'] || '') + '</td>' +
+                                '<td>' + (row['status'] || '') + '</td>' +
+                                '<td>' + (row['provider_name'] || '') + '</td>' +
+                                '<td>' + (row['details_ordered_service_speed'] || row['details_service_speed'] || '') + '</td>' +
+                                '<td>' + (row['billing_monthly_cost'] || 'N/A') + '</td>' +
+                                '</tr>'
+                            );
+                        });
+                    } else {
+                        $('#modalDsrDataBody').append('<tr><td colspan="7">No tracking data available</td></tr>');
+                    }
+                    
+                    $('#wan1ArinInfo').text('WAN 1: IP ' + (response.wan1_ip || 'N/A') + ' ' + (response.wan1_provider || 'N/A'));
+                    $('#wan2ArinInfo').text('WAN 2: IP ' + (response.wan2_ip || 'N/A') + ' ' + (response.wan2_provider || 'N/A'));
+                    
+                    $('#wan1ProviderNotes').val(response.wan1_provider_notes || '');
+                    $('#wan1SpeedNotes').val(response.wan1_speed_notes || '');
+                    $('#wan1ProviderDSR').val(response.wan1_provider_dsr || '');
+                    $('#wan1SpeedDSR').val(response.wan1_speed_dsr || '');
+                    $('#wan1ProviderCustom').val(response.wan1_provider_dsr || response.wan1_provider_notes || '');
+                    var wan1Speed = response.wan1_speed_dsr || response.wan1_speed_notes;
+                    var isCellSatellite = wan1Speed && (wan1Speed.toLowerCase() === 'cell' || wan1Speed.toLowerCase() === 'satellite');
+                    $('#wan1CellSatellite').prop('checked', isCellSatellite);
+                    $('#wan1CellType').val(isCellSatellite ? wan1Speed.toLowerCase() : 'Satellite').toggle(isCellSatellite);
+                    var wan1Speeds = wan1Speed && !isCellSatellite ? wan1Speed.match(/^(\d+\.?\d*)M\s*x\s*(\d+\.?\d*)M$/i) : null;
+                    $('#wan1DownloadSpeedCustom').val(wan1Speeds ? wan1Speeds[1] + 'M' : '').prop('disabled', isCellSatellite);
+                    $('#wan1UploadSpeedCustom').val(wan1Speeds ? wan1Speeds[2] + 'M' : '').prop('disabled', isCellSatellite);
+                    
+                    $('#wan2ProviderNotes').val(response.wan2_provider_notes || '');
+                    $('#wan2SpeedNotes').val(response.wan2_speed_notes || '');
+                    $('#wan2ProviderDSR').val(response.wan2_provider_dsr || '');
+                    $('#wan2SpeedDSR').val(response.wan2_speed_dsr || '');
+                    $('#wan2ProviderCustom').val(response.wan2_provider_dsr || response.wan2_provider_notes || '');
+                    var wan2Speed = response.wan2_speed_dsr || response.wan2_speed_notes;
+                    var isCellSatellite2 = wan2Speed && (wan2Speed.toLowerCase() === 'cell' || wan2Speed.toLowerCase() === 'satellite');
+                    $('#wan2CellSatellite').prop('checked', isCellSatellite2);
+                    $('#wan2CellType').val(isCellSatellite2 ? wan2Speed.toLowerCase() : 'Satellite').toggle(isCellSatellite2);
+                    var wan2Speeds = wan2Speed && !isCellSatellite2 ? wan2Speed.match(/^(\d+\.?\d*)M\s*x\s*(\d+\.?\d*)M$/i) : null;
+                    $('#wan2DownloadSpeedCustom').val(wan2Speeds ? wan2Speeds[1] + 'M' : '').prop('disabled', isCellSatellite2);
+                    $('#wan2UploadSpeedCustom').val(wan2Speeds ? wan2Speeds[2] + 'M' : '').prop('disabled', isCellSatellite2);
+                    
+                    selectedOk.wan1 = null;
+                    selectedOk.wan2 = null;
+                    $('.modal-ok-button').removeClass('active').removeClass('disabled');
+                    $('#submitModal').prop('disabled', true);
+                    
+                    $('#confirmModal').show();
+                    $('#confirmModal').data('site', siteName);
+                },
+                error: function(xhr) {
+                    alert('Error fetching data: ' + (xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error'));
+                }
+            });
+        });
+
+        // OK button handlers
+        $('#wan1OkNotes, #wan1OkDSR').on('click', function() {
+            var id = $(this).attr('id');
+            if (selectedOk.wan1 === id) {
+                selectedOk.wan1 = null;
+                $(this).removeClass('active');
+            } else if (selectedOk.wan1) {
+                $('#' + selectedOk.wan1).addClass('disabled').removeClass('active');
+                selectedOk.wan1 = id;
+                $(this).addClass('active');
+            } else {
+                selectedOk.wan1 = id;
+                $(this).addClass('active');
+            }
+            updateSubmitButton();
+        });
+
+        $('#wan2OkNotes, #wan2OkDSR').on('click', function() {
+            var id = $(this).attr('id');
+            if (selectedOk.wan2 === id) {
+                selectedOk.wan2 = null;
+                $(this).removeClass('active');
+            } else if (selectedOk.wan2) {
+                $('#' + selectedOk.wan2).addClass('disabled').removeClass('active');
+                selectedOk.wan2 = id;
+                $(this).addClass('active');
+            } else {
+                selectedOk.wan2 = id;
+                $(this).addClass('active');
+            }
+            updateSubmitButton();
+        });
+
+        // Cell/Satellite checkbox handlers
+        $('#wan1CellSatellite').on('change', function() {
+            var isChecked = $(this).is(':checked');
+            $('#wan1DownloadSpeedCustom').prop('disabled', isChecked).toggleClass('disabled-input', isChecked);
+            $('#wan1UploadSpeedCustom').prop('disabled', isChecked).toggleClass('disabled-input', isChecked);
+            $('#wan1CellType').toggle(isChecked);
+            if (isChecked) {
+                $('#wan1CellType').val('Satellite');
+            }
+            updateSubmitButton();
+        });
+
+        $('#wan2CellSatellite').on('change', function() {
+            var isChecked = $(this).is(':checked');
+            $('#wan2DownloadSpeedCustom').prop('disabled', isChecked).toggleClass('disabled-input', isChecked);
+            $('#wan2UploadSpeedCustom').prop('disabled', isChecked).toggleClass('disabled-input', isChecked);
+            $('#wan2CellType').toggle(isChecked);
+            if (isChecked) {
+                $('#wan2CellType').val('Satellite');
+            }
+            updateSubmitButton();
+        });
+
+        // Provider validation
+        $('#wan1ProviderCustom').on('input', function() {
+            validateProvider('wan1ProviderCustom', 'wan1ProviderSuggestion');
+        });
+        $('#wan2ProviderCustom').on('input', function() {
+            validateProvider('wan2ProviderCustom', 'wan2ProviderSuggestion');
+        });
+
+        function updateSubmitButton() {
+            var wan1Data = selectedOk.wan1 || ($('#wan1ProviderCustom').val() && 
+                (!$('#wan1CellSatellite').is(':checked') || $('#wan1CellType').val()));
+            var wan2Data = selectedOk.wan2 || ($('#wan2ProviderCustom').val() && 
+                (!$('#wan2CellSatellite').is(':checked') || $('#wan2CellType').val()));
+            $('#submitModal').prop('disabled', !(wan1Data && wan2Data));
+        }
+
+        // Submit handler with immediate button update
+        $('#submitModal').on('click', function() {
+            var siteName = $('#confirmModal').data('site');
+            var data = {};
+            var hasChanges = false;
+            var currentData = {
+                wan1_provider: $('td:contains("' + siteName + '")').next().text() || 'N/A',
+                wan1_speed: $('td:contains("' + siteName + '")').next().next().text() || 'N/A',
+                wan2_provider: $('td:contains("' + siteName + '")').next().next().next().next().text() || 'N/A',
+                wan2_speed: $('td:contains("' + siteName + '")').next().next().next().next().next().text() || 'N/A'
+            };
+
+            if (selectedOk.wan1 === 'wan1OkNotes') {
+                data.wan1_provider = $('#wan1ProviderNotes').val();
+                data.wan1_speed = $('#wan1SpeedNotes').val();
+                hasChanges = data.wan1_provider !== currentData.wan1_provider || data.wan1_speed !== currentData.wan1_speed;
+            } else if (selectedOk.wan1 === 'wan1OkDSR') {
+                data.wan1_provider = $('#wan1ProviderDSR').val();
+                data.wan1_speed = $('#wan1SpeedDSR').val();
+                hasChanges = data.wan1_provider !== currentData.wan1_provider || data.wan1_speed !== currentData.wan1_speed;
+            } else if ($('#wan1ProviderCustom').val()) {
+                data.wan1_provider = $('#wan1ProviderCustom').val();
+                if ($('#wan1CellSatellite').is(':checked')) {
+                    data.wan1_speed = $('#wan1CellType').val();
+                } else {
+                    data.wan1_speed = $('#wan1DownloadSpeedCustom').val() + ' x ' + $('#wan1UploadSpeedCustom').val();
+                }
+                hasChanges = data.wan1_provider !== currentData.wan1_provider || data.wan1_speed !== currentData.wan1_speed;
+            }
+            if (selectedOk.wan2 === 'wan2OkNotes') {
+                data.wan2_provider = $('#wan2ProviderNotes').val();
+                data.wan2_speed = $('#wan2SpeedNotes').val();
+                hasChanges = data.wan2_provider !== currentData.wan2_provider || data.wan2_speed !== currentData.wan2_speed;
+            } else if (selectedOk.wan2 === 'wan2OkDSR') {
+                data.wan2_provider = $('#wan2ProviderDSR').val();
+                data.wan2_speed = $('#wan2SpeedDSR').val();
+                hasChanges = data.wan2_provider !== currentData.wan2_provider || data.wan2_speed !== currentData.wan2_speed;
+            } else if ($('#wan2ProviderCustom').val()) {
+                data.wan2_provider = $('#wan2ProviderCustom').val();
+                if ($('#wan2CellSatellite').is(':checked')) {
+                    data.wan2_speed = $('#wan2CellType').val();
+                } else {
+                    data.wan2_speed = $('#wan2DownloadSpeedCustom').val() + ' x ' + $('#wan2UploadSpeedCustom').val();
+                }
+                hasChanges = data.wan2_provider !== currentData.wan2_provider || data.wan2_speed !== currentData.wan2_speed;
+            }
+            if (!data.wan1_provider || !data.wan1_speed || !data.wan2_provider || !data.wan2_speed) {
+                alert('Please select or enter data for both WAN 1 and WAN 2');
+                return;
+            }
+            $.ajax({
+                url: '/confirm/' + encodeURIComponent(siteName) + '/submit',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                success: function(response) {
+                    if (response.success) {
+                        alert('Confirmation successful for ' + siteName);
+                        // Update the button immediately
+                        var $button = $('button.confirm-button[data-site="' + siteName + '"]');
+                        if (!hasChanges && response.success) {
+                            $button.text('Confirmed - Edit?').addClass('confirmed-edit').prop('disabled', false);
+                        } else {
+                            $button.text('Confirm').removeClass('confirmed-edit').prop('disabled', false);
+                        }
+                        table.draw(); // Refresh to reflect changes
+                    } else {
+                        alert('Error confirming: ' + response.error);
+                    }
+                    $('#confirmModal').hide();
+                },
+                error: function(xhr) {
+                    alert('Error confirming: ' + (xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error'));
+                }
+            });
+        });
+
+        // Push to Meraki handler
+        $('#pushToMeraki').on('click', function() {
+            $.ajax({
+                url: '/push_to_meraki',
+                type: 'POST',
+                success: function(response) {
+                    if (response.success) {
+                        alert('Successfully pushed confirmed data to Meraki for ' + response.updated_sites.length + ' sites');
+                    } else {
+                        alert('Error pushing to Meraki: ' + response.error);
+                    }
+                },
+                error: function(xhr) {
+                    alert('Error pushing to Meraki: ' + (xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error'));
+                }
+            });
+        });
+
+        // Modal close button
+        $('#closeModal').on('click', function() {
+            $('#confirmModal').hide();
+        });
+
+        // Update row count on draw
+        table.on('draw.dt', function() {
+            updateRowCount();
+        });
+        
+        // Initialize filters and row count
+        initFilters();
+        updateRowCount();
+    });
+    </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const pushButton = document.querySelector(".push-meraki-button");
+    if (pushButton) {
+      pushButton.addEventListener("click", function () {
+        Swal.fire({
+          title: "Pushing to Meraki...",
+          html: "Please wait while updates are processed.",
+          allowOutsideClick: false,
+          didOpen: () => Swal.showLoading()
+        });
+
+        fetch("/push_to_meraki", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" }
+        })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then(data => {
+            if (data.error) {
+              throw new Error(data.error);
+            }
+            const pushCount = data.pushed || 0;
+            const skippedCount = data.skipped || 0;
+            const pushedList = (data.details || []).join("<br>");
+
+            Swal.fire({
+              icon: "success",
+              title: "Push to Meraki Complete",
+              html: `
+                <p><strong>${pushCount}</strong> site(s) pushed.</p>
+                <p><strong>${skippedCount}</strong> site(s) skipped.</p>
+                <hr>
+                <pre style="text-align:left">${pushedList}</pre>
+              `,
+              width: 700
+            });
+          })
+          .catch(error => {
+            Swal.fire({
+              icon: "error",
+              title: "Error pushing to Meraki",
+              text: error.message || "Unknown error"
+            });
+          });
+      });
+    }
+  });
+</script>
+</html>

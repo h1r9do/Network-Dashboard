@@ -1,0 +1,11 @@
+{
+  "download_date": "2025-07-10T09:42:12.959422",
+  "network_id": "L_3790904986339116084",
+  "network_name": "NEO 07",
+  "description": "NEO 07 configuration for post-migration comparison",
+  "network": null,
+  "vlans": null,
+  "firewall_rules": null,
+  "devices": null,
+  "mx_ports": null
+}

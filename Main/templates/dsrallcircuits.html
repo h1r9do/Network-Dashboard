@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <meta charset="UTF-8">
+    <title>DSR All Circuits - Database View</title>
+    <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <!-- Select2 CSS for enhanced dropdowns -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .header-container {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .header-container h1 {
+            margin: 0;
+            font-size: 24px;
+            display: inline-block;
+        }
+        .row-count {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 14px;
+            color: #ecf0f1;
+            font-weight: 400;
+        }
+        .circuit-table-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .filter-controls {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+        .filter-control {
+            padding: 5px;
+        }
+        .filter-control input, .filter-control select {
+            width: 100%;
+            padding: 6px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+        .filter-control button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 6px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+            font-size: 12px;
+            width: 100%;
+        }
+        .filter-control button:hover {
+            background: #2980b9;
+        }
+        .filter-control button.active {
+            background: #27ae60;
+        }
+        .circuit-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .circuit-table thead th {
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            background-color: #3498db;
+            color: white;
+        }
+        .circuit-table tbody tr {
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .circuit-table tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .circuit-table tbody tr:hover {
+            background-color: #f1f8ff;
+        }
+        .circuit-table td {
+            padding: 12px 15px;
+            color: #333;
+        }
+        .cost-cell {
+            font-weight: bold;
+            color: #27ae60;
+        }
+        .cost-high {
+            color: #dc3545 !important;
+            font-weight: bold;
+        }
+        .cost-medium {
+            color: #fd7e14 !important;
+            font-weight: bold;
+        }
+        .cost-low {
+            color: #28a745 !important;
+            font-weight: bold;
+        }
+        .export-buttons {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .export-buttons button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            margin-right: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .export-buttons button:hover {
+            background: #2980b9;
+        }
+        .export-buttons button.active {
+            background: #27ae60;
+        }
+        .filter-button {
+            background: #ecf0f1;
+            color: #2c3e50;
+            border: 1px solid #bdc3c7;
+            border-radius: 3px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            height: 34px;
+        }
+        .filter-button:hover {
+            background: #d5dbdb;
+            border-color: #95a5a6;
+        }
+        .filter-button.active {
+            background: #3498db;
+            color: white;
+            border-color: #2980b9;
+        }
+        .provider-badge {
+            display: inline-block;
+            padding: 0.25em 0.6em;
+            font-size: 0.75em;
+            font-weight: 700;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: 0.375rem;
+        }
+        .provider-att { background-color: #007bff; color: white; }
+        .provider-comcast { background-color: #dc3545; color: white; }
+        .provider-verizon { background-color: #dc3545; color: white; }
+        .provider-charter { background-color: #0d6efd; color: white; }
+        .provider-cox { background-color: #0dcaf0; color: black; }
+        .provider-other { background-color: #6c757d; color: white; }
+        /* Select2 customization */
+        .select2-container--default .select2-selection--single {
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            height: 34px;
+        }
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            line-height: 34px;
+            padding-left: 8px;
+            font-size: 13px;
+        }
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+            height: 32px;
+        }
+        
+        /* Export buttons section */
+        .export-buttons {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .export-buttons button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            margin-right: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .export-buttons button:hover {
+            background: #2980b9;
+        }
+        
+        /* Multi-circuit button styling (like 1 Circuit button) */
+        .multi-circuit-button {
+            background: #9b59b6 !important;
+        }
+        .multi-circuit-button:hover {
+            background: #8e44ad !important;
+        }
+        .multi-circuit-button.active {
+            background: #e74c3c !important;
+        }
+
+    </style>
+</head>
+<body>
+<div class="header-container">
+    <h1>DSR All Circuits - Complete Database View</h1>
+    <div class="row-count" id="rowCount">Showing 0 of 0 rows</div>
+</div>
+
+<div class="circuit-table-container">
+    <!-- Export Buttons -->
+    <div class="export-buttons">
+        <!-- Left side buttons -->
+        <div style="display: flex; gap: 8px; align-items: center;">
+            <button onclick="window.location.href='/home'" style="background: #3498db; color: white; border: none; padding: 8px 15px; border-radius: 4px; font-size: 14px; cursor: pointer;">🏠 Home</button>
+        </div>
+        
+        <!-- Right side export buttons -->
+        <div style="display: flex; gap: 8px; margin-left: auto;">
+            <button id="exportExcel" onclick="exportToExcel()">📊 Export to Excel</button>
+            <button id="exportPDF" onclick="exportToPDF()">📄 Export to PDF</button>
+        </div>
+    </div>
+
+    <!-- Filter Controls -->
+    <div class="filter-controls">
+        <div class="filter-control">
+            <input type="text" id="siteNameFilter" placeholder="Filter Site Name...">
+        </div>
+        <div class="filter-control">
+            <input type="text" id="siteIdFilter" placeholder="Filter Site ID...">
+        </div>
+        <div class="filter-control">
+            <select id="circuitPurposeFilter">
+                <option value="">All Circuit Purposes</option>
+                {% if circuits_data %}
+                    {% set unique_purposes = circuits_data | map(attribute='circuit_purpose') | list | unique %}
+                    {% for purpose in unique_purposes %}
+                        {% if purpose %}
+                            <option value="{{ purpose }}">{{ purpose }}</option>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </select>
+        </div>
+        <div class="filter-control">
+            <select id="providerFilter">
+                <option value="">All Providers</option>
+                {% if circuits_data %}
+                    {% set unique_providers = circuits_data | map(attribute='provider_name') | list | unique %}
+                    {% for provider in unique_providers %}
+                        {% if provider %}
+                            <option value="{{ provider }}">{{ provider }}</option>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </select>
+        </div>
+        <div class="filter-control">
+            <input type="text" id="speedFilter" placeholder="Filter Speed...">
+        </div>
+        <div class="filter-control">
+            <input type="text" id="costFilter" placeholder="Filter Cost...">
+        </div>
+        <div class="filter-control">
+            
+        </div>
+    </div>
+
+    {% if error %}
+        <div style="background-color: #f8d7da; color: #721c24; padding: 15px; border-radius: 5px; margin-bottom: 20px;">
+            <strong>Error:</strong> {{ error }}
+        </div>
+    {% else %}
+        <!-- Circuit Table -->
+        <table class="circuit-table" id="circuitTable">
+            <thead>
+                <tr>
+                    <th data-column="site_name">Site Name</th>
+                    <th data-column="site_id">Site ID</th>
+                    <th data-column="circuit_purpose">Circuit Purpose</th>
+                    <th data-column="provider_name">Provider</th>
+                    <th data-column="details_ordered_service_speed">Speed</th>
+                    <th data-column="billing_monthly_cost">Monthly Cost</th>
+                </tr>
+            </thead>
+            <tbody id="circuitTableBody">
+                {% if circuits_data %}
+                    {% for circuit in circuits_data %}
+                        <tr class="circuit-row" data-circuit-count="{{ circuit.circuit_count }}">
+                            <td>{{ circuit.site_name }}</td>
+                            <td>{{ circuit.site_id }}</td>
+                            <td>{{ circuit.circuit_purpose }}</td>
+                            <td>
+                                {% if circuit.provider_name %}
+                                    <span class="provider-badge 
+                                        {%- if 'AT&T' in circuit.provider_name or 'at&t' in circuit.provider_name.lower() %} provider-att
+                                        {%- elif 'Comcast' in circuit.provider_name %} provider-comcast
+                                        {%- elif 'Verizon' in circuit.provider_name %} provider-verizon
+                                        {%- elif 'Charter' in circuit.provider_name or 'Spectrum' in circuit.provider_name %} provider-charter
+                                        {%- elif 'Cox' in circuit.provider_name %} provider-cox
+                                        {%- else %} provider-other
+                                        {%- endif %}">
+                                        {{ circuit.provider_name }}
+                                    </span>
+                                {% endif %}
+                            </td>
+                            <td>{{ circuit.details_ordered_service_speed }}</td>
+                            <td class="cost-cell">
+                                {% if circuit.billing_monthly_cost %}
+                                    {% set cost_value = circuit.billing_monthly_cost.replace('$', '').replace(',', '') | float %}
+                                    <span class="{%- if cost_value > 200 %} cost-high
+                                        {%- elif cost_value > 100 %} cost-medium
+                                        {%- else %} cost-low
+                                        {%- endif %}">
+                                        {{ circuit.billing_monthly_cost }}
+                                    </span>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% else %}
+                    <tr>
+                        <td colspan="6" style="text-align: center; color: #666; font-style: italic;">No enabled circuits found</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    {% endif %}
+</div>
+
+<!-- jQuery and DataTables JS -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+<!-- Select2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script>
+let dataTable;  // Make it global
+
+function exportToExcel() {
+    // Check if we have data
+    const rows = document.querySelectorAll('#circuitTable tbody tr.circuit-row');
+    if (rows.length === 0) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'No Data',
+            text: 'No circuit data available to export.',
+            timer: 2000,
+            showConfirmButton: false
+        });
+        return;
+    }
+    
+    // Create CSV content
+    let csvContent = "Site Name,Site ID,Circuit Purpose,Provider,Speed,Monthly Cost\n";
+    
+    rows.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        const rowData = [
+            cells[0].textContent.trim(),
+            cells[1].textContent.trim(),
+            cells[2].textContent.trim(),
+            cells[3].textContent.trim(),
+            cells[4].textContent.trim(),
+            cells[5].textContent.trim()
+        ];
+        csvContent += '"' + rowData.join('","') + '"\n';
+    });
+    
+    // Download CSV
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(blob);
+    link.setAttribute("href", url);
+    link.setAttribute("download", "dsr_all_circuits_" + new Date().toISOString().split('T')[0] + ".csv");
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Show success message
+    Swal.fire({
+        icon: 'success',
+        title: 'Export Complete',
+        text: `Successfully exported ${rows.length} circuits to Excel format!`,
+        timer: 2000,
+        showConfirmButton: false
+    });
+}
+
+function exportToPDF() {
+    // Check if we have data
+    const rows = document.querySelectorAll('#circuitTable tbody tr.circuit-row');
+    if (rows.length === 0) {
+        Swal.fire({
+            icon: 'warning',
+            title: 'No Data',
+            text: 'No circuit data available to export.',
+            timer: 2000,
+            showConfirmButton: false
+        });
+        return;
+    }
+    
+    // Get filtered data
+    const pdfData = [];
+    rows.forEach(row => {
+        const cells = row.querySelectorAll('td');
+        pdfData.push([
+            cells[0].textContent.trim(),
+            cells[1].textContent.trim(),
+            cells[2].textContent.trim(),
+            cells[3].textContent.trim(),
+            cells[4].textContent.trim(),
+            cells[5].textContent.trim()
+        ]);
+    });
+
+    // Create PDF using pdfMake
+    const docDefinition = {
+        content: [
+            { text: 'DSR All Circuits Report', style: 'header' },
+            { text: 'Generated: ' + new Date().toLocaleDateString(), style: 'subheader' },
+            {
+                table: {
+                    headerRows: 1,
+                    widths: ['auto', 'auto', 'auto', 'auto', 'auto', 'auto'],
+                    body: [
+                        ['Site Name', 'Site ID', 'Purpose', 'Provider', 'Speed', 'Cost'],
+                        ...pdfData
+                    ]
+                },
+                layout: 'lightHorizontalLines'
+            }
+        ],
+        styles: {
+            header: { fontSize: 18, bold: true, margin: [0, 0, 0, 10] },
+            subheader: { fontSize: 12, margin: [0, 0, 0, 20] }
+        },
+        pageSize: 'A4',
+        pageOrientation: 'landscape'
+    };
+
+    pdfMake.createPdf(docDefinition).download('dsr_all_circuits_' + new Date().toISOString().split('T')[0] + '.pdf');
+
+    // Show success message
+    Swal.fire({
+        icon: 'success',
+        title: 'Export Complete',
+        text: `Successfully exported ${rows.length} circuits to PDF format!`,
+        timer: 2000,
+        showConfirmButton: false
+    });
+}
+
+$(document).ready(function() {
+    
+    // Initialize DataTable with export functionality
+    function initializeDataTable() {
+        if ($.fn.DataTable.isDataTable('#circuitTable')) {
+            $('#circuitTable').DataTable().destroy();
+        }
+
+        dataTable = $('#circuitTable').DataTable({
+            dom: 't',
+            paging: false,
+            scrollCollapse: true,
+            order: [[0, 'asc']],
+            columnDefs: [
+                { targets: [5], type: 'currency' } // Cost column
+            ],
+            language: {
+                zeroRecords: "No circuits found matching your criteria",
+                emptyTable: "No circuit data available"
+            },
+            drawCallback: function() {
+                updateRowCount();
+            }
+        });
+    }
+
+    // Initialize enhanced dropdowns
+    function initializeSelect2() {
+        $('#circuitPurposeFilter, #providerFilter').select2({
+            placeholder: function() {
+                return $(this).find('option:first').text();
+            },
+            allowClear: true,
+            width: '100%',
+            minimumResultsForSearch: 10  // Only show search if more than 10 options
+        });
+    }
+
+    // Update row count display
+    function updateRowCount() {
+        if (!dataTable) {
+            // Initial count from rendered rows
+            const visibleRows = $('#circuitTable tbody tr:visible').not(':contains("No circuits found")').length;
+            const totalRows = $('#circuitTable tbody tr.circuit-row').length;
+            
+            let countText;
+            if (visibleRows === totalRows) {
+                countText = `Showing ${totalRows} circuits`;
+            } else {
+                countText = `Showing ${visibleRows} of ${totalRows} circuits`;
+            }
+            document.getElementById('rowCount').textContent = countText;
+            return;
+        }
+        
+        const info = dataTable.page.info();
+        const total = info.recordsTotal;
+        const filtered = info.recordsDisplay;
+        
+        let countText;
+        if (total === filtered) {
+            countText = `Showing ${total} circuits`;
+        } else {
+            countText = `Showing ${filtered} of ${total} circuits`;
+        }
+        
+        document.getElementById('rowCount').textContent = countText;
+    }
+
+    // Custom filtering function
+    function applyFilters() {
+        // Get filter values
+        const siteNameFilter = $('#siteNameFilter').val().toLowerCase();
+        const siteIdFilter = $('#siteIdFilter').val().toLowerCase();
+        const circuitPurposeFilter = $('#circuitPurposeFilter').val().toLowerCase();
+        const providerFilter = $('#providerFilter').val().toLowerCase();
+        const speedFilter = $('#speedFilter').val().toLowerCase();
+        const costFilter = $('#costFilter').val().toLowerCase();
+
+        // Clear existing search
+        dataTable.search('').columns().search('');
+        
+        // Apply column-specific searches
+        if (siteNameFilter) dataTable.column(0).search(siteNameFilter, false, false);
+        if (siteIdFilter) dataTable.column(1).search(siteIdFilter, false, false);
+        if (circuitPurposeFilter) dataTable.column(2).search(circuitPurposeFilter, false, false);
+        if (providerFilter) dataTable.column(3).search(providerFilter, false, false);
+        if (speedFilter) dataTable.column(4).search(speedFilter, false, false);
+        if (costFilter) dataTable.column(5).search(costFilter, false, false);
+        
+        dataTable.draw();
+    }
+
+    // Initialize everything
+    const hasCircuitData = $('#circuitTable tbody tr.circuit-row').length > 0;
+    
+    if (hasCircuitData) {
+        // Update initial count before DataTable initialization
+        updateRowCount();
+        
+        initializeDataTable();
+        initializeSelect2();
+        updateRowCount();
+    } else {
+        // No data case
+        document.getElementById('rowCount').textContent = 'Showing 0 circuits';
+    }
+
+    // Bind filter events
+    $('#siteNameFilter, #siteIdFilter, #speedFilter, #costFilter').on('keyup', function() {
+        clearTimeout(this.delay);
+        this.delay = setTimeout(applyFilters, 300);
+    });
+
+    $('#circuitPurposeFilter, #providerFilter').on('change', applyFilters);
+
+    // Export functionality is now handled by onclick handlers (exportToExcel() and exportToPDF())
+});
+</script>
+
+    // Multi-circuit filter functionality
+    let multiCircuitFilterActive = false;
+
+    );
+        } else {
+            button.classList.remove('active');
+            // Remove the custom search function
+            $.fn.dataTable.ext.search.pop();
+        }
+        
+        table.draw();
+        updateRowCount();
+    }
+
+    // Clear multi-circuit filter when other filters are used
+    function clearMultiCircuitFilter() {
+        if (multiCircuitFilterActive) {
+            toggleMultiCircuitFilter();
+        }
+    }
+
+    // Add event listeners to other filters to clear multi-circuit filter
+    $(document).ready(function() {
+        $('#siteNameFilter, #siteIdFilter, #circuitPurposeFilter, #providerFilter, #speedFilter').on('input change', function() {
+            if (multiCircuitFilterActive) {
+                clearMultiCircuitFilter();
+            }
+        });
+    });
+
+
+    <script>
+    // Multi-circuit filter functionality
+    $(document).ready(function() {
+        var multiCircuitFilterActive = false;
+        var table = $('#circuitTable').DataTable();
+        
+        // Store sites with more than 2 circuits
+        var sitesWithMultipleCircuits = {{ sites_with_multiple_circuits|tojson|safe }};
+        
+        $('#multiCircuitFilter').on('click', function() {
+            multiCircuitFilterActive = !multiCircuitFilterActive;
+            
+            if (multiCircuitFilterActive) {
+                $(this).addClass('active').text('Show All');
+            } else {
+                $(this).removeClass('active').text('🔍 More > 2 Circuits');
+            }
+            
+            table.draw();
+            updateRowCount();
+        });
+        
+        // Add custom filter for sites with >2 circuits
+        $.fn.dataTable.ext.search.push(
+            function(settings, data, dataIndex) {
+                if (!multiCircuitFilterActive) {
+                    return true;
+                }
+                var siteName = data[0]; // Site Name is in first column
+                return sitesWithMultipleCircuits.includes(siteName);
+            }
+        );
+    });
+    </script>
+
+</body>
+</html>

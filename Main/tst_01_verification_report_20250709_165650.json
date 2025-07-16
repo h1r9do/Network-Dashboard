@@ -1,0 +1,39 @@
+{
+  "timestamp": "2025-07-09T16:56:50.837511",
+  "source_network": "AZP 30",
+  "target_network": "TST 01",
+  "results": {
+    "VLANs": false,
+    "Group Policies": false,
+    "Firewall Rules": false,
+    "MX Ports": true,
+    "Syslog": true,
+    "Policy Objects": true
+  },
+  "details": {
+    "vlan_count": {
+      "tst": 10,
+      "azp": 0
+    },
+    "policy_count": {
+      "tst": 3,
+      "azp": 0
+    },
+    "firewall_rule_count": {
+      "tst": 59,
+      "azp": 0
+    },
+    "mx_port_count": {
+      "tst": 10,
+      "azp": 0
+    },
+    "syslog_server_count": {
+      "tst": 1,
+      "azp": 0
+    },
+    "policy_object_count": {
+      "tst": 0,
+      "azp": 0
+    }
+  }
+}

@@ -1,0 +1,11 @@
+# DSR Circuits Performance Monitoring Cron Job
+# Add this to crontab using: sudo crontab -e
+
+# Run performance monitoring every hour
+0 * * * * /usr/bin/python3 /usr/local/bin/Main/performance_monitor.py >> /var/log/performance-monitor.log 2>&1
+
+# Optional: Run more frequently during business hours (every 15 minutes, 8am-6pm Mon-Fri)
+# */15 8-18 * * 1-5 /usr/bin/python3 /usr/local/bin/Main/performance_monitor.py >> /var/log/performance-monitor.log 2>&1
+
+# Optional: Clean up old metrics monthly (keep last 90 days)
+# 0 0 1 * * /usr/bin/python3 -c "from performance_monitor import cleanup_old_metrics; cleanup_old_metrics(90)" >> /var/log/performance-monitor.log 2>&1

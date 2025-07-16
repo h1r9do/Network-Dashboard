@@ -1,0 +1,890 @@
+#!/usr/bin/env python3
+"""
+Nightly SNMP Inventory Collection Script
+Uses encrypted credentials from database and stores results in PostgreSQL
+"""
+import json
+import subprocess
+import multiprocessing
+import time
+from datetime import datetime
+import os
+import sys
+import glob
+import logging
+import re
+
+# Add the directory containing our modules to the path
+sys.path.append('/usr/local/bin/Main')
+
+# Import our custom modules
+sys.path.append('/usr/local/bin/Main')
+try:
+    from credential_manager import SNMPCredentialManager
+    from snmp_inventory_database_integration import SNMPInventoryDB, process_collection_file
+except ImportError:
+    # If running from Main directory
+    from credential_manager import SNMPCredentialManager
+    from snmp_inventory_database_integration import SNMPInventoryDB, process_collection_file
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('/var/log/snmp_inventory_collection.log'),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
+
+# Global functions for multiprocessing
+def redact_snmp_command(cmd):
+    """Redact sensitive information from SNMP commands for logging"""
+    # Redact SNMPv2c community strings
+    cmd_redacted = re.sub(r'-c\s+\S+', '-c [REDACTED]', cmd)
+    
+    # Redact SNMPv3 auth passwords
+    cmd_redacted = re.sub(r'-A\s+\'[^\']+\'', '-A \'[REDACTED]\'', cmd_redacted)
+    cmd_redacted = re.sub(r'-A\s+"[^"]+"', '-A "[REDACTED]"', cmd_redacted)
+    cmd_redacted = re.sub(r'-A\s+\S+', '-A [REDACTED]', cmd_redacted)
+    
+    # Redact SNMPv3 priv passwords
+    cmd_redacted = re.sub(r'-X\s+\'[^\']+\'', '-X \'[REDACTED]\'', cmd_redacted)
+    cmd_redacted = re.sub(r'-X\s+"[^"]+"', '-X "[REDACTED]"', cmd_redacted)
+    cmd_redacted = re.sub(r'-X\s+\S+', '-X [REDACTED]', cmd_redacted)
+    
+    return cmd_redacted
+
+def run_snmp_command(cmd, timeout=30):
+    """Run SNMP command with timeout"""
+    try:
+        result = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=timeout)
+        if result.returncode == 0:
+            return result.stdout.strip()
+        return None
+    except subprocess.TimeoutExpired:
+        return None
+    except Exception:
+        return None
+
+def run_snmp_walk(ip, cred_info, oid, timeout=60):
+    """Run SNMP walk for chunked collection"""
+    if cred_info['type'] == 'SNMPv2c':
+        cmd = f"snmpwalk -v2c -c {cred_info['community']} -t 10 {ip} {oid}"
+    elif cred_info['type'] == 'SNMPv3':
+        cmd = (f"snmpwalk -v3 -u {cred_info['user']} -l authPriv "
+               f"-a {cred_info['auth_protocol']} -A '{cred_info['auth_password']}' "
+               f"-x {cred_info['priv_protocol']} -X '{cred_info['priv_password']}' "
+               f"-t 10 {ip} {oid}")
+    else:
+        return None
+        
+    try:
+        result = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=timeout)
+        if result.returncode == 0:
+            return result.stdout.strip()
+        return None
+    except subprocess.TimeoutExpired:
+        return None
+    except Exception:
+        return None
+
+def collect_entity_mib_chunked(device, cred, chunked_devices):
+    """Collect ENTITY-MIB using chunked approach"""
+    name = device['hostname']
+    ip = device['ip']
+    cred_name = device['credential']
+    
+    # Log without sensitive info
+    logger.info(f"[CHUNKED] Processing {name} ({ip}) with credential type: {cred.get('type', 'unknown')}")
+    
+    result = {
+        "device_name": name,
+        "ip": ip,
+        "credential": cred_name,
+        "timestamp": datetime.now().isoformat(),
+        "status": "failed",
+        "entity_data": {},
+        "collection_method": "chunked"
+    }
+    
+    if 'device_type' in device:
+        result['device_type'] = device['device_type']
+    
+    # Test connectivity
+    if cred['type'] == 'SNMPv2c':
+        sys_cmd = f"snmpget -v2c -c {cred['community']} -t 10 {ip} 1.3.6.1.2.1.1.1.0"
+    elif cred['type'] == 'SNMPv3':
+        sys_cmd = (f"snmpget -v3 -u {cred['user']} -l authPriv "
+                   f"-a {cred['auth_protocol']} -A '{cred['auth_password']}' "
+                   f"-x {cred['priv_protocol']} -X '{cred['priv_password']}' "
+                   f"-t 10 {ip} 1.3.6.1.2.1.1.1.0")
+    else:
+        result['error'] = f"Unsupported credential type: {cred['type']}"
+        return result
+        
+    sys_result = subprocess.run(sys_cmd, shell=True, capture_output=True, text=True, timeout=15)
+    if sys_result.returncode != 0:
+        result['error'] = "No SNMP response"
+        return result
+    
+    result['system_description'] = sys_result.stdout.strip()
+    
+    # Collect ENTITY-MIB attributes in chunks
+    entity_attributes = {
+        "2": "description",
+        "5": "class",
+        "7": "name",
+        "11": "serial_number",
+        "13": "model_name"
+    }
+    
+    entities = {}
+    total_collected = 0
+    
+    for attr_num, attr_name in entity_attributes.items():
+        oid = f"1.3.6.1.2.1.47.1.1.1.1.{attr_num}"
+        
+        output = run_snmp_walk(ip, cred, oid, timeout=90)
+        if not output:
+            continue
+        
+        lines = output.splitlines()
+        
+        for line in lines:
+            if "=" in line:
+                try:
+                    oid_part, value_part = line.split("=", 1)
+                    if f".47.1.1.1.1.{attr_num}." in oid_part:
+                        parts = oid_part.split(".")
+                        entity_idx = parts[-1]
+                        
+                        if entity_idx not in entities:
+                            entities[entity_idx] = {}
+                        
+                        value = value_part.strip()
+                        if "STRING:" in value:
+                            value = value.split("STRING:", 1)[1].strip().strip('"')
+                        elif "INTEGER:" in value:
+                            value = value.split("INTEGER:", 1)[1].strip()
+                        
+                        entities[entity_idx][attr_name] = value
+                        total_collected += 1
+                except:
+                    continue
+    
+    result['entity_data'] = entities
+    result['entity_count'] = len(entities)
+    result['total_attributes_collected'] = total_collected
+    result['status'] = 'success' if entities else 'failed'
+    
+    if not entities:
+        result['error'] = "No entity data collected"
+    
+    logger.info(f"[CHUNKED] Completed {name}: {len(entities)} entities")
+    return result
+
+def collect_entity_mib(device, credentials, chunked_devices):
+    """Collect ENTITY-MIB data from device"""
+    name = device['hostname']
+    ip = device['ip']
+    cred_name = device['credential']
+    
+    # Check if chunked collection needed
+    if ip in chunked_devices:
+        cred = credentials.get(cred_name)
+        if not cred:
+            return {
+                "device_name": name,
+                "ip": ip,
+                "credential": cred_name,
+                "status": "failed",
+                "error": f"Credential not found: {cred_name}"
+            }
+        return collect_entity_mib_chunked(device, cred, chunked_devices)
+    
+    # Log without sensitive info
+    cred_info = credentials.get(cred_name, {})
+    logger.info(f"Processing {name} ({ip}) with credential type: {cred_info.get('type', 'unknown')}")
+    
+    result = {
+        "device_name": name,
+        "ip": ip,
+        "credential": cred_name,
+        "timestamp": datetime.now().isoformat(),
+        "status": "failed",
+        "entity_data": {},
+        "collection_method": "standard"
+    }
+    
+    if 'device_type' in device:
+        result['device_type'] = device['device_type']
+    
+    # Get credential
+    cred = credentials.get(cred_name)
+    if not cred:
+        result['error'] = f"Credential not found: {cred_name}"
+        return result
+    
+    # Build SNMP commands
+    if cred['type'] == 'SNMPv2c':
+        snmp_base = f"snmpwalk -v2c -c {cred['community']} -t 10 {ip}"
+        sys_cmd = f"snmpget -v2c -c {cred['community']} -t 10 {ip} 1.3.6.1.2.1.1.1.0"
+    elif cred['type'] == 'SNMPv3':
+        snmp_base = (f"snmpwalk -v3 -u {cred['user']} -l authPriv "
+                     f"-a {cred['auth_protocol']} -A '{cred['auth_password']}' "
+                     f"-x {cred['priv_protocol']} -X '{cred['priv_password']}' "
+                     f"-t 10 {ip}")
+        sys_cmd = (f"snmpget -v3 -u {cred['user']} -l authPriv "
+                   f"-a {cred['auth_protocol']} -A '{cred['auth_password']}' "
+                   f"-x {cred['priv_protocol']} -X '{cred['priv_password']}' "
+                   f"-t 10 {ip} 1.3.6.1.2.1.1.1.0")
+    else:
+        result['error'] = f"Unsupported credential type: {cred['type']}"
+        return result
+    
+    # Test connectivity
+    sys_desc = run_snmp_command(sys_cmd, timeout=15)
+    if not sys_desc:
+        result['error'] = "No SNMP response"
+        return result
+    
+    result['system_description'] = sys_desc
+    
+    # Collect ENTITY-MIB
+    entity_cmd = f"{snmp_base} 1.3.6.1.2.1.47.1.1.1"
+    entity_output = run_snmp_command(entity_cmd, timeout=60)
+    
+    if not entity_output:
+        result['error'] = "ENTITY-MIB timeout"
+        return result
+    
+    if "No Such Object" in entity_output:
+        result['error'] = "ENTITY-MIB not supported"
+        return result
+    
+    # Parse ENTITY-MIB output
+    entities = {}
+    for line in entity_output.splitlines():
+        if "=" in line:
+            try:
+                oid_part, value_part = line.split("=", 1)
+                if ".47.1.1.1.1." in oid_part:
+                    parts = oid_part.split(".")
+                    attr_idx = parts[-2]
+                    entity_idx = parts[-1]
+                    
+                    if entity_idx not in entities:
+                        entities[entity_idx] = {}
+                    
+                    attr_map = {
+                        "2": "description",
+                        "5": "class",
+                        "7": "name",
+                        "11": "serial_number",
+                        "13": "model_name"
+                    }
+                    
+                    if attr_idx in attr_map:
+                        value = value_part.strip()
+                        if "STRING:" in value:
+                            value = value.split("STRING:", 1)[1].strip().strip('"')
+                        elif "INTEGER:" in value:
+                            value = value.split("INTEGER:", 1)[1].strip()
+                        
+                        entities[entity_idx][attr_map[attr_idx]] = value
+            except:
+                continue
+    
+    result['entity_data'] = entities
+    result['entity_count'] = len(entities)
+    result['status'] = 'success'
+    
+    logger.info(f"Completed {name}: {len(entities)} entities")
+    return result
+
+def process_device_batch_worker(device_batch, batch_id, credentials, chunked_devices):
+    """Process batch of devices - standalone function for multiprocessing"""
+    results = []
+    for device in device_batch:
+        try:
+            result = collect_entity_mib(device, credentials, chunked_devices)
+            results.append(result)
+        except Exception as e:
+            logger.error(f"Error processing {device['hostname']}: {e}")
+            results.append({
+                "device_name": device['hostname'],
+                "ip": device['ip'],
+                "status": "error",
+                "error": str(e)
+            })
+    
+    return results
+
+class NightlySNMPCollector:
+    def __init__(self):
+        """Initialize collector with database connections"""
+        self.credential_manager = SNMPCredentialManager()
+        self.db_manager = SNMPInventoryDB()
+        self.output_dir = "/var/www/html/network-data"
+        self.timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        
+        # Devices that require chunked collection
+        self.chunked_devices = [
+            "10.0.255.111",  # HQ-56128P-01
+            "10.0.255.112",  # HQ-56128P-02
+            # All Equinix Nexus 9K devices
+            "10.44.158.11", "10.44.158.12", "10.44.158.21", "10.44.158.22",
+            "10.44.158.41", "10.44.158.42", "10.44.158.51", "10.44.158.52",
+            "10.44.158.61", "10.44.158.62"
+        ]
+        
+    def load_device_list(self):
+        """Load device list from filtered devices file"""
+        device_file = "/tmp/filtered_snmp_devices_187.json"
+        
+        try:
+            with open(device_file, 'r') as f:
+                data = json.load(f)
+                devices = data['devices']
+            
+            logger.info(f"Loaded {len(devices)} devices from {device_file}")
+            
+            # Add missing Nexus devices
+            missing_nexus = [
+                {"hostname": "HQ-56128P-01", "ip": "10.0.255.111", "credential": "DTC4nmgt", "device_type": "Nexus 56128P"},
+                {"hostname": "HQ-56128P-02", "ip": "10.0.255.112", "credential": "DTC4nmgt", "device_type": "Nexus 56128P"},
+                {"hostname": "AL-5000-01", "ip": "10.101.145.125", "credential": "DTC4nmgt", "device_type": "Nexus 5000"},
+                {"hostname": "AL-5000-02", "ip": "10.101.145.126", "credential": "DTC4nmgt", "device_type": "Nexus 5000"},
+                {"hostname": "HQ-7000-01-ADMIN", "ip": "10.0.145.123", "credential": "DTC4nmgt", "device_type": "Nexus 7K VDC"},
+                {"hostname": "HQ-7000-02-ADMIN", "ip": "10.0.145.124", "credential": "DTC4nmgt", "device_type": "Nexus 7K VDC"},
+                {"hostname": "HQ-7000-01-EDGE", "ip": "10.0.145.2", "credential": "DTC4nmgt", "device_type": "Nexus 7K VDC"},
+                {"hostname": "AL-7000-01-ADMIN", "ip": "10.101.145.123", "credential": "DTC4nmgt", "device_type": "Nexus 7K VDC"},
+                {"hostname": "AL-7000-02-ADMIN", "ip": "10.101.145.124", "credential": "DTC4nmgt", "device_type": "Nexus 7K VDC"},
+                {"hostname": "AL-7000-01-CORE", "ip": "10.101.255.244", "credential": "DTC4nmgt", "device_type": "Nexus 7K VDC"},
+                {"hostname": "AL-7000-02-CORE", "ip": "10.0.184.20", "credential": "DTC4nmgt", "device_type": "Nexus 7K VDC"},
+                {"hostname": "AL-7000-01-EDGE", "ip": "10.101.100.209", "credential": "DTC4nmgt", "device_type": "Nexus 7K VDC"},
+                {"hostname": "AL-7000-02-EDGE", "ip": "10.101.100.217", "credential": "DTC4nmgt", "device_type": "Nexus 7K VDC"},
+                {"hostname": "AL-7000-01-PCI", "ip": "10.101.100.189", "credential": "DTC4nmgt", "device_type": "Nexus 7K VDC"},
+                {"hostname": "AL-7000-02-PCI", "ip": "10.101.100.201", "credential": "DTC4nmgt", "device_type": "Nexus 7K VDC"}
+            ]
+            
+            # Add Equinix devices
+            equinix_devices = [
+                {"hostname": "EQX-EXT-93180-01", "ip": "10.44.158.11", "credential": "EQX_DC_SNMPv3", "device_type": "Equinix Switch"},
+                {"hostname": "EQX-EXT-93180-02", "ip": "10.44.158.12", "credential": "EQX_DC_SNMPv3", "device_type": "Equinix Switch"},
+                {"hostname": "EQX-INT-93180-01", "ip": "10.44.158.21", "credential": "EQX_DC_SNMPv3", "device_type": "Equinix Switch"},
+                {"hostname": "EQX-INT-93180-02", "ip": "10.44.158.22", "credential": "EQX_DC_SNMPv3", "device_type": "Equinix Switch"},
+                {"hostname": "EQX-CldTrst-8500-01", "ip": "10.44.158.41", "credential": "EQX_DC_SNMPv3", "device_type": "Equinix Switch"},
+                {"hostname": "EQX-CldTrst-8500-02", "ip": "10.44.158.42", "credential": "EQX_DC_SNMPv3", "device_type": "Equinix Switch"},
+                {"hostname": "EQX-EdgeDIA-8300-01", "ip": "10.44.158.51", "credential": "EQX_DC_SNMPv3", "device_type": "Equinix Switch"},
+                {"hostname": "EQX-EdgeDIA-8300-02", "ip": "10.44.158.52", "credential": "EQX_DC_SNMPv3", "device_type": "Equinix Switch"},
+                {"hostname": "EQX-MPLS-8300-01", "ip": "10.44.158.61", "credential": "EQX_DC_SNMPv3", "device_type": "Equinix Switch"},
+                {"hostname": "EQX-MPLS-8300-02", "ip": "10.44.158.62", "credential": "EQX_DC_SNMPv3", "device_type": "Equinix Switch"}
+            ]
+            
+            # Add DMZ/DIA devices
+            dmz_dia_devices = [
+                {"hostname": "DMZ-7010-01", "ip": "192.168.255.4", "credential": "DT_Network_SNMPv3", "device_type": "DMZ Firewall"},
+                {"hostname": "DMZ-7010-02", "ip": "192.168.255.5", "credential": "DT_Network_SNMPv3", "device_type": "DMZ Firewall"},
+                {"hostname": "HQ-LUMEN-DIA", "ip": "192.168.255.14", "credential": "DT_Network_SNMPv3", "device_type": "DIA Router"},
+                {"hostname": "HQ-ATT-DIA", "ip": "192.168.255.15", "credential": "DT_Network_SNMPv3", "device_type": "DIA Router"}
+            ]
+            
+            # Update VG350 credentials
+            for device in devices:
+                if 'credential' not in device:
+                    device['credential'] = 'DTC4nmgt'
+                    device['credential_type'] = 'v2c'
+                
+                if device['hostname'].startswith('HQ-VG350'):
+                    device['credential'] = 'T1r3s4u'
+                    device['credential_type'] = 'v2c'
+            
+            # Add all additional devices
+            for nexus_device in missing_nexus:
+                devices.append({
+                    'hostname': nexus_device['hostname'],
+                    'ip': nexus_device['ip'],
+                    'credential': nexus_device['credential'],
+                    'credential_type': 'v2c',
+                    'device_type': nexus_device.get('device_type', ''),
+                    'status': 'active',
+                    'source': 'manually_added_critical_infrastructure'
+                })
+            
+            for eqx_device in equinix_devices:
+                devices.append({
+                    'hostname': eqx_device['hostname'],
+                    'ip': eqx_device['ip'],
+                    'credential': eqx_device['credential'],
+                    'credential_type': 'v3',
+                    'device_type': eqx_device['device_type'],
+                    'status': 'active',
+                    'source': 'equinix_datacenter'
+                })
+            
+            for dmz_device in dmz_dia_devices:
+                devices.append({
+                    'hostname': dmz_device['hostname'],
+                    'ip': dmz_device['ip'],
+                    'credential': dmz_device['credential'],
+                    'credential_type': 'v3',
+                    'device_type': dmz_device['device_type'],
+                    'status': 'active',
+                    'source': 'dmz_dia_infrastructure'
+                })
+            
+
+            # Add additional 192.168.x.x devices (real devices from sessions.txt)
+            additional_192_devices = [
+                # DMZ/CORP devices from sessions.txt
+                {"hostname": "DMZ-7010-01", "ip": "192.168.255.4", "credential": "DT_Network_SNMPv3", "device_type": "HQ DMZ Firewall"},
+                {"hostname": "DMZ-7010-02", "ip": "192.168.255.5", "credential": "DT_Network_SNMPv3", "device_type": "HQ DMZ Firewall"},
+                {"hostname": "FW-9300-01", "ip": "192.168.255.12", "credential": "DT_Network_SNMPv3", "device_type": "HQ Firewall"},
+                {"hostname": "FW-9300-02", "ip": "192.168.255.13", "credential": "DT_Network_SNMPv3", "device_type": "HQ Firewall"},
+                # DMZ/ALAMEDA devices from sessions.txt
+                {"hostname": "AL-DMZ-7010-01", "ip": "192.168.200.10", "credential": "DT_Network_SNMPv3", "device_type": "Alameda DMZ Firewall"},
+                {"hostname": "AL-DMZ-7010-02", "ip": "192.168.200.11", "credential": "DT_Network_SNMPv3", "device_type": "Alameda DMZ Firewall"}
+            ]
+
+
+            for additional_device in additional_192_devices:
+                devices.append({
+                    'hostname': additional_device['hostname'],
+                    'ip': additional_device['ip'],
+                    'credential': additional_device['credential'],
+                    'credential_type': 'v3',
+                    'device_type': additional_device['device_type'],
+                    'status': 'active',
+                    'source': 'manually_added_192_devices'
+                })
+            
+
+            logger.info(f"Total devices after additions: {len(devices)}")
+            return devices
+            
+        except Exception as e:
+            logger.error(f"Error loading device list: {e}")
+            return []
+    
+    def run_snmp_command(self, cmd, timeout=30):
+        """Run SNMP command with timeout"""
+        try:
+            result = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=timeout)
+            if result.returncode == 0:
+                return result.stdout.strip()
+            return None
+        except subprocess.TimeoutExpired:
+            return None
+        except Exception:
+            return None
+    
+    def run_snmp_walk(self, ip, cred_info, oid, timeout=60):
+        """Run SNMP walk for chunked collection"""
+        if cred_info['type'] == 'SNMPv2c':
+            cmd = f"snmpwalk -v2c -c {cred_info['community']} -t 10 {ip} {oid}"
+        elif cred_info['type'] == 'SNMPv3':
+            cmd = (f"snmpwalk -v3 -u {cred_info['user']} -l authPriv "
+                   f"-a {cred_info['auth_protocol']} -A '{cred_info['auth_password']}' "
+                   f"-x {cred_info['priv_protocol']} -X '{cred_info['priv_password']}' "
+                   f"-t 10 {ip} {oid}")
+        else:
+            return None
+            
+        try:
+            result = subprocess.run(cmd, shell=True, capture_output=True, text=True, timeout=timeout)
+            if result.returncode == 0:
+                return result.stdout.strip()
+            return None
+        except subprocess.TimeoutExpired:
+            return None
+        except Exception:
+            return None
+    
+    def collect_entity_mib_chunked(self, device, credentials):
+        """Collect ENTITY-MIB using chunked approach"""
+        name = device['hostname']
+        ip = device['ip']
+        cred_name = device['credential']
+        
+        # Log without sensitive info
+        logger.info(f"[CHUNKED] Processing {name} ({ip}) with credential type: {cred.get('type', 'unknown')}")
+        
+        result = {
+            "device_name": name,
+            "ip": ip,
+            "credential": cred_name,
+            "timestamp": datetime.now().isoformat(),
+            "status": "failed",
+            "entity_data": {},
+            "collection_method": "chunked"
+        }
+        
+        if 'device_type' in device:
+            result['device_type'] = device['device_type']
+        
+        # Get credential info
+        cred = credentials.get(cred_name)
+        if not cred:
+            result['error'] = f"Credential not found: {cred_name}"
+            return result
+        
+        # Test connectivity
+        if cred['type'] == 'SNMPv2c':
+            sys_cmd = f"snmpget -v2c -c {cred['community']} -t 10 {ip} 1.3.6.1.2.1.1.1.0"
+        elif cred['type'] == 'SNMPv3':
+            sys_cmd = (f"snmpget -v3 -u {cred['user']} -l authPriv "
+                       f"-a {cred['auth_protocol']} -A '{cred['auth_password']}' "
+                       f"-x {cred['priv_protocol']} -X '{cred['priv_password']}' "
+                       f"-t 10 {ip} 1.3.6.1.2.1.1.1.0")
+        else:
+            result['error'] = f"Unsupported credential type: {cred['type']}"
+            return result
+            
+        sys_result = subprocess.run(sys_cmd, shell=True, capture_output=True, text=True, timeout=15)
+        if sys_result.returncode != 0:
+            result['error'] = "No SNMP response"
+            return result
+        
+        result['system_description'] = sys_result.stdout.strip()
+        
+        # Collect ENTITY-MIB attributes in chunks
+        entity_attributes = {
+            "2": "description",
+            "5": "class",
+            "7": "name",
+            "11": "serial_number",
+            "13": "model_name"
+        }
+        
+        entities = {}
+        total_collected = 0
+        
+        for attr_num, attr_name in entity_attributes.items():
+            oid = f"1.3.6.1.2.1.47.1.1.1.1.{attr_num}"
+            
+            output = self.run_snmp_walk(ip, cred, oid, timeout=90)
+            if not output:
+                continue
+            
+            lines = output.splitlines()
+            
+            for line in lines:
+                if "=" in line:
+                    try:
+                        oid_part, value_part = line.split("=", 1)
+                        if f".47.1.1.1.1.{attr_num}." in oid_part:
+                            parts = oid_part.split(".")
+                            entity_idx = parts[-1]
+                            
+                            if entity_idx not in entities:
+                                entities[entity_idx] = {}
+                            
+                            value = value_part.strip()
+                            if "STRING:" in value:
+                                value = value.split("STRING:", 1)[1].strip().strip('"')
+                            elif "INTEGER:" in value:
+                                value = value.split("INTEGER:", 1)[1].strip()
+                            
+                            entities[entity_idx][attr_name] = value
+                            total_collected += 1
+                    except:
+                        continue
+        
+        result['entity_data'] = entities
+        result['entity_count'] = len(entities)
+        result['total_attributes_collected'] = total_collected
+        result['status'] = 'success' if entities else 'failed'
+        
+        if not entities:
+            result['error'] = "No entity data collected"
+        
+        logger.info(f"[CHUNKED] Completed {name}: {len(entities)} entities")
+        return result
+    
+    def collect_entity_mib(self, device, credentials):
+        """Collect ENTITY-MIB data from device"""
+        name = device['hostname']
+        ip = device['ip']
+        cred_name = device['credential']
+        
+        # Check if chunked collection needed
+        if ip in self.chunked_devices:
+            return self.collect_entity_mib_chunked(device, credentials)
+        
+        logger.info(f"Processing {name} ({ip}) with {cred_name}")
+        
+        result = {
+            "device_name": name,
+            "ip": ip,
+            "credential": cred_name,
+            "timestamp": datetime.now().isoformat(),
+            "status": "failed",
+            "entity_data": {},
+            "collection_method": "standard"
+        }
+        
+        if 'device_type' in device:
+            result['device_type'] = device['device_type']
+        
+        # Get credential
+        cred = credentials.get(cred_name)
+        if not cred:
+            result['error'] = f"Credential not found: {cred_name}"
+            return result
+        
+        # Build SNMP commands
+        if cred['type'] == 'SNMPv2c':
+            snmp_base = f"snmpwalk -v2c -c {cred['community']} -t 10 {ip}"
+            sys_cmd = f"snmpget -v2c -c {cred['community']} -t 10 {ip} 1.3.6.1.2.1.1.1.0"
+        elif cred['type'] == 'SNMPv3':
+            snmp_base = (f"snmpwalk -v3 -u {cred['user']} -l authPriv "
+                         f"-a {cred['auth_protocol']} -A '{cred['auth_password']}' "
+                         f"-x {cred['priv_protocol']} -X '{cred['priv_password']}' "
+                         f"-t 10 {ip}")
+            sys_cmd = (f"snmpget -v3 -u {cred['user']} -l authPriv "
+                       f"-a {cred['auth_protocol']} -A '{cred['auth_password']}' "
+                       f"-x {cred['priv_protocol']} -X '{cred['priv_password']}' "
+                       f"-t 10 {ip} 1.3.6.1.2.1.1.1.0")
+        else:
+            result['error'] = f"Unsupported credential type: {cred['type']}"
+            return result
+        
+        # Test connectivity
+        sys_desc = self.run_snmp_command(sys_cmd, timeout=15)
+        if not sys_desc:
+            result['error'] = "No SNMP response"
+            return result
+        
+        result['system_description'] = sys_desc
+        
+        # Collect ENTITY-MIB
+        entity_cmd = f"{snmp_base} 1.3.6.1.2.1.47.1.1.1"
+        entity_output = self.run_snmp_command(entity_cmd, timeout=60)
+        
+        if not entity_output:
+            result['error'] = "ENTITY-MIB timeout"
+            return result
+        
+        if "No Such Object" in entity_output:
+            result['error'] = "ENTITY-MIB not supported"
+            return result
+        
+        # Parse ENTITY-MIB output
+        entities = {}
+        for line in entity_output.splitlines():
+            if "=" in line:
+                try:
+                    oid_part, value_part = line.split("=", 1)
+                    if ".47.1.1.1.1." in oid_part:
+                        parts = oid_part.split(".")
+                        attr_idx = parts[-2]
+                        entity_idx = parts[-1]
+                        
+                        if entity_idx not in entities:
+                            entities[entity_idx] = {}
+                        
+                        attr_map = {
+                            "2": "description",
+                            "5": "class",
+                            "7": "name",
+                            "11": "serial_number",
+                            "13": "model_name"
+                        }
+                        
+                        if attr_idx in attr_map:
+                            value = value_part.strip()
+                            if "STRING:" in value:
+                                value = value.split("STRING:", 1)[1].strip().strip('"')
+                            elif "INTEGER:" in value:
+                                value = value.split("INTEGER:", 1)[1].strip()
+                            
+                            entities[entity_idx][attr_map[attr_idx]] = value
+                except:
+                    continue
+        
+        result['entity_data'] = entities
+        result['entity_count'] = len(entities)
+        result['status'] = 'success'
+        
+        logger.info(f"Completed {name}: {len(entities)} entities")
+        return result
+    
+    def process_device_batch(self, device_batch, batch_id, credentials):
+        """Process batch of devices"""
+        results = []
+        for device in device_batch:
+            try:
+                result = self.collect_entity_mib(device, credentials)
+                results.append(result)
+            except Exception as e:
+                logger.error(f"Error processing {device['hostname']}: {e}")
+                results.append({
+                    "device_name": device['hostname'],
+                    "ip": device['ip'],
+                    "status": "error",
+                    "error": str(e)
+                })
+        
+        return results
+    
+    def run_collection(self):
+        """Run the complete SNMP inventory collection"""
+        logger.info("Starting nightly SNMP inventory collection")
+        
+        # Create output directory
+        os.makedirs(self.output_dir, exist_ok=True)
+        
+        # Load credentials from database
+        logger.info("Loading encrypted credentials from database...")
+        credentials = self.credential_manager.get_all_credentials()
+        self.credential_manager.close_db()  # Close DB connection before multiprocessing
+        
+        if not credentials:
+            logger.error("No credentials found in database")
+            return False
+        
+        logger.info(f"Loaded {len(credentials)} credentials")
+        
+        # Load device list
+        devices = self.load_device_list()
+        if not devices:
+            logger.error("No devices found to collect")
+            return False
+        
+        # Filter active devices
+        active_devices = [d for d in devices if d.get('status', 'active') == 'active']
+        logger.info(f"Processing {len(active_devices)} active devices")
+        
+        # Parallel processing
+        num_processes = min(10, max(1, len(active_devices) // 5))
+        batch_size = max(1, len(active_devices) // num_processes)
+        device_batches = [active_devices[i:i + batch_size] for i in range(0, len(active_devices), batch_size)]
+        
+        logger.info(f"Starting {len(device_batches)} parallel processes...")
+        start_time = time.time()
+        
+        # Process in parallel
+        all_results = []
+        with multiprocessing.Pool(processes=num_processes) as pool:
+            tasks = []
+            for i, batch in enumerate(device_batches):
+                task = pool.apply_async(process_device_batch_worker, (batch, i, credentials, self.chunked_devices))
+                tasks.append(task)
+            
+            for task in tasks:
+                batch_results = task.get()
+                all_results.extend(batch_results)
+        
+        elapsed_time = time.time() - start_time
+        
+        # Generate summary with device names
+        successful_devices = [r for r in all_results if r['status'] == 'success']
+        failed_devices = [r for r in all_results if r['status'] == 'failed']
+        error_devices = [r for r in all_results if r['status'] == 'error']
+        chunked_success_devices = [r for r in all_results if r.get('collection_method') == 'chunked' and r['status'] == 'success']
+        
+        successful = len(successful_devices)
+        failed = len(failed_devices)
+        errors = len(error_devices)
+        chunked_success = len(chunked_success_devices)
+        
+        summary = {
+            "collection_info": {
+                "timestamp": datetime.now().isoformat(),
+                "script_version": "nightly_encrypted_credentials",
+                "total_devices": len(active_devices),
+                "elapsed_time_seconds": round(elapsed_time, 2),
+                "devices_per_second": round(len(active_devices) / elapsed_time, 2) if elapsed_time > 0 else 0
+            },
+            "results_summary": {
+                "success": successful,
+                "failed": failed,
+                "error": errors,
+                "chunked_success": chunked_success
+            },
+            "devices": all_results
+        }
+        
+        # Save results
+        output_file = f"{self.output_dir}/nightly_snmp_collection_{self.timestamp}.json"
+        with open(output_file, 'w') as f:
+            json.dump(summary, f, indent=2)
+        
+        logger.info("="*60)
+        logger.info("NIGHTLY SNMP COLLECTION COMPLETE")
+        logger.info("="*60)
+        logger.info(f"Total devices: {len(active_devices)}")
+        logger.info(f"Successful: {successful}")
+        logger.info(f"Failed: {failed}")
+        logger.info(f"Errors: {errors}")
+        logger.info(f"Chunked collection success: {chunked_success}")
+        logger.info(f"Elapsed time: {elapsed_time:.2f} seconds")
+        logger.info(f"Results saved to: {output_file}")
+        
+        # Log successful devices by name
+        if successful_devices:
+            logger.info("="*60)
+            logger.info("SUCCESSFUL DEVICES:")
+            for device in successful_devices:
+                method = device.get('collection_method', 'standard')
+                entity_count = device.get('entity_count', 0)
+                logger.info(f"  ✅ {device['device_name']} ({device['ip']}) - {entity_count} entities [{method}]")
+        
+        # Log failed devices by name with reasons
+        if failed_devices:
+            logger.info("="*60)
+            logger.info("FAILED DEVICES:")
+            for device in failed_devices:
+                error_msg = device.get('error', 'Unknown error')
+                logger.info(f"  ❌ {device['device_name']} ({device['ip']}) - {error_msg}")
+        
+        # Log error devices by name with reasons
+        if error_devices:
+            logger.info("="*60)
+            logger.info("ERROR DEVICES:")
+            for device in error_devices:
+                error_msg = device.get('error', 'Unknown error')
+                logger.info(f"  💥 {device['device_name']} ({device['ip']}) - {error_msg}")
+        
+        # Log new 192.168.x.x devices specifically
+        new_192_devices = [r for r in all_results if r.get('source') == 'manually_added_192_devices']
+        if new_192_devices:
+            logger.info("="*60)
+            logger.info("NEW 192.168.x.x DEVICES STATUS:")
+            for device in new_192_devices:
+                status_icon = "✅" if device['status'] == 'success' else "❌"
+                error_info = f" - {device.get('error', '')}" if device['status'] != 'success' else ""
+                entity_count = device.get('entity_count', 0)
+                entity_info = f" ({entity_count} entities)" if device['status'] == 'success' else ""
+                logger.info(f"  {status_icon} {device['device_name']} ({device['ip']}){entity_info}{error_info}")
+        
+        # Store in database
+        logger.info("Storing results in database...")
+        if process_collection_file(output_file, self.db_manager):
+            logger.info("Database storage completed successfully")
+        else:
+            logger.error("Database storage failed")
+        
+        return True
+
+def main():
+    """Main entry point"""
+    collector = NightlySNMPCollector()
+    
+    try:
+        success = collector.run_collection()
+        sys.exit(0 if success else 1)
+        
+    except Exception as e:
+        logger.error(f"Collection failed with error: {e}")
+        sys.exit(1)
+    
+    finally:
+        collector.credential_manager.close_db()
+        collector.db_manager.close_db()
+
+if __name__ == "__main__":
+    main()

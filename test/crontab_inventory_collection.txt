@@ -1,0 +1,10 @@
+# Nightly Inventory Collection - Database Driven
+# Collects comprehensive inventory including Nexus 5K/2K FEX relationships
+# Runs at 2:30 AM every night
+
+30 2 * * * /usr/bin/python3 /usr/local/bin/test/nightly_inventory_collection_db.py >> /var/log/inventory_collection_db.log 2>&1
+
+# Weekly device access credential verification
+# Runs every Sunday at 3:00 AM to test all device access methods
+
+0 3 * * 0 /usr/bin/python3 /usr/local/bin/test/verify_device_access.py >> /var/log/device_access_verify.log 2>&1

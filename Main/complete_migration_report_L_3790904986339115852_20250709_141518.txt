@@ -1,0 +1,118 @@
+
+Complete Network Migration Report
+=================================
+Timestamp: 2025-07-09 14:15:18
+Network ID: L_3790904986339115852
+Organization: 3790904986339115010
+Mode: TEST
+Duration: 0:00:39.710634
+
+Policy Object Mappings:
+  Object 3790904986339115064 → 3790904986339115199
+  Object 3790904986339115068 → 3790904986339115197
+  Object 3790904986339115069 → 3790904986339115198
+  Object 3790904986339115074 → 3790904986339115305
+  Object 3790904986339115107 → 3790904986339115306
+  Object 3790904986339115108 → 3790904986339115307
+  Object 3790904986339115109 → 3790904986339115308
+  Object 3790904986339115110 → 3790904986339115309
+  Object 3790904986339115204 → 3790904986339115310
+  Object 3790904986339115205 → 3790904986339115311
+
+Policy Group Mappings:
+  Group 3790904986339115043 → 3790904986339115120
+  Group 3790904986339115076 → 3790904986339115121
+  Group 3790904986339115077 → 3790904986339115122
+
+Group Policy Mappings:
+  Policy 102 → 100
+  Policy 101 → 101
+  Policy 100 → 102
+
+Migration Log:
+[14:14:38] INFO: Complete Network Migrator v1.0 initialized
+[14:14:38] INFO: Target Network: L_3790904986339115852
+[14:14:38] INFO: Target Organization: 3790904986339115010
+[14:14:38] INFO: Mode: TEST
+[14:14:38] INFO: 
+Step 1: Discovering policy object references...
+[14:14:38] INFO:   Found 2 policy object references
+[14:14:38] INFO:   Found 3 policy group references
+[14:14:38] INFO: 
+Step 2: Migrating policy objects...
+[14:14:45] INFO: 
+Step 3: Creating group policies...
+[14:14:45] INFO:   Creating group policy: Ebay Access (ID: 102)
+[14:14:46] INFO:     ✓ Created policy with new ID: 100
+[14:14:47] INFO:   Creating group policy: Indeed.com (ID: 101)
+[14:14:48] INFO:     ✓ Created policy with new ID: 101
+[14:14:49] INFO:   Creating group policy: Guest Network (ID: 100)
+[14:14:50] INFO:     ✓ Created policy with new ID: 102
+[14:14:51] INFO: 
+Step 4: Cleaning up existing VLANs...
+[14:14:52] INFO: 
+Step 5: Migrating VLANs...
+[14:14:52] INFO:     TEST MODE: Changing IP from 10.1.32.0/25 to 10.255.255.0/25
+[14:14:52] INFO:       Updated DHCP relay servers: ['10.255.255.5', '10.255.255.5']
+[14:14:52] INFO:       DHCP settings: handling=Relay DHCP to another server, DNS=upstream_dns
+[14:14:52] INFO:   Updating existing VLAN 100 (Data) with subnet 10.255.255.0/25
+[14:14:53] ERROR: Error PUT https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans/100: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans/100
+[14:14:53] ERROR: Response: {"errors":["The DHCP relay IP address 10.255.255.5 cannot be in the subnet that is being relayed.","The DHCP relay IP address cannot be in the subnet that is being relayed."]}
+[14:14:55] INFO:   Creating VLAN 200 (was 101)
+[14:14:55] INFO:     TEST MODE: Changing IP from 10.1.32.128/27 to 10.255.255.128/27
+[14:14:55] INFO:       Preserving 3 DHCP options
+[14:14:55] INFO:       DHCP settings: handling=Run a DHCP server, lease=12 hours, DNS=10.0.175.27
+10.101.175.28
+[14:14:56] INFO:     ✓ Created VLAN 200 - Voice (10.255.255.128/27)
+[14:14:57] INFO:   Creating VLAN 410 (was 201)
+[14:14:57] INFO:     TEST MODE: Changing IP from 10.1.32.160/28 to 10.255.255.160/28
+[14:14:57] INFO:       Updated DHCP relay servers: ['10.255.255.5', '10.255.255.5', '10.255.255.30', '10.255.255.30']
+[14:14:57] INFO:       DHCP settings: handling=Relay DHCP to another server, DNS=upstream_dns
+[14:14:58] INFO:     ✓ Created VLAN 410 - Ccard (10.255.255.160/28)
+[14:14:59] INFO:   Creating VLAN 300 (was 300)
+[14:14:59] INFO:     TEST MODE: Changing IP from 10.1.32.176/28 to 10.255.255.176/28
+[14:14:59] INFO:       DHCP settings: handling=Run a DHCP server, lease=1 day, DNS=10.0.175.27
+10.101.175.28
+[14:15:00] INFO:     ✓ Created VLAN 300 - Net Mgmt (10.255.255.176/28)
+[14:15:01] INFO:   Creating VLAN 301 (was 301)
+[14:15:01] INFO:     TEST MODE: Changing IP from 10.1.32.192/28 to 10.255.255.192/28
+[14:15:01] INFO:       DHCP settings: handling=Run a DHCP server, lease=1 day, DNS=10.0.175.27
+10.101.175.28
+[14:15:03] INFO:     ✓ Created VLAN 301 - Scanner (10.255.255.192/28)
+[14:15:04] INFO:   Creating VLAN 800 (was 800)
+[14:15:04] INFO:     TEST MODE: Changing IP from 172.13.0.0/30 to 172.16.80.0/24
+[14:15:04] INFO:     Updated group policy ID: 100 → 102
+[14:15:04] INFO:       DHCP settings: handling=Run a DHCP server, lease=1 day, DNS=upstream_dns
+[14:15:05] INFO:     ✓ Created VLAN 800 - Guest (172.16.80.0/24)
+[14:15:06] INFO:   Creating VLAN 400 (was 801)
+[14:15:06] INFO:     TEST MODE: Changing IP from 172.14.0.0/24 to 172.16.40.0/24
+[14:15:06] INFO:     Updated group policy ID: 100 → 102
+[14:15:06] INFO:       DHCP settings: handling=Run a DHCP server, lease=1 day, DNS=upstream_dns
+[14:15:07] INFO:     ✓ Created VLAN 400 - IoT (172.16.40.0/24)
+[14:15:08] INFO:   Skipping VLAN 802 (will be removed)
+[14:15:08] INFO:   Creating VLAN 803 (was 803)
+[14:15:08] INFO:     Updated group policy ID: 100 → 102
+[14:15:08] INFO:       DHCP settings: handling=Run a DHCP server, lease=1 day, DNS=upstream_dns
+[14:15:09] INFO:     ✓ Created VLAN 803 - IoT Wireless (172.22.0.0/24)
+[14:15:10] INFO:   Creating VLAN 900 (was 900)
+[14:15:10] INFO:     TEST MODE: Changing IP from 10.1.32.252/30 to 10.255.255.252/30
+[14:15:10] INFO:       DHCP settings: handling=Run a DHCP server, lease=1 day, DNS=upstream_dns
+[14:15:11] INFO:     ✓ Created VLAN 900 - Mgmt (10.255.255.252/30)
+[14:15:12] INFO: 
+Step 6: Configuring syslog server...
+[14:15:12] INFO:   Using default syslog server: 10.0.175.30:514
+[14:15:12] INFO:   TEST MODE: Updated syslog server from 10.0.175.30 to 10.255.255.30
+[14:15:13] INFO:   ✓ Syslog server configured: 10.255.255.30:514
+[14:15:13] INFO: 
+Step 7: Applying firewall rules...
+[14:15:13] INFO: Applying 55 firewall rules...
+[14:15:14] ERROR: Error PUT https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/firewall/l3FirewallRules: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/firewall/l3FirewallRules
+[14:15:14] ERROR: Response: {"errors":["At least one of your firewall rules is invalid: Contains references to Network Objects or Groups which don't exist."]}
+[14:15:14] ERROR:   ✗ Failed to apply firewall rules
+[14:15:14] INFO: 
+Step 8: Validating deployment...
+[14:15:15] INFO:   ✓ VLANs: 9 configured
+[14:15:16] INFO:   ✓ Group Policies: 3 configured
+[14:15:17] WARNING:   ✗ Firewall Rules: Only 2 configured, expected at least 50
+[14:15:18] INFO:   ✓ Syslog: 1 server(s) configured
+[14:15:18] WARNING:   ⚠️  Validation issues with: firewall_rules

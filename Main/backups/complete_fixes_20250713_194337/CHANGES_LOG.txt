@@ -1,0 +1,54 @@
+DSR Circuits Complete Fixes Log
+===============================
+Date: July 13, 2025 19:43 MST
+Session Duration: ~1.5 hours
+
+CHANGES MADE:
+-------------
+
+1. FILTER BUTTONS (dsrcircuits.html)
+   - Fixed Discount-Tire filter to use URL parameter (?filter=all)
+   - Fixed Not Vision Ready filter to check speed columns correctly
+   - Fixed column mapping (WAN2 Speed is column 5, not 6)
+   - Added Excel/PDF export handlers
+   - Removed duplicate notVisionReadyFilterActive declarations
+
+2. ARIN REFRESH (dsrcircuits_blueprint.py)
+   - Replaced database-focused lookup with real-time Meraki API query
+   - Added DDNS hostname resolution for public IPs
+   - Implemented recursive RDAP entity collection
+   - Added organization entity filtering (kind: org)
+   - Added role prioritization (registrant > ISP > others)
+   - Added company name normalization mapping
+   - Removed RdapCache dependency (model does not exist)
+
+3. UI/JAVASCRIPT (dsrcircuits.html)
+   - Updated ARIN response field names (wan1_provider, wan2_provider)
+   - Fixed DataTable column indexes
+   - Added debug logging for filter testing
+   - Cleaned up template syntax errors
+
+TESTING PERFORMED:
+------------------
+- Verified Discount-Tire filter shows all networks when clicked
+- Confirmed Not Vision Ready shows only wireless/satellite sites
+- Tested ARIN refresh returns full company names (not handles)
+- Verified export buttons create CSV/trigger print
+- Checked service runs without errors
+
+KNOWN ISSUES RESOLVED:
+----------------------
+- RdapCache is not defined error
+- ARIN returning handles instead of company names
+- Not Vision Ready filter not working
+- Discount-Tire filter logic backwards
+- Column index mismatch for speed data
+
+FILES IN THIS BACKUP:
+---------------------
+- dsrcircuits_blueprint.py (main API logic)
+- dsrcircuits.html (UI template)
+- dsrcircuits_flask_template.html (Flask template copy)
+- dsrcircuits.py (main app)
+- README.md (detailed summary)
+- CHANGES_LOG.txt (this file)

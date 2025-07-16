@@ -1,0 +1,626 @@
+
+Complete VLAN Migration Report
+==============================
+Network: TST 01 (L_3790904986339115852)
+Start Time: 2025-07-10 20:34:22
+Duration: 0:00:55.746744
+Mode: LIVE
+
+VLAN Mapping Applied:
+  VLAN 1 → VLAN 100
+  VLAN 101 → VLAN 200
+  VLAN 801 → VLAN 400
+  VLAN 201 → VLAN 410
+
+Log Entries:
+[20:34:22] DEBUG: DEBUG: API Request: GET https://api.meraki.com/api/v1/networks/L_3790904986339115852
+[20:34:23] DEBUG: DEBUG: Response Status: 200
+[20:34:23] DEBUG: DEBUG: Response received (345 chars)
+[20:34:23] DEBUG: DEBUG: Network info retrieved: TST 01 (ID: L_3790904986339115852)
+[20:34:23] INFO: Complete VLAN Migrator initialized for TST 01
+[20:34:23] INFO: Mode: LIVE
+[20:34:23] INFO: DEBUG: Enabled - Verbose logging active
+[20:34:23] INFO: 
+============================================================
+[20:34:23] INFO: Taking complete configuration backup...
+[20:34:23] INFO: ============================================================
+[20:34:23] INFO: Backing up VLANs...
+[20:34:23] DEBUG: DEBUG: API Request: GET https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans
+[20:34:23] DEBUG: DEBUG: Response Status: 200
+[20:34:23] DEBUG: DEBUG: Response received (4357 chars)
+[20:34:23] INFO:   ✓ Backed up 10 VLANs
+[20:34:23] DEBUG: DEBUG: VLAN IDs backed up
+[20:34:23] DEBUG: DEBUG DATA: [
+  1,
+  101,
+  201,
+  300,
+  301,
+  800,
+  801,
+  802,
+  803,
+  900
+]
+[20:34:23] INFO: Backing up firewall rules...
+[20:34:23] DEBUG: DEBUG: API Request: GET https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/firewall/l3FirewallRules
+[20:34:23] DEBUG: DEBUG: Response Status: 200
+[20:34:23] DEBUG: DEBUG: Response received (176 chars)
+[20:34:23] INFO:   ✓ Backed up 1 firewall rules
+[20:34:23] DEBUG: DEBUG: First 3 rules
+[20:34:23] DEBUG: DEBUG DATA: [
+  {
+    "comment": "Default rule",
+    "policy": "allow",
+    "protocol": "Any",
+    "srcPort": "Any",
+    "srcCidr": "Any",
+    "destPort": "Any",
+    "destCidr": "Any",
+    "syslogEnabled": false
+  }
+]
+[20:34:23] INFO: Backing up group policies...
+[20:34:23] DEBUG: DEBUG: API Request: GET https://api.meraki.com/api/v1/networks/L_3790904986339115852/groupPolicies
+[20:34:24] DEBUG: DEBUG: Response Status: 200
+[20:34:24] DEBUG: DEBUG: Response received (4958 chars)
+[20:34:24] INFO:   ✓ Backed up 3 group policies
+[20:34:24] DEBUG: DEBUG: API Request: GET https://api.meraki.com/api/v1/networks/L_3790904986339115852/devices
+[20:34:24] DEBUG: DEBUG: Response Status: 200
+[20:34:24] DEBUG: DEBUG: Response received (1378 chars)
+[20:34:24] INFO: Backing up switch configurations...
+[20:34:24] DEBUG: DEBUG: Backing up ports for switch TST_01SW01 (Q3DB-4X9P-QRW3)
+[20:34:24] DEBUG: DEBUG: API Request: GET https://api.meraki.com/api/v1/devices/Q3DB-4X9P-QRW3/switch/ports
+[20:34:25] DEBUG: DEBUG: Response Status: 200
+[20:34:25] DEBUG: DEBUG: Response received (21947 chars)
+[20:34:25] INFO:   ✓ Backed up 28 ports for TST_01SW01
+[20:34:25] DEBUG: DEBUG: Backing up ports for switch TST_01SW02 (Q3DB-77XE-5BRN)
+[20:34:25] DEBUG: DEBUG: API Request: GET https://api.meraki.com/api/v1/devices/Q3DB-77XE-5BRN/switch/ports
+[20:34:26] DEBUG: DEBUG: Response Status: 200
+[20:34:26] DEBUG: DEBUG: Response received (21966 chars)
+[20:34:26] INFO:   ✓ Backed up 28 ports for TST_01SW02
+[20:34:26] INFO: Backing up MX ports...
+[20:34:26] DEBUG: DEBUG: Checking MX ports for TST 01MX
+[20:34:26] DEBUG: DEBUG: API Request: GET https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/2
+[20:34:27] DEBUG: DEBUG: Response Status: 404
+[20:34:27] ERROR: API Error: 404 - 
+[20:34:27] DEBUG: DEBUG: API Request: GET https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/3
+[20:34:27] DEBUG: DEBUG: Response Status: 200
+[20:34:27] DEBUG: DEBUG: Response received (133 chars)
+[20:34:27] DEBUG: DEBUG: Port 3 config
+[20:34:27] DEBUG: DEBUG DATA: {
+  "number": 3,
+  "enabled": true,
+  "type": "trunk",
+  "dropUntaggedTraffic": false,
+  "vlan": 1,
+  "allowedVlans": "1,101,201,300,301,900,803"
+}
+[20:34:27] DEBUG: DEBUG: API Request: GET https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/4
+[20:34:28] DEBUG: DEBUG: Response Status: 200
+[20:34:28] DEBUG: DEBUG: Response received (143 chars)
+[20:34:28] DEBUG: DEBUG: Port 4 config
+[20:34:28] DEBUG: DEBUG DATA: {
+  "number": 4,
+  "enabled": true,
+  "type": "trunk",
+  "dropUntaggedTraffic": false,
+  "vlan": 300,
+  "allowedVlans": "1,101,201,300,301,800,801,802,803"
+}
+[20:34:28] DEBUG: DEBUG: API Request: GET https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/5
+[20:34:28] DEBUG: DEBUG: Response Status: 200
+[20:34:28] DEBUG: DEBUG: Response received (143 chars)
+[20:34:28] DEBUG: DEBUG: Port 5 config
+[20:34:28] DEBUG: DEBUG DATA: {
+  "number": 5,
+  "enabled": true,
+  "type": "trunk",
+  "dropUntaggedTraffic": false,
+  "vlan": 300,
+  "allowedVlans": "1,101,201,300,301,800,801,802,803"
+}
+[20:34:28] DEBUG: DEBUG: API Request: GET https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/6
+[20:34:29] DEBUG: DEBUG: Response Status: 200
+[20:34:29] DEBUG: DEBUG: Response received (143 chars)
+[20:34:29] DEBUG: DEBUG: Port 6 config
+[20:34:29] DEBUG: DEBUG DATA: {
+  "number": 6,
+  "enabled": true,
+  "type": "trunk",
+  "dropUntaggedTraffic": false,
+  "vlan": 300,
+  "allowedVlans": "1,101,201,300,301,800,801,802,803"
+}
+[20:34:29] DEBUG: DEBUG: API Request: GET https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/7
+[20:34:29] DEBUG: DEBUG: Response Status: 200
+[20:34:29] DEBUG: DEBUG: Response received (100 chars)
+[20:34:29] DEBUG: DEBUG: Port 7 config
+[20:34:29] DEBUG: DEBUG DATA: {
+  "number": 7,
+  "enabled": false,
+  "dropUntaggedTraffic": true,
+  "type": "trunk",
+  "allowedVlans": "all"
+}
+[20:34:29] DEBUG: DEBUG: API Request: GET https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/8
+[20:34:29] DEBUG: DEBUG: Response Status: 200
+[20:34:29] DEBUG: DEBUG: Response received (113 chars)
+[20:34:29] DEBUG: DEBUG: Port 8 config
+[20:34:29] DEBUG: DEBUG DATA: {
+  "number": 8,
+  "enabled": true,
+  "type": "trunk",
+  "dropUntaggedTraffic": false,
+  "vlan": 802,
+  "allowedVlans": "802"
+}
+[20:34:29] DEBUG: DEBUG: API Request: GET https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/9
+[20:34:30] DEBUG: DEBUG: Response Status: 200
+[20:34:30] DEBUG: DEBUG: Response received (115 chars)
+[20:34:30] DEBUG: DEBUG: Port 9 config
+[20:34:30] DEBUG: DEBUG DATA: {
+  "number": 9,
+  "enabled": true,
+  "type": "access",
+  "dropUntaggedTraffic": false,
+  "vlan": 801,
+  "accessPolicy": "open"
+}
+[20:34:30] DEBUG: DEBUG: API Request: GET https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/10
+[20:34:30] DEBUG: DEBUG: Response Status: 200
+[20:34:30] DEBUG: DEBUG: Response received (126 chars)
+[20:34:30] DEBUG: DEBUG: Port 10 config
+[20:34:30] DEBUG: DEBUG DATA: {
+  "number": 10,
+  "enabled": true,
+  "type": "trunk",
+  "dropUntaggedTraffic": false,
+  "vlan": 1,
+  "allowedVlans": "1,101,201,300,301"
+}
+[20:34:30] DEBUG: DEBUG: API Request: GET https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/11
+[20:34:30] DEBUG: DEBUG: Response Status: 200
+[20:34:30] DEBUG: DEBUG: Response received (101 chars)
+[20:34:30] DEBUG: DEBUG: Port 11 config
+[20:34:30] DEBUG: DEBUG DATA: {
+  "number": 11,
+  "enabled": false,
+  "dropUntaggedTraffic": true,
+  "type": "trunk",
+  "allowedVlans": "all"
+}
+[20:34:30] INFO:   ✓ Backed up 9 MX ports
+[20:34:31] INFO: Backing up syslog configuration...
+[20:34:31] DEBUG: DEBUG: API Request: GET https://api.meraki.com/api/v1/networks/L_3790904986339115852/syslogServers
+[20:34:31] DEBUG: DEBUG: Response Status: 200
+[20:34:31] DEBUG: DEBUG: Response received (214 chars)
+[20:34:31] INFO: 
+✓ Complete backup saved to complete_vlan_backup_L_3790904986339115852_20250710_203431.json
+[20:34:31] INFO: 
+============================================================
+[20:34:31] INFO: Clearing VLAN references...
+[20:34:31] INFO: ============================================================
+[20:34:31] INFO: 
+Step 1: Clearing firewall rules...
+[20:34:31] DEBUG: DEBUG: Current firewall rule count
+[20:34:31] DEBUG: DEBUG DATA: 1
+[20:34:31] DEBUG: DEBUG: API Request: PUT https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/firewall/l3FirewallRules
+[20:34:32] DEBUG: DEBUG: Response Status: 200
+[20:34:32] DEBUG: DEBUG: Response received (176 chars)
+[20:34:32] INFO:   ✓ Firewall rules cleared
+[20:34:32] INFO: 
+Step 2: Creating temporary VLANs...
+[20:34:32] INFO:   Creating temporary VLAN 999...
+[20:34:32] DEBUG: DEBUG: API Request: POST https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans
+[20:34:33] DEBUG: DEBUG: Response Status: 201
+[20:34:33] DEBUG: DEBUG: Created temp VLAN 999
+[20:34:33] DEBUG: DEBUG DATA: {
+  "id": 999,
+  "networkId": "L_3790904986339115852",
+  "name": "TEMP_999",
+  "applianceIp": "10.255.234.1",
+  "subnet": "10.255.234.0/24",
+  "fixedIpAssignments": {},
+  "reservedIpRanges": [],
+  "dnsNameservers": "upstream_dns",
+  "dhcpHandling": "Run a DHCP server",
+  "dhcpLeaseTime": "1 day",
+  "dhcpBootOptionsEnabled": false,
+  "dhcpOptions": [],
+  "interfaceId": "3790904986341395443",
+  "ipv6": {
+    "enabled": false
+  },
+  "mandatoryDhcp": {
+    "enabled": false
+  }
+}
+[20:34:33] INFO:   ✓ Created temporary VLAN 999
+[20:34:34] INFO:   Creating temporary VLAN 998...
+[20:34:34] DEBUG: DEBUG: API Request: POST https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans
+[20:34:34] DEBUG: DEBUG: Response Status: 201
+[20:34:34] DEBUG: DEBUG: Created temp VLAN 998
+[20:34:34] DEBUG: DEBUG DATA: {
+  "id": 998,
+  "networkId": "L_3790904986339115852",
+  "name": "TEMP_998",
+  "applianceIp": "10.255.233.1",
+  "subnet": "10.255.233.0/24",
+  "fixedIpAssignments": {},
+  "reservedIpRanges": [],
+  "dnsNameservers": "upstream_dns",
+  "dhcpHandling": "Run a DHCP server",
+  "dhcpLeaseTime": "1 day",
+  "dhcpBootOptionsEnabled": false,
+  "dhcpOptions": [],
+  "interfaceId": "3790904986341395444",
+  "ipv6": {
+    "enabled": false
+  },
+  "mandatoryDhcp": {
+    "enabled": false
+  }
+}
+[20:34:34] INFO:   ✓ Created temporary VLAN 998
+[20:34:35] INFO:   Creating temporary VLAN 997...
+[20:34:35] DEBUG: DEBUG: API Request: POST https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans
+[20:34:36] DEBUG: DEBUG: Response Status: 201
+[20:34:36] DEBUG: DEBUG: Created temp VLAN 997
+[20:34:36] DEBUG: DEBUG DATA: {
+  "id": 997,
+  "networkId": "L_3790904986339115852",
+  "name": "TEMP_997",
+  "applianceIp": "10.255.232.1",
+  "subnet": "10.255.232.0/24",
+  "fixedIpAssignments": {},
+  "reservedIpRanges": [],
+  "dnsNameservers": "upstream_dns",
+  "dhcpHandling": "Run a DHCP server",
+  "dhcpLeaseTime": "1 day",
+  "dhcpBootOptionsEnabled": false,
+  "dhcpOptions": [],
+  "interfaceId": "3790904986341395445",
+  "ipv6": {
+    "enabled": false
+  },
+  "mandatoryDhcp": {
+    "enabled": false
+  }
+}
+[20:34:36] INFO:   ✓ Created temporary VLAN 997
+[20:34:37] INFO:   Creating temporary VLAN 996...
+[20:34:37] DEBUG: DEBUG: API Request: POST https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans
+[20:34:37] DEBUG: DEBUG: Response Status: 201
+[20:34:37] DEBUG: DEBUG: Created temp VLAN 996
+[20:34:37] DEBUG: DEBUG DATA: {
+  "id": 996,
+  "networkId": "L_3790904986339115852",
+  "name": "TEMP_996",
+  "applianceIp": "10.255.231.1",
+  "subnet": "10.255.231.0/24",
+  "fixedIpAssignments": {},
+  "reservedIpRanges": [],
+  "dnsNameservers": "upstream_dns",
+  "dhcpHandling": "Run a DHCP server",
+  "dhcpLeaseTime": "1 day",
+  "dhcpBootOptionsEnabled": false,
+  "dhcpOptions": [],
+  "interfaceId": "3790904986341395446",
+  "ipv6": {
+    "enabled": false
+  },
+  "mandatoryDhcp": {
+    "enabled": false
+  }
+}
+[20:34:37] INFO:   ✓ Created temporary VLAN 996
+[20:34:38] INFO: 
+Step 3: Moving switch ports to temporary VLANs...
+[20:34:38] INFO: 
+Step 4: Updating MX ports to temporary VLANs...
+[20:34:38] DEBUG: DEBUG: API Request: PUT https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/3
+[20:34:39] DEBUG: DEBUG: Response Status: 200
+[20:34:39] DEBUG: DEBUG: Response received (135 chars)
+[20:34:39] DEBUG: DEBUG: MX Port 3: VLAN 1 → 999
+[20:34:39] DEBUG: DEBUG: API Request: PUT https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/9
+[20:34:40] DEBUG: DEBUG: Response Status: 200
+[20:34:40] DEBUG: DEBUG: Response received (115 chars)
+[20:34:40] DEBUG: DEBUG: MX Port 9: VLAN 801 → 997
+[20:34:40] DEBUG: DEBUG: API Request: PUT https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/10
+[20:34:41] DEBUG: DEBUG: Response Status: 200
+[20:34:41] DEBUG: DEBUG: Response received (128 chars)
+[20:34:41] DEBUG: DEBUG: MX Port 10: VLAN 1 → 999
+[20:34:41] INFO:   ✓ Updated 3 MX ports
+[20:34:41] INFO: 
+============================================================
+[20:34:41] INFO: Migrating VLANs to new IDs...
+[20:34:41] INFO: ============================================================
+[20:34:41] INFO: 
+Migrating VLAN 1 → 100
+[20:34:41] INFO:   Deleting VLAN 1...
+[20:34:41] DEBUG: DEBUG: API Request: DELETE https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans/1
+[20:34:42] DEBUG: DEBUG: Response Status: 204
+[20:34:42] DEBUG: DEBUG: Deleted VLAN 1
+[20:34:45] INFO:   Creating VLAN 100...
+[20:34:45] DEBUG: DEBUG: API Request: POST https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans
+[20:34:46] DEBUG: DEBUG: Response Status: 201
+[20:34:46] INFO:   ✓ Created VLAN 100
+[20:34:46] DEBUG: DEBUG: New VLAN created
+[20:34:46] DEBUG: DEBUG DATA: {
+  "id": 100,
+  "networkId": "L_3790904986339115852",
+  "name": "Data",
+  "applianceIp": "10.1.32.1",
+  "subnet": "10.1.32.0/25",
+  "fixedIpAssignments": {},
+  "reservedIpRanges": [],
+  "dnsNameservers": "upstream_dns",
+  "dhcpHandling": "Run a DHCP server",
+  "dhcpLeaseTime": "1 day",
+  "dhcpBootOptionsEnabled": false,
+  "dhcpOptions": [],
+  "interfaceId": "3790904986341395447",
+  "ipv6": {
+    "enabled": false
+  },
+  "mandatoryDhcp": {
+    "enabled": false
+  }
+}
+[20:34:47] INFO: 
+Migrating VLAN 101 → 200
+[20:34:47] INFO:   Deleting VLAN 101...
+[20:34:47] DEBUG: DEBUG: API Request: DELETE https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans/101
+[20:34:47] DEBUG: DEBUG: Response Status: 204
+[20:34:47] DEBUG: DEBUG: Deleted VLAN 101
+[20:34:50] INFO:   Creating VLAN 200...
+[20:34:50] DEBUG: DEBUG: API Request: POST https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans
+[20:34:51] DEBUG: DEBUG: Response Status: 201
+[20:34:51] INFO:   ✓ Created VLAN 200
+[20:34:51] DEBUG: DEBUG: New VLAN created
+[20:34:51] DEBUG: DEBUG DATA: {
+  "id": 200,
+  "networkId": "L_3790904986339115852",
+  "name": "Voice",
+  "applianceIp": "10.1.32.129",
+  "subnet": "10.1.32.128/27",
+  "fixedIpAssignments": {},
+  "reservedIpRanges": [],
+  "dnsNameservers": "upstream_dns",
+  "dhcpHandling": "Run a DHCP server",
+  "dhcpLeaseTime": "1 day",
+  "dhcpBootOptionsEnabled": false,
+  "dhcpOptions": [],
+  "interfaceId": "3790904986341395448",
+  "ipv6": {
+    "enabled": false
+  },
+  "mandatoryDhcp": {
+    "enabled": false
+  }
+}
+[20:34:52] INFO: 
+Migrating VLAN 801 → 400
+[20:34:52] INFO:   Deleting VLAN 801...
+[20:34:52] DEBUG: DEBUG: API Request: DELETE https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans/801
+[20:34:52] DEBUG: DEBUG: Response Status: 204
+[20:34:52] DEBUG: DEBUG: Deleted VLAN 801
+[20:34:55] INFO:   Creating VLAN 400...
+[20:34:55] INFO:     Applying IP changes for VLAN 400
+[20:34:55] DEBUG: DEBUG: IP change applied
+[20:34:55] DEBUG: DEBUG DATA: {
+  "old": "172.14.0.1/172.14.0.0/24",
+  "new": "172.16.40.1/172.16.40.1/24"
+}
+[20:34:55] DEBUG: DEBUG: API Request: POST https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans
+[20:34:56] DEBUG: DEBUG: Response Status: 201
+[20:34:56] INFO:   ✓ Created VLAN 400
+[20:34:56] DEBUG: DEBUG: New VLAN created
+[20:34:56] DEBUG: DEBUG DATA: {
+  "id": 400,
+  "networkId": "L_3790904986339115852",
+  "name": "IOT",
+  "applianceIp": "172.16.40.1",
+  "subnet": "172.16.40.0/24",
+  "fixedIpAssignments": {},
+  "reservedIpRanges": [],
+  "dnsNameservers": "upstream_dns",
+  "dhcpHandling": "Run a DHCP server",
+  "dhcpLeaseTime": "1 day",
+  "dhcpBootOptionsEnabled": false,
+  "dhcpOptions": [],
+  "interfaceId": "3790904986341395449",
+  "ipv6": {
+    "enabled": false
+  },
+  "mandatoryDhcp": {
+    "enabled": false
+  }
+}
+[20:34:57] INFO: 
+Migrating VLAN 201 → 410
+[20:34:57] INFO:   Deleting VLAN 201...
+[20:34:57] DEBUG: DEBUG: API Request: DELETE https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans/201
+[20:34:57] DEBUG: DEBUG: Response Status: 204
+[20:34:57] DEBUG: DEBUG: Deleted VLAN 201
+[20:35:00] INFO:   Creating VLAN 410...
+[20:35:00] DEBUG: DEBUG: API Request: POST https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans
+[20:35:01] DEBUG: DEBUG: Response Status: 201
+[20:35:01] INFO:   ✓ Created VLAN 410
+[20:35:01] DEBUG: DEBUG: New VLAN created
+[20:35:01] DEBUG: DEBUG DATA: {
+  "id": 410,
+  "networkId": "L_3790904986339115852",
+  "name": "Ccard",
+  "applianceIp": "10.1.32.161",
+  "subnet": "10.1.32.160/28",
+  "fixedIpAssignments": {},
+  "reservedIpRanges": [],
+  "dnsNameservers": "upstream_dns",
+  "dhcpHandling": "Run a DHCP server",
+  "dhcpLeaseTime": "1 day",
+  "dhcpBootOptionsEnabled": false,
+  "dhcpOptions": [],
+  "interfaceId": "3790904986341395450",
+  "ipv6": {
+    "enabled": false
+  },
+  "mandatoryDhcp": {
+    "enabled": false
+  }
+}
+[20:35:02] INFO: 
+VLAN 300 - No change needed
+[20:35:02] INFO: 
+VLAN 301 - No change needed
+[20:35:02] INFO: 
+Migrating VLAN 800 → 800
+[20:35:02] INFO:   Deleting VLAN 800...
+[20:35:02] DEBUG: DEBUG: API Request: DELETE https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans/800
+[20:35:02] DEBUG: DEBUG: Response Status: 204
+[20:35:02] DEBUG: DEBUG: Deleted VLAN 800
+[20:35:05] INFO:   Creating VLAN 800...
+[20:35:05] INFO:     Applying IP changes for VLAN 800
+[20:35:05] DEBUG: DEBUG: IP change applied
+[20:35:05] DEBUG: DEBUG DATA: {
+  "old": "172.13.0.1/172.13.0.0/30",
+  "new": "172.16.80.1/172.16.80.1/24"
+}
+[20:35:05] DEBUG: DEBUG: API Request: POST https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans
+[20:35:06] DEBUG: DEBUG: Response Status: 201
+[20:35:06] INFO:   ✓ Created VLAN 800
+[20:35:06] DEBUG: DEBUG: New VLAN created
+[20:35:06] DEBUG: DEBUG DATA: {
+  "id": 800,
+  "networkId": "L_3790904986339115852",
+  "name": "Guest",
+  "applianceIp": "172.16.80.1",
+  "subnet": "172.16.80.0/24",
+  "fixedIpAssignments": {},
+  "reservedIpRanges": [],
+  "dnsNameservers": "upstream_dns",
+  "dhcpHandling": "Run a DHCP server",
+  "dhcpLeaseTime": "1 day",
+  "dhcpBootOptionsEnabled": false,
+  "dhcpOptions": [],
+  "interfaceId": "3790904986341395451",
+  "ipv6": {
+    "enabled": false
+  },
+  "mandatoryDhcp": {
+    "enabled": false
+  }
+}
+[20:35:07] INFO: 
+VLAN 803 - No change needed
+[20:35:07] INFO: 
+VLAN 900 - No change needed
+[20:35:07] INFO: 
+============================================================
+[20:35:07] INFO: Restoring configurations with new VLAN IDs...
+[20:35:07] INFO: ============================================================
+[20:35:07] DEBUG: DEBUG: Temp to new VLAN mapping
+[20:35:07] DEBUG: DEBUG DATA: {
+  "999": 100,
+  "998": 200,
+  "997": 400,
+  "996": 410
+}
+[20:35:07] INFO: 
+Step 1: Updating switch ports to new VLAN IDs...
+[20:35:07] INFO: 
+Step 2: Updating MX ports to new VLAN IDs...
+[20:35:07] DEBUG: DEBUG: MX Port 3 needs update: 1 → 100
+[20:35:07] DEBUG: DEBUG: API Request: PUT https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/3
+[20:35:07] DEBUG: DEBUG: Response Status: 200
+[20:35:07] DEBUG: DEBUG: Response received (125 chars)
+[20:35:08] DEBUG: DEBUG: MX Port 9 needs update: 801 → 400
+[20:35:08] DEBUG: DEBUG: API Request: PUT https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/9
+[20:35:08] DEBUG: DEBUG: Response Status: 200
+[20:35:08] DEBUG: DEBUG: Response received (115 chars)
+[20:35:09] DEBUG: DEBUG: MX Port 10 needs update: 1 → 100
+[20:35:09] DEBUG: DEBUG: API Request: PUT https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/10
+[20:35:09] DEBUG: DEBUG: Response Status: 200
+[20:35:09] DEBUG: DEBUG: Response received (118 chars)
+[20:35:10] INFO:   ✓ Updated 3 MX ports
+[20:35:10] INFO: 
+Step 3: Applying new firewall template...
+[20:35:10] INFO:   Loaded template with 'rules' wrapper: 54 rules
+[20:35:10] INFO:   Processing 54 firewall rules...
+[20:35:10] DEBUG: DEBUG: Updated srcCidr: VLAN(300) → VLAN(300)
+[20:35:10] DEBUG: DEBUG: Updated srcCidr: VLAN(301) → VLAN(301)
+[20:35:10] DEBUG: DEBUG: Updated destCidr: VLAN(800) → VLAN(800)
+[20:35:10] DEBUG: DEBUG: Updated srcCidr: VLAN(800) → VLAN(800)
+[20:35:10] DEBUG: DEBUG: Updated srcCidr: VLAN(300) → VLAN(300)
+[20:35:10] DEBUG: DEBUG: Updated srcCidr: VLAN(301) → VLAN(301)
+[20:35:10] DEBUG: DEBUG: Updated srcCidr: VLAN(300) → VLAN(300)
+[20:35:10] DEBUG: DEBUG: Updated srcCidr: VLAN(301) → VLAN(301)
+[20:35:10] DEBUG: DEBUG: Updated srcCidr: VLAN(300) → VLAN(300)
+[20:35:10] DEBUG: DEBUG: Updated srcCidr: VLAN(300) → VLAN(300)
+[20:35:10] DEBUG: DEBUG: Updated srcCidr: VLAN(300) → VLAN(300)
+[20:35:10] DEBUG: DEBUG: Updated srcCidr: VLAN(301) → VLAN(301)
+[20:35:10] DEBUG: DEBUG: Updated srcCidr: VLAN(301) → VLAN(301)
+[20:35:10] DEBUG: DEBUG: Updated srcCidr: VLAN(301) → VLAN(301)
+[20:35:10] DEBUG: DEBUG: Updated srcCidr: VLAN(301) → VLAN(301)
+[20:35:10] DEBUG: DEBUG: Updated srcCidr: VLAN(301) → VLAN(301)
+[20:35:10] DEBUG: DEBUG: Updated srcCidr: VLAN(301) → VLAN(301)
+[20:35:10] DEBUG: DEBUG: Updated srcCidr: VLAN(301) → VLAN(301)
+[20:35:10] DEBUG: DEBUG: Updated srcCidr: VLAN(301) → VLAN(301)
+[20:35:10] DEBUG: DEBUG: Updated srcCidr: VLAN(301) → VLAN(301)
+[20:35:10] DEBUG: DEBUG: Updated srcCidr: VLAN(301) → VLAN(301)
+[20:35:10] DEBUG: DEBUG: Updated srcCidr: VLAN(301) → VLAN(301)
+[20:35:10] DEBUG: DEBUG: Updated srcCidr: VLAN(301) → VLAN(301)
+[20:35:10] DEBUG: DEBUG: Updated srcCidr: VLAN(301) → VLAN(301)
+[20:35:10] INFO:   Processed 54 template rules (no policy object issues, Meraki will auto-add default)
+[20:35:10] DEBUG: DEBUG: API Request: PUT https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/firewall/l3FirewallRules
+[20:35:11] DEBUG: DEBUG: Response Status: 200
+[20:35:11] DEBUG: DEBUG: Response received (13875 chars)
+[20:35:11] INFO:   ✓ Applied 54 firewall template rules
+[20:35:11] DEBUG: DEBUG: First 3 rules applied
+[20:35:11] DEBUG: DEBUG DATA: [
+  {
+    "comment": "Deny to scam website per infosec",
+    "policy": "deny",
+    "protocol": "any",
+    "srcPort": "Any",
+    "srcCidr": "Any",
+    "destPort": "Any",
+    "destCidr": "5.188.231.142/32,dtcphx.com",
+    "syslogEnabled": false
+  },
+  {
+    "comment": "Deny LAN to Guest",
+    "policy": "deny",
+    "protocol": "any",
+    "srcPort": "Any",
+    "srcCidr": "VLAN(100).*,VLAN(200).*,VLAN(410).*,VLAN(301).*,VLAN(300).*",
+    "destPort": "Any",
+    "destCidr": "VLAN(800).*,VLAN(400).*",
+    "syslogEnabled": false
+  },
+  {
+    "comment": "Deny Guest to RFC1918",
+    "policy": "deny",
+    "protocol": "any",
+    "srcPort": "Any",
+    "srcCidr": "VLAN(800).*,VLAN(400).*",
+    "destPort": "Any",
+    "destCidr": "10.0.0.0/8,192.168.0.0/16,172.12.0.0/12",
+    "syslogEnabled": false
+  }
+]
+[20:35:11] INFO: 
+Step 4: Cleaning up temporary VLANs...
+[20:35:11] DEBUG: DEBUG: API Request: DELETE https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans/999
+[20:35:12] DEBUG: DEBUG: Response Status: 204
+[20:35:12] INFO:   ✓ Deleted temporary VLAN 999
+[20:35:13] DEBUG: DEBUG: API Request: DELETE https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans/998
+[20:35:14] DEBUG: DEBUG: Response Status: 204
+[20:35:14] INFO:   ✓ Deleted temporary VLAN 998
+[20:35:15] DEBUG: DEBUG: API Request: DELETE https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans/997
+[20:35:15] DEBUG: DEBUG: Response Status: 204
+[20:35:15] INFO:   ✓ Deleted temporary VLAN 997
+[20:35:16] DEBUG: DEBUG: API Request: DELETE https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans/996
+[20:35:17] DEBUG: DEBUG: Response Status: 204
+[20:35:17] INFO:   ✓ Deleted temporary VLAN 996

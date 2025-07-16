@@ -1,0 +1,385 @@
+hostname,ip_address,device_family,system_description
+aladasa06a,10.101.255.35,Arista,SNMPv2-MIB::sysDescr.0 = STRING: Arista Networks EOS version 4.27.5M running on an Arista Networks DCS-7050SX3-48YC8
+aladasa06b,10.101.255.36,Arista,SNMPv2-MIB::sysDescr.0 = STRING: Arista Networks EOS version 4.27.5M running on an Arista Networks DCS-7050SX3-48YC8
+aladasa08a,10.101.255.37,Arista,SNMPv2-MIB::sysDescr.0 = STRING: Arista Networks EOS version 4.27.5M running on an Arista Networks DCS-7050SX3-48YC8
+aladasa08b,10.101.255.38,Arista,SNMPv2-MIB::sysDescr.0 = STRING: Arista Networks EOS version 4.27.5M running on an Arista Networks DCS-7050SX3-48YC8
+cordaso12a,10.0.255.115,Arista,SNMPv2-MIB::sysDescr.0 = STRING: Arista Networks EOS version 4.27.5M running on an Arista Networks DCS-7050SX3-48YC8
+cordaso12b,10.0.255.116,Arista,SNMPv2-MIB::sysDescr.0 = STRING: Arista Networks EOS version 4.27.5M running on an Arista Networks DCS-7050SX3-48YC8
+cordasq12a,10.0.255.117,Arista,SNMPv2-MIB::sysDescr.0 = STRING: Arista Networks EOS version 4.27.5M running on an Arista Networks DCS-7050SX3-48YC8
+cordasq12b,10.0.255.118,Arista,SNMPv2-MIB::sysDescr.0 = STRING: Arista Networks EOS version 4.27.5M running on an Arista Networks DCS-7050SX3-48YC8
+IDF1A-4510.trtc.com,10.0.255.121,Cisco Catalyst,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, IOS-XE Software, Catalyst 4500 L3 Switch  Software (cat4500es8-UNIVERSALK9-M), Version 03.08.06.E RELEASE SOFTWARE (fc4)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2018 by Cisco Systems, Inc.
+Compiled Thu"
+IDF1B-4510-SW1.trtc.com,10.0.255.123,Cisco Catalyst,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, IOS-XE Software, Catalyst 4500 L3 Switch  Software (cat4500es8-UNIVERSALK9-M), Version 03.08.06.E RELEASE SOFTWARE (fc4)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2018 by Cisco Systems, Inc.
+Compiled Thu"
+IDF1B-4510-SW2.trtc.com,10.0.255.124,Cisco Catalyst,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, IOS-XE Software, Catalyst 4500 L3 Switch  Software (cat4500es8-UNIVERSALK9-M), Version 03.08.06.E RELEASE SOFTWARE (fc4)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2018 by Cisco Systems, Inc.
+Compiled Thu"
+IDF1C-9410-SW.trtc.com,10.0.255.61,Cisco Catalyst,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software [Dublin], Catalyst L3 Switch Software (CAT9K_IOSXE), Version 17.12.4, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2024 by Cisco Systems, Inc.
+Compiled Tue 23-Jul-24 09:40 by mcpre"
+IDF2A-4510.trtc.com,10.0.255.122,Cisco Catalyst,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, IOS-XE Software, Catalyst 4500 L3 Switch  Software (cat4500es8-UNIVERSALK9-M), Version 03.08.06.E RELEASE SOFTWARE (fc4)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2018 by Cisco Systems, Inc.
+Compiled Thu"
+IDF2B-9410-SW.trtc.com,10.0.255.125,Cisco Catalyst,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software [Dublin], Catalyst L3 Switch Software (CAT9K_IOSXE), Version 17.12.4, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2024 by Cisco Systems, Inc.
+Compiled Tue 23-Jul-24 09:40 by mcpre"
+IDF2C-9410-SW.trtc.com,10.0.255.62,Cisco Catalyst,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software [Dublin], Catalyst L3 Switch Software (CAT9K_IOSXE), Version 17.12.4, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2024 by Cisco Systems, Inc.
+Compiled Tue 23-Jul-24 09:40 by mcpre"
+EQX-EXT-93180-01,10.44.158.11,Cisco Nexus,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) Nexus9000 C93180YC-FX, Software (NXOS 64-bit), Version 10.3(4a), RELEASE SOFTWARE Copyright (c) 2002-2023 by Cisco Systems, Inc. Compiled 11/5/2023 12:00:00"
+EQX-EXT-93180-02,10.44.158.12,Cisco Nexus,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) Nexus9000 C93180YC-FX, Software (NXOS 64-bit), Version 10.3(4a), RELEASE SOFTWARE Copyright (c) 2002-2023 by Cisco Systems, Inc. Compiled 11/5/2023 12:00:00"
+EQX-INT-93180-01,10.44.158.21,Cisco Nexus,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) Nexus9000 C93180YC-FX, Software (NXOS 64-bit), Version 10.3(4a), RELEASE SOFTWARE Copyright (c) 2002-2023 by Cisco Systems, Inc. Compiled 11/5/2023 12:00:00"
+EQX-INT-93180-02,10.44.158.22,Cisco Nexus,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) Nexus9000 C93180YC-FX, Software (NXOS 64-bit), Version 10.3(4a), RELEASE SOFTWARE Copyright (c) 2002-2023 by Cisco Systems, Inc. Compiled 11/5/2023 12:00:00"
+2960-CX-Series-NOC.dtc_phx.com,10.0.255.10,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C2960CX Software (C2960CX-UNIVERSALK9-M), Version 15.2(4)E1, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2016 by Cisco Systems, Inc.
+Compiled Thu 28-Jan-16 16:23 by prod_rel_team"
+AL-3130-R16-Enc1-A.dtc_phx.com,10.101.255.118,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, CBS31X0 Software (CBS31X0-UNIVERSALK9-M), Version 12.2(53)SE1, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2010 by Cisco Systems, Inc.
+Compiled Fri 12-Mar-10 16:32 by prod_rel_team"
+AL-3130-R16-ENC1-B.dtc_phx.com,10.101.255.119,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, CBS31X0 Software (CBS31X0-UNIVERSALK9-M), Version 12.2(53)SE1, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2010 by Cisco Systems, Inc.
+Compiled Fri 12-Mar-10 16:32 by prod_rel_team"
+AL-3130-R3-ENC2-A.dtc_phx.com,10.101.255.115,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, CBS31X0 Software (CBS31X0-UNIVERSALK9-M), Version 12.2(53)SE1, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2010 by Cisco Systems, Inc.
+Compiled Fri 12-Mar-10 16:32 by prod_rel_team"
+AL-3130-R3-ENC2-B.dtc_phx.com,10.101.255.117,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, CBS31X0 Software (CBS31X0-UNIVERSALK9-M), Version 12.2(53)SE1, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2010 by Cisco Systems, Inc.
+Compiled Fri 12-Mar-10 16:32 by prod_rel_team"
+AL-5000-01,10.101.145.125,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) n5000, Software (n5000-uk9), Version 5.2(1)N1(4), RELEASE SOFTWARE Copyright (c) 2002-2011 by Cisco Systems, Inc. Device Manager Version 6.1(1),  Compiled 3/19/2013 3:00:00"
+AL-5000-02,10.101.145.126,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) n5000, Software (n5000-uk9), Version 5.2(1)N1(4), RELEASE SOFTWARE Copyright (c) 2002-2011 by Cisco Systems, Inc. Device Manager Version 6.1(1),  Compiled 3/19/2013 3:00:00"
+AL-7000-01-ADMIN,10.101.145.123,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) n7000, Software (n7000-s2-dk9), Version 8.2(7a), RELEASE SOFTWARE Copyright (c) 2002-2021 by Cisco Systems, Inc. Compiled 6/22/2021 22:00:00"
+AL-7000-01-CORE,10.101.255.244,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) n7000, Software (n7000-s2-dk9), Version 8.2(7a), RELEASE SOFTWARE Copyright (c) 2002-2021 by Cisco Systems, Inc. Compiled 6/22/2021 22:00:00"
+AL-7000-01-EDGE,10.101.100.209,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) n7000, Software (n7000-s2-dk9), Version 8.2(7a), RELEASE SOFTWARE Copyright (c) 2002-2021 by Cisco Systems, Inc. Compiled 6/22/2021 22:00:00"
+AL-7000-01-PCI,10.101.100.189,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) n7000, Software (n7000-s2-dk9), Version 8.2(7a), RELEASE SOFTWARE Copyright (c) 2002-2021 by Cisco Systems, Inc. Compiled 6/22/2021 22:00:00"
+AL-7000-02-ADMIN,10.101.145.124,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) n7000, Software (n7000-s2-dk9), Version 8.2(7a), RELEASE SOFTWARE Copyright (c) 2002-2021 by Cisco Systems, Inc. Compiled 6/22/2021 22:00:00"
+AL-7000-02-CORE,10.0.184.20,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) n7000, Software (n7000-s2-dk9), Version 8.2(7a), RELEASE SOFTWARE Copyright (c) 2002-2021 by Cisco Systems, Inc. Compiled 6/22/2021 22:00:00"
+AL-7000-02-EDGE,10.101.100.217,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) n7000, Software (n7000-s2-dk9), Version 8.2(7a), RELEASE SOFTWARE Copyright (c) 2002-2021 by Cisco Systems, Inc. Compiled 6/22/2021 22:00:00"
+AL-7000-02-PCI,10.101.100.201,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) n7000, Software (n7000-s2-dk9), Version 8.2(7a), RELEASE SOFTWARE Copyright (c) 2002-2021 by Cisco Systems, Inc. Compiled 6/22/2021 22:00:00"
+ALA-3130-Rack3-ENC3-A.dtc_phx.com,10.101.255.120,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, CBS31X0 Software (CBS31X0-UNIVERSALK9-M), Version 12.2(53)SE1, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2010 by Cisco Systems, Inc.
+Compiled Fri 12-Mar-10 16:32 by prod_rel_team"
+ALA-3130-Rack3-ENC3-B.dtc_phx.com,10.101.255.121,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, CBS31X0 Software (CBS31X0-UNIVERSALK9-M), Version 12.2(53)SE1, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2010 by Cisco Systems, Inc.
+Compiled Fri 12-Mar-10 16:32 by prod_rel_team"
+Alameda-IDFA-3750-Stack.dtc_phx.com,10.101.255.50,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(55)SE8, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2013 by Cisco Systems, Inc.
+Compiled Wed 26-Jun-13 11:25 by prod_rel_team"
+Alameda-IDFA-VG224,10.101.14.21,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, vg224 Software (vg224-I6K9S-M), Version 15.1(4)M6, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2013 by Cisco Systems, Inc.
+Compiled Thu 14-Feb-13 09:33 by prod_rel_team"
+Alameda-IDFB-3750-Stack.dtc_phx.com,10.101.255.60,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(55)SE8, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2013 by Cisco Systems, Inc.
+Compiled Wed 26-Jun-13 11:25 by prod_rel_team"
+Alameda-IDFB-VG224.trtc.com,10.101.14.22,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, vg224 Software (vg224-I6K9S-M), Version 12.4(23), RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2008 by Cisco Systems, Inc.
+Compiled Sun 09-Nov-08 08:15 by prod_rel_team"
+Alameda-IDFC-3750-Stack.dtc_phx.com,10.101.255.70,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(55)SE8, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2013 by Cisco Systems, Inc.
+Compiled Wed 26-Jun-13 11:25 by prod_rel_team"
+Alameda-IDFC-VG224,10.101.14.23,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, vg224 Software (vg224-I6K9S-M), Version 12.4(23), RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2008 by Cisco Systems, Inc.
+Compiled Sun 09-Nov-08 08:15 by prod_rel_team"
+Alameda-IDFD-3750-Stack.dtc_phx.com,10.101.255.80,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(55)SE8, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2013 by Cisco Systems, Inc.
+Compiled Wed 26-Jun-13 11:25 by prod_rel_team"
+Alameda-IDFD-VG224,10.101.14.24,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, vg224 Software (vg224-I6K9S-M), Version 15.1(4)M6, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2013 by Cisco Systems, Inc.
+Compiled Thu 14-Feb-13 09:33 by prod_rel_team"
+Alameda-IDFE-3750-Stack.dtc_phx.com,10.101.255.90,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(55)SE8, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2013 by Cisco Systems, Inc.
+Compiled Wed 26-Jun-13 11:25 by prod_rel_team"
+Alameda-IDFE-VG224,10.101.14.25,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, vg224 Software (vg224-I6K9S-M), Version 15.1(4)M6, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2013 by Cisco Systems, Inc.
+Compiled Thu 14-Feb-13 09:33 by prod_rel_team"
+Alameda-MDF-VG224,10.101.14.26,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, vg224 Software (vg224-I6K9S-M), Version 15.1(4)M6, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2013 by Cisco Systems, Inc.
+Compiled Thu 14-Feb-13 09:33 by prod_rel_team"
+Alameda-Rack3-3750-Stack,10.101.255.101,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(53)SE1, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2010 by Cisco Systems, Inc.
+Compiled Fri 12-Mar-10 15:50 by prod_rel_team"
+Alameda-Rack4-3750-A.dtc_phx.com,10.101.255.103,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(55)SE8, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2013 by Cisco Systems, Inc.
+Compiled Wed 26-Jun-13 11:25 by prod_rel_team"
+Alameda-Rack4-3750-Stack.dtc_phx.com,10.101.255.102,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(55)SE8, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2013 by Cisco Systems, Inc.
+Compiled Wed 26-Jun-13 11:25 by prod_rel_team"
+Alameda-Rack5-3750-Stack.dtc_phx.com,10.101.255.105,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(53)SE1, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2010 by Cisco Systems, Inc.
+Compiled Fri 12-Mar-10 15:50 by prod_rel_team"
+AL-MPLS-R1.dtc_phx.com,10.101.100.106,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software [Cupertino], c8000be Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 17.9.4, RELEASE SOFTWARE (fc5)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2023 by Cisco Systems, Inc.
+Compiled Wed 26-Jul-23 10:26 b"
+AL-MPLS-R1.dtc_phx.com,10.101.255.248,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software [Cupertino], c8000be Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 17.9.4, RELEASE SOFTWARE (fc5)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2023 by Cisco Systems, Inc.
+Compiled Wed 26-Jul-23 10:26 b"
+AL-Rack2-2960-01.dtc_phx.com,10.101.255.29,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C2960 Software (C2960-LANBASEK9-M), Version 12.2(44)SE6, RELEASE SOFTWARE (fc1)
+Copyright (c) 1986-2009 by Cisco Systems, Inc.
+Compiled Mon 09-Mar-09 18:10 by gereddy"
+Asset-SW8-2960.trtc.com,10.101.108.17,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C2960S Software (C2960S-UNIVERSALK9-M), Version 12.2(55)SE7, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2013 by Cisco Systems, Inc.
+Compiled Mon 28-Jan-13 10:28 by prod_rel_team"
+CFG_03_SW.trtc.com,10.101.255.124,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C2960S Software (C2960S-UNIVERSALK9-M), Version 12.2(55)SE5, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2012 by Cisco Systems, Inc.
+Compiled Thu 09-Feb-12 19:22 by prod_rel_team"
+CFG_04_SW.dtc_phx.com,10.101.108.21,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3750 Software (C3750-IPSERVICESK9-M), Version 15.0(2)SE8, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2015 by Cisco Systems, Inc.
+Compiled Wed 13-May-15 23:39 by prod_rel_team"
+EQX-CldTrst-8500-01,10.44.158.41,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software [Dublin], c8000aep Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 17.12.4, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2024 by Cisco Systems, Inc.
+Compiled Tue 23-Jul-24 09:43 by"
+EQX-CldTrst-8500-02,10.44.158.42,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software [Dublin], c8000aep Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 17.12.4, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2024 by Cisco Systems, Inc.
+Compiled Tue 23-Jul-24 09:43 by"
+EQX-EdgeDIA-8300-01,10.44.158.51,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software [Dublin], c8000be Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 17.12.4, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2024 by Cisco Systems, Inc.
+Compiled Tue 23-Jul-24 11:22 by"
+EQX-EdgeDIA-8300-02,10.44.158.52,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software [Dublin], c8000be Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 17.12.4, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2024 by Cisco Systems, Inc.
+Compiled Tue 23-Jul-24 11:22 by"
+EQX-MPLS-8300-01,10.44.158.61,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software [Cupertino], c8000be Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 17.9.6, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2024 by Cisco Systems, Inc.
+Compiled Wed 11-Sep-24 23:19 b"
+EQX-MPLS-8300-02,10.44.158.62,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software [Dublin], c8000be Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 17.12.4, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2024 by Cisco Systems, Inc.
+Compiled Tue 23-Jul-24 11:22 by"
+Floater-2960-48-QA2.dtc_phx.com,10.41.3.33,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C2960 Software (C2960-LANBASEK9-M), Version 12.2(58)SE2, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2011 by Cisco Systems, Inc.
+Compiled Thu 21-Jul-11 02:13 by prod_rel_team"
+HQ-56128P-01,10.0.255.111,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) n6000, Software (n6000-uk9), Version 7.3(5)N1(1), RELEASE SOFTWARE Copyright (c) 2002-2012, 2016-2017 by Cisco Systems, Inc. Device Manager Version 6.0(2)N1(1),Compiled 2/11/2019 2:00:00"
+HQ-56128P-02,10.0.255.112,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) n6000, Software (n6000-uk9), Version 7.3(5)N1(1), RELEASE SOFTWARE Copyright (c) 2002-2012, 2016-2017 by Cisco Systems, Inc. Device Manager Version 6.0(2)N1(1),Compiled 2/11/2019 2:00:00"
+HQ-7000-01-ADMIN,10.0.145.123,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) n7000, Software (n7000-s2-dk9), Version 8.2(7a), RELEASE SOFTWARE Copyright (c) 2002-2021 by Cisco Systems, Inc. Compiled 6/22/2021 22:00:00"
+HQ-7000-01-CORE.dtc_phx.com,10.0.100.194,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) n7000, Software (n7000-s2-dk9), Version 8.2(7a), RELEASE SOFTWARE Copyright (c) 2002-2021 by Cisco Systems, Inc. Compiled 6/22/2021 22:00:00"
+HQ-7000-01-CORE.dtc_phx.com,10.0.255.239,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) n7000, Software (n7000-s2-dk9), Version 8.2(7a), RELEASE SOFTWARE Copyright (c) 2002-2021 by Cisco Systems, Inc. Compiled 6/22/2021 22:00:00"
+HQ-7000-01-EDGE,10.0.145.2,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) n7000, Software (n7000-s2-dk9), Version 8.2(7a), RELEASE SOFTWARE Copyright (c) 2002-2021 by Cisco Systems, Inc. Compiled 6/22/2021 22:00:00"
+HQ-7000-01-PCI.dtc_phx.com,10.0.179.2,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) n7000, Software (n7000-s2-dk9), Version 8.2(7a), RELEASE SOFTWARE Copyright (c) 2002-2021 by Cisco Systems, Inc. Compiled 6/22/2021 22:00:00"
+HQ-7000-02-ADMIN,10.0.145.124,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) n7000, Software (n7000-s2-dk9), Version 8.2(7a), RELEASE SOFTWARE Copyright (c) 2002-2021 by Cisco Systems, Inc. Compiled 6/22/2021 22:00:00"
+HQ-7000-02-CORE.dtc_phx.com,10.0.100.210,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) n7000, Software (n7000-s2-dk9), Version 8.2(7a), RELEASE SOFTWARE Copyright (c) 2002-2021 by Cisco Systems, Inc. Compiled 6/22/2021 22:00:00"
+HQ-7000-02-EDGE.dtc_phx.com,10.0.100.201,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) n7000, Software (n7000-s2-dk9), Version 8.2(7a), RELEASE SOFTWARE Copyright (c) 2002-2021 by Cisco Systems, Inc. Compiled 6/22/2021 22:00:00"
+HQ-7000-02-EDGE.dtc_phx.com,10.253.253.3,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) n7000, Software (n7000-s2-dk9), Version 8.2(7a), RELEASE SOFTWARE Copyright (c) 2002-2021 by Cisco Systems, Inc. Compiled 6/22/2021 22:00:00"
+HQ-7000-02-PCI.dtc_phx.com,10.0.179.3,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco NX-OS(tm) n7000, Software (n7000-s2-dk9), Version 8.2(7a), RELEASE SOFTWARE Copyright (c) 2002-2021 by Cisco Systems, Inc. Compiled 6/22/2021 22:00:00"
+HQ-ATT-DIA,192.168.255.15,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software [Cupertino], c8000be Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 17.9.4a, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2023 by Cisco Systems, Inc.
+Compiled Fri 20-Oct-23 10:53"
+HQ-LUMEN-DIA,192.168.255.14,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software [Cupertino], c8000be Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 17.9.4a, RELEASE SOFTWARE (fc3)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2023 by Cisco Systems, Inc.
+Compiled Fri 20-Oct-23 10:53"
+HQ-MPLS-R1.dtc_phx.com,10.0.100.106,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software [Cupertino], c8000be Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 17.9.4, RELEASE SOFTWARE (fc5)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2023 by Cisco Systems, Inc.
+Compiled Wed 26-Jul-23 10:26 b"
+HQ-MPLS-R1.dtc_phx.com,10.0.255.248,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software [Cupertino], c8000be Software (X86_64_LINUX_IOSD-UNIVERSALK9-M), Version 17.9.4, RELEASE SOFTWARE (fc5)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2023 by Cisco Systems, Inc.
+Compiled Wed 26-Jul-23 10:26 b"
+HQ-VG350-01,172.16.4.50,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, VG350 Software (VG350-UNIVERSALK9-M), Version 15.4(3)M3, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2015 by Cisco Systems, Inc.
+Compiled Fri 05-Jun-15 11:46 by prod_rel_team"
+HQ-VG350-02,172.16.4.51,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, VG350 Software (VG350-UNIVERSALK9-M), Version 15.4(3)M3, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2015 by Cisco Systems, Inc.
+Compiled Fri 05-Jun-15 11:46 by prod_rel_team"
+IDF-1A-2960X-SecCam.dtc_phx.com,10.0.255.4,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C2960X Software (C2960X-UNIVERSALK9-M), Version 15.2(2)E6, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2016 by Cisco Systems, Inc.
+Compiled Fri 16-Dec-16 21:27 by prod_rel_team"
+IDF-1B-2960X-SecCam.dtc_phx.com,10.0.255.5,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C2960X Software (C2960X-UNIVERSALK9-M), Version 15.2(2)E6, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2016 by Cisco Systems, Inc.
+Compiled Fri 16-Dec-16 21:27 by prod_rel_team"
+IDF-1C-2960X-SecCam.dtc_phx.com,10.0.255.6,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C2960X Software (C2960X-UNIVERSALK9-M), Version 15.2(2)E6, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2016 by Cisco Systems, Inc.
+Compiled Fri 16-Dec-16 21:27 by prod_rel_team"
+IDF-2A-2960CX-SecCam.dtc_phx.com,10.0.255.7,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C2960CX Software (C2960CX-UNIVERSALK9-M), Version 15.2(4)E3, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2016 by Cisco Systems, Inc.
+Compiled Sun 06-Nov-16 22:43 by prod_rel_team"
+IDF-2C-2960CX-SecCam.dtc_phx.com,10.0.255.9,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C2960CX Software (C2960CX-UNIVERSALK9-M), Version 15.2(4)E3, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2016 by Cisco Systems, Inc.
+Compiled Sun 06-Nov-16 22:43 by prod_rel_team"
+IDF-A-2960X-SecCam.dtc_phx.com,10.101.255.10,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C2960X Software (C2960X-UNIVERSALK9-M), Version 15.2(2)E6, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2016 by Cisco Systems, Inc.
+Compiled Fri 16-Dec-16 21:27 by prod_rel_team"
+IDF-B-2960X-SecCam.dtc_phx.com,10.101.255.11,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C2960X Software (C2960X-UNIVERSALK9-M), Version 15.2(2)E6, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2016 by Cisco Systems, Inc.
+Compiled Fri 16-Dec-16 21:27 by prod_rel_team"
+IDF-C-2960X-SecCam.dtc_phx.com,10.101.255.12,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C2960X Software (C2960X-UNIVERSALK9-M), Version 15.2(2)E6, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2016 by Cisco Systems, Inc.
+Compiled Fri 16-Dec-16 21:27 by prod_rel_team"
+IDFCNF-3750-Stack.dtc_phx.com,10.0.255.66,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(55)SE8, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2013 by Cisco Systems, Inc.
+Compiled Wed 26-Jun-13 11:25 by prod_rel_team"
+IDF-D-2960CX-SecCam.dtc_phx.com,10.101.255.13,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C2960CX Software (C2960CX-UNIVERSALK9-M), Version 15.2(4)E3, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2016 by Cisco Systems, Inc.
+Compiled Sun 06-Nov-16 22:43 by prod_rel_team"
+IDF-E-2960CX-SecCam.dtc_phx.com,10.101.255.14,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C2960CX Software (C2960CX-UNIVERSALK9-M), Version 15.2(4)E3, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2016 by Cisco Systems, Inc.
+Compiled Sun 06-Nov-16 22:43 by prod_rel_team"
+IDFHQ-3750-TestLab.trtc.com,10.0.255.84,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(53)SE1, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2010 by Cisco Systems, Inc.
+Compiled Fri 12-Mar-10 15:50 by prod_rel_team"
+MDF-3130-I9-StackA,10.0.255.51,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, CBS31X0 Software (CBS31X0-UNIVERSALK9-M), Version 12.2(53)SE1, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2010 by Cisco Systems, Inc.
+Compiled Fri 12-Mar-10 16:32 by prod_rel_team"
+MDF-3130-I9-StackB,10.0.255.52,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, CBS31X0 Software (CBS31X0-UNIVERSALK9-M), Version 12.2(53)SE1, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2010 by Cisco Systems, Inc.
+Compiled Fri 12-Mar-10 16:32 by prod_rel_team"
+MDF-3130-J9-ENC3-A.trtc,10.0.255.56,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, CBS31X0 Software (CBS31X0-UNIVERSALK9-M), Version 12.2(53)SE1, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2010 by Cisco Systems, Inc.
+Compiled Fri 12-Mar-10 16:32 by prod_rel_team"
+MDF-3130-J9-ENC3-B.trtc,10.0.255.57,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, CBS31X0 Software (CBS31X0-UNIVERSALK9-M), Version 12.2(53)SE1, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2010 by Cisco Systems, Inc.
+Compiled Fri 12-Mar-10 16:32 by prod_rel_team"
+MDF-3130-O3-ENC1-A,10.0.255.93,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, CBS31X0 Software (CBS31X0-UNIVERSALK9-M), Version 12.2(53)SE1, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2010 by Cisco Systems, Inc.
+Compiled Fri 12-Mar-10 16:32 by prod_rel_team"
+MDF-3130-O3-ENC1-B,10.0.255.47,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, CBS31X0 Software (CBS31X0-UNIVERSALK9-M), Version 12.2(53)SE1, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2010 by Cisco Systems, Inc.
+Compiled Fri 12-Mar-10 16:32 by prod_rel_team"
+MDF-3750-I9-SwA.dtc_phx.com,10.0.255.53,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(55)SE10, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2015 by Cisco Systems, Inc.
+Compiled Wed 11-Feb-15 11:40 by prod_rel_team"
+MDF-3750-I9-SwB.dtc_phx.com,10.0.255.54,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(55)SE10, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2015 by Cisco Systems, Inc.
+Compiled Wed 11-Feb-15 11:40 by prod_rel_team"
+MDF-3750-L3.dtc_phx.com,10.0.255.46,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(55)SE10, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2015 by Cisco Systems, Inc.
+Compiled Wed 11-Feb-15 11:40 by prod_rel_team"
+MDF-3750-Stk-J9.dtc_phx.com,10.0.255.36,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(53)SE1, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2010 by Cisco Systems, Inc.
+Compiled Fri 12-Mar-10 15:50 by prod_rel_team"
+MDF-3750-Stk-M9.dtc_phx.com,10.0.255.39,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(55)SE10, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2015 by Cisco Systems, Inc.
+Compiled Wed 11-Feb-15 11:40 by prod_rel_team"
+MDF-3750-Stk-N9.dtc_phx.com,10.0.255.42,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(55)SE10, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2015 by Cisco Systems, Inc.
+Compiled Wed 11-Feb-15 11:40 by prod_rel_team"
+MDF-3750-Stk-O9.dtc_phx.com,10.0.255.43,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(55)SE10, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2015 by Cisco Systems, Inc.
+Compiled Wed 11-Feb-15 11:40 by prod_rel_team"
+MDF-3750-Stk-P9.dtc_phx.com,10.0.255.44,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(55)SE10, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2015 by Cisco Systems, Inc.
+Compiled Wed 11-Feb-15 11:40 by prod_rel_team"
+SVALTOR,10.101.100.138,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(55)SE10, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2015 by Cisco Systems, Inc.
+Compiled Wed 11-Feb-15 11:40 by prod_rel_team"
+svgw1.dtc_phx.com,10.0.99.254,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3900e Software (C3900e-UNIVERSALK9-M), Version 15.7(3)M3, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2018 by Cisco Systems, Inc.
+Compiled Wed 01-Aug-18 15:15 by prod_rel_team"
+svgw3.dtc_phx.com,10.101.99.254,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3900e Software (C3900e-UNIVERSALK9-M), Version 15.7(3)M3, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2018 by Cisco Systems, Inc.
+Compiled Wed 01-Aug-18 15:15 by prod_rel_team"
+SVHQTOR.DTC_PHX.COM.trtc.com,10.0.99.1,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(55)SE10, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2015 by Cisco Systems, Inc.
+Compiled Wed 11-Feb-15 11:40 by prod_rel_team"
+SVHQTOR.DTC_PHX.COM.trtc.com,10.0.100.138,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3750 Software (C3750-IPBASEK9-M), Version 12.2(55)SE10, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2015 by Cisco Systems, Inc.
+Compiled Wed 11-Feb-15 11:40 by prod_rel_team"
+svxcode1.dtc_phx.com,10.0.99.205,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3900 Software (C3900-UNIVERSALK9_NPE-M), Version 15.7(3)M3, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2018 by Cisco Systems, Inc.
+Compiled Wed 01-Aug-18 23:07 by prod_rel_team"
+svxcode2.dtc_phx.com,10.101.99.205,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3900 Software (C3900-UNIVERSALK9_NPE-M), Version 15.7(3)M3, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2018 by Cisco Systems, Inc.
+Compiled Wed 01-Aug-18 23:07 by prod_rel_team"
+svxgw1.dtc_phx.com,10.0.99.200,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3900 Software (C3900-UNIVERSALK9_NPE-M), Version 15.7(3)M3, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2018 by Cisco Systems, Inc.
+Compiled Wed 01-Aug-18 23:07 by prod_rel_team"
+svxgw2.dtc_phx.com,10.0.99.201,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3900 Software (C3900-UNIVERSALK9_NPE-M), Version 15.7(3)M8, RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2021 by Cisco Systems, Inc.
+Compiled Tue 02-Mar-21 05:51 by prod_rel_team"
+svxgw3.dtc_phx.com,10.101.99.200,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3900 Software (C3900-UNIVERSALK9_NPE-M), Version 15.7(3)M3, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2018 by Cisco Systems, Inc.
+Compiled Wed 01-Aug-18 23:07 by prod_rel_team"
+svxgw4.dtc_phx.com,10.101.98.201,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3900 Software (C3900-UNIVERSALK9_NPE-M), Version 15.7(3)M3, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2018 by Cisco Systems, Inc.
+Compiled Wed 01-Aug-18 23:07 by prod_rel_team"
+svxgw4.dtc_phx.com,10.101.99.201,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco IOS Software, C3900 Software (C3900-UNIVERSALK9_NPE-M), Version 15.7(3)M3, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2018 by Cisco Systems, Inc.
+Compiled Wed 01-Aug-18 23:07 by prod_rel_team"
+TestLab2950-03.trtc.com,10.0.255.76,Cisco Other,"SNMPv2-MIB::sysDescr.0 = STRING: Cisco Internetwork Operating System Software 
+IOS (tm) C2950 Software (C2950-I6K2L2Q4-M), Version 12.1(22)EA13, RELEASE SOFTWARE (fc2)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2009 by cisco Systems, Inc.
+Compiled Fri 27-F"
+DMZ-7010-01,192.168.255.4,Unknown,""
+DMZ-7010-02,192.168.255.5,Unknown,""

@@ -1,0 +1,454 @@
+"""
+MAIN CIRCUITS PAGE AND MERAKI INTEGRATION
+=========================================
+
+Purpose:
+    - Main circuits browsing and management interface
+    - Meraki device integration and confirmation workflows  
+    - Circuit data confirmation and push-to-Meraki functionality
+    - Single circuit filtering for sites without IP addresses (NEW)
+
+Pages Served:
+    - / (root redirect to main page)
+    - /dsrcircuits (main circuits data table and management)
+
+Templates Used:
+    - index.html (simple redirect page)
+    - dsrcircuits.html (main circuits table with filtering, confirmation, Meraki integration)
+
+API Endpoints:
+    - /confirm/<site_name> (POST) - Get confirmation popup data for a site
+    - /confirm/<site_name>/submit (POST) - Submit confirmed circuit data
+    - /confirm/<site_name>/reset (POST) - Reset confirmation status
+    - /push_to_meraki (POST) - Push confirmed circuits to Meraki devices
+    - /api/sites-without-ips (GET) - Get sites without IP addresses on WAN interfaces (NEW)
+
+Key Functions:
+    - Circuit data display with advanced filtering and search
+    - Interactive confirmation workflow with data validation
+    - Meraki device configuration pushing
+    - Export functionality (Excel, PDF)
+    - Real-time data updates and status tracking
+    - Single circuit identification for incomplete configurations (NEW)
+
+Dependencies:
+    - utils.py (shared utilities, Meraki functions)
+    - JSON files in DATA_DIR for circuit data
+    - confirm_meraki_notes.py (optional, for Meraki integration)
+    - mx_inventory_live.json for live Meraki device data (NEW)
+
+Data Sources:
+    - mx_inventory_enriched_*.json (main circuit data)
+    - mx_inventory_live.json (live Meraki device data with IP addresses) (NEW)
+    - Meraki device notes and configuration
+    - Circuit tracking data from DSR systems
+
+Features:
+    - Advanced filtering by provider, speed, cost, role
+    - Site confirmation workflow with multiple data sources
+    - Meraki configuration validation and pushing
+    - Data export and reporting
+    - Real-time status updates
+    - Single circuit filtering for sites missing IP addresses (NEW)
+"""
+
+from flask import Blueprint, render_template, jsonify, request
+import glob
+import json
+import os
+from utils import (
+    DATA_DIR, MERAKI_FUNCTIONS_AVAILABLE,
+    confirm_site, reset_confirmation, push_to_meraki
+)
+
+# Create Blueprint
+dsrcircuits_bp = Blueprint('dsrcircuits', __name__)
+
+@dsrcircuits_bp.route('/')
+def index():
+    """
+    Default route - redirect to main circuits page
+    
+    Returns:
+        Rendered index.html template (simple redirect page)
+    """
+    return render_template('index.html')
+
+@dsrcircuits_bp.route('/dsrcircuits')
+def dsrcircuits():
+    """
+    Main circuits data table page
+    
+    Loads the latest enriched circuit data and displays it in an interactive
+    table with filtering, search, and Meraki integration capabilities.
+    
+    Returns:
+        Rendered dsrcircuits.html template with circuit data
+        OR error message if no data files found
+    """
+    # Look for the latest enriched JSON file
+    json_pattern = os.path.join(DATA_DIR, "mx_inventory_enriched_*.json")
+    json_files = sorted(glob.glob(json_pattern))
+    
+    if not json_files:
+        print(f"❌ No JSON files found in pattern: {json_pattern}")
+        return render_template('dsrcircuits.html', error="No JSON files found")
+
+    # Load the latest file
+    latest_json = json_files[-1]
+    print(f"📊 Loading latest circuits data: {os.path.basename(latest_json)}")
+    
+    try:
+        with open(latest_json, 'r') as f:
+            grouped_data = json.load(f)
+        
+        print(f"✅ Loaded {len(grouped_data)} circuit groups")
+        return render_template('dsrcircuits.html', grouped_data=grouped_data)
+        
+    except Exception as e:
+        print(f"❌ Error loading circuit data: {e}")
+        return render_template('dsrcircuits.html', error=f"Error loading data: {e}")
+
+@dsrcircuits_bp.route('/api/sites-without-ips', methods=['GET'])
+def sites_without_ips():
+    """
+    Get sites that have missing IP addresses on WAN1 or WAN2 interfaces (NEW)
+    
+    This endpoint reads the mx_inventory_live.json file and identifies sites
+    where either WAN1 or WAN2 interfaces are missing IP addresses, indicating
+    incomplete circuit configurations that require attention.
+    
+    Returns:
+        JSON response with:
+        - sites: List of site names without complete IP configuration
+        - total_sites: Total number of sites analyzed
+        - sites_without_ips: Number of sites missing IP addresses
+        - details: Detailed breakdown of missing IPs by interface
+        OR error message if data cannot be loaded
+    """
+    try:
+        # Load the live inventory data
+        live_inventory_file = os.path.join(DATA_DIR, 'mx_inventory_live.json')
+        
+        if not os.path.exists(live_inventory_file):
+            print(f"❌ Live inventory file not found: {live_inventory_file}")
+            return jsonify({
+                "error": "Live inventory data not available",
+                "message": f"File not found: {live_inventory_file}"
+            }), 404
+        
+        print(f"🔍 Loading live inventory data: {live_inventory_file}")
+        
+        with open(live_inventory_file, 'r') as f:
+            live_data = json.load(f)
+        
+        print(f"📊 Loaded live inventory data with {len(live_data)} entries")
+        
+        sites_without_ips = []
+        sites_analyzed = 0
+        details = {
+            'missing_wan1': [],
+            'missing_wan2': [],
+            'missing_both': []
+        }
+        
+        # Analyze each site in the live data
+        for site_data in live_data:
+            sites_analyzed += 1
+            
+            # Extract site information
+            site_name = site_data.get('name', 'Unknown Site')
+            
+            # Extract WAN interface information
+            # Assuming the structure has WAN interfaces with IP information
+            wan_interfaces = site_data.get('wan', {})
+            
+            # Check for different possible structures in the JSON
+            wan1_ip = None
+            wan2_ip = None
+            
+            # Method 1: Direct WAN interface structure
+            if isinstance(wan_interfaces, dict):
+                wan1_data = wan_interfaces.get('wan1', {}) or wan_interfaces.get('1', {})
+                wan2_data = wan_interfaces.get('wan2', {}) or wan_interfaces.get('2', {})
+                
+                if isinstance(wan1_data, dict):
+                    wan1_ip = wan1_data.get('publicIp') or wan1_data.get('ip') or wan1_data.get('staticIp')
+                if isinstance(wan2_data, dict):
+                    wan2_ip = wan2_data.get('publicIp') or wan2_data.get('ip') or wan2_data.get('staticIp')
+            
+            # Method 2: Check for 'uplinks' structure (common in Meraki API)
+            if not wan1_ip and not wan2_ip:
+                uplinks = site_data.get('uplinks', [])
+                if isinstance(uplinks, list):
+                    for uplink in uplinks:
+                        if isinstance(uplink, dict):
+                            interface = uplink.get('interface', '')
+                            ip = uplink.get('publicIp') or uplink.get('ip') or uplink.get('staticIp')
+                            
+                            if 'wan1' in interface.lower() or interface == '1':
+                                wan1_ip = ip
+                            elif 'wan2' in interface.lower() or interface == '2':
+                                wan2_ip = ip
+            
+            # Method 3: Check direct IP fields
+            if not wan1_ip:
+                wan1_ip = site_data.get('wan1_ip') or site_data.get('wan1_publicIp')
+            if not wan2_ip:
+                wan2_ip = site_data.get('wan2_ip') or site_data.get('wan2_publicIp')
+            
+            # Validate IP addresses (not None, not empty, not placeholder values)
+            def is_valid_ip(ip):
+                if not ip:
+                    return False
+                ip_str = str(ip).strip()
+                if ip_str in ['', 'None', 'null', 'undefined', 'N/A', '0.0.0.0']:
+                    return False
+                # Basic IP format check
+                if not ip_str.replace('.', '').replace(':', '').isdigit():
+                    # Allow for IPv6 and proper IPv4 formats
+                    import re
+                    ipv4_pattern = r'^(\d{1,3}\.){3}\d{1,3}$'
+                    if not re.match(ipv4_pattern, ip_str):
+                        return False
+                return True
+            
+            wan1_valid = is_valid_ip(wan1_ip)
+            wan2_valid = is_valid_ip(wan2_ip)
+            
+            # Track sites without valid IPs
+            if not wan1_valid and not wan2_valid:
+                sites_without_ips.append(site_name)
+                details['missing_both'].append({
+                    'site': site_name,
+                    'wan1_ip': wan1_ip,
+                    'wan2_ip': wan2_ip
+                })
+            elif not wan1_valid:
+                sites_without_ips.append(site_name)
+                details['missing_wan1'].append({
+                    'site': site_name,
+                    'wan1_ip': wan1_ip,
+                    'wan2_ip': wan2_ip
+                })
+            elif not wan2_valid:
+                sites_without_ips.append(site_name)
+                details['missing_wan2'].append({
+                    'site': site_name,
+                    'wan1_ip': wan1_ip,
+                    'wan2_ip': wan2_ip
+                })
+        
+        # Remove duplicates while preserving order
+        sites_without_ips = list(dict.fromkeys(sites_without_ips))
+        
+        print(f"🔍 Analysis complete:")
+        print(f"   📊 Total sites analyzed: {sites_analyzed}")
+        print(f"   🚨 Sites without complete IP config: {len(sites_without_ips)}")
+        print(f"   📋 Missing WAN1 only: {len(details['missing_wan1'])}")
+        print(f"   📋 Missing WAN2 only: {len(details['missing_wan2'])}")
+        print(f"   📋 Missing both WANs: {len(details['missing_both'])}")
+        
+        return jsonify({
+            "sites": sites_without_ips,
+            "total_sites": sites_analyzed,
+            "sites_without_ips": len(sites_without_ips),
+            "details": details,
+            "summary": {
+                "missing_wan1_only": len(details['missing_wan1']),
+                "missing_wan2_only": len(details['missing_wan2']),
+                "missing_both_wans": len(details['missing_both'])
+            }
+        })
+        
+    except json.JSONDecodeError as e:
+        print(f"❌ Error parsing live inventory JSON: {e}")
+        return jsonify({
+            "error": "Invalid JSON format",
+            "message": f"Could not parse mx_inventory_live.json: {str(e)}"
+        }), 400
+        
+    except Exception as e:
+        print(f"❌ Error analyzing sites without IPs: {e}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({
+            "error": "Analysis failed",
+            "message": f"Error analyzing live inventory data: {str(e)}"
+        }), 500
+
+@dsrcircuits_bp.route('/confirm/<site_name>', methods=['POST'])
+def confirm_popup(site_name):
+    """
+    Get confirmation popup data for a specific site
+    
+    This endpoint retrieves all relevant data for a site including:
+    - Meraki device notes
+    - DSR tracking data  
+    - ARIN IP information
+    - Suggested configurations for WAN1/WAN2
+    
+    Args:
+        site_name (str): Name of the site to get confirmation data for
+        
+    Returns:
+        JSON response with confirmation data or error message
+    """
+    if not MERAKI_FUNCTIONS_AVAILABLE:
+        return jsonify({"error": "Meraki functions not available"}), 400
+        
+    print(f"🔍 Getting confirmation data for site: {site_name}")
+    
+    try:
+        result = confirm_site(site_name, submit=False)
+        print(f"✅ Confirmation data retrieved for {site_name}")
+        return jsonify(result)
+        
+    except Exception as e:
+        print(f"❌ Error getting confirmation data for {site_name}: {e}")
+        return jsonify({"error": str(e)}), 500
+
+@dsrcircuits_bp.route('/confirm/<site_name>/submit', methods=['POST'])
+def confirm_submit(site_name):
+    """
+    Submit confirmed circuit configuration for a site
+    
+    This endpoint processes the user's confirmed circuit configuration
+    and updates the system with the validated WAN1/WAN2 settings.
+    
+    Args:
+        site_name (str): Name of the site being confirmed
+        
+    Request Body:
+        JSON with confirmed circuit data:
+        - wan1_provider, wan1_speed
+        - wan2_provider, wan2_speed
+        - Additional configuration parameters
+        
+    Returns:
+        JSON response indicating success or error
+    """
+    if not MERAKI_FUNCTIONS_AVAILABLE:
+        return jsonify({"error": "Meraki functions not available"}), 400
+        
+    print(f"💾 Submitting confirmation for site: {site_name}")
+    
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "No data provided"}), 400
+            
+        result = confirm_site(site_name, submit=True, data=data)
+        
+        if result.get('success'):
+            print(f"✅ Confirmation submitted successfully for {site_name}")
+        else:
+            print(f"⚠️  Confirmation submission failed for {site_name}: {result.get('error')}")
+            
+        return jsonify(result)
+        
+    except Exception as e:
+        print(f"❌ Error submitting confirmation for {site_name}: {e}")
+        return jsonify({"error": str(e)}), 500
+
+@dsrcircuits_bp.route('/confirm/<site_name>/reset', methods=['POST'])
+def confirm_reset(site_name):
+    """
+    Reset confirmation status for a site
+    
+    This allows users to re-edit previously confirmed sites by
+    clearing their confirmation status.
+    
+    Args:
+        site_name (str): Name of the site to reset
+        
+    Returns:
+        JSON response indicating success or error
+    """
+    if not MERAKI_FUNCTIONS_AVAILABLE:
+        return jsonify({"error": "Meraki functions not available"}), 400
+        
+    print(f"🔄 Resetting confirmation for site: {site_name}")
+    
+    try:
+        result = reset_confirmation(site_name)
+        
+        if result.get('success'):
+            print(f"✅ Confirmation reset successfully for {site_name}")
+        else:
+            print(f"⚠️  Confirmation reset failed for {site_name}: {result.get('error')}")
+            
+        return jsonify(result)
+        
+    except Exception as e:
+        print(f"❌ Error resetting confirmation for {site_name}: {e}")
+        return jsonify({"error": str(e)}), 500
+
+@dsrcircuits_bp.route('/push_to_meraki', methods=['POST'])
+def push_to_meraki_route():
+    """
+    Push all confirmed circuit configurations to Meraki devices
+    
+    This endpoint processes all sites with confirmed configurations
+    and pushes their WAN settings to the corresponding Meraki devices.
+    
+    Returns:
+        JSON response with push results:
+        - Number of sites pushed
+        - Number of sites skipped (unconfirmed/already pushed)
+        - Detailed list of pushed configurations
+        - Any errors encountered
+    """
+    try:
+        if not MERAKI_FUNCTIONS_AVAILABLE:
+            return jsonify({"error": "Meraki functions not available"}), 400
+            
+        print("[Flask Route] Starting push_to_meraki_route")
+        result = push_to_meraki()
+
+        if not result:
+            print("[Flask Route] ❌ No response from push_to_meraki")
+            return jsonify({"error": "No response from push_to_meraki"}), 500
+
+        if "error" in result:
+            print(f"[Flask Route] ❌ Error in response: {result['error']}")
+            return jsonify({"error": result["error"]}), 500
+
+        updated_sites = result.get("updated_sites", [])
+        skipped = result.get("skipped", 0)
+
+        print(f"[Flask Route] 📊 Summary: {len(updated_sites)} site(s) pushed, {skipped} site(s) skipped")
+        
+        if updated_sites:
+            print("[Flask Route] 📝 Sites pushed:")
+            for site in updated_sites:
+                print(f"[Flask Route]   ✅ {site['site_name']}")
+                print(f"[Flask Route]      WAN1: {site['wan1_provider']} | {site['wan1_speed']}")
+                print(f"[Flask Route]      WAN2: {site['wan2_provider']} | {site['wan2_speed']}")
+        else:
+            print("[Flask Route] ℹ️  No sites were pushed (all were either not confirmed or already pushed)")
+
+        if skipped > 0:
+            print(f"[Flask Route] ⏭️  {skipped} sites skipped (not confirmed or already pushed)")
+
+        # Create summary for response
+        summary_lines = [
+            f"{site['site_name']} | WAN1 | {site['wan1_provider']} | {site['wan1_speed']} | WAN2 | {site['wan2_provider']} | {site['wan2_speed']}"
+            for site in updated_sites
+        ]
+
+        response_data = {
+            "details": summary_lines,
+            "pushed": len(updated_sites),
+            "skipped": skipped,
+            "message": f"{len(updated_sites)} site(s) pushed to Meraki."
+        }
+
+        print(f"[Flask Route] 🎯 Response: {response_data}")
+        return jsonify(response_data), 200
+
+    except Exception as e:
+        print(f"[Flask Route] ❌ Exception during Meraki push: {e}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500

@@ -1,0 +1,728 @@
+#!/usr/bin/env python3
+"""
+Combined Meraki collection and enrichment script - Database version
+Replicates the exact logic of meraki_mx.py + nightly_enriched.py but writes to database
+
+This script:
+1. Collects all MX device data from Meraki API (like meraki_mx.py)
+2. Enriches with DSR tracking data (like nightly_enriched.py)
+3. Stores in database instead of JSON files
+4. Maintains all 1,296 networks with complete WAN1/WAN2 data
+"""
+
+import os
+import sys
+import json
+import requests
+import re
+import time
+import logging
+import ipaddress
+import glob
+import pandas as pd
+from datetime import datetime, timezone
+from fuzzywuzzy import fuzz
+from dotenv import load_dotenv
+from sqlalchemy import create_engine, text
+from sqlalchemy.orm import sessionmaker
+
+# Setup logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('/var/log/nightly-meraki-enriched-db.log'),
+        logging.StreamHandler()
+    ]
+)
+
+# Load environment variables
+load_dotenv('/usr/local/bin/meraki.env')
+
+# Configuration
+DATABASE_URI = os.environ.get('DATABASE_URI', 'postgresql://dsruser:dsrpass123@localhost:5432/dsrcircuits')
+MERAKI_API_KEY = os.getenv("MERAKI_API_KEY")
+ORG_NAME = "DTC-Store-Inventory-All"
+BASE_URL = "https://api.meraki.com/api/v1"
+DATA_DIR = "/var/www/html/meraki-data"
+CIRCUITINFO_DIR = "/var/www/html/circuitinfo"
+
+# Exclude tags (from enriched script)
+EXCLUDE_TAGS = {"hub", "lab", "voice"}
+
+# Known static IP-to-provider mappings
+KNOWN_IPS = {
+    "63.228.128.81": "CenturyLink",
+    "24.101.188.52": "Charter Communications",
+    "198.99.82.203": "AT&T",
+    "206.222.219.64": "Cogent Communications",
+    "208.83.9.194": "CenturyLink",
+    "195.252.240.66": "Deutsche Telekom",
+    "209.66.104.34": "Verizon",
+    "65.100.99.25": "CenturyLink",
+    "69.130.234.114": "Comcast",
+    "184.61.190.6": "Frontier Communications",
+    "72.166.76.98": "Cox Communications",
+    "98.6.198.210": "Charter Communications",
+    "65.103.195.249": "CenturyLink",
+    "100.88.182.60": "Verizon",
+    "66.76.161.89": "Suddenlink Communications",
+    "66.152.135.50": "EarthLink",
+    "216.164.196.131": "RCN",
+    "209.124.218.134": "IBM Cloud",
+    "67.199.174.137": "Google",
+    "184.60.134.66": "Frontier Communications",
+    "24.144.4.162": "Conway Corporation",
+    "199.38.125.142": "Ritter Communications",
+    "69.195.29.6": "Ritter Communications",
+    "69.171.123.138": "FAIRNET LLC",
+    "63.226.59.241": "CenturyLink Communications, LLC",
+    "24.124.116.54": "Midcontinent Communications",
+    "50.37.227.70": "Ziply Fiber",
+    "24.220.46.162": "Midcontinent Communications",
+    "76.14.161.29": "Wave Broadband",
+    "71.186.165.101": "Verizon Business",
+    "192.190.112.119": "Lrm-Com, Inc.",
+    "149.97.243.90": "Equinix, Inc.",
+    "162.247.42.4": "HUNTER COMMUNICATIONS",
+}
+
+# Provider normalization mapping
+PROVIDER_MAPPING = {
+    "spectrum": "Charter Communications",
+    "cox business/boi": "Cox Communications",
+    "cox business boi | extended cable |": "Cox Communications",
+    "cox business boi extended cable": "Cox Communications",
+    "cox business": "Cox Communications",
+    "comcast workplace": "Comcast",
+    "comcast workplace cable": "Comcast",
+    "agg comcast": "Comcast",
+    "comcastagg clink dsl": "CenturyLink",
+    "comcastagg comcast": "Comcast",
+    "verizon cell": "Verizon",
+    "cell": "Verizon",
+    "verizon business": "Verizon",
+    "accelerated": "",
+    "digi": "Digi",
+    "digi cellular": "Digi",
+    "starlink": "Starlink",
+    "inseego": "Inseego",
+    "charter communications": "Charter Communications",
+    "at&t broadband ii": "AT&T",
+    "at&t abf": "AT&T",
+    "at&t adi": "AT&T",
+    "not dsr at&t | at&t adi |": "AT&T",
+    "at&t": "AT&T",
+    "cox communications": "Cox Communications",
+    "comcast": "Comcast",
+    "verizon": "Verizon",
+    "centurylink": "CenturyLink",
+    "frontier": "Frontier Communications",
+}
+
+# Provider keywords for mapping
+PROVIDER_KEYWORDS = {
+    'spectrum': 'charter communications',
+    'charter': 'charter communications',
+    'at&t': 'at&t',
+    'att': 'at&t',
+    'comcast': 'comcast',
+    'verizon': 'verizon business',
+    'vz': 'verizon business',
+    'cox': 'cox communications',
+    'centurylink': 'centurylink',
+    'frontier': 'frontier communications',
+}
+
+# Initialize database
+engine = create_engine(DATABASE_URI)
+Session = sessionmaker(bind=engine)
+
+def make_api_request(url, api_key, params=None):
+    """Make API request with retries"""
+    headers = {"X-Cisco-Meraki-API-Key": api_key}
+    for attempt in range(3):
+        try:
+            response = requests.get(url, headers=headers, params=params)
+            response.raise_for_status()
+            return response.json()
+        except Exception as e:
+            if attempt == 2:
+                logging.error(f"Failed to fetch {url} after 3 attempts: {e}")
+                return None
+            time.sleep(2 ** attempt)
+    return None
+
+def get_organization_id():
+    """Get organization ID by name"""
+    url = f"{BASE_URL}/organizations"
+    orgs = make_api_request(url, MERAKI_API_KEY)
+    for org in orgs:
+        if org.get("name") == ORG_NAME:
+            return org.get("id")
+    raise ValueError(f"Organization '{ORG_NAME}' not found")
+
+def get_device_uplinks(serial):
+    """Get uplink status for a single device"""
+    url = f"{BASE_URL}/devices/{serial}/appliance/uplinks/settings"
+    uplinks_data = make_api_request(url, MERAKI_API_KEY)
+    
+    if not uplinks_data:
+        return {}
+    
+    result = {}
+    interfaces = uplinks_data.get('interfaces', {})
+    
+    # Check WAN1
+    wan1 = interfaces.get('wan1', {})
+    if wan1.get('enabled'):
+        result['wan1'] = {
+            'enabled': True,
+            'vlanTagging': wan1.get('vlanTagging', {})
+        }
+    
+    # Check WAN2  
+    wan2 = interfaces.get('wan2', {})
+    if wan2.get('enabled'):
+        result['wan2'] = {
+            'enabled': True,
+            'vlanTagging': wan2.get('vlanTagging', {})
+        }
+        
+    return result
+
+def get_device_management_interface(serial):
+    """Get management interface details including IPs"""
+    url = f"{BASE_URL}/devices/{serial}/managementInterface"
+    return make_api_request(url, MERAKI_API_KEY) or {}
+
+def get_all_networks(org_id):
+    """Get all networks in organization"""
+    url = f"{BASE_URL}/organizations/{org_id}/networks"
+    params = {'perPage': 1000}
+    all_networks = []
+    
+    while True:
+        networks = make_api_request(url, MERAKI_API_KEY, params)
+        if not networks:
+            break
+        all_networks.extend(networks)
+        if len(networks) < params['perPage']:
+            break
+        params['startingAfter'] = networks[-1]['id']
+    
+    return all_networks
+
+def get_devices(network_id):
+    """Get devices in network"""
+    url = f"{BASE_URL}/networks/{network_id}/devices"
+    return make_api_request(url, MERAKI_API_KEY) or []
+
+def get_device_details(serial):
+    """Get device details including tags"""
+    url = f"{BASE_URL}/devices/{serial}"
+    return make_api_request(url, MERAKI_API_KEY)
+
+def parse_raw_notes(raw_notes):
+    """Parse device notes for WAN provider and speed info"""
+    if not raw_notes or not raw_notes.strip():
+        return "", "", "", ""
+    
+    text = re.sub(r'\s+', ' ', raw_notes.strip())
+    wan1_pattern = re.compile(r'(?:WAN1|WAN\s*1)\s*:?\s*', re.IGNORECASE)
+    wan2_pattern = re.compile(r'(?:WAN2|WAN\s*2)\s*:?\s*', re.IGNORECASE)
+    speed_pattern = re.compile(r'(\d+(?:\.\d+)?)\s*([MG]B?)\s*x\s*(\d+(?:\.\d+)?)\s*([MG]B?)', re.IGNORECASE)
+    
+    def extract_provider_and_speed(segment):
+        match = speed_pattern.search(segment)
+        if match:
+            up_speed = float(match.group(1))
+            up_unit = match.group(2).upper()
+            down_speed = float(match.group(3))
+            down_unit = match.group(4).upper()
+            
+            # Convert to M if needed
+            if up_unit in ['G', 'GB']:
+                up_speed *= 1000
+                up_unit = 'M'
+            if down_unit in ['G', 'GB']:
+                down_speed *= 1000
+                down_unit = 'M'
+            
+            speed_str = f"{up_speed:.1f}M x {down_speed:.1f}M"
+            provider_name = segment[:match.start()].strip()
+            provider_name = re.sub(r'[^\w\s.&|-]', ' ', provider_name).strip()
+            return provider_name, speed_str
+        else:
+            provider_name = re.sub(r'[^\w\s.&|-]', ' ', segment).strip()
+            return provider_name, ""
+    
+    # Extract WAN1 and WAN2 text
+    wan1_text = ""
+    wan2_text = ""
+    parts = re.split(wan1_pattern, text, maxsplit=1)
+    if len(parts) > 1:
+        after_wan1 = parts[1]
+        wan2_split = re.split(wan2_pattern, after_wan1, maxsplit=1)
+        wan1_text = wan2_split[0].strip()
+        if len(wan2_split) > 1:
+            wan2_text = wan2_split[1].strip()
+    else:
+        parts = re.split(wan2_pattern, text, maxsplit=1)
+        if len(parts) > 1:
+            wan2_text = parts[1].strip()
+        else:
+            wan1_text = text.strip()
+    
+    wan1_provider, wan1_speed = extract_provider_and_speed(wan1_text)
+    wan2_provider, wan2_speed = extract_provider_and_speed(wan2_text)
+    
+    return wan1_provider, wan1_speed, wan2_provider, wan2_speed
+
+def get_provider_for_ip(ip, ip_cache):
+    """Get provider name for IP address using ARIN RDAP"""
+    if not ip:
+        return "Unknown"
+    
+    if ip in ip_cache:
+        return ip_cache[ip]
+    
+    # Check if it's Verizon range
+    try:
+        ip_addr = ipaddress.ip_address(ip)
+        if ipaddress.IPv4Address("166.80.0.0") <= ip_addr <= ipaddress.IPv4Address("166.80.255.255"):
+            provider = "Verizon Business"
+            ip_cache[ip] = provider
+            return provider
+    except ValueError:
+        return "Unknown"
+    
+    # Check known IPs
+    if ip in KNOWN_IPS:
+        provider = KNOWN_IPS[ip]
+        ip_cache[ip] = provider
+        return provider
+    
+    # Skip private IPs
+    if ip_addr.is_private:
+        return "Unknown"
+    
+    # Query ARIN RDAP
+    try:
+        rdap_url = f"https://rdap.arin.net/registry/ip/{ip}"
+        response = requests.get(rdap_url, timeout=5)
+        response.raise_for_status()
+        data = response.json()
+        provider = data.get('network', {}).get('name', 'Unknown')
+        ip_cache[ip] = provider
+        return provider
+    except Exception as e:
+        logging.warning(f"RDAP lookup failed for {ip}: {e}")
+        return "Unknown"
+
+def normalize_provider(provider_name):
+    """Normalize provider name"""
+    if not provider_name:
+        return ""
+    
+    provider_lower = provider_name.lower().strip()
+    
+    # Check exact mapping first
+    if provider_lower in PROVIDER_MAPPING:
+        return PROVIDER_MAPPING[provider_lower]
+    
+    # Check keywords
+    for keyword, normalized in PROVIDER_KEYWORDS.items():
+        if keyword in provider_lower:
+            return normalized.title()
+    
+    return provider_name
+
+def reformat_speed(speed, provider):
+    """Reformat speed string"""
+    if provider and provider.lower() == "starlink":
+        return "Satellite"
+    
+    if not speed or speed == "Unknown":
+        return "Unknown"
+    
+    # Already formatted
+    if re.match(r'^\d+\.?\d*M\s*x\s*\d+\.?\d*M$', speed):
+        return speed
+    
+    return speed
+
+def create_tables(session):
+    """Create necessary tables if they don't exist"""
+    session.execute(text("""
+        CREATE TABLE IF NOT EXISTS meraki_live_data (
+            id SERIAL PRIMARY KEY,
+            network_name VARCHAR(255) NOT NULL,
+            network_id VARCHAR(100),
+            device_serial VARCHAR(100),
+            device_model VARCHAR(50),
+            device_name VARCHAR(255),
+            device_tags TEXT,
+            wan1_provider_label VARCHAR(255),
+            wan1_speed VARCHAR(100),
+            wan1_ip VARCHAR(45),
+            wan1_provider VARCHAR(255),
+            wan1_provider_comparison VARCHAR(50),
+            wan2_provider_label VARCHAR(255),
+            wan2_speed VARCHAR(100),
+            wan2_ip VARCHAR(45),
+            wan2_provider VARCHAR(255),
+            wan2_provider_comparison VARCHAR(50),
+            raw_notes TEXT,
+            last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            UNIQUE(network_name)
+        )
+    """))
+    
+    session.execute(text("""
+        CREATE TABLE IF NOT EXISTS enriched_circuits (
+            id SERIAL PRIMARY KEY,
+            network_name VARCHAR(255) NOT NULL UNIQUE,
+            device_tags TEXT,
+            wan1_provider VARCHAR(255),
+            wan1_speed VARCHAR(100),
+            wan1_monthly_cost VARCHAR(20),
+            wan1_circuit_role VARCHAR(50),
+            wan1_confirmed BOOLEAN DEFAULT FALSE,
+            wan2_provider VARCHAR(255),
+            wan2_speed VARCHAR(100),
+            wan2_monthly_cost VARCHAR(20),
+            wan2_circuit_role VARCHAR(50),
+            wan2_confirmed BOOLEAN DEFAULT FALSE,
+            last_updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+        )
+    """))
+    
+    session.commit()
+
+def collect_meraki_data(session):
+    """Collect all MX device data from Meraki API"""
+    logging.info("Starting Meraki data collection")
+    
+    org_id = get_organization_id()
+    logging.info(f"Using Organization ID: {org_id}")
+    
+    # Get uplink statuses
+    uplink_statuses = get_organization_uplink_statuses(org_id)
+    logging.info(f"Retrieved uplink info for {len(uplink_statuses)} devices")
+    
+    # Build uplink dictionary
+    uplink_dict = {}
+    for status in uplink_statuses:
+        serial = status.get('serial')
+        uplinks = status.get('uplinks', [])
+        uplink_dict[serial] = {}
+        for uplink in uplinks:
+            interface = uplink.get('interface', '').lower()
+            if interface in ['wan1', 'wan2']:
+                uplink_dict[serial][interface] = {
+                    'ip': uplink.get('ip', ''),
+                    'assignment': uplink.get('ipAssignedBy', '')
+                }
+    
+    # Get all networks
+    networks = get_all_networks(org_id)
+    networks.sort(key=lambda net: (net.get('name') or "").strip())
+    logging.info(f"Found {len(networks)} networks")
+    
+    # Clear existing data
+    session.execute(text("DELETE FROM meraki_live_data"))
+    session.commit()
+    
+    ip_cache = {}
+    devices_processed = 0
+    
+    # Process each network
+    for net in networks:
+        net_name = (net.get('name') or "").strip()
+        net_id = net.get('id')
+        
+        devices = get_devices(net_id)
+        
+        for device in devices:
+            model = device.get('model', '')
+            if not model.startswith("MX"):
+                continue
+            
+            serial = device.get('serial')
+            
+            # Get device details for tags
+            device_details = get_device_details(serial)
+            tags = device_details.get('tags', []) if device_details else []
+            
+            # Get WAN info
+            wan1_ip = uplink_dict.get(serial, {}).get('wan1', {}).get('ip', '')
+            wan2_ip = uplink_dict.get(serial, {}).get('wan2', {}).get('ip', '')
+            
+            # Parse notes
+            raw_notes = device.get('notes', '') or ''
+            wan1_label, wan1_speed, wan2_label, wan2_speed = parse_raw_notes(raw_notes)
+            
+            # Get providers by IP
+            wan1_provider = get_provider_for_ip(wan1_ip, ip_cache) if wan1_ip else None
+            wan2_provider = get_provider_for_ip(wan2_ip, ip_cache) if wan2_ip else None
+            
+            # Compare providers
+            wan1_comparison = "Match" if wan1_provider and wan1_label and wan1_provider.lower() in wan1_label.lower() else "No match"
+            wan2_comparison = "Match" if wan2_provider and wan2_label and wan2_provider.lower() in wan2_label.lower() else "No match"
+            
+            # Insert into database
+            session.execute(text("""
+                INSERT INTO meraki_live_data (
+                    network_name, network_id, device_serial, device_model, device_name,
+                    device_tags, wan1_provider_label, wan1_speed, wan1_ip, wan1_provider,
+                    wan1_provider_comparison, wan2_provider_label, wan2_speed, wan2_ip,
+                    wan2_provider, wan2_provider_comparison, raw_notes
+                ) VALUES (
+                    :network_name, :network_id, :device_serial, :device_model, :device_name,
+                    :device_tags, :wan1_provider_label, :wan1_speed, :wan1_ip, :wan1_provider,
+                    :wan1_provider_comparison, :wan2_provider_label, :wan2_speed, :wan2_ip,
+                    :wan2_provider, :wan2_provider_comparison, :raw_notes
+                )
+                ON CONFLICT (network_name) DO UPDATE SET
+                    network_id = EXCLUDED.network_id,
+                    device_serial = EXCLUDED.device_serial,
+                    device_model = EXCLUDED.device_model,
+                    device_name = EXCLUDED.device_name,
+                    device_tags = EXCLUDED.device_tags,
+                    wan1_provider_label = EXCLUDED.wan1_provider_label,
+                    wan1_speed = EXCLUDED.wan1_speed,
+                    wan1_ip = EXCLUDED.wan1_ip,
+                    wan1_provider = EXCLUDED.wan1_provider,
+                    wan1_provider_comparison = EXCLUDED.wan1_provider_comparison,
+                    wan2_provider_label = EXCLUDED.wan2_provider_label,
+                    wan2_speed = EXCLUDED.wan2_speed,
+                    wan2_ip = EXCLUDED.wan2_ip,
+                    wan2_provider = EXCLUDED.wan2_provider,
+                    wan2_provider_comparison = EXCLUDED.wan2_provider_comparison,
+                    raw_notes = EXCLUDED.raw_notes,
+                    last_updated = CURRENT_TIMESTAMP
+            """), {
+                'network_name': net_name,
+                'network_id': net_id,
+                'device_serial': serial,
+                'device_model': model,
+                'device_name': device.get('name', ''),
+                'device_tags': json.dumps(tags),
+                'wan1_provider_label': wan1_label,
+                'wan1_speed': wan1_speed,
+                'wan1_ip': wan1_ip,
+                'wan1_provider': wan1_provider,
+                'wan1_provider_comparison': wan1_comparison,
+                'wan2_provider_label': wan2_label,
+                'wan2_speed': wan2_speed,
+                'wan2_ip': wan2_ip,
+                'wan2_provider': wan2_provider,
+                'wan2_provider_comparison': wan2_comparison,
+                'raw_notes': raw_notes
+            })
+            
+            devices_processed += 1
+            if devices_processed % 10 == 0:
+                session.commit()
+                logging.info(f"Processed {devices_processed} MX devices")
+            
+            # Rate limit
+            time.sleep(0.2)
+    
+    session.commit()
+    logging.info(f"Completed Meraki collection: {devices_processed} MX devices")
+    return devices_processed
+
+def enrich_with_tracking_data(session):
+    """Enrich Meraki data with DSR tracking information"""
+    logging.info("Starting enrichment process")
+    
+    # Load tracking data
+    csv_files = glob.glob(os.path.join(CIRCUITINFO_DIR, "tracking_data_*.csv"))
+    if not csv_files:
+        logging.error("No tracking CSV files found")
+        return 0
+    
+    latest_csv = max(csv_files)
+    logging.info(f"Loading tracking data from {latest_csv}")
+    
+    try:
+        tracking_df = pd.read_csv(latest_csv, encoding='latin1')
+        # Normalize column names
+        tracking_df.columns = [col.lower().replace(' ', '_') for col in tracking_df.columns]
+    except Exception as e:
+        logging.error(f"Failed to load tracking CSV: {e}")
+        return 0
+    
+    # Filter for enabled circuits with non-zero cost
+    tracking_df = tracking_df[
+        (tracking_df['status'].str.strip() == 'Enabled') &
+        (tracking_df['billing_monthly_cost'].astype(str).str.strip() != '0.0')
+    ]
+    
+    logging.info(f"Loaded {len(tracking_df)} enabled circuits from tracking")
+    
+    # Get all Meraki live data
+    result = session.execute(text("""
+        SELECT network_name, device_tags, wan1_provider_label, wan1_speed, wan1_ip,
+               wan1_provider, wan2_provider_label, wan2_speed, wan2_ip, wan2_provider,
+               raw_notes
+        FROM meraki_live_data
+    """))
+    
+    # Clear existing enriched data
+    session.execute(text("DELETE FROM enriched_circuits"))
+    session.commit()
+    
+    enriched_count = 0
+    
+    for row in result:
+        network_name = row[0]
+        device_tags = json.loads(row[1]) if row[1] else []
+        
+        # Skip excluded tags
+        if any(tag.lower() in EXCLUDE_TAGS for tag in device_tags):
+            logging.debug(f"Skipping {network_name} due to excluded tags: {device_tags}")
+            continue
+        
+        # Normalize network name for matching
+        network_normalized = re.sub(r'[^a-zA-Z0-9]', '', network_name.upper())
+        
+        # Find matching tracking entries
+        tracking_matches = tracking_df[
+            tracking_df['site_name'].apply(lambda x: re.sub(r'[^a-zA-Z0-9]', '', str(x).upper()) == network_normalized)
+        ]
+        
+        # Initialize enriched data
+        enriched = {
+            'network_name': network_name,
+            'device_tags': device_tags,  # Pass as list, not JSON string
+            'wan1_provider': row[5] or row[2] or '',  # wan1_provider or wan1_provider_label
+            'wan1_speed': row[3] or 'Unknown',
+            'wan1_monthly_cost': '$0.00',
+            'wan1_circuit_role': 'Primary',
+            'wan1_confirmed': False,
+            'wan2_provider': row[9] or row[6] or '',  # wan2_provider or wan2_provider_label
+            'wan2_speed': row[7] or 'Unknown',
+            'wan2_monthly_cost': '$0.00',
+            'wan2_circuit_role': 'Secondary',
+            'wan2_confirmed': False
+        }
+        
+        # Try to match by IP address first
+        wan1_ip = row[4]
+        wan2_ip = row[8]
+        
+        if wan1_ip and not tracking_matches.empty:
+            ip_match = tracking_matches[tracking_matches['ip_address_start'] == wan1_ip]
+            if not ip_match.empty:
+                match_row = ip_match.iloc[0]
+                enriched['wan1_provider'] = match_row['provider_name']
+                enriched['wan1_speed'] = reformat_speed(match_row['details_ordered_service_speed'], match_row['provider_name'])
+                enriched['wan1_monthly_cost'] = f"${float(match_row['billing_monthly_cost']):.2f}"
+                # Circuit role comes from DSR tracking, not WAN position
+                circuit_purpose = str(match_row.get('circuit_purpose', '')).strip()
+                enriched['wan1_circuit_role'] = circuit_purpose.capitalize() if circuit_purpose else 'Primary'
+                enriched['wan1_confirmed'] = True
+                logging.debug(f"{network_name} WAN1: Matched by IP {wan1_ip}, Role from DSR: {enriched['wan1_circuit_role']}")
+        
+        if wan2_ip and not tracking_matches.empty:
+            ip_match = tracking_matches[tracking_matches['ip_address_start'] == wan2_ip]
+            if not ip_match.empty:
+                match_row = ip_match.iloc[0]
+                enriched['wan2_provider'] = match_row['provider_name']
+                enriched['wan2_speed'] = reformat_speed(match_row['details_ordered_service_speed'], match_row['provider_name'])
+                enriched['wan2_monthly_cost'] = f"${float(match_row['billing_monthly_cost']):.2f}"
+                # Circuit role comes from DSR tracking, not WAN position
+                circuit_purpose = str(match_row.get('circuit_purpose', '')).strip()
+                enriched['wan2_circuit_role'] = circuit_purpose.capitalize() if circuit_purpose else 'Secondary'
+                enriched['wan2_confirmed'] = True
+                logging.debug(f"{network_name} WAN2: Matched by IP {wan2_ip}, Role from DSR: {enriched['wan2_circuit_role']}")
+        
+        # If no IP match, try fuzzy provider matching
+        if not enriched['wan1_confirmed'] and enriched['wan1_provider'] and not tracking_matches.empty:
+            wan1_provider_norm = normalize_provider(enriched['wan1_provider'])
+            best_match = None
+            best_score = 0
+            
+            for _, track_row in tracking_matches.iterrows():
+                track_provider_norm = normalize_provider(track_row['provider_name'])
+                score = max(
+                    fuzz.ratio(wan1_provider_norm.lower(), track_provider_norm.lower()),
+                    fuzz.partial_ratio(wan1_provider_norm.lower(), track_provider_norm.lower())
+                )
+                
+                if score > 60 and score > best_score:
+                    best_match = track_row
+                    best_score = score
+            
+            if best_match is not None:
+                enriched['wan1_provider'] = best_match['provider_name']
+                enriched['wan1_speed'] = reformat_speed(best_match['details_ordered_service_speed'], best_match['provider_name'])
+                enriched['wan1_monthly_cost'] = f"${float(best_match['billing_monthly_cost']):.2f}"
+                # Circuit role comes from DSR tracking, not WAN position
+                circuit_purpose = str(best_match.get('circuit_purpose', '')).strip()
+                enriched['wan1_circuit_role'] = circuit_purpose.capitalize() if circuit_purpose else 'Primary'
+                enriched['wan1_confirmed'] = True
+                logging.debug(f"{network_name} WAN1: Fuzzy matched with score {best_score}, Role from DSR: {enriched['wan1_circuit_role']}")
+        
+        # Normalize providers
+        enriched['wan1_provider'] = normalize_provider(enriched['wan1_provider'])
+        enriched['wan2_provider'] = normalize_provider(enriched['wan2_provider'])
+        
+        # Reformat speeds
+        enriched['wan1_speed'] = reformat_speed(enriched['wan1_speed'], enriched['wan1_provider'])
+        enriched['wan2_speed'] = reformat_speed(enriched['wan2_speed'], enriched['wan2_provider'])
+        
+        # Insert enriched data
+        session.execute(text("""
+            INSERT INTO enriched_circuits (
+                network_name, device_tags, wan1_provider, wan1_speed, wan1_monthly_cost,
+                wan1_circuit_role, wan1_confirmed, wan2_provider, wan2_speed, 
+                wan2_monthly_cost, wan2_circuit_role, wan2_confirmed
+            ) VALUES (
+                :network_name, :device_tags, :wan1_provider, :wan1_speed, :wan1_monthly_cost,
+                :wan1_circuit_role, :wan1_confirmed, :wan2_provider, :wan2_speed,
+                :wan2_monthly_cost, :wan2_circuit_role, :wan2_confirmed
+            )
+        """), enriched)
+        
+        enriched_count += 1
+        
+        if enriched_count % 50 == 0:
+            session.commit()
+            logging.info(f"Enriched {enriched_count} networks")
+    
+    session.commit()
+    logging.info(f"Enrichment completed: {enriched_count} networks enriched")
+    return enriched_count
+
+def main():
+    """Main execution"""
+    logging.info("Starting combined Meraki collection and enrichment process")
+    
+    session = Session()
+    
+    try:
+        # Create tables if needed
+        create_tables(session)
+        
+        # Step 1: Collect Meraki data
+        devices_count = collect_meraki_data(session)
+        
+        # Step 2: Enrich with tracking data
+        enriched_count = enrich_with_tracking_data(session)
+        
+        logging.info(f"Process completed successfully: {devices_count} devices collected, {enriched_count} networks enriched")
+        
+    except Exception as e:
+        logging.error(f"Process failed: {e}")
+        session.rollback()
+        raise
+    finally:
+        session.close()
+
+if __name__ == "__main__":
+    main()

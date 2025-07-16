@@ -1,0 +1,45 @@
+
+TST 01 vs AZP 30 Configuration Comparison Report
+===============================================
+Generated: 2025-07-10 09:35:07
+AZP 30 Source: 2025-07-09T17:01:25.820599
+TST 01 Source: 2025-07-10T09:33:22.478831
+
+CONFIGURATION COMPARISON SUMMARY
+===============================
+
+VLANs:              ❌ FAIL
+Firewall Rules:     ❌ FAIL 
+MX Ports:           ✅ PASS
+Switch Ports:       ✅ PASS
+
+OVERALL STATUS:     ⚠️  SOME DIFFERENCES FOUND
+
+DETAILED STATISTICS
+==================
+
+VLANs:
+- AZP 30: 10 VLANs
+- TST 01: 10 VLANs
+- IP Conversion: AZP 30 production IPs → TST 01 test ranges
+
+Firewall Rules:
+- AZP 30: 58 rules
+- TST 01: 60 rules
+- VLAN References: Preserved with IP conversions
+
+MX Ports:
+- AZP 30: 10 ports
+- TST 01: 10 ports
+- Configuration: VLAN assignments and port types
+
+Switch Ports:
+- AZP 30: 2 switches
+- TST 01: 2 switches
+- Port Configs: Complete port-by-port configuration
+
+CONCLUSION
+==========
+Configuration differences detected. Review detailed comparison above.
+
+Ready for VLAN migration testing: ⚠️  REVIEW REQUIRED

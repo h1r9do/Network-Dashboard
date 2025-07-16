@@ -1,0 +1,1908 @@
+#!/usr/bin/env python3
+"""
+PRODUCTION MERGED VERSION: Meraki collection + enrichment in one script
+Combines nightly_meraki_db.py and nightly_enriched_db.py functionality
+Processes all devices and enriches them immediately
+"""
+
+import os
+import sys
+import json
+import requests
+import re
+import time
+import ipaddress
+import socket
+import signal
+from dotenv import load_dotenv
+from datetime import datetime, timezone
+from thefuzz import fuzz
+import psycopg2
+from psycopg2.extras import execute_values, execute_batch
+import logging
+
+# Add the test directory to path for imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from config import Config
+
+# Get database URI from config
+SQLALCHEMY_DATABASE_URI = Config.SQLALCHEMY_DATABASE_URI
+
+# Load environment variables
+load_dotenv('/usr/local/bin/meraki.env')
+
+# Setup logging with line buffering for immediate output
+import sys
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('/var/log/meraki-enriched-merged.log'),
+        logging.StreamHandler(sys.stdout)
+    ]
+)
+logger = logging.getLogger(__name__)
+
+# Force stdout to be unbuffered for immediate output
+sys.stdout = sys.__stdout__
+sys.stdout.reconfigure(line_buffering=True)
+
+# Configuration constants
+ORG_NAME = "DTC-Store-Inventory-All"
+BASE_URL = "https://api.meraki.com/api/v1"
+
+# Load API key from environment
+MERAKI_API_KEY = os.getenv("MERAKI_API_KEY")
+
+# Known static IP-to-provider mappings
+KNOWN_IPS = {
+    "63.228.128.81": "CenturyLink",
+    "24.101.188.52": "Charter Communications",
+    "198.99.82.203": "AT&T",
+    "206.222.219.64": "Cogent Communications",
+    "208.83.9.194": "CenturyLink",
+    "195.252.240.66": "Deutsche Telekom",
+    "209.66.104.34": "Verizon",
+    "65.100.99.25": "CenturyLink",
+    "69.130.234.114": "Comcast",
+    "184.61.190.6": "Frontier Communications",
+    "72.166.76.98": "Cox Communications",
+    "98.6.198.210": "Charter Communications",
+    "65.103.195.249": "CenturyLink",
+    "100.88.182.60": "Verizon",
+    "66.76.161.89": "Suddenlink Communications",
+    "66.152.135.50": "EarthLink",
+    "216.164.196.131": "RCN",
+    "209.124.218.134": "IBM Cloud",
+    "67.199.174.137": "Google",
+    "184.60.134.66": "Frontier Communications",
+    "24.144.4.162": "Conway Corporation",
+    "199.38.125.142": "Ritter Communications",
+    "69.195.29.6": "Ritter Communications",
+    "69.171.123.138": "FAIRNET LLC",
+    "63.226.59.241": "CenturyLink Communications, LLC",
+    "24.124.116.54": "Midcontinent Communications",
+    "50.37.227.70": "Ziply Fiber",
+    "24.220.46.162": "Midcontinent Communications",
+    "76.14.161.29": "Wave Broadband",
+    "71.186.165.101": "Verizon Business",
+    "192.190.112.119": "Lrm-Com, Inc.",
+    "149.97.243.90": "Equinix, Inc.",
+    "162.247.42.4": "HUNTER COMMUNICATIONS",
+}
+
+# Complete provider mapping from original nightly_enriched.py - AUTHORITATIVE SOURCE
+PROVIDER_MAPPING = {
+    "spectrum": "Charter Communications",
+    "cox business/boi": "Cox Communications",
+    "cox business boi | extended cable |": "Cox Communications",
+    "cox business boi extended cable": "Cox Communications",
+    "cox business": "Cox Communications",
+    "comcast workplace": "Comcast",
+    "comcast workplace cable": "Comcast",
+    "agg comcast": "Comcast",
+    "comcastagg clink dsl": "CenturyLink",
+    "comcastagg comcast": "Comcast",
+    "verizon cell": "Verizon",
+    "cell": "Verizon",
+    "verizon business": "Verizon",
+    "accelerated": "",
+    "digi": "Digi",
+    "digi cellular": "Digi",
+    "starlink": "Starlink",
+    "inseego": "Inseego",
+    "charter communications": "Charter Communications",
+    "at&t broadband ii": "AT&T",
+    "at&t abf": "AT&T",
+    "at&t adi": "AT&T",
+    "not dsr at&t | at&t adi |": "AT&T",
+    "at&t": "AT&T",
+    "cox communications": "Cox Communications",
+    "comcast": "Comcast",
+    "verizon": "Verizon",
+    "yelcot telephone company": "Yelcot Communications",
+    "yelcot communications": "Yelcot Communications",
+    "ritter communications": "Ritter Communications",
+    "- ritter comm": "Ritter Communications",
+    "conway corporation": "Conway Corporation",
+    "conway extended cable": "Conway Corporation",
+    "dsr conway extended cable": "Conway Corporation",
+    "altice": "Optimum",
+    "altice west": "Optimum",
+    "optimum": "Optimum",
+    "frontier fios": "Frontier",
+    "frontier metrofiber": "Frontier",
+    "allo communications": "Allo Communications",
+    "segra": "Segra",
+    "mountain west technologies": "Mountain West Technologies",
+    "c spire": "C Spire",
+    "brightspeed": "Brightspeed",
+    "century link": "CenturyLink",
+    "centurylink": "CenturyLink",
+    "clink fiber": "CenturyLink",
+    "eb2-frontier fiber": "Frontier",
+    "one ring networks": "One Ring Networks",
+    "gtt ethernet": "GTT",
+    "vexus": "Vexus",
+    "sparklight": "Sparklight",
+    "vista broadband": "Vista Broadband",
+    "metronet": "Metronet",
+    "rise broadband": "Rise Broadband",
+    "lumos networks": "Lumos Networks",
+    "point broadband": "Point Broadband",
+    "gvtc communications": "GVTC Communications",
+    "harris broadband": "Harris Broadband",
+    "unite private networks": "Unite Private Networks",
+    "pocketinet communications": "Pocketinet Communications",
+    "eb2-ziply fiber": "Ziply Fiber",
+    "astound": "Astound",
+    "consolidated communications": "Consolidated Communications",
+    "etheric networks": "Etheric Networks",
+    "saddleback communications": "Saddleback Communications",
+    "orbitel communications": "Orbitel Communications",
+    "eb2-cableone cable": "Cable One",
+    "cable one": "Cable One",
+    "cableone": "Cable One",
+    "transworld": "TransWorld",
+    "mediacom/boi": "Mediacom",
+    "mediacom": "Mediacom",
+    "login": "Login",
+    "livcom": "Livcom",
+    "tds cable": "TDS Cable",
+    "first digital": "Digi",
+    "spanish fork community network": "Spanish Fork Community Network",
+    "centracom": "Centracom",
+    "eb2-lumen dsl": "Lumen",
+    "lumen dsl": "Lumen",
+    "eb2-centurylink dsl": "CenturyLink",
+    "centurylink/qwest": "CenturyLink",
+    "centurylink fiber plus": "CenturyLink",
+    "lightpath": "Lightpath",
+    "localtel": "LocalTel",
+    "infowest inc": "Infowest",
+    "eb2-windstream fiber": "Windstream",
+    "gtt/esa2 adsl": "GTT",
+    "zerooutages": "ZeroOutages",
+    "fuse internet access": "Fuse Internet Access",
+    "windstream communications llc": "Windstream",
+    "frontier communications": "Frontier",
+    "glenwood springs community broadband network": "Glenwood Springs Community Broadband Network",
+    "unknown": "",
+    "uniti fiber": "Uniti Fiber",
+    "wideopenwest": "WideOpenWest",
+    "wide open west": "WideOpenWest",
+    "level 3": "Lumen",
+    "plateau telecommunications": "Plateau Telecommunications",
+    "d & p communications": "D&P Communications",
+    "vzg": "VZW Cell",
+}
+
+def normalize_provider_original(provider, is_dsr=False):
+    """EXACT normalization logic from nightly_enriched.py - AUTHORITATIVE SOURCE"""
+    if not provider or str(provider).lower() in ['nan', 'unknown', '']:
+        return ""
+    
+    # Step 1: Initial cleaning - remove IMEI, serial numbers, etc.
+    provider_clean = re.sub(
+        r'\s*(?:##.*##|\s*imei.*$|\s*kitp.*$|\s*sn.*$|\s*port.*$|\s*location.*$|\s*in\s+the\s+bay.*$|\s*up\s+front.*$|\s*under\s+.*$|\s*wireless\s+gateway.*$|\s*serial.*$|\s*poe\s+injector.*$|\s*supported\s+through.*$|\s*static\s+ip.*$|\s*subnet\s+mask.*$|\s*gateway\s+ip.*$|\s*service\s+id.*$|\s*circuit\s+id.*$|\s*ip\s+address.*$|\s*5g.*$|\s*currently.*$)',
+        '', str(provider), flags=re.IGNORECASE
+    ).strip()
+    
+    # Step 2: Prefix removal
+    provider_clean = re.sub(
+        r'^\s*(?:dsr|agg|comcastagg|clink|not\s*dsr|--|-)\s+|\s*(?:extended\s+cable|dsl|fiber|adi|workpace)\s*',
+        '', provider_clean, flags=re.IGNORECASE
+    ).strip()
+    
+    provider_lower = provider_clean.lower()
+    
+    # Step 3: Special provider detection (in order)
+    if provider_lower.startswith('digi'):
+        return "Digi"
+    if provider_lower.startswith('starlink') or 'starlink' in provider_lower:
+        return "Starlink"
+    if provider_lower.startswith('inseego') or 'inseego' in provider_lower:
+        return "Inseego"
+    if provider_lower.startswith(('vz', 'vzw', 'vzn', 'verizon', 'vzm')) and not is_dsr:
+        return "VZW Cell"
+    
+    # Step 4: Fuzzy matching against provider mapping
+    for key, value in PROVIDER_MAPPING.items():
+        if fuzz.ratio(key, provider_lower) > 70:
+            return value
+    
+    return provider_clean
+
+def get_db_connection():
+    """Get database connection using config"""
+    import re
+    match = re.match(r'postgresql://(.+):(.+)@(.+):(\d+)/(.+)', SQLALCHEMY_DATABASE_URI)
+    if not match:
+        raise ValueError("Invalid database URI")
+    
+    user, password, host, port, database = match.groups()
+    
+    return psycopg2.connect(
+        host=host,
+        port=int(port),
+        database=database,
+        user=user,
+        password=password
+    )
+
+def get_headers(api_key):
+    return {
+        "X-Cisco-Meraki-API-Key": api_key,
+        "Content-Type": "application/json"
+    }
+
+def make_api_request(url, api_key, params=None, max_retries=5):
+    """Enhanced API request with aggressive adaptive rate limiting for maximum speed"""
+    headers = get_headers(api_key)
+    
+    # Adaptive rate limiting variables
+    if not hasattr(make_api_request, 'current_delay'):
+        make_api_request.current_delay = 0.05  # Start at 50ms (20x faster than before)
+        make_api_request.successful_requests = 0
+        make_api_request.rate_limited_count = 0
+        make_api_request.last_speed_increase = time.time()
+        make_api_request.consecutive_successes = 0
+        logger.info(f"API rate limiter initialized: starting at {make_api_request.current_delay:.3f}s delay, will speed up every 30 seconds")
+    
+    for attempt in range(max_retries):
+        try:
+            # Use adaptive delay
+            time.sleep(make_api_request.current_delay)
+            
+            if make_api_request.successful_requests % 100 == 0:
+                logger.debug(f"Requesting {url} with {make_api_request.current_delay:.3f}s delay")
+            resp = requests.get(url, headers=headers, params=params, timeout=30)
+            
+            if resp.status_code == 429:  # Rate limited
+                make_api_request.rate_limited_count += 1
+                make_api_request.consecutive_successes = 0
+                # Back off but not too much - we want to find the sweet spot
+                old_delay = make_api_request.current_delay
+                make_api_request.current_delay = min(2.0, make_api_request.current_delay * 1.5)
+                logger.warning(f"Rate limited! Backing off: {old_delay:.3f}s -> {make_api_request.current_delay:.3f}s")
+                time.sleep(5)  # Wait 5 seconds when rate limited (reduced from 10)
+                continue
+            
+            resp.raise_for_status()
+            
+            # Success! Track consecutive successes
+            make_api_request.successful_requests += 1
+            make_api_request.consecutive_successes += 1
+            
+            # Aggressive speed increases
+            current_time = time.time()
+            time_since_last_increase = current_time - make_api_request.last_speed_increase
+            
+            # Speed up every 30 seconds regardless of consecutive successes
+            if time_since_last_increase >= 30:
+                old_delay = make_api_request.current_delay
+                # Aggressive 50% speed increase every 30 seconds
+                make_api_request.current_delay = max(0.005, make_api_request.current_delay * 0.5)
+                make_api_request.last_speed_increase = current_time
+                logger.info(f"30-second speed boost! {old_delay:.3f}s -> {make_api_request.current_delay:.3f}s (after {make_api_request.successful_requests} total requests)")
+                sys.stdout.flush()
+            # Also speed up every 50 successful requests
+            elif make_api_request.successful_requests % 50 == 0 and make_api_request.successful_requests > 0:
+                old_delay = make_api_request.current_delay
+                make_api_request.current_delay = max(0.005, make_api_request.current_delay * 0.8)
+                logger.info(f"50 requests speed up: {old_delay:.3f}s -> {make_api_request.current_delay:.3f}s")
+            
+            # Log performance stats every 25 requests
+            if make_api_request.successful_requests % 25 == 0:
+                logger.info(f"API Performance: {make_api_request.successful_requests} requests, "
+                           f"Rate limited: {make_api_request.rate_limited_count} times, "
+                           f"Current delay: {make_api_request.current_delay:.3f}s, "
+                           f"Consecutive successes: {make_api_request.consecutive_successes}")
+            
+            return resp.json()
+            
+        except KeyboardInterrupt:
+            logger.info("\nKeyboard interrupt received, exiting...")
+            raise
+        except Exception as e:
+            make_api_request.consecutive_successes = 0
+            if attempt == max_retries - 1:
+                logger.error(f"Failed to fetch {url} after {max_retries} attempts: {e}")
+                return []
+            time.sleep(2 ** attempt)
+    return []
+
+def normalize_provider(provider):
+    """Normalize provider name by stripping extra spaces and converting to lowercase."""
+    if provider:
+        return re.sub(r'\s+', ' ', provider.strip()).lower()
+    return ""
+
+def get_canonical_provider(label):
+    """Map the provider label from notes to a canonical provider name using keywords."""
+    if not label:
+        return "unknown"
+    normalized_label = normalize_provider(label)
+    for keyword, canonical in PROVIDER_KEYWORDS.items():
+        if keyword in normalized_label:
+            return canonical
+    return normalized_label
+
+def compare_providers(arin_provider, wan_label):
+    """Compare ARIN provider and WAN provider after mapping to canonical names."""
+    canonical_wan = get_canonical_provider(wan_label)
+    normalized_arin = normalize_provider(arin_provider)
+    
+    if not canonical_wan or canonical_wan == "unknown":
+        return "No match" if normalized_arin and normalized_arin != "unknown" else "Match"
+    
+    if canonical_wan == normalized_arin:
+        return "Match"
+    
+    similarity = fuzz.ratio(canonical_wan, normalized_arin)
+    return "Match" if similarity >= 80 else "No match"
+
+def get_organization_id():
+    """Look up the Meraki organization ID by name."""
+    url = f"{BASE_URL}/organizations"
+    orgs = make_api_request(url, MERAKI_API_KEY)
+    for org in orgs:
+        if org.get("name") == ORG_NAME:
+            return org.get("id")
+    raise ValueError(f"Organization '{ORG_NAME}' not found")
+
+def get_organization_uplink_statuses(org_id):
+    """Retrieve WAN uplink statuses for all appliances in the organization."""
+    all_statuses = []
+    url = f"{BASE_URL}/organizations/{org_id}/appliance/uplink/statuses"
+    params = {'perPage': 1000, 'startingAfter': None}
+    
+    while True:
+        statuses = make_api_request(url, MERAKI_API_KEY, params)
+        if not statuses:
+            break
+        
+        all_statuses.extend(statuses)
+        logger.info(f"Fetched {len(statuses)} devices, total so far: {len(all_statuses)}")
+        
+        # Check if we got less than the requested amount (meaning we're at the end)
+        if len(statuses) < params['perPage']:
+            break
+            
+        # Get the last serial for pagination
+        if statuses and 'serial' in statuses[-1]:
+            params['startingAfter'] = statuses[-1]['serial']
+        else:
+            break
+            
+    return all_statuses
+
+def get_all_networks(org_id):
+    """Retrieve all networks in the organization."""
+    all_networks = []
+    url = f"{BASE_URL}/organizations/{org_id}/networks"
+    params = {'perPage': 1000, 'startingAfter': None}
+    while True:
+        networks = make_api_request(url, MERAKI_API_KEY, params)
+        if not networks:
+            break
+        all_networks.extend(networks)
+        if len(networks) < params['perPage']:
+            break
+        params['startingAfter'] = networks[-1]['id']
+    return all_networks
+
+def get_devices(network_id):
+    """Retrieve devices in a given network."""
+    url = f"{BASE_URL}/networks/{network_id}/devices"
+    return make_api_request(url, MERAKI_API_KEY)
+
+def get_device_details(serial):
+    """Retrieve the device record (including its tags)."""
+    url = f"{BASE_URL}/devices/{serial}"
+    return make_api_request(url, MERAKI_API_KEY)
+
+def parse_raw_notes(raw_notes):
+    """Parse the 'notes' field to extract WAN provider labels and speeds."""
+    if not raw_notes or not raw_notes.strip():
+        return "", "", "", ""
+    
+    # FIX: Convert literal \\n strings to actual newlines BEFORE processing
+    # This handles the case where database stores literal backslash-n instead of newlines
+    if '\\n' in raw_notes and '\n' not in raw_notes:
+        raw_notes = raw_notes.replace('\\n', '\n')
+    
+    text = re.sub(r'\s+', ' ', raw_notes.strip())
+    wan1_pattern = re.compile(r'(?:WAN1|WAN\s*1)\s*:?\s*', re.IGNORECASE)
+    wan2_pattern = re.compile(r'(?:WAN2|WAN\s*2)\s*:?\s*', re.IGNORECASE)
+    speed_pattern = re.compile(r'(\d+(?:\.\d+)?)\s*([MG]B?)\s*x\s*(\d+(?:\.\d+)?)\s*([MG]B?)', re.IGNORECASE)
+    
+    def extract_provider_and_speed(segment):
+        """Helper to extract provider name and speed from a text segment."""
+        match = speed_pattern.search(segment)
+        if match:
+            up_speed = float(match.group(1)); up_unit = match.group(2).upper()
+            down_speed = float(match.group(3)); down_unit = match.group(4).upper()
+            if up_unit in ['G', 'GB']:
+                up_speed *= 1000
+                up_unit = 'M'
+            elif up_unit in ['M', 'MB']:
+                up_unit = 'M'
+            if down_unit in ['G', 'GB']:
+                down_speed *= 1000
+                down_unit = 'M'
+            elif down_unit in ['M', 'MB']:
+                down_unit = 'M'
+            speed_str = f"{up_speed:.1f}{up_unit} x {down_speed:.1f}{down_unit}"
+            provider_name = segment[:match.start()].strip()
+            # Remove special prefixes like "NOT DSR"
+            provider_name = re.sub(r'^(NOT\s+DSR|DSR)\s+', '', provider_name, flags=re.IGNORECASE)
+            provider_name = re.sub(r'[^\w\s.&|-]', ' ', provider_name).strip()
+            provider_name = re.sub(r'\s+', ' ', provider_name).strip()
+            return provider_name, speed_str
+        else:
+            provider_name = segment.strip()
+            # Remove special prefixes
+            provider_name = re.sub(r'^(NOT\s+DSR|DSR)\s+', '', provider_name, flags=re.IGNORECASE)
+            provider_name = re.sub(r'[^\w\s.&|-]', ' ', provider_name).strip()
+            provider_name = re.sub(r'\s+', ' ', provider_name).strip()
+            return provider_name, ""
+    
+    wan1_text = ""
+    wan2_text = ""
+    parts = re.split(wan1_pattern, text, maxsplit=1)
+    if len(parts) > 1:
+        after_wan1 = parts[1]
+        wan2_split = re.split(wan2_pattern, after_wan1, maxsplit=1)
+        wan1_text = wan2_split[0].strip()
+        if len(wan2_split) > 1:
+            wan2_text = wan2_split[1].strip()
+    else:
+        parts = re.split(wan2_pattern, text, maxsplit=1)
+        if len(parts) > 1:
+            wan2_text = parts[1].strip()
+        else:
+            wan1_text = text.strip()
+    
+    wan1_provider, wan1_speed = extract_provider_and_speed(wan1_text)
+    wan2_provider, wan2_speed = extract_provider_and_speed(wan2_text)
+    return wan1_provider, wan1_speed, wan2_provider, wan2_speed
+
+def fetch_json(url, context):
+    """Fetch JSON data from a URL with error handling."""
+    try:
+        response = requests.get(url)
+        response.raise_for_status()
+        return response.json()
+    except Exception as e:
+        logger.warning(f"Error fetching JSON from {url} for {context}: {e}")
+        return None
+
+def parse_arin_response(rdap_data):
+    """Parse the ARIN RDAP response to extract the provider name."""
+    
+    # Define the nested function to collect org entities with dates
+    def collect_org_entities(entities):
+        """Recursively collect organization names with their latest event dates"""
+        from datetime import datetime
+        org_candidates = []
+        
+        for entity in entities:
+            vcard = entity.get("vcardArray", [])
+            if vcard and isinstance(vcard, list) and len(vcard) > 1:
+                vcard_props = vcard[1]
+                name = None
+                kind = None
+                
+                for prop in vcard_props:
+                    if len(prop) >= 4:
+                        label = prop[0]
+                        value = prop[3]
+                        if label == "fn":
+                            name = value
+                        elif label == "kind":
+                            kind = value
+                
+                if kind and kind.lower() == "org" and name:
+                    # Skip personal names and common role names
+                    if not any(keyword in name for keyword in ["Mr.", "Ms.", "Dr.", "Mrs.", "Miss"]):
+                        if not any(indicator in name.lower() for indicator in ["admin", "technical", "abuse", "noc"]):
+                            # Get the latest event date for this entity
+                            latest_date = None
+                            for event in entity.get("events", []):
+                                action = event.get("eventAction", "").lower()
+                                if action in ("registration", "last changed"):
+                                    date_str = event.get("eventDate")
+                                    if date_str:
+                                        try:
+                                            dt = datetime.fromisoformat(date_str.replace('Z', '+00:00'))
+                                        except:
+                                            try:
+                                                dt = datetime.strptime(date_str, "%Y-%m-%dT%H:%M:%S%z")
+                                            except:
+                                                continue
+                                        if latest_date is None or dt > latest_date:
+                                            latest_date = dt
+                            
+                            if latest_date is None:
+                                latest_date = datetime.min.replace(tzinfo=timezone.utc)
+                            
+                            org_candidates.append((name, latest_date))
+            
+            # Check sub-entities
+            sub_entities = entity.get("entities", [])
+            if sub_entities:
+                org_candidates.extend(collect_org_entities(sub_entities))
+        
+        return org_candidates
+    
+    # First try network name directly in response
+    network_name = rdap_data.get('name')
+    
+    # Get organization entities
+    entities = rdap_data.get('entities', [])
+    org_names = []
+    if entities:
+        org_names = collect_org_entities(entities)
+        # Sort by date (newest first) - this is the key fix
+        org_names.sort(key=lambda x: x[1], reverse=True)
+    
+    # Special handling for CABLEONE - prefer the full company name from entities
+    if network_name == 'CABLEONE' and org_names:
+        for name, _ in org_names:  # Unpack tuple since org_names now contains (name, date) tuples
+            if 'cable one' in name.lower():
+                return "Cable One, Inc."  # Return normalized version
+    
+    # If we have org names, use the first one (newest by date)
+    if org_names:
+        # Get just the name from the tuple
+        clean_name = org_names[0][0]  # Extract name from (name, date) tuple
+        clean_name = re.sub(r"^Private Customer -\s*", "", clean_name).strip()
+        
+        # Apply known company normalizations
+        company_map = {
+            "AT&T": ["AT&T", "AT&T Internet Services", "AT&T Enterprises, LLC", "AT&T Broadband", 
+                     "IPAdmin-ATT Internet Services", "AT&T Communications", "AT&T Business"],
+            "Charter Communications": ["Charter Communications LLC", "Charter Communications Inc", 
+                                     "Charter Communications, LLC", "Charter Communications"],
+            "Comcast": ["Comcast Cable Communications, LLC", "Comcast Communications", 
+                        "Comcast Cable", "Comcast Corporation"],
+            "Cox Communications": ["Cox Communications Inc.", "Cox Communications", "Cox Communications Group"],
+            "CenturyLink": ["CenturyLink Communications", "CenturyLink", "Lumen Technologies", 
+                            "Level 3 Parent, LLC", "Level 3 Communications", "Level3"],
+            "Frontier Communications": ["Frontier Communications Corporation", "Frontier Communications", 
+                                      "Frontier Communications Inc."],
+            "Verizon": ["Verizon Communications", "Verizon Internet", "Verizon Business", "Verizon Wireless"],
+            "Optimum": ["Optimum", "Altice USA", "Suddenlink Communications"],
+            "Crown Castle": ["Crown Castle", "CROWN CASTLE"],
+            "Cable One, Inc.": ["CABLE ONE, INC.", "Cable One, Inc.", "Cable One"],
+        }
+        
+        for company, variations in company_map.items():
+            for variant in variations:
+                if variant.lower() in clean_name.lower():
+                    return company
+        
+        return clean_name
+    
+    # If no org entities found, try to normalize the network name
+    if network_name:
+        # Check if it's an AT&T network (SBC-*)
+        if network_name.startswith('SBC-'):
+            return 'AT&T'
+        # Check for other patterns
+        elif 'CHARTER' in network_name.upper():
+            return 'Charter Communications'
+        elif 'COMCAST' in network_name.upper():
+            return 'Comcast'
+        elif 'COX' in network_name.upper():
+            return 'Cox Communications'
+        elif 'VERIZON' in network_name.upper():
+            return 'Verizon'
+        elif 'CENTURYLINK' in network_name.upper():
+            return 'CenturyLink'
+        elif 'FRONTIER' in network_name.upper():
+            return 'Frontier Communications'
+        elif 'CC04' in network_name:  # Charter network code
+            return 'Charter Communications'
+        else:
+            # Return the network name as-is if no pattern matches
+            return network_name
+    
+    return "Unknown"
+
+def is_private_ip(ip):
+    """Check if IP address is private."""
+    try:
+        return ipaddress.ip_address(ip).is_private
+    except:
+        return False
+
+def resolve_private_ip_via_ddns(network_id, wan_number):
+    """Resolve private IP to public IP using DDNS with timeout."""
+    try:
+        url = f"{BASE_URL}/networks/{network_id}/appliance/settings"
+        data = make_api_request(url, MERAKI_API_KEY)
+        if data:
+            ddns = data.get('dynamicDns', {})
+            if ddns.get('enabled') and ddns.get('url'):
+                base_hostname = ddns.get('url')
+                
+                # Set socket timeout to 5 seconds
+                original_timeout = socket.getdefaulttimeout()
+                socket.setdefaulttimeout(5.0)
+                
+                try:
+                    # For WAN2, try -2 pattern
+                    if wan_number == 2:
+                        wan2_hostname = base_hostname.replace('.dynamic-m.com', '-2.dynamic-m.com')
+                        try:
+                            resolved_ip = socket.gethostbyname(wan2_hostname)
+                            if not ipaddress.ip_address(resolved_ip).is_private:
+                                logger.info(f"    Resolved via DDNS hostname {wan2_hostname}")
+                                return resolved_ip
+                        except socket.timeout:
+                            logger.debug(f"    Timeout resolving {wan2_hostname}")
+                        except Exception as e:
+                            logger.debug(f"    Could not resolve {wan2_hostname}: {e}")
+                    
+                    # Try base hostname
+                    try:
+                        resolved_ip = socket.gethostbyname(base_hostname)
+                        if not ipaddress.ip_address(resolved_ip).is_private:
+                            logger.info(f"    Resolved via DDNS hostname {base_hostname}")
+                            return resolved_ip
+                    except socket.timeout:
+                        logger.debug(f"    Timeout resolving {base_hostname}")
+                    except Exception as e:
+                        logger.debug(f"    Could not resolve {base_hostname}: {e}")
+                finally:
+                    # Restore original timeout
+                    socket.setdefaulttimeout(original_timeout)
+    except KeyboardInterrupt:
+        logger.info("\nInterrupted during DDNS resolution")
+        raise
+    except Exception as e:
+        logger.error(f"Error resolving DDNS for network {network_id}: {e}")
+    return None
+
+def get_provider_for_ip(ip, cache, missing_set):
+    """Determine the ISP provider name for a given IP address using cache or RDAP."""
+    if ip in cache:
+        return cache[ip]
+    try:
+        ip_addr = ipaddress.ip_address(ip)
+        if ipaddress.IPv4Address("166.80.0.0") <= ip_addr <= ipaddress.IPv4Address("166.80.255.255"):
+            provider = "Verizon Business"
+            cache[ip] = provider
+            return provider
+    except ValueError:
+        logger.warning(f"Invalid IP address format: {ip}")
+        missing_set.add(ip)
+        return "Unknown"
+    
+    if ip in KNOWN_IPS:
+        provider = KNOWN_IPS[ip]
+        cache[ip] = provider
+        return provider
+    
+    if ip_addr.is_private:
+        return "Private IP"
+    
+    rdap_url = f"https://rdap.arin.net/registry/ip/{ip}"
+    rdap_data = fetch_json(rdap_url, ip)
+    if not rdap_data:
+        missing_set.add(ip)
+        return "Unknown"
+    
+    provider = parse_arin_response(rdap_data)
+    cache[ip] = provider
+    return provider
+
+def compare_providers(arin_provider, label_provider):
+    """Compare ARIN provider with device notes provider using fuzzy matching"""
+    if not arin_provider or not label_provider:
+        return None
+    
+    if arin_provider in ["Unknown", "Private IP"]:
+        return None
+    
+    # Normalize both providers
+    arin_normalized = arin_provider.lower().strip()
+    label_normalized = label_provider.lower().strip()
+    
+    # Use fuzzy matching
+    score = fuzz.ratio(arin_normalized, label_normalized)
+    
+    # Check against known mappings
+    for keyword, canonical in PROVIDER_MAPPING.items():
+        if keyword in label_normalized:
+            if canonical.lower() in arin_normalized:
+                return "Match"
+    
+    # If fuzzy score is high enough, consider it a match
+    if score >= 80:
+        return "Match"
+    else:
+        return "No match"
+
+def store_device_in_db(device_data, conn):
+    """Store device data in database"""
+    cursor = conn.cursor()
+    
+    try:
+        # Store in meraki_inventory table with IP, ARIN data, and parsed notes
+        insert_sql = """
+        INSERT INTO meraki_inventory (
+            organization_name, network_id, network_name, device_serial,
+            device_model, device_name, device_tags, device_notes,
+            wan1_ip, wan1_assignment, wan1_arin_provider, wan1_provider_comparison,
+            wan1_provider_label, wan1_speed_label,
+            wan2_ip, wan2_assignment, wan2_arin_provider, wan2_provider_comparison,
+            wan2_provider_label, wan2_speed_label,
+            last_updated
+        ) VALUES (
+            %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
+        )
+        ON CONFLICT (device_serial) DO UPDATE SET
+            organization_name = EXCLUDED.organization_name,
+            network_id = EXCLUDED.network_id,
+            network_name = EXCLUDED.network_name,
+            device_model = EXCLUDED.device_model,
+            device_name = EXCLUDED.device_name,
+            device_tags = EXCLUDED.device_tags,
+            device_notes = EXCLUDED.device_notes,
+            wan1_ip = EXCLUDED.wan1_ip,
+            wan1_assignment = EXCLUDED.wan1_assignment,
+            wan1_arin_provider = EXCLUDED.wan1_arin_provider,
+            wan1_provider_comparison = EXCLUDED.wan1_provider_comparison,
+            wan1_provider_label = EXCLUDED.wan1_provider_label,
+            wan1_speed_label = EXCLUDED.wan1_speed_label,
+            wan2_ip = EXCLUDED.wan2_ip,
+            wan2_assignment = EXCLUDED.wan2_assignment,
+            wan2_arin_provider = EXCLUDED.wan2_arin_provider,
+            wan2_provider_comparison = EXCLUDED.wan2_provider_comparison,
+            wan2_provider_label = EXCLUDED.wan2_provider_label,
+            wan2_speed_label = EXCLUDED.wan2_speed_label,
+            last_updated = EXCLUDED.last_updated
+        """
+        
+        # Extract WAN data
+        wan1_data = device_data.get("wan1", {})
+        wan2_data = device_data.get("wan2", {})
+        
+        cursor.execute(insert_sql, (
+            'DTC-Store-Inventory-All',  # Default org name
+            device_data.get("network_id", ""),
+            device_data["network_name"],
+            device_data["device_serial"],
+            device_data["device_model"],
+            device_data["device_name"],
+            device_data["device_tags"],
+            device_data.get("raw_notes", ""),
+            wan1_data.get("ip", ""),
+            wan1_data.get("assignment", ""),
+            wan1_data.get("provider", ""),
+            wan1_data.get("provider_comparison", ""),
+            wan1_data.get("provider_label", ""),
+            wan1_data.get("speed", ""),
+            wan2_data.get("ip", ""),
+            wan2_data.get("assignment", ""),
+            wan2_data.get("provider", ""),
+            wan2_data.get("provider_comparison", ""),
+            wan2_data.get("provider_label", ""),
+            wan2_data.get("speed", ""),
+            datetime.now(timezone.utc)
+        ))
+        
+        # Also store ARIN data in RDAP cache
+        for wan in ['wan1', 'wan2']:
+            wan_data = device_data.get(wan, {})
+            ip = wan_data.get("ip", "")
+            provider = wan_data.get("provider", "")
+            
+            if ip and provider and provider != "Unknown":
+                cursor.execute("""
+                    INSERT INTO rdap_cache (ip_address, provider_name)
+                    VALUES (%s, %s)
+                    ON CONFLICT (ip_address) DO UPDATE SET
+                        provider_name = EXCLUDED.provider_name,
+                        last_queried = NOW()
+                """, (ip, provider))
+        
+        cursor.close()
+        return True
+        
+    except Exception as e:
+        logger.error(f"Error storing device {device_data['device_serial']}: {e}")
+        cursor.close()
+        return False
+
+def collect_vlan_dhcp_data(org_id, networks, conn):
+    """Collect VLAN and DHCP configuration data from Meraki networks"""
+    try:
+        cursor = conn.cursor()
+        
+        # Track statistics
+        networks_processed = 0
+        vlans_collected = 0
+        dhcp_options_collected = 0
+        wan_ports_collected = 0
+        
+        # Filter networks with MX devices (that have VLANs)
+        mx_networks = []
+        for network in networks:
+            product_types = network.get('productTypes', [])
+            if 'appliance' in product_types:
+                mx_networks.append(network)
+        
+        logger.info(f"Found {len(mx_networks)} networks with MX appliances to collect VLAN data from")
+        
+        # Process each network
+        for network in mx_networks:
+            network_id = network.get('id')
+            network_name = network.get('name', '')
+            
+            if not network_id:
+                continue
+                
+            try:
+                # Collect VLANs
+                url = f"{BASE_URL}/networks/{network_id}/appliance/vlans"
+                vlans = make_api_request(url, MERAKI_API_KEY)
+                
+                if vlans and isinstance(vlans, list):
+                    logger.info(f"Found {len(vlans)} VLANs in network {network_name}")
+                    
+                    for vlan in vlans:
+                        # Store VLAN configuration
+                        vlan_id = vlan.get('id')
+                        if not vlan_id:
+                            continue
+                        
+                        # Extract DHCP data from VLAN object
+                        dhcp_handling = vlan.get('dhcpHandling', '')
+                        dhcp_relay_servers = vlan.get('dhcpRelayServerIps', [])
+                        dhcp_options = vlan.get('dhcpOptions', [])
+                        reserved_ip_ranges = vlan.get('reservedIpRanges', [])
+                        fixed_ip_assignments = vlan.get('fixedIpAssignments', {})
+                        
+                        # Insert VLAN data
+                        cursor.execute("""
+                            INSERT INTO network_vlans (
+                                network_id, network_name, vlan_id, name,
+                                appliance_ip, subnet, subnet_mask,
+                                dhcp_handling, dhcp_lease_time,
+                                dhcp_boot_options_enabled, dhcp_boot_next_server, dhcp_boot_filename,
+                                dhcp_relay_server_ips, dns_nameservers,
+                                reserved_ip_ranges, fixed_ip_assignments
+                            ) VALUES (
+                                %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s
+                            )
+                            ON CONFLICT (network_id, vlan_id) DO UPDATE SET
+                                name = EXCLUDED.name,
+                                appliance_ip = EXCLUDED.appliance_ip,
+                                subnet = EXCLUDED.subnet,
+                                subnet_mask = EXCLUDED.subnet_mask,
+                                dhcp_handling = EXCLUDED.dhcp_handling,
+                                dhcp_lease_time = EXCLUDED.dhcp_lease_time,
+                                dhcp_boot_options_enabled = EXCLUDED.dhcp_boot_options_enabled,
+                                dhcp_boot_next_server = EXCLUDED.dhcp_boot_next_server,
+                                dhcp_boot_filename = EXCLUDED.dhcp_boot_filename,
+                                dhcp_relay_server_ips = EXCLUDED.dhcp_relay_server_ips,
+                                dns_nameservers = EXCLUDED.dns_nameservers,
+                                reserved_ip_ranges = EXCLUDED.reserved_ip_ranges,
+                                fixed_ip_assignments = EXCLUDED.fixed_ip_assignments,
+                                updated_at = CURRENT_TIMESTAMP
+                        """, (
+                            network_id, network_name, vlan_id, vlan.get('name', ''),
+                            vlan.get('applianceIp'), vlan.get('subnet'), vlan.get('mask'),
+                            dhcp_handling, vlan.get('dhcpLeaseTime', '86400'),
+                            vlan.get('dhcpBootOptionsEnabled', False),
+                            vlan.get('dhcpBootNextServer'), vlan.get('dhcpBootFilename'),
+                            ','.join(dhcp_relay_servers) if dhcp_relay_servers else None,
+                            vlan.get('dnsNameservers', ''),
+                            json.dumps(reserved_ip_ranges) if reserved_ip_ranges else None,
+                            json.dumps(fixed_ip_assignments) if fixed_ip_assignments else None
+                        ))
+                        vlans_collected += 1
+                        
+                        # Store DHCP options
+                        if dhcp_options:
+                            for option in dhcp_options:
+                                cursor.execute("""
+                                    INSERT INTO network_dhcp_options (
+                                        network_id, vlan_id, code, type, value
+                                    ) VALUES (%s, %s, %s, %s, %s)
+                                    ON CONFLICT DO NOTHING
+                                """, (
+                                    network_id, vlan_id,
+                                    option.get('code'), option.get('type'), option.get('value')
+                                ))
+                                dhcp_options_collected += 1
+                
+                # Collect WAN ports
+                url = f"{BASE_URL}/networks/{network_id}/appliance/ports"
+                ports = make_api_request(url, MERAKI_API_KEY)
+                
+                if ports and isinstance(ports, list):
+                    for port in ports:
+                        port_number = port.get('number')
+                        if port_number is None:
+                            continue
+                            
+                        cursor.execute("""
+                            INSERT INTO network_wan_ports (
+                                network_id, network_name, port_number,
+                                enabled, wan_enabled, access_policy,
+                                vlan, allowed_vlans
+                            ) VALUES (
+                                %s, %s, %s, %s, %s, %s, %s, %s
+                            )
+                            ON CONFLICT (network_id, port_number) DO UPDATE SET
+                                enabled = EXCLUDED.enabled,
+                                wan_enabled = EXCLUDED.wan_enabled,
+                                access_policy = EXCLUDED.access_policy,
+                                vlan = EXCLUDED.vlan,
+                                allowed_vlans = EXCLUDED.allowed_vlans,
+                                updated_at = CURRENT_TIMESTAMP
+                        """, (
+                            network_id, network_name, port_number,
+                            port.get('enabled', True), port.get('wanEnabled', 'not configured') == 'enabled',
+                            port.get('accessPolicy'), port.get('vlan'),
+                            port.get('allowedVlans')
+                        ))
+                        wan_ports_collected += 1
+                
+                networks_processed += 1
+                
+                # Rate limiting handled by adaptive make_api_request
+                
+            except KeyboardInterrupt:
+                logger.info("\nKeyboard interrupt received during VLAN collection...")
+                raise
+            except Exception as e:
+                logger.error(f"Error collecting VLAN data for network {network_name}: {e}")
+                continue
+        
+        # Commit changes
+        conn.commit()
+        
+        logger.info(f"VLAN/DHCP collection complete: {networks_processed} networks, "
+                   f"{vlans_collected} VLANs, {dhcp_options_collected} DHCP options, "
+                   f"{wan_ports_collected} WAN ports")
+        
+        cursor.close()
+        return True
+        
+    except Exception as e:
+        logger.error(f"Error in VLAN/DHCP collection: {e}")
+        if conn:
+            conn.rollback()
+        return False
+
+def collect_firewall_rules(org_id, networks, conn):
+    """Collect L3 firewall rules from all MX networks and store in database"""
+    try:
+        cursor = conn.cursor()
+        
+        # Track statistics
+        networks_processed = 0
+        rules_collected = 0
+        
+        # Filter networks with MX devices (that have firewall rules)
+        mx_networks = []
+        for network in networks:
+            product_types = network.get('productTypes', [])
+            if 'appliance' in product_types:
+                mx_networks.append(network)
+        
+        logger.info(f"Found {len(mx_networks)} networks with MX appliances to collect firewall rules from")
+        
+        # Process each network
+        for network in mx_networks:
+            network_id = network.get('id')
+            network_name = network.get('name', '')
+            
+            if not network_id:
+                continue
+                
+            try:
+                # Get L3 firewall rules
+                url = f"{BASE_URL}/networks/{network_id}/appliance/firewall/l3FirewallRules"
+                response = make_api_request(url, MERAKI_API_KEY)
+                
+                if response and isinstance(response, dict):
+                    rules = response.get('rules', [])
+                    
+                    if rules:
+                        logger.info(f"Found {len(rules)} firewall rules in network {network_name}")
+                        
+                        # Clear existing rules for this network
+                        cursor.execute(
+                            "DELETE FROM firewall_rules WHERE network_id = %s",
+                            (network_id,)
+                        )
+                        
+                        # Insert new rules
+                        for i, rule in enumerate(rules):
+                            cursor.execute("""
+                                INSERT INTO firewall_rules (
+                                    network_id, network_name, rule_order, comment, policy,
+                                    protocol, src_port, src_cidr, dest_port, dest_cidr,
+                                    syslog_enabled, rule_type, is_template, template_source,
+                                    created_at, updated_at, last_synced
+                                ) VALUES (
+                                    %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,
+                                    NOW(), NOW(), NOW()
+                                )
+                            """, (
+                                network_id, network_name, i + 1,
+                                rule.get('comment', ''), rule.get('policy', 'allow'),
+                                rule.get('protocol', 'any'), rule.get('srcPort', 'Any'),
+                                rule.get('srcCidr', 'Any'), rule.get('destPort', 'Any'),
+                                rule.get('destCidr', 'Any'), rule.get('syslogEnabled', False),
+                                'l3', False, None  # is_template=False for individual networks
+                            ))
+                            rules_collected += 1
+                
+                networks_processed += 1
+                
+                # Rate limiting handled by adaptive make_api_request
+                
+            except KeyboardInterrupt:
+                logger.info("\nKeyboard interrupt received during firewall collection...")
+                raise
+            except Exception as e:
+                logger.error(f"Error collecting firewall rules for network {network_name}: {e}")
+                continue
+        
+        # Commit changes
+        conn.commit()
+        
+        logger.info(f"Firewall rules collection complete: {networks_processed} networks processed, "
+                   f"{rules_collected} rules collected")
+        
+        cursor.close()
+        return True
+        
+    except Exception as e:
+        logger.error(f"Error in firewall rules collection: {e}")
+        if conn:
+            conn.rollback()
+        return False
+
+# ===== ENRICHMENT FUNCTIONS FROM nightly_enriched_db.py =====
+
+def normalize_provider_for_arin_match(provider):
+    """Normalize provider for ARIN matching purposes"""
+    if not provider:
+        return ""
+    
+    provider = provider.lower()
+    
+    # Common mappings for ARIN matching
+    mappings = {
+        'at&t': ['att', 'at&t enterprises', 'at & t'],
+        'verizon': ['vzw', 'verizon business', 'vz'],
+        'comcast': ['xfinity', 'comcast cable'],
+        'centurylink': ['embarq', 'qwest', 'lumen'],
+        'cox': ['cox business', 'cox communications'],
+        'charter': ['spectrum'],
+        'brightspeed': ['level 3']
+    }
+    
+    # Check if provider contains any of these key terms
+    for key, variants in mappings.items():
+        if key in provider:
+            return key
+        for variant in variants:
+            if variant in provider:
+                return key
+    
+    # Return first word if no mapping found
+    return provider.split()[0] if provider else ""
+
+def providers_match_for_sync(dsr_provider, arin_provider):
+    """Check if DSR and ARIN providers match well enough to sync DSR data"""
+    if not dsr_provider or not arin_provider:
+        return False
+    
+    dsr_norm = normalize_provider_for_arin_match(dsr_provider)
+    arin_norm = normalize_provider_for_arin_match(arin_provider)
+    
+    return dsr_norm == arin_norm
+
+def normalize_provider_for_comparison(provider):
+    """Normalize provider for comparison ONLY (not for display)"""
+    if not provider or provider.lower() in ['nan', 'null', '', 'unknown']:
+        return ""
+    
+    provider_str = str(provider).strip()
+    if not provider_str:
+        return ""
+    
+    provider_lower = provider_str.lower()
+    
+    # Remove common prefixes and suffixes for comparison
+    provider_clean = re.sub(
+        r'^\s*(?:dsr|agg|comcastagg|clink|not\s*dsr|--|-)\\s+|\s*(?:extended\s+cable|dsl|fiber|adi|workpace)\s*',
+        '', provider_lower, flags=re.IGNORECASE
+    ).strip()
+    
+    # Check mapping
+    for key, mapped_value in PROVIDER_MAPPING.items():
+        if key in provider_clean:
+            return mapped_value.lower()
+    
+    return provider_clean
+
+def reformat_speed(speed_str, provider):
+    """Reformat speed string - handle special cases"""
+    if not speed_str or str(speed_str).lower() == 'nan':
+        return ""
+    
+    # Special cases for cellular/satellite
+    provider_lower = str(provider).lower()
+    if provider_lower == 'cell' or any(term in provider_lower for term in ['vzw cell', 'verizon cell', 'digi', 'inseego']):
+        return "Cell"
+    if 'starlink' in provider_lower:
+        return "Satellite"
+    
+    return str(speed_str).strip()
+
+def get_dsr_circuits(conn):
+    """Get all enabled DSR circuits with their IPs"""
+    cursor = conn.cursor()
+    
+    cursor.execute("""
+        SELECT 
+            site_name,
+            provider_name,
+            details_ordered_service_speed,
+            circuit_purpose,
+            ip_address_start,
+            billing_monthly_cost
+        FROM circuits
+        WHERE status = 'Enabled'
+        AND provider_name IS NOT NULL
+        AND provider_name != ''
+    """)
+    
+    circuits_by_site = {}
+    for row in cursor.fetchall():
+        site_name = row[0]
+        if site_name not in circuits_by_site:
+            circuits_by_site[site_name] = []
+        
+        circuits_by_site[site_name].append({
+            'provider': row[1],
+            'speed': row[2],
+            'purpose': row[3],
+            'ip': row[4],
+            'cost': row[5]
+        })
+    
+    cursor.close()
+    return circuits_by_site
+
+def match_dsr_circuit_by_ip(dsr_circuits, wan_ip):
+    """Match DSR circuit by IP address - highest priority"""
+    if not wan_ip or not dsr_circuits:
+        return None
+    
+    for circuit in dsr_circuits:
+        if circuit.get('ip') == wan_ip:
+            return circuit
+    
+    return None
+
+def match_dsr_circuit_by_provider(dsr_circuits, notes_provider):
+    """Match DSR circuit by provider name - second priority"""
+    if not notes_provider or not dsr_circuits:
+        return None
+    
+    notes_norm = normalize_provider_for_comparison(notes_provider)
+    if not notes_norm:
+        return None
+    
+    best_match = None
+    best_score = 0
+    
+    for circuit in dsr_circuits:
+        dsr_norm = normalize_provider_for_comparison(circuit['provider'])
+        
+        # Exact match after normalization
+        if notes_norm == dsr_norm:
+            return circuit
+        
+        # Fuzzy match
+        score = max(
+            fuzz.ratio(notes_norm, dsr_norm),
+            fuzz.partial_ratio(notes_norm, dsr_norm)
+        )
+        
+        if score > 60 and score > best_score:
+            best_match = circuit
+            best_score = score
+    
+    return best_match
+
+def detect_wan_flip(dsr_circuits, wan1_ip, wan2_ip, wan1_arin, wan2_arin):
+    """
+    Detect if WAN1 and WAN2 are flipped based on DSR data
+    Returns: (wan1_is_flipped, wan2_is_flipped)
+    """
+    primary_circuit = None
+    secondary_circuit = None
+    
+    # Find Primary and Secondary circuits
+    for circuit in dsr_circuits:
+        if circuit['purpose'] == 'Primary':
+            primary_circuit = circuit
+        elif circuit['purpose'] == 'Secondary':
+            secondary_circuit = circuit
+    
+    if not primary_circuit or not secondary_circuit:
+        return False, False
+    
+    # Check multiple indicators for flipping
+    flip_indicators = 0
+    
+    # Check 1: IP addresses
+    if primary_circuit['ip'] and wan2_ip and primary_circuit['ip'] == wan2_ip:
+        flip_indicators += 2  # Strong indicator
+    if secondary_circuit['ip'] and wan1_ip and secondary_circuit['ip'] == wan1_ip:
+        flip_indicators += 2  # Strong indicator
+    
+    # Check 2: ARIN providers
+    if (wan1_arin and secondary_circuit['provider'] and 
+        providers_match_for_sync(secondary_circuit['provider'], wan1_arin)):
+        flip_indicators += 1
+    if (wan2_arin and primary_circuit['provider'] and 
+        providers_match_for_sync(primary_circuit['provider'], wan2_arin)):
+        flip_indicators += 1
+    
+    # If we have strong evidence of flipping
+    if flip_indicators >= 2:
+        logger.info(f"WAN flip detected with confidence score: {flip_indicators}")
+        return True, True
+    
+    return False, False
+
+def determine_final_provider(notes_provider, arin_provider, comparison, dsr_circuit):
+    """
+    MODIFIED: Determine final provider with DSR-ARIN preservation logic
+    1. If DSR match exists AND ARIN matches DSR, use DSR provider name EXACTLY
+    2. If no DSR match, use comparison logic
+    """
+    if dsr_circuit:
+        # DSR match found - check if ARIN also matches
+        if arin_provider and providers_match_for_sync(dsr_circuit['provider'], arin_provider):
+            # Both DSR and ARIN match - definitely use DSR
+            return dsr_circuit['provider'], True  # confirmed = True
+        else:
+            # DSR match but ARIN doesn't match - still use DSR
+            return dsr_circuit['provider'], True  # confirmed = True
+    
+    # No DSR match - use comparison logic and normalize
+    if comparison == "No match":
+        # Trust notes over ARIN when they don't match, but normalize
+        return normalize_provider_original(notes_provider, is_dsr=False), False
+    else:
+        # Trust ARIN when it matches or no comparison
+        return arin_provider, False
+
+def enrich_device(device_data, dsr_circuits_by_site, conn):
+    """Enrich a single device with DSR data and store in enriched_circuits table"""
+    cursor = conn.cursor()
+    
+    network_name = device_data["network_name"]
+    wan1_data = device_data.get("wan1", {})
+    wan2_data = device_data.get("wan2", {})
+    
+    # Get DSR circuits for this site
+    dsr_circuits = dsr_circuits_by_site.get(network_name, [])
+    
+    # Get current enriched record if exists
+    cursor.execute("""
+        SELECT wan1_provider, wan1_speed, wan1_circuit_role, wan1_confirmed,
+               wan2_provider, wan2_speed, wan2_circuit_role, wan2_confirmed
+        FROM enriched_circuits
+        WHERE network_name = %s
+    """, (network_name,))
+    
+    current_record = cursor.fetchone()
+    if current_record:
+        current_enriched = {
+            'wan1_provider': current_record[0],
+            'wan1_speed': current_record[1],
+            'wan1_circuit_role': current_record[2],
+            'wan1_confirmed': current_record[3],
+            'wan2_provider': current_record[4],
+            'wan2_speed': current_record[5],
+            'wan2_circuit_role': current_record[6],
+            'wan2_confirmed': current_record[7]
+        }
+    else:
+        current_enriched = {}
+    
+    # Extract data
+    wan1_ip = wan1_data.get("ip", "")
+    wan1_arin = wan1_data.get("provider", "")
+    wan1_notes = wan1_data.get("provider_label", "")
+    wan1_speed = wan1_data.get("speed", "")
+    wan1_comparison = wan1_data.get("provider_comparison", "")
+    
+    wan2_ip = wan2_data.get("ip", "")
+    wan2_arin = wan2_data.get("provider", "")
+    wan2_notes = wan2_data.get("provider_label", "")
+    wan2_speed = wan2_data.get("speed", "")
+    wan2_comparison = wan2_data.get("provider_comparison", "")
+    
+    # Check for WAN flipping
+    wan1_flipped, wan2_flipped = detect_wan_flip(dsr_circuits, wan1_ip, wan2_ip, wan1_arin, wan2_arin)
+    
+    if wan1_flipped and wan2_flipped:
+        logger.debug(f"{network_name}: WAN flip detected during enrichment")
+        
+        # If flipped, match WAN1 to Secondary and WAN2 to Primary
+        wan1_dsr = None
+        wan2_dsr = None
+        
+        # Look for Secondary circuit for WAN1
+        for circuit in dsr_circuits:
+            if circuit['purpose'] == 'Secondary':
+                if circuit.get('ip') == wan1_ip:
+                    wan1_dsr = circuit
+                    break
+                elif not wan1_dsr and providers_match_for_sync(circuit['provider'], wan1_arin):
+                    wan1_dsr = circuit
+        
+        # Look for Primary circuit for WAN2
+        for circuit in dsr_circuits:
+            if circuit['purpose'] == 'Primary':
+                if circuit.get('ip') == wan2_ip:
+                    wan2_dsr = circuit
+                    break
+                elif not wan2_dsr and providers_match_for_sync(circuit['provider'], wan2_arin):
+                    wan2_dsr = circuit
+    else:
+        # Normal matching - WAN1 to Primary, WAN2 to Secondary
+        wan1_dsr = match_dsr_circuit_by_ip(dsr_circuits, wan1_ip)
+        if not wan1_dsr:
+            wan1_dsr = match_dsr_circuit_by_provider(dsr_circuits, wan1_notes)
+        
+        wan2_dsr = match_dsr_circuit_by_ip(dsr_circuits, wan2_ip)
+        if not wan2_dsr:
+            wan2_dsr = match_dsr_circuit_by_provider(dsr_circuits, wan2_notes)
+    
+    # PRESERVATION LOGIC: Check if we should preserve existing DSR data
+    
+    # For WAN1: Check for preservation
+    wan1_preserve = False
+    if current_enriched.get('wan1_confirmed') and current_enriched.get('wan1_provider'):
+        # Check if current WAN1 matches either ARIN provider
+        if wan1_arin and providers_match_for_sync(current_enriched.get('wan1_provider'), wan1_arin):
+            wan1_preserve = True
+        elif wan2_arin and providers_match_for_sync(current_enriched.get('wan1_provider'), wan2_arin):
+            wan1_preserve = True
+    
+    if wan1_preserve:
+        wan1_provider = current_enriched.get('wan1_provider')
+        wan1_speed_final = current_enriched.get('wan1_speed')
+        wan1_role = current_enriched.get('wan1_circuit_role')
+        wan1_confirmed = True
+    else:
+        # Determine final providers normally
+        wan1_provider, wan1_confirmed = determine_final_provider(
+            wan1_notes, wan1_arin, wan1_comparison, wan1_dsr
+        )
+        # Format speeds
+        wan1_speed_to_use = wan1_dsr['speed'] if wan1_dsr and wan1_dsr.get('speed') else wan1_speed
+        wan1_speed_final = reformat_speed(wan1_speed_to_use, wan1_provider)
+        wan1_role = wan1_dsr['purpose'] if wan1_dsr else ("Secondary" if wan1_flipped else "Primary")
+    
+    # For WAN2: Check for preservation
+    wan2_preserve = False
+    if current_enriched.get('wan2_confirmed') and current_enriched.get('wan2_provider'):
+        # Check if current WAN2 matches either ARIN provider
+        if wan2_arin and providers_match_for_sync(current_enriched.get('wan2_provider'), wan2_arin):
+            wan2_preserve = True
+        elif wan1_arin and providers_match_for_sync(current_enriched.get('wan2_provider'), wan1_arin):
+            wan2_preserve = True
+    
+    if wan2_preserve:
+        wan2_provider = current_enriched.get('wan2_provider')
+        wan2_speed_final = current_enriched.get('wan2_speed')
+        wan2_role = current_enriched.get('wan2_circuit_role')
+        wan2_confirmed = True
+    else:
+        # Determine final providers normally
+        wan2_provider, wan2_confirmed = determine_final_provider(
+            wan2_notes, wan2_arin, wan2_comparison, wan2_dsr
+        )
+        # Format speeds
+        wan2_speed_to_use = wan2_dsr['speed'] if wan2_dsr and wan2_dsr.get('speed') else wan2_speed
+        wan2_speed_final = reformat_speed(wan2_speed_to_use, wan2_provider)
+        wan2_role = wan2_dsr['purpose'] if wan2_dsr else ("Primary" if wan2_flipped else "Secondary")
+    
+    # Update or insert enriched record
+    if current_record:
+        # Update existing record
+        cursor.execute("""
+            UPDATE enriched_circuits SET
+                wan1_provider = %s,
+                wan1_speed = %s,
+                wan1_circuit_role = %s,
+                wan1_confirmed = %s,
+                wan2_provider = %s,
+                wan2_speed = %s,
+                wan2_circuit_role = %s,
+                wan2_confirmed = %s,
+                last_updated = %s
+            WHERE network_name = %s
+        """, (
+            wan1_provider,
+            wan1_speed_final,
+            wan1_role,
+            wan1_confirmed,
+            wan2_provider,
+            wan2_speed_final,
+            wan2_role,
+            wan2_confirmed,
+            datetime.now(timezone.utc).isoformat(),
+            network_name
+        ))
+        logger.debug(f"{network_name}: Updated enriched record")
+    else:
+        # Insert new record
+        cursor.execute("""
+            INSERT INTO enriched_circuits (
+                network_name, wan1_provider, wan1_speed, wan1_circuit_role, wan1_confirmed,
+                wan2_provider, wan2_speed, wan2_circuit_role, wan2_confirmed, last_updated
+            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        """, (
+            network_name,
+            wan1_provider,
+            wan1_speed_final,
+            wan1_role,
+            wan1_confirmed,
+            wan2_provider,
+            wan2_speed_final,
+            wan2_role,
+            wan2_confirmed,
+            datetime.now(timezone.utc).isoformat()
+        ))
+        logger.debug(f"{network_name}: Created new enriched record")
+    
+    cursor.close()
+
+def sync_enriched_to_circuits(conn):
+    """
+    Sync confirmed enriched data back to circuits table for non-DSR circuits
+    This preserves manually edited data from the web interface
+    """
+    cursor = conn.cursor()
+    
+    try:
+        logger.info("Starting sync of enriched data back to circuits table for non-DSR circuits...")
+        
+        # Find non-DSR circuits that need updating
+        cursor.execute("""
+            WITH dsr_sites AS (
+                -- Sites that have DSR Primary circuits (these are protected)
+                SELECT DISTINCT site_name 
+                FROM circuits 
+                WHERE circuit_purpose = 'Primary' 
+                AND status = 'Enabled'
+                AND provider_name NOT LIKE '%Unknown%'
+                AND provider_name IS NOT NULL
+                AND provider_name != ''
+            )
+            SELECT 
+                c.record_number,
+                c.site_name,
+                c.circuit_purpose,
+                c.provider_name as current_provider,
+                c.details_service_speed as current_speed,
+                CASE 
+                    WHEN c.circuit_purpose = 'Primary' THEN e.wan1_provider
+                    ELSE e.wan2_provider
+                END as enriched_provider,
+                CASE 
+                    WHEN c.circuit_purpose = 'Primary' THEN e.wan1_speed
+                    ELSE e.wan2_speed
+                END as enriched_speed,
+                CASE 
+                    WHEN c.circuit_purpose = 'Primary' THEN e.wan1_confirmed
+                    ELSE e.wan2_confirmed
+                END as is_confirmed
+            FROM circuits c
+            JOIN enriched_circuits e ON c.site_name = e.network_name
+            WHERE c.status = 'Enabled'
+            AND c.manual_override IS NOT TRUE
+            AND c.site_name NOT IN (SELECT site_name FROM dsr_sites)
+            AND (
+                -- Only update if enriched data is confirmed
+                (c.circuit_purpose = 'Primary' AND e.wan1_confirmed = TRUE) OR
+                (c.circuit_purpose = 'Secondary' AND e.wan2_confirmed = TRUE)
+            )
+        """)
+        
+        updates_to_make = []
+        
+        for row in cursor.fetchall():
+            record_number = row[0]
+            site_name = row[1]
+            purpose = row[2]
+            current_provider = row[3] or ''
+            current_speed = row[4] or ''
+            enriched_provider = row[5] or ''
+            enriched_speed = row[6] or ''
+            
+            # Check if update is needed
+            provider_changed = current_provider.strip() != enriched_provider.strip()
+            speed_changed = current_speed.strip() != enriched_speed.strip()
+            
+            if provider_changed or speed_changed:
+                updates_to_make.append({
+                    'record_number': record_number,
+                    'provider': enriched_provider,
+                    'speed': enriched_speed,
+                    'site': site_name,
+                    'purpose': purpose
+                })
+        
+        if updates_to_make:
+            logger.info(f"Found {len(updates_to_make)} non-DSR circuits to update from enriched data")
+            
+            # Perform batch update
+            update_query = """
+                UPDATE circuits 
+                SET provider_name = %(provider)s,
+                    details_service_speed = %(speed)s,
+                    updated_at = NOW(),
+                    data_source = 'enriched_sync'
+                WHERE record_number = %(record_number)s
+                AND manual_override IS NOT TRUE
+            """
+            
+            execute_batch(cursor, update_query, updates_to_make)
+            
+            conn.commit()
+            
+            # Log updates
+            for update in updates_to_make[:10]:  # Show first 10
+                logger.info(f"Updated {update['site']} ({update['purpose']}): "
+                          f"Provider='{update['provider']}', Speed='{update['speed']}'")
+            
+            if len(updates_to_make) > 10:
+                logger.info(f"... and {len(updates_to_make) - 10} more")
+            
+            return len(updates_to_make)
+        else:
+            logger.info("No non-DSR circuits need updating from enriched data")
+            return 0
+            
+    except Exception as e:
+        logger.error(f"Error syncing enriched to circuits: {e}")
+        conn.rollback()
+        raise
+    finally:
+        cursor.close()
+
+def signal_handler(sig, frame):
+    """Handle Ctrl-C gracefully"""
+    logger.info("\nReceived interrupt signal, cleaning up...")
+    sys.exit(130)
+
+def main():
+    # Set up signal handler for Ctrl-C
+    signal.signal(signal.SIGINT, signal_handler)
+    
+    logger.info("=== Starting PRODUCTION Merged Meraki + Enrichment Script ===")
+    
+    try:
+        org_id = get_organization_id()
+        logger.info(f"Using Organization ID: {org_id}")
+        
+        # Get database connection
+        conn = get_db_connection()
+        
+        # Load DSR circuits for enrichment
+        logger.info("Loading DSR circuit data for enrichment...")
+        dsr_circuits_by_site = get_dsr_circuits(conn)
+        logger.info(f"Loaded DSR circuits for {len(dsr_circuits_by_site)} sites")
+        
+        # Load IP cache from database
+        ip_cache = {}
+        cursor = conn.cursor()
+        cursor.execute("SELECT ip_address, provider_name FROM rdap_cache")
+        for ip, provider in cursor.fetchall():
+            ip_cache[ip] = provider
+        cursor.close()
+        logger.info(f"Loaded {len(ip_cache)} IPs from RDAP cache")
+        
+        missing_ips = set()
+        
+        logger.info("Fetching uplink status for all MX devices...")
+        uplink_statuses = get_organization_uplink_statuses(org_id)
+        logger.info(f"Retrieved uplink info for {len(uplink_statuses)} devices")
+        
+        uplink_dict = {}
+        for status in uplink_statuses:
+            serial = status.get('serial')
+            uplinks = status.get('uplinks', [])
+            uplink_dict[serial] = {}
+            for uplink in uplinks:
+                interface = uplink.get('interface', '').lower()
+                if interface in ['wan1', 'wan2']:
+                    uplink_dict[serial][interface] = {
+                        'ip': uplink.get('ip', ''),
+                        'assignment': uplink.get('ipAssignedBy', '')
+                    }
+        
+        networks = get_all_networks(org_id)
+        networks.sort(key=lambda net: (net.get('name') or "").strip())
+        logger.info(f"Found {len(networks)} networks in organization")
+        
+        # Process all networks
+        logger.info(f"Processing all {len(networks)} networks")
+        
+        devices_processed = 0
+        enriched_count = 0
+        
+        for net in networks:
+            net_name = (net.get('name') or "").strip()
+            net_id = net.get('id')
+            devices = get_devices(net_id)
+            
+            for device in devices:
+                model = device.get('model', '')
+                if model.startswith("MX"):
+                    serial = device.get('serial')
+                    device_details = get_device_details(serial)
+                    tags = device_details.get('tags', []) if device_details else []
+                    
+                    wan1_ip_original = uplink_dict.get(serial, {}).get('wan1', {}).get('ip', '')
+                    wan1_assign = uplink_dict.get(serial, {}).get('wan1', {}).get('assignment', '')
+                    wan2_ip_original = uplink_dict.get(serial, {}).get('wan2', {}).get('ip', '')
+                    wan2_assign = uplink_dict.get(serial, {}).get('wan2', {}).get('assignment', '')
+                    
+                    # Resolve private IPs via DDNS
+                    wan1_ip = wan1_ip_original
+                    wan2_ip = wan2_ip_original
+                    
+                    if wan1_ip_original and is_private_ip(wan1_ip_original):
+                        logger.debug(f"  WAN1 {wan1_ip_original} is private, attempting DDNS resolution...")
+                        resolved = resolve_private_ip_via_ddns(net_id, 1)
+                        if resolved:
+                            logger.debug(f"  Resolved WAN1 private IP {wan1_ip_original} to {resolved}")
+                            wan1_ip = resolved
+                        else:
+                            logger.debug(f"  Could not resolve WAN1 private IP {wan1_ip_original}")
+                    
+                    if wan2_ip_original and is_private_ip(wan2_ip_original):
+                        logger.debug(f"  WAN2 {wan2_ip_original} is private, attempting DDNS resolution...")
+                        resolved = resolve_private_ip_via_ddns(net_id, 2)
+                        if resolved:
+                            logger.debug(f"  Resolved WAN2 private IP {wan2_ip_original} to {resolved}")
+                            wan2_ip = resolved
+                        else:
+                            logger.debug(f"  Could not resolve WAN2 private IP {wan2_ip_original}")
+                    raw_notes = device.get('notes', '') or ''
+                    wan1_label, wan1_speed, wan2_label, wan2_speed = parse_raw_notes(raw_notes)
+                    
+                    if wan1_ip:
+                        wan1_provider = get_provider_for_ip(wan1_ip, ip_cache, missing_ips)
+                        wan1_comparison = compare_providers(wan1_provider, wan1_label)
+                    else:
+                        wan1_provider = None
+                        wan1_comparison = None
+                    
+                    if wan2_ip:
+                        wan2_provider = get_provider_for_ip(wan2_ip, ip_cache, missing_ips)
+                        wan2_comparison = compare_providers(wan2_provider, wan2_label)
+                    else:
+                        wan2_provider = None
+                        wan2_comparison = None
+                    
+                    device_entry = {
+                        "network_id": net_id,
+                        "network_name": net_name,
+                        "device_serial": serial,
+                        "device_model": model,
+                        "device_name": device.get('name', ''),
+                        "device_tags": tags,
+                        "wan1": {
+                            "provider_label": wan1_label,
+                            "speed": wan1_speed,
+                            "ip": wan1_ip,
+                            "assignment": wan1_assign,
+                            "provider": wan1_provider,
+                            "provider_comparison": wan1_comparison
+                        },
+                        "wan2": {
+                            "provider_label": wan2_label,
+                            "speed": wan2_speed,
+                            "ip": wan2_ip,
+                            "assignment": wan2_assign,
+                            "provider": wan2_provider,
+                            "provider_comparison": wan2_comparison
+                        },
+                        "raw_notes": raw_notes
+                    }
+                    
+                    # Store in database
+                    if store_device_in_db(device_entry, conn):
+                        devices_processed += 1
+                        
+                        # Skip excluded tags and network names for enrichment
+                        if not (tags and any(tag.lower() in ['hub', 'lab', 'voice', 'test'] for tag in tags)):
+                            network_lower = net_name.lower()
+                            if not any(pattern in network_lower for pattern in ['hub', 'lab', 'voice', 'datacenter', 'test', 'store in a box', 'sib']):
+                                notes_lower = (raw_notes or '').lower()
+                                if not any(pattern in notes_lower for pattern in ['test store', 'test site', 'lab site', 'hub site', 'voice site']):
+                                    # IMMEDIATELY ENRICH THIS DEVICE
+                                    enrich_device(device_entry, dsr_circuits_by_site, conn)
+                                    enriched_count += 1
+                        
+                        # Commit every 10 devices to save progress
+                        if devices_processed % 10 == 0:
+                            conn.commit()
+                            logger.info(f"Progress: Processed {devices_processed} devices, enriched {enriched_count} (committed to database)")
+                            sys.stdout.flush()  # Force output to appear immediately
+                        
+                        logger.debug(f"Processed device {serial} in network '{net_name}' with WAN1 IP: {wan1_ip}, WAN2 IP: {wan2_ip}")
+                    
+                    # Device processing delay removed - using adaptive rate limiting
+        
+        # Collect VLAN and DHCP configurations
+        logger.info("Starting VLAN/DHCP collection...")
+        try:
+            vlan_success = collect_vlan_dhcp_data(org_id, networks, conn)
+            if vlan_success:
+                logger.info("VLAN/DHCP collection completed successfully")
+            else:
+                logger.warning("VLAN/DHCP collection encountered issues")
+        except Exception as e:
+            logger.error(f"Error collecting VLAN/DHCP data: {e}")
+        
+        # Check for new stores that now have Meraki networks
+        logger.info("Checking for new stores that now have Meraki networks...")
+        try:
+            cursor = conn.cursor()
+            
+            # Get all active new stores
+            cursor.execute("""
+                SELECT id, site_name 
+                FROM new_stores 
+                WHERE is_active = TRUE
+            """)
+            active_new_stores = cursor.fetchall()
+            
+            if active_new_stores:
+                logger.info(f"Checking {len(active_new_stores)} active new stores against Meraki networks")
+                
+                # Get all network names (strip and uppercase for comparison)
+                network_names_upper = set()
+                for net in networks:
+                    net_name = (net.get('name') or "").strip().upper()
+                    if net_name:
+                        network_names_upper.add(net_name)
+                
+                stores_found = 0
+                for store_id, site_name in active_new_stores:
+                    site_name_upper = site_name.upper()
+                    
+                    # Check if this store name appears in any network name
+                    found_in_meraki = False
+                    for net_name in network_names_upper:
+                        if site_name_upper in net_name:
+                            found_in_meraki = True
+                            break
+                    
+                    if found_in_meraki:
+                        # Update the store record - mark as found in Meraki
+                        cursor.execute("""
+                            UPDATE new_stores 
+                            SET is_active = FALSE, 
+                                meraki_network_found = TRUE, 
+                                meraki_found_date = NOW(),
+                                updated_at = NOW()
+                            WHERE id = %s
+                        """, (store_id,))
+                        stores_found += 1
+                        logger.info(f"New store '{site_name}' found in Meraki - deactivating from new stores list")
+                
+                if stores_found > 0:
+                    logger.info(f"Deactivated {stores_found} new stores that now have Meraki networks")
+                else:
+                    logger.info("No new stores found in Meraki networks")
+            else:
+                logger.info("No active new stores to check")
+                
+        except Exception as e:
+            logger.error(f"Error checking new stores: {e}")
+        
+        # Collect firewall rules from all MX networks
+        logger.info("Starting firewall rules collection...")
+        try:
+            firewall_success = collect_firewall_rules(org_id, networks, conn)
+            if firewall_success:
+                logger.info("Firewall rules collection completed successfully")
+            else:
+                logger.warning("Firewall rules collection encountered issues")
+        except Exception as e:
+            logger.error(f"Error collecting firewall rules: {e}")
+        
+        # Save IP cache to database for future use
+        if ip_cache:
+            logger.info(f"Saving {len(ip_cache)} IP lookups to RDAP cache")
+            cursor = conn.cursor()
+            for ip, provider in ip_cache.items():
+                cursor.execute("""
+                    INSERT INTO rdap_cache (ip_address, provider_name)
+                    VALUES (%s, %s)
+                    ON CONFLICT (ip_address) DO UPDATE SET
+                        provider_name = EXCLUDED.provider_name,
+                        last_queried = NOW()
+                """, (ip, provider))
+            cursor.close()
+        
+        # Final step: Sync enriched data back to circuits table for non-DSR circuits
+        circuits_updated = sync_enriched_to_circuits(conn)
+        logger.info(f"Synced {circuits_updated} non-DSR circuits from enriched data")
+        
+        # Commit all changes
+        conn.commit()
+        conn.close()
+        
+        logger.info(f"\n=== PROCESSING COMPLETE ===")
+        logger.info(f"Processed {devices_processed} devices and enriched {enriched_count} circuits")
+        logger.info(f"Data stored in meraki_inventory, enriched_circuits, and synced to circuits table")
+        
+    except KeyboardInterrupt:
+        logger.info("\nScript interrupted by user (Ctrl-C)")
+        if 'conn' in locals() and conn:
+            logger.info("Rolling back database changes...")
+            conn.rollback()
+            conn.close()
+        return False
+    except Exception as e:
+        logger.error(f"Error in main process: {e}")
+        if 'conn' in locals() and conn:
+            conn.rollback()
+            conn.close()
+        return False
+    
+    return True
+
+if __name__ == "__main__":
+    try:
+        success = main()
+        sys.exit(0 if success else 1)
+    except KeyboardInterrupt:
+        logger.info("\nScript terminated by user")
+        sys.exit(130)  # Standard exit code for Ctrl-C

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vision Check</title>
+</head>
+<body>
+    <h1>Vision Check</h1>
+    <form action="/vision_check" method="POST">
+        <label for="stores">Paste the store list here:</label><br>
+        <textarea id="stores" name="stores" rows="10" cols="50"></textarea><br>
+        <input type="submit" value="Check Vision Status">
+    </form>
+    {% if vision_status_data %}
+        <h2>Vision Status Report</h2>
+        <table border="1">
+            <tr>
+                <th>Status</th>
+                <th>Count</th>
+            </tr>
+            {% for status, count in vision_status_data.items() %}
+                <tr>
+                    <td>{{ status }}</td>
+                    <td>{{ count }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+</body>
+</html>

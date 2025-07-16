@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const pushButton = document.querySelector("#pushToMeraki");
+    if (pushButton) {
+        pushButton.addEventListener("click", function () {
+            // Collect only newly confirmed sites (not already pushed)
+            const confirmedSites = [];
+            document.querySelectorAll('.confirm-button.confirmed-edit').forEach(button => {
+                const siteName = button.getAttribute('data-site');
+                const alreadyPushed = button.getAttribute('data-pushed') === 'true';
+                if (siteName && !alreadyPushed) {
+                    confirmedSites.push(siteName);
+                }
+            });
+
+            if (confirmedSites.length === 0) {
+                Swal.fire({
+                    icon: "warning",
+                    title: "No Confirmed Circuits",
+                    text: "Please confirm at least one circuit before pushing to Meraki."
+                });
+                return;
+            }
+
+            // Count total confirmed and already pushed for info
+            const totalConfirmed = document.querySelectorAll('.confirm-button.confirmed-edit').length;
+            const alreadyPushed = document.querySelectorAll('.confirm-button.confirmed-edit[data-pushed="true"]').length;
+            const messageHtml = confirmedSites.length > 0 
+                ? `Ready to push ${confirmedSites.length} newly confirmed circuit(s) to Meraki devices?`
+                : `All ${totalConfirmed} confirmed circuits have already been pushed to Meraki.`;
+            
+            Swal.fire({
+                title: "Push to Meraki",
+                html: messageHtml + (alreadyPushed > 0 ? `<br><small>${alreadyPushed} circuits already pushed</small>` : ''),
+                icon: confirmedSites.length > 0 ? "question" : "info",
+                showCancelButton: confirmedSites.length > 0,
+                confirmButtonText: confirmedSites.length > 0 ? "Yes, Push Now" : "OK",
+                cancelButtonText: "Cancel"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: "Pushing to Meraki...",
+                        html: "Please wait while updates are processed.",
+                        allowOutsideClick: false,
+                        didOpen: () => Swal.showLoading()
+                    });
+
+                    fetch("/push_to_meraki", { 
+                        method: "POST",
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ sites: confirmedSites })
+                    })
+                        .then(response => {
+                            if (!response.ok) {
+                                throw new Error("Network response was not OK");
+                            }
+                            return response.json();
+                        })
+                        .then(data => {
+                            if (data.error) {
+                                throw new Error(data.error);
+                            }
+
+                            const successCount = data.successful || 0;
+                            const totalCount = data.total || 0;
+                            const failedCount = totalCount - successCount;
+                            
+                            let resultsHtml = `<p><strong>${successCount}</strong> of ${totalCount} site(s) successfully pushed.</p>`;
+                            
+                            if (data.results) {
+                                resultsHtml += '<div style="text-align: left; max-height: 300px; overflow-y: auto; background: #f9f9f9; padding: 10px; border: 1px solid #ccc; margin-top: 10px;">';
+                                data.results.forEach(result => {
+                                    if (result.success) {
+                                        resultsHtml += `<div style="color: green;">✅ ${result.site}: ${result.notes}</div>`;
+                                    } else {
+                                        resultsHtml += `<div style="color: red;">❌ ${result.site}: ${result.error}</div>`;
+                                    }
+                                });
+                                resultsHtml += '</div>';
+                            }
+
+                            Swal.fire({
+                                icon: successCount > 0 ? "success" : "warning",
+                                title: `Push to Meraki Complete`,
+                                html: resultsHtml,
+                                width: 800
+                            });
+                        })
+                        .catch(error => {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Error pushing to Meraki",
+                                text: error.toString()
+                            });
+                        });
+                }
+            });
+        });
+    }
+});
+</script>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <meta charset="UTF-8">
+    <title>Broadband Provisioning Tracking System for Discount Tire</title>
+    <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <!-- Select2 CSS for enhanced dropdowns -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .header-container {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .header-container h1 {
+            margin: 0;
+            font-size: 24px;
+            display: inline-block;
+        }
+        .row-count {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 14px;
+            color: #ecf0f1;
+            font-weight: 400;
+        }
+        .circuit-table-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .filter-controls {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+        .filter-control {
+            padding: 5px;
+        }
+        .filter-control input, .filter-control select {
+            width: 100%;
+            padding: 6px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+        .circuit-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .circuit-table thead th {
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            background-color: #3498db;
+            color: white;
+        }
+        .circuit-table tbody tr {
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .circuit-table tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .circuit-table tbody tr:hover {
+            background-color: #f1f8ff;
+        }
+        .circuit-table td {
+            padding: 12px 15px;
+            color: #333;
+        }
+        .cost-cell {
+            font-weight: bold;
+            color: #27ae60;
+        }
+        .export-buttons {
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .export-buttons button, .confirm-button, .push-meraki-button, .one-circuit-button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            margin-right: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .export-buttons button:hover, .confirm-button:hover, .push-meraki-button:hover, .one-circuit-button:hover {
+            background: #2980b9;
+        }
+        .export-buttons button.active {
+            background: #27ae60;
+        }
+        .confirm-button.confirmed-edit {
+            background: #f39c12; /* Orange for "Confirmed - Edit?" */
+            color: white;
+        }
+        .confirm-button.confirmed-edit:hover {
+            background: #e67e22;
+        }
+        .confirm-button.confirmed-edit.pushed {
+            background: #4caf50; /* Green for pushed */
+            color: white;
+            font-weight: 600;
+        }
+        .confirm-button.confirmed-edit.pushed:hover {
+            background: #45a049;
+        }
+        .push-meraki-button {
+            background: #2ecc71; /* Green for "Push to Meraki" */
+        }
+        .push-meraki-button:hover {
+            background: #27ae60;
+        }
+        .one-circuit-button {
+            background: #e74c3c; /* Red for "1 Circuit" filter */
+        }
+        .one-circuit-button:hover {
+            background: #c0392b;
+        }
+        .one-circuit-button.active {
+            background: #c0392b;
+            box-shadow: 0 0 10px rgba(231, 76, 60, 0.5);
+        }
+        .filter-button {
+            background: #ecf0f1;
+            color: #2c3e50;
+            border: 1px solid #bdc3c7;
+            border-radius: 3px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            height: 34px;
+        }
+        .filter-button:hover {
+            background: #d5dbdb;
+            border-color: #95a5a6;
+        }
+        .filter-button.active {
+            background: #3498db;
+            color: white;
+            border-color: #2980b9;
+        }
+        /* Select2 customization */
+        .select2-container--default .select2-selection--single {
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            height: 34px;
+        }
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            line-height: 34px;
+            padding-left: 8px;
+            font-size: 13px;
+        }
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+            height: 32px;
+        }
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            overflow: auto;
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 1000px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .modal-header {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .modal-section {
+            margin-bottom: 15px;
+        }
+        .modal-section h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        .modal-section p, .modal-section table, .modal-section input, .modal-section select, .modal-section button {
+            font-size: 14px;
+            color: #333;
+        }
+        .modal-section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .modal-section th, .modal-section td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .modal-section th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+        .modal-section .config-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        .modal-section .config-row label {
+            flex: 0 0 120px;
+            margin-right: 10px;
+        }
+        .modal-section .config-row input, .modal-section .config-row select {
+            flex: 1;
+            margin-right: 10px;
+        }
+        .modal-section .config-row .checkbox-container {
+            flex: 0 0 150px;
+            display: flex;
+            align-items: center;
+        }
+        .modal-section .provider-suggestion {
+            color: #e74c3c;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .modal-ok-button {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .modal-ok-button.disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+        .modal-ok-button.active {
+            background: #219653;
+        }
+        .modal-footer {
+            text-align: right;
+            margin-top: 20px;
+        }
+        .modal-footer button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        .modal-footer button:hover {
+            background: #2980b9;
+        }
+        .modal-footer .submit-btn {
+            background: #27ae60;
+        }
+        .modal-footer .submit-btn:hover {
+            background: #219653;
+        }
+        .disabled-input {
+            background-color: #f0f0f0;
+            cursor: not-allowed;
+        }
+        .flip-circuits-button {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin: 10px 0;
+            width: 100%;
+        }
+        .flip-circuits-button:hover {
+            background: #c0392b;
+        }
+    
+        .nav-buttons {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-buttons button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .nav-buttons button:hover {
+            background: #2980b9;
+        }
+        
+        .nav-buttons button.active {
+            background: #27ae60;
+        }
+    </style>
+</head>
+<body>
+<div class="header-container">
+    <h1>Broadband Provisioning Tracking System for Discount Tire</h1>
+    <div class="row-count" id="rowCount">Showing 0 of 0 rows</div>
+</div>
+
+<div class="circuit-table-container">
+    <!-- Export Buttons -->
+    <div class="export-buttons">
+        <!-- Left side buttons -->
+        <div style="display: flex; gap: 8px; align-items: center;">
+            <button onclick="window.location.href='/home'" style="background: #3498db; color: white; border: none; padding: 8px 15px; border-radius: 4px; font-size: 14px; cursor: pointer;">🏠 Home</button>
+            <button id="oneCircuitFilter" class="one-circuit-button">🔍 1 Circuit</button>
+            <button id="pushToMeraki" class="push-meraki-button">Push to Meraki</button>
+        </div>
+        
+        <!-- Right side export buttons -->
+        <div style="display: flex; gap: 8px; margin-left: auto;">
+            <button id="exportExcel">📊 Export to Excel</button>
+            <button id="exportPDF">📄 Export to PDF</button>
+        </div>
+    </div>
+
+    <!-- Filter Controls -->
+    <div class="filter-controls">
+        <div class="filter-control">
+            <input type="text" id="siteFilter" placeholder="Filter Site Name...">
+        </div>
+        <div class="filter-control">
+            <select id="wan1ProviderFilter">
+                <option value="">All WAN1 Providers</option>
+                {% for network in grouped_data %}
+                    {% if network.wan1.provider %}
+                        <option value="{{ network.wan1.provider }}">{{ network.wan1.provider }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="filter-control">
+            <select id="wan1SpeedFilter">
+                <option value="">All WAN1 Speeds</option>
+                {% for network in grouped_data %}
+                    {% if network.wan1.speed %}
+                        <option value="{{ network.wan1.speed }}">{{ network.wan1.speed }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="filter-control">
+            <input type="text" id="wan1CostFilter" placeholder="Filter WAN1 Cost...">
+        </div>
+        <div class="filter-control">
+            <select id="wan1RoleFilter">
+                <option value="">All WAN1 Roles</option>
+                <option value="Primary">Primary</option>
+                <option value="Secondary">Secondary</option>
+            </select>
+        </div>
+        <div class="filter-control">
+            <select id="wan2ProviderFilter">
+                <option value="">All WAN2 Providers</option>
+                {% for network in grouped_data %}
+                    {% if network.wan2.provider %}
+                        <option value="{{ network.wan2.provider }}">{{ network.wan2.provider }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="filter-control">
+            <select id="wan2SpeedFilter">
+                <option value="">All WAN2 Speeds</option>
+                {% for network in grouped_data %}
+                    {% if network.wan2.speed %}
+                        <option value="{{ network.wan2.speed }}">{{ network.wan2.speed }}</option>
+                    {% endif %}
+                {% endfor %}
+            </select>
+        </div>
+        <div class="filter-control">
+            <input type="text" id="wan2CostFilter" placeholder="Filter WAN2 Cost...">
+        </div>
+        <div class="filter-control">
+            <select id="wan2RoleFilter">
+                <option value="">All WAN2 Roles</option>
+                <option value="Primary">Primary</option>
+                <option value="Secondary">Secondary</option>
+            </select>
+        </div>
+        <!-- Speed Filter Button as 10th filter -->
+        <div class="filter-control">
+            <button id="speedFilter" class="filter-button">WAN 2 > WAN 1</button>
+        </div>
+    </div>
+
+    <!-- DataTable -->
+    <table id="circuitTable" class="circuit-table">
+        <thead>
+            <tr>
+                <th>Site Name</th>
+                <th>WAN 1 Provider</th>
+                <th>WAN 1 Speed</th>
+                <th>WAN 1 Cost</th>
+                <th>WAN 1 Role</th>
+                <th>WAN 2 Provider</th>
+                <th>WAN 2 Speed</th>
+                <th>WAN 2 Cost</th>
+                <th>WAN 2 Role</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="circuitData">
+            {% if error %}
+                <tr>
+                    <td colspan="10">{{ error }}</td>
+                </tr>
+            {% else %}
+                {% for entry in grouped_data %}
+                    <tr data-site-name="{{ entry.network_name }}">
+                        <td>{{ entry.network_name }}</td>
+                        <td>{{ entry.wan1.provider if entry.wan1.provider else 'N/A' }}</td>
+                        <td>{{ entry.wan1.speed if entry.wan1.speed else 'N/A' }}</td>
+                        <td class="cost-cell" data-cost="{{ entry.wan1.monthly_cost }}">{{ entry.wan1.monthly_cost if entry.wan1.monthly_cost is not none else 'null' }}</td>
+                        <td data-role="{{ entry.wan1.circuit_role }}">{{ entry.wan1.circuit_role if entry.wan1.circuit_role else 'null' }}</td>
+                        <td>{{ entry.wan2.provider if entry.wan2.provider else 'N/A' }}</td>
+                        <td>{{ entry.wan2.speed if entry.wan2.speed else 'N/A' }}</td>
+                        <td class="cost-cell" data-cost="{{ entry.wan2.monthly_cost }}">{{ entry.wan2.monthly_cost if entry.wan2.monthly_cost is not none else 'null' }}</td>
+                        <td data-role="{{ entry.wan2.circuit_role }}">{{ entry.wan2.circuit_role if entry.wan2.circuit_role else 'null' }}</td>
+                        <td>
+                            {% if entry.wan1.confirmed and entry.wan2.confirmed %}
+                                {% if entry.pushed_to_meraki %}
+                                    <button class="confirm-button confirmed-edit pushed" data-site="{{ entry.network_name }}" data-pushed="true" title="Pushed on {{ entry.pushed_date }}">✅ Pushed - Edit?</button>
+                                {% else %}
+                                    <button class="confirm-button confirmed-edit" data-site="{{ entry.network_name }}" data-pushed="false">Confirmed - Edit?</button>
+                                {% endif %}
+                            {% else %}
+                                <button class="confirm-button" data-site="{{ entry.network_name }}" data-pushed="false">Confirm</button>
+                            {% endif %}
+                        </td>
+                    </tr>
+                {% else %}
+                    <tr>
+                        <td colspan="10">No circuit data available</td>
+                    </tr>
+                {% endfor %}
+            {% endif %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal for Confirm Popup -->
+<div id="confirmModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">Confirm Circuit Data for <span id="modalSiteName"></span></div>
+        <div class="modal-section">
+            <h3>Meraki MX Notes</h3>
+            <p id="modalRawNotes"></p>
+        </div>
+        <div class="modal-section">
+            <h3>DSR Data</h3>
+            <table id="modalDsrData">
+                <thead>
+                    <tr>
+                        <th>Site Name</th>
+                        <th>Date</th>
+                        <th>DSR Circuit Purpose</th>
+                        <th>Status</th>
+                        <th>Provider Name</th>
+                        <th>Speed</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody id="modalDsrDataBody"></tbody>
+            </table>
+        </div>
+        <div class="modal-section">
+            <h3>ARIN Info</h3>
+            <p id="wan1ArinInfo"></p>
+            <p id="wan2ArinInfo"></p>
+        </div>
+        <div class="modal-section">
+            <button id="flipCircuits" class="flip-circuits-button">🔄 Flip WAN 1 ↔ WAN 2</button>
+        </div>
+        <div class="modal-section">
+            <h3>WAN 1 Configuration</h3>
+            <div class="config-row">
+                <label>From Meraki Notes:</label>
+                <input type="text" id="wan1ProviderNotes" readonly />
+                <input type="text" id="wan1SpeedNotes" readonly />
+                <button id="wan1OkNotes" class="modal-ok-button">OK</button>
+            </div>
+            <div class="config-row">
+                <label>From DSR Data:</label>
+                <input type="text" id="wan1ProviderDSR" readonly />
+                <input type="text" id="wan1SpeedDSR" readonly />
+                <button id="wan1OkDSR" class="modal-ok-button">OK</button>
+            </div>
+            <div class="config-row">
+                <label>Custom:</label>
+                <input type="text" id="wan1ProviderCustom" />
+                <p id="wan1ProviderSuggestion" class="provider-suggestion"></p>
+
+                <!-- Download Speed -->
+                <input list="wan1DownloadSpeedOptions" id="wan1DownloadSpeedCustom" placeholder="Download (M)" />
+                <datalist id="wan1DownloadSpeedOptions"></datalist>
+
+                <!-- Upload Speed -->
+                <input list="wan1UploadSpeedOptions" id="wan1UploadSpeedCustom" placeholder="Upload (M)" />
+                <datalist id="wan1UploadSpeedOptions"></datalist>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" id="wan1CellSatellite" />
+                    <label for="wan1CellSatellite">Cell or Satellite</label>
+                    <select id="wan1CellType" style="display: none;">
+                        <option value="Satellite">Satellite</option>
+                        <option value="Cell">Cell</option>
+                    </select>
+                </div>
+                <button id="wan1OkCustom" class="modal-ok-button">OK</button>
+            </div>
+        </div>
+        <div class="modal-section">
+            <h3>WAN 2 Configuration</h3>
+            <div class="config-row">
+                <label>From Meraki Notes:</label>
+                <input type="text" id="wan2ProviderNotes" readonly />
+                <input type="text" id="wan2SpeedNotes" readonly />
+                <button id="wan2OkNotes" class="modal-ok-button">OK</button>
+            </div>
+            <div class="config-row">
+                <label>From DSR Data:</label>
+                <input type="text" id="wan2ProviderDSR" readonly />
+                <input type="text" id="wan2SpeedDSR" readonly />
+                <button id="wan2OkDSR" class="modal-ok-button">OK</button>
+            </div>
+            <div class="config-row">
+                <label>Custom:</label>
+                <input type="text" id="wan2ProviderCustom" />
+                <p id="wan2ProviderSuggestion" class="provider-suggestion"></p>
+
+                <!-- Download Speed -->
+                <input list="wan2DownloadSpeedOptions" id="wan2DownloadSpeedCustom" placeholder="Download (M)" />
+                <datalist id="wan2DownloadSpeedOptions"></datalist>
+
+                <!-- Upload Speed -->
+                <input list="wan2UploadSpeedOptions" id="wan2UploadSpeedCustom" placeholder="Upload (M)" />
+                <datalist id="wan2UploadSpeedOptions"></datalist>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" id="wan2CellSatellite" />
+                    <label for="wan2CellSatellite">Cell or Satellite</label>
+                    <select id="wan2CellType" style="display: none;">
+                        <option value="Satellite">Satellite</option>
+                        <option value="Cell">Cell</option>
+                    </select>
+                </div>
+                <button id="wan2OkCustom" class="modal-ok-button">OK</button>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" id="closeModal">Close</button>
+          <button type="button" id="submitModal" class="submit-btn" disabled>Submit</button>
+        </div>
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- DataTables JS -->
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<!-- Select2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        console.log('Document ready - jQuery version:', $.fn.jquery);
+        console.log('Circuit table exists:', $('#circuitTable').length > 0);
+        
+        // Initialize DataTable
+        var table = $('#circuitTable').DataTable({
+            paging: false,
+            scrollCollapse: true,
+            dom: 't'
+        });
+        
+        console.log('DataTable initialized:', table !== null);
+
+        // Track filter states
+        var speedFilterActive = false;
+        var oneCircuitFilterActive = false;
+        var sitesWithoutIPs = [];
+
+        // Parse download speed
+        function parseDownloadSpeed(speed) {
+            if (!speed || speed === 'N/A' || speed === 'null' || speed === 'Cell' || speed === 'Satellite' || speed === 'TBD' || speed === 'Unknown') {
+                return 0;
+            }
+            var match = speed.match(/^([\d.]+)[MG]\s*[xX]\s*([\d.]+)[MG]$/i);
+            if (match) {
+                return parseFloat(match[1]);
+            }
+            return 0;
+        }
+
+        // Custom filter for WAN 2 speed > WAN 1 speed
+        $.fn.dataTable.ext.search.push(
+            function(settings, data, dataIndex) {
+                // Speed filter
+                if (speedFilterActive) {
+                    var wan1Speed = parseDownloadSpeed(data[2]);
+                    var wan2Speed = parseDownloadSpeed(data[6]);
+                    if (!(wan2Speed > wan1Speed)) {
+                        return false;
+                    }
+                }
+                
+                // One circuit filter (sites without IPs)
+                if (oneCircuitFilterActive) {
+                    var siteName = data[0];
+                    if (sitesWithoutIPs.indexOf(siteName) === -1) {
+                        return false;
+                    }
+                }
+                
+                return true;
+            }
+        );
+
+        // Update row count
+        function updateRowCount() {
+            var filteredCount = table.rows({ search: 'applied' }).count();
+            var totalCount = table.rows().count();
+            $('#rowCount').text(`Showing ${filteredCount} of ${totalCount} rows`);
+        }
+
+        // Speed filter button
+        $('#speedFilter').on('click', function() {
+            speedFilterActive = !speedFilterActive;
+            $(this).toggleClass('active');
+            table.draw();
+        });
+
+        // One Circuit filter button
+        $('#oneCircuitFilter').on('click', function() {
+            var $button = $(this);
+            
+            if (oneCircuitFilterActive) {
+                // Turn off filter
+                oneCircuitFilterActive = false;
+                $button.removeClass('active').text('🔍 1 Circuit');
+                table.draw();
+            } else {
+                // Turn on filter - fetch sites without IPs
+                $button.text('🔄 Loading...');
+                
+                fetch('/api/sites-without-ips')
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.error) {
+                            alert('Error: ' + data.error);
+                            $button.text('🔍 1 Circuit');
+                            return;
+                        }
+                        
+                        sitesWithoutIPs = data.sites || [];
+                        oneCircuitFilterActive = true;
+                        $button.addClass('active').text(`🔍 1 Circuit (${sitesWithoutIPs.length})`);
+                        table.draw();
+                        
+                        if (sitesWithoutIPs.length === 0) {
+                            alert('No sites found with missing IP addresses on WAN interfaces.');
+                            oneCircuitFilterActive = false;
+                            $button.removeClass('active').text('🔍 1 Circuit');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching sites without IPs:', error);
+                        alert('Error loading sites without IP addresses: ' + error.message);
+                        $button.text('🔍 1 Circuit');
+                    });
+            }
+        });
+
+        // Initialize filters
+        function initFilters() {
+            initRoleFilter(4, '#wan1RoleFilter');
+            initRoleFilter(8, '#wan2RoleFilter');
+            initProviderFilter(1, '#wan1ProviderFilter');
+            initProviderFilter(5, '#wan2ProviderFilter');
+            initDropdownFilter(2, '#wan1SpeedFilter');
+            initDropdownFilter(6, '#wan2SpeedFilter');
+            
+            $('#siteFilter').on('keyup', function() {
+                table.column(0).search(this.value).draw();
+            });
+            
+            $('#wan1CostFilter').on('keyup', function() {
+                table.column(3).search(this.value).draw();
+            });
+            
+            $('#wan2CostFilter').on('keyup', function() {
+                table.column(7).search(this.value).draw();
+            });
+        }
+        
+        // Role filter
+        function initRoleFilter(columnIndex, selector) {
+            var column = table.column(columnIndex);
+            var select = $(selector)
+                .on('change', function() {
+                    var val = $(this).val();
+                    if (val) {
+                        column.search('^' + val + '$', true, false).draw();
+                    } else {
+                        column.search('').draw();
+                    }
+                });
+        }
+        
+        // Provider filter
+        function initProviderFilter(columnIndex, selector) {
+            var column = table.column(columnIndex);
+            var select = $(selector)
+                .empty()
+                .append('<option value="">All WAN ' + (columnIndex === 1 ? '1' : '2') + ' Providers</option>')
+                .on('change', function() {
+                    var val = $(this).val();
+                    column.search(val).draw();
+                });
+            
+            var providers = column.data().unique().sort().filter(function(d) {
+                return d && d !== 'N/A' && d !== 'null';
+            });
+            
+            providers.each(function(d, j) {
+                select.append('<option value="' + d + '">' + d + '</option>');
+            });
+            
+            $(selector).select2({
+                placeholder: "Select or type a provider",
+                allowClear: true,
+                width: '100%'
+            });
+        }
+        
+        // Dropdown filter
+        function initDropdownFilter(columnIndex, selector) {
+            var column = table.column(columnIndex);
+            var select = $(selector)
+                .empty()
+                .append('<option value="">All WAN ' + (columnIndex === 2 ? '1' : '2') + ' Speeds</option>')
+                .on('change', function() {
+                    var val = $(this).val();
+                    column.search(val).draw();
+                });
+            
+            column.data().unique().sort().each(function(d, j) {
+                if (d && d !== 'N/A' && d !== 'null') {
+                    select.append('<option value="' + d + '">' + d + '</option>');
+                }
+            });
+        }
+        
+        // Add export buttons
+        new $.fn.dataTable.Buttons(table, {
+            buttons: [
+                {
+                    extend: 'excelHtml5',
+                    text: 'Excel',
+                    className: 'buttons-excel',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                },
+                {
+                    extend: 'pdfHtml5',
+                    text: 'PDF',
+                    className: 'buttons-pdf',
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL',
+                    exportOptions: {
+                        columns: ':visible'
+                    }
+                }
+            ]
+        });
+
+        // Export buttons
+        $('#exportExcel').on('click', function() {
+            table.button('.buttons-excel').trigger();
+        });
+        
+        $('#exportPDF').on('click', function() {
+            table.button('.buttons-pdf').trigger();
+        });
+
+        // Provider validation
+        var providerKeywords = {
+            'spectrum': 'Charter Communications',
+            'charter': 'Charter Communications',
+            'at&t': 'AT&T',
+            'att': 'AT&T',
+            'comcast': 'Comcast',
+            'verizon': 'Verizon Business',
+            'vz': 'Verizon Business',
+            'cox': 'Cox Communications',
+            'yelcot': 'Yelcot Telephone Company',
+            'ritter': 'Ritter Communications',
+            'conway': 'Conway Corporation',
+            'altice': 'Optimum',
+            'brightspeed': 'Level 3',
+            'clink': 'CenturyLink',
+            'lumen': 'CenturyLink',
+            'c spire': 'C Spire Fiber',
+            'orbitelcomm': 'Orbitel Communications, LLC',
+            'sparklight': 'Cable One, Inc.',
+            'lightpath': 'Optimum',
+            'vzg': 'Verizon Business',
+            'digi': 'Verizon Business',
+            'centurylink': 'CenturyLink',
+            'mediacom': 'Mediacom Communications Corporation',
+            'frontier': 'Frontier Communications',
+            'cable one': 'Cable One, Inc.',
+            'qwest': 'CenturyLink',
+            'cox business': 'Cox Communications',
+            'consolidatedcomm': 'Consolidated Communications, Inc.',
+            'consolidated': 'Consolidated Communications, Inc.'
+        };
+
+        function validateProvider(inputId, suggestionId) {
+            var value = $('#' + inputId).val().toLowerCase().trim();
+            var suggestion = '';
+            for (var keyword in providerKeywords) {
+                if (value.includes(keyword)) {
+                    if (value !== providerKeywords[keyword].toLowerCase()) {
+                        suggestion = 'Suggested: ' + providerKeywords[keyword];
+                    }
+                    break;
+                }
+            }
+            $('#' + suggestionId).text(suggestion);
+        }
+
+        // Track selected OK buttons
+        var selectedOk = { wan1: null, wan2: null };
+
+        // Improved updateSubmitButton function
+        function updateSubmitButton() {
+            // Check if we have valid data for WAN1
+            var wan1HasOkSelection = selectedOk.wan1;
+            var wan1HasCustomData = $('#wan1ProviderCustom').val() && 
+                (($('#wan1DownloadSpeedCustom').val() && $('#wan1UploadSpeedCustom').val()) || 
+                 $('#wan1CellSatellite').is(':checked'));
+            
+            // Check if we have valid data for WAN2
+            var wan2HasOkSelection = selectedOk.wan2;
+            var wan2HasCustomData = $('#wan2ProviderCustom').val() && 
+                (($('#wan2DownloadSpeedCustom').val() && $('#wan2UploadSpeedCustom').val()) || 
+                 $('#wan2CellSatellite').is(':checked'));
+            
+            var wan1Valid = wan1HasOkSelection || wan1HasCustomData;
+            var wan2Valid = wan2HasOkSelection || wan2HasCustomData;
+            
+            $('#submitModal').prop('disabled', !(wan1Valid && wan2Valid));
+        }
+
+        // Flip Circuits functionality
+        $('#flipCircuits').on('click', function() {
+            // Get all WAN 1 values
+            var wan1ProviderNotes = $('#wan1ProviderNotes').val();
+            var wan1SpeedNotes = $('#wan1SpeedNotes').val();
+            var wan1ProviderDSR = $('#wan1ProviderDSR').val();
+            var wan1SpeedDSR = $('#wan1SpeedDSR').val();
+            var wan1ProviderCustom = $('#wan1ProviderCustom').val();
+            var wan1DownloadCustom = $('#wan1DownloadSpeedCustom').val();
+            var wan1UploadCustom = $('#wan1UploadSpeedCustom').val();
+            var wan1CellSatellite = $('#wan1CellSatellite').is(':checked');
+            var wan1CellType = $('#wan1CellType').val();
+            
+            // Get all WAN 2 values
+            var wan2ProviderNotes = $('#wan2ProviderNotes').val();
+            var wan2SpeedNotes = $('#wan2SpeedNotes').val();
+            var wan2ProviderDSR = $('#wan2ProviderDSR').val();
+            var wan2SpeedDSR = $('#wan2SpeedDSR').val();
+            var wan2ProviderCustom = $('#wan2ProviderCustom').val();
+            var wan2DownloadCustom = $('#wan2DownloadSpeedCustom').val();
+            var wan2UploadCustom = $('#wan2UploadSpeedCustom').val();
+            var wan2CellSatellite = $('#wan2CellSatellite').is(':checked');
+            var wan2CellType = $('#wan2CellType').val();
+            
+            // Swap all values
+            $('#wan1ProviderNotes').val(wan2ProviderNotes);
+            $('#wan1SpeedNotes').val(wan2SpeedNotes);
+            $('#wan1ProviderDSR').val(wan2ProviderDSR);
+            $('#wan1SpeedDSR').val(wan2SpeedDSR);
+            $('#wan1ProviderCustom').val(wan2ProviderCustom);
+            $('#wan1DownloadSpeedCustom').val(wan2DownloadCustom);
+            $('#wan1UploadSpeedCustom').val(wan2UploadCustom);
+            $('#wan1CellSatellite').prop('checked', wan2CellSatellite);
+            $('#wan1CellType').val(wan2CellType).toggle(wan2CellSatellite);
+            
+            $('#wan2ProviderNotes').val(wan1ProviderNotes);
+            $('#wan2SpeedNotes').val(wan1SpeedNotes);
+            $('#wan2ProviderDSR').val(wan1ProviderDSR);
+            $('#wan2SpeedDSR').val(wan1SpeedDSR);
+            $('#wan2ProviderCustom').val(wan1ProviderCustom);
+            $('#wan2DownloadSpeedCustom').val(wan1DownloadCustom);
+            $('#wan2UploadSpeedCustom').val(wan1UploadCustom);
+            $('#wan2CellSatellite').prop('checked', wan1CellSatellite);
+            $('#wan2CellType').val(wan1CellType).toggle(wan1CellSatellite);
+            
+            // Update disabled states for speed inputs
+            $('#wan1DownloadSpeedCustom').prop('disabled', wan2CellSatellite).toggleClass('disabled-input', wan2CellSatellite);
+            $('#wan1UploadSpeedCustom').prop('disabled', wan2CellSatellite).toggleClass('disabled-input', wan2CellSatellite);
+            $('#wan2DownloadSpeedCustom').prop('disabled', wan1CellSatellite).toggleClass('disabled-input', wan1CellSatellite);
+            $('#wan2UploadSpeedCustom').prop('disabled', wan1CellSatellite).toggleClass('disabled-input', wan1CellSatellite);
+            
+            // Reset OK button states
+            selectedOk.wan1 = null;
+            selectedOk.wan2 = null;
+            $('.modal-ok-button').removeClass('active').removeClass('disabled');
+            
+            // Trigger validation for provider fields
+            validateProvider('wan1ProviderCustom', 'wan1ProviderSuggestion');
+            validateProvider('wan2ProviderCustom', 'wan2ProviderSuggestion');
+            
+            // Update submit button state
+            updateSubmitButton();
+            
+            // Show feedback
+            $(this).text('🔄 Flipped!').css('background', '#27ae60');
+            setTimeout(function() {
+                $('#flipCircuits').text('🔄 Flip WAN 1 ↔ WAN 2').css('background', '#e74c3c');
+            }, 1000);
+        });
+
+        // Confirm button handler - use event delegation for DataTable compatibility
+        console.log('Setting up confirm button handlers');
+        $('#circuitTable').on('click', '.confirm-button', function() {
+            console.log('Confirm button clicked!', $(this).data('site'));
+            var siteName = $(this).data('site');
+            var isConfirmedEdit = $(this).hasClass('confirmed-edit');
+            var $button = $(this); // Store reference to button
+            
+            // For both confirmed and unconfirmed buttons, show the modal
+            // The modal will handle the editing/confirmation logic
+            $.ajax({
+                url: '/confirm/' + encodeURIComponent(siteName),
+                type: 'POST',
+                success: function(response) {
+                    if (response.error) {
+                        alert('Error: ' + response.error);
+                        return;
+                    }
+                    $('#modalSiteName').text(siteName);
+                    $('#modalRawNotes').text(response.meraki.raw_notes || 'No notes available');
+                    
+                    $('#modalDsrDataBody').empty();
+                    if (response.tracking && response.tracking.length > 0) {
+                        response.tracking.forEach(function(row) {
+                            $('#modalDsrDataBody').append(
+                                '<tr>' +
+                                '<td>' + siteName + '</td>' +
+                                '<td>' + (new Date().toISOString().split('T')[0]) + '</td>' +
+                                '<td>' + (row['Circuit Purpose'] || '') + '</td>' +
+                                '<td>Enabled</td>' +
+                                '<td>' + (row['provider_name'] || '') + '</td>' +
+                                '<td>' + (row['speed'] || '') + '</td>' +
+                                '<td>$' + (row['billing_monthly_cost'] || 'N/A') + '</td>' +
+                                '</tr>'
+                            );
+                        });
+                    } else {
+                        $('#modalDsrDataBody').append('<tr><td colspan="7">No tracking data available</td></tr>');
+                    }
+                    
+                    $('#wan1ArinInfo').text('WAN 1: IP ' + (response.meraki.wan1.ip || 'N/A') + ' - ' + (response.meraki.wan1.provider || 'N/A'));
+                    $('#wan2ArinInfo').text('WAN 2: IP ' + (response.meraki.wan2.ip || 'N/A') + ' - ' + (response.meraki.wan2.provider || 'N/A'));
+                    
+                    $('#wan1ProviderNotes').val(response.meraki.wan1.provider_label || '');
+                    $('#wan1SpeedNotes').val(response.meraki.wan1.speed || '');
+                    $('#wan1ProviderDSR').val(response.enriched.wan1.provider || '');
+                    $('#wan1SpeedDSR').val(response.enriched.wan1.speed || '');
+                    $('#wan1ProviderCustom').val(response.enriched.wan1.provider || response.meraki.wan1.provider_label || '');
+                    var wan1Speed = response.enriched.wan1.speed || response.meraki.wan1.speed;
+                    var isCellSatellite = wan1Speed && (wan1Speed.toLowerCase() === 'cell' || wan1Speed.toLowerCase() === 'satellite');
+                    $('#wan1CellSatellite').prop('checked', isCellSatellite);
+                    $('#wan1CellType').val(isCellSatellite ? wan1Speed.toLowerCase() : 'Satellite').toggle(isCellSatellite);
+                    var wan1Speeds = wan1Speed && !isCellSatellite ? wan1Speed.match(/^(\d+\.?\d*)M\s*x\s*(\d+\.?\d*)M$/i) : null;
+                    $('#wan1DownloadSpeedCustom').val(wan1Speeds ? wan1Speeds[1] + 'M' : '').prop('disabled', isCellSatellite);
+                    $('#wan1UploadSpeedCustom').val(wan1Speeds ? wan1Speeds[2] + 'M' : '').prop('disabled', isCellSatellite);
+                    
+                    $('#wan2ProviderNotes').val(response.meraki.wan2.provider_label || '');
+                    $('#wan2SpeedNotes').val(response.meraki.wan2.speed || '');
+                    $('#wan2ProviderDSR').val(response.enriched.wan2.provider || '');
+                    $('#wan2SpeedDSR').val(response.enriched.wan2.speed || '');
+                    $('#wan2ProviderCustom').val(response.enriched.wan2.provider || response.meraki.wan2.provider_label || '');
+                    var wan2Speed = response.enriched.wan2.speed || response.meraki.wan2.speed;
+                    var isCellSatellite2 = wan2Speed && (wan2Speed.toLowerCase() === 'cell' || wan2Speed.toLowerCase() === 'satellite');
+                    $('#wan2CellSatellite').prop('checked', isCellSatellite2);
+                    $('#wan2CellType').val(isCellSatellite2 ? wan2Speed.toLowerCase() : 'Satellite').toggle(isCellSatellite2);
+                    var wan2Speeds = wan2Speed && !isCellSatellite2 ? wan2Speed.match(/^(\d+\.?\d*)M\s*x\s*(\d+\.?\d*)M$/i) : null;
+                    $('#wan2DownloadSpeedCustom').val(wan2Speeds ? wan2Speeds[1] + 'M' : '').prop('disabled', isCellSatellite2);
+                    $('#wan2UploadSpeedCustom').val(wan2Speeds ? wan2Speeds[2] + 'M' : '').prop('disabled', isCellSatellite2);
+                    
+                    selectedOk.wan1 = null;
+                    selectedOk.wan2 = null;
+                    $('.modal-ok-button').removeClass('active').removeClass('disabled');
+                    $('#submitModal').prop('disabled', true);
+                    
+                    $('#confirmModal').show();
+                    $('#confirmModal').data('site', siteName);
+                },
+                error: function(xhr) {
+                    alert('Error fetching data: ' + (xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error'));
+                }
+            });
+        });
+
+        // OK button handlers - Updated to include custom OK buttons
+        $('#wan1OkNotes, #wan1OkDSR').on('click', function() {
+            var id = $(this).attr('id');
+            if (selectedOk.wan1 === id) {
+                selectedOk.wan1 = null;
+                $(this).removeClass('active');
+            } else if (selectedOk.wan1) {
+                $('#' + selectedOk.wan1).addClass('disabled').removeClass('active');
+                selectedOk.wan1 = id;
+                $(this).addClass('active');
+            } else {
+                selectedOk.wan1 = id;
+                $(this).addClass('active');
+            }
+            updateSubmitButton();
+        });
+
+        $('#wan2OkNotes, #wan2OkDSR').on('click', function() {
+            var id = $(this).attr('id');
+            if (selectedOk.wan2 === id) {
+                selectedOk.wan2 = null;
+                $(this).removeClass('active');
+            } else if (selectedOk.wan2) {
+                $('#' + selectedOk.wan2).addClass('disabled').removeClass('active');
+                selectedOk.wan2 = id;
+                $(this).addClass('active');
+            } else {
+                selectedOk.wan2 = id;
+                $(this).addClass('active');
+            }
+            updateSubmitButton();
+        });
+
+        // Custom OK button handlers
+        $('#wan1OkCustom').on('click', function() {
+            var id = $(this).attr('id');
+            if (selectedOk.wan1 === id) {
+                selectedOk.wan1 = null;
+                $(this).removeClass('active');
+            } else if (selectedOk.wan1) {
+                $('#' + selectedOk.wan1).addClass('disabled').removeClass('active');
+                selectedOk.wan1 = id;
+                $(this).addClass('active');
+            } else {
+                selectedOk.wan1 = id;
+                $(this).addClass('active');
+            }
+            updateSubmitButton();
+        });
+
+        $('#wan2OkCustom').on('click', function() {
+            var id = $(this).attr('id');
+            if (selectedOk.wan2 === id) {
+                selectedOk.wan2 = null;
+                $(this).removeClass('active');
+            } else if (selectedOk.wan2) {
+                $('#' + selectedOk.wan2).addClass('disabled').removeClass('active');
+                selectedOk.wan2 = id;
+                $(this).addClass('active');
+            } else {
+                selectedOk.wan2 = id;
+                $(this).addClass('active');
+            }
+            updateSubmitButton();
+        });
+
+        // Cell/Satellite checkbox handlers
+        $('#wan1CellSatellite').on('change', function() {
+            var isChecked = $(this).is(':checked');
+            $('#wan1DownloadSpeedCustom').prop('disabled', isChecked).toggleClass('disabled-input', isChecked);
+            $('#wan1UploadSpeedCustom').prop('disabled', isChecked).toggleClass('disabled-input', isChecked);
+            $('#wan1CellType').toggle(isChecked);
+            if (isChecked) {
+                $('#wan1CellType').val('Satellite');
+            }
+            updateSubmitButton();
+        });
+
+        $('#wan2CellSatellite').on('change', function() {
+            var isChecked = $(this).is(':checked');
+            $('#wan2DownloadSpeedCustom').prop('disabled', isChecked).toggleClass('disabled-input', isChecked);
+            $('#wan2UploadSpeedCustom').prop('disabled', isChecked).toggleClass('disabled-input', isChecked);
+            $('#wan2CellType').toggle(isChecked);
+            if (isChecked) {
+                $('#wan2CellType').val('Satellite');
+            }
+            updateSubmitButton();
+        });
+
+        // Provider validation
+        $('#wan1ProviderCustom').on('input', function() {
+            validateProvider('wan1ProviderCustom', 'wan1ProviderSuggestion');
+            updateSubmitButton();
+        });
+        $('#wan2ProviderCustom').on('input', function() {
+            validateProvider('wan2ProviderCustom', 'wan2ProviderSuggestion');
+            updateSubmitButton();
+        });
+
+        // Speed input validation
+        $('#wan1DownloadSpeedCustom, #wan1UploadSpeedCustom').on('input', function() {
+            updateSubmitButton();
+        });
+        $('#wan2DownloadSpeedCustom, #wan2UploadSpeedCustom').on('input', function() {
+            updateSubmitButton();
+        });
+
+        // Submit handler with immediate button update
+        $('#submitModal').on('click', function() {
+            var siteName = $('#confirmModal').data('site');
+            var data = {};
+            var hasChanges = false;
+            var currentData = {
+                wan1_provider: $('td:contains("' + siteName + '")').next().text() || 'N/A',
+                wan1_speed: $('td:contains("' + siteName + '")').next().next().text() || 'N/A',
+                wan2_provider: $('td:contains("' + siteName + '")').next().next().next().next().text() || 'N/A',
+                wan2_speed: $('td:contains("' + siteName + '")').next().next().next().next().next().text() || 'N/A'
+            };
+
+            if (selectedOk.wan1 === 'wan1OkNotes') {
+                data.wan1_provider = $('#wan1ProviderNotes').val();
+                data.wan1_speed = $('#wan1SpeedNotes').val();
+                hasChanges = data.wan1_provider !== currentData.wan1_provider || data.wan1_speed !== currentData.wan1_speed;
+            } else if (selectedOk.wan1 === 'wan1OkDSR') {
+                data.wan1_provider = $('#wan1ProviderDSR').val();
+                data.wan1_speed = $('#wan1SpeedDSR').val();
+                hasChanges = data.wan1_provider !== currentData.wan1_provider || data.wan1_speed !== currentData.wan1_speed;
+            } else if (selectedOk.wan1 === 'wan1OkCustom' || $('#wan1ProviderCustom').val()) {
+                data.wan1_provider = $('#wan1ProviderCustom').val();
+                if ($('#wan1CellSatellite').is(':checked')) {
+                    data.wan1_speed = $('#wan1CellType').val();
+                } else {
+                    data.wan1_speed = $('#wan1DownloadSpeedCustom').val() + ' x ' + $('#wan1UploadSpeedCustom').val();
+                }
+                hasChanges = data.wan1_provider !== currentData.wan1_provider || data.wan1_speed !== currentData.wan1_speed;
+            }
+            
+            if (selectedOk.wan2 === 'wan2OkNotes') {
+                data.wan2_provider = $('#wan2ProviderNotes').val();
+                data.wan2_speed = $('#wan2SpeedNotes').val();
+                hasChanges = data.wan2_provider !== currentData.wan2_provider || data.wan2_speed !== currentData.wan2_speed;
+            } else if (selectedOk.wan2 === 'wan2OkDSR') {
+                data.wan2_provider = $('#wan2ProviderDSR').val();
+                data.wan2_speed = $('#wan2SpeedDSR').val();
+                hasChanges = data.wan2_provider !== currentData.wan2_provider || data.wan2_speed !== currentData.wan2_speed;
+            } else if (selectedOk.wan2 === 'wan2OkCustom' || $('#wan2ProviderCustom').val()) {
+                data.wan2_provider = $('#wan2ProviderCustom').val();
+                if ($('#wan2CellSatellite').is(':checked')) {
+                    data.wan2_speed = $('#wan2CellType').val();
+                } else {
+                    data.wan2_speed = $('#wan2DownloadSpeedCustom').val() + ' x ' + $('#wan2UploadSpeedCustom').val();
+                }
+                hasChanges = data.wan2_provider !== currentData.wan2_provider || data.wan2_speed !== currentData.wan2_speed;
+            }
+            
+            if (!data.wan1_provider || !data.wan1_speed || !data.wan2_provider || !data.wan2_speed) {
+                alert('Please select or enter data for both WAN 1 and WAN 2');
+                return;
+            }
+            
+            // Store reference to the button before AJAX call
+            var $button = $('button.confirm-button[data-site="' + siteName + '"]');
+            
+            $.ajax({
+                url: '/confirm/' + encodeURIComponent(siteName) + '/submit',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                success: function(response) {
+                    if (response.success) {
+                        alert('Confirmation successful for ' + siteName);
+                        
+                        // Close the modal first
+                        $('#confirmModal').hide();
+                        
+                        // Update the button immediately and permanently - KEEP confirm-button class!
+                        $button.text('Confirmed - Edit?')
+                               .addClass('confirmed-edit')
+                               .prop('disabled', false);
+                        
+                        // Refresh table data after a short delay to ensure button update sticks
+                        setTimeout(function() {
+                            table.draw();
+                            // Re-apply the button state after table redraw - KEEP confirm-button class!
+                            $('button[data-site="' + siteName + '"]')
+                                .text('Confirmed - Edit?')
+                                .addClass('confirmed-edit')
+                                .prop('disabled', false);
+                        }, 100);
+                        
+                    } else {
+                        alert('Error confirming: ' + response.error);
+                        $('#confirmModal').hide();
+                    }
+                },
+                error: function(xhr) {
+                    alert('Error confirming: ' + (xhr.responseJSON ? xhr.responseJSON.error : 'Unknown error'));
+                    $('#confirmModal').hide();
+                }
+            });
+        });
+
+        // Modal close button
+        $('#closeModal').on('click', function() {
+            $('#confirmModal').hide();
+        });
+
+        // Update row count on draw
+        table.on('draw.dt', function() {
+            updateRowCount();
+        });
+        
+        // Initialize filters and row count
+        initFilters();
+        updateRowCount();
+        
+        // Re-attach confirm button handlers after table draws
+        // This ensures the buttons work even after filtering
+        table.on('draw', function() {
+            // No need to re-attach - we're using direct binding which works fine
+            // The issue was elsewhere
+        });
+    });
+</script>
+
+<script>
+function formatSpeed(input) {
+    if (!input) return '';
+    
+    // Remove any existing M/G suffix and extra spaces
+    let value = input.replace(/[MmGg\s]/g, '');
+    
+    // Only proceed if we have digits
+    if (!/[\d.]/.test(value)) return '';
+    
+    // Parse as float
+    const num = parseFloat(value);
+    if (isNaN(num) || num <= 0) return '';
+    
+    // Format to show .0 for whole numbers, otherwise keep one decimal place
+    const formatted = num % 1 === 0 ? `${num}.0` : num.toFixed(1);
+    return `${formatted}M`;
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    function populateSpeedOptions(id) {
+        const datalist = document.getElementById(id);
+        for (let i = 5; i <= 1500; i += 5) {
+            const option = document.createElement("option");
+            // Format options to show .0 for whole numbers
+            option.value = `${i}.0M`;
+            datalist.appendChild(option);
+        }
+    }
+    
+    // Apply to all four fields
+    ["wan1DownloadSpeedOptions", "wan1UploadSpeedOptions", "wan2DownloadSpeedOptions", "wan2UploadSpeedOptions"].forEach(populateSpeedOptions);
+    
+    // Add input event listeners to format speed values as user types
+    const speedInputs = [
+        "wan1DownloadSpeedCustom", 
+        "wan1UploadSpeedCustom", 
+        "wan2DownloadSpeedCustom", 
+        "wan2UploadSpeedCustom"
+    ];
+    
+    speedInputs.forEach(inputId => {
+        const input = document.getElementById(inputId);
+        if (input) {
+            // Format only on blur (when user finishes typing)
+            input.addEventListener('blur', function() {
+                if (this.value.trim()) {
+                    this.value = formatSpeed(this.value);
+                }
+            });
+            
+            // Optional: Also format when user selects from datalist
+            input.addEventListener('change', function() {
+                if (this.value.trim()) {
+                    this.value = formatSpeed(this.value);
+                }
+            });
+        }
+    });
+    
+    // Format and insert speed values when OK buttons are clicked
+    document.querySelectorAll(".modal-ok-button").forEach(button => {
+        button.addEventListener("click", function () {
+            const idPrefix = this.id.includes("wan1") ? "wan1" : "wan2";
+            const providerCustom = document.getElementById(`${idPrefix}ProviderCustom`);
+            const downloadCustom = document.getElementById(`${idPrefix}DownloadSpeedCustom`);
+            const uploadCustom = document.getElementById(`${idPrefix}UploadSpeedCustom`);
+            const providerDSR = document.getElementById(`${idPrefix}ProviderDSR`);
+            const speedDSR = document.getElementById(`${idPrefix}SpeedDSR`);
+            
+            if (providerCustom && downloadCustom && uploadCustom && providerDSR && speedDSR) {
+                const download = formatSpeed(downloadCustom.value);
+                const upload = formatSpeed(uploadCustom.value);
+                speedDSR.value = `${download} x ${upload}`;
+                providerDSR.value = providerCustom.value;
+            }
+        });
+    });
+});
+</script>
+</body>
+</html>

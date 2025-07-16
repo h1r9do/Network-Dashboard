@@ -1,0 +1,61 @@
+
+Network Cleanup Report
+======================
+Timestamp: 2025-07-09 16:16:13
+Network ID: L_3790904986339115852
+Organization: 3790904986339115010
+
+Cleanup Log:
+[16:15:39] INFO: Network Cleaner initialized for L_3790904986339115852
+[16:15:39] INFO: Organization: 3790904986339115010
+[16:15:39] INFO: 
+Step 1: Clearing firewall rules...
+[16:15:40] INFO:   Found 2 existing firewall rules
+[16:15:41] INFO:   ✓ Firewall rules cleared (set to default allow)
+[16:15:41] INFO: 
+Step 2: Clearing syslog configuration...
+[16:15:42] INFO:   Found 1 syslog server(s)
+[16:15:43] INFO:   ✓ Syslog configuration cleared
+[16:15:43] INFO: 
+Step 3: Deleting VLANs...
+[16:15:44] INFO:   Found 10 VLANs
+[16:15:44] INFO:   Deleting VLAN 900 (Mgmt)...
+[16:15:45] INFO:     ✓ Deleted VLAN 900
+[16:15:46] INFO:   Deleting VLAN 803 (IoT Wireless)...
+[16:15:47] INFO:     ✓ Deleted VLAN 803
+[16:15:48] INFO:   Deleting VLAN 802 (IoT Network)...
+[16:15:49] INFO:     ✓ Deleted VLAN 802
+[16:15:50] INFO:   Deleting VLAN 801 (IOT)...
+[16:15:51] INFO:     ✓ Deleted VLAN 801
+[16:15:52] INFO:   Deleting VLAN 800 (Guest)...
+[16:15:53] INFO:     ✓ Deleted VLAN 800
+[16:15:54] INFO:   Deleting VLAN 301 (Scanner)...
+[16:15:54] INFO:     ✓ Deleted VLAN 301
+[16:15:55] INFO:   Deleting VLAN 300 (AP Mgmt)...
+[16:15:56] INFO:     ✓ Deleted VLAN 300
+[16:15:57] INFO:   Deleting VLAN 201 (Ccard)...
+[16:15:58] INFO:     ✓ Deleted VLAN 201
+[16:15:59] INFO:   Deleting VLAN 101 (Voice)...
+[16:16:00] INFO:     ✓ Deleted VLAN 101
+[16:16:01] INFO:   Keeping VLAN 1 (Data) - required minimum
+[16:16:02] INFO:     ✓ Reset VLAN 1 to default configuration
+[16:16:02] INFO:   Deleted 9 VLANs, kept 1 minimum required
+[16:16:02] INFO: 
+Step 4: Deleting group policies...
+[16:16:03] INFO:   Found 3 group policies
+[16:16:03] INFO:   Deleting group policy: Guest Network (ID: 102)
+[16:16:04] INFO:     ✓ Deleted group policy 102
+[16:16:05] INFO:   Deleting group policy: Indeed.com (ID: 101)
+[16:16:06] INFO:     ✓ Deleted group policy 101
+[16:16:07] INFO:   Deleting group policy: Ebay Access (ID: 100)
+[16:16:08] INFO:     ✓ Deleted group policy 100
+[16:16:09] INFO:   Deleted 3 group policies
+[16:16:09] INFO: 
+Step 5: Skipping policy objects deletion (use --include-policy-objects to delete)
+[16:16:09] INFO: 
+Step 6: Verifying cleanup...
+[16:16:10] INFO:   Remaining VLANs: 1
+[16:16:11] INFO:   Remaining group policies: 0
+[16:16:12] INFO:   Firewall rules: 2 (should be 1 default)
+[16:16:13] INFO:   Syslog servers: 0 (should be 0)
+[16:16:13] WARNING:   ⚠️  Some items may not have been cleaned up

@@ -1,0 +1,4 @@
+site_id,site_name,current_primary_provider,wan2_circuit_id,wan2_provider,wan2_ip,wan2_bandwidth,excel_sheet,excel_row
+AZP 30,Phoenix Store 30,Cox,EB2-Centurylink DSL,,,100M X 10M,Sheet1,60
+CAL 24,California Store 24,AT&T,Cell,,,Cell,Sheet1,129
+TXD 42,Texas Dallas 42,Spectrum,Spectrum,,,600M X 35M,Sheet1,943

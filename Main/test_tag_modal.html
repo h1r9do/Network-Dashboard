@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Tag Modal</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Tag Modal Test</h1>
+    <p>Open browser console and run these commands to test:</p>
+    <pre>
+// Test 1: Check if modal exists
+console.log('Modal exists:', $('#confirmModal').length > 0);
+
+// Test 2: Check if tag section exists  
+console.log('Tag section exists:', $('#tagManagementContainer').length > 0);
+
+// Test 3: Check if functions exist
+console.log('initializeTagManagement exists:', typeof initializeTagManagement);
+console.log('displayCurrentTags exists:', typeof displayCurrentTags);
+
+// Test 4: Initialize tag management
+if (typeof initializeTagManagement === 'function') {
+    initializeTagManagement('Q2QN-84BN-W54P', ['Discount-Tire', 'test-tag']);
+    console.log('Tag management initialized');
+}
+
+// Test 5: Check current tags display
+console.log('Current tags display:', $('#currentTagsDisplay').html());
+    </pre>
+    
+    <h2>Manual Test Steps:</h2>
+    <ol>
+        <li>Go to <a href="http://localhost:5052/dsrcircuits" target="_blank">DSR Circuits page</a></li>
+        <li>Find ALB 01 in the table</li>
+        <li>Click the "Confirm" button</li>
+        <li>In the modal, scroll down to find "Device Tag Management" section</li>
+        <li>Test the three operations:
+            <ul>
+                <li><b>Add Tag:</b> Select "Add Tag", type a tag name, click "+", then "Apply Tag Changes"</li>
+                <li><b>Remove Tag:</b> Select "Remove Tag", click on existing tags to mark them red, then "Apply Tag Changes"</li>
+                <li><b>Replace All:</b> Select "Replace All Tags", add new tags, then "Apply Tag Changes"</li>
+            </ul>
+        </li>
+    </ol>
+    
+    <h2>Check Database:</h2>
+    <pre>
+sudo -u postgres psql -d dsrcircuits -c "SELECT device_serial, device_tags FROM meraki_inventory WHERE device_serial = 'Q2QN-84BN-W54P';"
+    </pre>
+</body>
+</html>

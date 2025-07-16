@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Store Constructions Circuit List - Discount Tire</title>
+    <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            margin: 20px;
+        }
+        
+        .header-container {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .header-container h1 {
+            margin: 0;
+            font-size: 24px;
+            display: inline-block;
+        }
+        
+        .row-count {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 14px;
+            color: #ecf0f1;
+            font-weight: 400;
+        }
+        
+        .home-button {
+            position: absolute;
+            top: 15px;
+            right: 180px;
+        }
+        
+        .home-button button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            color: white;
+            background: #3498db;
+        }
+        
+        .home-button button:hover {
+            background: #2980b9;
+        }
+        
+        .container {
+            background-color: white;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        /* Button controls (removed tabs) */
+        .export-buttons {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            background: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        /* Removed dashboard stats - no longer needed */
+        
+        /* Filter Controls */
+        .filter-controls {
+            display: grid;
+            grid-template-columns: 240px 180px 180px 120px 216px 180px 144px;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #ecf0f1;
+            border-radius: 5px;
+        }
+        
+        .filter-control select, .filter-control input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #bdc3c7;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+        
+        /* Circuit Table */
+        .circuit-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        .circuit-table th {
+            background: #34495e;
+            color: white;
+            padding: 12px 8px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #2c3e50;
+        }
+        
+        .circuit-table td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .circuit-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+        
+        /* Status badges */
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        
+        .status-badge.enabled { background: #d4edda; color: #155724; }
+        .status-badge.pending { background: #fff3cd; color: #856404; }
+        .status-badge.critical { background: #f8d7da; color: #721c24; }
+        
+        /* TOD List Styles */
+        .tod-list {
+            max-height: 600px;
+            overflow-y: auto;
+            overflow-x: auto;
+            width: 100%;
+        }
+        
+        .tod-item {
+            display: grid;
+            grid-template-columns: 240px 180px 180px 120px 216px 180px 144px;
+            gap: 10px;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ecf0f1;
+            background: white;
+            min-width: 1300px;
+        }
+        
+        .tod-item:hover {
+            background: #f8f9fa;
+        }
+        
+        .tod-item input, .tod-item select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .tod-item input:focus, .tod-item select:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+        }
+        
+        .tod-item button {
+            white-space: nowrap;
+            padding: 6px 12px;
+            font-size: 14px;
+        }
+        
+        /* Upload styles */
+        .upload-area {
+            border: 2px dashed #bdc3c7;
+            border-radius: 8px;
+            padding: 40px;
+            text-align: center;
+            background: #f8f9fa;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .upload-area:hover {
+            border-color: #3498db;
+            background: #ebf3fd;
+        }
+        
+        .upload-area.dragover {
+            border-color: #27ae60;
+            background: #eafaf1;
+        }
+        
+        /* Button styles */
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #2980b9;
+        }
+        
+        .btn-success {
+            background: #27ae60;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #219a52;
+        }
+        
+        .btn-danger {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background: #c0392b;
+        }
+        
+        /* Manual entry form */
+        .manual-entry-form {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 240px 180px 180px 120px 216px 180px 144px;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #bdc3c7;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        /* Loading overlay */
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .loading-spinner {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <h1>New Store Constructions Circuit List</h1>
+        <div class="row-count" id="rowCount">Loading...</div>
+    </div>
+    
+    <div class="container">
+        <!-- Button Controls -->
+        <div class="export-buttons">
+            <!-- Left side buttons -->
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <button onclick="window.location.href='/home'" style="background: #3498db; color: white; border: none; padding: 8px 15px; border-radius: 4px; font-size: 14px; cursor: pointer;">🏠 Home</button>
+                <button onclick="openNewCircuitModal()" style="background: #27ae60; color: white; border: none; padding: 8px 15px; border-radius: 4px; font-size: 14px; cursor: pointer;">➕ Add Circuit</button>
+                <button onclick="openStoreListModal()" style="background: #9b59b6; color: white; border: none; padding: 8px 15px; border-radius: 4px; font-size: 14px; cursor: pointer;">📋 TOD Store List</button>
+                <button onclick="openUploadModal()" style="background: #e67e22; color: white; border: none; padding: 8px 15px; border-radius: 4px; font-size: 14px; cursor: pointer;">📤 Upload TOD Report</button>
+                <button onclick="openManualEntryModal()" style="background: #34495e; color: white; border: none; padding: 8px 15px; border-radius: 4px; font-size: 14px; cursor: pointer;">✏️ Enter New TOD Store</button>
+            </div>
+            
+            <!-- Right side export buttons -->
+            <div style="display: flex; gap: 8px; margin-left: auto;">
+                <button onclick="exportCircuits()" style="background: #3498db; color: white; border: none; padding: 8px 15px; border-radius: 4px; font-size: 14px; cursor: pointer;">📊 Export to Excel</button>
+                <button onclick="exportToPDF()" style="background: #e74c3c; color: white; border: none; padding: 8px 15px; border-radius: 4px; font-size: 14px; cursor: pointer;">📄 Export to PDF</button>
+            </div>
+        </div>
+        
+        <!-- Circuit Table with Column Filters -->
+        <div style="overflow-x: auto; margin-top: 15px;">
+            <table class="circuit-table" id="circuitTable">
+                <thead>
+                    <tr style="background: #f8f9fa;">
+                        <th style="padding: 5px;">
+                            <input type="text" id="siteFilter" placeholder="Filter site..." style="width: 100%; padding: 5px; border: 1px solid #ddd; border-radius: 3px; font-size: 13px;">
+                        </th>
+                        <th style="padding: 5px;">
+                            <select id="stateFilter" style="width: 100%; padding: 5px; border: 1px solid #ddd; border-radius: 3px; font-size: 13px;">
+                                <option value="">All States</option>
+                            </select>
+                        </th>
+                        <th style="padding: 5px;">
+                            <select id="statusFilter" style="width: 100%; padding: 5px; border: 1px solid #ddd; border-radius: 3px; font-size: 13px;">
+                                <option value="">All Status</option>
+                            </select>
+                        </th>
+                        <th style="padding: 5px;">
+                            <select id="providerFilter" style="width: 100%; padding: 5px; border: 1px solid #ddd; border-radius: 3px; font-size: 13px;">
+                                <option value="">All Providers</option>
+                            </select>
+                        </th>
+                        <th style="padding: 5px;">
+                            <input type="text" id="speedFilter" placeholder="Filter speed..." style="width: 100%; padding: 5px; border: 1px solid #ddd; border-radius: 3px; font-size: 13px;">
+                        </th>
+                        <th style="padding: 5px;">
+                            <input type="text" id="costFilter" placeholder="Filter cost..." style="width: 100%; padding: 5px; border: 1px solid #ddd; border-radius: 3px; font-size: 13px;">
+                        </th>
+                        <th style="padding: 5px;">
+                            <input type="text" id="todFilter" placeholder="Filter TOD..." style="width: 100%; padding: 5px; border: 1px solid #ddd; border-radius: 3px; font-size: 13px;">
+                        </th>
+                        <th style="padding: 5px;"><!-- Notes column has no filter --></th>
+                        <th style="padding: 5px;"><!-- Actions column has no filter --></th>
+                    </tr>
+                    <tr>
+                        <th>Site Name</th>
+                        <th>State</th>
+                        <th>Status</th>
+                        <th>Provider</th>
+                        <th>Speed</th>
+                        <th>Monthly Cost</th>
+                        <th>TOD</th>
+                        <th>Notes</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="circuitTableBody">
+                    <!-- Circuit data will be loaded here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <div>Loading...</div>
+        </div>
+    </div>
+    
+    <!-- Circuit Details Modal -->
+    <div id="circuitModal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5);">
+        <div style="background: white; margin: 5% auto; padding: 20px; width: 80%; max-width: 98vw; border-radius: 8px; max-height: 80vh; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2>Circuit Details</h2>
+                <button onclick="closeCircuitModal()" style="background: #dc3545; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">✖ Close</button>
+            </div>
+            <div id="circuitDetailsContent" style="display: grid; grid-template-columns: 240px 180px 180px 120px 216px 180px 144px; gap: 15px;">
+                <!-- Circuit details will be populated here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Add New Circuit Modal -->
+    <div id="newCircuitModal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5);">
+        <div style="background: white; margin: 5% auto; padding: 20px; width: 80%; max-width: 98vw; border-radius: 8px; max-height: 80vh; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2>Add New Circuit</h2>
+                <button onclick="closeNewCircuitModal()" style="background: #dc3545; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">✖ Close</button>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="newCircuitSiteName">Site Name *</label>
+                    <select id="newCircuitSiteName" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                        <option value="">Select from active new stores...</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="newCircuitProvider">Provider *</label>
+                    <input type="text" id="newCircuitProvider" list="providerOptions" placeholder="Enter provider name" required onchange="handleProviderChange()" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                    <datalist id="providerOptions">
+                        <option value="Verizon">
+                        <option value="AT&T">
+                        <option value="Comcast">
+                        <option value="Charter">
+                        <option value="CenturyLink">
+                        <option value="Windstream">
+                        <option value="Starlink">
+                        <option value="Spectrum">
+                        <option value="Cox">
+                        <option value="Frontier">
+                        <option value="Lumen">
+                        <option value="Mediacom">
+                    </datalist>
+                </div>
+                <div class="form-group">
+                    <label for="newCircuitDownloadSpeed">Download Speed</label>
+                    <input type="text" id="newCircuitDownloadSpeed" list="downloadSpeedOptions" placeholder="Download (M)" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                    <datalist id="downloadSpeedOptions">
+                        <option value="10">
+                        <option value="50">
+                        <option value="100">
+                        <option value="200">
+                        <option value="500">
+                        <option value="1000">
+                        <option value="Satellite">
+                    </datalist>
+                </div>
+                <div class="form-group">
+                    <label for="newCircuitUploadSpeed">Upload Speed</label>
+                    <input type="text" id="newCircuitUploadSpeed" list="uploadSpeedOptions" placeholder="Upload (M)" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                    <datalist id="uploadSpeedOptions">
+                        <option value="10">
+                        <option value="50">
+                        <option value="100">
+                        <option value="200">
+                        <option value="500">
+                        <option value="1000">
+                        <option value="Satellite">
+                    </datalist>
+                </div>
+                <div class="form-group">
+                    <label for="newCircuitCost">Monthly Cost ($)</label>
+                    <input type="number" id="newCircuitCost" step="0.01" placeholder="0.00" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div class="form-group">
+                    <label for="newCircuitPurpose">Circuit Purpose</label>
+                    <select id="newCircuitPurpose" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                        <option value="Primary">Primary</option>
+                        <option value="Secondary">Secondary</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="newCircuitStatus">Initial Status</label>
+                    <select id="newCircuitStatus" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                        <option value="Order Ready To Be Placed">Order Ready To Be Placed</option>
+                        <option value="Order Placed">Order Placed</option>
+                        <option value="Construction In Progress">Construction In Progress</option>
+                        <option value="Under Construction">Under Construction</option>
+                    </select>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="btn btn-success" onclick="createNewCircuit()">Create Circuit</button>
+                <button class="btn btn-primary" onclick="clearNewCircuitForm()">Clear Form</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Store List Modal -->
+    <div id="storeListModal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5);">
+        <div style="background: white; margin: 5% auto; padding: 20px; width: 90%; max-width: 1440px; border-radius: 8px; max-height: 80vh; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2>TOD Store List Management</h2>
+                <button onclick="closeStoreListModal()" style="background: #dc3545; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">✖ Close</button>
+            </div>
+            <div class="tod-item" style="display: grid; grid-template-columns: 240px 180px 180px 120px 216px 180px 144px; gap: 15px; background: #34495e; color: white; font-weight: bold; min-width: 1300px; align-items: center; padding: 15px;">
+                <div>Site Name</div>
+                <div>Region</div>
+                <div>City</div>
+                <div>State</div>
+                <div>Status</div>
+                <div>Target Opening Date</div>
+                <div>Actions</div>
+            </div>
+            <div style="overflow-x: auto; width: 100%;"><div class="tod-list" id="todList">
+                <!-- Store data will be loaded here -->
+            </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Upload Excel Modal -->
+    <div id="uploadModal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5);">
+        <div style="background: white; margin: 5% auto; padding: 20px; width: 80%; max-width: 98vw; border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2>Upload TOD Report</h2>
+                <button onclick="closeUploadModal()" style="background: #dc3545; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">✖ Close</button>
+            </div>
+            <p>Upload a "RE - Targeted Opening Dates" format Excel file to import new stores. Existing stores will be updated with new information.</p>
+            <div class="upload-area" id="uploadArea">
+                <div style="font-size: 48px; margin-bottom: 15px;">📄</div>
+                <h3>Drop your Excel file here or click to browse</h3>
+                <p>Supported formats: .xlsx, .xls</p>
+                <input type="file" id="fileInput" accept=".xlsx,.xls" style="display: none;">
+                <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">Choose File</button>
+            </div>
+            <div id="uploadProgress" style="display: none; margin-top: 20px;">
+                <div style="background: #ecf0f1; border-radius: 4px; overflow: hidden;">
+                    <div id="progressBar" style="background: #3498db; height: 10px; width: 0%; transition: width 0.3s;"></div>
+                </div>
+                <p id="progressText" style="margin-top: 10px;">Uploading...</p>
+            </div>
+            <div id="uploadResults" style="margin-top: 20px; display: none;">
+                <!-- Upload results will be shown here -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Manual Entry Modal -->
+    <div id="manualEntryModal" style="display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5);">
+        <div style="background: white; margin: 5% auto; padding: 20px; width: 80%; max-width: 98vw; border-radius: 8px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2>Enter New TOD Store</h2>
+                <button onclick="closeManualEntryModal()" style="background: #dc3545; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">✖ Close</button>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="manualSiteName">Site Name *</label>
+                    <input type="text" id="manualSiteName" required style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div class="form-group">
+                    <label for="manualRegion">Region</label>
+                    <select id="manualRegion" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                        <option value="">Select Region</option>
+                        <option value="Northeast">Northeast</option>
+                        <option value="Southeast">Southeast</option>
+                        <option value="Midwest">Midwest</option>
+                        <option value="Southwest">Southwest</option>
+                        <option value="West">West</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="manualCity">City</label>
+                    <input type="text" id="manualCity" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div class="form-group">
+                    <label for="manualState">State</label>
+                    <input type="text" id="manualState" maxlength="2" placeholder="TX" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div class="form-group">
+                    <label for="manualTOD">Target Opening Date</label>
+                    <input type="date" id="manualTOD" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                </div>
+                <div class="form-group">
+                    <label for="manualStatus">Project Status</label>
+                    <select id="manualStatus" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                        <option value="Planning">Planning</option>
+                        <option value="Under Construction">Under Construction</option>
+                        <option value="Ready for Opening">Ready for Opening</option>
+                        <option value="Opened">Opened</option>
+                    </select>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 20px;">
+                <button class="btn btn-success" onclick="addManualStore()">Add Store</button>
+                <button class="btn btn-primary" onclick="clearManualForm()">Clear Form</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functions
+        function openNewCircuitModal() {
+            document.getElementById('newCircuitModal').style.display = 'block';
+            loadNewStoresList();
+        }
+        
+        function closeNewCircuitModal() {
+            document.getElementById('newCircuitModal').style.display = 'none';
+        }
+        
+        function openStoreListModal() {
+            document.getElementById('storeListModal').style.display = 'block';
+            loadStoreData();
+        }
+        
+        function closeStoreListModal() {
+            document.getElementById('storeListModal').style.display = 'none';
+        }
+        
+        function openUploadModal() {
+            document.getElementById('uploadModal').style.display = 'block';
+        }
+        
+        function closeUploadModal() {
+            document.getElementById('uploadModal').style.display = 'none';
+        }
+        
+        function openManualEntryModal() {
+            document.getElementById('manualEntryModal').style.display = 'block';
+        }
+        
+        function closeManualEntryModal() {
+            document.getElementById('manualEntryModal').style.display = 'none';
+        }
+        
+        // Load circuit data for new stores
+        function loadCircuitData() {
+            showLoading();
+            
+            fetch('/api/new-store-circuits-with-tod')
+                .then(response => response.json())
+                .then(data => {
+                    hideLoading();
+                    console.log('Circuit data received:', data);
+                    updateSummaryStats(data);
+                    populateFilterOptions(data);
+                    updateCircuitTable(data);
+                })
+                .catch(error => {
+                    hideLoading();
+                    console.error('Error loading circuit data:', error);
+                });
+        }
+        
+        // Update summary statistics
+        function updateSummaryStats(data) {
+            // Update row count in header
+            const circuits = data.circuits || data;
+            const totalCircuits = circuits.length;
+            const totalStores = data.total_stores || 0;
+            document.getElementById('rowCount').textContent = `${totalCircuits} circuits / ${totalStores} stores`;
+        }
+        
+        // Update circuit table
+        function updateCircuitTable(data) {
+            const tbody = document.getElementById('circuitTableBody');
+            tbody.innerHTML = '';
+            
+            // Use circuits array from the API response
+            let circuits = data.circuits || data;
+            
+            // Sort circuits by TOD (closest first) then by site name
+            circuits = [...circuits].sort((a, b) => {
+                const todA = a['Target Opening Date'] || 'TBD';
+                const todB = b['Target Opening Date'] || 'TBD';
+                
+                // Handle TBD values - put them at the end
+                if (todA === 'TBD' && todB === 'TBD') {
+                    return (a['Site Name'] || '').localeCompare(b['Site Name'] || '');
+                }
+                if (todA === 'TBD') return 1;
+                if (todB === 'TBD') return -1;
+                
+                // Compare dates
+                const dateA = new Date(todA);
+                const dateB = new Date(todB);
+                
+                if (dateA.getTime() === dateB.getTime()) {
+                    // If dates are equal, sort by site name
+                    return (a['Site Name'] || '').localeCompare(b['Site Name'] || '');
+                }
+                
+                // Sort by date (closest first)
+                return dateA - dateB;
+            });
+            
+            circuits.forEach(circuit => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${circuit['Site Name'] || ''}</td>
+                    <td>${circuit['State'] || ''}</td>
+                    <td><span class="status-badge ${getStatusClass(circuit['Status'])}">${circuit['Status'] || ''}</span></td>
+                    <td>${circuit['Provider'] || ''}</td>
+                    <td>${circuit['Service Speed'] || ''}</td>
+                    <td>$${circuit['Monthly Cost'] || '0'}</td>
+                    <td>${circuit['Target Opening Date'] || 'TBD'}</td>
+                    <td>
+                        <input type="text" 
+                               class="notes-input" 
+                               value="${circuit['notes'] || ''}" 
+                               data-circuit-id="${circuit['circuit_id'] || ''}"
+                               data-site-name="${circuit['Site Name'] || ''}"
+                               onblur="saveNotes(this)"
+                               style="width: 100%; border: 1px solid #ddd; padding: 3px; border-radius: 3px;">
+                    </td>
+                    <td>
+                        <button class="btn btn-primary" onclick="viewCircuitDetails(${JSON.stringify(circuit).replace(/"/g, '&quot;')})">View</button>
+                    </td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+        
+        // Get status class for styling
+        function getStatusClass(status) {
+            if (!status) return '';
+            const statusLower = status.toLowerCase();
+            if (statusLower.includes('ready for enablement')) return 'enabled';
+            if (statusLower.includes('action') || statusLower.includes('approval') || statusLower.includes('jeopardy')) return 'critical';
+            if (statusLower.includes('construction') || statusLower.includes('progress')) return 'pending';
+            return '';
+        }
+        
+        // Save notes for a circuit
+        function saveNotes(input) {
+            const circuitId = input.dataset.circuitId;
+            const siteName = input.dataset.siteName;
+            const notes = input.value;
+            
+            // Send update to backend
+            fetch('/api/circuits/update-notes', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    circuit_id: circuitId,
+                    site_name: siteName,
+                    notes: notes
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (!data.success) {
+                    console.error('Failed to save notes:', data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error saving notes:', error);
+            });
+        }
+        
+        // Show notification
+        function showNotification(message, type) {
+            // Simple console logging for now
+            if (type === 'success') {
+                console.log(message);
+            } else {
+                console.error(message);
+            }
+        }
+        
+        // Show/hide loading overlay
+        function showLoading() {
+            document.getElementById('loadingOverlay').style.display = 'flex';
+        }
+        
+        function hideLoading() {
+            document.getElementById('loadingOverlay').style.display = 'none';
+        }
+        
+        // Get status CSS class
+        function getStatusClass(status) {
+            if (!status) return '';
+            const s = status.toLowerCase();
+            if (s.includes('enabled')) return 'enabled';
+            if (s.includes('ready')) return 'pending';
+            if (s.includes('action') || s.includes('approval')) return 'critical';
+            return 'pending';
+        }
+        
+        // Load store data
+        function loadStoreData() {
+            showLoading();
+            
+            fetch('/api/new-stores')
+                .then(response => response.json())
+                .then(data => {
+                    hideLoading();
+                    updateStoreList(data);
+                })
+                .catch(error => {
+                    hideLoading();
+                    console.error('Error loading store data:', error);
+                });
+        }
+        
+        // Update store list
+        function updateStoreList(data) {
+            const container = document.getElementById('todList');
+            container.innerHTML = '';
+            
+            // Handle both direct array and stores object
+            const stores = data.stores || data;
+            
+            // Common status options for the dropdown (based on actual data)
+            const statusOptions = [
+                '01 - Planning',
+                '02 - Acquired',
+                '03 - Design',
+                '04 - Construction',
+                '05 - Build Out',
+                '06 - IT Setup', 
+                '07 - Ready for Opening',
+                '08 - Open',
+                '09 - On Hold',
+                '10 - Cancelled'
+            ];
+            
+            stores.forEach(store => {
+                const item = document.createElement('div');
+                item.className = 'tod-item';
+                
+                // Create status dropdown options
+                const statusOptionsHtml = statusOptions.map(option => 
+                    `<option value="${option}" ${store.project_status === option ? 'selected' : ''}>${option}</option>`
+                ).join('');
+                
+                item.innerHTML = `
+                    <input type="text" value="${store.site_name}" onchange="updateStore(${store.id}, 'site_name', this.value)">
+                    <input type="text" value="${store.region || ''}" onchange="updateStore(${store.id}, 'region', this.value)">
+                    <input type="text" value="${store.city || ''}" onchange="updateStore(${store.id}, 'city', this.value)">
+                    <input type="text" value="${store.state || ''}" onchange="updateStore(${store.id}, 'state', this.value)">
+                    <select onchange="updateStore(${store.id}, 'project_status', this.value)" style="padding: 4px; border: 1px solid #ddd; border-radius: 4px;">
+                        <option value="">Select Status</option>
+                        ${statusOptionsHtml}
+                    </select>
+                    <input type="date" value="${store.target_opening_date || ''}" onchange="updateStore(${store.id}, 'target_opening_date', this.value)">
+                    <button class="btn btn-danger" onclick="deleteStore(${store.id})">Delete</button>
+                `;
+                container.appendChild(item);
+            });
+        }
+        
+        // Update store
+        function updateStore(id, field, value) {
+            fetch(`/api/new-stores/${id}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ [field]: value })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert('Error updating store: ' + data.error);
+                }
+            })
+            .catch(error => {
+                console.error('Error updating store:', error);
+                alert('Error updating store');
+            });
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCircuitData();
+            setupFileUpload();
+            
+            // Add event listeners for filters
+            document.getElementById('siteFilter').addEventListener('input', applyFilters);
+            document.getElementById('stateFilter').addEventListener('change', applyFilters);
+            document.getElementById('statusFilter').addEventListener('change', applyFilters);
+            document.getElementById('providerFilter').addEventListener('change', applyFilters);
+            document.getElementById('speedFilter').addEventListener('input', applyFilters);
+            document.getElementById('costFilter').addEventListener('input', applyFilters);
+            document.getElementById('todFilter').addEventListener('input', applyFilters);
+            
+            // Close modals when clicking outside
+            document.getElementById('circuitModal').addEventListener('click', function(event) {
+                if (event.target === this) {
+                    closeCircuitModal();
+                }
+            });
+            
+            document.getElementById('newCircuitModal').addEventListener('click', function(event) {
+                if (event.target === this) {
+                    closeNewCircuitModal();
+                }
+            });
+            
+            document.getElementById('storeListModal').addEventListener('click', function(event) {
+                if (event.target === this) {
+                    closeStoreListModal();
+                }
+            });
+            
+            document.getElementById('uploadModal').addEventListener('click', function(event) {
+                if (event.target === this) {
+                    closeUploadModal();
+                }
+            });
+            
+            document.getElementById('manualEntryModal').addEventListener('click', function(event) {
+                if (event.target === this) {
+                    closeManualEntryModal();
+                }
+            });
+            
+            document.getElementById('newCircuitModal').addEventListener('click', function(event) {
+                if (event.target === this) {
+                    closeNewCircuitModal();
+                }
+            });
+            
+            document.getElementById('storeListModal').addEventListener('click', function(event) {
+                if (event.target === this) {
+                    closeStoreListModal();
+                }
+            });
+            
+            document.getElementById('uploadModal').addEventListener('click', function(event) {
+                if (event.target === this) {
+                    closeUploadModal();
+                }
+            });
+            
+            document.getElementById('manualEntryModal').addEventListener('click', function(event) {
+                if (event.target === this) {
+                    closeManualEntryModal();
+                }
+            });
+        });
+        
+        // Setup file upload handlers
+        function setupFileUpload() {
+            const uploadArea = document.getElementById('uploadArea');
+            const fileInput = document.getElementById('fileInput');
+            
+            // Drag and drop handlers
+            uploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadArea.classList.add('dragover');
+            });
+            
+            uploadArea.addEventListener('dragleave', () => {
+                uploadArea.classList.remove('dragover');
+            });
+            
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadArea.classList.remove('dragover');
+                
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    handleFileUpload(files[0]);
+                }
+            });
+            
+            // File input change handler
+            fileInput.addEventListener('change', (e) => {
+                if (e.target.files.length > 0) {
+                    handleFileUpload(e.target.files[0]);
+                }
+            });
+        }
+        
+        // Handle file upload
+        function handleFileUpload(file) {
+            if (!file.name.match(/\.(xlsx|xls)$/)) {
+                alert('Please upload an Excel file (.xlsx or .xls)');
+                return;
+            }
+            
+            const formData = new FormData();
+            formData.append('file', file);
+            
+            document.getElementById('uploadProgress').style.display = 'block';
+            document.getElementById('progressBar').style.width = '50%';
+            document.getElementById('progressText').textContent = 'Uploading and processing...';
+            
+            fetch('/api/new-stores/excel-upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('progressBar').style.width = '100%';
+                
+                if (data.success) {
+                    let resultHtml = '<div style="background: #d4edda; padding: 15px; border-radius: 5px; margin-bottom: 10px;">';
+                    resultHtml += `<h3>Upload Successful!</h3>`;
+                    if (data.total_added > 0) {
+                        resultHtml += `<p>New stores added: ${data.total_added}</p>`;
+                    }
+                    if (data.total_updated > 0) {
+                        resultHtml += `<p>Existing stores updated: ${data.total_updated}</p>`;
+                    }
+                    if (data.total_errors > 0) {
+                        resultHtml += `<p>Errors: ${data.total_errors}</p>`;
+                    }
+                    resultHtml += '</div>';
+                    
+                    if (data.added && data.added.length > 0) {
+                        resultHtml += '<div style="margin-bottom: 10px;"><strong>Added Stores:</strong><br>' + data.added.join(', ') + '</div>';
+                    }
+                    
+                    if (data.errors && data.errors.length > 0) {
+                        resultHtml += '<div style="background: #f8d7da; padding: 10px; border-radius: 5px;"><strong>Errors:</strong><br>' + data.errors.join('<br>') + '</div>';
+                    }
+                    
+                    document.getElementById('uploadResults').innerHTML = resultHtml;
+                    document.getElementById('uploadResults').style.display = 'block';
+                    
+                    // Refresh the store list
+                    loadStoreData();
+                    loadNewStoresList();
+                } else {
+                    document.getElementById('uploadResults').innerHTML = `<div style="background: #f8d7da; padding: 15px; border-radius: 5px;">Error: ${data.error || 'Upload failed'}</div>`;
+                    document.getElementById('uploadResults').style.display = 'block';
+                }
+                
+                // Hide progress after 2 seconds
+                setTimeout(() => {
+                    document.getElementById('uploadProgress').style.display = 'none';
+                    document.getElementById('progressBar').style.width = '0%';
+                }, 2000);
+                
+                // Clear file input
+                document.getElementById('fileInput').value = '';
+            })
+            .catch(error => {
+                console.error('Error uploading file:', error);
+                document.getElementById('uploadResults').innerHTML = '<div style="background: #f8d7da; padding: 15px; border-radius: 5px;">Error uploading file</div>';
+                document.getElementById('uploadResults').style.display = 'block';
+                document.getElementById('uploadProgress').style.display = 'none';
+            });
+        }
+        
+        // Store original data for filtering
+        let allCircuitData = [];
+        
+        function populateFilterOptions(data) {
+            const circuits = data.circuits || data;
+            allCircuitData = circuits; // Store for filtering
+            
+            // Get unique states
+            const states = [...new Set(circuits.map(c => c.State).filter(s => s))];
+            const stateSelect = document.getElementById('stateFilter');
+            stateSelect.innerHTML = '<option value="">All States</option>';
+            states.sort().forEach(state => {
+                const option = document.createElement('option');
+                option.value = state;
+                option.textContent = state;
+                stateSelect.appendChild(option);
+            });
+            
+            // Get unique statuses
+            const statuses = [...new Set(circuits.map(c => c.Status).filter(s => s))];
+            const statusSelect = document.getElementById('statusFilter');
+            statusSelect.innerHTML = '<option value="">All Status</option>';
+            statuses.sort().forEach(status => {
+                const option = document.createElement('option');
+                option.value = status;
+                option.textContent = status;
+                statusSelect.appendChild(option);
+            });
+            
+            // Get unique providers
+            const providers = [...new Set(circuits.map(c => c.Provider).filter(p => p))];
+            const providerSelect = document.getElementById('providerFilter');
+            providerSelect.innerHTML = '<option value="">All Providers</option>';
+            providers.sort().forEach(provider => {
+                const option = document.createElement('option');
+                option.value = provider;
+                option.textContent = provider;
+                providerSelect.appendChild(option);
+            });
+        }
+        
+        function applyFilters() {
+            const siteFilter = document.getElementById('siteFilter').value.toLowerCase();
+            const stateFilter = document.getElementById('stateFilter').value;
+            const statusFilter = document.getElementById('statusFilter').value;
+            const providerFilter = document.getElementById('providerFilter').value;
+            const speedFilter = document.getElementById('speedFilter').value.toLowerCase();
+            const costFilter = document.getElementById('costFilter').value.toLowerCase();
+            const todFilter = document.getElementById('todFilter').value.toLowerCase();
+            
+            // Filter the data
+            const filteredData = allCircuitData.filter(circuit => {
+                let include = true;
+                
+                if (siteFilter && !circuit['Site Name'].toLowerCase().includes(siteFilter)) {
+                    include = false;
+                }
+                
+                if (stateFilter && circuit.State !== stateFilter) {
+                    include = false;
+                }
+                
+                if (statusFilter && circuit.Status !== statusFilter) {
+                    include = false;
+                }
+                
+                if (providerFilter && circuit.Provider !== providerFilter) {
+                    include = false;
+                }
+                
+                if (speedFilter && !(circuit['Service Speed'] || '').toLowerCase().includes(speedFilter)) {
+                    include = false;
+                }
+                
+                if (costFilter && !(circuit['Monthly Cost'] || '').toLowerCase().includes(costFilter)) {
+                    include = false;
+                }
+                
+                if (todFilter && !(circuit['Target Opening Date'] || 'TBD').toLowerCase().includes(todFilter)) {
+                    include = false;
+                }
+                
+                return include;
+            });
+            
+            // Update the table with filtered data
+            updateCircuitTable({ circuits: filteredData });
+            
+            // Update summary stats with filtered data
+            updateSummaryStats({ circuits: filteredData, total_stores: allCircuitData.length });
+        }
+        
+        function exportCircuits() {
+            // Get visible rows from the table
+            const table = document.getElementById('circuitTable');
+            const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+            
+            if (rows.length === 0) {
+                alert('No data to export');
+                return;
+            }
+            
+            // Create CSV content
+            let csv = 'Site Name,State,Status,Provider,Speed,Monthly Cost,Target Opening Date\n';
+            
+            for (let row of rows) {
+                const cells = row.getElementsByTagName('td');
+                const rowData = [
+                    cells[0].textContent,
+                    cells[1].textContent,
+                    cells[2].textContent,
+                    cells[3].textContent,
+                    cells[4].textContent,
+                    cells[5].textContent,
+                    cells[6].textContent
+                ];
+                csv += rowData.map(cell => `"${cell}"`).join(',') + '\n';
+            }
+            
+            // Download CSV
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `new_store_circuits_${new Date().toISOString().split('T')[0]}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+        
+        function exportToPDF() {
+            // For now, we'll export as HTML and let the browser handle PDF conversion
+            const table = document.getElementById('circuitTable').cloneNode(true);
+            
+            // Remove actions column from the cloned table
+            const headers = table.getElementsByTagName('th');
+            if (headers.length > 0) {
+                headers[headers.length - 1].remove();
+            }
+            
+            const rows = table.getElementsByTagName('tr');
+            for (let row of rows) {
+                const cells = row.getElementsByTagName('td');
+                if (cells.length > 0) {
+                    cells[cells.length - 1].remove();
+                }
+            }
+            
+            const html = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>New Store Circuits Report</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; }
+                        h1 { color: #2c3e50; }
+                        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+                        th { background: #34495e; color: white; padding: 10px; text-align: left; }
+                        td { padding: 8px; border-bottom: 1px solid #ddd; }
+                        tr:nth-child(even) { background: #f8f9fa; }
+                    </style>
+                </head>
+                <body>
+                    <h1>New Store Constructions Circuit List</h1>
+                    <p>Generated: ${new Date().toLocaleString()}</p>
+                    ${table.outerHTML}
+                </body>
+                </html>
+            `;
+            
+            const blob = new Blob([html], { type: 'text/html' });
+            const url = window.URL.createObjectURL(blob);
+            const win = window.open(url, '_blank');
+            
+            // Give the window time to load before triggering print
+            setTimeout(() => {
+                win.print();
+            }, 500);
+        }
+        
+        function saveAllChanges() {
+            alert('All changes are saved automatically when you modify fields');
+        }
+        
+        function refreshStoreList() {
+            loadStoreData();
+        }
+        
+        function addManualStore() {
+            const siteName = document.getElementById('manualSiteName').value.trim();
+            if (!siteName) {
+                alert('Site name is required');
+                return;
+            }
+            
+            const storeData = {
+                site_name: siteName.toUpperCase(),
+                region: document.getElementById('manualRegion').value,
+                city: document.getElementById('manualCity').value,
+                state: document.getElementById('manualState').value.toUpperCase(),
+                target_opening_date: document.getElementById('manualTOD').value,
+                project_status: document.getElementById('manualStatus').value
+            };
+            
+            showLoading();
+            
+            fetch('/api/new-stores', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    site_names: storeData.site_name,
+                    notes: `Status: ${storeData.project_status}`
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                hideLoading();
+                if (data.success) {
+                    // Update the store with additional details
+                    if (data.added && data.added.length > 0) {
+                        alert(`Store ${siteName} added successfully`);
+                        clearManualForm();
+                        loadStoreData(); // Refresh the list
+                        loadNewStoresList(); // Refresh dropdown in circuit form
+                    } else if (data.skipped && data.skipped.length > 0) {
+                        alert(`Store ${siteName} already exists`);
+                    }
+                } else {
+                    alert('Error adding store: ' + (data.error || 'Unknown error'));
+                }
+            })
+            .catch(error => {
+                hideLoading();
+                console.error('Error adding store:', error);
+                alert('Error adding store');
+            });
+        }
+        
+        function clearManualForm() {
+            document.getElementById('manualSiteName').value = '';
+            document.getElementById('manualRegion').value = '';
+            document.getElementById('manualCity').value = '';
+            document.getElementById('manualState').value = '';
+            document.getElementById('manualTOD').value = '';
+            document.getElementById('manualStatus').value = 'Planning';
+        }
+        
+        function deleteStore(id) {
+            if (confirm('Are you sure you want to remove this store from tracking?')) {
+                fetch(`/api/new-stores/${id}`, {
+                    method: 'DELETE'
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Store removed successfully');
+                        loadStoreData();
+                        loadNewStoresList(); // Refresh dropdown
+                    } else {
+                        alert('Error removing store: ' + (data.error || 'Unknown error'));
+                    }
+                })
+                .catch(error => {
+                    console.error('Error removing store:', error);
+                    alert('Error removing store');
+                });
+            }
+        }
+        
+        function viewCircuitDetails(circuit) {
+            // Show circuit details in modal
+            const modal = document.getElementById('circuitModal');
+            const content = document.getElementById('circuitDetailsContent');
+            
+            // Store circuit data globally for updates
+            window.currentCircuit = circuit;
+            
+            // Build the details HTML
+            let detailsHtml = '';
+            
+            // Check if this is a manually overridden circuit
+            const isManualOverride = circuit['manual_override'] === true;
+            
+            // Format the circuit data into readable sections
+            const sections = {
+                'Site Information': {
+                    'Site Name': circuit['Site Name'],
+                    'Site ID': circuit['Site ID'],
+                    'City': circuit['City'],
+                    'State': circuit['State'],
+                    'Region': circuit['Region']
+                },
+                'Circuit Details': {
+                    'Circuit Purpose': circuit['Circuit Purpose'],
+                    'Status': circuit['Status'],
+                    'Provider': circuit['Provider'],
+                    'Service Speed': circuit['Service Speed'],
+                    'Monthly Cost': '$' + (circuit['Monthly Cost'] || '0'),
+                    'IP Address': circuit['IP Address'] || 'Not Assigned'
+                },
+                'Project Information': {
+                    'Target Opening Date': circuit['Target Opening Date'] || 'TBD',
+                    'Project Status': circuit['Project Status'] || 'N/A',
+                    'Date Updated': circuit['Date Updated'] || 'N/A'
+                },
+                'Assignment': {
+                    'SCTASK': circuit['SCTASK'] || 'Not Assigned',
+                    'Assigned To': circuit['Assigned To'] || 'Not Assigned',
+                    'Record Number': circuit['Record Number'] || 'N/A'
+                }
+            };
+            
+            // Generate HTML for each section
+            for (const [sectionName, fields] of Object.entries(sections)) {
+                detailsHtml += `<div style="background: #f8f9fa; padding: 15px; border-radius: 5px;">`;
+                detailsHtml += `<h3 style="margin-bottom: 10px; color: #2c3e50; font-size: 16px;">${sectionName}</h3>`;
+                for (const [fieldName, fieldValue] of Object.entries(fields)) {
+                    if (fieldValue && fieldValue !== 'nan' && fieldValue !== 'N/A') {
+                        detailsHtml += `<div style="margin-bottom: 8px;">`;
+                        detailsHtml += `<strong style="color: #495057;">${fieldName}:</strong> `;
+                        
+                        // Make status editable if manual override
+                        if (isManualOverride && fieldName === 'Status' && sectionName === 'Circuit Details') {
+                            detailsHtml += `<select id="editableStatus" style="padding: 5px; border: 1px solid #ced4da; border-radius: 4px;">
+                                <option value="${fieldValue}" selected>${fieldValue}</option>
+                                <option value="Order Ready To Be Placed">Order Ready To Be Placed</option>
+                                <option value="In Construction">In Construction</option>
+                                <option value="Ready for Enablement">Ready for Enablement</option>
+                                <option value="Enabled">Enabled</option>
+                                <option value="Customer Action Needed">Customer Action Needed</option>
+                                <option value="On Hold">On Hold</option>
+                            </select>`;
+                        } else {
+                            detailsHtml += `<span style="color: #212529;">${fieldValue}</span>`;
+                        }
+                        
+                        detailsHtml += `</div>`;
+                    }
+                }
+                detailsHtml += `</div>`;
+            }
+            
+            // Add manual override info if applicable
+            if (isManualOverride) {
+                detailsHtml += `<div style="grid-column: 1 / -1; background: #d1ecf1; padding: 15px; border-radius: 5px; border: 1px solid #bee5eb;">`;
+                detailsHtml += `<h3 style="margin-bottom: 10px; color: #0c5460; font-size: 16px;">Manual Override Protection</h3>`;
+                detailsHtml += `<p style="color: #0c5460; margin: 0 0 10px 0;">This circuit was manually added/edited and is protected from DSR updates.</p>`;
+                if (circuit['manual_override_date']) {
+                    detailsHtml += `<p style="color: #0c5460; margin: 0 0 10px 0;"><strong>Protected since:</strong> ${circuit['manual_override_date']}</p>`;
+                }
+                detailsHtml += `<div style="margin-top: 15px;">`;
+                detailsHtml += `<button class="btn btn-primary" onclick="updateCircuitStatus()" style="margin-right: 10px;">Save Status</button>`;
+                detailsHtml += `<button class="btn btn-danger" onclick="removeManualOverride()">Remove Protection</button>`;
+                detailsHtml += `</div>`;
+                detailsHtml += `</div>`;
+            }
+            
+            // Add notes if available
+            if (circuit['Notes']) {
+                detailsHtml += `<div style="grid-column: 1 / -1; background: #fff3cd; padding: 15px; border-radius: 5px;">`;
+                detailsHtml += `<h3 style="margin-bottom: 10px; color: #856404; font-size: 16px;">Notes</h3>`;
+                detailsHtml += `<p style="color: #856404; margin: 0;">${circuit['Notes']}</p>`;
+                detailsHtml += `</div>`;
+            }
+            
+            content.innerHTML = detailsHtml;
+            modal.style.display = 'block';
+        }
+        
+        function closeCircuitModal() {
+            document.getElementById('circuitModal').style.display = 'none';
+        }
+        
+        // Load new stores for circuit creation dropdown
+        function loadNewStoresList() {
+            fetch('/api/new-stores')
+                .then(response => response.json())
+                .then(data => {
+                    const select = document.getElementById('newCircuitSiteName');
+                    // Clear existing options except first
+                    select.innerHTML = '<option value="">Select from active new stores...</option>';
+                    
+                    // Handle the stores array from the response
+                    const stores = data.stores || data;
+                    console.log(`Loading ${stores.length} stores into dropdown`);
+                    
+                    // Sort stores alphabetically by site name
+                    stores.sort((a, b) => a.site_name.localeCompare(b.site_name));
+                    
+                    stores.forEach(store => {
+                        const option = document.createElement('option');
+                        option.value = store.site_name;
+                        option.textContent = `${store.site_name} (${store.city || 'Unknown'}, ${store.state || 'Unknown'})`;
+                        option.dataset.region = store.region || '';
+                        option.dataset.city = store.city || '';
+                        option.dataset.state = store.state || '';
+                        select.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error loading new stores list:', error);
+                });
+        }
+        
+        // Create new circuit
+        function createNewCircuit() {
+            const siteName = document.getElementById('newCircuitSiteName').value;
+            const provider = document.getElementById('newCircuitProvider').value;
+            const downloadSpeed = document.getElementById('newCircuitDownloadSpeed').value;
+            const uploadSpeed = document.getElementById('newCircuitUploadSpeed').value;
+            const cost = document.getElementById('newCircuitCost').value;
+            const purpose = document.getElementById('newCircuitPurpose').value;
+            const status = document.getElementById('newCircuitStatus').value;
+            
+            if (!siteName || !provider) {
+                alert('Please select a site name and provider');
+                return;
+            }
+            
+            // Get additional data from selected store
+            const selectedOption = document.querySelector(`#newCircuitSiteName option[value="${siteName}"]`);
+            const region = selectedOption ? selectedOption.dataset.region : '';
+            const city = selectedOption ? selectedOption.dataset.city : '';
+            const state = selectedOption ? selectedOption.dataset.state : '';
+            
+            // Combine download and upload speeds
+            let speed = '';
+            if (downloadSpeed === 'Satellite' || uploadSpeed === 'Satellite') {
+                speed = 'Satellite';
+            } else if (downloadSpeed && uploadSpeed) {
+                speed = `${downloadSpeed}M x ${uploadSpeed}M`;
+            } else if (downloadSpeed || uploadSpeed) {
+                speed = downloadSpeed || uploadSpeed;
+            }
+            
+            const circuitData = {
+                site_name: siteName,
+                provider_name: provider,
+                details_ordered_service_speed: speed,
+                billing_monthly_cost: cost ? parseFloat(cost) : null,
+                circuit_purpose: purpose,
+                status: status,
+                city: city,
+                state: state,
+                region: region
+            };
+            
+            showLoading();
+            
+            fetch('/api/new-circuits', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(circuitData)
+            })
+            .then(response => {
+                // Check if we got a conflict response
+                if (response.status === 409) {
+                    return response.json().then(data => {
+                        // Circuit already exists, ask if they want to overwrite
+                        const existingInfo = data.existing_circuit ? 
+                            `\n\nExisting circuit details:\nProvider: ${data.existing_circuit.provider}\nSpeed: ${data.existing_circuit.speed || 'Not specified'}\nCost: ${data.existing_circuit.cost ? '$' + data.existing_circuit.cost : 'Not specified'}\nStatus: ${data.existing_circuit.status}` : '';
+                        
+                        if (confirm(`A ${purpose} circuit already exists for ${siteName}.${existingInfo}\n\nDo you want to overwrite it with the new information?`)) {
+                            // User wants to overwrite, send request again with overwrite flag
+                            circuitData.overwrite = true;
+                            return fetch('/api/new-circuits', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify(circuitData)
+                            }).then(r => r.json());
+                        } else {
+                            // User doesn't want to overwrite
+                            throw new Error('User cancelled overwrite');
+                        }
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                hideLoading();
+                if (data && data.success) {
+                    const action = data.action === 'updated' ? 'updated' : 'created';
+                    alert(`Circuit ${action} successfully for ${siteName}${data.action === 'updated' ? '\n\nThis circuit is protected from automatic DSR updates.' : ''}`);
+                    clearNewCircuitForm();
+                    loadCircuitData(); // Refresh the circuit table
+                } else if (data && data.error) {
+                    alert('Error creating circuit: ' + data.error);
+                }
+            })
+            .catch(error => {
+                hideLoading();
+                console.error('Error creating circuit:', error);
+                alert('Error creating circuit');
+            });
+        }
+        
+        // Clear new circuit form
+        function clearNewCircuitForm() {
+            document.getElementById('newCircuitSiteName').value = '';
+            document.getElementById('newCircuitProvider').value = '';
+            document.getElementById('newCircuitDownloadSpeed').value = '';
+            document.getElementById('newCircuitUploadSpeed').value = '';
+            document.getElementById('newCircuitCost').value = '';
+            document.getElementById('newCircuitPurpose').value = 'Primary';
+            document.getElementById('newCircuitStatus').value = 'Order Ready To Be Placed';
+        }
+        
+        // Handle provider change for Starlink
+        function handleProviderChange() {
+            const provider = document.getElementById('newCircuitProvider').value;
+            if (provider.toLowerCase() === 'starlink') {
+                document.getElementById('newCircuitDownloadSpeed').value = 'Satellite';
+                document.getElementById('newCircuitUploadSpeed').value = 'Satellite';
+            }
+        }
+        
+        // Update circuit status
+        function updateCircuitStatus() {
+            const newStatus = document.getElementById('editableStatus').value;
+            const circuitId = window.currentCircuit.id;
+            
+            if (!circuitId) {
+                alert('Circuit ID not found');
+                return;
+            }
+            
+            showLoading();
+            
+            fetch(`/api/circuits/${circuitId}/status`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ status: newStatus })
+            })
+            .then(response => response.json())
+            .then(data => {
+                hideLoading();
+                if (data.success) {
+                    alert('Circuit status updated successfully');
+                    closeCircuitModal();
+                    loadCircuitData(); // Refresh the table
+                } else {
+                    alert('Error updating status: ' + (data.error || 'Unknown error'));
+                }
+            })
+            .catch(error => {
+                hideLoading();
+                console.error('Error updating circuit status:', error);
+                alert('Error updating circuit status');
+            });
+        }
+        
+        // Remove manual override protection
+        function removeManualOverride() {
+            const circuitId = window.currentCircuit.id;
+            const siteName = window.currentCircuit['Site Name'];
+            const purpose = window.currentCircuit['Circuit Purpose'];
+            
+            if (!circuitId) {
+                alert('Circuit ID not found');
+                return;
+            }
+            
+            if (confirm(`Are you sure you want to remove manual override protection from ${siteName} ${purpose} circuit?\n\nThis will allow DSR pull to update this circuit automatically.`)) {
+                showLoading();
+                
+                fetch(`/api/circuits/${circuitId}/manual-override`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    hideLoading();
+                    if (data.success) {
+                        alert('Manual override protection removed.\n\nThis circuit will now be updated by DSR pull.');
+                        closeCircuitModal();
+                        loadCircuitData(); // Refresh the table
+                    } else {
+                        alert('Error removing protection: ' + (data.error || 'Unknown error'));
+                    }
+                })
+                .catch(error => {
+                    hideLoading();
+                    console.error('Error removing manual override:', error);
+                    alert('Error removing manual override protection');
+                });
+            }
+        }
+    </script>
+</body>
+</html>

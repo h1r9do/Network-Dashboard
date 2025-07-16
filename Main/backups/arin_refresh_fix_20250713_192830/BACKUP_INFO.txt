@@ -1,0 +1,20 @@
+ARIN Refresh Fix Backup
+=======================
+Date: 2025-07-13 19:28:30 MST
+Purpose: Fix ARIN refresh button to query DDNS/public IPs in real-time
+
+Expected Changes:
+1. Query Meraki API for current DDNS/public IP addresses (not private IPs)
+2. Check RDAP cache first before querying ARIN
+3. Use same RDAP parsing logic as nightly script (look for ISP role)
+4. Update modal with fresh provider information
+
+Files Backed Up:
+- dsrcircuits_blueprint.py (contains refresh_arin_data function)
+- dsrcircuits.html (modal template with refresh button)
+- dsrcircuits.py (main application file)
+
+Current Issue:
+- Modal pulls from database tables instead of real-time Meraki API
+- RDAP parsing is overly complex compared to nightly script
+- Not getting DDNS/public IPs properly

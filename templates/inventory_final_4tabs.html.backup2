@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Network Inventory Summary - Discount Tire</title>
+    <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 20px; 
+            background-color: #f5f5f5; 
+        }
+        .header-container { 
+            background-color: #2c3e50; 
+            color: white; 
+            padding: 15px; 
+            border-radius: 5px 5px 0 0; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+            position: relative; 
+        }
+        .header-container h1 { 
+            margin: 0; 
+            font-size: 24px; 
+            display: inline-block; 
+        }
+        .row-count { 
+            position: absolute; 
+            top: 15px; 
+            right: 15px; 
+            font-size: 14px; 
+            color: #ecf0f1; 
+            font-weight: 400; 
+        }
+        
+        /* Home Button Styles */
+        .home-button-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .home-button {
+            background: #3498db; 
+            color: white; 
+            border: none; 
+            padding: 12px 24px; 
+            border-radius: 6px; 
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+        .home-button:hover {
+            background: #2980b9;
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* Tab Styles */
+        .tab-container {
+            background-color: white;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .tab-nav {
+            display: flex;
+            border-bottom: 2px solid #ecf0f1;
+            background-color: #f8f9fa;
+        }
+        .tab-button {
+            flex: 1;
+            padding: 15px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            color: #7f8c8d;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .tab-button:hover {
+            color: #34495e;
+            background-color: #e9ecef;
+        }
+        .tab-button.active {
+            color: #2c3e50;
+            border-bottom-color: #3498db;
+            background-color: white;
+        }
+        .tab-button.corporate {
+            border-bottom-color: #e74c3c;
+        }
+        .tab-button.corporate.active {
+            color: #c0392b;
+            border-bottom-color: #e74c3c;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Original Meraki Styles - Copied Exactly */
+        .eol-summary-container {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .eol-summary-container h2 {
+            margin: 0 0 20px 0;
+            color: #2c3e50;
+            font-size: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .overall-summary {
+            margin-bottom: 30px;
+        }
+        
+        .summary-stats {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-box {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            min-width: 120px;
+            flex: 1;
+        }
+        
+        .stat-box.stat-active {
+            border-color: #28a745;
+            background: #d4edda;
+        }
+        
+        .stat-box.stat-eos {
+            border-color: #ffc107;
+            background: #fff3cd;
+        }
+        
+        .stat-box.stat-eol {
+            border-color: #dc3545;
+            background: #f8d7da;
+        }
+        
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        
+        /* Original Inventory Table Styles */
+        .inventory-table-container { 
+            background-color: white; 
+            padding: 20px; 
+            border-radius: 0 0 5px 5px; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2); 
+        }
+        .inventory-table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            table-layout: fixed; 
+        }
+        .inventory-table thead th { 
+            padding: 12px 8px; 
+            text-align: center; 
+            font-weight: 600; 
+            background-color: #3498db; 
+            color: white; 
+            border: 1px solid #2980b9;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        .inventory-table td { 
+            padding: 8px 6px; 
+            color: #333; 
+            text-align: center; 
+            font-size: 11px; 
+            border: 1px solid #e0e0e0;
+            white-space: nowrap;
+        }
+        .inventory-table tbody tr:nth-child(even) { 
+            background-color: #f8f9fa; 
+        }
+        .inventory-table tbody tr:hover { 
+            background-color: #f1f8ff; 
+        }
+        
+        /* Column-specific styles */
+        .model-column {
+            width: 100px;
+            text-align: left !important;
+            font-weight: bold;
+        }
+        .org-column {
+            width: 80px;
+        }
+        .total-column {
+            width: 60px;
+            font-weight: bold;
+        }
+        .date-column {
+            width: 110px;
+            font-size: 10px;
+        }
+        
+        /* Corporate Styles */
+        .corporate-table thead th {
+            background-color: #e74c3c;
+            border: 1px solid #c0392b;
+        }
+        
+        .corp-section {
+            margin-bottom: 30px;
+            background: #f8f9fa;
+            border-left: 4px solid #e74c3c;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .corp-section h3 {
+            margin: 0 0 15px 0;
+            color: #c0392b;
+            font-size: 18px;
+        }
+        
+        .location-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .location-card {
+            background: white;
+            border: 1px solid #e74c3c;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .location-card h4 {
+            margin: 0 0 10px 0;
+            color: #c0392b;
+            font-size: 14px;
+        }
+        
+        .location-card .count {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .location-card .label {
+            font-size: 12px;
+            color: #6c757d;
+        }
+        
+        /* Export Buttons */
+        .export-buttons { 
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-buttons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .export-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .export-buttons button { 
+            background: #3498db; 
+            color: white; 
+            border: none; 
+            padding: 8px 15px; 
+            border-radius: 4px; 
+            margin-right: 8px; 
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .export-buttons button:hover { 
+            background: #2980b9; 
+        }
+        
+        /* Status Highlighting */
+        .highlight-red { 
+            background-color: #ffcdd2 !important; 
+            color: #c62828 !important; 
+        }
+        .highlight-yellow { 
+            background-color: #fff9c4 !important; 
+            color: #f57f17 !important; 
+        }
+        
+        /* Master/Child Device Hierarchy Styles */
+        .expand-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .expand-btn:hover {
+            background: #2980b9;
+            transform: scale(1.1);
+        }
+        .expand-icon {
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+        .expand-btn.expanded .expand-icon {
+            transform: rotate(45deg);
+        }
+        
+        .master-device {
+            border-left: 4px solid #3498db;
+        }
+        .master-device:hover {
+            background-color: #e8f4fd !important;
+        }
+        
+        .child-device {
+            background-color: #f8f9fa !important;
+            border-left: 4px solid #95a5a6;
+        }
+        .child-device:hover {
+            background-color: #e9ecef !important;
+        }
+        .child-blade {
+            border-left-color: #e67e22;
+        }
+        .child-sfp {
+            border-left-color: #9b59b6;
+        }
+        .child-component {
+            border-left-color: #16a085;
+        }
+        
+        .child-icon {
+            font-size: 14px;
+        }
+        
+        .component-badge {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-size: 10px;
+            font-weight: bold;
+            margin: 1px;
+            color: white;
+        }
+        .blade-badge {
+            background-color: #e67e22;
+        }
+        .sfp-badge {
+            background-color: #9b59b6;
+        }
+        .hw-badge {
+            background-color: #16a085;
+        }
+        
+        /* Model column styling */
+        .model-column {
+            text-align: left !important;
+            font-weight: bold;
+        }
+        
+        /* Missing styles for corporate executive summary */
+        .device-type-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .device-type-card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .device-type-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .device-type-header h4 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 14px;
+        }
+        
+        .device-count {
+            font-size: 12px;
+            color: #6c757d;
+            font-weight: normal;
+        }
+        
+        .status-bar {
+            display: flex;
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #dee2e6;
+            margin-bottom: 8px;
+        }
+        
+        .status-segment {
+            transition: all 0.3s ease;
+        }
+        
+        .status-segment.status-active {
+            background-color: #28a745;
+        }
+        
+        .status-segment.status-eos {
+            background-color: #ffc107;
+        }
+        
+        .status-segment.status-eol {
+            background-color: #dc3545;
+        }
+        
+        .status-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+        }
+        
+        .label-active {
+            color: #28a745;
+            font-weight: 500;
+        }
+        
+        .label-eos {
+            color: #e6a800;
+            font-weight: 500;
+        }
+        
+        .label-eol {
+            color: #dc3545;
+            font-weight: 500;
+        }
+        
+        /* Timeline styles */
+        .timeline-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        
+        .timeline-year {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-year:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-year.past-year {
+            border-left: 4px solid #dc3545;
+            background: #f8d7da;
+        }
+        
+        .timeline-year.current-year {
+            border-left: 4px solid #ffc107;
+            background: #fff3cd;
+            box-shadow: 0 2px 8px rgba(255,193,7,0.3);
+        }
+        
+        .timeline-year.future-year {
+            border-left: 4px solid #28a745;
+            background: #d4edda;
+        }
+        
+        .year-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .year-header h4 {
+            margin: 0;
+            color: #2c3e50;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .year-total {
+            font-size: 12px;
+            color: #6c757d;
+            font-weight: 500;
+        }
+        
+        .year-status {
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .year-status.past {
+            background: #dc3545;
+            color: white;
+        }
+        
+        .year-status.current {
+            background: #ffc107;
+            color: #212529;
+        }
+        
+        .year-status.future {
+            background: #28a745;
+            color: white;
+        }
+        
+        .device-type-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .device-type-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 10px;
+            background: rgba(255,255,255,0.7);
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .device-type-name {
+            font-size: 11px;
+            color: #495057;
+            font-weight: 500;
+        }
+        
+        .device-type-count {
+            font-size: 11px;
+            color: #2c3e50;
+            font-weight: bold;
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 8px;
+        }
+        
+        /* Critical insights styles */
+        .critical-insights-section {
+            background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+            border: 2px solid #fc8181;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(252, 129, 129, 0.2);
+        }
+        
+        .critical-insights-section h3 {
+            margin: 0 0 20px 0;
+            color: #c53030;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            border-bottom: 2px solid #fc8181;
+            padding-bottom: 10px;
+        }
+        
+        .insight-category {
+            margin-bottom: 20px;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .insight-category.urgent {
+            background: linear-gradient(135deg, #fed7d7 0%, #feb2b2 100%);
+            border-left: 5px solid #e53e3e;
+        }
+        
+        .insight-category.critical {
+            background: linear-gradient(135deg, #feebc8 0%, #fbd38d 100%);
+            border-left: 5px solid #dd6b20;
+        }
+        
+        .insight-category.major {
+            background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+            border-left: 5px solid #319795;
+        }
+        
+        .insight-category.budget {
+            background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 100%);
+            border-left: 5px solid #3182ce;
+        }
+        
+        .insight-category h4 {
+            margin: 0 0 15px 0;
+            color: #2d3748;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .insight-items {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .insight-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: transform 0.2s ease;
+        }
+        
+        .insight-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .insight-item.urgent {
+            background: rgba(255, 255, 255, 0.8);
+            color: #c53030;
+            border: 1px solid #fc8181;
+        }
+        
+        .insight-item.critical {
+            background: rgba(255, 255, 255, 0.8);
+            color: #c05621;
+            border: 1px solid #f6ad55;
+        }
+        
+        .insight-item.major {
+            background: rgba(255, 255, 255, 0.8);
+            color: #2c7a7b;
+            border: 1px solid #81e6d9;
+        }
+        
+        .insight-item.budget {
+            background: rgba(255, 255, 255, 0.8);
+            color: #2b6cb0;
+            border: 1px solid #90cdf4;
+        }
+        
+        .insight-icon {
+            font-size: 16px;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+        
+        .insight-text {
+            flex: 1;
+            line-height: 1.4;
+        }
+        
+        /* MX/Critical alert styles */
+        .mx-security-alert {
+            background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+            border: 2px solid #e53e3e;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(229, 62, 62, 0.2);
+        }
+        
+        .alert-header {
+            background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .alert-icon {
+            font-size: 24px;
+            margin-right: 15px;
+        }
+        
+        .alert-header h3 {
+            margin: 0;
+            flex: 1;
+            font-size: 18px;
+        }
+        
+        .alert-badge {
+            background: #ffffff;
+            color: #e53e3e;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 12px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .alert-content {
+            padding: 20px;
+        }
+        
+        .mx-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .mx-stats .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        .mx-stats .stat-value {
+            display: block;
+            font-size: 32px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        
+        .mx-stats .stat-label {
+            display: block;
+            font-size: 12px;
+            color: #6c757d;
+        }
+        
+        .mx-stats .stat-item.critical .stat-value {
+            color: #e53e3e;
+        }
+        
+        .mx-stats .stat-item.urgent .stat-value {
+            color: #dd6b20;
+        }
+        
+        .impact-section h4 {
+            color: #c53030;
+            margin: 20px 0 15px 0;
+            font-size: 16px;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .impact-category {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+        
+        .impact-category h5 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .impact-category.security {
+            border-top: 3px solid #e53e3e;
+        }
+        
+        .impact-category.operational {
+            border-top: 3px solid #dd6b20;
+        }
+        
+        .impact-category.business {
+            border-top: 3px solid #805ad5;
+        }
+        
+        .impact-category.financial {
+            border-top: 3px solid #3182ce;
+        }
+        
+        .impact-category ul {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 12px;
+            line-height: 1.6;
+            color: #4a5568;
+        }
+        
+        .impact-category li {
+            margin-bottom: 4px;
+        }
+        
+        .risk-summary {
+            background: #fff5f5;
+            border: 1px solid #feb2b2;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        
+        .risk-summary p {
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.6;
+            color: #742a2a;
+        }
+        
+        .risk-summary strong {
+            color: #c53030;
+            font-weight: 600;
+        }
+        
+        /* Datacenter section styles */
+        .datacenter-section {
+            padding: 20px;
+        }
+        
+        .datacenter-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .datacenter-summary .summary-card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .datacenter-summary .summary-card:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        
+        .datacenter-summary .summary-card h4 {
+            margin: 0 0 15px 0;
+            color: #2c3e50;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .datacenter-summary .summary-card .value {
+            font-size: 32px;
+            font-weight: bold;
+            color: #3498db;
+            margin-bottom: 5px;
+        }
+        
+        .datacenter-summary .summary-card .label {
+            font-size: 12px;
+            color: #6c757d;
+            font-weight: 400;
+        }
+        /* Expand button styles */
+        .expand-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            padding: 2px 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            width: 24px;
+            height: 24px;
+            line-height: 1;
+            transition: all 0.3s ease;
+        }
+        
+        .expand-btn:hover {
+            background: #2980b9;
+            transform: scale(1.1);
+        }
+        
+        .expand-btn.expanded {
+            background: #e74c3c;
+        }
+        
+        .expand-icon {
+            display: inline-block;
+            font-family: monospace;
+            font-size: 18px;
+        }
+        
+        .child-device {
+            background-color: #f8f9fa !important;
+        }
+        
+        .child-device td {
+            border-left: 3px solid #3498db;
+        }
+        
+        .component-badge {
+            display: inline-block;
+            padding: 2px 6px;
+            margin: 0 2px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .blade-badge { background: #3498db; }
+        .sfp-badge { background: #9b59b6; }
+        .hw-badge { background: #1abc9c; }
+    </style>
+    
+    <!-- Copy ALL original EOL summary styles from original template if needed -->
+    
+</head>
+<body>
+    <!-- Home Button Above Everything -->
+    <div class="home-button-container">
+        <a href="/home" class="home-button">🏠 Home</a>
+    </div>
+
+    <div class="header-container">
+        <h1>Network Inventory Summary</h1>
+        <div class="row-count" id="rowCount">
+            Meraki: {{ summary|length }} models ({{ total_meraki_devices }} devices) | 
+            Corporate: {{ corp_executive.overall.total_models }} models ({{ total_corp_devices }} devices)
+        </div>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="tab-container">
+        <div class="tab-nav">
+    <script>
+    // Tab switching function - defined early to avoid onclick errors
+    function showTab(tabName) {
+        // Hide all tabs
+        document.querySelectorAll(".tab-content").forEach(tab => {
+            tab.classList.remove("active");
+        });
+        
+        // Remove active from all buttons
+        document.querySelectorAll(".tab-button").forEach(button => {
+            button.classList.remove("active");
+        });
+        
+        // Show the selected tab
+        var selectedTab = document.getElementById(tabName + "-tab");
+        if (selectedTab) {
+            selectedTab.classList.add("active");
+        }
+        
+        // Mark the clicked button as active
+        if (event && event.target) {
+            event.target.classList.add("active");
+        }
+        
+        // Special handling for inventory tabs
+        if (tabName === "meraki-inventory" && typeof window.initializeInventoryTable === "function") {
+            setTimeout(window.initializeInventoryTable, 100);
+        }
+        
+        if (tabName === "corp-inventory" && typeof window.initializeDatacenterTable === "function") {
+            setTimeout(window.initializeDatacenterTable, 100);
+        }
+    }
+    </script>            <button class="tab-button active" onclick="showTab('meraki-executive')">📊 Meraki Executive Summary</button>
+            <button class="tab-button corporate" onclick="showTab('corp-summary')">🏢 Corp Network Summary</button>
+            <button class="tab-button" onclick="showTab('meraki-inventory')">📋 Meraki Inventory Details</button>
+            <button class="tab-button corporate" onclick="showTab('corp-inventory')">🔧 Corp Network Inventory</button>
+        </div>
+        
+        <!-- Tab 1: Meraki Executive Summary (EXACT COPY OF ORIGINAL) -->
+        <div id="meraki-executive-tab" class="tab-content active">
+            {% if eol_summary %}
+            <div class="eol-summary-container">
+            <h2>End-of-Life Summary</h2>
+            
+            <!-- Overall Summary -->
+            <div class="overall-summary">
+                <h3>Network-Wide Status</h3>
+                <div class="summary-stats">
+                    <div class="stat-box">
+                        <div class="stat-number">{{ eol_summary.overall.total_devices | default(0) }}</div>
+                        <div class="stat-label">Total Devices</div>
+                    </div>
+                    <div class="stat-box stat-active">
+                        <div class="stat-number">{{ eol_summary.overall.active | default(0) }}</div>
+                        <div class="stat-label">Active ({{ eol_summary.overall.active_percentage | default(0) }}%)</div>
+                    </div>
+                    <div class="stat-box stat-eos">
+                        <div class="stat-number">{{ eol_summary.overall.end_of_sale | default(0) }}</div>
+                        <div class="stat-label">End of Sale ({{ eol_summary.overall.eos_percentage | default(0) }}%)</div>
+                    </div>
+                    <div class="stat-box stat-eol">
+                        <div class="stat-number">{{ eol_summary.overall.end_of_life | default(0) }}</div>
+                        <div class="stat-label">End of Life ({{ eol_summary.overall.eol_percentage | default(0) }}%)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Critical Security Alert for MX Devices -->
+            <div class="mx-security-alert">
+                <div class="alert-header">
+                    <span class="alert-icon">🛡️</span>
+                    <h3>Critical Security Risk: MX End-of-Support Impact</h3>
+                    <span class="alert-badge">SEVERE</span>
+                </div>
+                <div class="alert-content">
+                    <div class="mx-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">1,561</span>
+                            <span class="stat-label">Total MX Security Appliances</span>
+                        </div>
+                        <div class="stat-item critical">
+                            <span class="stat-value">98.2%</span>
+                            <span class="stat-label">Already End-of-Sale</span>
+                        </div>
+                        <div class="stat-item urgent">
+                            <span class="stat-value">1,494</span>
+                            <span class="stat-label">Reaching EOL in 2026</span>
+                        </div>
+                    </div>
+                    
+                    <div class="impact-section">
+                        <h4>🚨 Critical Business Impacts When MX Reaches End-of-Support:</h4>
+                        
+                        <div class="impact-grid">
+                            <div class="impact-category security">
+                                <h5>🔒 Security Vulnerabilities</h5>
+                                <ul>
+                                    <li>No security patches for discovered vulnerabilities</li>
+                                    <li>Zero-day exploits will remain unpatched</li>
+                                    <li>PCI-DSS compliance violations</li>
+                                    <li>Cyber insurance may deny breach claims</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="impact-category operational">
+                                <h5>⚙️ Operational Impacts</h5>
+                                <ul>
+                                    <li>No technical support from Meraki</li>
+                                    <li>No firmware updates or bug fixes</li>
+                                    <li>Dashboard feature incompatibility</li>
+                                    <li>No RMA for failed units</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="impact-category business">
+                                <h5>💼 Business Continuity</h5>
+                                <ul>
+                                    <li>Store outages without vendor support</li>
+                                    <li>Extended downtime during failures</li>
+                                    <li>VPN connectivity loss</li>
+                                    <li>Payment processing disruptions</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="impact-category financial">
+                                <h5>💰 Financial Exposure</h5>
+                                <ul>
+                                    <li>Data breach costs: Avg $3.28M</li>
+                                    <li>PCI fines: $5K-$100K/month</li>
+                                    <li>Emergency replacements: 3-5x cost</li>
+                                    <li>Lost sales during outages</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="risk-summary">
+                            <p><strong>Executive Summary:</strong> MX devices are the primary security barrier protecting all 1,400+ store locations. Unlike switches or access points, security appliances in an unsupported state represent an <strong>unacceptable business risk</strong> that could result in material financial impact. The 2026 EOL event affecting 95.7% of security infrastructure requires immediate strategic planning.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- By Device Type -->
+            <div class="device-type-summary">
+                <h3>Status by Device Type</h3>
+                <div class="device-type-grid">
+                    {% for device_type in eol_summary.by_device_type %}
+                    <div class="device-type-card">
+                        <div class="device-type-header">
+                            <h4>{{ device_type.device_type }}</h4>
+                            <span class="device-count">{{ device_type.total_devices }} devices</span>
+                        </div>
+                        <div class="status-breakdown">
+                            <div class="status-bar">
+                                <div class="status-segment status-active" 
+                                     style="width: {{ device_type.active_percentage }}%"
+                                     title="Active: {{ device_type.active }} devices ({{ device_type.active_percentage }}%)"></div>
+                                <div class="status-segment status-eos" 
+                                     style="width: {{ device_type.eos_percentage }}%"
+                                     title="End of Sale: {{ device_type.end_of_sale }} devices ({{ device_type.eos_percentage }}%)"></div>
+                                <div class="status-segment status-eol" 
+                                     style="width: {{ device_type.eol_percentage }}%"
+                                     title="End of Life: {{ device_type.end_of_life }} devices ({{ device_type.eol_percentage }}%)"></div>
+                            </div>
+                            <div class="status-labels">
+                                <span class="label-active">{{ device_type.active_percentage }}% Active</span>
+                                <span class="label-eos">{{ device_type.eos_percentage }}% EOS</span>
+                                <span class="label-eol">{{ device_type.eol_percentage }}% EOL</span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <!-- Year-by-Year EOL Timeline -->
+            <div class="eol-timeline-summary">
+                <h3>End of Support Timeline by Year</h3>
+                <div class="timeline-container">
+                    {% for year_data in eol_summary.eol_timeline %}
+                        {% if year_data.total_devices > 0 %}
+                        <div class="timeline-year {{ 'past-year' if year_data.is_past else 'future-year' }} {{ 'current-year' if year_data.is_current else '' }}">
+                            <div class="year-header">
+                                <h4>{{ year_data.year }}</h4>
+                                <span class="year-total">{{ year_data.total_devices }} devices</span>
+                                {% if year_data.is_past %}
+                                    <span class="year-status past">Already EOL</span>
+                                {% elif year_data.is_current %}
+                                    <span class="year-status current">This Year</span>
+                                {% else %}
+                                    <span class="year-status future">Future EOL</span>
+                                {% endif %}
+                            </div>
+                            <div class="device-type-breakdown">
+                                {% for device_type, count in year_data.by_device_type.items() %}
+                                    {% if count > 0 %}
+                                    <div class="device-type-item">
+                                        <span class="device-type-name">{{ device_type }}</span>
+                                        <span class="device-type-count">{{ count }}</span>
+                                    </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            
+            <!-- Critical Planning Insights -->
+            <div class="critical-insights-section">
+                <h3>Critical Planning Insights</h3>
+                
+                <!-- Immediate Action Required -->
+                {% if eol_summary.critical_insights.immediate_action %}
+                <div class="insight-category urgent">
+                    <h4>⚡ Immediate Action Required</h4>
+                    <div class="insight-items">
+                        {% for insight in eol_summary.critical_insights.immediate_action %}
+                        <div class="insight-item urgent">
+                            <span class="insight-icon">🔥</span>
+                            <span class="insight-text">{{ insight.message }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                
+                <!-- Critical Years -->
+                {% if eol_summary.critical_insights.critical_years %}
+                <div class="insight-category critical">
+                    <h4>📅 Critical EOL Years</h4>
+                    <div class="insight-items">
+                        {% for insight in eol_summary.critical_insights.critical_years %}
+                        <div class="insight-item critical">
+                            <span class="insight-icon">⚠️</span>
+                            <span class="insight-text">{{ insight.message }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                
+                <!-- Major Device Refreshes -->
+                {% if eol_summary.critical_insights.major_refreshes %}
+                <div class="insight-category major">
+                    <h4>🔄 Major Device Refreshes</h4>
+                    <div class="insight-items">
+                        {% for insight in eol_summary.critical_insights.major_refreshes %}
+                        <div class="insight-item major">
+                            <span class="insight-icon">📦</span>
+                            <span class="insight-text">{{ insight.message }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+                
+                <!-- Budget Planning Priorities -->
+                {% if eol_summary.critical_insights.budget_planning %}
+                <div class="insight-category budget">
+                    <h4>💰 Budget Planning Priorities</h4>
+                    <div class="insight-items">
+                        {% for insight in eol_summary.critical_insights.budget_planning %}
+                        <div class="insight-item budget {{ insight.priority.lower() }}-priority">
+                            <span class="insight-icon">💵</span>
+                            <span class="insight-text">{{ insight.message }}</span>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    <!-- End of Executive Summary Tab -->
+
+        <!-- Tab 2: Corp Network Summary (Rich Executive Summary) -->
+        <div id="corp-summary-tab" class="tab-content">
+            {% include 'tab2_corp_executive_content.html' %}
+        </div>
+
+        <!-- Tab 3: Meraki Inventory Details (ORIGINAL) -->
+        <div id="meraki-inventory-tab" class="tab-content">
+            <div class="inventory-table-container">
+                <div class="export-buttons">
+                    <div class="nav-buttons">
+                        <button onclick="window.location.href='/inventory-details'">📱 Detailed View</button>
+                        <button onclick="window.location.href='/eol-dashboard'">📅 EOL Dashboard</button>
+                    </div>
+                    <div class="export-actions">
+                        <button id="exportExcel">📊 Export to Excel</button>
+                        <button id="exportPDF">📄 Export to PDF</button>
+                    </div>
+                </div>
+
+                <table id="inventoryTable" class="inventory-table">
+                    <thead>
+                        <tr>
+                            <th class="model-column">Model</th>
+                            {% for org in org_names %}
+                                <th class="org-column">{{ org.replace('DTC-Store-Inventory-', '') }}</th>
+                            {% endfor %}
+                            <th class="total-column">Total</th>
+                            <th class="date-column">Announcement Date</th>
+                            <th class="date-column">End of Sale Date</th>
+                            <th class="date-column">End of Support Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for entry in summary %}
+                        <tr class="{% if entry.highlight == 'eol' %}highlight-red{% elif entry.highlight == 'eos' %}highlight-yellow{% endif %}">
+                            <td class="model-column">{{ entry.model }}</td>
+                            {% for org in org_names %}
+                                <td class="org-column">{{ entry.org_counts.get(org, 0) if entry.org_counts.get(org, 0) > 0 else '' }}</td>
+                            {% endfor %}
+                            <td class="total-column">{{ entry.total }}</td>
+                            <td class="date-column announcement-date">{{ entry.announcement_date or '' }}</td>
+                            <td class="date-column eos-date">{{ entry.end_of_sale or '' }}</td>
+                            <td class="date-column eol-date">{{ entry.end_of_support or '' }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tab 4: All Data Centers with EOL -->
+        <div id="corp-inventory-tab" class="tab-content">
+            <div class="datacenter-section">
+                <h2>All Data Centers Inventory</h2>
+                
+                <div class="datacenter-summary">
+                    <div class="summary-card">
+                        <h4>Total Devices</h4>
+                        <div class="value">{{ datacenter_data.summary.total_devices }}</div>
+                        <div class="label">In all data centers</div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Unique Models</h4>
+                        <div class="value">{{ datacenter_data.summary.unique_models }}</div>
+                        <div class="label">Different hardware models</div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Active Devices</h4>
+                        <div class="value">{{ datacenter_data.summary.active_devices }}</div>
+                        <div class="label">Currently supported</div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>EOL/EOS Devices</h4>
+                        <div class="value">{{ datacenter_data.summary.eol_devices + datacenter_data.summary.eos_devices }}</div>
+                        <div class="label">Requiring attention</div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Total Chassis Blades</h4>
+                        <div class="value">{{ datacenter_data.summary.total_chassis_blades }}</div>
+                        <div class="label">Blade modules installed</div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Total SFP Modules</h4>
+                        <div class="value">{{ datacenter_data.summary.total_sfp_modules }}</div>
+                        <div class="label">SFP transceivers</div>
+                    </div>
+                    <div class="summary-card">
+                        <h4>Total Hardware Components</h4>
+                        <div class="value">{{ datacenter_data.summary.total_hardware_components }}</div>
+                        <div class="label">Additional components</div>
+                    </div>
+                </div>
+                
+                <div class="export-buttons">
+                    <div class="export-actions">
+                        <button onclick="exportDatacenterInventory()">📊 Export Data Center Inventory</button>
+                    </div>
+                </div>
+                
+                <table id="datacenterTable" class="inventory-table corporate-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 3%;"></th>
+                            <th style="width: 12%;">Site</th>
+                            <th style="width: 15%;">Hostname</th>
+                            <th style="width: 8%;">Vendor</th>
+                            <th style="width: 10%;">Type</th>
+                            <th style="width: 15%;">Model</th>
+                            <th style="width: 8%;">Serial #</th>
+                            <th style="width: 8%;">Mgmt IP</th>
+                            <th style="width: 6%;">Components</th>
+                            <th style="width: 6%;">End of Sale</th>
+                            <th style="width: 9%;">End of Support</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for device in datacenter_data.inventory %}
+                        {% if device.device_type == 'master' %}
+                        <tr class="master-device {% if device.end_of_support and device.end_of_support <= today %}highlight-red{% elif device.end_of_sale and device.end_of_sale <= today and (not device.end_of_support or device.end_of_support > today) %}highlight-yellow{% endif %}" 
+                            data-hostname="{{ device.hostname }}" data-components="{{ device.component_counts.chassis_blades + device.component_counts.sfp_modules + device.component_counts.hardware_components }}">
+                            <td style="text-align: center;">
+                                {% if device.component_counts.chassis_blades > 0 or device.component_counts.sfp_modules > 0 or device.component_counts.hardware_components > 0 %}
+                                <button class="expand-btn" data-parent="{{ device.hostname }}">
+                                    <span class="expand-icon">+</span>
+                                </button>
+                                {% endif %}
+                            </td>
+                            <td style="text-align: left;">{{ device.site }}</td>
+                            <td style="text-align: left; font-weight: bold;">{{ device.hostname }}</td>
+                            <td>{{ device.vendor }}</td>
+                            <td>{{ device.category }}</td>
+                            <td style="text-align: left; font-weight: bold;">{{ device.model }}</td>
+                            <td style="font-family: monospace; font-size: 10px;">{{ device.serial_number }}</td>
+                            <td style="font-family: monospace; font-size: 10px;">{{ device.mgmt_ip }}</td>
+                            <td style="text-align: center;">
+                                {% if device.component_counts.chassis_blades > 0 %}
+                                <span class="component-badge blade-badge" title="Chassis Blades">{{ device.component_counts.chassis_blades }}B</span>
+                                {% endif %}
+                                {% if device.component_counts.sfp_modules > 0 %}
+                                <span class="component-badge sfp-badge" title="SFP Modules">{{ device.component_counts.sfp_modules }}S</span>
+                                {% endif %}
+                                {% if device.component_counts.hardware_components > 0 %}
+                                <span class="component-badge hw-badge" title="Hardware Components">{{ device.component_counts.hardware_components }}H</span>
+                                {% endif %}
+                            </td>
+                            <td>{{ device.end_of_sale.strftime('%Y-%m-%d') if device.end_of_sale else '' }}</td>
+                            <td>{{ device.end_of_support.strftime('%Y-%m-%d') if device.end_of_support else '' }}</td>
+                        </tr>
+                        {% elif device.device_type in ['blade', 'sfp', 'component'] %}
+                        <tr class="child-device child-{{ device.device_type }}" data-parent="{{ device.parent_device }}" style="display: none;">
+                            <td style="text-align: center; padding-left: 20px;">
+                                <span class="child-icon">
+                                    {% if device.device_type == 'blade' %}🔧
+                                    {% elif device.device_type == 'sfp' %}📡
+                                    {% else %}⚙️
+                                    {% endif %}
+                                </span>
+                            </td>
+                            <td style="text-align: left; color: #666; font-style: italic;">{{ device.site }}</td>
+                            <td style="text-align: left; color: #666; padding-left: 15px;">
+                                {% if device.module_number %}Slot {{ device.module_number }}{% endif %}
+                                {% if device.interface_name %}{{ device.interface_name }}{% endif %}
+                            </td>
+                            <td style="color: #666;">{{ device.vendor }}</td>
+                            <td style="color: #666;">{{ device.category }}</td>
+                            <td style="text-align: left; color: #666;">{{ device.model }}</td>
+                            <td style="font-family: monospace; font-size: 10px; color: #666;">{{ device.serial_number }}</td>
+                            <td style="color: #666;">
+                                {% if device.ports %}{{ device.ports }} ports{% endif %}
+                            </td>
+                            <td style="color: #666; font-size: 11px;">{{ device.description }}</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Initialize DataTable for Meraki inventory
+            $('#inventoryTable').DataTable({
+                pageLength: 50,
+                dom: 'Bfrtip',
+                buttons: ['excelHtml5'],
+                order: [[1, 'desc']]
+            });
+        });
+
+        }
+
+        function exportDatacenterInventory() {
+            // Trigger DataTables export
+            $('#datacenterTable').DataTable().button('.buttons-excel').trigger();
+        }
+        
+        // Initialize datacenter table when tab is shown
+        // Make initializeDatacenterTable globally accessible
+        window.initializeDatacenterTable = function() {
+            if (!$.fn.DataTable.isDataTable("#datacenterTable")) {
+                var table = $("#datacenterTable").DataTable({
+                    pageLength: 50,
+                    lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+                    order: [[1, "asc"]],
+                    dom: "Blfrtip",
+                    buttons: ["excelHtml5"],
+                    columnDefs: [
+                        { "orderable": false, "targets": 0 }
+                    ]
+                });
+            }
+            
+            // Attach click handlers using event delegation
+            setTimeout(function() {
+                $(document).off("click", "#datacenterTable .expand-btn");
+                $(document).on("click", "#datacenterTable .expand-btn", function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    var btn = $(this);
+                    var parentHostname = btn.data("parent");
+                    var icon = btn.find(".expand-icon");
+                    var childRows = $("#datacenterTable tr[data-parent=\"" + parentHostname + "\"]");
+                    
+                    if (btn.hasClass("expanded")) {
+                        btn.removeClass("expanded");
+                        icon.text("+");
+                        childRows.hide();
+                    } else {
+                        btn.addClass("expanded");
+                        icon.text("−");
+                        childRows.show();
+                    }
+                    return false;
+                });
+            }, 100);
+        };
+        $(document).on('click', '.tab-button', function() {
+            if ($(this).text().includes('All Data Centers')) {
+                setTimeout(function() {
+                    if (!$.fn.DataTable.isDataTable('#datacenterTable')) {
+                        var table = $('#datacenterTable').DataTable({
+                            pageLength: 50,
+                            lengthMenu: [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+                            order: [[1, 'asc']],  // Order by Site column (index 1) instead of expand button
+                            dom: 'Blfrtip',
+                            buttons: ['excelHtml5'],
+                            columnDefs: [
+                                { "orderable": false, "targets": 0 }  // Disable sorting on expand button column
+                            ]
+                        });
+                        
+                        // Handle expand/collapse functionality for master devices and their components
+                        $('#datacenterTable').on('click', '.expand-btn', function(e) {
+                            e.stopPropagation();
+                            
+                            var btn = $(this);
+                            var parentHostname = btn.data('parent');
+                            var icon = btn.find('.expand-icon');
+                            var childRows = $('tr[data-parent="' + parentHostname + '"]');
+                            
+                            if (btn.hasClass('expanded')) {
+                                // Collapse - hide child components
+                                btn.removeClass('expanded');
+                                icon.text('+');
+                                childRows.fadeOut(200);
+                            } else {
+                                // Expand - show child components
+                                btn.addClass('expanded');
+                                icon.text('−');
+                                childRows.fadeIn(200);
+                            }
+                        });
+                        
+                        // Add expand all / collapse all functionality
+                        var expandAllButton = '<button id="expandAllBtn" style="margin-left: 10px; background: #27ae60; color: white; border: none; padding: 5px 10px; border-radius: 3px; cursor: pointer;">Expand All</button>';
+                        $('.dt-buttons').append(expandAllButton);
+                        
+                        $('#expandAllBtn').on('click', function() {
+                            var btn = $(this);
+    <script>
+    // Simple expand button handler that always works
+    $(document).ready(function() {
+        console.log("Setting up expand handlers...");
+        
+        // Use body-level delegation for all expand buttons
+        $("body").on("click", ".expand-btn", function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            var $btn = $(this);
+            var parentId = $btn.attr("data-parent");
+            var $icon = $btn.find(".expand-icon");
+            var $childRows = $("tr[data-parent=\"" + parentId + "\"]");
+            
+            console.log("Expand clicked for:", parentId, "Children found:", $childRows.length);
+            
+            if ($btn.hasClass("expanded")) {
+                $btn.removeClass("expanded");
+                $icon.text("+");
+                $childRows.hide();
+            } else {
+                $btn.addClass("expanded");
+                $icon.text("−");
+                $childRows.show();
+            }
+            
+            return false;
+        });
+        
+        console.log("Expand handlers ready!");
+    });
+    </script>
+                            var expandButtons = $('.expand-btn');
+                            
+                            if (btn.text() === 'Expand All') {
+                                // Expand all devices
+                                expandButtons.each(function() {
+                                    var expandBtn = $(this);
+                                    var parentHostname = expandBtn.data('parent');
+                                    var icon = expandBtn.find('.expand-icon');
+                                    var childRows = $('tr[data-parent="' + parentHostname + '"]');
+                                    
+                                    expandBtn.addClass('expanded');
+                                    icon.text('−');
+                                    childRows.show();
+                                });
+                                btn.text('Collapse All');
+                            } else {
+                                // Collapse all devices
+                                expandButtons.each(function() {
+                                    var expandBtn = $(this);
+                                    var parentHostname = expandBtn.data('parent');
+                                    var icon = expandBtn.find('.expand-icon');
+                                    var childRows = $('tr[data-parent="' + parentHostname + '"]');
+                                    
+                                    expandBtn.removeClass('expanded');
+                                    icon.text('+');
+                                    childRows.hide();
+                                });
+                                btn.text('Expand All');
+                            }
+                        });
+                    }
+                }, 100);
+            }
+        });
+    </script>
+    <script>
+    // Initialize datacenter table on page load
+    $(document).ready(function() {
+        setTimeout(initializeDatacenterTable, 500);
+    });
+    </script>
+</body>
+</html>
+<\!-- Complete Tab Fix -->
+<script>
+// Complete tab fix
+(function() {
+    // Override showTab function with proper implementation
+    window.showTab = function(tabName) {
+        console.log("[TAB FIX] Switching to tab:", tabName);
+        
+        // Hide all tabs
+        document.querySelectorAll(".tab-content").forEach(tab => {
+            tab.style.display = "none";
+            tab.classList.remove("active");
+        });
+        
+        // Show selected tab
+        const selectedTab = document.getElementById(tabName + "-tab");
+        if (selectedTab) {
+            selectedTab.style.display = "block";
+            selectedTab.classList.add("active");
+            
+            // Initialize tables when tabs are shown
+            if (tabName === "meraki-inventory" && \!$.fn.DataTable.isDataTable('#inventoryTable')) {
+                setTimeout(() => {
+                    $('#inventoryTable').DataTable({
+                        pageLength: 50,
+                        order: [[1, 'asc']],
+                        dom: 'Blfrtip',
+                        buttons: ['excelHtml5', 'pdfHtml5']
+                    });
+                }, 100);
+            }
+            
+            if (tabName === "corp-inventory" && typeof initializeDatacenterTable === "function") {
+                setTimeout(() => {
+                    initializeDatacenterTable();
+                }, 100);
+            }
+        }
+        
+        // Update button states
+        document.querySelectorAll(".tab-button").forEach(button => {
+            button.classList.remove("active");
+            if (button.onclick && button.onclick.toString().includes(tabName)) {
+                button.classList.add("active");
+            }
+        });
+    };
+    
+    // Fix initial state
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log("[TAB FIX] DOM loaded, fixing initial state");
+        
+        // Hide all tabs except first
+        document.querySelectorAll(".tab-content").forEach((tab, index) => {
+            if (index === 0) {
+                tab.style.display = "block";
+                tab.classList.add("active");
+            } else {
+                tab.style.display = "none";
+                tab.classList.remove("active");
+            }
+        });
+        
+        // Ensure first button is active
+        const firstButton = document.querySelector(".tab-button");
+        if (firstButton) {
+            firstButton.classList.add("active");
+        }
+    });
+})();
+</script>
+</body>
+</html>
+EOF < /dev/null

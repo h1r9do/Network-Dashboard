@@ -1,0 +1,851 @@
+#!/usr/bin/env python3
+"""
+COMBINED BETA VERSION: Meraki collection + enrichment in one script
+- Uses BETA tables for safe testing
+- Single pass through networks collecting devices, VLANs, and firewall rules
+- Real-time enrichment with improved matching logic
+- Discount-Tire specific match rate reporting
+- Aggressive API speed optimization
+"""
+
+import os
+import sys
+import json
+import requests
+import re
+import time
+import ipaddress
+import socket
+import signal
+from dotenv import load_dotenv
+from datetime import datetime, timezone
+from thefuzz import fuzz
+import psycopg2
+from psycopg2.extras import execute_values, execute_batch
+import logging
+
+# Add the parent directory to path for imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from config import Config
+
+# Get database URI from config
+SQLALCHEMY_DATABASE_URI = Config.SQLALCHEMY_DATABASE_URI
+
+# Load environment variables
+load_dotenv('/usr/local/bin/meraki.env')
+
+# Setup logging with line buffering for immediate output
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('/var/log/meraki-enriched-combined-beta.log'),
+        logging.StreamHandler(sys.stdout)
+    ]
+)
+logger = logging.getLogger(__name__)
+
+# Force stdout to be unbuffered for immediate output
+sys.stdout = sys.__stdout__
+sys.stdout.reconfigure(line_buffering=True)
+
+# Configuration constants
+ORG_NAME = "DTC-Store-Inventory-All"
+BASE_URL = "https://api.meraki.com/api/v1"
+
+# Load API key from environment
+MERAKI_API_KEY = os.getenv("MERAKI_API_KEY")
+
+# Statistics tracking for Discount-Tire networks
+dt_stats = {
+    'total': 0,
+    'both_matched': 0,
+    'wan1_only': 0,
+    'wan2_only': 0,
+    'no_match': 0,
+    'wan1_matches': 0,
+    'wan2_matches': 0,
+    'unmatched_providers': {}
+}
+
+# Known static IP-to-provider mappings
+KNOWN_IPS = {
+    "63.228.128.81": "CenturyLink",
+    "24.101.188.52": "Charter Communications",
+    "198.99.82.203": "AT&T",
+    "206.222.219.64": "Cogent Communications",
+    "208.83.9.194": "CenturyLink",
+    "195.252.240.66": "Deutsche Telekom",
+    "209.66.104.34": "Verizon",
+    "65.100.99.25": "CenturyLink",
+    "69.130.234.114": "Comcast",
+    "184.61.190.6": "Frontier Communications",
+    "72.166.76.98": "Cox Communications",
+    "98.6.198.210": "Charter Communications",
+    "65.103.195.249": "CenturyLink",
+    "100.88.182.60": "Verizon",
+    "66.76.161.89": "Suddenlink Communications",
+    "66.152.135.50": "EarthLink",
+    "216.164.196.131": "RCN",
+    "209.124.218.134": "IBM Cloud",
+    "67.199.174.137": "Google",
+    "184.60.134.66": "Frontier Communications",
+    "24.144.4.162": "Conway Corporation",
+    "199.38.125.142": "Ritter Communications",
+    "69.195.29.6": "Ritter Communications",
+    "69.171.123.138": "FAIRNET LLC",
+    "63.226.59.241": "CenturyLink Communications, LLC",
+    "24.124.116.54": "Midcontinent Communications",
+    "50.37.227.70": "Ziply Fiber",
+    "24.220.46.162": "Midcontinent Communications",
+    "76.14.161.29": "Wave Broadband",
+    "71.186.165.101": "Verizon Business",
+    "192.190.112.119": "Lrm-Com, Inc.",
+    "149.97.243.90": "Equinix, Inc.",
+    "162.247.42.4": "HUNTER COMMUNICATIONS",
+}
+
+# Provider keyword mappings
+PROVIDER_KEYWORDS = {
+    "spectrum": "Charter Communications",
+    "cox business/boi": "Cox Communications",
+    "cox business boi | extended cable |": "Cox Communications",
+    "cox business boi extended cable": "Cox Communications",
+    "cox business": "Cox Communications",
+    "comcast workplace": "Comcast",
+    "comcast business": "Comcast",
+    "centurylink": "CenturyLink",
+    "comcastagg": "Comcast",
+    "at&t broadband ii": "AT&T",
+    "eb2-lumen": "Lumen",
+    "eb2-centurylink": "CenturyLink",
+    "eb2-windstream": "Windstream",
+    "eb2-frontier": "Frontier",
+    "eb2-cincinnati bell": "Cincinnati Bell",
+    "frontier fios": "Frontier",
+    "windstream": "Windstream",
+    "breezeline": "Breezeline",
+    "mediacom": "Mediacom",
+    "optimum": "Optimum",
+    "suddenlink": "Suddenlink",
+    "sparklight": "Sparklight",
+    "wow": "WOW",
+}
+
+# Cellular provider mappings for enrichment
+CELLULAR_MAPPINGS = {
+    'vzw cell': 'Verizon',
+    'verizon business': 'Verizon',
+    'digi': 'AT&T',
+    'at&t cell': 'AT&T',
+    'accelerated': 'AT&T',
+    'accelerated at&t': 'AT&T',
+    'starlink': 'SpaceX',
+    'firstnet': 'FirstNet',
+    'first digital': 'FirstNet',
+    't-mobile': 'T-Mobile',
+    'tmobile': 'T-Mobile'
+}
+
+def normalize_provider_for_matching(provider):
+    """Enhanced provider normalization for better matching"""
+    if not provider:
+        return ""
+    
+    # Convert to lowercase and strip
+    provider_lower = provider.lower().strip()
+    
+    # Check cellular mappings first
+    for key, value in CELLULAR_MAPPINGS.items():
+        if key in provider_lower:
+            return value.lower()
+    
+    # Remove common suffixes
+    provider_clean = re.sub(r'\s*(communications|broadband|fiber|dedicated|business|workplace|inc\.|llc|corp).*$', '', provider_lower)
+    provider_clean = re.sub(r'/boi$', '', provider_clean)
+    provider_clean = re.sub(r'[^a-z0-9\s&-]', '', provider_clean)
+    
+    # Common replacements
+    replacements = {
+        'at&t': 'att',
+        'at & t': 'att',
+        'centurylink': 'lumen',
+        'century link': 'lumen',
+        'qwest': 'lumen',
+        'embarq': 'lumen',
+        'level 3': 'lumen',
+        'level3': 'lumen',
+        'charter': 'spectrum',
+        'time warner': 'spectrum',
+        'bright house': 'spectrum'
+    }
+    
+    for old, new in replacements.items():
+        if old in provider_clean:
+            provider_clean = provider_clean.replace(old, new)
+    
+    return provider_clean.strip()
+
+def get_headers(api_key):
+    return {
+        "X-Cisco-Meraki-API-Key": api_key,
+        "Content-Type": "application/json"
+    }
+
+def make_api_request(url, api_key, params=None, max_retries=5):
+    """Enhanced API request with aggressive adaptive rate limiting for maximum speed"""
+    headers = get_headers(api_key)
+    
+    # Adaptive rate limiting variables
+    if not hasattr(make_api_request, 'current_delay'):
+        make_api_request.current_delay = 0.05  # Start at 50ms
+        make_api_request.successful_requests = 0
+        make_api_request.rate_limited_count = 0
+        make_api_request.last_speed_increase = time.time()
+        make_api_request.consecutive_successes = 0
+        logger.info(f"API rate limiter initialized: starting at {make_api_request.current_delay:.3f}s delay")
+    
+    for attempt in range(max_retries):
+        try:
+            # Use adaptive delay
+            time.sleep(make_api_request.current_delay)
+            
+            if make_api_request.successful_requests % 100 == 0:
+                logger.debug(f"Requesting {url} with {make_api_request.current_delay:.3f}s delay")
+            resp = requests.get(url, headers=headers, params=params, timeout=30)
+            
+            if resp.status_code == 429:  # Rate limited
+                make_api_request.rate_limited_count += 1
+                make_api_request.consecutive_successes = 0
+                old_delay = make_api_request.current_delay
+                make_api_request.current_delay = min(2.0, make_api_request.current_delay * 1.5)
+                logger.warning(f"Rate limited! Backing off: {old_delay:.3f}s -> {make_api_request.current_delay:.3f}s")
+                time.sleep(5)  # Wait 5 seconds when rate limited
+                continue
+            
+            resp.raise_for_status()
+            
+            # Success! Track consecutive successes
+            make_api_request.successful_requests += 1
+            make_api_request.consecutive_successes += 1
+            
+            # Aggressive speed increases
+            current_time = time.time()
+            time_since_last_increase = current_time - make_api_request.last_speed_increase
+            
+            # Speed up every 30 seconds regardless
+            if time_since_last_increase >= 30:
+                old_delay = make_api_request.current_delay
+                make_api_request.current_delay = max(0.005, make_api_request.current_delay * 0.5)
+                make_api_request.last_speed_increase = current_time
+                logger.info(f"30-second speed boost! {old_delay:.3f}s -> {make_api_request.current_delay:.3f}s")
+            # Also speed up every 50 successful requests
+            elif make_api_request.successful_requests % 50 == 0 and make_api_request.successful_requests > 0:
+                old_delay = make_api_request.current_delay
+                make_api_request.current_delay = max(0.005, make_api_request.current_delay * 0.8)
+                logger.info(f"50 requests speed up: {old_delay:.3f}s -> {make_api_request.current_delay:.3f}s")
+            
+            # Log performance stats every 25 requests
+            if make_api_request.successful_requests % 25 == 0:
+                logger.info(f"API Performance: {make_api_request.successful_requests} requests, "
+                           f"Rate limited: {make_api_request.rate_limited_count} times, "
+                           f"Current delay: {make_api_request.current_delay:.3f}s")
+            
+            return resp.json()
+            
+        except KeyboardInterrupt:
+            logger.info("\nKeyboard interrupt received, exiting...")
+            raise
+        except Exception as e:
+            make_api_request.consecutive_successes = 0
+            if attempt == max_retries - 1:
+                logger.error(f"Failed to fetch {url} after {max_retries} attempts: {e}")
+                return []
+            time.sleep(2 ** attempt)
+    return []
+
+def get_organization_id():
+    """Look up the Meraki organization ID by name."""
+    url = f"{BASE_URL}/organizations"
+    orgs = make_api_request(url, MERAKI_API_KEY)
+    for org in orgs:
+        if org.get("name") == ORG_NAME:
+            return org.get("id")
+    raise ValueError(f"Organization '{ORG_NAME}' not found")
+
+def get_organization_uplink_statuses(org_id):
+    """Retrieve uplink statuses for all devices in bulk with pagination."""
+    all_statuses = []
+    url = f"{BASE_URL}/organizations/{org_id}/appliance/uplink/statuses"
+    params = {'perPage': 1000, 'startingAfter': None}
+    
+    page_count = 0
+    while True:
+        page_count += 1
+        statuses = make_api_request(url, MERAKI_API_KEY, params)
+        if not statuses:
+            break
+        
+        all_statuses.extend(statuses)
+        logger.info(f"Page {page_count}: Fetched {len(statuses)} devices, total so far: {len(all_statuses)}")
+        
+        if len(statuses) < params['perPage']:
+            logger.info(f"Last page had only {len(statuses)} devices")
+            break
+            
+        if statuses and 'serial' in statuses[-1]:
+            params['startingAfter'] = statuses[-1]['serial']
+            logger.info(f"Next page cursor (serial): {params['startingAfter']}")
+        else:
+            logger.warning("No serial found in last device, stopping pagination")
+            break
+    
+    logger.info(f"Retrieved uplink info for {len(all_statuses)} devices total")
+    return all_statuses
+
+def get_all_networks(org_id):
+    """Retrieve all networks in the organization."""
+    all_networks = []
+    url = f"{BASE_URL}/organizations/{org_id}/networks"
+    params = {'perPage': 1000, 'startingAfter': None}
+    while True:
+        networks = make_api_request(url, MERAKI_API_KEY, params)
+        if not networks:
+            break
+        all_networks.extend(networks)
+        if len(networks) < params['perPage']:
+            break
+        params['startingAfter'] = networks[-1]['id']
+    return all_networks
+
+def get_devices(network_id):
+    """Retrieve devices in a given network."""
+    url = f"{BASE_URL}/networks/{network_id}/devices"
+    return make_api_request(url, MERAKI_API_KEY)
+
+def get_device_details(serial):
+    """Retrieve the device record (including its tags)."""
+    url = f"{BASE_URL}/devices/{serial}"
+    return make_api_request(url, MERAKI_API_KEY)
+
+def get_network_vlans(network_id):
+    """Get VLANs for a network"""
+    try:
+        url = f"{BASE_URL}/networks/{network_id}/appliance/vlans"
+        return make_api_request(url, MERAKI_API_KEY)
+    except Exception as e:
+        logger.debug(f"Could not get VLANs for network {network_id}: {e}")
+        return []
+
+def get_network_firewall_rules(network_id):
+    """Get L3 firewall rules for a network"""
+    try:
+        url = f"{BASE_URL}/networks/{network_id}/appliance/firewall/l3FirewallRules"
+        return make_api_request(url, MERAKI_API_KEY)
+    except Exception as e:
+        logger.debug(f"Could not get firewall rules for network {network_id}: {e}")
+        return {}
+
+def parse_raw_notes(raw_notes):
+    """Parse the 'notes' field to extract WAN provider labels and speeds."""
+    if not raw_notes or not raw_notes.strip():
+        return "", "", "", ""
+    
+    # FIX: Convert literal \\n strings to actual newlines BEFORE processing
+    if '\\n' in raw_notes and '\n' not in raw_notes:
+        raw_notes = raw_notes.replace('\\n', '\n')
+    
+    text = re.sub(r'\s+', ' ', raw_notes.strip())
+    wan1_pattern = re.compile(r'(?:WAN1|WAN\s*1)\s*:?\s*', re.IGNORECASE)
+    wan2_pattern = re.compile(r'(?:WAN2|WAN\s*2)\s*:?\s*', re.IGNORECASE)
+    speed_pattern = re.compile(r'(\d+(?:\.\d+)?)\s*([MG]B?)\s*x\s*(\d+(?:\.\d+)?)\s*([MG]B?)', re.IGNORECASE)
+    
+    # Split by lines for better parsing
+    lines = text.split('\n')
+    
+    wan1_label, wan1_speed = "", ""
+    wan2_label, wan2_speed = "", ""
+    
+    i = 0
+    while i < len(lines):
+        line = lines[i].strip()
+        
+        # Check for WAN1
+        if wan1_pattern.match(line):
+            # Look at the next line for provider
+            if i + 1 < len(lines):
+                wan1_label = lines[i + 1].strip()
+                # Check if speed is on the same line or next
+                speed_match = speed_pattern.search(wan1_label)
+                if speed_match:
+                    wan1_speed = f"{speed_match.group(1)}{speed_match.group(2).upper()} x {speed_match.group(3)}{speed_match.group(4).upper()}"
+                    wan1_label = wan1_label[:speed_match.start()].strip()
+                elif i + 2 < len(lines):
+                    speed_match = speed_pattern.search(lines[i + 2])
+                    if speed_match:
+                        wan1_speed = f"{speed_match.group(1)}{speed_match.group(2).upper()} x {speed_match.group(3)}{speed_match.group(4).upper()}"
+        
+        # Check for WAN2
+        elif wan2_pattern.match(line):
+            # Look at the next line for provider
+            if i + 1 < len(lines):
+                wan2_label = lines[i + 1].strip()
+                # Check if speed is on the same line or next
+                speed_match = speed_pattern.search(wan2_label)
+                if speed_match:
+                    wan2_speed = f"{speed_match.group(1)}{speed_match.group(2).upper()} x {speed_match.group(3)}{speed_match.group(4).upper()}"
+                    wan2_label = wan2_label[:speed_match.start()].strip()
+                elif i + 2 < len(lines):
+                    speed_match = speed_pattern.search(lines[i + 2])
+                    if speed_match:
+                        wan2_speed = f"{speed_match.group(1)}{speed_match.group(2).upper()} x {speed_match.group(3)}{speed_match.group(4).upper()}"
+        
+        i += 1
+    
+    return wan1_label, wan1_speed, wan2_label, wan2_speed
+
+def get_arin_provider(ip_address, ip_cache):
+    """Get provider from ARIN RDAP with caching"""
+    if not ip_address or ip_address in ["0.0.0.0", ""]:
+        return "unknown"
+    
+    # Check cache
+    if ip_address in ip_cache:
+        return ip_cache[ip_address]
+    
+    # Check known IPs
+    if ip_address in KNOWN_IPS:
+        provider = KNOWN_IPS[ip_address]
+        ip_cache[ip_address] = provider
+        return provider
+    
+    # RDAP lookup
+    try:
+        url = f"https://rdap.arin.net/registry/ip/{ip_address}"
+        resp = requests.get(url, timeout=5)
+        if resp.status_code == 200:
+            data = resp.json()
+            provider = data.get("name", "unknown")
+            ip_cache[ip_address] = provider
+            return provider
+    except Exception as e:
+        logger.debug(f"RDAP lookup failed for {ip_address}: {e}")
+    
+    ip_cache[ip_address] = "unknown"
+    return "unknown"
+
+def get_dsr_circuits(conn):
+    """Get all DSR circuits from circuits_beta table"""
+    cursor = conn.cursor()
+    cursor.execute("""
+        SELECT site_name, provider_name, circuit_purpose, 
+               details_ordered_service_speed, site_id
+        FROM circuits_beta
+        WHERE status = 'Enabled'
+        ORDER BY site_name, circuit_purpose
+    """)
+    
+    circuits_by_site = {}
+    for row in cursor.fetchall():
+        site_name = row[0]
+        if site_name not in circuits_by_site:
+            circuits_by_site[site_name] = []
+        
+        circuits_by_site[site_name].append({
+            'provider': row[1],
+            'purpose': row[2],
+            'speed': row[3],
+            'site_id': row[4]
+        })
+    
+    cursor.close()
+    return circuits_by_site
+
+def match_dsr_circuit_by_provider(dsr_circuits, provider_name, network_name, purpose=None):
+    """Match DSR circuit by provider name with optional purpose filter"""
+    if not provider_name or not dsr_circuits:
+        return None
+    
+    site_circuits = dsr_circuits.get(network_name, [])
+    if not site_circuits:
+        return None
+    
+    # Filter by purpose if specified
+    if purpose:
+        site_circuits = [c for c in site_circuits if c['purpose'] == purpose]
+    
+    notes_norm = normalize_provider_for_matching(provider_name)
+    if not notes_norm:
+        return None
+    
+    best_match = None
+    best_score = 0
+    
+    for circuit in site_circuits:
+        dsr_norm = normalize_provider_for_matching(circuit['provider'])
+        
+        # Exact match after normalization
+        if notes_norm == dsr_norm:
+            return circuit
+        
+        # Fuzzy match
+        score = max(
+            fuzz.ratio(notes_norm, dsr_norm),
+            fuzz.partial_ratio(notes_norm, dsr_norm),
+            fuzz.token_sort_ratio(notes_norm, dsr_norm)
+        )
+        
+        if score > 70 and score > best_score:  # 70% threshold
+            best_match = circuit
+            best_score = score
+    
+    return best_match
+
+def detect_wan_flip(dsr_circuits, network_name, wan1_provider, wan2_provider):
+    """Enhanced WAN flip detection including provider-based detection"""
+    site_circuits = dsr_circuits.get(network_name, [])
+    if len(site_circuits) < 2:
+        return False, False
+    
+    primary_circuit = None
+    secondary_circuit = None
+    
+    for circuit in site_circuits:
+        if circuit['purpose'] == 'Primary':
+            primary_circuit = circuit
+        elif circuit['purpose'] == 'Secondary':
+            secondary_circuit = circuit
+    
+    if not primary_circuit or not secondary_circuit:
+        return False, False
+    
+    # Check if providers match but are on wrong WANs
+    wan1_matches_secondary = False
+    wan2_matches_primary = False
+    
+    if wan1_provider:
+        wan1_norm = normalize_provider_for_matching(wan1_provider)
+        sec_norm = normalize_provider_for_matching(secondary_circuit['provider'])
+        score = max(
+            fuzz.ratio(wan1_norm, sec_norm),
+            fuzz.partial_ratio(wan1_norm, sec_norm)
+        )
+        wan1_matches_secondary = score >= 80
+    
+    if wan2_provider:
+        wan2_norm = normalize_provider_for_matching(wan2_provider)
+        pri_norm = normalize_provider_for_matching(primary_circuit['provider'])
+        score = max(
+            fuzz.ratio(wan2_norm, pri_norm),
+            fuzz.partial_ratio(wan2_norm, pri_norm)
+        )
+        wan2_matches_primary = score >= 80
+    
+    # If both match opposite purposes, it's flipped
+    if wan1_matches_secondary and wan2_matches_primary:
+        logger.info(f"{network_name}: WAN flip detected - providers match opposite circuit purposes")
+        return True, True
+    
+    return False, False
+
+def process_network(network, devices, uplink_dict, ip_cache, dsr_circuits, conn):
+    """Process a single network - gather all data and enrich"""
+    network_name = (network.get('name') or "").strip()
+    network_id = network.get('id')
+    
+    # Check if network has MX devices
+    mx_devices = [d for d in devices if d.get('model', '').startswith('MX')]
+    if not mx_devices:
+        return 0, 0, 0
+    
+    # Track if this is a Discount-Tire network
+    is_discount_tire = False
+    
+    # Get VLANs for this network (once)
+    vlans = get_network_vlans(network_id)
+    vlan_count = len(vlans) if vlans else 0
+    
+    # Get firewall rules for this network (once)
+    firewall_data = get_network_firewall_rules(network_id)
+    rules = firewall_data.get('rules', []) if firewall_data else []
+    rule_count = len(rules)
+    
+    devices_processed = 0
+    
+    for device in mx_devices:
+        serial = device.get('serial')
+        model = device.get('model')
+        
+        # Get device details for tags
+        device_details = get_device_details(serial)
+        tags = device_details.get('tags', []) if device_details else []
+        
+        # Check if Discount-Tire tagged
+        if 'Discount-Tire' in tags:
+            is_discount_tire = True
+            # Check for excluded tags
+            excluded_tags = ['hub', 'lab', 'voice', 'test']
+            if not any(tag.lower() in ' '.join(tags).lower() for tag in excluded_tags):
+                dt_stats['total'] += 1
+        
+        # Get uplink data
+        wan1_ip = uplink_dict.get(serial, {}).get('wan1', {}).get('ip', '')
+        wan2_ip = uplink_dict.get(serial, {}).get('wan2', {}).get('ip', '')
+        
+        # Parse device notes
+        notes = device.get('notes', '')
+        wan1_notes, wan1_speed, wan2_notes, wan2_speed = parse_raw_notes(notes)
+        
+        # Get ARIN providers
+        wan1_arin = get_arin_provider(wan1_ip, ip_cache) if wan1_ip else ""
+        wan2_arin = get_arin_provider(wan2_ip, ip_cache) if wan2_ip else ""
+        
+        # Check for WAN flip
+        wan1_flipped, wan2_flipped = detect_wan_flip(dsr_circuits, network_name, wan1_notes, wan2_notes)
+        
+        # Match DSR circuits
+        if wan1_flipped and wan2_flipped:
+            # If flipped, match WAN1 to Secondary and WAN2 to Primary
+            wan1_dsr = match_dsr_circuit_by_provider(dsr_circuits, wan1_notes, network_name, 'Secondary')
+            wan2_dsr = match_dsr_circuit_by_provider(dsr_circuits, wan2_notes, network_name, 'Primary')
+        else:
+            # Normal matching
+            wan1_dsr = match_dsr_circuit_by_provider(dsr_circuits, wan1_notes, network_name, 'Primary')
+            wan2_dsr = match_dsr_circuit_by_provider(dsr_circuits, wan2_notes, network_name, 'Secondary')
+        
+        # Track Discount-Tire matches
+        if is_discount_tire and 'Discount-Tire' in tags:
+            if not any(tag.lower() in ' '.join(tags).lower() for tag in ['hub', 'lab', 'voice', 'test']):
+                wan1_matched = bool(wan1_dsr)
+                wan2_matched = bool(wan2_dsr)
+                
+                if wan1_matched:
+                    dt_stats['wan1_matches'] += 1
+                if wan2_matched:
+                    dt_stats['wan2_matches'] += 1
+                
+                if wan1_matched and wan2_matched:
+                    dt_stats['both_matched'] += 1
+                elif wan1_matched:
+                    dt_stats['wan1_only'] += 1
+                elif wan2_matched:
+                    dt_stats['wan2_only'] += 1
+                else:
+                    dt_stats['no_match'] += 1
+                
+                # Track unmatched providers
+                if not wan1_matched and wan1_notes:
+                    dt_stats['unmatched_providers'][wan1_notes] = dt_stats['unmatched_providers'].get(wan1_notes, 0) + 1
+                if not wan2_matched and wan2_notes:
+                    dt_stats['unmatched_providers'][wan2_notes] = dt_stats['unmatched_providers'].get(wan2_notes, 0) + 1
+                
+                # Log match status
+                logger.info(f"Processing network '{network_name}' (Discount-Tire):")
+                logger.info(f"  {'✓' if wan1_matched else '✗'} WAN1: {'Matched to DSR circuit (' + wan1_dsr['provider'] + ')' if wan1_matched else 'No DSR match found (' + (wan1_notes or 'No provider') + ')'}")
+                logger.info(f"  {'✓' if wan2_matched else '✗'} WAN2: {'Matched to DSR circuit (' + wan2_dsr['provider'] + ')' if wan2_matched else 'No DSR match found (' + (wan2_notes or 'No provider') + ')'}")
+        
+        # Determine final providers
+        wan1_provider = wan1_dsr['provider'] if wan1_dsr else (wan1_notes or wan1_arin or "")
+        wan2_provider = wan2_dsr['provider'] if wan2_dsr else (wan2_notes or wan2_arin or "")
+        
+        # Store in meraki_inventory_beta
+        cursor = conn.cursor()
+        cursor.execute("""
+            INSERT INTO meraki_inventory_beta (
+                device_serial, network_name, device_name, device_model, device_tags,
+                wan1_ip, wan2_ip, device_notes, last_updated
+            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
+        """, (
+            serial, network_name, device.get('name', ''), model, tags,
+            wan1_ip, wan2_ip, notes, datetime.now(timezone.utc)
+        ))
+        
+        # Store in enriched_circuits_beta
+        cursor.execute("""
+            INSERT INTO enriched_circuits_beta (
+                network_name, device_tags,
+                wan1_provider, wan1_speed, wan1_circuit_role, wan1_confirmed,
+                wan2_provider, wan2_speed, wan2_circuit_role, wan2_confirmed,
+                wan1_ip, wan2_ip, wan1_arin_org, wan2_arin_org,
+                last_updated, created_at
+            ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        """, (
+            network_name, tags,
+            wan1_provider, wan1_speed, 
+            wan1_dsr['purpose'] if wan1_dsr else ("Secondary" if wan1_flipped else "Primary"),
+            bool(wan1_dsr),
+            wan2_provider, wan2_speed,
+            wan2_dsr['purpose'] if wan2_dsr else ("Primary" if wan2_flipped else "Secondary"),
+            bool(wan2_dsr),
+            wan1_ip, wan2_ip, wan1_arin, wan2_arin,
+            datetime.now(timezone.utc), datetime.now(timezone.utc)
+        ))
+        
+        conn.commit()
+        devices_processed += 1
+    
+    # Store VLANs if any
+    if vlans:
+        cursor = conn.cursor()
+        for vlan in vlans:
+            cursor.execute("""
+                INSERT INTO network_vlans_beta (
+                    network_id, network_name, vlan_id, vlan_name,
+                    subnet, appliance_ip, updated_at
+                ) VALUES (%s, %s, %s, %s, %s, %s, %s)
+            """, (
+                network_id, network_name, vlan.get('id'), vlan.get('name'),
+                vlan.get('subnet'), vlan.get('applianceIp'),
+                datetime.now(timezone.utc)
+            ))
+        conn.commit()
+    
+    # Store firewall rules if any
+    if rules:
+        cursor = conn.cursor()
+        for idx, rule in enumerate(rules):
+            cursor.execute("""
+                INSERT INTO firewall_rules_beta (
+                    network_id, network_name, rule_order, comment,
+                    policy, protocol, src_port, src_cidr,
+                    dest_port, dest_cidr, syslog_enabled, updated_at
+                ) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+            """, (
+                network_id, network_name, idx + 1, rule.get('comment', ''),
+                rule.get('policy'), rule.get('protocol'), rule.get('srcPort'),
+                rule.get('srcCidr'), rule.get('destPort'), rule.get('destCidr'),
+                rule.get('syslogEnabled', False), datetime.now(timezone.utc)
+            ))
+        conn.commit()
+    
+    return devices_processed, vlan_count, rule_count
+
+def main():
+    """Main function"""
+    try:
+        logger.info("=" * 80)
+        logger.info("Starting Combined Meraki Collection + Enrichment (BETA)")
+        logger.info("=" * 80)
+        
+        if not MERAKI_API_KEY:
+            logger.error("MERAKI_API_KEY not found in environment variables")
+            return 1
+        
+        # Database connection
+        conn = psycopg2.connect(SQLALCHEMY_DATABASE_URI)
+        
+        # Load RDAP cache
+        cursor = conn.cursor()
+        cursor.execute("SELECT ip_address, provider_name FROM rdap_cache_beta")
+        ip_cache = {row[0]: row[1] for row in cursor.fetchall()}
+        cursor.close()
+        logger.info(f"Loaded {len(ip_cache)} IPs from RDAP cache")
+        
+        # Get organization
+        org_id = get_organization_id()
+        logger.info(f"Found organization ID: {org_id}")
+        
+        # Get all uplink statuses
+        logger.info("Fetching uplink status for all MX devices...")
+        uplink_statuses = get_organization_uplink_statuses(org_id)
+        logger.info(f"Retrieved uplink info for {len(uplink_statuses)} devices")
+        
+        # Build uplink dictionary
+        uplink_dict = {}
+        for status in uplink_statuses:
+            serial = status.get('serial')
+            uplinks = status.get('uplinks', [])
+            uplink_dict[serial] = {}
+            for uplink in uplinks:
+                interface = uplink.get('interface', '').lower()
+                if interface in ['wan1', 'wan2']:
+                    uplink_dict[serial][interface] = {
+                        'ip': uplink.get('ip', ''),
+                        'assignment': uplink.get('ipAssignedBy', '')
+                    }
+        
+        # Get DSR circuits
+        dsr_circuits = get_dsr_circuits(conn)
+        logger.info(f"Loaded DSR circuits for {len(dsr_circuits)} sites")
+        
+        # Get all networks
+        networks = get_all_networks(org_id)
+        networks.sort(key=lambda net: (net.get('name') or "").strip())
+        logger.info(f"Found {len(networks)} networks in organization")
+        
+        # Process all networks
+        total_devices = 0
+        total_vlans = 0
+        total_rules = 0
+        
+        for idx, network in enumerate(networks, 1):
+            network_name = (network.get('name') or "").strip()
+            network_id = network.get('id')
+            
+            if idx % 100 == 0:
+                logger.info(f"Progress: {idx}/{len(networks)} networks processed")
+            
+            # Get devices for this network
+            devices = get_devices(network_id)
+            
+            # Process the network
+            devices_processed, vlan_count, rule_count = process_network(
+                network, devices, uplink_dict, ip_cache, dsr_circuits, conn
+            )
+            
+            total_devices += devices_processed
+            total_vlans += vlan_count
+            total_rules += rule_count
+        
+        # Save RDAP cache
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM rdap_cache_beta")
+        if ip_cache:
+            execute_values(
+                cursor,
+                "INSERT INTO rdap_cache_beta (ip_address, provider_name, created_at) VALUES %s",
+                [(ip, provider, datetime.now(timezone.utc)) for ip, provider in ip_cache.items()]
+            )
+        conn.commit()
+        logger.info(f"Saved {len(ip_cache)} IPs to RDAP cache")
+        
+        # Print Discount-Tire statistics
+        logger.info("\n" + "=" * 80)
+        logger.info("=== Discount-Tire Network Matching Summary ===")
+        logger.info("=" * 80)
+        
+        if dt_stats['total'] > 0:
+            logger.info(f"Total Discount-Tire networks processed: {dt_stats['total']}")
+            logger.info(f"Networks with both WANs matched: {dt_stats['both_matched']} ({dt_stats['both_matched']/dt_stats['total']*100:.1f}%)")
+            logger.info(f"Networks with only WAN1 matched: {dt_stats['wan1_only']} ({dt_stats['wan1_only']/dt_stats['total']*100:.1f}%)")
+            logger.info(f"Networks with only WAN2 matched: {dt_stats['wan2_only']} ({dt_stats['wan2_only']/dt_stats['total']*100:.1f}%)")
+            logger.info(f"Networks with no matches: {dt_stats['no_match']} ({dt_stats['no_match']/dt_stats['total']*100:.1f}%)")
+            
+            total_wans = dt_stats['total'] * 2
+            total_matches = dt_stats['wan1_matches'] + dt_stats['wan2_matches']
+            logger.info(f"\nOverall WAN match rate: {total_matches}/{total_wans} ({total_matches/total_wans*100:.1f}%)")
+            logger.info(f"  - WAN1 matches: {dt_stats['wan1_matches']}/{dt_stats['total']} ({dt_stats['wan1_matches']/dt_stats['total']*100:.1f}%)")
+            logger.info(f"  - WAN2 matches: {dt_stats['wan2_matches']}/{dt_stats['total']} ({dt_stats['wan2_matches']/dt_stats['total']*100:.1f}%)")
+            
+            if dt_stats['unmatched_providers']:
+                logger.info("\nTop unmatched providers:")
+                sorted_providers = sorted(dt_stats['unmatched_providers'].items(), key=lambda x: -x[1])
+                for provider, count in sorted_providers[:10]:
+                    logger.info(f"  - {provider}: {count} sites")
+        
+        logger.info("\n" + "=" * 80)
+        logger.info(f"Completed! Processed {total_devices} devices, {total_vlans} VLANs, {total_rules} firewall rules")
+        logger.info("=" * 80)
+        
+        conn.close()
+        return 0
+        
+    except KeyboardInterrupt:
+        logger.info("\nScript interrupted by user")
+        return 1
+    except Exception as e:
+        logger.error(f"Script failed with error: {e}", exc_info=True)
+        return 1
+
+if __name__ == "__main__":
+    sys.exit(main())

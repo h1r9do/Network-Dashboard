@@ -1,0 +1,233 @@
+"""
+INVENTORY MANAGEMENT AND DEVICE TRACKING
+========================================
+
+Purpose:
+    - Meraki device inventory management and tracking
+    - Device model analysis and lifecycle monitoring
+    - Organization-based inventory reporting
+    - End-of-life and end-of-sale tracking
+
+Pages Served:
+    - /inventory-summary (device model summary with EOL/EOS status)
+    - /inventory-details (detailed device inventory by organization)
+
+Templates Used:
+    - inventory_summary.html (summary table with device model counts and lifecycle status)
+    - inventory_details.html (detailed inventory with filtering and search)
+
+API Endpoints:
+    - /api/inventory-summary (GET) - Device model summary data
+    - /api/inventory-details (GET) - Detailed device inventory with filtering
+
+Key Functions:
+    - Device model aggregation and counting
+    - End-of-life (EOL) and end-of-sale (EOS) status tracking
+    - Organization-based inventory breakdown
+    - Device filtering and search capabilities
+    - Lifecycle status highlighting and warnings
+
+Dependencies:
+    - utils.py (data processing utilities)
+    - DATA_DIR for inventory JSON files
+    - meraki_inventory_summary.json (model summaries)
+    - meraki_inventory_full.json (detailed device data)
+
+Data Sources:
+    - Meraki dashboard API device data
+    - Device lifecycle information
+    - Organization mapping and device assignments
+
+Features:
+    - Interactive model filtering and search
+    - Organization-based views and tabs
+    - End-of-life status highlighting
+    - Export capabilities (Excel, PDF)
+    - Device detail viewing and management
+    - Lifecycle status color coding
+"""
+
+from flask import Blueprint, render_template, jsonify, request
+import json
+import os
+from utils import DATA_DIR
+
+# Create Blueprint
+inventory_bp = Blueprint('inventory', __name__)
+
+@inventory_bp.route('/inventory-summary')
+def inventory_summary():
+    """
+    Device model summary page with lifecycle status
+    
+    Displays aggregated device model counts across all organizations
+    with end-of-life and end-of-sale status highlighting.
+    
+    Returns:
+        Rendered inventory_summary.html template with summary data
+        OR error message if data cannot be loaded
+    """
+    try:
+        summary_file = os.path.join(DATA_DIR, 'meraki_inventory_summary.json')
+        
+        if not os.path.exists(summary_file):
+            print(f"❌ Inventory summary file not found: {summary_file}")
+            return f"Inventory summary file not found: {summary_file}", 404
+        
+        with open(summary_file) as f:
+            data = json.load(f)
+        
+        summary_data = data.get('summary', [])
+        org_names = data.get('org_names', [])
+        
+        print(f"📊 Loaded inventory summary: {len(summary_data)} models across {len(org_names)} orgs")
+        
+        # Calculate total devices for display
+        total_devices = sum(entry.get('total', 0) for entry in summary_data)
+        
+        return render_template('inventory_summary.html', 
+                             summary=summary_data, 
+                             org_names=org_names,
+                             total_devices=total_devices)
+
+    except Exception as e:
+        print(f"❌ Error loading inventory summary: {e}")
+        return f"Error loading inventory summary: {e}", 500
+
+@inventory_bp.route('/inventory-details')
+def inventory_details():
+    """
+    Detailed device inventory page
+    
+    Displays detailed device information organized by organization
+    with filtering, search, and export capabilities.
+    
+    Returns:
+        Rendered inventory_details.html template with detailed inventory data
+        OR error message if data cannot be loaded
+    """
+    try:
+        details_file = os.path.join(DATA_DIR, 'meraki_inventory_full.json')
+        
+        if not os.path.exists(details_file):
+            print(f"❌ Inventory details file not found: {details_file}")
+            return f"Inventory details file not found: {details_file}", 404
+        
+        with open(details_file) as f:
+            full_data = json.load(f)
+        
+        all_orgs = sorted(set(full_data.keys()))
+        
+        print(f"📱 Loaded detailed inventory for {len(all_orgs)} organizations")
+        
+        # Calculate device counts for logging
+        total_devices = 0
+        for org in all_orgs:
+            device_count = len(full_data[org])
+            total_devices += device_count
+            print(f"   📊 {org}: {device_count} devices")
+        
+        return render_template('inventory_details.html', 
+                             inventory=full_data,
+                             all_orgs=all_orgs,
+                             total_devices=total_devices)
+                             
+    except Exception as e:
+        print(f"❌ Error loading inventory details: {e}")
+        return f"Error loading inventory details: {e}", 500
+
+@inventory_bp.route('/api/inventory-summary')
+def api_inventory_summary():
+    """
+    API endpoint for inventory summary data
+    
+    Returns raw JSON data for the inventory summary, useful for
+    programmatic access or AJAX updates.
+    
+    Returns:
+        JSON response with inventory summary data:
+        - summary: List of device models with counts and lifecycle info
+        - org_names: List of organization names
+        OR error message if data cannot be loaded
+    """
+    try:
+        summary_file = os.path.join(DATA_DIR, 'meraki_inventory_summary.json')
+        
+        if not os.path.exists(summary_file):
+            return jsonify({"error": f"Summary file not found: {summary_file}"}), 404
+        
+        with open(summary_file) as f:
+            data = json.load(f)
+            
+        print(f"📊 API: Returning summary data for {len(data.get('summary', []))} models")
+        return jsonify(data)
+        
+    except Exception as e:
+        print(f"❌ Error in inventory summary API: {e}")
+        return jsonify({"error": str(e)}), 500
+
+@inventory_bp.route('/api/inventory-details')
+def api_inventory_details():
+    """
+    API endpoint for detailed inventory data with filtering
+    
+    Supports filtering by organization and device model for refined
+    data access and reporting.
+    
+    Query Parameters:
+        org (str, optional): Filter by specific organization
+        model (str, optional): Filter by device model (partial match)
+    
+    Returns:
+        JSON response with filtered device inventory data
+        OR error message if data cannot be loaded
+    """
+    try:
+        org_filter = request.args.get('org')
+        model_filter = request.args.get('model')
+        
+        details_file = os.path.join(DATA_DIR, 'meraki_inventory_full.json')
+        
+        if not os.path.exists(details_file):
+            return jsonify({"error": f"Details file not found: {details_file}"}), 404
+        
+        with open(details_file) as f:
+            full_data = json.load(f)
+        
+        # Apply filters if specified
+        if org_filter or model_filter:
+            filtered_data = {}
+            
+            for org_name, devices in full_data.items():
+                # Skip if org filter specified and doesn't match
+                if org_filter and org_name != org_filter:
+                    continue
+                    
+                filtered_devices = []
+                for device in devices:
+                    # Apply model filter if specified
+                    if model_filter:
+                        device_model = device.get('device_model') or device.get('model', '')
+                        if model_filter.lower() not in device_model.lower():
+                            continue
+                    
+                    filtered_devices.append(device)
+                
+                # Only include org if it has matching devices
+                if filtered_devices:
+                    filtered_data[org_name] = filtered_devices
+            
+            print(f"📊 API: Filtered data - {len(filtered_data)} orgs")
+            if org_filter:
+                print(f"   🏢 Org filter: {org_filter}")
+            if model_filter:
+                print(f"   📱 Model filter: {model_filter}")
+                
+            return jsonify(filtered_data)
+        
+        print(f"📊 API: Returning full inventory data for {len(full_data)} orgs")
+        return jsonify(full_data)
+        
+    except Exception as e:
+        print(f"❌ Error in inventory details API: {e}")
+        return jsonify({"error": str(e)}), 500

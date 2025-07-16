@@ -1,0 +1,72 @@
+
+VLAN Migration Report
+====================
+Network ID: L_3790904986339115852
+Mode: TEST
+Duration: 0:00:27.029666
+
+Migration Log:
+[13:13:56] INFO: VLAN Migrator initialized in TEST mode
+[13:13:56] INFO: Starting VLAN migration...
+[13:13:56] INFO: Mode: TEST
+[13:13:56] INFO: 
+Step 1: Cleaning up existing VLANs...
+[13:13:56] INFO: Fetching current VLAN configuration...
+[13:13:57] INFO:   Deleting VLAN 900 (Mgmt)
+[13:13:58] ERROR: Error DELETE https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans/900: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans/900
+[13:13:58] ERROR: Response: {"errors":["At least one VLAN must be configured."]}
+[13:13:59] INFO: 
+Step 2: Migrating default VLAN...
+[13:13:59] INFO:   Moving VLAN 1 to temporary subnet...
+[13:14:00] ERROR: Error PUT https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans/1: 404 Client Error: Not Found for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans/1
+[13:14:00] ERROR: Response: 
+[13:14:02] INFO:   TEST MODE: Changing IP from 10.1.32.0/25 to 10.255.255.0/25
+[13:14:02] INFO:   Creating VLAN 100 (Data) with subnet 10.255.255.0/25
+[13:14:05] INFO:   Deleting temporary VLAN 1...
+[13:14:05] ERROR: Error DELETE https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans/1: 404 Client Error: Not Found for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans/1
+[13:14:05] ERROR: Response: 
+[13:14:06] INFO: 
+Step 3: Creating remaining VLANs...
+[13:14:06] INFO:   Creating VLAN 200 (was 101)
+[13:14:06] INFO:   TEST MODE: Changing IP from 10.1.32.128/27 to 10.255.255.128/27
+[13:14:07] INFO:     ✓ Created VLAN 200 - Voice (10.255.255.128/27)
+[13:14:08] INFO:   Creating VLAN 410 (was 201)
+[13:14:08] INFO:   TEST MODE: Changing IP from 10.1.32.160/28 to 10.255.255.160/28
+[13:14:10] INFO:     ✓ Created VLAN 410 - Ccard (10.255.255.160/28)
+[13:14:11] INFO:   Creating VLAN 300 (was 300)
+[13:14:11] INFO:   TEST MODE: Changing IP from 10.1.32.176/28 to 10.255.255.176/28
+[13:14:12] INFO:     ✓ Created VLAN 300 - Net Mgmt (10.255.255.176/28)
+[13:14:13] INFO:   Creating VLAN 301 (was 301)
+[13:14:13] INFO:   TEST MODE: Changing IP from 10.1.32.192/28 to 10.255.255.192/28
+[13:14:14] INFO:     ✓ Created VLAN 301 - Scanner (10.255.255.192/28)
+[13:14:15] INFO:   Creating VLAN 800 (was 800)
+[13:14:15] INFO:   TEST MODE: Changing IP from 172.13.0.0/30 to 172.16.80.0/24
+[13:14:16] ERROR: Error POST https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans
+[13:14:16] ERROR: Response: {"errors":["Group policy with id 100 not found"]}
+[13:14:16] ERROR:     ✗ Failed to create VLAN 800
+[13:14:17] INFO:   Creating VLAN 400 (was 801)
+[13:14:17] INFO:   TEST MODE: Changing IP from 172.14.0.0/24 to 172.16.40.0/24
+[13:14:18] ERROR: Error POST https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans
+[13:14:18] ERROR: Response: {"errors":["Group policy with id 100 not found"]}
+[13:14:18] ERROR:     ✗ Failed to create VLAN 400
+[13:14:19] INFO:   Skipping VLAN 802 (will be removed)
+[13:14:19] INFO:   Creating VLAN 803 (was 803)
+[13:14:19] ERROR: Error POST https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans
+[13:14:19] ERROR: Response: {"errors":["Group policy with id 100 not found"]}
+[13:14:19] ERROR:     ✗ Failed to create VLAN 803
+[13:14:20] INFO:   Creating VLAN 900 (was 900)
+[13:14:20] INFO:   TEST MODE: Changing IP from 10.1.32.252/30 to 10.255.255.252/30
+[13:14:21] ERROR: Error POST https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans
+[13:14:21] ERROR: Response: {"errors":["Vlan has already been taken"]}
+[13:14:21] ERROR:     ✗ Failed to create VLAN 900
+[13:14:22] INFO: 
+Step 4: Verifying migration...
+[13:14:22] INFO: Fetching current VLAN configuration...
+[13:14:23] INFO: 
+Migration complete! Created 6 VLANs:
+[13:14:23] INFO:   VLAN 100: Data            - 10.255.255.0/25
+[13:14:23] INFO:   VLAN 200: Voice           - 10.255.255.128/27
+[13:14:23] INFO:   VLAN 300: Net Mgmt        - 10.255.255.176/28
+[13:14:23] INFO:   VLAN 301: Scanner         - 10.255.255.192/28
+[13:14:23] INFO:   VLAN 410: Ccard           - 10.255.255.160/28
+[13:14:23] INFO:   VLAN 900: Mgmt            - 10.255.255.252/30

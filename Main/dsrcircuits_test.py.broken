@@ -1,0 +1,552 @@
+"""
+TEST VERSION - EXACT COPY OF PRODUCTION WITH TEST TABLES
+=========================================================
+
+This is an EXACT copy of dsrcircuits_blueprint.py but reading from test tables:
+- enriched_circuits instead of enriched_circuits
+- v_enriched_circuits_complete_test instead of v_enriched_circuits_complete
+"""
+
+from flask import Blueprint, render_template, jsonify, request, current_app
+from sqlalchemy import and_, or_, func
+from models import db, Circuit, EnrichedCircuit, MerakiInventory
+from datetime import datetime
+import json
+import logging
+from utils import (
+    MERAKI_FUNCTIONS_AVAILABLE,
+    confirm_site, reset_confirmation, push_to_meraki
+)
+
+# Set up logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# Create Blueprint
+dsrcircuits_test_bp = Blueprint('dsrcircuits_test', __name__)
+
+@dsrcircuits_test_bp.route('/')
+def index():
+    """
+    Default route - redirect to main circuits page
+    
+    Returns:
+        Rendered index.html template (simple redirect page)
+    """
+    return render_template('index.html')
+
+@dsrcircuits_test_bp.route('/dsrcircuits-test')
+def dsrcircuits():
+    """
+    TEST VERSION - Main circuits data table page
+    
+    Loads circuit data from TEST database tables
+    
+    Returns:
+        Rendered dsrcircuits.html template with circuit data
+    """
+    import time
+    start_time = time.time()
+    
+    try:
+        # Try Redis cache first
+        cache_key = "dsrcircuits_data_v2"
+        redis_conn = None
+        
+        try:
+            from config import get_redis_connection
+            redis_conn = get_redis_connection()
+            
+            if redis_conn:
+                cached_data = redis_conn.get(cache_key)
+                if cached_data:
+                    circuits_data = json.loads(cached_data)
+                    processing_time = (time.time() - start_time) * 1000
+                    
+                    logger.info(f"DSR Circuits Test page loaded from cache in {processing_time:.2f}ms")
+                    
+                    # Convert to grouped_data format expected by template
+                    grouped_data = []
+                    for circuit in circuits_data:
+                        grouped_data.append({
+                            'network_name': circuit['site_name'],
+                            'wan1': {
+                                'provider': circuit['wan1_provider'],
+                                'speed': circuit['wan1_speed'],
+                                'monthly_cost': circuit['wan1_cost'],
+                                'circuit_role': circuit['wan1_role']
+                            },
+                            'wan2': {
+                                'provider': circuit['wan2_provider'],
+                                'speed': circuit['wan2_speed'],
+                                'monthly_cost': circuit['wan2_cost'],
+                                'circuit_role': circuit['wan2_role']
+                            }
+                        })
+                    
+
+            # Count badges
+            dsr_count = 0
+            vzw_count = 0
+            att_count = 0
+            starlink_count = 0
+            
+            for entry in grouped_data:
+                # Check for DSR badge
+                if entry.get('wan1', {}).get('confirmed') or entry.get('wan2', {}).get('confirmed'):
+                    dsr_count += 1
+                
+                # Get network name for Meraki lookup
+                network_name = entry.get('network_name')
+                meraki_device = MerakiInventory.query.filter_by(network_name=network_name).first() if network_name else None
+                
+                # Check WAN1 for wireless badges
+                wan1_speed = (entry.get('wan1', {}).get('speed') or '').lower()
+                wan1_provider = (entry.get('wan1', {}).get('provider') or '').lower()
+                
+                # Check for VZW/AT&T (cell speed)
+                if 'cell' in wan1_speed and meraki_device and meraki_device.wan1_arin_provider:
+                    if 'VERIZON' in meraki_device.wan1_arin_provider.upper():
+                        vzw_count += 1
+                    elif 'AT&T' in meraki_device.wan1_arin_provider.upper():
+                        att_count += 1
+                
+                # Check for Starlink (satellite speed OR provider name OR SpaceX ARIN)
+                if ('satellite' in wan1_speed or 
+                    'starlink' in wan1_provider or
+                    (meraki_device and meraki_device.wan1_arin_provider and 
+                     'SPACEX' in meraki_device.wan1_arin_provider.upper())):
+                    starlink_count += 1
+                
+                # Check WAN2 for wireless badges
+                wan2_speed = (entry.get('wan2', {}).get('speed') or '').lower()
+                wan2_provider = (entry.get('wan2', {}).get('provider') or '').lower()
+                
+                if 'cell' in wan2_speed and meraki_device and meraki_device.wan2_arin_provider:
+                    if 'VERIZON' in meraki_device.wan2_arin_provider.upper():
+                        vzw_count += 1
+                    elif 'AT&T' in meraki_device.wan2_arin_provider.upper():
+                        att_count += 1
+                
+                if ('satellite' in wan2_speed or 
+                    'starlink' in wan2_provider or
+                    (meraki_device and meraki_device.wan2_arin_provider and 
+                     'SPACEX' in meraki_device.wan2_arin_provider.upper())):
+                    starlink_count += 1
+            
+            badge_counts = {
+                'dsr': dsr_count,
+                'vzw': vzw_count,
+                'att': att_count,
+                'starlink': starlink_count
+            }
+            
+            # Get last updated time
+            last_updated = None
+            latest_circuit = db.session.query(Circuit).order_by(Circuit.updated_at.desc()).first()
+            if latest_circuit and latest_circuit.updated_at:
+                last_updated = latest_circuit.updated_at.strftime('%B %d, %Y')
+            
+
+                    return render_template('dsrcircuits_test.html',
+                badge_counts={'dsr': 0, 'vzw': 0, 'att': 0, 'starlink': 0},
+                last_updated=None,
+                badge_counts={'dsr': 0, 'vzw': 0, 'att': 0, 'starlink': 0},
+                last_updated=None,
+                        grouped_data=grouped_data, badge_counts=badge_counts, last_updated=last_updated,
+                        meraki_functions_available=MERAKI_FUNCTIONS_AVAILABLE,
+                        processing_time=f"{processing_time:.2f}ms",
+                        data_source="Redis Cache"
+                    )
+        except Exception as e:
+            logger.warning(f"Redis cache error: {str(e)}")
+        
+        # If no cache, load from database using optimized view
+        try:
+            # Use the test view instead of production view
+            from sqlalchemy import text
+            query = db.session.execute(text("""
+                SELECT 
+                    network_name,
+                    wan1_provider,
+                    wan1_speed,
+                    wan1_cost,
+                    wan1_role,
+                    wan2_provider,
+                    wan2_speed,
+                    wan2_cost,
+                    wan2_role,
+                    total_cost,
+                    wan1_confirmed,
+                    wan2_confirmed,
+                    pushed_to_meraki,
+                    pushed_date,
+                    last_updated
+                FROM v_enriched_circuits_complete_test
+                ORDER BY network_name
+            """))
+            
+            circuits_data = []
+            for row in query:
+                circuit = {
+                    'site_name': row[0],
+                    'wan1_provider': row[1],
+                    'wan1_speed': row[2],
+                    'wan1_cost': float(row[3]) if row[3] else 0,
+                    'wan1_role': row[4],
+                    'wan2_provider': row[5],
+                    'wan2_speed': row[6],
+                    'wan2_cost': float(row[7]) if row[7] else 0,
+                    'wan2_role': row[8],
+                    'total_cost': float(row[9]) if row[9] else 0,
+                    'wan1_confirmed': row[10],
+                    'wan2_confirmed': row[11],
+                    'pushed_to_meraki': row[12],
+                    'pushed_date': row[13].strftime('%Y-%m-%d %H:%M') if row[13] else None,
+                    'last_updated': row[14].strftime('%Y-%m-%d %H:%M') if row[14] else None
+                }
+                
+                # Set confirmation status
+                if circuit['wan1_confirmed'] and circuit['wan2_confirmed']:
+                    circuit['confirmation_status'] = 'Confirmed'
+                elif circuit['wan1_confirmed'] or circuit['wan2_confirmed']:
+                    circuit['confirmation_status'] = 'Partial'
+                else:
+                    circuit['confirmation_status'] = 'Not Confirmed'
+                
+                circuits_data.append(circuit)
+            
+            # Cache the data if Redis is available
+            if redis_conn:
+                try:
+                    redis_conn.setex(cache_key, 300, json.dumps(circuits_data))  # 5 minute cache
+                except Exception as e:
+                    logger.warning(f"Failed to cache data: {str(e)}")
+            
+            processing_time = (time.time() - start_time) * 1000
+            
+            logger.info(f"DSR Circuits Test page loaded from database in {processing_time:.2f}ms with {len(circuits_data)} circuits")
+            
+            # Convert to grouped_data format expected by template
+            grouped_data = []
+            for circuit in circuits_data:
+                grouped_data.append({
+                    'network_name': circuit['site_name'],
+                    'wan1': {
+                        'provider': circuit['wan1_provider'],
+                        'speed': circuit['wan1_speed'],
+                        'monthly_cost': circuit['wan1_cost'],
+                        'circuit_role': circuit['wan1_role']
+                    },
+                    'wan2': {
+                        'provider': circuit['wan2_provider'],
+                        'speed': circuit['wan2_speed'],
+                        'monthly_cost': circuit['wan2_cost'],
+                        'circuit_role': circuit['wan2_role']
+                    }
+                })
+            
+            return render_template('dsrcircuits_test.html',
+                grouped_data=grouped_data, badge_counts=badge_counts, last_updated=last_updated,
+                meraki_functions_available=MERAKI_FUNCTIONS_AVAILABLE,
+                processing_time=f"{processing_time:.2f}ms",
+                data_source="Database (Test Tables)"
+            )
+            
+        except Exception as e:
+            logger.error(f"Database query error: {str(e)}")
+            # Fallback to empty data
+            processing_time = (time.time() - start_time) * 1000
+            
+            return render_template('dsrcircuits_test.html',
+                grouped_data=[],
+                meraki_functions_available=MERAKI_FUNCTIONS_AVAILABLE,
+                processing_time=f"{processing_time:.2f}ms",
+                data_source="Error - No Data",
+                error=str(e)
+            )
+    
+    except Exception as e:
+        logger.error(f"Unexpected error in dsrcircuits test: {str(e)}")
+        processing_time = (time.time() - start_time) * 1000
+        
+        return render_template('dsrcircuits_test.html',
+            grouped_data=[],
+            meraki_functions_available=MERAKI_FUNCTIONS_AVAILABLE,
+            processing_time=f"{processing_time:.2f}ms",
+            data_source="Error",
+            error=str(e)
+        )
+
+@dsrcircuits_test_bp.route('/confirm/<site_name>', methods=['POST'])
+def get_confirmation_popup(site_name):
+    """
+    Get confirmation popup data for a site - TEST VERSION
+    
+    Args:
+        site_name: The site name to get confirmation data for
+    
+    Returns:
+        JSON response with site data from multiple sources
+    """
+    try:
+        # Get enriched data from test table
+        from sqlalchemy import text
+        enriched = db.session.execute(text("""
+            SELECT 
+                network_name,
+                wan1_provider,
+                wan1_speed,
+                wan1_confirmed,
+                wan2_provider,
+                wan2_speed,
+                wan2_confirmed,
+                device_tags
+            FROM enriched_circuits
+            WHERE network_name = :site_name
+        """), {'site_name': site_name}).fetchone()
+        
+        # Get Meraki data
+        meraki = MerakiInventory.query.filter_by(network_name=site_name).first()
+        
+        # Get DSR circuit data
+        dsr_circuits = Circuit.query.filter_by(
+            site_name=site_name,
+            status='Enabled'
+        ).order_by(Circuit.circuit_purpose).all()
+        
+        # Parse device notes properly (fix newline issue)
+        def clean_provider_name(raw_notes, wan_num):
+            """Extract clean provider name from raw notes"""
+            if not raw_notes:
+                return None
+            
+            # Replace literal \n with actual newlines
+            notes = raw_notes.replace('\\n', '\n')
+            lines = notes.split('\n')
+            
+            # Find WAN section
+            wan_section = f"WAN {wan_num}"
+            try:
+                wan_index = lines.index(wan_section)
+                if wan_index + 1 < len(lines):
+                    provider = lines[wan_index + 1].strip()
+                    # Remove any remaining newline artifacts
+                    provider = provider.replace('\\', '').replace('\n', '').strip()
+                    return provider if provider and provider != '' else None
+            except (ValueError, IndexError):
+                pass
+            
+            return None
+        
+        # Get raw notes for parsing
+        raw_notes = meraki.device_notes if meraki else None
+        
+        # Format response
+        response_data = {
+            'site_name': site_name,
+            'enriched_data': {
+                'wan1_provider': enriched[1] if enriched else None,
+                'wan1_speed': enriched[2] if enriched else None,
+                'wan1_confirmed': enriched[3] if enriched else False,
+                'wan2_provider': enriched[4] if enriched else None,
+                'wan2_speed': enriched[5] if enriched else None,
+                'wan2_confirmed': enriched[6] if enriched else False,
+                'device_tags': enriched[7] if enriched else []
+            } if enriched else None,
+            'meraki_data': {
+                'wan1_ip': meraki.wan1_ip if meraki else None,
+                'wan2_ip': meraki.wan2_ip if meraki else None,
+                'device_notes': meraki.device_notes if meraki else None,
+                'device_serial': meraki.device_serial if meraki else None
+            } if meraki else None,
+            # Add properly parsed provider names  
+            'wan1_provider_notes': clean_provider_name(raw_notes, 1),
+            'wan2_provider_notes': clean_provider_name(raw_notes, 2),
+            'wan1_provider_label': clean_provider_name(raw_notes, 1),
+            'wan2_provider_label': clean_provider_name(raw_notes, 2),
+            'raw_notes': raw_notes,
+            'dsr_circuits': [{
+                'provider': circuit.provider_name,
+                'speed': circuit.details_service_speed,
+                'purpose': circuit.circuit_purpose,
+                'ip_address': circuit.ip_address_start,
+                'cost': float(circuit.billing_monthly_cost) if circuit.billing_monthly_cost else 0
+            } for circuit in dsr_circuits]
+        }
+        
+        return jsonify(response_data)
+        
+    except Exception as e:
+        logger.error(f"Error getting confirmation data: {str(e)}")
+        return jsonify({'error': str(e)}), 500
+
+@dsrcircuits_test_bp.route('/confirm/<site_name>/submit', methods=['POST'])
+def submit_confirmation(site_name):
+    """
+    Submit confirmed circuit data - TEST VERSION
+    
+    Args:
+        site_name: The site name to confirm
+    
+    Returns:
+        JSON response with success/error status
+    """
+    try:
+        data = request.get_json()
+        
+        # Update enriched_circuits table
+        from sqlalchemy import text
+        db.session.execute(text("""
+            UPDATE enriched_circuits
+            SET 
+                wan1_provider = :wan1_provider,
+                wan1_speed = :wan1_speed,
+                wan1_confirmed = :wan1_confirmed,
+                wan2_provider = :wan2_provider,
+                wan2_speed = :wan2_speed,
+                wan2_confirmed = :wan2_confirmed,
+                last_updated = CURRENT_TIMESTAMP
+            WHERE network_name = :site_name
+        """), {
+            'site_name': site_name,
+            'wan1_provider': data.get('wan1_provider'),
+            'wan1_speed': data.get('wan1_speed'),
+            'wan1_confirmed': data.get('wan1_confirmed', False),
+            'wan2_provider': data.get('wan2_provider'),
+            'wan2_speed': data.get('wan2_speed'),
+            'wan2_confirmed': data.get('wan2_confirmed', False)
+        })
+        
+        db.session.commit()
+        
+        # Clear cache
+        try:
+            from config import get_redis_connection
+            redis_conn = get_redis_connection()
+            if redis_conn:
+                redis_conn.delete("dsrcircuits_data_v2")
+        except:
+            pass
+        
+        return jsonify({'success': True})
+        
+    except Exception as e:
+        logger.error(f"Error submitting confirmation: {str(e)}")
+        db.session.rollback()
+        return jsonify({'error': str(e)}), 500
+
+@dsrcircuits_test_bp.route('/confirm/<site_name>/reset', methods=['POST'])
+def reset_site_confirmation(site_name):
+    """
+    Reset confirmation status for a site - TEST VERSION
+    
+    Args:
+        site_name: The site name to reset
+    
+    Returns:
+        JSON response with success/error status
+    """
+    try:
+        # Reset confirmation flags in test table
+        from sqlalchemy import text
+        db.session.execute(text("""
+            UPDATE enriched_circuits
+            SET 
+                wan1_confirmed = FALSE,
+                wan2_confirmed = FALSE,
+                pushed_to_meraki = FALSE,
+                pushed_date = NULL,
+                last_updated = CURRENT_TIMESTAMP
+            WHERE network_name = :site_name
+        """), {'site_name': site_name})
+        
+        db.session.commit()
+        
+        # Clear cache
+        try:
+            from config import get_redis_connection
+            redis_conn = get_redis_connection()
+            if redis_conn:
+                redis_conn.delete("dsrcircuits_data_v2")
+        except:
+            pass
+        
+        return jsonify({'success': True})
+        
+    except Exception as e:
+        logger.error(f"Error resetting confirmation: {str(e)}")
+        db.session.rollback()
+        return jsonify({'error': str(e)}), 500
+
+@dsrcircuits_test_bp.route('/push_to_meraki', methods=['POST'])
+def push_to_meraki_route():
+    """
+    Push confirmed circuits to Meraki - TEST VERSION
+    
+    NOTE: This is disabled for test version to prevent accidental pushes
+    
+    Returns:
+        JSON response indicating test mode
+    """
+    return jsonify({
+        'success': False,
+        'error': 'Push to Meraki is disabled in test mode',
+        'message': 'This is a test environment - no changes will be pushed to Meraki devices'
+    }), 400
+
+@dsrcircuits_test_bp.route('/api/sites-without-ips')
+def get_sites_without_ips():
+    """
+    Get sites that don't have IP addresses on WAN interfaces - TEST VERSION
+    
+    Returns:
+        JSON response with list of sites missing IP addresses
+    """
+    try:
+        # Query for sites without IPs using test tables
+        from sqlalchemy import text
+        query = db.session.execute(text("""
+            SELECT DISTINCT 
+                e.network_name,
+                e.wan1_provider,
+                e.wan1_speed,
+                e.wan2_provider,
+                e.wan2_speed,
+                m.wan1_ip,
+                m.wan2_ip
+            FROM enriched_circuits e
+            LEFT JOIN meraki_inventory m ON e.network_name = m.network_name
+            WHERE (m.wan1_ip IS NULL OR m.wan1_ip = '') 
+               OR (m.wan2_ip IS NULL OR m.wan2_ip = '')
+            ORDER BY e.network_name
+        """))
+        
+        sites = []
+        for row in query:
+            sites.append({
+                'site_name': row[0],
+                'wan1_provider': row[1],
+                'wan1_speed': row[2],
+                'wan2_provider': row[3],
+                'wan2_speed': row[4],
+                'wan1_ip': row[5],
+                'wan2_ip': row[6],
+                'missing': []
+            })
+            
+            # Determine what's missing
+            if not row[5]:
+                sites[-1]['missing'].append('WAN1 IP')
+            if not row[6]:
+                sites[-1]['missing'].append('WAN2 IP')
+        
+        return jsonify({
+            'success': True,
+            'count': len(sites),
+            'sites': sites
+        })
+        
+    except Exception as e:
+        logger.error(f"Error getting sites without IPs: {str(e)}")
+        return jsonify({'error': str(e)}), 500

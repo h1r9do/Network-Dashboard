@@ -1,0 +1,119 @@
+{
+  "test_time": "2025-07-09T07:54:58.420037",
+  "site": "CAN_00",
+  "steps": [
+    {
+      "step": "1_dsr_data",
+      "description": "Raw DSR data from circuits table",
+      "data": [
+        {
+          "site": "CAN00",
+          "purpose": "Primary",
+          "provider": "Comcast Workplace",
+          "speed_from_dsr": "300.0M x 30.0M",
+          "ip": "96.81.183.205"
+        },
+        {
+          "site": "CAN00",
+          "purpose": "Secondary",
+          "provider": "AT&T Broadband II",
+          "speed_from_dsr": "300.0M x 300.0M",
+          "ip": "108.86.147.217"
+        }
+      ]
+    },
+    {
+      "step": "2_meraki_notes",
+      "description": "Raw Meraki device notes",
+      "data": {
+        "network": "CAN_00",
+        "raw_notes": "WAN 1\nComcast\n300.0M x 30.0M\nWAN 2\nAT&T\n300.0M x 300.0M",
+        "wan1_ip": "96.81.183.205",
+        "wan2_ip": "108.86.147.217"
+      }
+    },
+    {
+      "step": "3_parsed_notes",
+      "description": "Parsed notes using parse_raw_notes()",
+      "data": {
+        "wan1_provider": "Comcast",
+        "wan1_speed": "300.0M x 30.0M",
+        "wan2_provider": "AT&T",
+        "wan2_speed": "300.0M x 300.0M"
+      }
+    },
+    {
+      "step": "4_reformat_speed_test",
+      "description": "Testing reformat_speed() function",
+      "data": [
+        {
+          "input_speed": "300.0M x 30.0M",
+          "provider": "Comcast",
+          "output_speed": "300.0M x 30.0M"
+        },
+        {
+          "input_speed": "300.0M x 300.0M",
+          "provider": "AT&T",
+          "output_speed": "300.0M x 300.0M"
+        },
+        {
+          "input_speed": "250.0M x 25.0M",
+          "provider": "Comcast Workplace",
+          "output_speed": "250.0M x 25.0M"
+        },
+        {
+          "input_speed": "Cell",
+          "provider": "VZW Cell",
+          "output_speed": "Cell"
+        },
+        {
+          "input_speed": "Satellite",
+          "provider": "Starlink",
+          "output_speed": "Satellite"
+        }
+      ]
+    },
+    {
+      "step": "5_enrichment_simulation",
+      "description": "Simulating the enrichment process",
+      "data": {
+        "wan1": {
+          "dsr_match": {
+            "provider": "Comcast Workplace",
+            "speed": "300.0M x 30.0M",
+            "purpose": "Primary",
+            "ip": "96.81.183.205"
+          },
+          "speed_to_use": "300.0M x 30.0M",
+          "speed_final": "300.0M x 30.0M"
+        },
+        "wan2": {
+          "dsr_match": {
+            "provider": "AT&T Broadband II",
+            "speed": "300.0M x 300.0M",
+            "purpose": "Secondary",
+            "ip": "108.86.147.217"
+          },
+          "speed_to_use": "300.0M x 300.0M",
+          "speed_final": "300.0M x 300.0M"
+        }
+      }
+    },
+    {
+      "step": "6_current_enriched",
+      "description": "Current enriched_circuits table data",
+      "data": {
+        "wan1_provider": "Comcast",
+        "wan1_speed": "300.0 M",
+        "wan2_provider": "AT&T",
+        "wan2_speed": "300.0 M"
+      }
+    }
+  ],
+  "summary": {
+    "dsr_has_full_speed": true,
+    "meraki_has_full_speed": true,
+    "reformat_corrupts_speed": false,
+    "enriched_missing_upload": true
+  }
+}

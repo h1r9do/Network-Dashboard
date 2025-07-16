@@ -1,0 +1,888 @@
+#!/usr/bin/env python3
+"""
+Corporate Network Data Functions - Database Based
+Functions for Tabs 2 and 4 using PostgreSQL database
+"""
+import psycopg2
+import json
+from datetime import datetime, date
+from collections import defaultdict
+
+# Database connection parameters
+DB_CONFIG = {
+    'host': 'localhost',
+    'database': 'dsrcircuits',
+    'user': 'dsruser',
+    'password': 'dsrpass123'
+}
+
+def generate_corp_critical_insights(processed_data, by_device_type, eol_timeline, today):
+    """Generate critical insights for corporate network"""
+    insights = {
+        'immediate_action': [],
+        'critical_years': [],
+        'major_refreshes': [],
+        'budget_planning': []
+    }
+    
+    # Immediate action - devices already EOL
+    eol_devices = [d for d in processed_data if d['status'] == 'EOL']
+    if eol_devices:
+        total_eol = sum(d['total_devices'] for d in eol_devices)
+        insights['immediate_action'].append({
+            'message': f'{total_eol} devices across {len(eol_devices)} models are past End-of-Support and pose security/operational risks',
+            'priority': 'HIGHEST'
+        })
+        
+        # Check for critical EOL devices
+        critical_eol = [d for d in eol_devices if d['device_type'] in ['Router', 'Firewall', 'Switch'] and d['total_devices'] >= 5]
+        if critical_eol:
+            for device in critical_eol[:3]:  # Top 3
+                eol_date = device['end_of_support'].strftime("%Y-%m-%d") if device['end_of_support'] else 'Unknown'
+                insights['immediate_action'].append({
+                    'message': f'{device["total_devices"]} {device["model"]} {device["device_type"]}s - EOL since {eol_date}',
+                    'priority': 'CRITICAL'
+                })
+    
+    # Critical years analysis
+    current_year = today.year
+    for year_data in eol_timeline:
+        if year_data['year'] >= current_year and year_data['year'] <= current_year + 2:
+            if year_data['total_devices'] >= 20:
+                insights['critical_years'].append({
+                    'message': f'{year_data["year"]}: {year_data["total_devices"]} devices reaching EOL - Plan replacement budget',
+                    'priority': 'HIGH'
+                })
+    
+    # Major device refreshes needed
+    for dt in by_device_type:
+        if dt['end_of_life'] >= 3 or dt['end_of_sale'] >= 5:
+            refresh_needed = dt['end_of_life'] + dt['end_of_sale']
+            percent_affected = round((refresh_needed / dt['model_count'] * 100) if dt['model_count'] > 0 else 0)
+            insights['major_refreshes'].append({
+                'message': f'{dt["device_type"]}: {refresh_needed} models ({percent_affected}%) require refresh - {dt["total_devices"]} devices',
+                'priority': 'MODERATE'
+            })
+    
+    # Budget planning
+    eos_devices = [d for d in processed_data if d['status'] == 'EOS']
+    if eos_devices:
+        total_eos = sum(d['total_devices'] for d in eos_devices)
+        insights['budget_planning'].append({
+            'message': f'{total_eos} devices are End-of-Sale but still supported - Plan phased replacement',
+            'priority': 'MODERATE'
+        })
+    
+    # Data center specific risks
+    dc_switches = [d for d in processed_data if any(x in d['model'] for x in ['N7K', 'N5K', 'N9K'])]
+    if dc_switches:
+        eol_dc = [d for d in dc_switches if d['status'] in ['EOL', 'EOS']]
+        if eol_dc:
+            total_dc = sum(d['total_devices'] for d in eol_dc)
+            insights['budget_planning'].append({
+                'message': f'{total_dc} data center core switches approaching/past EOL - Critical infrastructure at risk',
+                'priority': 'HIGHEST'
+            })
+    
+    return insights
+
+def generate_datacenter_alerts(processed_data, today):
+    """Generate datacenter-specific security and operational alerts"""
+    
+    # Find critical datacenter infrastructure
+    nexus_switches = [d for d in processed_data if any(x in d['model'] for x in ['N7K', 'N5K', 'N9K'])]
+    firewalls = [d for d in processed_data if d['device_type'] == 'Firewall']
+    routers = [d for d in processed_data if d['device_type'] == 'Router']
+    
+    # Calculate EOL statistics for critical infrastructure
+    nexus_eol = sum(d['total_devices'] for d in nexus_switches if d['status'] == 'EOL')
+    nexus_eos = sum(d['total_devices'] for d in nexus_switches if d['status'] == 'EOS')
+    nexus_total = sum(d['total_devices'] for d in nexus_switches)
+    
+    firewall_eol = sum(d['total_devices'] for d in firewalls if d['status'] == 'EOL')
+    firewall_total = sum(d['total_devices'] for d in firewalls)
+    
+    # Find specific critical models
+    n7k_devices = next((d for d in processed_data if d['model'] == 'N7K-C7010'), None)
+    
+    return {
+        'nexus_stats': {
+            'total': nexus_total,
+            'eol': nexus_eol,
+            'eos': nexus_eos,
+            'eol_percentage': round((nexus_eol / nexus_total * 100) if nexus_total > 0 else 0),
+            'critical_model': 'N7K-C7010 (16 devices)' if n7k_devices else None
+        },
+        'firewall_stats': {
+            'total': firewall_total,
+            'eol': firewall_eol,
+            'models_affected': len([d for d in firewalls if d['status'] in ['EOL', 'EOS']])
+        },
+        'has_critical_risks': nexus_eol > 0 or firewall_eol > 0
+    }
+
+def get_db_connection():
+    """Get database connection"""
+    try:
+        conn = psycopg2.connect(**DB_CONFIG)
+        return conn
+    except Exception as e:
+        print(f"❌ Database connection failed: {e}")
+        return None
+
+def get_corp_executive_summary_db():
+    """Generate executive summary for corporate network from database (Tab 2)"""
+    conn = get_db_connection()
+    if not conn:
+        return {'overall': {}, 'by_device_type': [], 'eol_timeline': [], 'models_data': []}
+    
+    try:
+        cursor = conn.cursor()
+        
+        # Get all corporate EOL data
+        cursor.execute("""
+            SELECT 
+                model, vendor, device_type, category, total_devices,
+                announcement_date, end_of_sale_date, end_of_support_date
+            FROM corporate_eol
+            ORDER BY model
+        """)
+        
+        rows = cursor.fetchall()
+        processed_data = []
+        today = date.today()
+        
+        for row in rows:
+            model, vendor, device_type, category, total_devices, announcement_date, end_of_sale_date, end_of_support_date = row
+            
+            if total_devices <= 0:
+                continue
+            
+            # Determine status
+            status = 'Active'
+            if end_of_support_date and end_of_support_date <= today:
+                status = 'EOL'
+            elif end_of_sale_date and end_of_sale_date <= today:
+                status = 'EOS'
+            
+            processed_data.append({
+                'model': model,
+                'total_devices': total_devices,
+                'device_type': device_type or 'Unknown',
+                'vendor': vendor or 'Unknown',
+                'category': category or '',
+                'end_of_sale': end_of_sale_date,
+                'end_of_support': end_of_support_date,
+                'status': status
+            })
+        
+        # Calculate overall stats
+        total_models = len(processed_data)
+        total_devices = sum(item['total_devices'] for item in processed_data)
+        eol_models = sum(1 for item in processed_data if item['status'] == 'EOL')
+        eos_models = sum(1 for item in processed_data if item['status'] == 'EOS')
+        active_models = total_models - eol_models - eos_models
+        
+        eol_devices = sum(item['total_devices'] for item in processed_data if item['status'] == 'EOL')
+        eos_devices = sum(item['total_devices'] for item in processed_data if item['status'] == 'EOS')
+        active_devices = total_devices - eol_devices - eos_devices
+        
+        # By device type summary
+        device_type_stats = defaultdict(lambda: {'models': 0, 'devices': 0, 'eol': 0, 'eos': 0, 'active': 0})
+        
+        for item in processed_data:
+            dt = item['device_type']
+            device_type_stats[dt]['models'] += 1
+            device_type_stats[dt]['devices'] += item['total_devices']
+            
+            if item['status'] == 'EOL':
+                device_type_stats[dt]['eol'] += 1
+            elif item['status'] == 'EOS':
+                device_type_stats[dt]['eos'] += 1
+            else:
+                device_type_stats[dt]['active'] += 1
+        
+        by_device_type = []
+        for device_type, stats in device_type_stats.items():
+            total_models = stats['models']
+            by_device_type.append({
+                'device_type': device_type,
+                'total_devices': stats['devices'],
+                'model_count': total_models,
+                'active': stats['active'],
+                'end_of_sale': stats['eos'],
+                'end_of_life': stats['eol'],
+                'active_percentage': round((stats['active'] / total_models * 100) if total_models > 0 else 0),
+                'eos_percentage': round((stats['eos'] / total_models * 100) if total_models > 0 else 0),
+                'eol_percentage': round((stats['eol'] / total_models * 100) if total_models > 0 else 0)
+            })
+        
+        # EOL Timeline (next 5 years)
+        current_year = today.year
+        timeline_data = defaultdict(lambda: {'total_devices': 0, 'by_device_type': defaultdict(int)})
+        
+        for item in processed_data:
+            if item['end_of_support'] and hasattr(item['end_of_support'], 'year'):
+                eol_year = item['end_of_support'].year
+                if current_year <= eol_year <= current_year + 5:
+                    timeline_data[eol_year]['total_devices'] += item['total_devices']
+                    timeline_data[eol_year]['by_device_type'][item['device_type']] += item['total_devices']
+        
+        eol_timeline = []
+        for year in range(current_year, current_year + 6):
+            eol_timeline.append({
+                'year': year,
+                'total_devices': timeline_data[year]['total_devices'],
+                'by_device_type': dict(timeline_data[year]['by_device_type']),
+                'is_past': year < current_year,
+                'is_current': year == current_year
+            })
+        
+        # Generate critical insights for corporate network
+        critical_insights = generate_corp_critical_insights(processed_data, by_device_type, eol_timeline, today)
+        
+        # Generate datacenter-specific alerts
+        datacenter_alerts = generate_datacenter_alerts(processed_data, today)
+        
+        return {
+            'overall': {
+                'total_models': total_models,
+                'total_devices': total_devices,
+                'active': active_models,
+                'end_of_sale': eos_models,
+                'end_of_life': eol_models,
+                'active_percentage': round((active_models / total_models * 100) if total_models > 0 else 0),
+                'eos_percentage': round((eos_models / total_models * 100) if total_models > 0 else 0),
+                'eol_percentage': round((eol_models / total_models * 100) if total_models > 0 else 0),
+                'active_devices': active_devices,
+                'eos_devices': eos_devices,
+                'eol_devices': eol_devices
+            },
+            'by_device_type': by_device_type,
+            'eol_timeline': eol_timeline,
+            'models_data': processed_data,
+            'critical_insights': critical_insights,
+            'datacenter_alerts': datacenter_alerts
+        }
+        
+    except Exception as e:
+        print(f"❌ Error generating corp executive summary from DB: {e}")
+        return {'overall': {}, 'by_device_type': [], 'eol_timeline': [], 'models_data': [], 'critical_insights': {}, 'datacenter_alerts': {}}
+    finally:
+        if conn:
+            conn.close()
+
+def get_datacenter_inventory_with_eol_db():
+    """Get All Data Centers inventory with EOL dates from database (Tab 4)"""
+    conn = get_db_connection()
+    if not conn:
+        return {'inventory': [], 'summary': {}}
+    
+    try:
+        cursor = conn.cursor()
+        
+        # Get all datacenter inventory with EOL data
+        cursor.execute("""
+            SELECT 
+                site, hostname, vendor, mgmt_ip, device_type, model,
+                software_version, serial_number, announcement_date,
+                end_of_sale_date, end_of_support_date
+            FROM datacenter_inventory
+            ORDER BY site, model
+        """)
+        
+        rows = cursor.fetchall()
+        inventory = []
+        today = date.today()
+        
+        for row in rows:
+            site, hostname, vendor, mgmt_ip, device_type, model, software_version, serial_number, announcement_date, end_of_sale_date, end_of_support_date = row
+            
+            inventory.append({
+                'site': site or '',
+                'hostname': hostname or '',
+                'vendor': vendor or '',
+                'mgmt_ip': mgmt_ip or '',
+                'device_type': device_type or '',
+                'model': model or '',
+                'software_version': software_version or '',
+                'serial_number': serial_number or '',
+                'end_of_sale': end_of_sale_date,
+                'end_of_support': end_of_support_date,
+                'announcement_date': announcement_date
+            })
+        
+        # Calculate summary stats
+        total_devices = len(inventory)
+        unique_models = len(set(item['model'] for item in inventory if item['model']))
+        unique_sites = len(set(item['site'] for item in inventory if item['site']))
+        
+        # Count EOL status
+        eol_count = sum(1 for item in inventory if item['end_of_support'] and item['end_of_support'] <= today)
+        eos_count = sum(1 for item in inventory if item['end_of_sale'] and item['end_of_sale'] <= today 
+                       and (not item['end_of_support'] or item['end_of_support'] > today))
+        active_count = total_devices - eol_count - eos_count
+        
+        return {
+            'inventory': inventory,
+            'summary': {
+                'total_devices': total_devices,
+                'unique_models': unique_models,
+                'unique_sites': unique_sites,
+                'eol_devices': eol_count,
+                'eos_devices': eos_count,
+                'active_devices': active_count
+            }
+        }
+        
+    except Exception as e:
+        print(f"❌ Error getting datacenter inventory from DB: {e}")
+        return {'inventory': [], 'summary': {}}
+    finally:
+        if conn:
+            conn.close()
+
+def get_comprehensive_datacenter_inventory_db():
+    """Get comprehensive datacenter inventory with SSH inventory integrated (master/module hierarchy)"""
+    conn = None
+    try:
+        conn = psycopg2.connect(**DB_CONFIG)
+        cursor = conn.cursor()
+        
+        # Get existing datacenter inventory
+        cursor.execute("""
+            SELECT site, hostname, vendor, mgmt_ip, device_type, model, 
+                   software_version, serial_number, 
+                   end_of_sale_date, end_of_support_date, announcement_date
+            FROM datacenter_inventory
+            WHERE model IS NOT NULL AND model != '' AND model != 'Unknown'
+            ORDER BY COALESCE(site, ''), COALESCE(hostname, ''), COALESCE(model, '')
+        """)
+        
+        inventory = []
+        today = date.today()
+        
+        for row in cursor.fetchall():
+            site, hostname, vendor, mgmt_ip, device_type, model, software_version, serial_number, end_of_sale, end_of_support, announcement_date = row
+            
+            # Convert dates
+            end_of_sale_date = end_of_sale if isinstance(end_of_sale, date) else None
+            end_of_support_date = end_of_support if isinstance(end_of_support, date) else None
+            announcement_date = announcement_date if isinstance(announcement_date, date) else None
+            
+            # Apply IP-based site mapping to database devices too
+            corrected_site = site or ''
+            if mgmt_ip:
+                if mgmt_ip.startswith('10.0.'):
+                    corrected_site = 'AZ-Scottsdale-HQ-Corp'
+                elif mgmt_ip.startswith('10.101.'):
+                    corrected_site = 'AZ-Alameda-DC'
+                elif mgmt_ip.startswith('10.44.'):
+                    corrected_site = 'Equinix-Seattle'
+                elif mgmt_ip.startswith('10.41.'):
+                    corrected_site = 'AZ-Desert-Ridge'
+                elif mgmt_ip.startswith('10.42.'):
+                    corrected_site = 'TX-Dallas-DC'
+                elif mgmt_ip.startswith('10.43.'):
+                    corrected_site = 'GA-Atlanta-DC'
+                elif mgmt_ip.startswith('10.103.'):
+                    corrected_site = 'AWS'
+                elif mgmt_ip.startswith('192.168.'):
+                    corrected_site = 'AZ-Alameda-DC'
+            
+            inventory.append({
+                'device_type': 'master',
+                'site': corrected_site,
+                'hostname': hostname or '',
+                'vendor': vendor or '',
+                'mgmt_ip': mgmt_ip or '',
+                'category': device_type or '',
+                'model': model or '',
+                'software_version': software_version or '',
+                'serial_number': serial_number or '',
+                'end_of_sale': end_of_sale_date,
+                'end_of_support': end_of_support_date,
+                'announcement_date': announcement_date,
+                'component_counts': {
+                    'chassis_blades': 0,
+                    'sfp_modules': 0,
+                    'hardware_components': 0,
+                    'interfaces': 0
+                },
+                'parent_device': '',
+                'module_number': '',
+                'ports': '',
+                'interface_name': '',
+                'description': ''
+            })
+        
+        # Load and integrate SSH comprehensive inventory
+        # Try updated file first, fallback to original
+        ssh_inventory_file = '/var/www/html/meraki-data/comprehensive_network_inventory_updated.json'
+        import os
+        if not os.path.exists(ssh_inventory_file):
+            ssh_inventory_file = '/var/www/html/meraki-data/comprehensive_network_inventory.json'
+        
+        try:
+            with open(ssh_inventory_file, 'r') as f:
+                ssh_data = json.load(f)
+            
+            print(f"📡 Loading SSH inventory from {ssh_inventory_file}")
+            devices_with_components = 0
+            
+            for ip, device_info in ssh_data.items():
+                ssh_device_data = device_info.get('ssh_data', {})
+                merged_info = device_info.get('merged_info', {})
+                
+                if not ssh_device_data:
+                    continue
+                    
+                basic_info = ssh_device_data.get('basic_info', {})
+                hostname = basic_info.get('hostname', '')
+                
+                # Find matching device in existing inventory to update counts
+                matching_device = None
+                for device in inventory:
+                    if (device['hostname'] == hostname or 
+                        device['mgmt_ip'] == ip or 
+                        device['mgmt_ip'] == basic_info.get('ip_address')):
+                        matching_device = device
+                        break
+                
+                # Get component counts
+                chassis_blades = ssh_device_data.get('chassis_blades', [])
+                sfp_modules = ssh_device_data.get('sfp_modules', [])
+                hardware_inventory = ssh_device_data.get('hardware_inventory', [])
+                interfaces = ssh_device_data.get('interfaces', [])
+                
+                # Determine site based on IP subnet (primary) and hostname patterns (fallback)
+                device_site = ''
+                
+                # Primary: Use IP subnet for location identification
+                if ip.startswith('10.0.'):
+                    device_site = 'AZ-Scottsdale-HQ-Corp'
+                elif ip.startswith('10.101.'):
+                    device_site = 'AZ-Alameda-DC'
+                elif ip.startswith('10.44.'):
+                    device_site = 'Equinix-Seattle'
+                elif ip.startswith('10.41.'):
+                    device_site = 'AZ-Desert-Ridge'
+                elif ip.startswith('10.42.'):
+                    device_site = 'TX-Dallas-DC'
+                elif ip.startswith('10.43.'):
+                    device_site = 'GA-Atlanta-DC'
+                elif ip.startswith('10.103.'):
+                    device_site = 'AWS'
+                elif ip.startswith('192.168.'):
+                    device_site = 'AZ-Alameda-DC'  # DMZ/Private ranges typically Alameda
+                # Fallback: Use hostname patterns for edge cases
+                elif 'EQX' in hostname:
+                    device_site = 'Equinix-Seattle'
+                elif any(term in hostname for term in ['HQ', 'MDF', 'IDF', 'DMZ', 'FW', 'CORD']):
+                    device_site = 'AZ-Scottsdale-HQ-Corp'
+                elif hostname.startswith('AL-') or 'ALA' in hostname or 'alameda' in hostname.lower():
+                    device_site = 'AZ-Alameda-DC'
+                elif 'DAL' in hostname or hostname.startswith('FP-DAL'):
+                    device_site = 'TX-Dallas-DC'
+                elif 'ATL' in hostname or hostname.startswith('FP-ATL'):
+                    device_site = 'GA-Atlanta-DC'
+                elif 'DR' in hostname or hostname.startswith('Desert') or 'desert' in hostname.lower():
+                    device_site = 'AZ-Desert-Ridge'
+                elif hostname.startswith('FP-'):
+                    device_site = 'Fiber-Provider'
+                elif hostname.startswith('AWS-'):
+                    device_site = 'AWS'
+                else:
+                    device_site = merged_info.get('site', 'Unknown')
+                
+                # If we found a matching device, update its counts
+                if matching_device:
+                    matching_device['component_counts'] = {
+                        'chassis_blades': len(chassis_blades),
+                        'sfp_modules': len(sfp_modules),
+                        'hardware_components': len(hardware_inventory),
+                        'interfaces': len(interfaces)
+                    }
+                    # Update site with corrected mapping
+                    matching_device['site'] = device_site
+                    if len(chassis_blades) > 0 or len(sfp_modules) > 0 or len(hardware_inventory) > 0:
+                        devices_with_components += 1
+                else:
+                    # Add new SSH-only device as master
+                    inventory.append({
+                        'device_type': 'master',
+                        'site': device_site,
+                        'hostname': hostname,
+                        'vendor': merged_info.get('vendor', ''),
+                        'mgmt_ip': ip,
+                        'category': merged_info.get('device_type', ''),
+                        'model': merged_info.get('model', ''),
+                        'software_version': merged_info.get('software_version', ''),
+                        'serial_number': merged_info.get('serial_number', ''),
+                        'end_of_sale': None,
+                        'end_of_support': None,
+                        'announcement_date': None,
+                        'component_counts': {
+                            'chassis_blades': len(chassis_blades),
+                            'sfp_modules': len(sfp_modules),
+                            'hardware_components': len(hardware_inventory),
+                            'interfaces': len(interfaces)
+                        },
+                        'parent_device': '',
+                        'module_number': '',
+                        'ports': '',
+                        'interface_name': '',
+                        'description': ''
+                    })
+                
+                # Add chassis blades as child rows
+                for blade in chassis_blades:
+                    inventory.append({
+                        'device_type': 'blade',
+                        'site': device_site,
+                        'hostname': '',
+                        'vendor': merged_info.get('vendor', ''),
+                        'mgmt_ip': '',
+                        'category': 'Chassis Blade',
+                        'model': blade.get('model', ''),
+                        'software_version': '',
+                        'serial_number': blade.get('serial_number', ''),
+                        'end_of_sale': None,
+                        'end_of_support': None,
+                        'announcement_date': None,
+                        'component_counts': {},
+                        'parent_device': hostname,
+                        'module_number': blade.get('module_number', ''),
+                        'ports': blade.get('ports', ''),
+                        'interface_name': '',
+                        'description': blade.get('card_type', '')
+                    })
+                
+                # Add SFP modules as child rows
+                for sfp in sfp_modules:
+                    inventory.append({
+                        'device_type': 'sfp',
+                        'site': merged_info.get('site', ''),
+                        'hostname': '',
+                        'vendor': merged_info.get('vendor', ''),
+                        'mgmt_ip': '',
+                        'category': 'SFP Module',
+                        'model': sfp.get('type', ''),
+                        'software_version': '',
+                        'serial_number': '',
+                        'end_of_sale': None,
+                        'end_of_support': None,
+                        'announcement_date': None,
+                        'component_counts': {},
+                        'parent_device': hostname,
+                        'module_number': '',
+                        'ports': '',
+                        'interface_name': sfp.get('interface', ''),
+                        'description': sfp.get('status', '')
+                    })
+                
+                # Add hardware components as child rows
+                for hw in hardware_inventory:
+                    inventory.append({
+                        'device_type': 'component',
+                        'site': merged_info.get('site', ''),
+                        'hostname': '',
+                        'vendor': merged_info.get('vendor', ''),
+                        'mgmt_ip': '',
+                        'category': 'Hardware Component',
+                        'model': hw.get('pid', ''),
+                        'software_version': '',
+                        'serial_number': hw.get('serial_number', ''),
+                        'end_of_sale': None,
+                        'end_of_support': None,
+                        'announcement_date': None,
+                        'component_counts': {},
+                        'parent_device': hostname,
+                        'module_number': '',
+                        'ports': '',
+                        'interface_name': hw.get('name', ''),
+                        'description': hw.get('description', '')
+                    })
+        
+        except Exception as e:
+            print(f"⚠️ Could not load SSH inventory: {e}")
+            
+        print(f"📡 Devices with components from SSH: {devices_with_components}")
+        
+        # Calculate summary stats
+        master_devices = [d for d in inventory if d['device_type'] == 'master']
+        total_devices = len(master_devices)
+        unique_models = len(set(item['model'] for item in master_devices if item['model']))
+        unique_sites = len(set(item['site'] for item in master_devices if item['site']))
+        
+        # Count EOL status for master devices only
+        eol_count = sum(1 for item in master_devices if item['end_of_support'] and item['end_of_support'] <= today)
+        eos_count = sum(1 for item in master_devices if item['end_of_sale'] and item['end_of_sale'] <= today 
+                       and (not item['end_of_support'] or item['end_of_support'] > today))
+        active_count = total_devices - eol_count - eos_count
+        
+        # Count components
+        total_blades = sum(1 for d in inventory if d['device_type'] == 'blade')
+        total_sfps = sum(1 for d in inventory if d['device_type'] == 'sfp')
+        total_components = sum(1 for d in inventory if d['device_type'] == 'component')
+        
+        return {
+            'inventory': inventory,
+            'summary': {
+                'total_devices': total_devices,
+                'unique_models': unique_models,
+                'unique_sites': unique_sites,
+                'eol_devices': eol_count,
+                'eos_devices': eos_count,
+                'active_devices': active_count,
+                'total_chassis_blades': total_blades,
+                'total_sfp_modules': total_sfps,
+                'total_hardware_components': total_components
+            }
+        }
+        
+    except Exception as e:
+        print(f"❌ Error getting comprehensive datacenter inventory from DB: {e}")
+        return {'inventory': [], 'summary': {}}
+    finally:
+        if conn:
+            conn.close()
+
+
+def get_collected_inventory_db():
+    """Get collected inventory data from SSH collections stored in database"""
+    conn = get_db_connection()
+    if not conn:
+        return {'inventory': [], 'summary': {}}
+    
+    try:
+        cursor = conn.cursor()
+        
+        # Get latest collection ID
+        cursor.execute("""
+            SELECT MAX(id) 
+            FROM inventory_collections 
+            WHERE successful_devices > 0
+        """)
+        result = cursor.fetchone()
+        
+        if not result or not result[0]:
+            return {'inventory': [], 'summary': {'message': 'No completed collections found'}}
+        
+        latest_collection_id = result[0]
+        
+        # Get collection summary
+        cursor.execute("""
+            SELECT collection_date, collection_date, total_devices, successful_devices
+            FROM inventory_collections
+            WHERE id = %s
+        """, (latest_collection_id,))
+        collection_info = cursor.fetchone()
+        
+        # Get all collected components
+        inventory_data = []
+        
+        # Get chassis components
+        cursor.execute("""
+            SELECT hostname, ip_address, name, description, pid, vid, serial_number
+            FROM collected_chassis
+            WHERE collection_id = %s
+            ORDER BY hostname, name
+        """, (latest_collection_id,))
+        
+        for row in cursor.fetchall():
+            inventory_data.append({
+                'hostname': row[0],
+                'ip': row[1],
+                'component_type': 'Chassis',
+                'name': row[2],
+                'description': row[3],
+                'pid': row[4],
+                'vid': row[5],
+                'serial': row[6]
+            })
+        
+        # Get modules
+        cursor.execute("""
+            SELECT hostname, ip_address, slot, module_type, model, status, serial_number
+            FROM collected_modules
+            WHERE collection_id = %s
+            ORDER BY hostname, slot
+        """, (latest_collection_id,))
+        
+        for row in cursor.fetchall():
+            inventory_data.append({
+                'hostname': row[0],
+                'ip': row[1],
+                'component_type': 'Module',
+                'name': f"Slot {row[2]}",
+                'description': row[3],
+                'pid': row[4],
+                'status': row[5],
+                'serial': row[6]
+            })
+        
+        # Get SFPs
+        cursor.execute("""
+            SELECT hostname, ip_address, interface, type, name, serial_number, cisco_pid
+            FROM collected_sfps
+            WHERE collection_id = %s
+            ORDER BY hostname, interface
+        """, (latest_collection_id,))
+        
+        for row in cursor.fetchall():
+            inventory_data.append({
+                'hostname': row[0],
+                'ip': row[1],
+                'component_type': 'SFP',
+                'name': row[2],
+                'description': row[3],
+                'pid': row[6] or row[4],
+                'serial': row[5],
+                'interface': row[2]
+            })
+        
+        # Get FEX modules
+        cursor.execute("""
+            SELECT hostname, ip_address, fex_number, fex_model, fex_serial, description, state
+            FROM collected_fex_modules
+            WHERE collection_id = %s
+            ORDER BY hostname, fex_number
+        """, (latest_collection_id,))
+        
+        for row in cursor.fetchall():
+            inventory_data.append({
+                'hostname': row[0],
+                'ip': row[1],
+                'component_type': 'FEX',
+                'name': f"FEX-{row[2]}",
+                'description': row[5],
+                'pid': row[3],
+                'serial': row[4],
+                'status': row[6]
+            })
+        
+        # Get power supplies
+        cursor.execute("""
+            SELECT hostname, ip_address, name, description, pid, vid, serial_number
+            FROM collected_power_supplies
+            WHERE collection_id = %s
+            ORDER BY hostname, name
+        """, (latest_collection_id,))
+        
+        for row in cursor.fetchall():
+            inventory_data.append({
+                'hostname': row[0],
+                'ip': row[1],
+                'component_type': 'Power Supply',
+                'name': row[2],
+                'description': row[3],
+                'pid': row[4],
+                'vid': row[5],
+                'serial': row[6]
+            })
+        
+        # Get fans
+        cursor.execute("""
+            SELECT hostname, ip_address, name, description, pid, vid, serial_number
+            FROM collected_fans
+            WHERE collection_id = %s
+            ORDER BY hostname, name
+        """, (latest_collection_id,))
+        
+        for row in cursor.fetchall():
+            inventory_data.append({
+                'hostname': row[0],
+                'ip': row[1],
+                'component_type': 'Fan',
+                'name': row[2],
+                'description': row[3],
+                'pid': row[4],
+                'vid': row[5],
+                'serial': row[6]
+            })
+        
+        # Create summary
+        component_counts = {}
+        device_counts = {}
+        
+        for item in inventory_data:
+            # Count by component type
+            comp_type = item['component_type']
+            component_counts[comp_type] = component_counts.get(comp_type, 0) + 1
+            
+            # Count unique devices
+            hostname = item['hostname']
+            if hostname not in device_counts:
+                device_counts[hostname] = {'total': 0, 'by_type': {}}
+            device_counts[hostname]['total'] += 1
+            device_counts[hostname]['by_type'][comp_type] = device_counts[hostname]['by_type'].get(comp_type, 0) + 1
+        
+        summary = {
+            'collection_id': latest_collection_id,
+            'collection_time': collection_info[0].strftime('%Y-%m-%d %H:%M:%S') if collection_info else 'Unknown',
+            'devices_attempted': collection_info[2] if collection_info else 0,
+            'devices_successful': collection_info[3] if collection_info else 0,
+            'total_components': len(inventory_data),
+            'unique_devices': len(device_counts),
+            'component_counts': component_counts,
+            'top_devices': sorted(
+                [{'hostname': k, 'total_components': v['total'], 'breakdown': v['by_type']} 
+                 for k, v in device_counts.items()],
+                key=lambda x: x['total_components'],
+                reverse=True
+            )[:10]
+        }
+        
+        return {
+            'inventory': inventory_data,
+            'summary': summary
+        }
+        
+    except Exception as e:
+        print(f"❌ Error getting collected inventory from DB: {e}")
+        import traceback
+        traceback.print_exc()
+        return {'inventory': [], 'summary': {'error': str(e)}}
+    finally:
+        if conn:
+            conn.close()
+
+if __name__ == '__main__':
+    print("🏢 Testing Corporate Network Data Functions (Database-based)...")
+    
+    print("\n📊 Executive Summary Test:")
+    summary = get_corp_executive_summary_db()
+    
+    print("\n🔍 Testing Comprehensive Inventory Function:")
+    comp_data = get_comprehensive_datacenter_inventory_db()
+    print(f"  Total Devices: {comp_data['summary'].get('total_devices', 0)}")
+    print(f"  Total Chassis Blades: {comp_data['summary'].get('total_chassis_blades', 0)}")
+    print(f"  Total SFP Modules: {comp_data['summary'].get('total_sfp_modules', 0)}")
+    print(f"  Total Hardware Components: {comp_data['summary'].get('total_hardware_components', 0)}")
+    print(f"  Total Inventory Rows: {len(comp_data['inventory'])}")
+    
+    # Count device types
+    master_count = sum(1 for d in comp_data['inventory'] if d['device_type'] == 'master')
+    blade_count = sum(1 for d in comp_data['inventory'] if d['device_type'] == 'blade')
+    sfp_count = sum(1 for d in comp_data['inventory'] if d['device_type'] == 'sfp')
+    component_count = sum(1 for d in comp_data['inventory'] if d['device_type'] == 'component')
+    
+    print(f"  Master Devices: {master_count}")
+    print(f"  Blade Rows: {blade_count}")
+    print(f"  SFP Rows: {sfp_count}")
+    print(f"  Component Rows: {component_count}")
+    
+    print(f"  Total Models: {summary['overall'].get('total_models', 0)}")
+    print(f"  Total Devices: {summary['overall'].get('total_devices', 0)}")
+    print(f"  EOL Models: {summary['overall'].get('end_of_life', 0)}")
+    print(f"  Device Types: {len(summary['by_device_type'])}")
+    for dt in summary['by_device_type']:
+        print(f"    {dt['device_type']}: {dt['total_devices']} devices")
+    
+    print("\n🏢 Data Center Inventory Test:")
+    dc_data = get_datacenter_inventory_with_eol_db()
+    print(f"  Total Devices: {dc_data['summary']['total_devices']}")
+    print(f"  Unique Models: {dc_data['summary']['unique_models']}")
+    print(f"  EOL Devices: {dc_data['summary']['eol_devices']}")
+    print(f"  Sites: {dc_data['summary']['unique_sites']}")

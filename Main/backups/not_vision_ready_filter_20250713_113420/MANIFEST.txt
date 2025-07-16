@@ -1,0 +1,7 @@
+Backup created on Sun Jul 13 11:34:21 MST 2025
+Features included:
+1. ARIN refresh working (CAN 24 → AT&T, CAL 24 → Frontier/Verizon)
+2. Not Vision Ready filter button added
+   - Shows sites with only wireless/satellite (Cell/Starlink)
+   - Examples: CAS 02, CAN 40
+   - Button location: Next to '1 Circuit' button

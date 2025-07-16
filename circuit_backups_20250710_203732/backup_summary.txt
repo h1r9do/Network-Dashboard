@@ -1,0 +1,23 @@
+Circuit Tables Backup Summary
+==================================================
+Backup Date: 2025-07-10 20:37:32.538631
+Backup Location: /usr/local/bin/circuit_backups_20250710_203732
+Database: dsrcircuits
+Host: localhost
+
+Tables Backed Up:
+- enriched_circuits: 1,323 records
+- circuits: 2,787 total records (1,947 enabled)
+
+Key Information:
+- Includes all DSR-ARIN matched fixes (870 sites)
+- Includes WAN2 cellular provider updates (53 circuits)
+- New nightly script deployed at: /usr/local/bin/Main/nightly/nightly_enriched_db.py
+- Script will run at 3:00 AM preserving all fixes
+
+Restore Instructions:
+1. Run: /usr/local/bin/circuit_backups_20250710_203732/restore_circuit_tables_20250710_203732.sh
+2. Or manually restore using psql with the .sql files
+
+Previous Backup:
+- /usr/local/bin/circuit_backups_20250710_202818/ (created during deployment)

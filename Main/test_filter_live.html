@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Live Filter</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Live Filter Test</h1>
+    <div id="results"></div>
+    <script>
+        // Test the live dsrcircuits page filter
+        function testFilter() {
+            console.log("Testing live filter...");
+            
+            // This would run on the actual dsrcircuits page
+            // For now, let's test if we can access the page data
+            fetch('/dsrcircuits')
+                .then(response => response.text())
+                .then(html => {
+                    // Parse HTML to find CAL 07 data
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    
+                    // Find CAL 07 row
+                    const rows = doc.querySelectorAll('tr');
+                    let cal07Row = null;
+                    
+                    rows.forEach(row => {
+                        const cells = row.querySelectorAll('td');
+                        if (cells.length > 0 && cells[0].textContent.trim() === 'CAL 07') {
+                            cal07Row = row;
+                        }
+                    });
+                    
+                    if (cal07Row) {
+                        const cells = cal07Row.querySelectorAll('td');
+                        const data = {
+                            site: cells[0].textContent.trim(),
+                            wan1Provider: cells[1].textContent.trim(),
+                            wan1Speed: cells[2].textContent.trim(),
+                            wan1Cost: cells[3].textContent.trim(),
+                            wan2Provider: cells[4].textContent.trim(),
+                            wan2Speed: cells[5].textContent.trim(),
+                            wan2Cost: cells[6].textContent.trim()
+                        };
+                        
+                        console.log("CAL 07 Data:", data);
+                        
+                        // Test the filter logic
+                        const result = testNotVisionReadyFilter(data);
+                        
+                        document.getElementById('results').innerHTML = 
+                            '<h3>CAL 07 Test Results</h3>' +
+                            '<pre>' + JSON.stringify(data, null, 2) + '</pre>' +
+                            '<p><strong>Should show in Not Vision Ready filter: ' + result + '</strong></p>';
+                    } else {
+                        document.getElementById('results').innerHTML = 
+                            '<p>Could not find CAL 07 in the page data</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('results').innerHTML = 
+                        '<p>Error fetching page: ' + error.message + '</p>';
+                });
+        }
+        
+        function testNotVisionReadyFilter(data) {
+            // Copy exact filter logic from dsrcircuits.html
+            function parseSpeed(speedStr) {
+                if (!speedStr || speedStr === 'N/A' || speedStr === 'null' || 
+                    speedStr === 'Cell' || speedStr === 'Satellite' || 
+                    speedStr === 'TBD' || speedStr === 'Unknown') {
+                    return null;
+                }
+                
+                var match = speedStr.match(/^([\\d.]+)M\\s*[xX]\\s*([\\d.]+)M$/);
+                if (match) {
+                    return {
+                        download: parseFloat(match[1]),
+                        upload: parseFloat(match[2])
+                    };
+                }
+                return null;
+            }
+            
+            function isLowSpeed(speed) {
+                if (!speed) return false;
+                return speed.download < 100.0 || speed.upload < 10.0;
+            }
+            
+            function isCellular(speedStr) {
+                return speedStr === 'Cell';
+            }
+            
+            function isCellularProvider(providerStr) {
+                if (!providerStr) return false;
+                
+                var provider = providerStr;
+                if (provider.includes('<')) {
+                    var tempDiv = document.createElement('div');
+                    tempDiv.innerHTML = provider;
+                    provider = tempDiv.textContent || tempDiv.innerText || '';
+                }
+                
+                provider = provider.toUpperCase();
+                
+                return provider.includes('AT&T') || 
+                       provider.includes('VERIZON') || 
+                       provider.includes('VZW') ||
+                       provider.includes('CELL') ||
+                       provider.includes('CELLULAR') ||
+                       provider.includes('WIRELESS');
+            }
+            
+            const wan1Speed = data.wan1Speed.trim();
+            const wan2Speed = data.wan2Speed.trim();
+            const wan1Provider = data.wan1Provider.trim();
+            const wan2Provider = data.wan2Provider.trim();
+            
+            const wan1ParsedSpeed = parseSpeed(wan1Speed);
+            const wan2ParsedSpeed = parseSpeed(wan2Speed);
+            
+            const wan1IsLowSpeed = isLowSpeed(wan1ParsedSpeed);
+            const wan2IsLowSpeed = isLowSpeed(wan2ParsedSpeed);
+            const wan1IsCellular = isCellular(wan1Speed) || isCellularProvider(wan1Provider);
+            const wan2IsCellular = isCellular(wan2Speed) || isCellularProvider(wan2Provider);
+            
+            const bothCellular = wan1IsCellular && wan2IsCellular;
+            const lowSpeedWithCellular = (wan1IsLowSpeed && wan2IsCellular) || (wan2IsLowSpeed && wan1IsCellular);
+            
+            console.log("Filter Analysis:", {
+                wan1Speed, wan2Speed, wan1Provider, wan2Provider,
+                wan1ParsedSpeed, wan2ParsedSpeed,
+                wan1IsLowSpeed, wan2IsLowSpeed,
+                wan1IsCellular, wan2IsCellular,
+                bothCellular, lowSpeedWithCellular,
+                result: bothCellular || lowSpeedWithCellular
+            });
+            
+            return bothCellular || lowSpeedWithCellular;
+        }
+        
+        // Run test when page loads
+        window.onload = testFilter;
+    </script>
+</body>
+</html>

@@ -1,0 +1,433 @@
+#!/usr/bin/env python3
+"""
+Full Inventory Collection Script - Database Version
+Collects ALL devices from ALL Meraki organizations and stores in database
+Replicates the original nightly_inventory_summary.py functionality
+"""
+
+import os
+import sys
+import json
+import requests
+import time
+import logging
+import psycopg2
+from psycopg2.extras import Json, execute_values
+from datetime import datetime, timezone
+from bs4 import BeautifulSoup
+from dotenv import load_dotenv
+from collections import defaultdict
+
+# Add current directory to path for imports
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from config import Config
+
+# Load environment
+load_dotenv('/usr/local/bin/meraki.env')
+API_KEY = os.getenv("MERAKI_API_KEY")
+BASE_URL = "https://api.meraki.com/api/v1"
+HEADERS = {
+    'X-Cisco-Meraki-API-Key': API_KEY,
+    'Content-Type': 'application/json',
+    'Accept': 'application/json'
+}
+
+# Setup logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('/var/log/nightly-inventory-db.log'),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
+
+# EOL cache path
+DATA_DIR = "/var/www/html/meraki-data"
+EOL_HTML_CACHE = os.path.join(DATA_DIR, "Meraki_EOL.html")
+os.makedirs(DATA_DIR, exist_ok=True)
+
+def get_db_connection():
+    """Get database connection using config"""
+    import re
+    match = re.match(r'postgresql://(.+):(.+)@(.+):(\d+)/(.+)', Config.SQLALCHEMY_DATABASE_URI)
+    if not match:
+        raise ValueError("Invalid database URI")
+    
+    user, password, host, port, database = match.groups()
+    
+    return psycopg2.connect(
+        host=host,
+        port=int(port),
+        database=database,
+        user=user,
+        password=password
+    )
+
+def meraki_get_paginated(url_base, key_type='serial'):
+    """Get paginated results from Meraki API"""
+    results, starting_after = [], None
+    while True:
+        url = f"{url_base}&perPage=1000"
+        if starting_after:
+            url += f"&startingAfter={starting_after}"
+        resp = requests.get(url, headers=HEADERS)
+        if resp.status_code == 429:
+            wait = int(resp.headers.get('Retry-After', 2))
+            logger.warning(f"429 hit, waiting {wait}s")
+            time.sleep(wait)
+            continue
+        resp.raise_for_status()
+        page = resp.json()
+        if not page:
+            break
+        results.extend(page)
+        if len(page) < 1000:
+            break
+        starting_after = page[-1].get(key_type)
+    return results
+
+def get_organizations():
+    """Get all organizations"""
+    logger.info("Fetching organizations...")
+    return meraki_get_paginated(f"{BASE_URL}/organizations?", key_type='id')
+
+def get_network_map(org_id):
+    """Get network ID to name mapping for an organization"""
+    logger.info(f"Getting networks for org {org_id}")
+    url = f"{BASE_URL}/organizations/{org_id}/networks?"
+    nets = meraki_get_paginated(url, key_type='id')
+    return {n['id']: n['name'] for n in nets}
+
+def get_inventory(org_id):
+    """Get inventory for an organization"""
+    logger.info(f"Getting inventory for org {org_id}")
+    url = f"{BASE_URL}/organizations/{org_id}/inventory/devices?"
+    return meraki_get_paginated(url, key_type='serial')
+
+def fetch_eol_data():
+    """Fetch End-of-Life data from Meraki documentation"""
+    url = "https://documentation.meraki.com/General_Administration/Other_Topics/Meraki_End-of-Life_(EOL)_Products_and_Dates"
+    try:
+        logger.info("Downloading EOL data...")
+        r = requests.get(url, timeout=15)
+        r.raise_for_status()
+        html = r.text
+        with open(EOL_HTML_CACHE, 'w', encoding='utf-8') as f:
+            f.write(html)
+    except:
+        logger.warning("Failed to fetch live EOL. Using cached.")
+        if os.path.exists(EOL_HTML_CACHE):
+            with open(EOL_HTML_CACHE, 'r', encoding='utf-8') as f:
+                html = f.read()
+        else:
+            logger.error("No EOL cache available")
+            return {}
+
+    soup = BeautifulSoup(html, 'html.parser')
+    eol_lookup = {}
+    
+    for table in soup.find_all("table"):
+        headers = [th.get_text(strip=True) for th in table.find_all("th")]
+        if "Model" in headers or "Product" in headers:
+            for row in table.find_all("tr")[1:]:
+                cols = row.find_all("td")
+                if len(cols) >= 4:
+                    model = cols[0].get_text(strip=True).split(",")[0].split("(")[0].strip().upper()
+                    eol_lookup[model] = {
+                        "Announcement Date": cols[1].get_text(strip=True),
+                        "End-of-Sale Date": cols[2].get_text(strip=True),
+                        "End-of-Support Date": cols[3].get_text(strip=True)
+                    }
+    
+    logger.info(f"Loaded EOL data for {len(eol_lookup)} models")
+    return eol_lookup
+
+def normalize_model(m):
+    """Normalize model name"""
+    return m.strip().upper() if m else ""
+
+def get_eol(model, field, eol_lookup):
+    """Get EOL data for a model"""
+    model = normalize_model(model)
+    if model in eol_lookup:
+        return eol_lookup[model].get(field, "")
+    # Check if model starts with any known EOL model
+    for key in eol_lookup:
+        if model.startswith(key):
+            return eol_lookup[key].get(field, "")
+    return ""
+
+def parse_date(date_str):
+    """Parse date string to date object"""
+    if not date_str or date_str == "N/A":
+        return None
+    try:
+        # Handle various date formats
+        for fmt in ['%B %d, %Y', '%b %d, %Y', '%Y-%m-%d']:
+            try:
+                return datetime.strptime(date_str, fmt).date()
+            except:
+                continue
+    except:
+        pass
+    return None
+
+def create_inventory_tables(conn):
+    """Create/verify inventory tables"""
+    cursor = conn.cursor()
+    
+    try:
+        # Create inventory_devices table if not exists
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS inventory_devices (
+                id SERIAL PRIMARY KEY,
+                serial VARCHAR(50) UNIQUE NOT NULL,
+                name VARCHAR(200),
+                model VARCHAR(50),
+                mac VARCHAR(20),
+                network_id VARCHAR(50),
+                network_name VARCHAR(200),
+                organization VARCHAR(200),
+                product_type VARCHAR(50),
+                tags TEXT,
+                notes TEXT,
+                lan_ip VARCHAR(45),
+                firmware VARCHAR(50),
+                details JSONB,
+                created_at TIMESTAMP DEFAULT NOW()
+            )
+        """)
+        
+        # Create inventory_summary table if not exists
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS inventory_summary (
+                id SERIAL PRIMARY KEY,
+                model VARCHAR(50) UNIQUE NOT NULL,
+                total_count INTEGER DEFAULT 0,
+                org_counts JSONB,
+                announcement_date DATE,
+                end_of_sale DATE,
+                end_of_support DATE,
+                highlight VARCHAR(50)
+            )
+        """)
+        
+        # Create indexes
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_inventory_devices_serial ON inventory_devices(serial)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_inventory_devices_model ON inventory_devices(model)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_inventory_devices_organization ON inventory_devices(organization)")
+        cursor.execute("CREATE INDEX IF NOT EXISTS idx_inventory_summary_model ON inventory_summary(model)")
+        
+        conn.commit()
+        logger.info("Inventory tables created/verified")
+        
+    except Exception as e:
+        logger.warning(f"Table/Index creation warning: {e}")
+        conn.rollback()
+    finally:
+        cursor.close()
+
+def process_inventory(conn):
+    """Process inventory from all organizations"""
+    cursor = conn.cursor()
+    
+    try:
+        # Get all organizations
+        orgs = get_organizations()
+        logger.info(f"Found {len(orgs)} organizations")
+        
+        # Get EOL data
+        eol_data = fetch_eol_data()
+        
+        # Track device counts
+        summary_counter = defaultdict(lambda: defaultdict(int))
+        all_devices = []
+        org_names = []
+        
+        # Process each organization
+        for org in orgs:
+            org_id = org['id']
+            org_name = org['name']
+            logger.info(f"\nProcessing organization: {org_name}")
+            org_names.append(org_name)
+            
+            try:
+                # Get networks for this org
+                networks = get_network_map(org_id)
+                
+                # Get inventory for this org
+                inventory = get_inventory(org_id)
+                logger.info(f"Found {len(inventory)} devices in {org_name}")
+                
+                # Process each device
+                for device in inventory:
+                    model = normalize_model(device.get('model', ''))
+                    serial = device.get('serial', '')
+                    
+                    if not serial:
+                        continue
+                    
+                    # Get network name
+                    network_id = device.get('networkId')
+                    network_name = networks.get(network_id, 'Unassigned') if network_id else 'Unassigned'
+                    
+                    # Count by model and org
+                    if model:
+                        summary_counter[model][org_name] += 1
+                    
+                    # Prepare device data
+                    device_data = {
+                        'serial': serial,
+                        'name': device.get('name', ''),
+                        'model': model,
+                        'mac': device.get('mac', ''),
+                        'network_id': network_id or '',
+                        'network_name': network_name,
+                        'organization': org_name,
+                        'product_type': device.get('productType', model),
+                        'tags': json.dumps(device.get('tags', [])) if device.get('tags') else '[]',
+                        'notes': device.get('notes', ''),
+                        'lan_ip': device.get('lanIp', ''),
+                        'firmware': device.get('firmware', ''),
+                        'details': Json(device)
+                    }
+                    
+                    all_devices.append(device_data)
+                
+            except Exception as e:
+                logger.error(f"Failed to process {org_name}: {e}")
+                continue
+            
+            time.sleep(1)  # Rate limiting
+        
+        # Insert all devices
+        if all_devices:
+            logger.info(f"Inserting {len(all_devices)} devices into database...")
+            
+            # Clear existing data
+            cursor.execute("DELETE FROM inventory_devices")
+            
+            # Bulk upsert - handle duplicates
+            for device in all_devices:
+                cursor.execute("""
+                    INSERT INTO inventory_devices (
+                        serial, name, model, mac, network_id, network_name,
+                        organization, product_type, tags, notes, lan_ip, 
+                        firmware, details
+                    ) VALUES (
+                        %(serial)s, %(name)s, %(model)s, %(mac)s, %(network_id)s,
+                        %(network_name)s, %(organization)s, %(product_type)s,
+                        %(tags)s, %(notes)s, %(lan_ip)s, %(firmware)s, %(details)s
+                    )
+                    ON CONFLICT (serial) DO UPDATE SET
+                        name = EXCLUDED.name,
+                        model = EXCLUDED.model,
+                        mac = EXCLUDED.mac,
+                        network_id = EXCLUDED.network_id,
+                        network_name = EXCLUDED.network_name,
+                        organization = EXCLUDED.organization,
+                        product_type = EXCLUDED.product_type,
+                        tags = EXCLUDED.tags,
+                        notes = EXCLUDED.notes,
+                        lan_ip = EXCLUDED.lan_ip,
+                        firmware = EXCLUDED.firmware,
+                        details = EXCLUDED.details
+                """, device)
+            
+            logger.info(f"Inserted {len(all_devices)} devices")
+        
+        # Create inventory summary
+        logger.info("Creating inventory summary...")
+        
+        # Clear existing summary
+        cursor.execute("DELETE FROM inventory_summary")
+        
+        # Get today's date for EOL comparisons
+        today = datetime.today().date()
+        
+        # Process each model
+        for model, org_counts in summary_counter.items():
+            total_count = sum(org_counts.values())
+            
+            # Get EOL data
+            ann_date = parse_date(get_eol(model, "Announcement Date", eol_data))
+            eos_date = parse_date(get_eol(model, "End-of-Sale Date", eol_data))
+            eol_date = parse_date(get_eol(model, "End-of-Support Date", eol_data))
+            
+            # Determine highlight status
+            highlight = ""
+            if eos_date and eos_date <= today:
+                highlight = "eos"
+            if eol_date and eol_date <= today:
+                highlight = "eol"
+            
+            # Insert summary
+            cursor.execute("""
+                INSERT INTO inventory_summary (
+                    model, total_count, org_counts,
+                    announcement_date, end_of_sale, end_of_support,
+                    highlight
+                ) VALUES (%s, %s, %s, %s, %s, %s, %s)
+            """, (
+                model,
+                total_count,
+                Json(dict(org_counts)),
+                ann_date,
+                eos_date,
+                eol_date,
+                highlight
+            ))
+        
+        logger.info(f"Created summary for {len(summary_counter)} models")
+        
+        # Log summary
+        logger.info("\nInventory Summary:")
+        for model, org_counts in sorted(summary_counter.items()):
+            total = sum(org_counts.values())
+            logger.info(f"  {model}: {total} devices across {len(org_counts)} orgs")
+        
+        conn.commit()
+        return True
+        
+    except Exception as e:
+        logger.error(f"Error processing inventory: {e}")
+        import traceback
+        logger.error(traceback.format_exc())
+        conn.rollback()
+        return False
+    finally:
+        cursor.close()
+
+def main():
+    """Main execution function"""
+    logger.info("Starting full inventory collection process")
+    
+    try:
+        # Get database connection
+        conn = get_db_connection()
+        
+        # Create tables if needed
+        create_inventory_tables(conn)
+        
+        # Process inventory
+        success = process_inventory(conn)
+        
+        if success:
+            logger.info("Full inventory collection completed successfully")
+        else:
+            logger.error("Full inventory collection failed")
+            sys.exit(1)
+            
+    except Exception as e:
+        logger.error(f"Fatal error in main: {e}")
+        import traceback
+        logger.error(traceback.format_exc())
+        sys.exit(1)
+    finally:
+        if 'conn' in locals():
+            conn.close()
+
+if __name__ == "__main__":
+    main()

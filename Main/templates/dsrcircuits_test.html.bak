@@ -1,0 +1,472 @@
+<\!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSR Circuits - TEST VERSION</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .test-banner {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .status-badge {
+            font-size: 0.875rem;
+            padding: 0.25rem 0.5rem;
+        }
+        .confirmed { background-color: #28a745; color: white; }
+        .unconfirmed { background-color: #dc3545; color: white; }
+        .partial { background-color: #ffc107; color: black; }
+        .cost-cell { 
+            font-weight: bold; 
+            color: #28a745;
+        }
+        .provider-cell {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 150px;
+        }
+        .stats-card {
+            transition: transform 0.2s;
+        }
+        .stats-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .table-responsive {
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            background-color: white;
+            z-index: 10;
+        }
+        .role-badge {
+            font-size: 0.75rem;
+            padding: 0.15rem 0.4rem;
+            margin-left: 0.25rem;
+        }
+        .role-primary { background-color: #007bff; color: white; }
+        .role-secondary { background-color: #6c757d; color: white; }
+        .ip-flip-indicator {
+            color: #ff6b6b;
+            font-size: 0.8rem;
+            margin-left: 5px;
+        }
+        .change-log {
+            max-height: 200px;
+            overflow-y: auto;
+            font-size: 0.85rem;
+        }
+        .change-log-item {
+            border-left: 3px solid #007bff;
+            padding-left: 10px;
+            margin-bottom: 10px;
+        }
+        .loading-spinner {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <\!-- Test Banner -->
+        <div class="test-banner">
+            🧪 TEST VERSION - Using New Enrichment Logic (Test Tables)
+        </div>
+
+        <\!-- Header -->
+        <div class="row mb-4">
+            <div class="col">
+                <h1 class="display-4">DSR Circuits - Test Page</h1>
+                <p class="lead">Testing new enrichment logic with IP flip detection and role separation</p>
+            </div>
+            <div class="col-auto">
+                <a href="/dsrcircuits" class="btn btn-secondary">
+                    <i class="bi bi-arrow-left"></i> Back to Production
+                </a>
+            </div>
+        </div>
+
+        <\!-- Statistics Cards -->
+        <div class="row mb-4" id="statsContainer">
+            <div class="col-md-3 mb-3">
+                <div class="card stats-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Sites</h5>
+                        <h2 class="text-primary" id="totalSites">-</h2>
+                        <small class="text-muted">In test database</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card stats-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Confirmed Circuits</h5>
+                        <h2 class="text-success" id="confirmedCircuits">-</h2>
+                        <small class="text-muted" id="confirmationRate">-% confirmed</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card stats-card">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Monthly Cost</h5>
+                        <h2 class="text-info" id="totalCost">$-</h2>
+                        <small class="text-muted" id="sitesWithCost">- sites with costs</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-3">
+                <div class="card stats-card">
+                    <div class="card-body">
+                        <h5 class="card-title">IP Flips Detected</h5>
+                        <h2 class="text-warning" id="ipFlips">-</h2>
+                        <small class="text-muted" id="recentChanges">- changes last 7d</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <\!-- Filters -->
+        <div class="card mb-4">
+            <div class="card-body">
+                <form method="GET" action="/dsrcircuits-test" id="filterForm">
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <label class="form-label">Search</label>
+                            <input type="text" class="form-control" name="search" 
+                                   value="{{ search_params.search }}" 
+                                   placeholder="Site name or provider...">
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">WAN Filter</label>
+                            <select class="form-select" name="wan_filter">
+                                <option value="all" {% if search_params.wan_filter == 'all' %}selected{% endif %}>All WANs</option>
+                                <option value="wan1" {% if search_params.wan_filter == 'wan1' %}selected{% endif %}>WAN1 Only</option>
+                                <option value="wan2" {% if search_params.wan_filter == 'wan2' %}selected{% endif %}>WAN2 Only</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Provider</label>
+                            <select class="form-select" name="provider_filter">
+                                <option value="all">All Providers</option>
+                                {% for provider in providers %}
+                                <option value="{{ provider }}" 
+                                        {% if search_params.provider_filter == provider %}selected{% endif %}>
+                                    {{ provider }}
+                                </option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Status</label>
+                            <select class="form-select" name="status_filter">
+                                <option value="all" {% if search_params.status_filter == 'all' %}selected{% endif %}>All Status</option>
+                                <option value="confirmed" {% if search_params.status_filter == 'confirmed' %}selected{% endif %}>Both Confirmed</option>
+                                <option value="partial" {% if search_params.status_filter == 'partial' %}selected{% endif %}>Partial</option>
+                                <option value="unconfirmed" {% if search_params.status_filter == 'unconfirmed' %}selected{% endif %}>Unconfirmed</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <label class="form-label">Cost Filter</label>
+                            <select class="form-select" name="cost_filter">
+                                <option value="all" {% if search_params.cost_filter == 'all' %}selected{% endif %}>All</option>
+                                <option value="with_cost" {% if search_params.cost_filter == 'with_cost' %}selected{% endif %}>With Cost</option>
+                                <option value="without_cost" {% if search_params.cost_filter == 'without_cost' %}selected{% endif %}>Without Cost</option>
+                            </select>
+                        </div>
+                        <div class="col-md-1">
+                            <label class="form-label">&nbsp;</label>
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="bi bi-search"></i> Filter
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <\!-- Results Table -->
+        <div class="card">
+            <div class="card-header">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <h5 class="mb-0">Circuit Results ({{ total_count }} total)</h5>
+                    </div>
+                    <div class="col-auto">
+                        <select class="form-select form-select-sm" name="per_page" form="filterForm" onchange="this.form.submit()">
+                            <option value="25" {% if search_params.per_page == 25 %}selected{% endif %}>25 per page</option>
+                            <option value="50" {% if search_params.per_page == 50 %}selected{% endif %}>50 per page</option>
+                            <option value="100" {% if search_params.per_page == 100 %}selected{% endif %}>100 per page</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0">
+                        <thead class="sticky-header">
+                            <tr>
+                                <th>Site Name</th>
+                                <th>WAN1 Provider</th>
+                                <th>WAN1 Speed</th>
+                                <th>WAN1 Cost</th>
+                                <th>WAN2 Provider</th>
+                                <th>WAN2 Speed</th>
+                                <th>WAN2 Cost</th>
+                                <th>Total Cost</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for circuit in circuits %}
+                            <tr>
+                                <td>
+                                    <strong>{{ circuit.site_name }}</strong>
+                                    {% if circuit.device_tags and 'ip_flip' in circuit.device_tags %}
+                                    <span class="ip-flip-indicator" title="IP flip detected">
+                                        <i class="bi bi-arrow-left-right"></i>
+                                    </span>
+                                    {% endif %}
+                                </td>
+                                <td class="provider-cell" title="{{ circuit.wan1_provider }}">
+                                    {{ circuit.wan1_provider or '-' }}
+                                    {% if circuit.wan1_role %}
+                                    <span class="badge role-badge role-{{ circuit.wan1_role < /dev/null | lower }}">
+                                        {{ circuit.wan1_role }}
+                                    </span>
+                                    {% endif %}
+                                </td>
+                                <td>{{ circuit.wan1_speed or '-' }}</td>
+                                <td class="cost-cell">
+                                    {% if circuit.wan1_cost and circuit.wan1_cost > 0 %}
+                                    ${{ "%.2f"|format(circuit.wan1_cost) }}
+                                    {% else %}
+                                    -
+                                    {% endif %}
+                                </td>
+                                <td class="provider-cell" title="{{ circuit.wan2_provider }}">
+                                    {{ circuit.wan2_provider or '-' }}
+                                    {% if circuit.wan2_role %}
+                                    <span class="badge role-badge role-{{ circuit.wan2_role|lower }}">
+                                        {{ circuit.wan2_role }}
+                                    </span>
+                                    {% endif %}
+                                </td>
+                                <td>{{ circuit.wan2_speed or '-' }}</td>
+                                <td class="cost-cell">
+                                    {% if circuit.wan2_cost and circuit.wan2_cost > 0 %}
+                                    ${{ "%.2f"|format(circuit.wan2_cost) }}
+                                    {% else %}
+                                    -
+                                    {% endif %}
+                                </td>
+                                <td class="cost-cell">
+                                    {% if circuit.total_cost and circuit.total_cost > 0 %}
+                                    <strong>${{ "%.2f"|format(circuit.total_cost) }}</strong>
+                                    {% else %}
+                                    -
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <span class="badge status-badge {{ circuit.confirmation_status|lower|replace(' ', '') }}">
+                                        {{ circuit.confirmation_status }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm btn-outline-primary" 
+                                            onclick="showDetails('{{ circuit.site_name }}')">
+                                        <i class="bi bi-info-circle"></i> Details
+                                    </button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card-footer">
+                <\!-- Pagination -->
+                <nav>
+                    <ul class="pagination justify-content-center mb-0">
+                        <li class="page-item {% if current_page == 1 %}disabled{% endif %}">
+                            <a class="page-link" href="?page={{ current_page - 1 }}&{{ request.query_string.decode() }}">
+                                Previous
+                            </a>
+                        </li>
+                        {% for page in range(1, min(total_pages + 1, 11)) %}
+                        <li class="page-item {% if page == current_page %}active{% endif %}">
+                            <a class="page-link" href="?page={{ page }}&{{ request.query_string.decode() }}">
+                                {{ page }}
+                            </a>
+                        </li>
+                        {% endfor %}
+                        <li class="page-item {% if current_page == total_pages %}disabled{% endif %}">
+                            <a class="page-link" href="?page={{ current_page + 1 }}&{{ request.query_string.decode() }}">
+                                Next
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <\!-- Details Modal -->
+    <div class="modal fade" id="detailsModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Circuit Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="detailsContent">
+                    <div class="text-center">
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <\!-- Loading Spinner -->
+    <div class="loading-spinner">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Load statistics on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadStats();
+        });
+
+        function loadStats() {
+            fetch('/api/test/circuit-stats')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('totalSites').textContent = data.total_sites || '0';
+                    document.getElementById('confirmedCircuits').textContent = data.both_confirmed || '0';
+                    document.getElementById('confirmationRate').textContent = `${data.confirmation_rate || 0}% confirmed`;
+                    document.getElementById('totalCost').textContent = `$${(data.total_monthly_cost || 0).toFixed(2)}`;
+                    document.getElementById('sitesWithCost').textContent = `${data.with_costs || 0} sites with costs`;
+                    document.getElementById('ipFlips').textContent = data.ip_flips_detected || '0';
+                    document.getElementById('recentChanges').textContent = `${data.recent_changes || 0} changes last 7d`;
+                })
+                .catch(error => console.error('Error loading stats:', error));
+        }
+
+        function showDetails(siteName) {
+            const modal = new bootstrap.Modal(document.getElementById('detailsModal'));
+            modal.show();
+            
+            // Reset content
+            document.getElementById('detailsContent').innerHTML = `
+                <div class="text-center">
+                    <div class="spinner-border" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+            `;
+            
+            // Fetch details
+            fetch(`/api/test/circuit-details/${encodeURIComponent(siteName)}`)
+                .then(response => response.json())
+                .then(data => {
+                    let changeHistoryHtml = '';
+                    if (data.change_history && data.change_history.length > 0) {
+                        changeHistoryHtml = `
+                            <h6 class="mt-3">Recent Changes</h6>
+                            <div class="change-log">
+                                ${data.change_history.map(change => `
+                                    <div class="change-log-item">
+                                        <strong>${change.type}</strong> - ${change.field}<br>
+                                        <small class="text-muted">${new Date(change.date).toLocaleString()}</small><br>
+                                        <span class="text-danger">Old:</span> ${change.old || '-'}<br>
+                                        <span class="text-success">New:</span> ${change.new || '-'}<br>
+                                        <em>${change.reason}</em>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        `;
+                    }
+                    
+                    document.getElementById('detailsContent').innerHTML = `
+                        <h5>${data.site_name}</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>WAN1 Information</h6>
+                                <table class="table table-sm">
+                                    <tr><td>Provider:</td><td>${data.wan1.provider || '-'}</td></tr>
+                                    <tr><td>Speed:</td><td>${data.wan1.speed || '-'}</td></tr>
+                                    <tr><td>Cost:</td><td class="cost-cell">$${data.wan1.cost.toFixed(2)}</td></tr>
+                                    <tr><td>Role:</td><td>${data.wan1.role || '-'}</td></tr>
+                                    <tr><td>IP:</td><td>${data.wan1.ip || '-'}</td></tr>
+                                    <tr><td>Confirmed:</td><td>${data.wan1.confirmed ? '✅ Yes' : '❌ No'}</td></tr>
+                                </table>
+                                ${data.wan1.dsr_match ? `
+                                    <small class="text-muted">
+                                        DSR Match: ${data.wan1.dsr_match.provider} - ${data.wan1.dsr_match.speed}
+                                    </small>
+                                ` : ''}
+                            </div>
+                            <div class="col-md-6">
+                                <h6>WAN2 Information</h6>
+                                <table class="table table-sm">
+                                    <tr><td>Provider:</td><td>${data.wan2.provider || '-'}</td></tr>
+                                    <tr><td>Speed:</td><td>${data.wan2.speed || '-'}</td></tr>
+                                    <tr><td>Cost:</td><td class="cost-cell">$${data.wan2.cost.toFixed(2)}</td></tr>
+                                    <tr><td>Role:</td><td>${data.wan2.role || '-'}</td></tr>
+                                    <tr><td>IP:</td><td>${data.wan2.ip || '-'}</td></tr>
+                                    <tr><td>Confirmed:</td><td>${data.wan2.confirmed ? '✅ Yes' : '❌ No'}</td></tr>
+                                </table>
+                                ${data.wan2.dsr_match ? `
+                                    <small class="text-muted">
+                                        DSR Match: ${data.wan2.dsr_match.provider} - ${data.wan2.dsr_match.speed}
+                                    </small>
+                                ` : ''}
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col">
+                                <strong>Total Monthly Cost:</strong> 
+                                <span class="cost-cell">$${data.total_cost.toFixed(2)}</span>
+                            </div>
+                            <div class="col">
+                                <strong>Last Updated:</strong> 
+                                ${data.last_updated ? new Date(data.last_updated).toLocaleString() : 'Never'}
+                            </div>
+                        </div>
+                        ${changeHistoryHtml}
+                    `;
+                })
+                .catch(error => {
+                    document.getElementById('detailsContent').innerHTML = `
+                        <div class="alert alert-danger">
+                            Error loading details: ${error.message}
+                        </div>
+                    `;
+                });
+        }
+    </script>
+</body>
+</html>

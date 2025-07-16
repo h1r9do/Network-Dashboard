@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VLAN Migration Help - DSR Circuits</title>
+    
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- DSR Circuits Custom CSS -->
+    <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        
+        .navbar {
+            background-color: #343a40;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 500;
+            color: #fff !important;
+        }
+        
+        .card {
+            box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+            border: none;
+            margin-bottom: 20px;
+        }
+        
+        .card-header {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+            font-weight: 600;
+        }
+        
+        pre {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 10px;
+            font-size: 14px;
+        }
+        
+        .alert-info {
+            background-color: #e7f3ff;
+            border-color: #b3d9ff;
+            color: #004085;
+        }
+        
+        .table-vlan-mapping {
+            font-size: 14px;
+        }
+        
+        .phase-timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .phase-timeline:before {
+            content: '';
+            position: absolute;
+            left: 9px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #dee2e6;
+        }
+        
+        .phase-item {
+            position: relative;
+            padding-bottom: 20px;
+        }
+        
+        .phase-item:before {
+            content: '';
+            position: absolute;
+            left: -25px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #007bff;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 2px #dee2e6;
+        }
+        
+        .phase-item.complete:before {
+            background: #28a745;
+        }
+        
+        .code-example {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="/home">
+            <i class="fas fa-network-wired"></i> DSR Circuits
+        </a>
+        <div class="navbar-nav ml-auto">
+            <a class="nav-link" href="/vlan-migration">
+                <i class="fas fa-arrow-left"></i> Back to VLAN Migration
+            </a>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-4">
+        <!-- Page Header -->
+        <div class="row mb-4">
+            <div class="col">
+                <h1><i class="fas fa-question-circle text-info"></i> VLAN Migration Help</h1>
+                <p class="text-muted">Complete guide for migrating store networks to new VLAN standards</p>
+            </div>
+        </div>
+
+        <!-- Overview Card -->
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-info-circle"></i> Overview</h5>
+            </div>
+            <div class="card-body">
+                <p>The VLAN Migration tool automates the process of converting store networks from legacy VLAN numbering (1, 101, 201, 801) to the new corporate standard (100, 200, 410, 400).</p>
+                
+                <div class="alert alert-info">
+                    <i class="fas fa-lightbulb"></i> <strong>Key Features:</strong>
+                    <ul class="mb-0 mt-2">
+                        <li>Zero downtime migration using temporary VLANs</li>
+                        <li>Automatic firewall rule standardization (NEO 07 template)</li>
+                        <li>Complete backup before migration</li>
+                        <li>Real-time progress monitoring</li>
+                        <li>100% validation of firewall rules</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- VLAN Mapping Card -->
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-exchange-alt"></i> VLAN Mapping</h5>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm table-bordered table-vlan-mapping">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Legacy VLAN</th>
+                            <th>Legacy Purpose</th>
+                            <th>New VLAN</th>
+                            <th>New Purpose</th>
+                            <th>IP Change</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Data</td>
+                            <td><strong>100</strong></td>
+                            <td>Data</td>
+                            <td><span class="badge badge-success">No Change</span></td>
+                        </tr>
+                        <tr>
+                            <td>101</td>
+                            <td>Voice</td>
+                            <td><strong>200</strong></td>
+                            <td>Voice</td>
+                            <td><span class="badge badge-success">No Change</span></td>
+                        </tr>
+                        <tr>
+                            <td>201</td>
+                            <td>Credit Card</td>
+                            <td><strong>410</strong></td>
+                            <td>Credit Card</td>
+                            <td><span class="badge badge-success">No Change</span></td>
+                        </tr>
+                        <tr>
+                            <td>801</td>
+                            <td>IoT</td>
+                            <td><strong>400</strong></td>
+                            <td>IoT</td>
+                            <td><span class="badge badge-warning">172.13.0.1/30 → 172.16.40.1/24</span></td>
+                        </tr>
+                        <tr>
+                            <td>800</td>
+                            <td>Guest</td>
+                            <td><strong>800</strong></td>
+                            <td>Guest</td>
+                            <td><span class="badge badge-warning">172.13.0.1/30 → 172.16.80.1/24</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Migration Process Card -->
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-tasks"></i> Migration Process</h5>
+            </div>
+            <div class="card-body">
+                <h6>How to Migrate Networks</h6>
+                
+                <div class="phase-timeline">
+                    <div class="phase-item">
+                        <h6><i class="fas fa-search"></i> Step 1: Select Networks</h6>
+                        <p>Use the Network Selection tab to choose stores for migration. You can:</p>
+                        <ul>
+                            <li>Filter by subnet (/16 ranges)</li>
+                            <li>Show only networks needing migration</li>
+                            <li>Select individual networks or use bulk selection</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="phase-item">
+                        <h6><i class="fas fa-play"></i> Step 2: Start Migration</h6>
+                        <p>Click "Start Migration" to begin. The system will:</p>
+                        <ul>
+                            <li>Create a complete backup of each network</li>
+                            <li>Process networks sequentially</li>
+                            <li>Show real-time console output</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="phase-item">
+                        <h6><i class="fas fa-clock"></i> Step 3: Monitor Progress</h6>
+                        <p>Watch the migration progress in real-time:</p>
+                        <ul>
+                            <li>Console shows detailed operations</li>
+                            <li>Progress bar indicates completion</li>
+                            <li>Each phase is color-coded</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="phase-item complete">
+                        <h6><i class="fas fa-check-circle"></i> Step 4: Validation</h6>
+                        <p>After migration, the system automatically:</p>
+                        <ul>
+                            <li>Validates firewall rules match NEO 07 template</li>
+                            <li>Checks for exactly 55 rules</li>
+                            <li>Reports any discrepancies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Migration Phases Card -->
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-cogs"></i> Technical Migration Phases</h5>
+            </div>
+            <div class="card-body">
+                <p>Each network migration follows these automated phases:</p>
+                
+                <div class="code-example">
+                    <h6>Phase 1: Backup (0:00-0:10)</h6>
+                    <ul>
+                        <li>Complete configuration snapshot</li>
+                        <li>All VLANs, firewall rules, and port configurations</li>
+                        <li>Saved to timestamped JSON file</li>
+                    </ul>
+                </div>
+                
+                <div class="code-example">
+                    <h6>Phase 2: Clear References (0:10-0:30)</h6>
+                    <ul>
+                        <li>Clear all firewall rules</li>
+                        <li>Create temporary VLANs (996-999)</li>
+                        <li>Move ports to temporary VLANs</li>
+                    </ul>
+                </div>
+                
+                <div class="code-example">
+                    <h6>Phase 3: VLAN Migration (0:30-1:30)</h6>
+                    <ul>
+                        <li>Delete old VLANs (1, 101, 201, 801)</li>
+                        <li>Create new VLANs (100, 200, 410, 400)</li>
+                        <li>Apply IP changes for VLANs 400 and 800</li>
+                    </ul>
+                </div>
+                
+                <div class="code-example">
+                    <h6>Phase 4: Restore Configuration (1:30-2:30)</h6>
+                    <ul>
+                        <li>Update all ports to new VLAN IDs</li>
+                        <li>Apply NEO 07 firewall template (54 rules)</li>
+                        <li>Meraki auto-adds default rule (total: 55)</li>
+                        <li>Clean up temporary VLANs</li>
+                    </ul>
+                </div>
+                
+                <div class="code-example">
+                    <h6>Phase 5: Validation (2:30-2:40)</h6>
+                    <ul>
+                        <li>Compare firewall rules to NEO 07</li>
+                        <li>Verify 100% match (55 rules)</li>
+                        <li>Generate migration report</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rollback Card -->
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-undo"></i> Rollback Procedures</h5>
+            </div>
+            <div class="card-body">
+                <p>If needed, you can rollback a migration using the backup created before migration:</p>
+                
+                <ol>
+                    <li>Go to the History tab</li>
+                    <li>Find the migration job for your network</li>
+                    <li>Click the "Rollback" button</li>
+                    <li>Confirm the rollback operation</li>
+                </ol>
+                
+                <div class="alert alert-warning">
+                    <i class="fas fa-exclamation-triangle"></i> <strong>Important:</strong> Rollback will restore the network to its exact pre-migration state, including all VLANs, firewall rules, and port configurations.
+                </div>
+            </div>
+        </div>
+
+        <!-- Command Line Card -->
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-terminal"></i> Command Line Usage</h5>
+            </div>
+            <div class="card-body">
+                <p>For advanced users, migrations can also be run from the command line:</p>
+                
+                <pre><code># Navigate to scripts directory
+cd /usr/local/bin/Main/
+
+# Run migration for a single network
+python3 vlan_migration_complete.py --network-id L_3790904986339115852
+
+# Run with automatic confirmation (for scripts)
+SKIP_CONFIRMATION=1 python3 vlan_migration_complete.py --network-id L_3790904986339115852
+
+# Validate migration
+python3 detailed_rule_comparison.py
+
+# Rollback from backup
+python3 restore_from_backup.py --backup-file complete_vlan_backup_L_3790904986339115852_20250710_111440.json</code></pre>
+            </div>
+        </div>
+
+        <!-- FAQ Card -->
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-question"></i> Frequently Asked Questions</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-3">
+                    <h6>Q: How long does migration take per network?</h6>
+                    <p>A: Typically 2-3 minutes per network, including validation.</p>
+                </div>
+                
+                <div class="mb-3">
+                    <h6>Q: Will there be any network downtime?</h6>
+                    <p>A: No. The migration uses temporary VLANs to maintain connectivity throughout the process.</p>
+                </div>
+                
+                <div class="mb-3">
+                    <h6>Q: What happens to the firewall rules?</h6>
+                    <p>A: All networks receive the standardized NEO 07 firewall template (55 rules total).</p>
+                </div>
+                
+                <div class="mb-3">
+                    <h6>Q: Can I migrate multiple networks at once?</h6>
+                    <p>A: Yes. Select multiple networks and they will be processed sequentially.</p>
+                </div>
+                
+                <div class="mb-3">
+                    <h6>Q: What if migration fails?</h6>
+                    <p>A: Each network has a complete backup taken before migration. Use the rollback feature to restore.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Support Card -->
+        <div class="card mb-5">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-life-ring"></i> Support</h5>
+            </div>
+            <div class="card-body">
+                <p>For additional support or to report issues:</p>
+                <ul>
+                    <li>Contact the Network Operations Team</li>
+                    <li>Check migration logs in <code>/usr/local/bin/Main/complete_vlan_migration_report_*.txt</code></li>
+                    <li>Review backup files in <code>/usr/local/bin/Main/complete_vlan_backup_*.json</code></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

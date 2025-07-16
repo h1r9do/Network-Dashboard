@@ -1,0 +1,54 @@
+Network Name,Current WAN2 Provider,Current WAN2 Speed,WAN2 IP,ARIN Provider,New Provider (Proposed),New Speed (Proposed),Device Tags
+AZF 01,Unknown,N/A,107.84.140.146,"AT&T Enterprises, LLC",AT&T Cell,cell,"Discount, Discount-Tire"
+CAN 11,Unknown,N/A,166.184.129.126,"AT&T Enterprises, LLC",AT&T Cell,cell,"DSL, Discount-Tire"
+CAN 49,Unknown,N/A,166.184.137.103,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+CAS 01,Unknown,N/A,166.184.131.111,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+CAS 09,Unknown,N/A,107.84.128.23,"AT&T Enterprises, LLC",AT&T Cell,cell,"Discount, Discount-Tire"
+COD 03,Unknown,N/A,107.80.171.49,"AT&T Enterprises, LLC",AT&T Cell,cell,"Discount-Tire, SD-WAN"
+COD 06,Unknown,N/A,107.80.169.157,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+COD 08,Unknown,N/A,107.80.172.40,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+COD 09,Unknown,N/A,166.248.10.116,Verizon Business,VZW Cell,cell,Discount-Tire
+COD 14,Unknown,N/A,107.127.155.43,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+COD 24,Unknown,N/A,107.80.164.239,"AT&T Enterprises, LLC",AT&T Cell,cell,"Discount, Discount-Tire"
+COD 31,Unknown,N/A,107.80.170.219,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+COG 03,Unknown,N/A,107.80.160.49,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+CON 02,Unknown,N/A,107.80.184.242,"AT&T Enterprises, LLC",AT&T Cell,cell,"Discount, Discount-Tire"
+COP 02,Unknown,N/A,107.127.155.204,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+COS 02,Unknown,N/A,107.80.160.176,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+FLO 10,Unknown,N/A,166.184.98.123,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+FLP 02,Unknown,N/A,166.184.108.222,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+GAA 41,Unknown,N/A,107.85.155.52,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+GAA 42,Unknown,N/A,166.184.33.78,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+IAD 03,Unknown,N/A,107.80.168.77,"AT&T Enterprises, LLC",AT&T Cell,cell,"Discount-Tire, Vision"
+ILC 28,Unknown,N/A,107.80.176.46,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+INF 01,Unknown,N/A,166.184.27.165,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+INI 14,Unknown,N/A,166.195.41.90,"AT&T Enterprises, LLC",AT&T Cell,cell,"Discount, Discount-Tire"
+MNM 01,Unknown,N/A,107.80.174.199,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+MNM 06,Unknown,N/A,107.80.181.154,"AT&T Enterprises, LLC",AT&T Cell,cell,"Discount, Discount-Tire"
+MNM 26,Unknown,N/A,107.80.187.29,"AT&T Enterprises, LLC",AT&T Cell,cell,"Discount, Discount-Tire"
+MTM 02,Unknown,N/A,107.80.161.237,"AT&T Enterprises, LLC",AT&T Cell,cell,"Discount, Discount-Tire"
+NCC 21,Unknown,N/A,166.184.87.2,"AT&T Enterprises, LLC",AT&T Cell,cell,"Discount, Discount-Tire"
+NML 01,Unknown,N/A,107.80.180.196,"AT&T Enterprises, LLC",AT&T Cell,cell,"Discount, Discount-Tire, recently-added"
+NVL 04,Unknown,N/A,166.184.129.60,"AT&T Enterprises, LLC",AT&T Cell,cell,"Discount, Discount-Tire"
+NVL 13,Unknown,N/A,107.84.140.5,"AT&T Enterprises, LLC",AT&T Cell,cell,"Discount, Discount-Tire"
+NVL 17,Unknown,N/A,107.84.141.3,"AT&T Enterprises, LLC",AT&T Cell,cell,"Discount, Discount-Tire"
+OHC 04,Unknown,N/A,166.184.27.191,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+OHN 03,Unknown,N/A,107.85.142.169,"AT&T Enterprises, LLC",AT&T Cell,cell,"Discount, Discount-Tire"
+ORP 02,Unknown,N/A,107.84.143.51,"AT&T Enterprises, LLC",AT&T Cell,cell,"Discount, Discount-Tire"
+ORP 12,Unknown,N/A,107.84.136.134,AT&T,AT&T Cell,cell,Discount-Tire
+PAN 01,Unknown,N/A,166.151.178.1,Verizon Business,VZW Cell,cell,Discount-Tire
+SDR 01,Unknown,N/A,107.127.152.159,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+TNK 01,Unknown,N/A,107.85.152.253,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+TXA 11,Unknown,N/A,107.80.183.238,"AT&T Enterprises, LLC",AT&T Cell,cell,"Discount, Discount-Tire"
+TXC 04,Unknown,N/A,107.80.177.126,"AT&T Enterprises, LLC",AT&T Cell,cell,"Discount, Discount-Tire"
+TXC 10,Unknown,N/A,107.80.181.178,"AT&T Enterprises, LLC",AT&T Cell,cell,"Discount-Tire, Vision"
+TXD 15,Unknown,N/A,166.168.184.213,Verizon Business,VZW Cell,cell,"Discount, Discount-Tire"
+TXD 87,Unknown,N/A,107.80.160.223,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+TXH 16,Unknown,N/A,107.80.162.236,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+TXH 28,Unknown,N/A,107.80.182.164,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+TXH 48,Unknown,N/A,107.80.179.192,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+TXH 57,Unknown,N/A,107.80.173.165,"AT&T Enterprises, LLC",AT&T Cell,cell,"Discount-Tire, recently-added"
+TXH 64,Unknown,N/A,107.127.155.244,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+WAS 25,Unknown,N/A,166.184.137.235,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire
+WIM 05,Unknown,N/A,107.80.175.210,AT&T,AT&T Cell,cell,Discount-Tire
+WIW 01,Unknown,N/A,107.80.190.12,"AT&T Enterprises, LLC",AT&T Cell,cell,Discount-Tire

@@ -1,0 +1,111 @@
+
+Comprehensive AZP 30 to TST 01 Restore Report
+=============================================
+Target: TST 01 (L_3790904986339115852)
+Source: azp_30_full_config_20250709_170149.json
+Start Time: 2025-07-10 08:59:10
+Duration: 0:01:55.822025
+Backup File: tst01_backup_before_azp30_restore_20250710_085914.json
+
+Components Restored:
+- VLANs: 10 restored with test IP ranges
+- Firewall Rules: 58 processed and filtered
+- MX Ports: 10 configured
+- Switch Configs: 2 switches processed
+
+Log Entries:
+[08:59:10] INFO: Comprehensive Restore initialized
+[08:59:10] INFO: Source: azp_30_full_config_20250709_170149.json
+[08:59:10] INFO: Target: TST 01 (L_3790904986339115852)
+[08:59:10] INFO: ================================================================================
+[08:59:10] INFO: COMPREHENSIVE AZP 30 TO TST 01 RESTORE
+[08:59:10] INFO: ================================================================================
+[08:59:10] INFO: Loading AZP 30 source configuration...
+[08:59:10] INFO:   Found 10 VLANs
+[08:59:10] INFO:   Found 58 firewall rules
+[08:59:10] INFO:   Found 10 MX ports
+[08:59:10] INFO:   Found switch configurations for 2 switches
+[08:59:10] INFO:   Found 3 group policies
+[08:59:10] INFO: 
+Backing up current TST 01 configuration...
+[08:59:10] INFO:   ✓ Backed up 10 VLANs
+[08:59:11] INFO:   ✓ Backed up 59 firewall rules
+[08:59:11] INFO:   ✓ Backed up 10 MX ports
+[08:59:13] INFO:   ✓ Backed up 28 ports for TST_01SW01
+[08:59:13] INFO:   ✓ Backed up 28 ports for TST_01SW02
+[08:59:14] INFO:   ✓ Backed up 3 group policies
+[08:59:14] INFO:   ✓ Complete backup saved to tst01_backup_before_azp30_restore_20250710_085914.json
+[08:59:14] INFO: 
+Clearing existing TST 01 configuration...
+[08:59:14] INFO:   Clearing firewall rules...
+[08:59:15] INFO:     ✓ Firewall rules cleared
+[08:59:15] INFO:   Clearing VLANs...
+[08:59:15] INFO:     Deleting VLAN 1...
+[08:59:17] INFO:     Deleting VLAN 101...
+[08:59:18] INFO:     Deleting VLAN 201...
+[08:59:19] INFO:     Deleting VLAN 300...
+[08:59:21] INFO:     Deleting VLAN 301...
+[08:59:22] INFO:     Deleting VLAN 800...
+[08:59:24] INFO:     Deleting VLAN 801...
+[08:59:25] INFO:     Deleting VLAN 802...
+[08:59:27] INFO:     Deleting VLAN 803...
+[08:59:28] INFO: 
+Restoring VLANs from AZP 30...
+[08:59:28] INFO:   Creating VLAN 1: Data
+[08:59:29] INFO:     ✓ Created VLAN 1
+[08:59:30] INFO:   Creating VLAN 101: Voice
+[08:59:30] INFO:     ✓ Created VLAN 101
+[08:59:31] INFO:   Creating VLAN 201: Ccard
+[08:59:32] INFO:     ✓ Created VLAN 201
+[08:59:33] INFO:   Creating VLAN 300: AP Mgmt
+[08:59:34] INFO:     ✓ Created VLAN 300
+[08:59:35] INFO:   Creating VLAN 301: Scanner
+[08:59:35] INFO:     ✓ Created VLAN 301
+[08:59:36] INFO:   Creating VLAN 800: Guest
+[08:59:37] INFO:     ✓ Created VLAN 800
+[08:59:38] INFO:   Creating VLAN 801: IOT
+[08:59:38] INFO:     ✓ Created VLAN 801
+[08:59:39] INFO:   Creating VLAN 802: IoT Network
+[08:59:40] INFO:     ✓ Created VLAN 802
+[08:59:41] INFO:   Creating VLAN 803: IoT Wireless
+[08:59:42] INFO:     ✓ Created VLAN 803
+[08:59:43] INFO:   ✓ Created 9 VLANs
+[08:59:43] INFO: 
+Restoring firewall rules from AZP 30...
+[08:59:43] INFO:   Loaded 58 firewall rules from AZP 30
+[08:59:43] INFO:   Processed 58 rules (0 skipped)
+[08:59:44] INFO:   ✓ Applied 58 firewall rules
+[08:59:44] INFO: 
+Restoring MX port configurations from AZP 30...
+[08:59:44] INFO:   Configuring MX port 3 (enabled: True)
+[08:59:45] INFO:     ✓ Configured MX port 3
+[08:59:46] INFO:   Configuring MX port 4 (enabled: True)
+[08:59:47] INFO:     ✓ Configured MX port 4
+[08:59:48] INFO:   Configuring MX port 5 (enabled: True)
+[08:59:49] INFO:     ✓ Configured MX port 5
+[08:59:50] INFO:   Configuring MX port 6 (enabled: True)
+[08:59:50] INFO:     ✓ Configured MX port 6
+[08:59:51] INFO:   Configuring MX port 7 (enabled: False)
+[08:59:52] ERROR: API Error: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/7
+[08:59:52] ERROR: Response: {"errors":["You must enable the port before applying any change to it."]}
+[08:59:52] ERROR:     ✗ Failed to configure MX port 7
+[08:59:53] INFO:   Configuring MX port 8 (enabled: True)
+[08:59:53] INFO:     ✓ Configured MX port 8
+[08:59:54] INFO:   Configuring MX port 9 (enabled: True)
+[08:59:55] INFO:     ✓ Configured MX port 9
+[08:59:56] INFO:   Configuring MX port 10 (enabled: True)
+[08:59:57] INFO:     ✓ Configured MX port 10
+[08:59:58] INFO:   Configuring MX port 11 (enabled: False)
+[08:59:58] ERROR: API Error: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/11
+[08:59:58] ERROR: Response: {"errors":["You must enable the port before applying any change to it."]}
+[08:59:58] ERROR:     ✗ Failed to configure MX port 11
+[08:59:59] INFO:   Configuring MX port 12 (enabled: True)
+[09:00:00] INFO:     ✓ Configured MX port 12
+[09:00:01] INFO:   ✓ Configured 8 MX ports
+[09:00:01] INFO: 
+Restoring switch port configurations from AZP 30...
+[09:00:01] INFO:   Found 2 switches in TST 01
+[09:00:01] INFO:   Applying AZP 30 switch config to TST_01SW01
+[09:00:34] INFO:     ✓ Updated 28 ports on TST_01SW01
+[09:00:34] INFO:   Applying AZP 30 switch config to TST_01SW02
+[09:01:06] INFO:     ✓ Updated 28 ports on TST_01SW02

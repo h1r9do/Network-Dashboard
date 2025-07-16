@@ -1,0 +1,102 @@
+Site Name,Current Circuits,Provider,Speed,Data Source,Category
+AMERICA's TIRE,1,Spectrum,300.0M x 20.0M,csv_import,Test/Special
+AMERICAS TIRE CO,1,NSA,750.0M x 35.0M,csv_import,Test/Special
+AZP 00,1,Cox Business/BOI,500.0M x 35.0M,csv_import,Test/Special
+AZP 00 NEW,1,Cox Business/BOI,50.0M x 10.0M,csv_import,Test/Special
+AZPB 20,1,AT&T,Cell,Non-DSR,Cell Only
+AZP_00,1,AT&T,Cell,Non-DSR,Cell Only
+CAL 13N,1,Spectrum,300.0M x 20.0M,csv_import,Regular Store
+CAL 25,1,Cox Business/BOI,50.0M x 10.0M,csv_import,Regular Store
+CAL W01,1,Frontier,30.0M x 5.0M,csv_import,Regular Store
+CAN 08,1,Starlink,Satellite,Non-DSR,Satellite Only
+CAN 11 -B,1,DSR Circuit,300.0M x 300.0M,manual_entry,Secondary Location
+CAN 18 -B,1,AT&T,20.0M x 20.0M,csv_import,Secondary Location
+CAN 24 -B,1,Bell Canada,500.0M x 100.0M,csv_import,Secondary Location
+CAN 33 -B,1,Videotron,400.0M x 50.0M,csv_import,Secondary Location
+CAN 34 -B,1,Bell Canada,120.0M x 20.0M,csv_import,Secondary Location
+CAN 39 -B,1,Shaw,300.0M x 20.0M,csv_import,Secondary Location
+COC 10,1,Verizon Wireless,Cell,Non-DSR,Cell Only
+COL 23,1,N/A,Not Installed,csv_import,Not Installed
+COL 37,1,Comcast,100.0M x 35.0M,csv_import,Regular Store
+CSP 10,1,Comcast,50.0M x 10.0M,csv_import,Regular Store
+FLP 05 -B,1,NSA,Not Installed,csv_import,Secondary Location
+FLP 06,1,Mediacom,200.0M x 15.0M,csv_import,Regular Store
+FLP 06 -B,1,Mediacom,200.0M x 15.0M,csv_import,Secondary Location
+FLP 10 -B,1,AT&T,50.0M x 10.0M,csv_import,Secondary Location
+FLP 17 -B,1,AT&T,N/A,csv_import,Secondary Location
+FLP 26,1,CityNet,1000.0M x 1000.0M,csv_import,Regular Store
+FLP 27,1,Crown Castle Fiber,Not Installed,csv_import,Not Installed
+FLP 38,1,Blue Stream,300.0M x 300.0M,csv_import,Regular Store
+FLP 39,1,Comcast,Not Installed,csv_import,Not Installed
+FLP 42,1,NSA,Not Installed,csv_import,Not Installed
+FLP 43,1,NSA,Not Installed,csv_import,Not Installed
+FLP 45,1,NSA,Not Installed,csv_import,Not Installed
+FLP 46,1,NSA,Not Installed,csv_import,Not Installed
+FLP 47,1,Spectrum,300.0M x 20.0M,csv_import,Regular Store
+FLP 49,1,NSA,Not Installed,csv_import,Not Installed
+FLP 50,1,NSA,Not Installed,csv_import,Not Installed
+FLP 51,1,NSA,Not Installed,csv_import,Not Installed
+GAD 02,1,Comcast,200.0M x 35.0M,csv_import,Regular Store
+GAD 06 -B,1,AT&T,50.0M x 50.0M,csv_import,Secondary Location
+IDD 01,1,Allstream,45.0M x 4.0M,csv_import,Regular Store
+IDD 04 -B,1,TDS,300.0M x 20.0M,csv_import,Secondary Location
+IDH01 -B,1,Verizon Wireless,Cell,Non-DSR,Cell Only
+ILP 45,1,Suddenlink,300.0M x 35.0M,csv_import,Regular Store
+ILR 17,1,Metronet,1000.0M x 1000.0M,csv_import,Regular Store
+INI 06,1,AT&T,1000.0M x 1000.0M,csv_import,Regular Store
+MDD 15,1,Verizon,300.0M x 300.0M,csv_import,Regular Store
+MII 15,1,AT&T,100.0M x 100.0M,csv_import,Regular Store
+MII 19 -B,1,Comcast,N/A,csv_import,Secondary Location
+MNB 09,1,NSA,Not Installed,csv_import,Not Installed
+MNM 02,1,Frontier,200.0M x 10.0M,csv_import,Regular Store
+MNM 05,1,Starlink,Satellite,Non-DSR,Satellite Only
+NCA 25,1,AT&T,100.0M x 100.0M,csv_import,Regular Store
+NCG 12 -B,1,AT&T,20.0M x 20.0M,csv_import,Secondary Location
+NEW 15,1,Starlink,Satellite,Non-DSR,Satellite Only
+NJB 11,1,Comcast,N/A,csv_import,Regular Store
+NJM 02,1,Comcast,300.0M x 35.0M,csv_import,Regular Store
+NJP 15,1,NSA,Not Installed,csv_import,Not Installed
+NYA 17,1,Crown Castle Fiber,Not Installed,csv_import,Not Installed
+OHC 36,1,Charter Communications,300.0M x 10.0M,csv_import,Regular Store
+OHC 44,1,Spectrum,600.0M x 35.0M,csv_import,Regular Store
+OHC 48,1,AT&T,50.0M x 50.0M,csv_import,Regular Store
+OHD 28,1,Spectrum,600.0M x 35.0M,csv_import,Regular Store
+OHT 20,1,NSA,Not Installed,csv_import,Not Installed
+OHY 13,1,Suddenlink,300.0M x 35.0M,csv_import,Regular Store
+OKO 13,1,Cox Business/BOI,Not Installed,csv_import,Not Installed
+OKT 05,1,NSA,Not Installed,csv_import,Not Installed
+PAP 32,1,Verizon,Not Installed,csv_import,Not Installed
+PAP 35,1,Comcast,300.0M x 35.0M,csv_import,Regular Store
+PAP 37,1,NSA,Not Installed,csv_import,Not Installed
+PAW 12,1,Frontier,N/A,csv_import,Regular Store
+SCA 17,1,ATT / Verizon,Not Installed,csv_import,Not Installed
+SCG 05,1,Cox Business/BOI,300.0M x 20.0M,csv_import,Regular Store
+TNA 19,1,AT&T,50.0M x 10.0M,csv_import,Regular Store
+TND 17,1,Comcast,300.0M x 35.0M,csv_import,Regular Store
+TND02-B,1,NSA,Not Installed,csv_import,Secondary Location
+TNK 13,1,NSA,Not Installed,csv_import,Not Installed
+TNM 08,1,Comcast,300.0M x 35.0M,csv_import,Regular Store
+TNM 18,1,EPB Fiber Optics,Not Installed,csv_import,Not Installed
+TNM 19,1,NSA,Not Installed,csv_import,Not Installed
+TXA 81,1,Frontier,100.0M x 100.0M,csv_import,Regular Store
+TXA117,1,TBD,TBD,manual_entry,Regular Store
+TXD 64 -B,1,AT&T,1000.0M x 1000.0M,csv_import,Secondary Location
+TXD 76 -B,1,Spectrum,600.0M x 35.0M,csv_import,Secondary Location
+TXD 92,1,Starlink,Satellite,Non-DSR,Satellite Only
+TXH135,1,NSA,Not Installed,csv_import,Not Installed
+TXH137,1,NSA,Not Installed,csv_import,Not Installed
+TXH141,1,NSA,Not Installed,csv_import,Not Installed
+TXH142,1,NSA,Not Installed,csv_import,Not Installed
+TXS 55,1,AT&T,1000.0M x 1000.0M,csv_import,Regular Store
+TXS 90,1,AT&T,1000.0M x 1000.0M,csv_import,Regular Store
+TXS128,1,NSA,Not Installed,csv_import,Not Installed
+TXS136,1,NSA,Not Installed,csv_import,Not Installed
+UTH 11,1,AT&T,Cell,Non-DSR,Cell Only
+UTS 18,1,NSA,Not Installed,csv_import,Not Installed
+VAA02,1,Cox Business/BOI,100.0M x 10.0M,csv_import,Regular Store
+VAF 12,1,NSA,Not Installed,csv_import,Not Installed
+VAR 13,1,Verizon,100.0M x 100.0M,csv_import,Regular Store
+WAC 29,1,Starlink,Satellite,Non-DSR,Satellite Only
+WIP 08,1,NSA,Not Installed,csv_import,Not Installed
+WIP 09,1,NSA,Not Installed,csv_import,Not Installed
+WVH 08,1,NSA,Not Installed,csv_import,Not Installed

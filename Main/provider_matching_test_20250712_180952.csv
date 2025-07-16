@@ -1,0 +1,1292 @@
+network_name,wan1_notes_provider,wan1_arin_provider,wan1_matched_dsr,wan1_match_method,wan2_notes_provider,wan2_arin_provider,wan2_matched_dsr,wan2_match_method,dsr_circuit_count
+ALB 01,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+ALB 03,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+ALM 01,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+ALM 02,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+ALM 03,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+ALM 04,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+ALN 01,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+ALN 02,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+ALS 01,WAN 1,Charter Communications,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+ALS 02,WAN 1,C Spire Fiber,,none,Brightspeed,CenturyLink,Brightspeed,notes,2
+ARL 01,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+ARL 02,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+ARL 03,WAN 1,Conway Corporation,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+ARL 04,WAN 1,Optimum,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+ARL 05,WAN 1,AT&T,,none,Ritter Communications,Ritter Communications,Ritter Communications,notes,2
+ARL 06,WAN 1,CenturyLink,,none,Altice West,Optimum,Altice West,notes,2
+ARO 01,WAN 1,AT&T,,none,Cox Business/BOI,Cox Communications,Cox Business/BOI,notes,2
+ARO 02,WAN 1,AT&T,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+ARO 03,WAN 1,AT&T,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+ARO 04,WAN 1,Cox Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+ARO 05,WAN 1,YELCOT TELEPHONE COMPANY,,none,Ritter Communications,Ritter Communications,Ritter Communications,notes,2
+ARO 06,WAN 1,Cox Communications,,none,Cox Business/BOI,AT&T,Cox Business/BOI,notes,2
+AZC 01,WAN 1,Cox Communications,,none,Digi,AT&T,,none,1
+AZF 01,WAN 1,Cox Communications,,none,AT&T,AT&T,,none,1
+AZF 02,WAN1: Lightpath  300.0M x 300.0M\n,Optimum,,none,Altice West 500.0M x 50.0M,Optimum,,none,2
+AZH 01,WAN 1,Optimum,,none,Digi,AT&T,,none,1
+AZK 01,WAN 1,Frontier Communications,,none,Allo Communications,Customer Public IP Range at KGM01,Allo Communications,notes,2
+AZM 01,WAN 1,"Orbitel Communications, LLC",,none,Digi,AT&T,,none,1
+AZN 02,WAN 1,"Cable One, Inc.",,none,Digi,AT&T,,none,1
+AZN 03,WAN 1,"Cable One, Inc.",,none,Digi,Verizon,,none,1
+AZN 04,WAN 1,AT&T,,none,Digi,AT&T,,none,1
+AZN 05,WAN 1,FAIRNET LLC,,none,VZW Cell,Verizon,,none,1
+AZN 06,WAN 1,"Cable One, Inc.",,none,Verizon Business,Verizon,,none,1
+AZP_00,WAN 1,Cox Communications,,none,Digi,Private IP,,none,0
+AZP 01,,Cox Communications,Cox Business/BOI,arin,Verizon Business,Verizon,,none,1
+AZP 03,WAN 1,Cox Communications,,none,Digi,AT&T,,none,1
+AZP 05,WAN 1,Cox Communications,,none,Starlink,ZeroOutages,,none,1
+AZP 07,WAN 1,Cox Communications,,none,VZW Cell,Verizon,,none,1
+AZP 08,WAN 1,Cox Communications,,none,VZW Cell,Verizon,,none,1
+AZP 09,WAN 1,Cox Communications,,none,EB2-Lumen DSL,CenturyLink,EB2-Lumen DSL,notes,2
+AZP 10,WAN 1,Cox Communications,,none,Digi,AT&T,,none,1
+AZP 11,WAN 1,Cox Communications,,none,Digi,AT&T,,none,1
+AZP 13,WAN 1,Cox Communications,,none,VZW Cell,AT&T,,none,1
+AZP 14,WAN 1,Cox Communications,,none,VZW Cell,Verizon,,none,1
+AZP 16,WAN 1,Cox Communications,,none,Digi,AT&T,,none,1
+AZP 17,WAN 1,Cox Communications,,none,VZW Cell,Verizon,,none,1
+AZP 18,WAN 1,Cox Communications,,none,EB2-CenturyLink DSL,CenturyLink,EB2-CenturyLink DSL,notes,2
+AZP 19,WAN 1,Cox Communications,,none,Digi,AT&T,,none,1
+AZP 20,WAN 1,Saddleback Communications,,none,VZW Cell,Verizon,,none,1
+AZP 21,WAN 1,Cox Communications,,none,CenturyLink/Embarq,CenturyLink,CenturyLink/Embarq,notes,2
+AZP 22,WAN 1,Cox Communications,,none,EB2-Centurylink DSL,"Ocotillo Technologies, Inc.",EB2-Centurylink DSL,notes,2
+AZP 23,WAN 1,Cox Communications,,none,Digi,AT&T,,none,1
+AZP 24,WAN 1,Cox Communications,,none,EB2-Centurylink DSL,CenturyLink,EB2-Centurylink DSL,notes,2
+AZP 25,WAN 1,Cox Communications,,none,VZW Cell,Verizon,,none,1
+AZP 26,WAN 1,Cox Communications,,none,EB2-Centurylink DSL,CenturyLink,EB2-Centurylink DSL,notes,2
+AZP 27,WAN 1,Cox Communications,,none,CenturyLink,CenturyLink,,none,2
+AZP 28,WAN 1,Cox Communications,,none,CenturyLink,CenturyLink,,none,2
+AZP 29,WAN 1,Cox Communications,,none,EB2-Lumen DSL,CenturyLink,EB2-Lumen DSL,notes,2
+AZP 30,WAN 1,Cox Communications,,none,EB2-Centurylink DSL,CenturyLink,EB2-Centurylink DSL,notes,2
+AZP 31,WAN 1,Cox Communications,,none,VZW Cell,Private IP,,none,1
+AZP 32,WAN 1,Cox Communications,,none,VZW Cell,Verizon,,none,1
+AZP 33,WAN 1,Cox Communications,,none,VZW Cell,Verizon,,none,1
+AZP 34,WAN 1,Cox Communications,,none,Starlink,"SpaceX Services, Inc.",,none,1
+AZP 35,WAN 1,Cox Communications,,none,Verizon Business,Verizon,,none,1
+AZP 36,WAN 1,ZONA COMMUNICATIONS,,none,Starlink,"SpaceX Services, Inc.",,none,1
+AZP 37,WAN 1,Cox Communications,,none,CenturyLink,CenturyLink,,none,2
+AZP 38,WAN 1,Cox Communications,,none,Digi,AT&T,,none,1
+AZP 39,WAN 1,Cox Communications,,none,Digi,AT&T,,none,1
+AZP 41,WAN 1,AT&T,,none,Starlink,"SpaceX Services, Inc.",,none,1
+AZP 42,WAN 1,Cox Communications,,none,Digi,AT&T,,none,1
+AZP 43,WAN 1,Cox Communications,,none,CenturyLink,"CenturyLink Communications, LLC",CenturyLink ,notes,2
+AZP 44,WAN 1,CenturyLink,,none,Digi,AT&T,,none,1
+AZP 45,WAN 1,Cox Communications,,none,Starlink,"SpaceX Services, Inc.",,none,1
+AZP 46,WAN 1,Cox Communications,,none,EB2-Centurylink DSL,CenturyLink,EB2-Centurylink DSL,notes,2
+AZP 47,WAN1: Cox Business/BOI 300.0M x 50.0M\n,Cox Communications,Cox Business/BOI,notes,CenturyLink 10.0M x 1.0M,CenturyLink,,none,2
+AZP 48,WAN 1,Cox Communications,,none,VZW Cell,Verizon,,none,1
+AZP 49,WAN 1,CenturyLink Communications,,none,Digi,AT&T,,none,1
+AZP 50,,Cox Communications,Cox Business/BOI,arin,Verizon Business,Verizon,,none,1
+AZP 51,WAN 1,Cox Communications,,none,VZW Cell,Verizon,,none,1
+AZP 53,WAN 1,Cox Communications,,none,Digi,AT&T,,none,1
+AZP 54,WAN 1,Cox Communications,,none,CenturyLink/Qwest,CenturyLink,CenturyLink/Qwest,notes,2
+AZP 55,WAN 1,CenturyLink,,none,Digi,AT&T,,none,1
+AZP 56,WAN 1,CenturyLink,,none,Digi,AT&T,,none,0
+AZP 57,WAN 1,Cox Communications,,none,VZW Cell,Internet Assigned Numbers Authority,,none,1
+AZP 58,WAN 1,Cox Communications,,none,Digi,AT&T,,none,1
+AZP 59,WAN 1,Cox Communications,,none,VZW Cell,Verizon,,none,1
+AZP 60,WAN 1,Mediacom Communications Corporation,,none,VZW Cell,Verizon,,none,1
+AZP 61,WAN 1,Cox Communications,,none,Digi,AT&T,,none,1
+AZP 62,WAN1: Cox Business/BOI	 300.0M x 30.0M\n,Cox Communications,Cox Business/BOI ,notes,Digi Cell,AT&T,,none,1
+AZP 63,WAN 1,"SpaceX Services, Inc.",,none,VZG Cell,Verizon,,none,0
+AZP 64,WAN 1,"SpaceX Services, Inc.",,none,AT&T Cell,AT&T,,none,0
+AZS 01,WAN 1,Cox Communications,,none,Digi,AT&T,,none,1
+AZT 01,WAN 1,Cox Communications,,none,Digi,AT&T,,none,1
+AZT 02,WAN 1,Cox Communications,,none,EB2-Centurylink DSL,CenturyLink,EB2-Centurylink DSL,notes,2
+AZT 03,WAN 1,Cox Communications,,none,VZW Cell,Verizon,,none,1
+AZT 06,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+AZT 07,WAN 1,Cox Communications,,none,Starlink,"SpaceX Services, Inc.",,none,1
+AZT 09,,Comcast,Comcast Workplace,arin,VZW Cell,Verizon,,none,1
+AZT 10,,Cox Communications,Cox Business/BOI,arin,VZW Cell,Verizon,,none,1
+AZT 11,WAN 1,Comcast,,none,Verizon Business,,,none,1
+AZT 12,WAN 1,Cox Communications,,none,Lumen Qwest,Micro Import Service,Lumen Qwest,notes,2
+AZT 13,WAN 1,Cox Communications,,none,GTT ESA2 ADSL,CenturyLink,GTT/ESA2 ADSL,notes,2
+AZT 14,WAN 1,Cox Communications,,none,"Login, Inc.","Login, Inc.",,none,2
+AZY 01,WAN 1,Charter Communications,,none,Digi,AT&T,,none,1
+AZY 02,WAN 1,Customer Static IP Range at YUM02,,none,Spectrum,Charter Communications,Spectrum,notes,2
+CAL_00,WAN 1,Frontier Communications,,none,Charter Communications,Charter Communications,,none,0
+CAL 01,WAN 1,Charter Communications,,none,EB2-Frontier Fiber,Frontier Communications,EB2-Frontier Fiber,notes,2
+CAL 02,WAN 1,Charter Communications,,none,Frontier MetroFiber,Frontier Communications,Frontier MetroFiber,notes,2
+CAL 03,WAN 1,Frontier Communications,,none,AT&T Cell,AT&T,,none,1
+CAL 04,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+CAL 05,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+CAL 06,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+CAL 07,WAN 1,AT&T,,none,VZW Cell,Verizon,,none,1
+CAL 08,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+CAL 09,WAN 1,Charter Communications,,none,EB2-Frontier Fiber,Frontier Communications,EB2-Frontier Fiber,notes,2
+CAL 10,WAN 1,Charter Communications,,none,Verizon Business,Verizon,,none,1
+CAL 11,WAN 1,Cox Communications,,none,Digi,AT&T,,none,1
+CAL 12,WAN 1,AT&T,,none,VZW Cell,Verizon,,none,1
+CAL 13,WAN 1,Frontier Communications,,none,Digi,AT&T,,none,1
+CAL 14,WAN 1,"Skyriver Communications, Inc.",,none,Digi,AT&T,,none,1
+CAL 15,WAN 1,Charter Communications,,none,Digi,AT&T,,none,1
+CAL 17,WAN 1,Frontier Communications,,none,VZW Cell,Verizon,,none,1
+CAL 18,WAN 1,Charter Communications,,none,Verizon Business,Verizon,,none,1
+CAL 19,WAN 1,AT&T,,none,VZW Cell,Verizon,,none,1
+CAL 20,WAN 1,Frontier Communications,,none,VZW Cell,Verizon,,none,1
+CAL 21,WAN 1,AT&T,,none,AT&T Broadband,AT&T,AT&T Broadband,notes,2
+CAL 22,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+CAL 23,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+CAL 24,WAN 1,Frontier Communications,,none,Verizon Business,Verizon,,none,2
+CAL 26,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+CAL 28,WAN 1,Charter Communications,,none,Digi,AT&T,,none,1
+CAL 29,WAN 1,AT&T,,none,VZW Cell,Verizon,,none,1
+CAL 31,WAN 1,Charter Communications,,none,Verizon Business,Verizon,,none,1
+CAL 33,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+CAL 35,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+CAL 37,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+CAL 38,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+CAL 40,WAN 1,AT&T,,none,VZW Cell,Verizon,,none,1
+CAL 41,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+CAL 42,WAN 1,AT&T,,none,Digi,,,none,1
+CAL 43,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+CAL 44,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+CAL 46,WAN 1,Frontier Communications,,none,Accelerated,AT&T,,none,1
+CAL 47,WAN 1,Frontier Communications,,none,One Ring Networks,"Skyriver Communications, Inc.",One Ring Networks ,notes,2
+CAL 48,WAN 1,Cox Communications,,none,Digi,AT&T,,none,1
+CAL 49,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+CAL 50,WAN 1,Charter Communications,,none,EB2-Frontier Fiber,Frontier Communications,EB2-Frontier Fiber,notes,2
+CAL W01,WAN 1,Frontier Communications,,none,Digi,AT&T,,none,0
+CAN_00,WAN 1,Comcast,,none,AT&T,AT&T,AT&T,notes,2
+CAN 02,WAN 1,AT&T,,none,AT&T Cell,AT&T,AT&T Broadband II,notes,1
+CAN 03,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+CAN 04,WAN 1,Comcast,,none,Accelerated,AT&T,,none,1
+CAN 05,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+CAN 07,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+CAN 10,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+CAN 11,WAN 1,Comcast,,none,Unknown,AT&T,,none,1
+CAN 12,WAN 1,"Etheric Networks, Inc.",,none,Digi,AT&T,,none,1
+CAN 13,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+CAN 14,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+CAN 15,WAN 1,AT&T,,none,Digi,AT&T,,none,1
+CAN 16,WAN 1,Frontier Communications,,none,Digi,AT&T,,none,1
+CAN 17,WAN 1,Comcast,,none,AT&T Broadband,AT&T,AT&T Broadband,notes,3
+CAN 18,WAN 1,AT&T,,none,VZW Cell,Verizon,,none,1
+CAN 19,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+CAN 20,WAN 1,"Consolidated Communications,",,none,Verizon Business,AT&T,,none,1
+CAN 21,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+CAN 22,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,3
+CAN 23,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+CAN 24,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+CAN 25,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,1
+CAN 26,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+CAN 28,WAN 1,Frontier Communications,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+CAN 29,WAN 1,AT&T,,none,VZW Cell,Verizon,,none,1
+CAN 30,WAN 1,AT&T,,none,Comcast,Comcast,,none,1
+CAN 31,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+CAN 32,WAN 1,AT&T,,none,Verizon Business,Verizon,,none,1
+CAN 33,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+CAN 34,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+CAN 35,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+CAN 36,WAN 1,Charter Communications,,none,AT&T,AT&T,,none,1
+CAN 37,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+CAN 38,WAN 1,AT&T,,none,VZW Cell,Verizon,,none,1
+CAN 39,WAN 1,Wave Broadband,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+CAN 40,WAN 1,Verizon,,none,Starlink,"SpaceX Services, Inc.",,none,0
+CAN 41,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+CAN 42,WAN 1,Comcast,,none,Verizon Business,Verizon,,none,1
+CAN 43,WAN 1,AT&T,,none,VZW Cell,Verizon,,none,1
+CAN 44,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+CAN 45,WAN 1,AT&T,,none,VZW Cell,Verizon,,none,1
+CAN 46,WAN 1,AT&T,,none,VZW Cell,Verizon,,none,1
+CAN 47,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+CAN 48,WAN 1,Charter Communications LLC,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+CAN 49,WAN 1,AT&T,,none,Unknown,AT&T,AT&T Broadband II,arin,1
+CAN 50,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+CAN 51,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+CAN 52,WAN 1,"Consolidated Communications, Inc.",,none,Verizon Business,Verizon,,none,1
+CAN 53,WAN 1,Vast Networks,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+CAN 54,WAN 1,AT&T,,none,Digi,AT&T,,none,1
+CAN 55,WAN 1,Comcast,,none,Succeed-net,Succeed.Net,Succeed-net,notes,2
+CAN 56,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+CAN 57,WAN 1,AT&T,,none,VZW Cell,Verizon,,none,1
+CAN 58,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+CAN 60,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+CAN 61,WAN 1,AT&T,,none,"Comcast Cable Communications, LLC",Comcast,Comcast Workplace,notes,2
+CAN W02,WAN 1,AT&T,,none,,,,none,0
+CAO 01,WAN 1,AT&T,,none,Verizon Business,Verizon,,none,2
+CAO 03,WAN 1,Frontier Communications,,none,GTT Ethernet,Frontier Communications,GTT Ethernet,notes,2
+CAO 05,WAN 1,AT&T,,none,Verizon Business,Verizon,,none,1
+CAO 06,WAN 1,AT&T,,none,Cox Business/BOI,Cox Communications,Cox Business/BOI,notes,2
+CAS_00,WAN 1,AT&T,,none,Cox Communications,Cox Communications,Cox Communications,notes,2
+CAS 01,WAN 1,Cox Communications,,none,Unknown,AT&T,,none,1
+CAS 02,WAN 1,AT&T,,none,VZW Cell,Verizon,,none,0
+CAS 03,WAN 1,AT&T,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+CAS 04,WAN 1,AT&T,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+CAS 05,WAN 1,AT&T,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+CAS 06,WAN 1,AT&T,,none,Digi,AT&T,,none,1
+CAS 07,WAN 1,AT&T,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+CAS 08,WAN 1,AT&T,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+CAS 09,WAN 1,Cox Communications,,none,Unknown,AT&T,,none,1
+CAS 10,WAN 1,AT&T,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+CAS 11,WAN 1,AT&T,,none,VZW Cell,Verizon,,none,1
+CAS 12,WAN 1,AT&T,,none,Digi,AT&T,,none,1
+CAS 13,,,,none,,,,none,2
+CAS 14,WAN 1,AT&T,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+CAS 15,WAN 1,AT&T,,none,Verizon Business,Verizon,,none,1
+CAS 16,WAN 1,Cox Communications,,none,Accelerated,AT&T,,none,1
+CAS 17,WAN 1,Cox Communications,,none,Digi,AT&T,,none,1
+CAS 18,WAN 1,AT&T,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+CAS 19,WAN 1,Cox Communications,,none,Digi,AT&T,,none,1
+CAS 20,WAN 1,Charter Communications,,none,Verizon Business,Verizon,,none,1
+CAS 21,WAN 1,Charter Communications,,none,AT&T Cell,AT&T,,none,1
+CAS 22,WAN 1,Cox Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+CAS 23,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+CAS 24,WAN 1,VERMONT PARK PLAZA,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+CAS 25,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+CAS 27,WAN 1,Cox Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+CAS 28,WAN 1,AT&T,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+CAS 31,WAN 1,Frontier Communications,,none,Spectrum,Charter Communications,Spectrum,notes,2
+CAS 32,WAN 1,Charter Communications,,none,Verizon Business,Verizon,,none,1
+CAS 33,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+CAS 34,WAN 1,AT&T,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+CAS 35,WAN 1,Frontier Communications,,none,VZW Cell,Verizon,,none,1
+CAS 36,WAN 1,Charter Communications,,none,Digi,AT&T,,none,1
+CAS 37,WAN 1,Cox Communications,,none,Verizon Business,Verizon,,none,1
+CAS 38,WAN 1,AT&T,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+CAS 39,WAN 1,VERMONT PARK PLAZA,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+CAS 40,WAN 1,Frontier Communications,,none,Digi,AT&T,,none,1
+CAS 41,WAN 1,Frontier Communications,,none,VZW Cell,Verizon,,none,1
+CAS 42,WAN1: Cox Communications 300.0M x 30.0M\n,Cox Communications,Cox Communications,notes,VZW Cell Cell,AT&T,,none,1
+CAS 43,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+CAS 44,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+CAS 45,WAN 1,AT&T,,none,Digi,AT&T,,none,1
+CAS 46,WAN 1,AT&T,,none,VZW Cell,Verizon,,none,1
+CAS 47,WAN 1,AT&T,,none,Digi,AT&T,,none,1
+CAS 48,WAN 1,Frontier Communications,,none,Verizon Business,Verizon,,none,1
+CAS 49,WAN 1,Charter Communications,,none,Starlink,"SpaceX Services, Inc.",,none,1
+CAS 50,WAN 1,Frontier Communications,,none,GTT Ethernet,Frontier Communications,GTT Ethernet,notes,2
+CAS 51,WAN 1,Cox Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+CAS 53,WAN 1,AT&T,,none,Cox Business/BOI,Cox Communications,Cox Business/BOI,notes,2
+COB 01,WAN 1,Comcast,,none,EB2-Centurylink DSL,CenturyLink,EB2-Centurylink DSL,notes,2
+COD_00,WAN 1,Comcast,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+COD 01,WAN 1,Comcast,,none,Verizon Business,Verizon,,none,1
+COD 02,WAN 1,Comcast,,none,Digi,Private IP,,none,1
+COD 03,WAN 1,Comcast,,none,Unknown,AT&T,,none,1
+COD 04,WAN 1,Comcast Cable Communications,,none,VZW Cell,Verizon,,none,1
+COD 05,WAN 1,Comcast,,none,Comcast Workplace,AT&T,Comcast Workplace,notes,1
+COD 06,WAN 1,CenturyLink,,none,Unknown,AT&T,,none,1
+COD 07,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+COD 08,WAN 1,Comcast,,none,Unknown,AT&T,,none,1
+COD 09,WAN 1,Comcast,,none,Unknown,Private IP,,none,1
+COD 10,WAN 1,Comcast,,none,Comcast Workplace,CenturyLink,Comcast Workplace,notes,1
+COD 11,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+COD 13,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+COD 14,WAN 1,Comcast,,none,Unknown,AT&T,,none,1
+COD 15,WAN 1,Comcast,,none,Verizon Business,Verizon,,none,0
+COD 17,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,0
+COD 18,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+COD 19,WAN 1,CenturyLink,,none,Verizon Business,Verizon,,none,1
+COD 20,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+COD 21,WAN 1,Comcast,,none,CenturyLink,CenturyLink,,none,2
+COD 22,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,0
+COD 23,WAN 1,Comcast,,none,EB2-Lumen DSL,CenturyLink,EB2-Lumen DSL,notes,1
+COD 24,WAN 1,Comcast,,none,Unknown,AT&T,,none,1
+COD 25,WAN 1,Comcast,,none,EB2-Centurylink DSL,CenturyLink,EB2-Centurylink DSL,notes,2
+COD 26,WAN 1,Comcast,,none,EB2-Centurylink DSL,Western Disposal,EB2-Centurylink DSL,notes,2
+COD 27,WAN 1,Comcast,,none,Accelerated AT&T,AT&T,,none,1
+COD 28,WAN 1,WYATT CREATIVE,,none,AT&T,AT&T,,none,1
+COD 29,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+COD 30,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+COD 31,WAN 1,"Lrm-Com, Inc.",,none,Unknown,AT&T,,none,1
+COD 32,WAN 1,Comcast,,none,CenturyLink,CenturyLink,,none,2
+COD 34,WAN 1,CenturyLink,,none,VZW Cell,Verizon,,none,1
+COD 35,WAN 1,Comcast,,none,LiveWire Net,"Live Wire Networks, Inc",LiveWire Net,notes,2
+COD 36,WAN 1,Comcast,,none,CenturyLink,CenturyLink,,none,1
+COD 37,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+COD 38,WAN 1,CenturyLink,,none,Digi,AT&T,,none,1
+COD 39,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+COD 40,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+COD 41,WAN 1,Level 3 Parent,,none,Verizon Business,Verizon,,none,1
+COD 42,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+COG 01,WAN 1,Charter Communications,,none,EB2-Centurylink DSL,CenturyLink,EB2-Centurylink DSL,notes,2
+Cog 02,WAN 1,Comcast,,none,Community Broadband Network,Glenwood Springs Community Broadband Network,,none,1
+COG 03,,Charter Communications,Spectrum,arin,Unknown,AT&T,,none,1
+CON 02,,Comcast,Comcast Workplace,arin,Unknown,AT&T,,none,1
+CON 03,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+COP 02,WAN 1,Comcast,,none,Unknown,AT&T,,none,1
+COP 03,WAN 1,Comcast,,none,EB2-Centurylink DSL,CenturyLink,EB2-Centurylink DSL,notes,2
+Corporate Store0,WAN 1,Cox Communications,,none,Unknown,Verizon,,none,0
+COS 01,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+COS 02,WAN 1,Comcast,,none,Unknown,AT&T,,none,1
+COS 03,WAN 1,Comcast,,none,EB2-Centurylink DSL,CenturyLink,EB2-Centurylink DSL,notes,2
+COS 04,WAN 1,CenturyLink,,none,Digi,AT&T,,none,1
+COS 05,WAN 1,Unite Private Networks LLC.,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+COS 06,,Comcast,Comcast Workplace,arin,Digi,AT&T,,none,1
+COS 07,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+COW 01,WAN 1,Charter Communications,,none,AT&T Cell,AT&T,,none,1
+COW 02,WAN 1,Internet Assigned Numbers Authority,,none,AT&T Cell,AT&T,,none,1
+COX 01,,AT&T,,none,Unknown,Comcast,Comcast Workplace,arin,1
+Desert Ridge,WAN 1,Cox Communications,,none,,AT&T,,none,0
+Desert Ridge Building I Security,,CenturyLink,,none,,,,none,0
+FLD 01,WAN 1,AT&T,,none,Spectrum,"Charter Communications, Inc",Spectrum,notes,2
+FLD 02,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+FLD 04,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+FLF 01,WAN 1,Comcast,,none,Starlink,"SpaceX Services, Inc.",,none,1
+FLG 01,WAN 1,Cox Communications,,none,VZW Cell,Verizon,,none,1
+FLG 02,WAN 1,Ocala Fiber Network,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+FLG 03,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+Flight Department,WAN 1,Cox Communications,,none,VZW Cell,Verizon,,none,0
+FLJ_00,WAN 1,Comcast,,none,AT&T,AT&T,,none,0
+FLJ 01,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+FLJ 02,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+FLJ 03,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+FLJ 05,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+FLJ 06,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+FLJ 07,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+FLJ 09,WAN 1,AT&T,,none,Comcast Workplace,Cisco Test,Comcast Workplace,notes,2
+FLJ 10,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+FLJ 11,WAN 1,AT&T,,none,Digi,AT&T,,none,1
+FLJ 12,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+FLM 01,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+FLM 02,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+FLO 01,,"Charter Communications, Inc",Spectrum,arin,Verizon Business,Verizon,,none,1
+FLO 02,WAN 1,Charter Communications,,none,Digi,AT&T,,none,1
+FLO 03,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+FLO 04,WAN 1,"Charter Communications, Inc",,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+FLO 05,WAN 1,Charter Communications,,none,Starlink,"SpaceX Services, Inc.",,none,1
+FLO 06,WAN 1,"Charter Communications, Inc",,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+FLO 07,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+FLO 08,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+FLO 09,WAN 1,Charter Communications,,none,Digi,AT&T,,none,1
+FLO 10,,Charter Communications,Spectrum,arin,Unknown,AT&T,,none,1
+FLO 11,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+FLO 12,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+FLO 13,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+FLO 14,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+FLO 15,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+FLO 16,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+FLP 01,WAN 1,Cox Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+FLP 02,WAN 1,AT&T,,none,Unknown,AT&T,AT&T Broadband II,arin,1
+FLP 03,WAN 1,AT&T,,none,300.0M x 20.0M,,,none,2
+FLP 04,WAN 1,Cox Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+FLS 01,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+FLS 02,WAN 1,Comcast,,none,Accelerated,AT&T,,none,1
+FLS 03,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+FLS 04,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+FLT 01,WAN 1,Comcast,,none,MetroNet,Metronet,MetroNet,notes,1
+FLT 02,WAN 1,Comcast,,none,MetroNet,Metronet,MetroNet,notes,1
+FP-ATL-OOBMGMT-01,,AT&T,,none,,,,none,0
+FP-DAL-OOBMGMT-01,WAN 1,AT&T,,none,Unknown,AT&T,,none,0
+FP-DAL-OOBMGMT-02,WAN 1,AT&T,,none,Unknown,AT&T,,none,0
+GAA_00,WAN 1,AT&T,,none,Comcast,Comcast,,none,0
+GAA 01,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,1
+GAA 03,WAN 1,AT&T,,none,Comcast,Comcast,Comcast Workplace,notes,2
+GAA 05,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,1
+GAA 06,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+GAA 07,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+GAA 08,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+GAA 10,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+GAA 11,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+GAA 12,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+GAA 13,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+GAA 14,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,1
+GAA 15,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+GAA 17,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+GAA 18,WAN 1,AT&T,,none,Comcast,"Comcast Cable Communications, LLC",Comcast,notes,1
+GAA 19,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+GAA 21,WAN 1,AT&T,,none,"Comcast Cable Communications, LLC",Comcast,"Comcast Cable Communications, LLC",notes,1
+GAA 22,WAN 1,Cox Communications,,none,VZW Cell,Verizon,,none,1
+GAA 24,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+GAA 25,WAN 1,AT&T,,none,Comcast,Comcast,Comcast ,notes,1
+GAA 26,WAN 1,Cox Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+GAA 27,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+GAA 28,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,1
+GAA 29,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+GAA 30,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+GAA 31,WAN 1,Charter Communications,,none,Verizon Business,Verizon,,none,1
+GAA 32,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+GAA 33,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+GAA 34,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+GAA 35,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+GAA 36,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+GAA 37,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+GAA 38,WAN 1,Cox Communications,,none,EB2-Hargray Cable,"Hargray Communications Group, Inc.",EB2-Hargray Cable,notes,2
+GAA 39,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+GAA 40,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+GAA 41,,Comcast,Comcast Workplace,arin,Unknown,AT&T,,none,1
+GAA 42,WAN 1,Comcast,,none,Unknown,AT&T,,none,1
+GAA 43,WAN 1,AT&T,,none,Charter Communications LLC,Charter Communications,Spectrum,notes,2
+GAA 44,WAN 1,Comcast,,none,EB2-Windstream Fiber,Windstream Communications LLC,EB2-Windstream Fiber,notes,2
+GAA 45,WAN 1,AT&T,,none,Mediacom/BOI,Mediacom Communications Corporation,Mediacom/BOI,notes,2
+GAA 46,WAN 1,Mediacom Communications Corporation,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+GAACALLCNTR,WAN 1,AT&T,,none,Charter Communications,Charter Communications,Charter Communications,notes,2
+GAA W00,WAN 1,AT&T,,none,Digi,AT&T,,none,1
+GAE 01,WAN 1,Comcast,,none,EB2-Hargray Cable,"Hargray Communications Group, Inc.",EB2-Hargray Cable,notes,2
+GAE 02,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+GAE 03,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+GAN 01,WAN 1,Comcast,,none,Private Customer - AT&T Internet Services,AT&T,AT&T Broadband II,notes,2
+GAS 01,WAN 1,AT&T,,none,Mediacom Communications Corporation,Mediacom Communications Corporation,,none,2
+HPL_00,WAN 1,Charter Communications,,none,Unknown,Private IP,,none,0
+IAC 01,WAN 1,Mediacom Communications Corporation,,none,EB2-Lumen DSL,CenturyLink,EB2-Lumen DSL,notes,2
+IAC 02,WAN 1,Mediacom Communications Corporation,,none,ImOn Communications,ImOn Communications,ImOn Communications,notes,2
+IAD 01,WAN 1,Mediacom Communications Corporation,,none,Metronet,Metronet,Metronet,notes,2
+IAD 02,WAN 1,Metronet,,none,Mediacom Communications Corporation,Mediacom Communications Corporation,,none,2
+IAD 03,WAN 1,CenturyLink,,none,Unknown,AT&T,,none,1
+IAD 04,WAN 1,Mediacom Communications Corporation,,none,Metronet,Metronet,Metronet,notes,2
+IAD 05,WAN 1,Mediacom Communications Corporation,,none,Metronet,Metronet,Metronet,notes,2
+IAF 01,WAN 1,Fort Dodge Fiber,,none,Mediacom Communications Corporation,Mediacom Communications Corporation,,none,2
+IAI 01,WAN 1,Metronet,,none,Mediacom Communications Corporation,Mediacom Communications Corporation,,none,2
+IAN 01,WAN 1,Mediacom Communications Corporation,,none,Cedar Falls,"The Municipal Communications Utility of the City of Cedar Falls, Iowa",,none,2
+IAN 02,WAN 1,Mediacom Communications Corporation,,none,CenturyLink,CenturyLink,,none,2
+IAN 03,WAN 1,Mediacom Communications Corporation,,none,Digi,AT&T,,none,1
+IAQ 01,WAN 1,Mediacom Communications Corporation,,none,ComcastAgg CLink DSL,CenturyLink,,none,1
+IAQ 02,WAN 1,Mediacom Communications Corporation,,none,MetroNet,DVNPIAAAG03 public /32 pools,MetroNet,notes,2
+IAS 01,WAN 1,Metronet,,none,Sparklight,"CABLE ONE, INC.",Sparklight,notes,2
+IDB 01,WAN 1,"Cable One, Inc.",,none,EB2-Centurylink DSL,CenturyLink,EB2-Centurylink DSL,notes,2
+IDB 03,WAN 1,"CABLE ONE, INC.",,none,EB2-Centurylink DSL,CenturyLink,EB2-Centurylink DSL,notes,2
+IDB 04,WAN 1,"CABLE ONE, INC.",,none,CenturyLink Fiber Plus,CenturyLink,CenturyLink Fiber Plus,notes,2
+IDB 05,WAN 1,"CABLE ONE, INC.",,none,EB2-Centurylink DSL,CenturyLink,EB2-Centurylink DSL,notes,2
+IDB 06,WAN 1,Direct Communications Cable LLC,,none,EB2-CableOne Cable,"CABLE ONE, INC.",EB2-CableOne Cable,notes,2
+IDB 07,WAN 1,"CABLE ONE, INC.",,none,EB2-Centurylink DSL,CenturyLink,EB2-Centurylink DSL,notes,2
+IDN 01,WAN 1,Charter Communications,,none,EB2-Ziply Fiber,Ziply Fiber,EB2-Ziply Fiber,notes,2
+ILC_00,WAN 1,Comcast,,none,AT&T,AT&T,AT&T,notes,2
+ILC 01,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+ILC 02,WAN 1,Comcast,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,1
+ILC 03,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+ILC 04,WAN 1,AT&T,,none,Digi,AT&T,,none,1
+ILC 05,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+ILC 06,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+ILC 07,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+ILC 08,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+ILC 09,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,1
+ILC 11,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+ILC 12,WAN 1,Comcast,,none,Verizon Business,Verizon,,none,1
+ILC 13,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+ILC 14,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+ILC 15,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+ILC 16,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+ILC 17,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+ILC 18,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+ILC 19,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+ILC 21,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+ILC 22,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+ILC 24,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,1
+ILC 25,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+ILC 27,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+ILC 28,WAN 1,Comcast,,none,AT&T Cell,AT&T,,none,0
+ILC 29,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+ILC 30,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+ILC 31,WAN 1,345200 DUNKIN DONUTS,,none,Starlink,"SpaceX Services, Inc.",,none,1
+ILC 32,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+ILC 33,WAN 1,AT&T,,none,Accelerated AT&T,AT&T,AT&T Broadband II,notes,1
+ILC 34,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+ILC 35,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+ILC 36,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+ILC 37,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+ILC 41,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,0
+ILC 42,WAN 1,Metronet,,none,VZW Cell,Verizon,,none,0
+ILC 43,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,0
+ILC 44,WAN 1,Metronet,,none,VZW Cell,Verizon,,none,0
+ILC 45,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,0
+ILC 46,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,0
+ILP 01,WAN 1,i3Broadband,,none,Starlink,"SpaceX Services, Inc.",,none,1
+ILR 01,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+ILR 02,WAN 1,Comcast,,none,Starlink,"SpaceX Services, Inc.",,none,1
+ILS 01,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+ILW 01,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+ILW 02,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+INC 01,,Comcast,Comcast Workplace,arin,Verizon Business,Verizon,,none,1
+INC 02,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+INC 03,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+INE 01,WAN 1,RCN,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+INE 02,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+INF 01,WAN 1,Comcast,,none,AT&T Cell,AT&T,,none,0
+INF 02,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,0
+INF 03,WAN 1,Metronet,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+INF 04,WAN 1,Frontier Communications,,none,EB2-Frontier Fiber,Frontier Communications,EB2-Frontier Fiber,notes,2
+INI_00,WAN 1,Altafiber,,none,Charter Communications,Charter Communications,Charter Communications,notes,2
+INI 01,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+INI 02,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+INI 03,WAN 1,AT&T,,none,Digi,AT&T,,none,1
+INI 05,WAN 1,AT&T,,none,,Comcast,,none,1
+INI 06,WAN1 DSR AT&T 1G X 1G,AT&T,,none,DSR Comcast 600.0M x 35.0M,Comcast,Comcast Workplace,notes,1
+INI 07,WAN 1,Charter Communications,,none,AT&T,AT&T,,none,1
+INI 08,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+INI 09,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,1
+INI 10,WAN 1,AT&T,,none,VZW Cell,Verizon,,none,1
+INI 12,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+INI 13,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+INI 14,,Comcast,Comcast Workplace,arin,Unknown,AT&T,,none,1
+INI 15,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+INI 16,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+INI W01,WAN 1,Comcast,,none,Private Customer - AT&T Internet Services,AT&T,,none,0
+INJ 01,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+INL 01,WAN 1,Metronet,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+INN 01,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+INW 01,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+INW 02,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+INW 03,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+KSK_00,WAN 1,Charter Communications,,none,AT&T,AT&T,AT&T,notes,2
+KSK 01,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+KSK 02,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+KSK 03,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+KSK 04,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+KSK 05,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+KSK 06,WAN 1,Charter Communications,,none,AT&T Cell,AT&T,,none,1
+KSL 01,WAN 1,Midcontinent Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+KSM 01,WAN 1,Cox Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+KSM 02,WAN 1,Cox Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+KST 01,WAN 1,AT&T,,none,Cox Business/BOI,Cox Communications,Cox Business/BOI,notes,2
+KSW 01,WAN 1,AT&T,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+KSW 02,WAN 1,Cox Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+KSW 03,WAN 1,Cox Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+KYB 01,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+KYE 01,WAN 1,Windstream Communications,,none,Comcast Workplace,Comcast Cable Communications,Comcast Workplace,notes,2
+KYL 01,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+KYL 02,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+KYL 03,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+LAS 01,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+LAS 02,WAN 1,Suddenlink Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+LAS 03,WAN 1,AT&T,,none,VZW Cell,Verizon,,none,1
+MIA 01,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MIA 04,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MIA 16,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MIA 17,WAN 1,"D&P Communications, Inc.",,none,Comcast,Comcast,Comcast,notes,1
+MIAC02,WAN 1,AT&T,,none,Digi,AT&T,,none,1
+MIB 01,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+MID 01,WAN 1,Charter Communications,,none,Verizon Business,Verizon,,none,1
+MID 04,WAN 1,Comcast,,none,Spectrum,Charter Communications,Spectrum,notes,2
+MID 05,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+MID 06,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MID 07,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+MID 09,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+MID 10,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MID 11,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MID 12,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MID 13,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+MID 14,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+MID 16,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+MID 17,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+MID 18,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,1
+MID 19,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+MID 20,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+MID 22,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MID 23,WAN 1,Comcast,,none,Verizon Business,Verizon,,none,1
+MID 24,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,1
+MID 25,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+MID 26,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MID 27,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MID W00,WAN 1,Comcast,,none,Unknown,AT&T,,none,0
+MIF 04,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+MIF 05,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+MIF 25,WAN 1,Charter Communications,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+MIF 26,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+MIG 07,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+MIG 08,WAN 1,GLOBAL AUTOMOTIVE,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MIG 09,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MIG 23,WAN 1,Comcast,,none,EB2-Frontier Fiber,Frontier Communications,EB2-Frontier Fiber,notes,2
+MIG 24,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MIG 25,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,0
+MIG 29,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MIG 30,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MIH 27,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MIK 06,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MIK 14,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MIK 30,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MIK 31,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MIL 00,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MIL 11,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+MIL 15,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+MIL 28,WAN 1 DSR Comcast Workplace 300M x 300M,Comcast,Comcast Direct,notes,VZG,Verizon,,none,1
+MIM 01,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MIN 01,WAN 1,Charter Communications,,none,Accelerated 6335-MX SN 6335011175511770,AT&T,,none,1
+MIP 01,WAN 1,Winn Telecom,,none,Spectrum,Charter Communications,Spectrum,notes,2
+MIS 12,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MIS 17,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MIS 20,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MIT 26,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+MIW 21,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,1
+MNM_00,WAN 1,VISTA TECHNOLOGIES,,none,Digi,AT&T,,none,0
+MNM 01,,Comcast,Comcast Workplace,arin,Unknown,AT&T,,none,1
+MNM 02,WAN 1,Comcast,,none,Starlink,"SpaceX Services, Inc.",,none,1
+MNM 03,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+MNM 05,WAN 1,Comcast,,none,DSR Lumen DSL,"Blue Bell Enterprises,",,none,1
+MNM 06,,Comcast,Comcast Workplace,arin,Unknown,AT&T,,none,1
+MNM 07,WAN 1,Comcast,,none,EB2-Centurylink DSL,CenturyLink,EB2-Centurylink DSL,notes,2
+MNM 08,WAN 1,Comcast,,none,EB2-Centurylink DSL,CenturyLink,EB2-Centurylink DSL,notes,2
+MNM 09,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+MNM 10,WAN 1,Comcast,,none,Verizon Business,Verizon,,none,1
+MNM 11,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+MNM 12,WAN 1,Metronet,,none,Spectrum,Charter Communications,Spectrum,notes,2
+MNM 13,WAN 1,Comcast,,none,EB2-Lumen DSL,CenturyLink,EB2-Lumen DSL,notes,2
+MNM 14,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+MNM 15,WAN 1,Charter Communications,,none,Metronet,Jaguar Communications,Metronet,notes,2
+MNM 16,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,0
+MNM 17,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+MNM 18,WAN 1,Comcast,,none,Accelerated,AT&T,,none,1
+MNM 19,WAN 1,Deutsche Telekom,,none,Digi,AT&T,,none,1
+MNM 20,WAN 1,Metronet,,none,Spectrum,Charter Communications,Spectrum,notes,2
+MNM 21,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+MNM 22,WAN 1,Charter Communications,,none,EB2-Centurylink DSL,CenturyLink,EB2-Centurylink DSL,notes,2
+MNM 23,WAN 1,Charter Communications,,none,EB2-Centurylink DSL,CenturyLink,EB2-Centurylink DSL,notes,2
+MNM 24,WAN 1,Comcast,,none,Verizon Business,Verizon,,none,1
+MNM 25,WAN 1,Comcast,,none,Verizon Business,Verizon,,none,0
+MNM 26,,Comcast Cable Communications,Comcast Workplace,arin,Unknown,AT&T,,none,1
+MNM 27,WAN 1,CenturyLink,,none,CTC,CONSOLIDATED TELEPHONE COMPANY,CTC,notes,2
+MNM 29,WAN 1,Comcast,,none,Verizon Business,Verizon,,none,1
+MNM 31,WAN 1,Comcast,,none,,,,none,1
+MNM W01,WAN 1,Comcast,,none,Unknown,AT&T,,none,0
+MOK 01,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+MOK 02,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MOK 03,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MOK 05,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MOK 06,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MOK 07,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum ,notes,2
+MON 01,WAN 1,Optimum,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MOO 01,WAN 1,"CABLE ONE, INC.",,none,Digi,AT&T,,none,1
+MOO 02,WAN 1,Mediacom Communications Corporation,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MOO 03,WAN 1,Mediacom Communications Corporation,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MOO 04,WAN 1,Level 3,,none,Verizon 5G,Verizon,,none,1
+MOR 01,WAN 1,"Fidelity Cablevision, LLC",,none,EB2-Sparklight Cable,"Fidelity Cablevision, LLC",EB2-Sparklight Cable,notes,2
+MOS_00,WAN 1,Charter Communications,,none,AT&T,AT&T,,none,0
+MOS 01,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+MOS 02,WAN 1,AT&T,,none,AT&T,AT&T,AT&T,notes,2
+MOS 03,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MOS 04,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MOS 05,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MOS 06,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MOS 07,WAN 1,AT&T,,none,VZW Cell,Verizon,,none,1
+MOS 08,WAN 1,Charter Communications,,none,Brightspeed,CenturyLink,Brightspeed,notes,2
+MOS 09,WAN 1,Charter Communications,,none,Digi,AT&T,,none,1
+MOS 10,WAN 1,Charter Communications,,none,Starlink,"SpaceX Services, Inc.",,none,1
+MOS 12,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+MOSW 01,WAN 1,AT&T,,none,Charter Communications LLC,Charter Communications,,none,0
+MSG 01,,,,none,,,,none,0
+MSN 01,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+MSN 02,WAN 1,C Spire Fiber,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+MTB 01,WAN 1,Charter Communications,,none,Digi,AT&T,,none,1
+MTM 01,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+MTM 02,,Charter Communications,Spectrum,arin,Unknown,AT&T,,none,1
+NCC_00,WAN 1,Charter Communications,,none,,AT&T,,none,1
+NCC 01,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+NCC 02,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+NCC 03,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+NCC 04,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+NCC 05,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+NCC 06,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+NCC 07,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+NCC 08,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+NCC 09,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+NCC 10,WAN 1,"SPECTRUM CONSULTANTS, INC",,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+NCC 11,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+NCC 13,WAN 1,Charter Communications,,none,Lumos Networks,"North State Telephone, LLC",Lumos Networks,notes,2
+NCC 14,,Charter Communications,Spectrum,arin,VZW Cell,Verizon,,none,1
+NCC 15,WAN 1,Windstream Communications LLC,,none,Spectrum,Charter Communications,Spectrum,notes,2
+NCC 16,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+NCC 17,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+NCC 18,,Charter Communications,Spectrum,arin,VZW Cell,Verizon,,none,1
+NCC 19,WAN 1,Charter Communications,,none,VZW Cell,AT&T,,none,1
+NCC 20,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+NCC 21,WAN 1,Charter Communications,,none,Unknown,AT&T,,none,1
+NCC 23,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+NCC 24,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+NCC 25,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+NCC 26,WAN1 DSR AT&T 1.0G x 1.0G,AT&T,AT&T Broadband II,notes,DSR Spectrum 600M X 35M,Charter Communications,,none,1
+NCC 27,WAN 1,Charter Communications,,none,Digi,AT&T,,none,1
+NCC 28,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+NCC 30,,CARDINAL INNOVATIONS HEALTHCARE SOLUTIONS,,none,Digi,AT&T,,none,1
+NCC 33,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+NCC 35,WAN 1,Optimum,,none,Altice,Internet Assigned Numbers Authority,Altice,notes,2
+NCC 36,WAN 1,Charter Communications,,none,GreenLight,Greenlight,GreenLight,notes,2
+NCC 37,WAN 1,Charter Communications,,none,MetroNet,Metronet,MetroNet,notes,2
+NCC 38,WAN 1,Metronet,,none,VZW Cell,Verizon,VZW Cell,notes,1
+NCC 39,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+NCC 40,WAN 1,Charter Communications,,none,EB2-Windstream Fiber,Windstream Communications,EB2-Windstream Fiber,notes,2
+NCC 41,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+NCC 42,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+NCC 43,WAN 1,Windstream Communications LLC,,none,Spectrum,Charter Communications,Spectrum,notes,2
+NCC 44,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+NCC 45,WAN 1,Charter Communications,,none,"Level 3 Parent, LLC",Level 3 Parent,,none,2
+NCC 46,WAN 1,Windstream Communications LLC,,none,Spectrum,Charter Communications,Spectrum,notes,2
+NCC 47,WAN 1,Charter Communications,,none,MetroNet,Metronet,MetroNet,notes,2
+NCC 48,WAN 1,Level 3,,none,VZW Cell,Verizon,VZW Cell,notes,1
+NCC 51,WAN 1,Optimum,,none,Starlink,"SpaceX Services, Inc.",,none,1
+NCC 52,WAN 1,Charter Communications,,none,Metronet,Metronet,Metronet,notes,2
+NCN 01,WAN 1,Charter Communications,,none,Brightspeed,CenturyLink,Brightspeed,notes,2
+NDG 01,WAN 1,Midcontinent Communications,,none,Digi,AT&T,,none,1
+NEG 01,WAN 1,Cogent Communications,,none,Spectrum,Charter Communications,Spectrum,notes,2
+NEL 01,WAN 1,Allo Communications LLC,,none,Spectrum,Charter Communications,Spectrum,notes,2
+NEO 01,WAN 1,Great Plains Communications LLC,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+NEO 03,WAN 1,Great Plains Communications LLC,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+NEO 04,WAN 1,Great Plains Communications,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+NEO 05,WAN 1,Cox Communications,,none,EB2-Centurylink DSL,Malinda Jepsen,EB2-Centurylink DSL,notes,2
+NEO 06,WAN 1,Cox Communications,,none,EB2-Centurylink DSL,Diane Allen,EB2-Centurylink DSL,notes,2
+NEO 07,WAN 1,Great Plains Communications,,none,Cox Business/BOI,Cox Communications,Cox Business/BOI,notes,2
+NMA_00,WAN 1,Comcast,,none,CenturyLink,CenturyLink,CenturyLink,notes,2
+NMA 01,WAN 1,Unite Private Networks LLC.,,none,Comcast,Comcast,Comcast Workplace,notes,2
+NMA 02,WAN 1,Comcast,,none,ComcastAgg CLink,CenturyLink,,none,1
+NMA 03,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+NMA 04,WAN 1,Comcast,,none,Unite Private Networks,Unite Private Networks LLC.,Unite Private Networks,notes,2
+NMA 05,,Unite Private Networks LLC.,,none,DSR Unite Private 300.0M x 300.0M,Comcast,,none,1
+NMA 06,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+NMA 07,WAN 1,Comcast,,none,Verizon Business,Verizon,,none,1
+NMA 08,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+NMA 09,WAN 1,"CABLE ONE, INC.",,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+NMA 10,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+NMA 11,WAN 1,"TULAROSA COMMUNICATIONS, INC.",,none,TDS Cable,DISCOUNT TIRE ,TDS Cable,notes,2
+NMA 12,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+NMA 13,WAN 1,Unite Private Networks LLC.,,none,VZW Cell,Verizon,VZW Cell,notes,1
+NMACALLCNTR,WAN 1,Comcast,,none,,,,none,0
+NMAW00,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+NMC 01,WAN 1,Plateau Telecommunications Incorporated,,none,Altice West,Optimum,Altice West,notes,2
+NMF 01,WAN 1,Comcast,,none,EB2-Centurylink DSL,CenturyLink,EB2-Centurylink DSL,notes,2
+NMH 01,WAN 1,Windstream Communications LLC,,none,EB2-TDS Cable,Frontier Communications,EB2-TDS Cable,notes,2
+NML 01,WAN 1,Comcast,,none,Unknown,AT&T,,none,1
+NMR 01,WAN 1,Plateau Telecommunications Incorporated,,none,Sparklight,"CABLE ONE, INC.",Sparklight,notes,2
+NMS 02,WAN 1,Comcast,,none,CenturyLink,CenturyLink,CenturyLink,notes,2
+NMS 03,WAN 1,NMSURF,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+NVL_00,WAN 1,Cox Communications,,none,Digi,AT&T,,none,0
+NVL 03,WAN 1,Cox Communications,,none,AT&T Cell,AT&T,,none,1
+NVL 04,,Cox Communications,Cox Business/BOI,arin,Unknown,AT&T,,none,1
+NVL 05,,Cox Communications,Cox Business/BOI,arin,VZW Cell,AT&T,,none,1
+NVL 06,WAN 1,Cox Communications,,none,AT&T Cell,AT&T,,none,1
+NVL 07,WAN 1,Cox Communications,,none,Verizon Business,Verizon,Verizon Business,notes,1
+NVL 08,WAN 1,CenturyLink,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+NVL 09,WAN 1,Cox Communications,,none,VZW Cell,Verizon,,none,1
+NVL 11,WAN 1,Cox Communications,,none,Digi,AT&T,,none,1
+NVL 13,,Cox Communications,Cox Business/BOI,arin,Unknown,AT&T,,none,1
+NVL 14,WAN 1,Cox Communications,,none,Verizon Business,Verizon,,none,1
+NVL 15,WAN 1,Cox Communications,,none,CenturyLink,CenturyLink,CenturyLink,notes,1
+NVL 16,WAN 1,Verizon,,none,Digi,AT&T,,none,0
+NVL 17,WAN 1,Cox Communications,,none,Unknown,AT&T,,none,1
+NVL 22,WAN 1,Cox Communications,,none,VZW Cell,Verizon,,none,1
+NVL 23,WAN 1,Cox Communications,,none,VZW Cell,Verizon,,none,1
+NVL 24,WAN 1,Cox Communications,,none,CenturyLink,,,none,1
+NVL 25,,DISCOUNT TIRE NVL 25,,none,VZW Cell,Verizon,,none,1
+NVL 26,WAN 1,Cox Communications,,none,VZW Cell,AT&T,,none,1
+NVL W01,WAN 1,Cox Communications,,none,Unknown,AT&T,,none,0
+NVR 01,WAN 1,Charter Communications,,none,Private Customer - AT&T Internet Services,AT&T,AT&T Broadband II,notes,2
+NVR 02,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+NVR 04,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+NVR 05,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+NYB 01,WAN 1,Charter Communications,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+NYB 02,WAN 1,Charter Communications,,none,VZW Cell,Verizon Business,,none,0
+NYB 03,WAN 1,Charter Communications,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+NYB 04,WAN 1,DUNN TIRE,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+NYB 05,WAN 1,Charter Communications,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+NYB 06,WAN 1,Charter Communications,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+NYB 07,WAN 1,Charter Communications,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+NYB 08,WAN 1,Charter Communications,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+NYF 01,WAN 1,DUNN TIRE,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+NYF 02,WAN 1,Charter Communications,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+NYF 03,WAN 1,Charter Communications,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+NYR 01,WAN 1: Spectrum Fiber,Charter Communications,,none,"AT&T Enterprises, LLC (Digi)",AT&T,,none,0
+NYR 02,WAN 1,Charter Communications,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+NYR 03,WAN 1,DUNN TIRE,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+NYR 04,WAN 1,Charter Communications,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+NYR 05,WAN 1,Charter Communications,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+NYR 06,WAN 1,DUNN TIRE,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+NYR 07,WAN 1,DUNN TIRE,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+NYS 01,WAN 1,Charter Communications,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+NYS 02,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,0
+NYS 03,WAN 1,DUNN TIRE,,none,VZW Cell,Verizon,,none,0
+NYS 04,WAN 1,DUNN TIRE,,none,VZW Cell,Verizon,,none,0
+OHC 03,WAN 1,Charter Communications Inc,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+OHC 04,,Charter Communications,Spectrum,arin,Unknown,AT&T,,none,1
+OHC 05,WAN 1,Charter Communications,,none,Digi,AT&T,,none,1
+OHC 06,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+OHC 07,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+OHC 08,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+OHC 10,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+OHD 02,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+OHD 03,WAN 1,Charter Communications,,none,Digi,AT&T,,none,1
+OHD 04,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+OHL 01,WAN 1,Charter Communications,,none,Telephone Service Company TSC,Hanson Communications - Ohio,Telephone Service Company (TSC),notes,2
+OHN 01,WAN 1,Charter Communications,,none,EB2-Windstream Fiber,Windstream Communications LLC,EB2-Windstream Fiber,notes,2
+OHN 02,WAN 1,AT&T,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+OHN 03,,Charter Communications,Spectrum,arin,Unknown,AT&T,,none,1
+OHN 04,WAN 1,Charter Communications,,none,Windstream,Windstream Communications LLC,Windstream,notes,2
+OHN 05,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+OHN 06,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+OHS 01,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+OHS 02,WAN 1,Altafiber,,none,Spectrum,NCS,Spectrum,notes,2
+OHS 03,WAN 1,Charter Communications,,none,Altafiber,Altafiber,Altafiber,notes,2
+OHS 04,WAN 1,Charter Communications,,none,Altafiber,Altafiber,Altafiber,notes,2
+OHS 05,WAN 1,Charter Communications,,none,Altafiber,Fuse Internet Access,Altafiber,notes,2
+OHT 01,WAN 1,AT&T,,none,Buckeye Broadband Business,"Buckeye Cablevision,",Buckeye Broadband Business,notes,2
+OHT 02,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+OKA 01,WAN 1,"Cable One, Inc.",,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+OKE 01,,AT&T,AT&T Broadband II,arin,Digi,AT&T,,none,1
+OKO_00,,Windstream Communications LLC,,none,Cox Communications,Cox Communications,,none,0
+OKO 02,WAN 1,Cox Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+OKO 03,WAN 1,Cox Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+OKO 04,WAN 1,AT&T,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+OKO 05,WAN 1,Cox Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+OKO 06,WAN 1,AT&T,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+OKO 07,WAN 1,AT&T,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+OKO 08,WAN 1,Cox Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+OKO 09,WAN 1,Cox Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+OKO 10,WAN 1,Cox Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+OKO 11,WAN 1,Cox Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+OKO 12,WAN 1,Clarity Telecom LLC,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+OKO 13,WAN 1,AT&T,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+OKO 14,WAN 1,AT&T,,none,Vyve,Vyve Broadband,Vyve,notes,2
+OKO 15,WAN 1,AT&T,,none,Cox Business/BOI,Cox Communications,Cox Business/BOI,notes,2
+OKT 01,WAN 1,Cox Communications,,none,EB2-Windstream Fiber,Windstream Communications,EB2-Windstream Fiber,notes,2
+OKT 02,WAN 1,AT&T,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+OKT 03,WAN 1,AT&T,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+OKT 05,WAN 1,Cox Communications,,none,BTC Broadband,BTC Broadband,BTC Broadband,notes,2
+OKT 06,WAN 1,Cox Communications,,none,BTC Broadband,BTC Broadband Inc.,BTC Broadband,notes,2
+OKT 07,WAN 1,AT&T,,none,Digi,AT&T,,none,1
+OKT 08,WAN 1,Cox Communications,,none,EB2-Windstream Fiber,Windstream Communications LLC,EB2-Windstream Fiber,notes,2
+ORM 01,WAN 1,Charter Communications,,none,Hunter Communications,HUNTER COMMUNICATIONS,Spectrum,notes,2
+ORM 02,WAN 1,Charter Communications,,none,Hunter Communications,HUNTER COMMUNICATIONS,Spectrum,notes,2
+ORP 01,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+ORP 02,WAN 1,Comcast,,none,Unknown,AT&T,,none,1
+ORP 03,WAN 1,Comcast,,none,Ziply Fiber,Ziply Fiber,Ziply Fiber,notes,1
+ORP 04,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+ORP 05,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+ORP 07,WAN 1,Ziply Fiber,,none,Accerated AT&T,AT&T,,none,1
+ORP 08,WAN 1,Comcast,,none,Verizon Business,AT&T,,none,1
+ORP 09,,Comcast,Comcast Workplace,arin,VZW Cell,Verizon,,none,1
+ORP 10,WAN 1,"PSINet,",,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+ORP 11,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+ORP 12,WAN 1,Comcast,,none,Unknown,AT&T,,none,1
+PAC 01,WAN 1,Comcast Cable Communications,,none,Breezeline,Breezeline,Breezeline,notes,2
+PAN 01,WAN 1,Comcast,,none,Unknown,Verizon,,none,1
+PAN 02,WAN 1,EarthLink,,none,VZW Cell,Verizon,,none,1
+PAN 03,WAN 1,Charter Communications,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+PAN 04,WAN 1,DUNN TIRE,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+PAN 05,WAN 1,DUNN TIRE,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+PAP 01,WAN 1,RCN,,none,PenTeleData House Account,PenTeleData House Account,,none,2
+PAP 02,WAN 1,Comcast,,none,,,,none,1
+PAW 01,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+PAW 02,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+SCA 01,WAN 1,"Atlantic Broadband, LLC",,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+SCC 01,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+SCC 02,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+SCC 03,WAN 1,Internet Assigned Numbers Authority,,none,Digi,AT&T,,none,1
+SCC 04,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+SCC 05,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+SCC 06,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+SCC 07,WAN 1,Charter Communications,,none,Comporium Com DIA,"Comporium,",Comporium Com DIA,notes,2
+SCC 08,WAN 1,Charter Communications,,none,EB2-Windstream Fiber,Windstream Communications LLC,EB2-Windstream Fiber,notes,2
+SCC 09,WAN 1,Charter Communications,,none,Comporium Com,Rock Hill Telephone Company,Comporium Com,notes,2
+SCC 10,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+SCC 11,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+SCC 12,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+SCC 13,WAN 1,"Hargray Communications Group, Inc.",,none,VZW Cell,Verizon,,none,1
+SCC 14,WAN 1,Charter Communications,,none,Digi,AT&T,,none,1
+SCC 15,WAN 1,"Farmers Telephone Cooperative, Inc.",,none,Spectrum,Charter Communications,Spectrum,notes,2
+SCC 16,WAN 1,Charter Communications,,none,WideOpenWest,WideOpenWest Finance LLC,WideOpenWest,notes,2
+SCC 17,WAN 1,Frontier Communications,,none,Spectrum,Charter Communications,Spectrum,notes,2
+SCC 18,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+SCC 19,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+SDR 01,WAN 1,Midcontinent Communications,,none,Unknown,AT&T,,none,1
+SDS 01,WAN 1,Midcontinent Communications,,none,EB2-Centurylink DSL,CenturyLink,EB2-Centurylink DSL,notes,2
+Store in a box #2,,AT&T,,none,,Verizon,,none,0
+TNC 01,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TNC 02,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TNC 03,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TNE 01,WAN 1,Comcast,,none,BrightRidge,BrightRidge,BrightRidge,notes,1
+TNE 02,WAN 1,Charter Communications,,none,Digi,AT&T,,none,1
+TNK 01,WAN 1,Charter Communications,,none,Unknown,AT&T,,none,1
+TNK 02,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TNK 03,WAN 1,Comcast,,none,Starlink,"SpaceX Services, Inc.",,none,1
+TNM 01,WAN 1,Comcast,,none,Verizon Business,Verizon,,none,0
+TNM 02,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TNM 03,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TNM 04,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+TNM 05,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TNN_00,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,2
+TNN 02,WAN 1,AT&T,,none,,Comcast,,none,1
+TNN 03,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TNN 04,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TNN 05,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+TNN 06,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+TNN 07,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TNN 08,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+TNN 09,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TNN 10,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TNN 11,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,1
+TNN 12,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+TNN 13,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TNN 14,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TNN 15,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+TNN 16,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II ,notes,2
+TXA 01,WAN 1,Charter Communications,,none,Digi,AT&T,,none,1
+TXA 02,,Charter Communications,Spectrum,arin,VZW Cell,Verizon,,none,1
+TXA 03,WAN 1,Charter Communications,,none,Spectrum,Verizon,Spectrum,notes,1
+TXA 04,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXA 05,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXA 06,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXA 07,WAN 1,Charter Communications,,none,Astound,Grande Communications SAN MARCOS Static,Astound,notes,2
+TXA 08,WAN 1,Charter Communications,,none,Unite Private Networks,Unite Private Networks.,Unite Private Networks,notes,2
+TXA 09,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXA 10,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXA 11,WAN 1,Charter Communications,,none,Unknown,AT&T,,none,1
+TXA 12,,Frontier Communications,,none,Verizon Business,Verizon,,none,1
+TXA 13,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXA 14,WAN 1,Charter Communications,,none,Private Customer - AT&T Internet Services,AT&T,AT&T Broadband II,notes,2
+TXA 15,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXA 16,WAN 1,Charter Communications,,none,Unite Private Networks,Unite Private Networks LLC.,Unite Private Networks,notes,2
+TXA 17,WAN 1,Charter Communications,,none,AT&T Cell,AT&T,,none,1
+TXA 18,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+TXA 19,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXA 20,WAN 1,Charter Communications,,none,Vive -,,,none,2
+TXA 21,WAN 1,Optimum,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXA 22,WAN 1,Charter Communications,,none,Verizon Business,Verizon,,none,1
+TXA 23,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+TXA 24,WAN 1,Charter Communications,,none,"AT&T Enterprises, LLC",AT&T,,none,1
+TXC 01,WAN 1,,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXC 03,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXC 04,WAN 1,Charter Communications,,none,Unknown,AT&T,,none,1
+TXC 05,WAN 1,Charter Communications,,none,Digi,AT&T,,none,1
+TXC 06,WAN 1,AT&T,,none,Altice,Optimum,Altice,notes,2
+TXC 07,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXC 08,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXC 09,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXC 10,WAN 1,Charter Communications,,none,Unknown,AT&T,,none,1
+TXC 11,WAN 1,Cebridge Connections,,none,EB2-CableOne Cable,"CABLE ONE, INC.",EB2-CableOne Cable,notes,2
+TXC 12,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXC 13,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXC 14,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXC 15,WAN 1,MITEL,,none,EB2-CableOne Cable,New Wave Communications,EB2-CableOne Cable,notes,2
+TXC 16,WAN 1,Optimum,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXC 17,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXC 18,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXC 19,WAN 1,Vexus Fiber,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXC 20,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXC 21,WAN 1,"Big Bend Telephone Company, Inc.",,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXD_00,WAN 1,Charter Communications,,none,Unknown,AT&T,,none,0
+TXD 01,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 02,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 04,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 05,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+TXD 06,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 08,WAN 1,Charter Communications,,none,EB2-Frontier Fiber,Frontier Communications,EB2-Frontier Fiber,notes,2
+TXD 09,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 10,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 11,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXD 12,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 13,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 15,,Charter Communications,Spectrum,arin,Unknown,Verizon,,none,1
+TXD 17,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 18,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 19,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 20,WAN 1,Charter Communications,,none,Accelerated AT&T,AT&T,,none,1
+TXD 22,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXD 23,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+TXD 25,WAN 1,Charter Communications,,none,VZW Cell,AT&T,,none,1
+TXD 26,WAN 1,AT&T,,none,Spectrum,Charter Communications Inc,Spectrum,notes,2
+TXD 28,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXD 29,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 30,WAN 1,Charter Communications,,none,Private Customer - AT&T Internet Services,AT&T,AT&T Broadband II,notes,2
+TXD 31,WAN 1,Charter Communications,,none,AT&T Cell,AT&T,,none,1
+TXD 32,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 33,WAN 1,Charter Communications,,none,,,,none,2
+TXD 34,WAN 1,Charter Communications,,none,Digi,AT&T,,none,1
+TXD 35,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 36,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+TXD 37,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 38,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXD 39,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 40,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXD 41,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 42,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXD 43,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+TXD 44,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXD 45,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXD 46,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXD 47,WAN 1,AT&T,,none,Longview Cable,Longview Cable TV,Longview Cable,notes,2
+TXD 48,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 50,WAN 1,AT&T,,none,Charter Communications Inc,Charter Communications,Spectrum,notes,2
+TXD 51,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXD 52,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 54,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 55,,Charter Communications,Spectrum,arin,VZW Cell,Verizon,,none,1
+TXD 56,WAN 1,Charter Communications,,none,"AT&T Enterprises, LLC",AT&T,AT&T Broadband II,notes,2
+TXD 57,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 58,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXD 59,WAN 1,Charter Communications,,none,EB2-Frontier Fiber,Frontier Communications,EB2-Frontier Fiber,notes,2
+TXD 60,WAN 1,Charter Communications,,none,Verizon Business,Verizon,,none,1
+TXD 61,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 62,WAN 1,"CABLE ONE, INC.",,none,Digi,AT&T,,none,1
+TXD 63,WAN 1,Windstream Communications,,none,Cable One,"CABLE ONE, INC.",Cable One,notes,2
+TXD 64,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 65,WAN 1,AT&T,,none,VZW Cell,Verizon,,none,1
+TXD 66,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 67,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXD 68,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+TXD 69,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 70,WAN 1,Charter Communications,,none,Digi,AT&T,,none,1
+TXD 71,WAN 1,AT&T,,none,VZW Cell,Verizon,VZW Cell,notes,1
+TXD 72,WAN 1,AT&T,,none,VZW Cell,Verizon,,none,1
+TXD 73,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 74,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 75,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 76,WAN 1,Conterra Ultra Broadband LLC,,none,Altice,Optimum,Altice,notes,1
+TXD 77,WAN 1,Charter Communications,,none,EB2-Frontier Fiber,Frontier Communications,EB2-Frontier Fiber,notes,2
+TXD 78,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+TXD 79,WAN 1,Optimum,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 80,WAN 1,AT&T,,none,VZW Cell,Verizon,,none,1
+TXD 81,WAN 1,Frontier Communications,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXD 82,WAN 1,AT&T,,none,Starlink,"SpaceX Services, Inc.",,none,1
+TXD 83,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 84,WAN 1,Vyve Broadband,,none,Digi,AT&T,,none,1
+TXD 85,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+TXD 86,WAN 1,Charter Communications,,none,ACCELERATED,AT&T,,none,1
+TXD 87,,Frontier Communications,,none,Unknown,AT&T,,none,1
+TXD 88,WAN 1,Optimum,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXD 89,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXD 90,WAN 1,East Texas Broadband,,none,CenturyLink,CenturyLink,,none,2
+TXD 91,WAN 1,Frontier Communications,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXD 92,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXD 93,WAN 1,Classic Communications,,none,DSR CLink DSL,CenturyLink,,none,1
+TXD 94,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXD 95,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+TXD 96,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXE 01,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXE 02,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXE 03,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXE 05,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXE 06,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXE 07,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXG 01,WAN 1,AT&T,,none,Digi,AT&T,,none,1
+TXG 02,WAN 1,"Consolidated Communications, Inc.",,none,VZW Cell,Verizon,VZW Cell,notes,1
+TXG 03,WAN 1,Comcast,,none,Starlink,"SpaceX Services,",,none,1
+TXH_00,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,2
+TXH 01,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+TXH 02,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXH 03,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXH 04,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+TXH 05,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+TXH 10,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+TXH 11,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,1
+TXH 12,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXH 14,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,0
+TXH 15,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXH 16,,Comcast,Comcast Workplace,arin,Unknown,AT&T,,none,1
+TXH 17,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,1
+TXH 18,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXH 20,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+TXH 21,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXH 22,WAN 1,Optimum,,none,VZW Cell,Verizon,,none,1
+TXH 23,WAN 1,Optimum,,none,Digi,AT&T,,none,1
+TXH 24,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,1
+TXH 25,WAN 1,Comcast,,none,VZW Cell,,,none,1
+TXH 26,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+TXH 27,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXH 28,WAN 1,Comcast,,none,Unknown,AT&T,,none,1
+TXH 29,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXH 30,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXH 31,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXH 33,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+TXH 34,WAN 1,AT&T,,none,Starlink,"SpaceX Services, Inc.",,none,1
+TXH 37,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXH 39,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+TXH 41,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+TXH 43,WAN 1,AT&T,,none,Optimum,Optimum,,none,2
+TXH 44,WAN 1,Comcast,,none,Verizon Business,Verizon,,none,1
+TXH 45,WAN 1,LONE STAR ICE HOUSE,,none,Digi,AT&T,,none,1
+TXH 46,WAN 1,Comcast,,none,Digi,Verizon,,none,1
+TXH 48,WAN 1,Optimum,,none,Unknown,AT&T,,none,1
+TXH 49,WAN 1,Comcast,,none,Starlink,"SpaceX Services, Inc.",,none,1
+TXH 50,WAN 1,AT&T,,none,Digi,AT&T,,none,1
+TXH 51,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+TXH 52,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+TXH 53,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+TXH 54,WAN 1,Comcast,,none,Starlink,"SpaceX Services, Inc.",,none,1
+TXH 55,WAN 1,AT&T,,none,"Comcast Cable Communications, LLC",Comcast,"Comcast Cable Communications, LLC",notes,1
+TXH 56,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+TXH 57,WAN 1,Comcast,,none,Unknown,AT&T,,none,1
+TXH 58,WAN 1,Charter Communications,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+TXH 59,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXH 60,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+TXH 61,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+TXH 62,WAN 1,,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXH 63,WAN 1,Comcast,,none,VZW Cell,Unknown,,none,1
+TXH 64,WAN 1,Comcast,,none,Unknown,AT&T,,none,1
+TXH 65,WAN 1,AT&T,,none,Comcast,Comcast,Comcast,notes,1
+TXH 66,WAN 1,AT&T,,none,Comcast Workplace,PPO CHECK,Comcast Workplace,notes,2
+TXH 67,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXH 68,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+TXH 69,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXH 70,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+TXH 71,WAN 1,AT&T,,none,Digi,AT&T,,none,1
+TXH 72,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+TXH 73,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+TXH 74,WAN 1,Optimum,,none,VZW Cell,Verizon,,none,1
+TXH 75,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+TXH 77,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+TXH 78,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXH 79,WAN 1: COMCAST,Comcast,Comcast Workplace,notes,VZN,Verizon,,none,1
+TXH 80,WAN 1,FIDELITY NATIONAL TITLE,,none,VZW Cell,Verizon,,none,1
+TXH 81,WAN 1,Metronet,,none,Rise Broadband,"JAB Wireless, INC.",Rise Broadband,notes,2
+TXH 82,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,1
+TXH 83,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+TXH 84,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXH 85,WAN 1,Optimum,,none,Verizon Business,Verizon,,none,1
+TXH 86,WAN 1,Comcast,,none,Verizon Business,,,none,1
+TXH 87,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+TXH 88,WAN 1,VESCO BUSINESS PRODUCTS,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXH 89,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+TXH 90,WAN 1,Comcast,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXH 91,WAN 1,Telcom Supply,,none,Digi,AT&T,,none,1
+TXH 92,WAN 1,Comcast,,none,"CenturyLink Communications, LLC",CenturyLink,,none,2
+TXH 93,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+TXH 94,WAN 1,Comcast,,none,Consolidated Communications,"Consolidated Communications, Inc.",Consolidated Communications,notes,2
+TXH 95,WAN 1,AT&T,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+TXH 96,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+TXH 97,WAN 1,AT&T,,none,Comcast,Comcast,,none,1
+TXHT00,WAN 1,Comcast,,none,Unknown,Comcast,Comcast,arin,1
+TXH W00,WAN 1,Comcast,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+TXL 01,WAN 1,Vexus Fiber,,none,Altice West,Optimum,Altice West,notes,2
+TXL 02,WAN 1,Optimum,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXL 03,WAN 1,Optimum,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXL 04,WAN 1,AT&T,,none,Vexus Fiber,Vexus Fiber,Vexus Fiber,notes,2
+TXL 05,WAN 1,Vexus Fiber,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXM 01,WAN 1,AT&T,,none,Digi,AT&T,,none,1
+TXM 02,WAN 1,Optimum,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXM 03,WAN 1,AT&T,,none,Altice,Optimum,Altice,notes,2
+TXN 01,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXO 01,WAN 1,AT&T,,none,EB2-CableOne Cable,"CABLE ONE, INC.",EB2-CableOne Cable,notes,2
+TXO 02,WAN 1,"CABLE ONE, INC.",,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXS_00,WAN 1,AT&T,,none,Charter Communications Inc,Charter Communications,,none,0
+TXS 02,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXS 05,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXS 06,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXS 07,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXS 08,WAN 1,Charter Communications,,none,Digi,AT&T,,none,1
+TXS 09,WAN 1,AT&T,,none,Spectrum,STARBUCKS,Spectrum,notes,2
+TXS 11,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXS 12,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,1
+TXS 13,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXS 14,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXS 15,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXS 16,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXS 17,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXS 18,WAN 1,Charter Communications,,none,EB2-Windstream Fiber,Windstream Communications LLC,EB2-Windstream Fiber,notes,2
+TXS 19,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXS 20,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXS 21,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXS 22,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXS 23,WAN 1,Charter Communications,,none,GVTC Communications,"Guadalupe Valley Telephone Cooperative,",GVTC Communications,notes,2
+TXS 24,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,1
+TXS 25,WAN 1,Charter Communications,,none,VZW Cell,Verizon,,none,1
+TXS 26,WAN 1,GVTC-DIALUP DYNAMIC POOL,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXS 27,WAN 1 Spectrum 750.0M x 35.0M,Charter Communications,Spectrum,notes,AT&T Broadband II 300.0M x 300.0M,AT&T,AT&T Broadband II,notes,2
+TXS 28,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXS 29,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXS 30,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXS 31,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+TXW 01,WAN 1,AT&T,,none,Altice,Optimum,Altice,notes,2
+TXW 02,WAN 1,Optimum,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXW 03,WAN 1,Optimum,,none,Digi,AT&T,,none,1
+TXW 04,WAN 1,Optimum,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXW 05,WAN 1,Optimum,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXW 06,WAN 1,Optimum,,none,Digi,AT&T,,none,1
+TXW 07,WAN 1,Optimum,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+TXW 08,WAN 1,"Grande Communications Networks, LLC",,none,Unite Private Networks,Unite Private Networks LLC.,Unite Private Networks,notes,2
+TXW 09,WAN 1,Optimum,,none,Vexus,NTSC,Vexus,notes,2
+UTS_00,WAN 1,Verizon,,none,VZW Cell,Verizon,,none,0
+UTS 01,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+UTS 02,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+UTS 03,WAN 1,Comcast,,none,EB2-Lumen DSL,CenturyLink,EB2-Lumen DSL,notes,2
+UTS 04,WAN 1,Comcast,,none,EB2-Lumen DSL,CenturyLink,EB2-Lumen DSL,notes,2
+UTS 05,WAN 1,Comcast Cable Communications,,none,Centracom,Private Customer,Centracom,notes,2
+UTS 06,WAN 1,Comcast,,none,EB2-Centurylink DSL,CenturyLink,EB2-Centurylink DSL,notes,2
+UTS 07,WAN 1,Comcast,,none,DSR Lumen DSL,CenturyLink,DSR Lumen DSL,notes,1
+UTS 09,WAN 1,Comcast,,none,EB2-Centurylink DSL,MindQuest,EB2-Centurylink DSL,notes,2
+UTS 11,WAN 1,Comcast,,none,Centracom,Private Customer,Centracom,notes,1
+UTS 12,WAN 1 DSR TDS Cable - 3rd Party Cable Ordered Speed 500.0M x 100.0M,Frontier Communications,,none,Digi Cell,AT&T,,none,1
+UTS 13,WAN 1,Comcast,,none,VZW Cell,AT&T,,none,0
+UTS 14,WAN 1,Comcast,,none,First Digital,"FirstDigital Communications, LLC",First Digital,notes,2
+UTS 15,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+UTS 16,WAN 1,Comcast,,none,EB2-Lumen DSL,Crossroads Plaza Associates,EB2-Lumen DSL,notes,1
+UTS 17,WAN 1,Comcast,,none,Verizon Business,Verizon,,none,1
+UTS 18,WAN 1,Comcast,,none,EB2-Centurylink DSL,CenturyLink,EB2-Centurylink DSL,notes,2
+UTS 19,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+UTS 20,WAN 1,Comcast,,none,First Digital,AT&T,First Digital,notes,2
+UTS 21,WAN 1,Comcast,,none,Verizon Business,Verizon,,none,1
+UTS 22,WAN 1,Private Customer,,none,CenturyLink,CenturyLink Communications,,none,2
+UTS 23,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+UTS 24,WAN 1,Comcast,,none,Spanish Fork Community Network,Google,Spanish Fork Community Network,notes,2
+UTS 25,WAN 1,Comcast,,none,Centracom,Private Customer,Centracom,notes,2
+UTS 26,WAN 1,InfoWest,,none,VZW Cell,Verizon,VZW Cell,notes,1
+UTS W01,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+UTS W02,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+VAB 01,WAN 1,Charter Communications,,none,Verizon Business,Verizon,,none,1
+VAB 02,WAN 1,Cox Communications,,none,Digi,AT&T,,none,1
+VAB 03,WAN 1,Verizon,,none,DSR Cox Cable,AT&T,,none,2
+VAB 04,WAN 1,Verizon,,none,Digi,AT&T,,none,1
+VAB 05,WAN 1,Cox Communications,,none,Digi,AT&T,,none,1
+VAB 06,WAN 1,Cox Communications,,none,EB2-Verizon Fiber,Verizon,EB2-Verizon Fiber,notes,2
+VAB 07,WAN 1,Verizon,,none,Cox Business BOI,Cox Communications,Cox Business/BOI,notes,2
+VAB 08,WAN 1,Cox Communications,,none,VZW Cell,Verizon,,none,1
+VAB 09,WAN 1,Cox Communications,,none,Accelerated,AT&T,,none,1
+VAF 02,WAN 1,Comcast,,none,Starlink,"SpaceX Services, Inc.",,none,1
+VAR_00,WAN 1,Comcast,,none,Digi,AT&T,,none,0
+VAR 01,WAN 1,Comcast,,none,VZW Cell,AT&T,,none,1
+VAR 02,WAN 1,Comcast,,none,VZ Gateway IMEI 356405432149137,Verizon,,none,1
+VAR 03,WAN 1,Verizon,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+VAR 04,WAN 1,Comcast,,none,VZW Cell,AT&T,,none,1
+VAR 05,WAN 1,Verizon,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+VAR 06,WAN 1,Comcast,,none,Accelerated,AT&T,,none,1
+VAR 07,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+VAR 08,WAN 1,Verizon,,none,Comcast,Comcast,,none,0
+VAT 01,WAN 1,Charter Communications,,none,Point Broadband,Point Broadband Fiber Holding,Point Broadband,notes,2
+VAW 01,WAN 1,Ntelos - WYBO FTTP Static Range,,none,Comcast Workplace,Comcast,Comcast Workplace,notes,2
+VAW 02,WAN 1,Cox Communications,,none,"AT&T Enterprises, LLC",AT&T,,none,1
+VAW 03,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+VAW 04,NEW STORE NOT SET UP,Comcast,,none,,"SpaceX Services, Inc.",,none,0
+WAE 01,WAN 1,Comcast,,none,Verizon Business,Verizon,,none,1
+WAE 02,WAN 1,Comcast,,none,Verizon Business,Verizon,,none,1
+WAE 03,WAN 1,Charter Communications,,none,Pocketinet Communications,Northwest Open Access Network,Pocketinet Communications,notes,2
+WAE 04,WAN 1,Ziply Fiber,,none,Spectrum,Charter Communications,Spectrum,notes,2
+WAS_00,WAN 1,Ziply Fiber,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+WAS 01,WAN 1,Comcast,,none,EB2-Ziply Fiber,Ziply Fiber,EB2-Ziply Fiber,notes,2
+WAS 02,WAN 1,Comcast,,none,Accelerated,Verizon,,none,1
+WAS 03,WAN1: Comcast 300.0M x 30.0M\n,Comcast,,none,VZW Cell Cell,Verizon,,none,0
+WAS 04,WAN 1,CenturyLink,,none,Digi,AT&T,,none,1
+WAS 05,WAN 1,"SpaceX Services, Inc.",,none,VZW Cell,Verizon,,none,0
+WAS 06,WAN 1,CenturyLink,,none,Digi,AT&T,,none,1
+WAS 08,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+WAS 09,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+WAS 11,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+WAS 12,WAN 1,"SpaceX Services, Inc.",,none,Accelerated,AT&T,,none,0
+WAS 13,WAN 1,Comcast,,none,Astound,Wave Broadband,Astound,notes,2
+WAS 14,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+WAS 15,WAN 1,Comcast,,none,Starlink,"SpaceX Services,",,none,1
+WAS 17,WAN 1,Comcast,,none,EB2-Ziply Fiber | NAM Fiber |,Ziply Fiber,,none,2
+WAS 18,WAN 1,Ziply Fiber,,none,Spectrum,Charter Communications,Spectrum,notes,2
+WAS 19,WAN 1,Comcast,,none,EB2-Centurylink DSL,CenturyLink,EB2-Centurylink DSL,notes,2
+WAS 20,WAN 1,CASEINTEL CORPORATION,,none,VZW Cell,AT&T,,none,1
+WAS 21,WAN 1,VICTORY STUDIOS,,none,Digi,AT&T,,none,1
+WAS 22,WAN 1,Comcast,,none,Digi,AT&T,,none,1
+WAS 23,WAN 1,CenturyLink,,none,Digi,AT&T,,none,1
+WAS 24,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,0
+WAS 25,,Comcast,,none,Unknown,AT&T,,none,0
+WAS 26,WAN 1,Comcast,,none,EB2-Ziply Fiber,Ziply Fiber,EB2-Ziply Fiber,notes,2
+WAS 27,WAN 1,Comcast,,none,CenturyLink,CenturyLink,,none,2
+WAS 28,WAN 1,Wave Broadband,,none,Comcast Workplace,RAND L KOLER AND ASSOCIA,Comcast Workplace,notes,2
+WAS 29,WAN 1,Comcast,,none,VZW Cell,Verizon,,none,1
+WAS W00,WAN 1,Comcast,,none,Digi Cell,Private IP,,none,1
+WAV 01,WAN 1,Comcast,,none,VZW Cell,AT&T,,none,1
+WAV 02,WAN 1,Comcast,,none,Digi,Verizon,,none,1
+WAX 01,,,,none,,,,none,0
+WAY 01,WAN 1,Charter Communications,,none,VZW Cell,AT&T,,none,1
+WDCA 01,WAN 1,Frontier Communications,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+WDGA01,WAN 1,AT&T,,none,"AT&T Enterprises, LLC",AT&T,,none,0
+WDIL 01,WAN 1,Comcast,,none,Private Customer - AT&T Internet Services,AT&T,,none,0
+WDTD 01,WAN 1,AT&T,,none,ATT,Verizon,AT&T,notes,2
+WIA 01,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+WIA 02,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+WIC 01,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+WIE 01,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+WIE 02,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+WIG 01,WAN 1,CINCINNATI TENANT,,none,Digi,AT&T,,none,1
+WIL 01,WAN 1,Charter Communications,,none,MetroNet,Metronet,MetroNet,notes,2
+WIM 01,WAN 1,Charter Communications,,none,Accelerated,AT&T,,none,1
+WIM 02,WAN 1,Charter Communications,,none,AT&T Broadband II,AT&T,AT&T Broadband II,notes,2
+WIM 03,WAN 1,Charter Communications,,none,Digi,AT&T,,none,1
+WIM 04,WAN 1,Charter Communications,,none,Digi,AT&T,,none,1
+WIM 05,WAN 1,AT&T,,none,Unknown,AT&T,AT&T Broadband II,arin,1
+WIM 06,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+WIO 01,WAN 1,AT&T,,none,Spectrum,Charter Communications,Spectrum,notes,2
+WIW 01,WAN 1,Charter Communications,,none,Unknown,Private IP,,none,1
+WVE 01,WAN 1,Comcast,,none,Digi,Private IP,,none,1
+WYO 01,WAN 1,Charter Communications,,none,Digi,Private IP,,none,1
+WYO 02,WAN 1,Charter Communications,,none,"AT&T Enterprises, LLC",AT&T,,none,1
+WYO 03,WAN 1,Titan Electric ,,none,Spectrum,Charter Communications,Spectrum,notes,2

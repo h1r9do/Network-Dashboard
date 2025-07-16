@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meraki EOL Dashboard - Discount Tire</title>
+    <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            margin: 20px;
+        }
+        
+        .header-container {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header-container h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+        
+        .home-button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+        
+        .home-button:hover {
+            background: #2980b9;
+        }
+        
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .summary-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .summary-card h3 {
+            color: #7f8c8d;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .summary-card .count {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .filter-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        .filter-controls {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .filter-controls label {
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        
+        .filter-controls select, .filter-controls input {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+            min-width: 150px;
+        }
+        
+        .filter-controls button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .filter-controls button:hover {
+            background: #2980b9;
+        }
+        
+        .eol-table {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            background: #34495e;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 500;
+        }
+        
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        tr:hover {
+            background: #f8f9fa;
+        }
+        
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            display: inline-block;
+        }
+        
+        .status-active {
+            background: #2ecc71;
+            color: white;
+        }
+        
+        .status-eos {
+            background: #f39c12;
+            color: white;
+        }
+        
+        .status-eol {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .status-upcoming {
+            background: #3498db;
+            color: white;
+        }
+        
+        .pdf-link {
+            color: #3498db;
+            text-decoration: none;
+        }
+        
+        .pdf-link:hover {
+            text-decoration: underline;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #7f8c8d;
+        }
+        
+        .error {
+            background: #e74c3c;
+            color: white;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+        
+        .refresh-info {
+            text-align: right;
+            color: #7f8c8d;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <h1>Meraki EOL Dashboard</h1>
+        <a href="/home" class="home-button">🏠 Home</a>
+    </div>
+    
+    <div class="summary-cards" id="summaryCards">
+        <div class="summary-card">
+            <h3>Total EOL Models</h3>
+            <div class="count" id="totalModels">-</div>
+        </div>
+        <div class="summary-card">
+            <h3>Active Models</h3>
+            <div class="count" id="activeModels">-</div>
+        </div>
+        <div class="summary-card">
+            <h3>End of Sale</h3>
+            <div class="count" id="eosModels">-</div>
+        </div>
+        <div class="summary-card">
+            <h3>End of Support</h3>
+            <div class="count" id="eolModels">-</div>
+        </div>
+        <div class="summary-card">
+            <h3>Affected Devices</h3>
+            <div class="count" id="affectedDevices">-</div>
+        </div>
+    </div>
+    
+    <div class="filter-section">
+        <div class="filter-controls">
+            <label>Status:</label>
+            <select id="statusFilter">
+                <option value="">All Status</option>
+                <option value="active">Active</option>
+                <option value="eos">End of Sale</option>
+                <option value="eol">End of Support</option>
+                <option value="upcoming">Upcoming</option>
+            </select>
+            
+            <label>Search Model:</label>
+            <input type="text" id="modelSearch" placeholder="e.g. MS220-8P">
+            
+            <button onclick="applyFilters()">Apply Filters</button>
+            <button onclick="resetFilters()">Reset</button>
+            <button onclick="exportData()">Export CSV</button>
+        </div>
+    </div>
+    
+    <div class="eol-table">
+        <div id="loadingDiv" class="loading">Loading EOL data...</div>
+        <table id="eolTable" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>Status</th>
+                    <th>Announcement Date</th>
+                    <th>End of Sale</th>
+                    <th>End of Support</th>
+                    <th>Inventory Count</th>
+                    <th>Source</th>
+                    <th>PDF</th>
+                </tr>
+            </thead>
+            <tbody id="eolTableBody">
+            </tbody>
+        </table>
+        <div class="refresh-info" id="refreshInfo"></div>
+    </div>
+    
+    <script>
+        let allEolData = [];
+        let inventoryCounts = {};
+        
+        // Load EOL data on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadEolData();
+            loadInventoryCounts();
+        });
+        
+        function loadEolData() {
+            fetch('/api/eol/models')
+                .then(response => response.json())
+                .then(data => {
+                    allEolData = data.models;
+                    updateSummaryCards(data.summary);
+                    displayEolData(allEolData);
+                    document.getElementById('loadingDiv').style.display = 'none';
+                    document.getElementById('eolTable').style.display = 'table';
+                    document.getElementById('refreshInfo').textContent = 
+                        `Last updated: ${new Date(data.last_check || new Date()).toLocaleString()}`;
+                })
+                .catch(error => {
+                    document.getElementById('loadingDiv').innerHTML = 
+                        '<div class="error">Error loading EOL data: ' + error + '</div>';
+                });
+        }
+        
+        function loadInventoryCounts() {
+            fetch('/api/inventory-summary')
+                .then(response => response.json())
+                .then(data => {
+                    inventoryCounts = {};
+                    data.summary.forEach(item => {
+                        inventoryCounts[item.model] = item.total;
+                    });
+                    // Refresh the display to show counts
+                    if (allEolData.length > 0) {
+                        displayEolData(allEolData);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading inventory counts:', error);
+                });
+        }
+        
+        function updateSummaryCards(summary) {
+            document.getElementById('totalModels').textContent = summary.total || 0;
+            document.getElementById('activeModels').textContent = summary.active || 0;
+            document.getElementById('eosModels').textContent = summary.eos || 0;
+            document.getElementById('eolModels').textContent = summary.eol || 0;
+            document.getElementById('affectedDevices').textContent = summary.affected_devices || 0;
+        }
+        
+        function getModelStatus(model) {
+            const today = new Date();
+            const eosDate = model.end_of_sale ? new Date(model.end_of_sale) : null;
+            const eolDate = model.end_of_support ? new Date(model.end_of_support) : null;
+            
+            if (eolDate && eolDate <= today) {
+                return { status: 'eol', badge: 'End of Support' };
+            } else if (eosDate && eosDate <= today) {
+                return { status: 'eos', badge: 'End of Sale' };
+            } else if (eosDate && eosDate > today) {
+                return { status: 'upcoming', badge: 'Upcoming' };
+            }
+            return { status: 'active', badge: 'Active' };
+        }
+        
+        function displayEolData(models) {
+            const tbody = document.getElementById('eolTableBody');
+            tbody.innerHTML = '';
+            
+            models.forEach(model => {
+                const { status, badge } = getModelStatus(model);
+                const inventoryCount = inventoryCounts[model.model] || 0;
+                
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><strong>${model.model}</strong></td>
+                    <td><span class="status-badge status-${status}">${badge}</span></td>
+                    <td>${model.announcement_date || '-'}</td>
+                    <td>${model.end_of_sale || '-'}</td>
+                    <td>${model.end_of_support || '-'}</td>
+                    <td>${inventoryCount > 0 ? inventoryCount : '-'}</td>
+                    <td>${model.source || 'Unknown'}</td>
+                    <td>${model.pdf_url ? `<a href="${model.pdf_url}" target="_blank" class="pdf-link">View PDF</a>` : '-'}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        }
+        
+        function applyFilters() {
+            const statusFilter = document.getElementById('statusFilter').value;
+            const modelSearch = document.getElementById('modelSearch').value.toUpperCase();
+            
+            let filteredData = allEolData;
+            
+            if (statusFilter) {
+                filteredData = filteredData.filter(model => {
+                    const { status } = getModelStatus(model);
+                    return status === statusFilter;
+                });
+            }
+            
+            if (modelSearch) {
+                filteredData = filteredData.filter(model => 
+                    model.model.toUpperCase().includes(modelSearch)
+                );
+            }
+            
+            displayEolData(filteredData);
+        }
+        
+        function resetFilters() {
+            document.getElementById('statusFilter').value = '';
+            document.getElementById('modelSearch').value = '';
+            displayEolData(allEolData);
+        }
+        
+        function exportData() {
+            const csv = ['Model,Status,Announcement Date,End of Sale,End of Support,Inventory Count,Source'];
+            
+            allEolData.forEach(model => {
+                const { badge } = getModelStatus(model);
+                const inventoryCount = inventoryCounts[model.model] || 0;
+                csv.push(`"${model.model}","${badge}","${model.announcement_date || ''}","${model.end_of_sale || ''}","${model.end_of_support || ''}","${inventoryCount}","${model.source || ''}"`);
+            });
+            
+            const blob = new Blob([csv.join('\n')], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `meraki_eol_data_${new Date().toISOString().split('T')[0]}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+        }
+    </script>
+</body>
+</html>

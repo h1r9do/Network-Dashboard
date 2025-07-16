@@ -1,0 +1,296 @@
+#!/usr/bin/env python3
+"""
+Database-Integrated Nightly Enriched Script
+Replaces file-based nightly_enriched.py with direct database operations
+Eliminates need for daily JSON files by writing enriched data directly to database
+"""
+
+import os
+import sys
+import logging
+import psycopg2
+from psycopg2.extras import execute_values
+from datetime import datetime, timezone
+import pandas as pd
+import re
+from fuzzywuzzy import fuzz
+
+# Add current directory to path for imports
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from config import Config
+
+# Setup logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('/var/log/nightly-enriched-db.log'),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
+
+def get_db_connection():
+    """Get database connection using config"""
+    import re
+    match = re.match(r'postgresql://(.+):(.+)@(.+):(\d+)/(.+)', Config.SQLALCHEMY_DATABASE_URI)
+    if not match:
+        raise ValueError("Invalid database URI")
+    
+    user, password, host, port, database = match.groups()
+    
+    return psycopg2.connect(
+        host=host,
+        port=int(port),
+        database=database,
+        user=user,
+        password=password
+    )
+
+def load_tracking_data():
+    """Load latest tracking CSV data"""
+    tracking_dir = "/var/www/html/circuitinfo"
+    import glob
+    
+    # Find latest tracking CSV
+    csv_files = glob.glob(f"{tracking_dir}/tracking_data_*.csv")
+    if not csv_files:
+        logger.error("No tracking CSV files found")
+        return None
+    
+    latest_file = max(csv_files)
+    logger.info(f"Loading tracking data from {latest_file}")
+    
+    try:
+        df = pd.read_csv(latest_file, low_memory=False)
+        logger.info(f"Loaded {len(df)} tracking records")
+        return df
+    except Exception as e:
+        logger.error(f"Error loading tracking data: {e}")
+        return None
+
+def normalize_provider(provider_label):
+    """Normalize provider names using comprehensive mapping"""
+    
+    if not provider_label or pd.isna(provider_label):
+        return "Unknown"
+    
+    # Provider normalization map from original script
+    provider_mapping = {
+        "spectrum": "Charter Communications",
+        "charter": "Charter Communications",
+        "cox business": "Cox Communications",
+        "cox": "Cox Communications", 
+        "comcast workplace": "Comcast",
+        "comcast": "Comcast",
+        "at&t": "AT&T",
+        "att": "AT&T",
+        "verizon": "Verizon",
+        "vz": "Verizon",
+        "centurylink": "CenturyLink",
+        "clink": "CenturyLink",
+        "lumen": "CenturyLink",
+        "frontier": "Frontier",
+        "starlink": "Starlink",
+        "ritter": "Ritter Communications",
+        "conway": "Conway Corporation",
+        "altice": "Optimum",
+        "optimum": "Optimum"
+    }
+    
+    provider_lower = str(provider_label).lower().strip()
+    
+    # Direct mapping
+    for key, canonical in provider_mapping.items():
+        if key in provider_lower:
+            return canonical
+    
+    return provider_label.strip()
+
+def fuzzy_match_provider(wan_provider, tracking_providers):
+    """Use fuzzy matching to find best provider match"""
+    if not wan_provider or not tracking_providers:
+        return None, 0
+    
+    best_match = None
+    best_score = 0
+    
+    wan_normalized = normalize_provider(wan_provider)
+    
+    for tracking_provider in tracking_providers:
+        if pd.isna(tracking_provider):
+            continue
+            
+        tracking_normalized = normalize_provider(tracking_provider)
+        score = fuzz.ratio(wan_normalized.lower(), tracking_normalized.lower())
+        
+        if score > best_score and score >= 80:  # 80% threshold
+            best_match = tracking_provider
+            best_score = score
+    
+    return best_match, best_score
+
+def enrich_meraki_data(conn):
+    """Enrich Meraki inventory data with tracking information"""
+    
+    cursor = conn.cursor()
+    
+    # Load tracking data
+    tracking_df = load_tracking_data()
+    if tracking_df is None:
+        logger.error("Cannot proceed without tracking data")
+        return False
+    
+    try:
+        # Get Meraki inventory from database
+        cursor.execute("""
+            SELECT device_serial, network_name, device_model, device_name, device_tags
+            FROM meraki_inventory 
+            WHERE device_model LIKE 'MX%'
+            ORDER BY network_name
+        """)
+        
+        meraki_devices = cursor.fetchall()
+        logger.info(f"Processing {len(meraki_devices)} MX devices for enrichment")
+        
+        enriched_count = 0
+        
+        for device in meraki_devices:
+            device_serial, network_name, device_model, device_name, device_tags = device
+            
+            # Skip excluded tags
+            if any(tag.lower() in ['hub', 'lab', 'voice'] for tag in device_tags):
+                continue
+            
+            # Try to match with tracking data by site name
+            site_matches = tracking_df[tracking_df['Site Name'].str.contains(network_name, case=False, na=False)]
+            
+            if len(site_matches) == 0:
+                logger.debug(f"No tracking match found for {network_name}")
+                continue
+            
+            # Take the first match for now (could be enhanced with better matching logic)
+            tracking_match = site_matches.iloc[0]
+            
+            # Extract enrichment data with proper type conversion
+            enriched_data = {
+                'device_serial': str(device_serial) if device_serial else '',
+                'network_name': str(network_name) if network_name else '',
+                'site_name': str(tracking_match.get('Site Name', '')) if not pd.isna(tracking_match.get('Site Name')) else '',
+                'status': str(tracking_match.get('status', '')) if not pd.isna(tracking_match.get('status')) else '',
+                'provider_name': normalize_provider(tracking_match.get('provider_name', '')),
+                'circuit_purpose': str(tracking_match.get('Circuit Purpose', '')) if not pd.isna(tracking_match.get('Circuit Purpose')) else '',
+                'service_speed': str(tracking_match.get('details_service_speed', '')) if not pd.isna(tracking_match.get('details_service_speed')) else '',
+                'monthly_cost': float(tracking_match.get('billing_monthly_cost', 0)) if not pd.isna(tracking_match.get('billing_monthly_cost')) else 0.0,
+                'date_record_updated': str(tracking_match.get('date_record_updated', '')) if not pd.isna(tracking_match.get('date_record_updated')) else '',
+                'ip_address_start': str(tracking_match.get('ip_address_start', '')) if not pd.isna(tracking_match.get('ip_address_start')) else '',
+                'last_enriched': datetime.now(timezone.utc)
+            }
+            
+            # Insert or update enriched data
+            upsert_sql = """
+                INSERT INTO enriched_networks (
+                    device_serial, network_name, site_name, status, provider_name,
+                    circuit_purpose, service_speed, monthly_cost, date_record_updated,
+                    ip_address_start, last_enriched
+                ) VALUES (
+                    %(device_serial)s, %(network_name)s, %(site_name)s, %(status)s, %(provider_name)s,
+                    %(circuit_purpose)s, %(service_speed)s, %(monthly_cost)s, %(date_record_updated)s,
+                    %(ip_address_start)s, %(last_enriched)s
+                )
+                ON CONFLICT (device_serial) DO UPDATE SET
+                    network_name = EXCLUDED.network_name,
+                    site_name = EXCLUDED.site_name,
+                    status = EXCLUDED.status,
+                    provider_name = EXCLUDED.provider_name,
+                    circuit_purpose = EXCLUDED.circuit_purpose,
+                    service_speed = EXCLUDED.service_speed,
+                    monthly_cost = EXCLUDED.monthly_cost,
+                    date_record_updated = EXCLUDED.date_record_updated,
+                    ip_address_start = EXCLUDED.ip_address_start,
+                    last_enriched = EXCLUDED.last_enriched
+            """
+            
+            cursor.execute(upsert_sql, enriched_data)
+            enriched_count += 1
+        
+        conn.commit()
+        logger.info(f"Successfully enriched {enriched_count} networks in database")
+        return True
+        
+    except Exception as e:
+        logger.error(f"Error during enrichment: {e}")
+        conn.rollback()
+        return False
+    finally:
+        cursor.close()
+
+def create_enriched_tables(conn):
+    """Create enriched networks table if it doesn't exist"""
+    cursor = conn.cursor()
+    
+    try:
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS enriched_networks (
+                id SERIAL PRIMARY KEY,
+                device_serial VARCHAR(50) UNIQUE NOT NULL,
+                network_name VARCHAR(100),
+                site_name VARCHAR(100),
+                status VARCHAR(100),
+                provider_name VARCHAR(100),
+                circuit_purpose VARCHAR(100),
+                service_speed VARCHAR(50),
+                monthly_cost DECIMAL(10,2),
+                date_record_updated VARCHAR(50),
+                ip_address_start VARCHAR(45),
+                last_enriched TIMESTAMP,
+                created_at TIMESTAMP DEFAULT NOW()
+            )
+        """)
+        
+        cursor.execute("""
+            CREATE INDEX IF NOT EXISTS idx_enriched_networks_name ON enriched_networks(network_name);
+            CREATE INDEX IF NOT EXISTS idx_enriched_networks_provider ON enriched_networks(provider_name);
+            CREATE INDEX IF NOT EXISTS idx_enriched_networks_status ON enriched_networks(status);
+        """)
+        
+        conn.commit()
+        logger.info("Enriched networks table created/verified")
+        
+    except Exception as e:
+        logger.error(f"Error creating enriched tables: {e}")
+        conn.rollback()
+        raise
+    finally:
+        cursor.close()
+
+def main():
+    """Main processing function"""
+    logger.info("Starting database-integrated nightly enrichment process")
+    
+    try:
+        # Get database connection
+        conn = get_db_connection()
+        
+        # Create tables if needed
+        create_enriched_tables(conn)
+        
+        # Perform enrichment
+        success = enrich_meraki_data(conn)
+        
+        if success:
+            logger.info("Nightly enrichment completed successfully")
+        else:
+            logger.error("Nightly enrichment failed")
+            return False
+            
+        conn.close()
+        return True
+        
+    except Exception as e:
+        logger.error(f"Error in main process: {e}")
+        return False
+
+if __name__ == "__main__":
+    success = main()
+    sys.exit(0 if success else 1)

@@ -1,0 +1,13 @@
+2025-07-11 07:41:46,192 - INFO - ============================================================
+2025-07-11 07:41:46,192 - INFO - Starting Inventory Web Format Update - CSV Match Version
+2025-07-11 07:41:46,192 - INFO - Timestamp: 20250711_074146
+2025-07-11 07:41:46,192 - INFO - ============================================================
+2025-07-11 07:41:46,308 - ERROR - Error updating web format table: invalid input syntax for type date: ""
+LINE 6: ... 'WS-C2960CX-8PC-L', 'FOC2007W393', '', 'Cisco', '', '', '')
+                                                                ^
+
+2025-07-11 07:41:46,308 - ERROR - Error processing inventory: invalid input syntax for type date: ""
+LINE 6: ... 'WS-C2960CX-8PC-L', 'FOC2007W393', '', 'Cisco', '', '', '')
+                                                                ^
+
+2025-07-11 07:41:46,310 - ERROR - Update failed

@@ -1,0 +1,107 @@
+
+Complete VLAN Migration Report
+==============================
+Network: TST 01 (L_3790904986339115852)
+Start Time: 2025-07-10 10:24:37
+Duration: 0:01:39.586416
+Mode: LIVE
+
+VLAN Mapping Applied:
+  VLAN 1 → VLAN 100
+  VLAN 101 → VLAN 200
+  VLAN 801 → VLAN 400
+  VLAN 201 → VLAN 410
+
+Log Entries:
+[10:24:37] INFO: Complete VLAN Migrator initialized for TST 01
+[10:24:37] INFO: Mode: LIVE
+[10:24:37] INFO: 
+============================================================
+[10:24:37] INFO: Taking complete configuration backup...
+[10:24:37] INFO: ============================================================
+[10:24:37] INFO: Backing up VLANs...
+[10:24:38] INFO:   ✓ Backed up 10 VLANs
+[10:24:38] INFO: Backing up firewall rules...
+[10:24:38] INFO:   ✓ Backed up 60 firewall rules
+[10:24:38] INFO: Backing up group policies...
+[10:24:39] INFO:   ✓ Backed up 3 group policies
+[10:24:39] INFO: Backing up switch configurations...
+[10:24:40] INFO:   ✓ Backed up 28 ports for TST_01SW01
+[10:24:41] INFO:   ✓ Backed up 28 ports for TST_01SW02
+[10:24:41] INFO: Backing up MX ports...
+[10:24:41] INFO:   ✓ Backed up 10 MX ports
+[10:24:41] INFO: Backing up syslog configuration...
+[10:24:41] INFO: 
+✓ Complete backup saved to complete_vlan_backup_L_3790904986339115852_20250710_102441.json
+[10:24:41] INFO: 
+============================================================
+[10:24:41] INFO: Clearing VLAN references...
+[10:24:41] INFO: ============================================================
+[10:24:41] INFO: 
+Step 1: Clearing firewall rules...
+[10:24:42] INFO:   ✓ Firewall rules cleared
+[10:24:42] INFO: 
+Step 2: Moving switch ports to temporary VLANs...
+[10:24:42] INFO:   Creating temporary VLAN 999...
+[10:24:43] INFO:   Creating temporary VLAN 998...
+[10:24:43] INFO:   Creating temporary VLAN 997...
+[10:24:44] INFO:   Creating temporary VLAN 996...
+[10:24:57] INFO:   ✓ Updated 23 ports on TST_01SW01
+[10:25:10] INFO:   ✓ Updated 23 ports on TST_01SW02
+[10:25:10] INFO: 
+Step 3: Updating MX ports to temporary VLANs...
+[10:25:14] INFO:   ✓ Updated 8 MX ports
+[10:25:14] INFO: 
+============================================================
+[10:25:14] INFO: Migrating VLANs to new IDs...
+[10:25:14] INFO: ============================================================
+[10:25:14] INFO: 
+Migrating VLAN 1 → 100
+[10:25:14] INFO:   Deleting VLAN 1...
+[10:25:18] INFO:   Creating VLAN 100...
+[10:25:18] INFO:   ✓ Created VLAN 100
+[10:25:19] INFO: 
+Migrating VLAN 101 → 200
+[10:25:19] INFO:   Deleting VLAN 101...
+[10:25:24] INFO:   Creating VLAN 200...
+[10:25:24] INFO:   ✓ Created VLAN 200
+[10:25:25] INFO: 
+Migrating VLAN 201 → 410
+[10:25:25] INFO:   Deleting VLAN 201...
+[10:25:29] INFO:   Creating VLAN 410...
+[10:25:30] INFO:   ✓ Created VLAN 410
+[10:25:31] INFO: 
+VLAN 300 - No change needed
+[10:25:31] INFO: 
+VLAN 301 - No change needed
+[10:25:31] INFO: 
+VLAN 800 - Updating IP configuration...
+[10:25:31] INFO:   ✓ Updated VLAN 800 IP configuration
+[10:25:32] INFO: 
+Migrating VLAN 801 → 400
+[10:25:32] INFO:   Deleting VLAN 801...
+[10:25:36] INFO:   Creating VLAN 400...
+[10:25:36] INFO:     Applying IP changes for VLAN 400
+[10:25:37] INFO:   ✓ Created VLAN 400
+[10:25:38] INFO: 
+VLAN 803 - No change needed
+[10:25:38] INFO: 
+VLAN 900 - No change needed
+[10:25:38] INFO: 
+============================================================
+[10:25:38] INFO: Restoring configurations with new VLAN IDs...
+[10:25:38] INFO: ============================================================
+[10:25:38] INFO: 
+Step 1: Updating switch ports to new VLAN IDs...
+[10:25:51] INFO:   ✓ Updated 24 ports on TST_01SW01
+[10:26:04] INFO:   ✓ Updated 24 ports on TST_01SW02
+[10:26:04] INFO: 
+Step 2: Updating MX ports to new VLAN IDs...
+[10:26:07] INFO:   ✓ Updated 7 MX ports
+[10:26:07] INFO: 
+Step 3: Applying NEO 07 firewall template...
+[10:26:07] INFO:   Loaded clean NEO 07 firewall template: 55 rules
+[10:26:07] INFO:   Processed 55 clean template rules (no policy object issues)
+[10:26:09] INFO:   ✓ Applied 55 NEO 07 firewall template rules
+[10:26:09] INFO: 
+Step 4: Cleaning up temporary VLANs...

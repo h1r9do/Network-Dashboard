@@ -1,0 +1,1983 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount Tire Network Management System</title>
+    <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* Header styles matching existing pages */
+        .header-container {
+            background-color: #2c3e50;
+            color: white;
+            padding: 25px;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .header-container h1 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+        
+        .header-container p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #ecf0f1;
+            opacity: 0.9;
+        }
+        
+        /* Card grid layout */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        /* Card styles */
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+        }
+        
+        .card-header {
+            padding: 20px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .card-icon {
+            font-size: 36px;
+            opacity: 0.9;
+        }
+        
+        .card-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        .card-body {
+            padding: 20px;
+        }
+        
+        .card-description {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+        
+        .card-snapshot {
+            background: #f8f9fa;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 15px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .snapshot-title {
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #999;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        
+        .snapshot-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #333;
+        }
+        
+        .snapshot-value {
+            font-size: 24px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .snapshot-label {
+            font-size: 13px;
+            color: #666;
+        }
+        
+        /* Different card header colors */
+        .card-circuits .card-header { background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); }
+        .card-dashboard .card-header { background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%); }
+        .card-historical .card-header { background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%); }
+        .card-enablement .card-header { background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%); }
+        .card-newstores .card-header { background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%); }
+        .card-inventory .card-header { background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%); }
+        .card-details .card-header { background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%); }
+        .card-awx .card-header { background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%); }
+        .card-git .card-header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-docs .card-header { background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); }
+        .card-health .card-header { background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%); }
+        .card-performance .card-header { background: linear-gradient(135deg, #fc5c7d 0%, #6a82fb 100%); }
+        .card-switch-visibility .card-header { background: linear-gradient(135deg, #56ccf2 0%, #2f80ed 100%); }
+        .card-netdisco .card-header { background: linear-gradient(135deg, #22c55e 0%, #16a085 100%); }
+        .card-librenms .card-header { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        /* Loading animation */
+        .loading-placeholder {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+            height: 20px;
+            border-radius: 3px;
+        }
+        
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .header-container h1 {
+                font-size: 24px;
+            }
+            
+            .card-icon {
+                font-size: 28px;
+            }
+            
+            .card-title {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header-container">
+            <h1>Discount Tire Network Management System</h1>
+            <p>Central hub for circuit tracking, monitoring, and inventory management</p>
+        </div>
+        
+        <!-- Card Grid -->
+        <div class="card-grid">
+            <!-- SDWAN Circuit Management Card -->
+            <a href="/dsrcircuits" class="card card-circuits">
+                <div class="card-header">
+                    <span class="card-icon">📡</span>
+                    <h2 class="card-title">SDWAN Circuit Management</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">
+                        Advanced circuit tracking and Meraki integration interface. View, edit, confirm and push circuit configurations to Meraki devices.
+                    </p>
+                    <div class="card-snapshot">
+                        <div class="snapshot-title">Interface Preview</div>
+                        <!-- Mini browser window -->
+                        <div style="background: #fff; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; margin-top: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <!-- Browser header -->
+                            <div style="background: #f5f5f5; padding: 3px 6px; border-bottom: 1px solid #e0e0e0; display: flex; align-items: center; gap: 4px;">
+                                <div style="display: flex; gap: 3px;">
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ff5f57;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ffbd2e;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #28ca42;"></div>
+                                </div>
+                                <div style="flex: 1; font-size: 9px; color: #666; text-align: center;">SDWAN Circuit Management</div>
+                            </div>
+                            <!-- Page content -->
+                            <div style="background: #2c3e50; padding: 6px 8px;">
+                                <div style="color: white; font-size: 10px; font-weight: bold; text-align: center;">Broadband Provisioning Tracking System</div>
+                            </div>
+                            <!-- Button row -->
+                            <div style="background: white; padding: 4px 6px; display: flex; gap: 4px; border-bottom: 1px solid #e0e0e0;">
+                                <div style="background: #3498db; color: white; padding: 2px 6px; border-radius: 2px; font-size: 8px;">Home</div>
+                                <div style="background: #2ecc71; color: white; padding: 2px 6px; border-radius: 2px; font-size: 8px;">1 Circuit</div>
+                                <div style="background: #e74c3c; color: white; padding: 2px 6px; border-radius: 2px; font-size: 8px;">Push to Meraki</div>
+                                <div style="background: #f39c12; color: white; padding: 2px 6px; border-radius: 2px; font-size: 8px;">Add Circuit</div>
+                            </div>
+                            <!-- Filter row -->
+                            <div style="background: #f8f9fa; padding: 4px 6px; display: flex; gap: 3px;">
+                                <input style="flex: 1; border: 1px solid #ddd; padding: 2px 4px; border-radius: 2px; font-size: 8px;" placeholder="Filter..." disabled>
+                                <select style="border: 1px solid #ddd; padding: 2px 4px; border-radius: 2px; font-size: 8px;" disabled>
+                                    <option>Provider</option>
+                                </select>
+                                <select style="border: 1px solid #ddd; padding: 2px 4px; border-radius: 2px; font-size: 8px;" disabled>
+                                    <option>Status</option>
+                                </select>
+                            </div>
+                            <!-- Table -->
+                            <div style="background: white; font-size: 8px;">
+                                <div style="background: #3498db; color: white; padding: 3px 6px; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 4px;">
+                                    <div>Store Number</div>
+                                    <div>Circuit ID</div>
+                                    <div>Provider</div>
+                                    <div>Type</div>
+                                    <div>Status</div>
+                                </div>
+                                <div style="padding: 3px 6px; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 4px; border-bottom: 1px solid #f0f0f0;">
+                                    <div>1234 - Phoenix</div>
+                                    <div>DHEC.1234567</div>
+                                    <div>AT&T</div>
+                                    <div>Primary</div>
+                                    <div style="color: #2ecc71;">Active</div>
+                                </div>
+                                <div style="padding: 3px 6px; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 4px; border-bottom: 1px solid #f0f0f0;">
+                                    <div>5678 - Tucson</div>
+                                    <div>56.KLGS.784512</div>
+                                    <div>Spectrum</div>
+                                    <div>Backup</div>
+                                    <div style="color: #f39c12;">Pending</div>
+                                </div>
+                                <div style="padding: 3px 6px; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr; gap: 4px;">
+                                    <div>9012 - Flagstaff</div>
+                                    <div>ETH/10/NEON/9012</div>
+                                    <div>Cox</div>
+                                    <div>Primary</div>
+                                    <div style="color: #2ecc71;">Active</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- All Circuits Card -->
+            <a href="/dsrallcircuits" class="card card-all-circuits">
+                <div class="card-header">
+                    <span class="card-icon">📋</span>
+                    <h2 class="card-title">All Circuits</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">
+                        Complete database view of all enabled circuits. Sortable and filterable table showing site names, IDs, circuit purposes, providers, speeds, and costs.
+                    </p>
+                    <div class="card-snapshot">
+                        <div class="snapshot-title">Interface Preview</div>
+                        <!-- Mini browser window -->
+                        <div style="background: #fff; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; margin-top: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <!-- Browser header -->
+                            <div style="background: #f5f5f5; padding: 3px 6px; border-bottom: 1px solid #e0e0e0; display: flex; align-items: center; gap: 4px;">
+                                <div style="display: flex; gap: 3px;">
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ff5f57;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ffbd2e;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #28ca42;"></div>
+                                </div>
+                                <div style="flex: 1; font-size: 9px; color: #666; text-align: center;">All Circuits</div>
+                            </div>
+                            <!-- Page header -->
+                            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 6px 8px;">
+                                <div style="color: white; font-size: 10px; font-weight: bold; text-align: center;">DSR All Circuits</div>
+                            </div>
+                            <!-- Filter row -->
+                            <div style="background: #f8f9fa; padding: 4px 6px; display: flex; gap: 3px;">
+                                <input style="flex: 1; border: 1px solid #ddd; padding: 2px 4px; border-radius: 2px; font-size: 8px;" placeholder="Site Name..." disabled>
+                                <input style="flex: 1; border: 1px solid #ddd; padding: 2px 4px; border-radius: 2px; font-size: 8px;" placeholder="Site ID..." disabled>
+                                <input style="flex: 1; border: 1px solid #ddd; padding: 2px 4px; border-radius: 2px; font-size: 8px;" placeholder="Provider..." disabled>
+                            </div>
+                            <!-- Table -->
+                            <div style="background: white; font-size: 8px;">
+                                <div style="background: #667eea; color: white; padding: 3px 6px; display: grid; grid-template-columns: 1.2fr 0.8fr 1fr 1fr 0.8fr 0.8fr; gap: 4px;">
+                                    <div>Site Name</div>
+                                    <div>Site ID</div>
+                                    <div>Purpose</div>
+                                    <div>Provider</div>
+                                    <div>Speed</div>
+                                    <div>Cost</div>
+                                </div>
+                                <div style="padding: 3px 6px; display: grid; grid-template-columns: 1.2fr 0.8fr 1fr 1fr 0.8fr 0.8fr; gap: 4px; border-bottom: 1px solid #f0f0f0;">
+                                    <div>ALB 03</div>
+                                    <div>1234</div>
+                                    <div>Primary</div>
+                                    <div><span style="background: #007bff; color: white; padding: 1px 4px; border-radius: 2px; font-size: 7px;">AT&T</span></div>
+                                    <div>100M x 10M</div>
+                                    <div style="color: #28a745; font-weight: bold;">$89.99</div>
+                                </div>
+                                <div style="padding: 3px 6px; display: grid; grid-template-columns: 1.2fr 0.8fr 1fr 1fr 0.8fr 0.8fr; gap: 4px; border-bottom: 1px solid #f0f0f0;">
+                                    <div>PHX 15</div>
+                                    <div>5678</div>
+                                    <div>Secondary</div>
+                                    <div><span style="background: #dc3545; color: white; padding: 1px 4px; border-radius: 2px; font-size: 7px;">Comcast</span></div>
+                                    <div>50M x 5M</div>
+                                    <div style="color: #fd7e14; font-weight: bold;">$124.50</div>
+                                </div>
+                                <div style="padding: 3px 6px; display: grid; grid-template-columns: 1.2fr 0.8fr 1fr 1fr 0.8fr 0.8fr; gap: 4px; border-bottom: 1px solid #f0f0f0;">
+                                    <div>DEN 07</div>
+                                    <div>9012</div>
+                                    <div>Primary</div>
+                                    <div><span style="background: #0dcaf0; color: black; padding: 1px 4px; border-radius: 2px; font-size: 7px;">Cox</span></div>
+                                    <div>200M x 20M</div>
+                                    <div style="color: #dc3545; font-weight: bold;">$245.00</div>
+                                </div>
+                                <div style="padding: 3px 6px; color: #666; text-align: center; font-style: italic;">
+                                    2,020 total enabled circuits
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Status Dashboard Card -->
+            <a href="/dsrdashboard" class="card card-dashboard">
+                <div class="card-header">
+                    <span class="card-icon">📊</span>
+                    <h2 class="card-title">Status Dashboard</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">
+                        Real-time circuit status overview with visual indicators. Monitor circuit health, connectivity status, and identify issues at a glance.
+                    </p>
+                    <div class="card-snapshot">
+                        <div class="snapshot-title">Interface Preview</div>
+                        <!-- Mini browser window -->
+                        <div style="background: #fff; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; margin-top: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <!-- Browser header -->
+                            <div style="background: #f5f5f5; padding: 3px 6px; border-bottom: 1px solid #e0e0e0; display: flex; align-items: center; gap: 4px;">
+                                <div style="display: flex; gap: 3px;">
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ff5f57;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ffbd2e;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #28ca42;"></div>
+                                </div>
+                                <div style="flex: 1; font-size: 9px; color: #666; text-align: center;">Status Dashboard</div>
+                            </div>
+                            <!-- Page content -->
+                            <div style="background: #34495e; padding: 6px 8px;">
+                                <div style="color: white; font-size: 10px; font-weight: bold; text-align: center;">DSR Circuit Status Dashboard</div>
+                            </div>
+                            <div style="display: flex; height: 100px;">
+                                <!-- Sidebar -->
+                                <div style="background: #2c3e50; width: 60px; padding: 6px;">
+                                    <div style="color: white; font-size: 8px; text-align: center; margin-bottom: 4px;">Filters</div>
+                                    <div style="background: #34495e; height: 14px; border-radius: 2px; margin-bottom: 3px;"></div>
+                                    <div style="background: #34495e; height: 14px; border-radius: 2px; margin-bottom: 3px;"></div>
+                                    <div style="background: #34495e; height: 14px; border-radius: 2px;"></div>
+                                </div>
+                                <!-- Main content -->
+                                <div style="flex: 1; background: #ecf0f1; padding: 6px;">
+                                    <!-- Status cards -->
+                                    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-bottom: 6px;">
+                                        <div style="background: #2ecc71; padding: 4px; border-radius: 2px; text-align: center;">
+                                            <div style="color: white; font-size: 12px; font-weight: bold;">152</div>
+                                            <div style="color: rgba(255,255,255,0.9); font-size: 7px;">Online</div>
+                                        </div>
+                                        <div style="background: #f39c12; padding: 4px; border-radius: 2px; text-align: center;">
+                                            <div style="color: white; font-size: 12px; font-weight: bold;">8</div>
+                                            <div style="color: rgba(255,255,255,0.9); font-size: 7px;">Warning</div>
+                                        </div>
+                                        <div style="background: #e74c3c; padding: 4px; border-radius: 2px; text-align: center;">
+                                            <div style="color: white; font-size: 12px; font-weight: bold;">2</div>
+                                            <div style="color: rgba(255,255,255,0.9); font-size: 7px;">Critical</div>
+                                        </div>
+                                    </div>
+                                    <!-- Circuit list preview -->
+                                    <div style="background: white; border-radius: 2px; padding: 4px; font-size: 7px;">
+                                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                                            <span>Store 1234</span>
+                                            <span style="width: 6px; height: 6px; background: #2ecc71; border-radius: 50%; display: inline-block;"></span>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2px;">
+                                            <span>Store 5678</span>
+                                            <span style="width: 6px; height: 6px; background: #f39c12; border-radius: 50%; display: inline-block;"></span>
+                                        </div>
+                                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                                            <span>Store 9012</span>
+                                            <span style="width: 6px; height: 6px; background: #e74c3c; border-radius: 50%; display: inline-block;"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Historical Data Card -->
+            <a href="/dsrhistorical" class="card card-historical">
+                <div class="card-header">
+                    <span class="card-icon">📈</span>
+                    <h2 class="card-title">Historical Data</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">
+                        Circuit change log and historical tracking. View modification history, track changes over time, and analyze trends in circuit management.
+                    </p>
+                    <div class="card-snapshot">
+                        <div class="snapshot-title">Interface Preview</div>
+                        <!-- Mini browser window -->
+                        <div style="background: #fff; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; margin-top: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <!-- Browser header -->
+                            <div style="background: #f5f5f5; padding: 3px 6px; border-bottom: 1px solid #e0e0e0; display: flex; align-items: center; gap: 4px;">
+                                <div style="display: flex; gap: 3px;">
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ff5f57;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ffbd2e;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #28ca42;"></div>
+                                </div>
+                                <div style="flex: 1; font-size: 9px; color: #666; text-align: center;">Historical Data</div>
+                            </div>
+                            <!-- Page header -->
+                            <div style="background: #9b59b6; padding: 6px 8px;">
+                                <div style="color: white; font-size: 10px; font-weight: bold; text-align: center;">Circuit Change History</div>
+                            </div>
+                            <!-- Date filter -->
+                            <div style="background: #f8f9fa; padding: 4px 6px; display: flex; gap: 3px; align-items: center; border-bottom: 1px solid #e0e0e0;">
+                                <div style="font-size: 8px;">📅</div>
+                                <input style="flex: 1; border: 1px solid #ddd; padding: 2px 4px; border-radius: 2px; font-size: 8px;" value="2025-01-01" disabled>
+                                <div style="font-size: 8px;">to</div>
+                                <input style="flex: 1; border: 1px solid #ddd; padding: 2px 4px; border-radius: 2px; font-size: 8px;" value="2025-01-25" disabled>
+                                <button style="background: #9b59b6; color: white; border: none; padding: 2px 6px; border-radius: 2px; font-size: 8px;" disabled>Apply</button>
+                            </div>
+                            <!-- Table -->
+                            <div style="background: white; font-size: 8px;">
+                                <div style="background: #8e44ad; color: white; padding: 3px 6px; display: grid; grid-template-columns: 1fr 2fr 1fr 1fr; gap: 4px;">
+                                    <div>Timestamp</div>
+                                    <div>Change Description</div>
+                                    <div>User</div>
+                                    <div>Action</div>
+                                </div>
+                                <div style="padding: 3px 6px; display: grid; grid-template-columns: 1fr 2fr 1fr 1fr; gap: 4px; border-bottom: 1px solid #f0f0f0;">
+                                    <div>01/25 14:30:22</div>
+                                    <div>Status: Active → Pending</div>
+                                    <div>jsmith</div>
+                                    <div style="color: #3498db;">Modified</div>
+                                </div>
+                                <div style="padding: 3px 6px; display: grid; grid-template-columns: 1fr 2fr 1fr 1fr; gap: 4px; border-bottom: 1px solid #f0f0f0;">
+                                    <div>01/25 10:15:41</div>
+                                    <div>New circuit DHEC.9876543</div>
+                                    <div>admin</div>
+                                    <div style="color: #2ecc71;">Created</div>
+                                </div>
+                                <div style="padding: 3px 6px; display: grid; grid-template-columns: 1fr 2fr 1fr 1fr; gap: 4px; border-bottom: 1px solid #f0f0f0;">
+                                    <div>01/24 16:45:03</div>
+                                    <div>Provider: AT&T → Spectrum</div>
+                                    <div>mbambic</div>
+                                    <div style="color: #3498db;">Modified</div>
+                                </div>
+                                <div style="padding: 3px 6px; display: grid; grid-template-columns: 1fr 2fr 1fr 1fr; gap: 4px;">
+                                    <div>01/24 09:22:17</div>
+                                    <div>Deleted circuit CKT.OLD123</div>
+                                    <div>jsmith</div>
+                                    <div style="color: #e74c3c;">Deleted</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Daily Enablement Report Card -->
+            <a href="/circuit-enablement-report" class="card card-enablement">
+                <div class="card-header">
+                    <span class="card-icon">📊</span>
+                    <h2 class="card-title">Daily Enablement Report</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">
+                        Daily circuit enablement metrics and reporting. Track new circuit activations, completion rates, and monitor enablement progress.
+                    </p>
+                    <div class="card-snapshot">
+                        <div class="snapshot-title">Interface Preview</div>
+                        <!-- Mini browser window -->
+                        <div style="background: #fff; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; margin-top: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <!-- Browser header -->
+                            <div style="background: #f5f5f5; padding: 3px 6px; border-bottom: 1px solid #e0e0e0; display: flex; align-items: center; gap: 4px;">
+                                <div style="display: flex; gap: 3px;">
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ff5f57;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ffbd2e;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #28ca42;"></div>
+                                </div>
+                                <div style="flex: 1; font-size: 9px; color: #666; text-align: center;">Daily Enablement Report</div>
+                            </div>
+                            <!-- Page header -->
+                            <div style="background: #f39c12; padding: 6px 8px;">
+                                <div style="color: white; font-size: 10px; font-weight: bold; text-align: center;">Circuit Enablement Dashboard</div>
+                            </div>
+                            <!-- Navigation tabs -->
+                            <div style="background: #f8f9fa; padding: 4px 6px; border-bottom: 1px solid #e0e0e0;">
+                                <div style="display: flex; gap: 4px;">
+                                    <div style="background: white; border: 1px solid #ddd; border-bottom: none; padding: 2px 6px; border-radius: 3px 3px 0 0; font-size: 8px;">Daily</div>
+                                    <div style="background: #e0e0e0; padding: 2px 6px; border-radius: 3px 3px 0 0; font-size: 8px; color: #666;">Weekly</div>
+                                    <div style="background: #e0e0e0; padding: 2px 6px; border-radius: 3px 3px 0 0; font-size: 8px; color: #666;">Monthly</div>
+                                </div>
+                            </div>
+                            <!-- Main content -->
+                            <div style="padding: 6px;">
+                                <!-- Chart -->
+                                <div style="background: white; border: 1px solid #e0e0e0; border-radius: 3px; padding: 4px; margin-bottom: 4px;">
+                                    <div style="font-size: 8px; font-weight: bold; margin-bottom: 4px;">Today's Enablements by Hour</div>
+                                    <div style="display: flex; align-items: flex-end; height: 30px; gap: 2px;">
+                                        <div style="background: #e0e0e0; width: 8.3%; height: 20%; border-radius: 1px 1px 0 0;"></div>
+                                        <div style="background: #e0e0e0; width: 8.3%; height: 20%; border-radius: 1px 1px 0 0;"></div>
+                                        <div style="background: #3498db; width: 8.3%; height: 40%; border-radius: 1px 1px 0 0;"></div>
+                                        <div style="background: #3498db; width: 8.3%; height: 60%; border-radius: 1px 1px 0 0;"></div>
+                                        <div style="background: #3498db; width: 8.3%; height: 80%; border-radius: 1px 1px 0 0;"></div>
+                                        <div style="background: #3498db; width: 8.3%; height: 100%; border-radius: 1px 1px 0 0;"></div>
+                                        <div style="background: #2ecc71; width: 8.3%; height: 90%; border-radius: 1px 1px 0 0;"></div>
+                                        <div style="background: #2ecc71; width: 8.3%; height: 70%; border-radius: 1px 1px 0 0;"></div>
+                                        <div style="background: #2ecc71; width: 8.3%; height: 50%; border-radius: 1px 1px 0 0;"></div>
+                                        <div style="background: #e0e0e0; width: 8.3%; height: 20%; border-radius: 1px 1px 0 0;"></div>
+                                        <div style="background: #e0e0e0; width: 8.3%; height: 20%; border-radius: 1px 1px 0 0;"></div>
+                                        <div style="background: #e0e0e0; width: 8.3%; height: 20%; border-radius: 1px 1px 0 0;"></div>
+                                    </div>
+                                    <div style="display: flex; justify-content: space-between; margin-top: 2px; font-size: 6px; color: #999;">
+                                        <div>8a</div>
+                                        <div>12p</div>
+                                        <div>4p</div>
+                                        <div>8p</div>
+                                    </div>
+                                </div>
+                                <!-- Stats grid -->
+                                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px;">
+                                    <div style="background: white; border: 1px solid #e0e0e0; padding: 4px; border-radius: 2px; text-align: center;">
+                                        <div style="font-size: 12px; font-weight: bold; color: #2ecc71;">28</div>
+                                        <div style="font-size: 7px; color: #666;">Completed</div>
+                                    </div>
+                                    <div style="background: white; border: 1px solid #e0e0e0; padding: 4px; border-radius: 2px; text-align: center;">
+                                        <div style="font-size: 12px; font-weight: bold; color: #f39c12;">3</div>
+                                        <div style="font-size: 7px; color: #666;">In Progress</div>
+                                    </div>
+                                    <div style="background: white; border: 1px solid #e0e0e0; padding: 4px; border-radius: 2px; text-align: center;">
+                                        <div style="font-size: 12px; font-weight: bold; color: #3498db;">92%</div>
+                                        <div style="font-size: 7px; color: #666;">Success</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- New Stores Card -->
+            <a href="/new-stores" class="card card-newstores">
+                <div class="card-header">
+                    <span class="card-icon">🏗️</span>
+                    <h2 class="card-title">New Stores</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">
+                        New store tracking and management system. Monitor store buildouts, track provisioning status, and manage new location deployments.
+                    </p>
+                    <div class="card-snapshot">
+                        <div class="snapshot-title">Interface Preview</div>
+                        <!-- Mini browser window -->
+                        <div style="background: #fff; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; margin-top: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <!-- Browser header -->
+                            <div style="background: #f5f5f5; padding: 3px 6px; border-bottom: 1px solid #e0e0e0; display: flex; align-items: center; gap: 4px;">
+                                <div style="display: flex; gap: 3px;">
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ff5f57;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ffbd2e;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #28ca42;"></div>
+                                </div>
+                                <div style="flex: 1; font-size: 9px; color: #666; text-align: center;">New Stores Management</div>
+                            </div>
+                            <!-- Page header -->
+                            <div style="background: #1abc9c; padding: 6px 8px;">
+                                <div style="color: white; font-size: 10px; font-weight: bold; text-align: center;">New Store Deployment Tracker</div>
+                            </div>
+                            <!-- Navigation -->
+                            <div style="background: #f8f9fa; padding: 4px 6px; display: flex; gap: 3px; border-bottom: 1px solid #e0e0e0;">
+                                <div style="background: #16a085; color: white; padding: 2px 6px; border-radius: 2px; font-size: 8px;">Pipeline (12)</div>
+                                <div style="background: white; border: 1px solid #ddd; padding: 2px 6px; border-radius: 2px; font-size: 8px;">Scheduled (8)</div>
+                                <div style="background: white; border: 1px solid #ddd; padding: 2px 6px; border-radius: 2px; font-size: 8px;">Completed (45)</div>
+                            </div>
+                            <!-- Main content -->
+                            <div style="padding: 6px;">
+                                <!-- Quick add form -->
+                                <div style="background: #e8f8f5; border: 1px solid #1abc9c; border-radius: 3px; padding: 4px; margin-bottom: 4px;">
+                                    <div style="font-size: 8px; font-weight: bold; color: #16a085; margin-bottom: 3px;">Quick Add New Store</div>
+                                    <div style="display: flex; gap: 2px;">
+                                        <input style="flex: 1; border: 1px solid #ddd; padding: 2px 3px; border-radius: 2px; font-size: 7px;" placeholder="Store #" disabled>
+                                        <input style="flex: 2; border: 1px solid #ddd; padding: 2px 3px; border-radius: 2px; font-size: 7px;" placeholder="Location" disabled>
+                                        <button style="background: #1abc9c; color: white; border: none; padding: 2px 4px; border-radius: 2px; font-size: 7px;" disabled>+</button>
+                                    </div>
+                                </div>
+                                <!-- Store list -->
+                                <div style="background: white; border: 1px solid #e0e0e0; border-radius: 3px; font-size: 8px;">
+                                    <div style="background: #f8f9fa; padding: 3px 6px; display: grid; grid-template-columns: 1fr 2fr 1fr 1fr; gap: 4px; font-weight: bold;">
+                                        <div>Store #</div>
+                                        <div>Location</div>
+                                        <div>Open Date</div>
+                                        <div>Status</div>
+                                    </div>
+                                    <div style="padding: 3px 6px; display: grid; grid-template-columns: 1fr 2fr 1fr 1fr; gap: 4px; border-bottom: 1px solid #f0f0f0;">
+                                        <div>9875</div>
+                                        <div>Mesa, AZ</div>
+                                        <div>02/15/25</div>
+                                        <div style="color: #1abc9c;">Planning</div>
+                                    </div>
+                                    <div style="padding: 3px 6px; display: grid; grid-template-columns: 1fr 2fr 1fr 1fr; gap: 4px; border-bottom: 1px solid #f0f0f0;">
+                                        <div>9876</div>
+                                        <div>Gilbert, AZ</div>
+                                        <div>03/01/25</div>
+                                        <div style="color: #f39c12;">Building</div>
+                                    </div>
+                                    <div style="padding: 3px 6px; display: grid; grid-template-columns: 1fr 2fr 1fr 1fr; gap: 4px;">
+                                        <div>9877</div>
+                                        <div>Chandler, AZ</div>
+                                        <div>03/15/25</div>
+                                        <div style="color: #3498db;">IT Setup</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Inventory Summary Card -->
+            <a href="/inventory-summary" class="card card-inventory">
+                <div class="card-header">
+                    <span class="card-icon">📦</span>
+                    <h2 class="card-title">Inventory Summary</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">
+                        Meraki inventory overview and summary statistics. View equipment counts, deployment status, and inventory health metrics.
+                    </p>
+                    <div class="card-snapshot">
+                        <div class="snapshot-title">Interface Preview</div>
+                        <!-- Mini browser window -->
+                        <div style="background: #fff; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; margin-top: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <!-- Browser header -->
+                            <div style="background: #f5f5f5; padding: 3px 6px; border-bottom: 1px solid #e0e0e0; display: flex; align-items: center; gap: 4px;">
+                                <div style="display: flex; gap: 3px;">
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ff5f57;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ffbd2e;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #28ca42;"></div>
+                                </div>
+                                <div style="flex: 1; font-size: 9px; color: #666; text-align: center;">Inventory Summary</div>
+                            </div>
+                            <!-- Page header -->
+                            <div style="background: #e74c3c; padding: 6px 8px;">
+                                <div style="color: white; font-size: 10px; font-weight: bold; text-align: center;">Meraki Inventory Dashboard</div>
+                            </div>
+                            <!-- Filter bar -->
+                            <div style="background: #f8f9fa; padding: 4px 6px; display: flex; gap: 3px; border-bottom: 1px solid #e0e0e0;">
+                                <select style="border: 1px solid #ddd; padding: 2px 4px; border-radius: 2px; font-size: 8px;" disabled>
+                                    <option>All Regions</option>
+                                </select>
+                                <select style="border: 1px solid #ddd; padding: 2px 4px; border-radius: 2px; font-size: 8px;" disabled>
+                                    <option>All Device Types</option>
+                                </select>
+                                <button style="background: #e74c3c; color: white; border: none; padding: 2px 6px; border-radius: 2px; font-size: 8px; margin-left: auto;" disabled>Export</button>
+                            </div>
+                            <!-- Main content -->
+                            <div style="padding: 6px;">
+                                <!-- Device counts -->
+                                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 3px; margin-bottom: 4px;">
+                                    <div style="background: white; border: 1px solid #e0e0e0; padding: 4px; border-radius: 2px;">
+                                        <div style="display: flex; align-items: center; gap: 4px;">
+                                            <div style="width: 20px; height: 20px; background: #3498db; border-radius: 3px; display: flex; align-items: center; justify-content: center; color: white; font-size: 10px;">MX</div>
+                                            <div>
+                                                <div style="font-size: 12px; font-weight: bold;">847</div>
+                                                <div style="font-size: 7px; color: #666;">Firewalls</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="background: white; border: 1px solid #e0e0e0; padding: 4px; border-radius: 2px;">
+                                        <div style="display: flex; align-items: center; gap: 4px;">
+                                            <div style="width: 20px; height: 20px; background: #2ecc71; border-radius: 3px; display: flex; align-items: center; justify-content: center; color: white; font-size: 10px;">MS</div>
+                                            <div>
+                                                <div style="font-size: 12px; font-weight: bold;">1,234</div>
+                                                <div style="font-size: 7px; color: #666;">Switches</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="background: white; border: 1px solid #e0e0e0; padding: 4px; border-radius: 2px;">
+                                        <div style="display: flex; align-items: center; gap: 4px;">
+                                            <div style="width: 20px; height: 20px; background: #9b59b6; border-radius: 3px; display: flex; align-items: center; justify-content: center; color: white; font-size: 10px;">MR</div>
+                                            <div>
+                                                <div style="font-size: 12px; font-weight: bold;">2,567</div>
+                                                <div style="font-size: 7px; color: #666;">Access Points</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div style="background: white; border: 1px solid #e0e0e0; padding: 4px; border-radius: 2px;">
+                                        <div style="display: flex; align-items: center; gap: 4px;">
+                                            <div style="width: 20px; height: 20px; background: #f39c12; border-radius: 3px; display: flex; align-items: center; justify-content: center; color: white; font-size: 10px;">MV</div>
+                                            <div>
+                                                <div style="font-size: 12px; font-weight: bold;">423</div>
+                                                <div style="font-size: 7px; color: #666;">Cameras</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Progress bar -->
+                                <div style="background: white; border: 1px solid #e0e0e0; border-radius: 3px; padding: 4px;">
+                                    <div style="font-size: 8px; color: #666; margin-bottom: 3px;">Overall Deployment Progress</div>
+                                    <div style="background: #e9ecef; height: 8px; border-radius: 4px; overflow: hidden; position: relative;">
+                                        <div style="background: #2ecc71; height: 100%; width: 85%;"></div>
+                                        <div style="position: absolute; right: 4px; top: 50%; transform: translateY(-50%); font-size: 6px; font-weight: bold;">85%</div>
+                                    </div>
+                                    <div style="font-size: 7px; color: #666; margin-top: 2px;">4,456 of 5,271 devices deployed</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Inventory Details Card -->
+            <a href="/inventory-details" class="card card-details">
+                <div class="card-header">
+                    <span class="card-icon">📋</span>
+                    <h2 class="card-title">Inventory Details</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">
+                        Detailed inventory information and device tracking. Access serial numbers, configurations, and comprehensive equipment data.
+                    </p>
+                    <div class="card-snapshot">
+                        <div class="snapshot-title">Interface Preview</div>
+                        <!-- Mini browser window -->
+                        <div style="background: #fff; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; margin-top: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <!-- Browser header -->
+                            <div style="background: #f5f5f5; padding: 3px 6px; border-bottom: 1px solid #e0e0e0; display: flex; align-items: center; gap: 4px;">
+                                <div style="display: flex; gap: 3px;">
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ff5f57;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ffbd2e;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #28ca42;"></div>
+                                </div>
+                                <div style="flex: 1; font-size: 9px; color: #666; text-align: center;">Inventory Details</div>
+                            </div>
+                            <!-- Page header -->
+                            <div style="background: #34495e; padding: 6px 8px;">
+                                <div style="color: white; font-size: 10px; font-weight: bold; text-align: center;">Detailed Device Inventory</div>
+                            </div>
+                            <!-- Search and filters -->
+                            <div style="background: #f8f9fa; padding: 4px 6px; display: flex; gap: 3px; border-bottom: 1px solid #e0e0e0;">
+                                <input style="flex: 1; border: 1px solid #ddd; padding: 2px 4px; border-radius: 2px; font-size: 8px;" placeholder="Search serial or store..." disabled>
+                                <select style="border: 1px solid #ddd; padding: 2px 4px; border-radius: 2px; font-size: 8px;" disabled>
+                                    <option>All Models</option>
+                                </select>
+                                <button style="background: #34495e; color: white; border: none; padding: 2px 6px; border-radius: 2px; font-size: 8px;" disabled>Filter</button>
+                            </div>
+                            <!-- Table -->
+                            <div style="background: white; font-size: 8px;">
+                                <div style="background: #2c3e50; color: white; padding: 3px 6px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 0.5fr 0.5fr; gap: 4px;">
+                                    <div>Serial Number</div>
+                                    <div>Model</div>
+                                    <div>Store</div>
+                                    <div>Network</div>
+                                    <div>Status</div>
+                                    <div>Action</div>
+                                </div>
+                                <div style="padding: 3px 6px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 0.5fr 0.5fr; gap: 4px; border-bottom: 1px solid #f0f0f0;">
+                                    <div style="font-family: monospace; font-size: 7px;">Q2KH-NHJP-5TKL</div>
+                                    <div>MX84</div>
+                                    <div>1234</div>
+                                    <div>PHX-1234</div>
+                                    <div><span style="width: 6px; height: 6px; background: #2ecc71; border-radius: 50%; display: inline-block;"></span></div>
+                                    <div style="color: #3498db;">▶</div>
+                                </div>
+                                <div style="padding: 3px 6px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 0.5fr 0.5fr; gap: 4px; border-bottom: 1px solid #f0f0f0;">
+                                    <div style="font-family: monospace; font-size: 7px;">Q2YM-4KLZ-9TRE</div>
+                                    <div>MS225-48</div>
+                                    <div>5678</div>
+                                    <div>TUC-5678</div>
+                                    <div><span style="width: 6px; height: 6px; background: #f39c12; border-radius: 50%; display: inline-block;"></span></div>
+                                    <div style="color: #3498db;">▶</div>
+                                </div>
+                                <div style="padding: 3px 6px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 0.5fr 0.5fr; gap: 4px; border-bottom: 1px solid #f0f0f0;">
+                                    <div style="font-family: monospace; font-size: 7px;">Q2PL-8UYT-2WER</div>
+                                    <div>MR36</div>
+                                    <div>9012</div>
+                                    <div>FLG-9012</div>
+                                    <div><span style="width: 6px; height: 6px; background: #95a5a6; border-radius: 50%; display: inline-block;"></span></div>
+                                    <div style="color: #3498db;">▶</div>
+                                </div>
+                                <div style="padding: 3px 6px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 0.5fr 0.5fr; gap: 4px;">
+                                    <div style="font-family: monospace; font-size: 7px;">Q2RT-6YHN-3KLO</div>
+                                    <div>MV22</div>
+                                    <div>3456</div>
+                                    <div>MES-3456</div>
+                                    <div><span style="width: 6px; height: 6px; background: #2ecc71; border-radius: 50%; display: inline-block;"></span></div>
+                                    <div style="color: #3498db;">▶</div>
+                                </div>
+                            </div>
+                            <!-- Pagination -->
+                            <div style="background: #f8f9fa; padding: 4px 6px; display: flex; justify-content: space-between; align-items: center; font-size: 7px;">
+                                <div>Showing 1-4 of 5,271 devices</div>
+                                <div style="display: flex; gap: 2px;">
+                                    <button style="border: 1px solid #ddd; background: white; padding: 1px 4px; border-radius: 2px;" disabled>◀</button>
+                                    <button style="border: 1px solid #ddd; background: #34495e; color: white; padding: 1px 4px; border-radius: 2px;" disabled>1</button>
+                                    <button style="border: 1px solid #ddd; background: white; padding: 1px 4px; border-radius: 2px;" disabled>2</button>
+                                    <button style="border: 1px solid #ddd; background: white; padding: 1px 4px; border-radius: 2px;" disabled>3</button>
+                                    <button style="border: 1px solid #ddd; background: white; padding: 1px 4px; border-radius: 2px;" disabled>▶</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Switch Port Visibility Card -->
+            <a href="/switch-visibility" class="card card-switch-visibility">
+                <div class="card-header">
+                    <span class="card-icon">🔌</span>
+                    <h2 class="card-title">Switch Port Visibility</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">
+                        Real-time switch port client visibility. View connected devices, MAC addresses, VLANs, and manufacturers. Refresh individual switches or stores on demand.
+                    </p>
+                    <div class="card-snapshot">
+                        <div class="snapshot-title">Interface Preview</div>
+                        <!-- Mini browser window -->
+                        <div style="background: #fff; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; margin-top: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <!-- Browser header -->
+                            <div style="background: #f5f5f5; padding: 3px 6px; border-bottom: 1px solid #e0e0e0; display: flex; align-items: center; gap: 4px;">
+                                <div style="display: flex; gap: 3px;">
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ff5f57;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ffbd2e;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #28ca42;"></div>
+                                </div>
+                                <div style="flex: 1; font-size: 9px; color: #666; text-align: center;">Switch Port Visibility</div>
+                            </div>
+                            <!-- Page header -->
+                            <div style="background: #2f80ed; padding: 6px 8px;">
+                                <div style="color: white; font-size: 10px; font-weight: bold; text-align: center;">Switch Port Client Information</div>
+                            </div>
+                            <!-- Filter bar -->
+                            <div style="background: #f8f9fa; padding: 4px 6px; display: flex; gap: 3px; border-bottom: 1px solid #e0e0e0;">
+                                <select style="border: 1px solid #ddd; padding: 2px 4px; border-radius: 2px; font-size: 8px;" disabled>
+                                    <option>All Stores</option>
+                                </select>
+                                <select style="border: 1px solid #ddd; padding: 2px 4px; border-radius: 2px; font-size: 8px;" disabled>
+                                    <option>All Switches</option>
+                                </select>
+                                <button style="background: #2196F3; color: white; border: none; padding: 2px 6px; border-radius: 2px; font-size: 8px;" disabled>🔄 Refresh</button>
+                            </div>
+                            <!-- Table -->
+                            <div style="background: white; font-size: 8px;">
+                                <div style="background: #56ccf2; color: white; padding: 3px 6px; display: grid; grid-template-columns: 1fr 1fr 0.8fr 1.2fr 1fr 0.8fr; gap: 4px;">
+                                    <div>Store</div>
+                                    <div>Switch</div>
+                                    <div>Port</div>
+                                    <div>Hostname</div>
+                                    <div>MAC Address</div>
+                                    <div>Vendor</div>
+                                </div>
+                                <div style="padding: 3px 6px; display: grid; grid-template-columns: 1fr 1fr 0.8fr 1.2fr 1fr 0.8fr; gap: 4px; border-bottom: 1px solid #f0f0f0;">
+                                    <div>ALB 03</div>
+                                    <div>SW-01</div>
+                                    <div>1</div>
+                                    <div>POS-01</div>
+                                    <div style="font-family: monospace; font-size: 7px;">00:1b:21:4a:5c:6d</div>
+                                    <div><span style="background: #555555; color: white; padding: 1px 4px; border-radius: 2px; font-size: 7px;">Intel</span></div>
+                                </div>
+                                <div style="padding: 3px 6px; display: grid; grid-template-columns: 1fr 1fr 0.8fr 1.2fr 1fr 0.8fr; gap: 4px; border-bottom: 1px solid #f0f0f0;">
+                                    <div>ALB 03</div>
+                                    <div>SW-01</div>
+                                    <div>2</div>
+                                    <div>PRINTER-01</div>
+                                    <div style="font-family: monospace; font-size: 7px;">5c:26:0a:7b:8c:9d</div>
+                                    <div><span style="background: #0096d6; color: white; padding: 1px 4px; border-radius: 2px; font-size: 7px;">HP</span></div>
+                                </div>
+                                <div style="padding: 3px 6px; display: grid; grid-template-columns: 1fr 1fr 0.8fr 1.2fr 1fr 0.8fr; gap: 4px;">
+                                    <div>ALB 03</div>
+                                    <div>SW-01</div>
+                                    <div>5</div>
+                                    <div>CAMERA-01</div>
+                                    <div style="font-family: monospace; font-size: 7px;">00:18:0a:2e:3f:4a</div>
+                                    <div><span style="background: #78be20; color: white; padding: 1px 4px; border-radius: 2px; font-size: 7px;">Meraki</span></div>
+                                </div>
+                            </div>
+                            <!-- Stats bar -->
+                            <div style="background: #f8f9fa; padding: 4px 6px; display: flex; justify-content: space-between; align-items: center; font-size: 7px;">
+                                <div>Showing 3 of 18,542 ports</div>
+                                <div style="display: flex; gap: 5px;">
+                                    <span style="background: #e3f2fd; padding: 2px 4px; border-radius: 2px;">1,352 Switches</span>
+                                    <span style="background: #e8f5e9; padding: 2px 4px; border-radius: 2px;">18,542 Active Ports</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+
+            <!-- Subnet Analysis Card -->
+            <a href="/subnets" class="card card-subnets">
+                <div class="card-header" style="background: linear-gradient(135deg, #20c997 0%, #12b886 100%);">
+                    <span class="card-icon">🌐</span>
+                    <h2 class="card-title">Subnet Analysis</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">
+                        View network subnet groupings by /16 and /24 networks. Analyze VLAN distributions across sites and identify shared network patterns.
+                    </p>
+                    <div class="card-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Total Networks</span>
+                            <span class="stat-value">503</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">VLANs Tracked</span>
+                            <span class="stat-value">3,093</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Shared /16s</span>
+                            <span class="stat-value">30</span>
+                        </div>
+                    </div>
+                    <div class="card-snapshot">
+                        <div class="snapshot-title">Network Analysis Preview</div>
+                        <div style="background: #fff; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; margin-top: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <div style="background: #f5f5f5; padding: 3px 6px; border-bottom: 1px solid #e0e0e0; display: flex; align-items: center; gap: 4px;">
+                                <div style="display: flex; gap: 3px;">
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ff5f57;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ffbd2e;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #28ca42;"></div>
+                                </div>
+                                <div style="flex: 1; text-align: center; font-size: 10px; color: #666;">Subnet Analysis</div>
+                            </div>
+                            <div style="padding: 8px; font-size: 11px;">
+                                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; margin-bottom: 6px;">
+                                    <button style="padding: 3px 6px; background: #3498db; color: white; border: none; border-radius: 3px; font-size: 10px;">Group by /16</button>
+                                    <button style="padding: 3px 6px; background: #ecf0f1; color: #2c3e50; border: 1px solid #bdc3c7; border-radius: 3px; font-size: 10px;">Group by /24</button>
+                                    <button style="padding: 3px 6px; background: #ecf0f1; color: #2c3e50; border: 1px solid #bdc3c7; border-radius: 3px; font-size: 10px;">Patterns</button>
+                                </div>
+                                <table style="width: 100%; font-size: 10px; border-collapse: collapse;">
+                                    <thead>
+                                        <tr style="background: #f8f9fa;">
+                                            <th style="padding: 4px; text-align: left; border-bottom: 1px solid #dee2e6;">Network /16</th>
+                                            <th style="padding: 4px; text-align: center; border-bottom: 1px solid #dee2e6;">Sites</th>
+                                            <th style="padding: 4px; text-align: center; border-bottom: 1px solid #dee2e6;">/24s</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="padding: 4px; font-family: monospace; color: #2c3e50;">10.1.0.0/16</td>
+                                            <td style="padding: 4px; text-align: center;">45</td>
+                                            <td style="padding: 4px; text-align: center;">12</td>
+                                        </tr>
+                                        <tr style="background: #f8f9fa;">
+                                            <td style="padding: 4px; font-family: monospace; color: #2c3e50;">10.2.0.0/16</td>
+                                            <td style="padding: 4px; text-align: center;">38</td>
+                                            <td style="padding: 4px; text-align: center;">9</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding: 4px; font-family: monospace; color: #2c3e50;">10.3.0.0/16</td>
+                                            <td style="padding: 4px; text-align: center;">27</td>
+                                            <td style="padding: 4px; text-align: center;">8</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            
+            
+
+<!-- Firewall Rules Editor Card -->
+            <a href="/firewall" class="card card-firewall">
+                <div class="card-header" style="background: linear-gradient(135deg, #ff6b6b 0%, #c92a2a 100%);">
+                    <span class="card-icon">🔥</span>
+                    <h2 class="card-title">Meraki MX Firewall Rules Editor</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">
+                        Manage and deploy Meraki L3 firewall rules across networks using templates. Edit, create, and deploy firewall configurations.
+                    </p>
+                    <div class="card-snapshot">
+                        <div class="snapshot-title">Interface Preview</div>
+                        <!-- Mini browser window -->
+                        <div style="background: #fff; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; margin-top: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <!-- Browser header -->
+                            <div style="background: #f5f5f5; padding: 3px 6px; border-bottom: 1px solid #e0e0e0; display: flex; align-items: center; gap: 4px;">
+                                <div style="display: flex; gap: 3px;">
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ff5f57;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ffbd2e;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #28ca42;"></div>
+                                </div>
+                                <div style="flex: 1; font-size: 9px; color: #666; text-align: center;">Firewall Rules Editor</div>
+                            </div>
+                            <!-- Page header -->
+                            <div style="background: #c92a2a; padding: 6px 8px;">
+                                <div style="color: white; font-size: 10px; font-weight: bold; text-align: center;">Meraki L3 Firewall Rules Management</div>
+                            </div>
+                            <!-- Template selector -->
+                            <div style="background: #f8f9fa; padding: 4px 6px; display: flex; gap: 3px; border-bottom: 1px solid #e0e0e0;">
+                                <select style="flex: 1; border: 1px solid #ddd; padding: 2px 4px; border-radius: 2px; font-size: 8px;" disabled>
+                                    <option>NEO 07 - Standard Store Template</option>
+                                </select>
+                                <button style="background: #ff6b6b; color: white; border: none; padding: 2px 6px; border-radius: 2px; font-size: 8px;" disabled>Load</button>
+                                <button style="background: #2ecc71; color: white; border: none; padding: 2px 6px; border-radius: 2px; font-size: 8px;" disabled>Save</button>
+                                <button style="background: #3498db; color: white; border: none; padding: 2px 6px; border-radius: 2px; font-size: 8px;" disabled>Deploy</button>
+                            </div>
+                            <!-- Rules editor -->
+                            <div style="padding: 6px;">
+                                <!-- Add rule button -->
+                                <button style="width: 100%; background: #2ecc71; color: white; border: none; padding: 3px; border-radius: 2px; font-size: 8px; margin-bottom: 4px;" disabled>+ Add New Rule</button>
+                                <!-- Rules list -->
+                                <div style="background: white; border: 1px solid #e0e0e0; border-radius: 3px; font-size: 8px;">
+                                    <div style="background: #ff6b6b; color: white; padding: 3px 6px; display: grid; grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 0.5fr; gap: 4px;">
+                                        <div>#</div>
+                                        <div>Rule Name</div>
+                                        <div>Protocol</div>
+                                        <div>Source</div>
+                                        <div>Dest</div>
+                                        <div>Action</div>
+                                    </div>
+                                    <div style="padding: 3px 6px; display: grid; grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 0.5fr; gap: 4px; border-bottom: 1px solid #f0f0f0; background: #fff;">
+                                        <div>1</div>
+                                        <div style="font-weight: bold;">Allow Management</div>
+                                        <div>TCP</div>
+                                        <div>10.0.0.0/8</div>
+                                        <div>Any</div>
+                                        <div style="color: #2ecc71;">✓</div>
+                                    </div>
+                                    <div style="padding: 3px 6px; display: grid; grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 0.5fr; gap: 4px; border-bottom: 1px solid #f0f0f0; background: #fef5f5;">
+                                        <div>2</div>
+                                        <div style="font-weight: bold;">Block P2P Traffic</div>
+                                        <div>Any</div>
+                                        <div>Any</div>
+                                        <div>P2P Apps</div>
+                                        <div style="color: #e74c3c;">✗</div>
+                                    </div>
+                                    <div style="padding: 3px 6px; display: grid; grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 0.5fr; gap: 4px; border-bottom: 1px solid #f0f0f0; background: #fff;">
+                                        <div>3</div>
+                                        <div style="font-weight: bold;">Allow HTTPS</div>
+                                        <div>TCP/443</div>
+                                        <div>Any</div>
+                                        <div>Any</div>
+                                        <div style="color: #2ecc71;">✓</div>
+                                    </div>
+                                    <div style="padding: 3px 6px; display: grid; grid-template-columns: 0.5fr 2fr 1fr 1fr 1fr 0.5fr; gap: 4px; background: #fff;">
+                                        <div>4</div>
+                                        <div style="font-weight: bold;">Allow DNS</div>
+                                        <div>UDP/53</div>
+                                        <div>Any</div>
+                                        <div>8.8.8.8</div>
+                                        <div style="color: #2ecc71;">✓</div>
+                                    </div>
+                                </div>
+                                <!-- Rule count -->
+                                <div style="margin-top: 4px; font-size: 7px; color: #666; text-align: center;">4 rules configured • Last modified: 2025-01-25 14:30</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <\!-- Subnet Analysis Card -->
+            <a href="/subnets" class="card card-subnets">
+                <div class="card-header" style="background: linear-gradient(135deg, #20c997 0%, #12b886 100%);">
+                    <span class="card-icon">🌐</span>
+                    <h2 class="card-title">Subnet Analysis</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">
+                        View network subnet groupings by /16 and /24 networks. Analyze VLAN distributions across sites and identify shared network patterns.
+                    </p>
+                    <div class="card-stats">
+                        <div class="stat">
+                            <span class="stat-value">500+</span>
+                            <span class="stat-label">Networks</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">4,800+</span>
+                            <span class="stat-label">VLANs</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-value">30+</span>
+                            <span class="stat-label">Shared /16s</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="feature-list">
+                            <span class="feature">• Group by /16 or /24</span>
+                            <span class="feature">• Site VLAN details</span>
+                            <span class="feature">• Export to Excel/CSV</span>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- System Health Card -->
+            <a href="/system-health" class="card card-health">
+                <div class="card-header" style="background: linear-gradient(135deg, #00d2ff 0%, #3a7bd5 100%);">
+                    <span class="card-icon">💙</span>
+                    <h2 class="card-title">System Health</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">
+                        Real-time system health monitoring. Check database connectivity, cache status, and overall system performance.
+                    </p>
+                    <div class="card-snapshot">
+                        <div class="snapshot-title">Current Status</div>
+                        <!-- Health status display -->
+                        <div style="background: #fff; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; margin-top: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <!-- Status indicators -->
+                            <div style="padding: 8px;">
+                                <div id="health-indicators" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px;">
+                                    <div style="background: #f8f9fa; padding: 8px; border-radius: 4px; border-left: 3px solid #95a5a6;">
+                                        <div style="font-size: 9px; color: #666; margin-bottom: 2px;">Database</div>
+                                        <div style="font-size: 11px; font-weight: bold; color: #95a5a6;" id="db-status">Loading...</div>
+                                    </div>
+                                    <div style="background: #f8f9fa; padding: 8px; border-radius: 4px; border-left: 3px solid #95a5a6;">
+                                        <div style="font-size: 9px; color: #666; margin-bottom: 2px;">Cache</div>
+                                        <div style="font-size: 11px; font-weight: bold; color: #95a5a6;" id="cache-status">Loading...</div>
+                                    </div>
+                                    <div style="background: #f8f9fa; padding: 8px; border-radius: 4px; border-left: 3px solid #3498db;">
+                                        <div style="font-size: 9px; color: #666; margin-bottom: 2px;">Version</div>
+                                        <div style="font-size: 11px; font-weight: bold; color: #3498db;" id="version-status">Loading...</div>
+                                    </div>
+                                    <div style="background: #f8f9fa; padding: 8px; border-radius: 4px; border-left: 3px solid #95a5a6;">
+                                        <div style="font-size: 9px; color: #666; margin-bottom: 2px;">API</div>
+                                        <div style="font-size: 11px; font-weight: bold; color: #95a5a6;" id="api-status">Loading...</div>
+                                    </div>
+                                </div>
+                                <div id="system-status-message" style="margin-top: 8px; padding: 6px; background: #f5f5f5; border-radius: 4px; text-align: center;">
+                                    <div style="font-size: 10px; color: #666;">⏳ Checking system status...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Performance Monitoring Card -->
+            <a href="/performance" class="card card-performance">
+                <div class="card-header" style="background: linear-gradient(135deg, #fc5c7d 0%, #6a82fb 100%);">
+                    <span class="card-icon">⚡</span>
+                    <h2 class="card-title">Performance Monitoring</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">
+                        Comprehensive API endpoint performance monitoring. Track response times, data sizes, error rates, and identify performance anomalies.
+                    </p>
+                    <div class="card-snapshot">
+                        <div class="snapshot-title">System Performance</div>
+                        <!-- Performance overview -->
+                        <div style="background: #fff; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; margin-top: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <!-- Performance metrics -->
+                            <div style="padding: 8px;">
+                                <!-- Response time gauge -->
+                                <div style="background: #f8f9fa; padding: 8px; border-radius: 4px; margin-bottom: 6px;">
+                                    <div style="font-size: 9px; color: #666; margin-bottom: 4px;">Average Response Time</div>
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <div style="flex: 1; background: #e0e0e0; height: 8px; border-radius: 4px; overflow: hidden;">
+                                            <div style="background: linear-gradient(90deg, #2ecc71 0%, #f39c12 50%, #e74c3c 100%); height: 100%; width: 30%;"></div>
+                                        </div>
+                                        <div style="font-size: 11px; font-weight: bold; color: #2ecc71;">285ms</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Endpoint health grid -->
+                                <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 4px; margin-bottom: 6px;">
+                                    <div style="background: #e8f5e9; padding: 6px; border-radius: 3px; text-align: center;">
+                                        <div style="font-size: 14px; font-weight: bold; color: #2e7d32;">98%</div>
+                                        <div style="font-size: 8px; color: #666;">Healthy</div>
+                                    </div>
+                                    <div style="background: #fff3e0; padding: 6px; border-radius: 3px; text-align: center;">
+                                        <div style="font-size: 14px; font-weight: bold; color: #e65100;">2</div>
+                                        <div style="font-size: 8px; color: #666;">Slow</div>
+                                    </div>
+                                    <div style="background: #ffebee; padding: 6px; border-radius: 3px; text-align: center;">
+                                        <div style="font-size: 14px; font-weight: bold; color: #c62828;">0</div>
+                                        <div style="font-size: 8px; color: #666;">Failed</div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Mini chart -->
+                                <div style="background: #f8f9fa; padding: 6px; border-radius: 4px;">
+                                    <div style="font-size: 8px; color: #666; margin-bottom: 4px;">24-Hour Trend</div>
+                                    <div style="display: flex; align-items: flex-end; height: 30px; gap: 1px;">
+                                        <div style="background: #2ecc71; width: 8%; height: 60%;"></div>
+                                        <div style="background: #2ecc71; width: 8%; height: 65%;"></div>
+                                        <div style="background: #2ecc71; width: 8%; height: 70%;"></div>
+                                        <div style="background: #2ecc71; width: 8%; height: 55%;"></div>
+                                        <div style="background: #2ecc71; width: 8%; height: 50%;"></div>
+                                        <div style="background: #f39c12; width: 8%; height: 85%;"></div>
+                                        <div style="background: #2ecc71; width: 8%; height: 60%;"></div>
+                                        <div style="background: #2ecc71; width: 8%; height: 65%;"></div>
+                                        <div style="background: #2ecc71; width: 8%; height: 70%;"></div>
+                                        <div style="background: #2ecc71; width: 8%; height: 75%;"></div>
+                                        <div style="background: #2ecc71; width: 8%; height: 80%;"></div>
+                                        <div style="background: #2ecc71; width: 8%; height: 60%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Tag Management Card -->
+            <a href="/tags" class="card card-tags">
+                <div class="card-header" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    <span class="card-icon">🏷️</span>
+                    <h2 class="card-title">Tag Management</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">
+                        Manage Meraki device tags for location categorization. View, update, and bulk edit tags for Discount Tire, Warehouse, MDC, and other location types.
+                    </p>
+                    <div class="card-snapshot">
+                        <div class="snapshot-title">Tag Management Interface</div>
+                        <!-- Mini browser window -->
+                        <div style="background: #fff; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; margin-top: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <!-- Browser header -->
+                            <div style="background: #f5f5f5; padding: 3px 6px; border-bottom: 1px solid #e0e0e0; display: flex; align-items: center; gap: 4px;">
+                                <div style="display: flex; gap: 3px;">
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ff5f57;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ffbd2e;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #28ca42;"></div>
+                                </div>
+                                <div style="flex: 1; font-size: 9px; color: #666; text-align: center;">Tag Management</div>
+                            </div>
+                            <!-- Page header -->
+                            <div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); padding: 6px 8px;">
+                                <div style="color: white; font-size: 10px; font-weight: bold; text-align: center;">Device Tag Management</div>
+                            </div>
+                            <!-- Filter bar -->
+                            <div style="background: #f8f9fa; padding: 4px 6px; display: flex; gap: 4px; align-items: center; border-bottom: 1px solid #e0e0e0;">
+                                <input style="flex: 1; border: 1px solid #ddd; padding: 2px 4px; border-radius: 2px; font-size: 8px;" placeholder="Search..." disabled>
+                                <select style="border: 1px solid #ddd; padding: 2px 4px; border-radius: 2px; font-size: 8px;" disabled>
+                                    <option>All Tags</option>
+                                </select>
+                                <button style="background: #f5576c; color: white; border: none; padding: 2px 6px; border-radius: 2px; font-size: 8px;" disabled>Refresh</button>
+                            </div>
+                            <!-- Table preview -->
+                            <div style="background: white; font-size: 8px;">
+                                <div style="background: #34495e; color: white; padding: 3px 6px; display: grid; grid-template-columns: 20px 2fr 1fr 1fr 2fr 1fr; gap: 4px;">
+                                    <div>☐</div>
+                                    <div>Network</div>
+                                    <div>Serial</div>
+                                    <div>Model</div>
+                                    <div>Tags</div>
+                                    <div>Actions</div>
+                                </div>
+                                <!-- Sample rows -->
+                                <div style="padding: 3px 6px; display: grid; grid-template-columns: 20px 2fr 1fr 1fr 2fr 1fr; gap: 4px; border-bottom: 1px solid #eee;">
+                                    <div>☐</div>
+                                    <div>ALB 01</div>
+                                    <div>Q2XX-XXXX</div>
+                                    <div>MX84</div>
+                                    <div>
+                                        <span style="background: #e74c3c; color: white; padding: 1px 4px; border-radius: 2px; font-size: 7px;">Discount-Tire</span>
+                                    </div>
+                                    <div>✏️</div>
+                                </div>
+                                <div style="padding: 3px 6px; display: grid; grid-template-columns: 20px 2fr 1fr 1fr 2fr 1fr; gap: 4px; border-bottom: 1px solid #eee;">
+                                    <div>☐</div>
+                                    <div>CAL W01</div>
+                                    <div>Q2YY-YYYY</div>
+                                    <div>MX84</div>
+                                    <div>
+                                        <span style="background: #f39c12; color: white; padding: 1px 4px; border-radius: 2px; font-size: 7px;">Warehouse</span>
+                                    </div>
+                                    <div>✏️</div>
+                                </div>
+                                <div style="padding: 3px 6px; display: grid; grid-template-columns: 20px 2fr 1fr 1fr 2fr 1fr; gap: 4px;">
+                                    <div>☐</div>
+                                    <div>COX 01</div>
+                                    <div>Q2ZZ-ZZZZ</div>
+                                    <div>MX250</div>
+                                    <div>
+                                        <span style="background: #9b59b6; color: white; padding: 1px 4px; border-radius: 2px; font-size: 7px;">MDC</span>
+                                    </div>
+                                    <div>✏️</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Git Card -->
+            <a href="http://10.0.145.130:3003/mbambic/usr-local-bin" class="card card-git">
+                <div class="card-header">
+                    <span class="card-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2a10 10 0 0 0-10 10c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/>
+                        </svg>
+                    </span>
+                    <h2 class="card-title">Git Repository</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">
+                        Version control and source code management. View commits, branches, and collaborate on code changes.
+                    </p>
+                    <div class="card-snapshot">
+                        <div class="snapshot-title">Repository View</div>
+                        <!-- Mini GitHub interface -->
+                        <div style="background: #fff; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; margin-top: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <!-- GitHub header -->
+                            <div style="background: #24292e; color: white; padding: 6px 8px; display: flex; align-items: center; gap: 6px;">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 2a10 10 0 0 0-10 10c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"/>
+                                </svg>
+                                <span style="font-size: 10px; font-weight: bold;">usr-local-bin</span>
+                            </div>
+                            <!-- File browser -->
+                            <div style="background: #f6f8fa; padding: 6px 8px; font-size: 8px; border-bottom: 1px solid #e1e4e8;">
+                                <div style="color: #586069;">📁 Main • 🔄 125 commits • 👥 1 contributor</div>
+                            </div>
+                            <!-- File list -->
+                            <div style="background: white; padding: 6px 8px;">
+                                <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 3px; font-size: 8px;">
+                                    <span style="color: #0366d6;">📁</span>
+                                    <span style="flex: 1; color: #0366d6;">templates/</span>
+                                    <span style="color: #586069; font-size: 7px;">2 days ago</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 3px; font-size: 8px;">
+                                    <span style="color: #959da5;">📄</span>
+                                    <span style="flex: 1; color: #24292e;">dsrcircuits.py</span>
+                                    <span style="color: #586069; font-size: 7px;">1 day ago</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 6px; font-size: 8px;">
+                                    <span style="color: #959da5;">📄</span>
+                                    <span style="flex: 1; color: #24292e;">README.md</span>
+                                    <span style="color: #586069; font-size: 7px;">3 days ago</span>
+                                </div>
+                            </div>
+                            <!-- Stats -->
+                            <div style="background: #f6f8fa; padding: 4px 6px; display: flex; gap: 3px; font-size: 7px; color: #586069;">
+                                <div style="background: rgba(3, 102, 214, 0.2); padding: 2px 6px; border-radius: 2px;">Python</div>
+                                <div style="background: rgba(149, 157, 165, 0.2); padding: 2px 6px; border-radius: 2px;">HTML</div>
+                                <div style="background: rgba(17, 153, 142, 0.2); padding: 2px 6px; border-radius: 2px;">Markdown</div>
+                                <div style="background: rgba(56, 239, 125, 0.2); padding: 2px 6px; border-radius: 2px;">v2.0</div>
+                                <div style="background: rgba(17, 153, 142, 0.2); padding: 2px 6px; border-radius: 2px;">Updated</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- AWX Card -->
+            <a href="http://10.0.145.130:30483" class="card card-awx">
+                <div class="card-header">
+                    <span class="card-icon">🚀</span>
+                    <h2 class="card-title">AWX Automation</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">
+                        Ansible Tower automation platform. Manage playbooks, inventories, and job templates for infrastructure automation.
+                    </p>
+                    <div class="card-snapshot">
+                        <div class="snapshot-title">Dashboard Preview</div>
+                        <!-- Mini browser window -->
+                        <div style="background: #fff; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; margin-top: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <!-- Browser header -->
+                            <div style="background: #f5f5f5; padding: 3px 6px; border-bottom: 1px solid #e0e0e0; display: flex; align-items: center; gap: 4px;">
+                                <div style="display: flex; gap: 3px;">
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ff5f57;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ffbd2e;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #28ca42;"></div>
+                                </div>
+                                <div style="flex: 1; font-size: 9px; color: #666; text-align: center;">AWX Dashboard</div>
+                            </div>
+                            <!-- Page content -->
+                            <div style="background: #ee0979; background: linear-gradient(135deg, #ee0979 0%, #ff6a00 100%); padding: 6px 8px;">
+                                <div style="color: white; font-size: 10px; font-weight: bold; text-align: center;">AWX Automation Platform</div>
+                            </div>
+                            <!-- Dashboard row -->
+                            <div style="background: white; padding: 6px 8px; display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+                                <div style="background: rgba(238, 9, 121, 0.1); padding: 4px; border-radius: 3px; text-align: center;">
+                                    <div style="font-size: 7px; color: #666;">Jobs</div>
+                                    <div style="font-size: 12px; font-weight: bold; color: #ee0979;">15</div>
+                                </div>
+                                <div style="background: rgba(255, 106, 0, 0.1); padding: 4px; border-radius: 3px; text-align: center;">
+                                    <div style="font-size: 7px; color: #666;">Templates</div>
+                                    <div style="font-size: 12px; font-weight: bold; color: #ff6a00;">8</div>
+                                </div>
+                            </div>
+                            <!-- Menu row -->
+                            <div style="background: #f8f9fa; padding: 4px 6px; display: flex; gap: 3px; font-size: 7px; color: #666;">
+                                <div style="background: rgba(238, 9, 121, 0.2); padding: 2px 6px; border-radius: 2px;">Jobs</div>
+                                <div style="background: rgba(255, 106, 0, 0.2); padding: 2px 6px; border-radius: 2px;">Templates</div>
+                                <div style="background: rgba(238, 9, 121, 0.2); padding: 2px 6px; border-radius: 2px;">Inventory</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Netdisco Card -->
+            <a href="http://10.0.145.130:5000" class="card card-netdisco">
+                <div class="card-header">
+                    <span class="card-icon">🔍</span>
+                    <h2 class="card-title">Netdisco</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">
+                        Network discovery and management tool. Automatic discovery of network devices, topology mapping, and inventory tracking.
+                    </p>
+                    <div class="card-snapshot">
+                        <div class="snapshot-title">Network Overview</div>
+                        <!-- Mini browser window -->
+                        <div style="background: #fff; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; margin-top: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <!-- Browser header -->
+                            <div style="background: #f5f5f5; padding: 3px 6px; border-bottom: 1px solid #e0e0e0; display: flex; align-items: center; gap: 4px;">
+                                <div style="display: flex; gap: 3px;">
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ff5f57;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ffbd2e;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #28ca42;"></div>
+                                </div>
+                                <div style="flex: 1; font-size: 9px; color: #666; text-align: center;">Netdisco Dashboard</div>
+                            </div>
+                            <!-- Page content -->
+                            <div style="background: #22c55e; padding: 6px 8px;">
+                                <div style="color: white; font-size: 10px; font-weight: bold; text-align: center;">Network Discovery System</div>
+                            </div>
+                            <!-- Stats row -->
+                            <div style="background: white; padding: 6px 8px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5px;">
+                                <div style="background: rgba(34, 197, 94, 0.1); padding: 4px; border-radius: 3px; text-align: center;">
+                                    <div style="font-size: 7px; color: #666;">Devices</div>
+                                    <div style="font-size: 12px; font-weight: bold; color: #22c55e;">1,842</div>
+                                </div>
+                                <div style="background: rgba(34, 197, 94, 0.1); padding: 4px; border-radius: 3px; text-align: center;">
+                                    <div style="font-size: 7px; color: #666;">Ports</div>
+                                    <div style="font-size: 12px; font-weight: bold; color: #22c55e;">45,216</div>
+                                </div>
+                                <div style="background: rgba(34, 197, 94, 0.1); padding: 4px; border-radius: 3px; text-align: center;">
+                                    <div style="font-size: 7px; color: #666;">VLANs</div>
+                                    <div style="font-size: 12px; font-weight: bold; color: #22c55e;">512</div>
+                                </div>
+                            </div>
+                            <!-- Device list -->
+                            <div style="background: #f8f9fa; padding: 4px 6px; font-size: 7px;">
+                                <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
+                                    <div style="width: 6px; height: 6px; background: #22c55e; border-radius: 50%;"></div>
+                                    <span style="flex: 1;">core-switch-01</span>
+                                    <span style="color: #666;">Cisco 9500</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 2px;">
+                                    <div style="width: 6px; height: 6px; background: #22c55e; border-radius: 50%;"></div>
+                                    <span style="flex: 1;">dist-switch-02</span>
+                                    <span style="color: #666;">Cisco 3850</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 4px;">
+                                    <div style="width: 6px; height: 6px; background: #f59e0b; border-radius: 50%;"></div>
+                                    <span style="flex: 1;">access-switch-15</span>
+                                    <span style="color: #666;">Cisco 2960</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- LibreNMS Card -->
+            <a href="http://10.0.145.130:8686" class="card card-librenms">
+                <div class="card-header">
+                    <span class="card-icon">📊</span>
+                    <h2 class="card-title">LibreNMS</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">
+                        Network monitoring and alerting platform. Real-time performance monitoring, bandwidth tracking, and automated alerts.
+                    </p>
+                    <div class="card-snapshot">
+                        <div class="snapshot-title">Monitoring Dashboard</div>
+                        <!-- Mini browser window -->
+                        <div style="background: #fff; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; margin-top: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <!-- Browser header -->
+                            <div style="background: #f5f5f5; padding: 3px 6px; border-bottom: 1px solid #e0e0e0; display: flex; align-items: center; gap: 4px;">
+                                <div style="display: flex; gap: 3px;">
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ff5f57;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ffbd2e;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #28ca42;"></div>
+                                </div>
+                                <div style="flex: 1; font-size: 9px; color: #666; text-align: center;">LibreNMS Monitoring</div>
+                            </div>
+                            <!-- Page content -->
+                            <div style="background: #ef4444; padding: 6px 8px;">
+                                <div style="color: white; font-size: 10px; font-weight: bold; text-align: center;">Network Monitoring System</div>
+                            </div>
+                            <!-- Alert summary -->
+                            <div style="background: white; padding: 6px 8px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 5px;">
+                                <div style="background: rgba(239, 68, 68, 0.1); padding: 4px; border-radius: 3px; text-align: center;">
+                                    <div style="font-size: 7px; color: #666;">Critical</div>
+                                    <div style="font-size: 12px; font-weight: bold; color: #ef4444;">2</div>
+                                </div>
+                                <div style="background: rgba(245, 158, 11, 0.1); padding: 4px; border-radius: 3px; text-align: center;">
+                                    <div style="font-size: 7px; color: #666;">Warning</div>
+                                    <div style="font-size: 12px; font-weight: bold; color: #f59e0b;">5</div>
+                                </div>
+                                <div style="background: rgba(34, 197, 94, 0.1); padding: 4px; border-radius: 3px; text-align: center;">
+                                    <div style="font-size: 7px; color: #666;">OK</div>
+                                    <div style="font-size: 12px; font-weight: bold; color: #22c55e;">1,835</div>
+                                </div>
+                            </div>
+                            <!-- Graph preview -->
+                            <div style="background: #f8f9fa; padding: 6px;">
+                                <div style="font-size: 7px; color: #666; margin-bottom: 4px;">Bandwidth Usage (Last 24h)</div>
+                                <div style="background: white; padding: 4px; border: 1px solid #e0e0e0; border-radius: 2px;">
+                                    <!-- Mini graph visualization -->
+                                    <div style="display: flex; align-items: flex-end; height: 30px; gap: 1px;">
+                                        <div style="flex: 1; background: #3b82f6; height: 40%;"></div>
+                                        <div style="flex: 1; background: #3b82f6; height: 60%;"></div>
+                                        <div style="flex: 1; background: #3b82f6; height: 80%;"></div>
+                                        <div style="flex: 1; background: #3b82f6; height: 45%;"></div>
+                                        <div style="flex: 1; background: #3b82f6; height: 70%;"></div>
+                                        <div style="flex: 1; background: #3b82f6; height: 90%;"></div>
+                                        <div style="flex: 1; background: #3b82f6; height: 85%;"></div>
+                                        <div style="flex: 1; background: #3b82f6; height: 75%;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Documentation Card -->
+            <a href="/readme" class="card card-docs">
+                <div class="card-header">
+                    <span class="card-icon">📚</span>
+                    <h2 class="card-title">Documentation</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">
+                        System documentation including architecture, API reference, deployment guides, and troubleshooting information.
+                    </p>
+                    <div class="card-snapshot">
+                        <div class="snapshot-title">Documentation Overview</div>
+                        <!-- Mini browser window -->
+                        <div style="background: #fff; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; margin-top: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <!-- Browser header -->
+                            <div style="background: #f5f5f5; padding: 3px 6px; border-bottom: 1px solid #e0e0e0; display: flex; align-items: center; gap: 4px;">
+                                <div style="display: flex; gap: 3px;">
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ff5f57;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ffbd2e;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #28ca42;"></div>
+                                </div>
+                                <div style="flex: 1; font-size: 9px; color: #666; text-align: center;">README.md</div>
+                            </div>
+                            <!-- Document header -->
+                            <div style="background: #11998e; background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); padding: 6px 8px;">
+                                <div style="color: white; font-size: 10px; font-weight: bold; text-align: center;">System Documentation</div>
+                            </div>
+                            <!-- Content sections -->
+                            <div style="background: white; padding: 8px; font-size: 8px; line-height: 1.6;">
+                                <div style="font-weight: bold; color: #11998e; margin-bottom: 4px;">📋 Quick Reference</div>
+                                <div style="color: #666; padding-left: 10px;">
+                                    <div>• System Architecture</div>
+                                    <div>• API Documentation</div>
+                                    <div>• Deployment Guide</div>
+                                    <div>• Troubleshooting</div>
+                                </div>
+                            </div>
+                            <!-- Footer info -->
+                            <div style="background: #f8f9fa; padding: 4px 6px; display: flex; gap: 5px; font-size: 7px; color: #666; justify-content: center;">
+                                <div style="background: rgba(17, 153, 142, 0.2); padding: 2px 6px; border-radius: 2px;">Markdown</div>
+                                <div style="background: rgba(56, 239, 125, 0.2); padding: 2px 6px; border-radius: 2px;">v2.0</div>
+                                <div style="background: rgba(17, 153, 142, 0.2); padding: 2px 6px; border-radius: 2px;">Updated</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            
+            <!-- Database Viewer Card -->
+            <a href="/database-viewer" class="card card-database">
+                <div class="card-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <span class="card-icon">🗄️</span>
+                    <h2 class="card-title">Database Viewer</h2>
+                </div>
+                <div class="card-body">
+                    <p class="card-description">
+                        Browse and explore all 76 database tables. View schemas, search data, export records, and execute custom queries for data analysis.
+                    </p>
+                    <div class="card-snapshot">
+                        <div class="snapshot-title">Database Explorer</div>
+                        <!-- Mini database interface -->
+                        <div style="background: #fff; border: 1px solid #ddd; border-radius: 6px; overflow: hidden; margin-top: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            <!-- Header -->
+                            <div style="background: #f5f5f5; padding: 3px 6px; border-bottom: 1px solid #e0e0e0; display: flex; align-items: center; gap: 4px;">
+                                <div style="display: flex; gap: 3px;">
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ff5f57;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #ffbd2e;"></div>
+                                    <div style="width: 8px; height: 8px; border-radius: 50%; background: #28ca42;"></div>
+                                </div>
+                                <div style="flex: 1; font-size: 9px; color: #666; text-align: center;">Database Viewer</div>
+                            </div>
+                            <!-- Content -->
+                            <div style="display: flex; height: 120px;">
+                                <!-- Table list -->
+                                <div style="width: 30%; background: #f8f9fa; border-right: 1px solid #e0e0e0; padding: 6px; font-size: 8px;">
+                                    <div style="font-weight: bold; margin-bottom: 4px;">Tables (76)</div>
+                                    <div style="background: #e3f2fd; padding: 3px; margin-bottom: 2px; border-radius: 2px;">circuits</div>
+                                    <div style="padding: 3px;">enriched_circuits</div>
+                                    <div style="padding: 3px;">meraki_inventory</div>
+                                    <div style="padding: 3px;">new_stores</div>
+                                    <div style="padding: 3px;">circuit_history</div>
+                                    <div style="padding: 3px; color: #999;">...</div>
+                                </div>
+                                <!-- Data view -->
+                                <div style="flex: 1; padding: 6px;">
+                                    <div style="display: flex; gap: 4px; margin-bottom: 4px;">
+                                        <input style="flex: 1; border: 1px solid #ddd; padding: 2px 4px; border-radius: 2px; font-size: 8px;" placeholder="Search..." disabled>
+                                        <button style="background: #667eea; color: white; border: none; padding: 2px 6px; border-radius: 2px; font-size: 8px;">Export</button>
+                                    </div>
+                                    <table style="width: 100%; font-size: 8px;">
+                                        <thead>
+                                            <tr style="background: #667eea; color: white;">
+                                                <th style="padding: 2px 4px; text-align: left;">id</th>
+                                                <th style="padding: 2px 4px; text-align: left;">site_name</th>
+                                                <th style="padding: 2px 4px; text-align: left;">provider</th>
+                                                <th style="padding: 2px 4px; text-align: left;">status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr style="border-bottom: 1px solid #eee;">
+                                                <td style="padding: 2px 4px;">1</td>
+                                                <td style="padding: 2px 4px;">ALB 03</td>
+                                                <td style="padding: 2px 4px;">AT&T</td>
+                                                <td style="padding: 2px 4px; color: #2ecc71;">Enabled</td>
+                                            </tr>
+                                            <tr style="border-bottom: 1px solid #eee;">
+                                                <td style="padding: 2px 4px;">2</td>
+                                                <td style="padding: 2px 4px;">PHX 15</td>
+                                                <td style="padding: 2px 4px;">Starlink</td>
+                                                <td style="padding: 2px 4px; color: #2ecc71;">Enabled</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 2px 4px;">3</td>
+                                                <td style="padding: 2px 4px;">TUC 08</td>
+                                                <td style="padding: 2px 4px;">Cox</td>
+                                                <td style="padding: 2px 4px; color: #f39c12;">Pending</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!-- Footer -->
+                            <div style="background: #f8f9fa; padding: 4px 6px; font-size: 7px; color: #666; display: flex; justify-content: space-between;">
+                                <div>7,026+ total records</div>
+                                <div>Page 1 of 141</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p>DSR Circuits Management System • Discount Tire</p>
+        </div>
+    </div>
+    
+    <script>
+        // Add page transition effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate cards on page load
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+            
+            // Add ripple effect on click
+            cards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    const ripple = document.createElement('div');
+                    ripple.className = 'ripple';
+                    this.appendChild(ripple);
+                    
+                    const rect = this.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    ripple.style.left = x + 'px';
+                    ripple.style.top = y + 'px';
+                    
+                    setTimeout(() => ripple.remove(), 600);
+                });
+            });
+            
+            // Add special handler for System Health card
+            const healthCard = document.querySelector('.card-health');
+            if (healthCard) {
+                healthCard.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    // Show system health modal with real server metrics
+                    showSystemHealthModal();
+                });
+            }
+            
+            // Load real-time data for System Health
+            loadSystemHealth();
+            setInterval(loadSystemHealth, 30000); // Refresh every 30 seconds
+        });
+        
+        // Function to load system health data
+        function loadSystemHealth() {
+            fetch('/api/health')
+                .then(response => response.json())
+                .then(data => {
+                    // Update database status
+                    const dbStatus = document.getElementById('db-status');
+                    const dbContainer = dbStatus.parentElement.parentElement;
+                    if (data.database === 'healthy') {
+                        dbStatus.textContent = 'Healthy';
+                        dbStatus.style.color = '#2ecc71';
+                        dbContainer.style.borderLeftColor = '#2ecc71';
+                    } else {
+                        dbStatus.textContent = 'Error';
+                        dbStatus.style.color = '#e74c3c';
+                        dbContainer.style.borderLeftColor = '#e74c3c';
+                    }
+                    
+                    // Update cache status
+                    const cacheStatus = document.getElementById('cache-status');
+                    const cacheContainer = cacheStatus.parentElement.parentElement;
+                    if (data.cache === 'healthy') {
+                        cacheStatus.textContent = 'Active';
+                        cacheStatus.style.color = '#2ecc71';
+                        cacheContainer.style.borderLeftColor = '#2ecc71';
+                    } else {
+                        cacheStatus.textContent = 'Inactive';
+                        cacheStatus.style.color = '#e74c3c';
+                        cacheContainer.style.borderLeftColor = '#e74c3c';
+                    }
+                    
+                    // Update version
+                    const versionStatus = document.getElementById('version-status');
+                    versionStatus.textContent = data.version || '2.0.0';
+                    
+                    // Update API status
+                    const apiStatus = document.getElementById('api-status');
+                    const apiContainer = apiStatus.parentElement.parentElement;
+                    if (data.status === 'healthy') {
+                        apiStatus.textContent = 'Online';
+                        apiStatus.style.color = '#2ecc71';
+                        apiContainer.style.borderLeftColor = '#2ecc71';
+                    } else {
+                        apiStatus.textContent = 'Offline';
+                        apiStatus.style.color = '#e74c3c';
+                        apiContainer.style.borderLeftColor = '#e74c3c';
+                    }
+                    
+                    // Update overall status message
+                    const statusMessage = document.getElementById('system-status-message');
+                    if (data.status === 'healthy') {
+                        statusMessage.innerHTML = '<div style="font-size: 10px; color: #2e7d32;">✓ All systems operational</div>';
+                        statusMessage.style.background = '#e8f5e9';
+                    } else {
+                        statusMessage.innerHTML = '<div style="font-size: 10px; color: #d32f2f;">⚠ System issues detected</div>';
+                        statusMessage.style.background = '#ffebee';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading health data:', error);
+                    document.getElementById('system-status-message').innerHTML = 
+                        '<div style="font-size: 10px; color: #d32f2f;">⚠ Unable to fetch system status</div>';
+                });
+        }
+        
+        // Function to show system health modal with real server metrics
+        function showSystemHealthModal() {
+            // Create modal overlay
+            const modal = document.createElement('div');
+            modal.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.7);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+            `;
+            
+            // Create modal content
+            modal.innerHTML = `
+                <div style="background: white; border-radius: 12px; padding: 20px; max-width: 600px; width: 90%; max-height: 80%; overflow-y: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.3);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                        <h2 style="margin: 0; color: #333;">🖥️ System Health Metrics</h2>
+                        <button onclick="this.closest('[style*=\"position: fixed\"]').remove()" style="background: none; border: none; font-size: 24px; cursor: pointer; color: #999;">×</button>
+                    </div>
+                    
+                    <div id="health-metrics" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px;">
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #007bff;">
+                            <h4 style="margin: 0 0 10px 0; color: #007bff;">💾 Server Resources</h4>
+                            <div id="server-metrics" style="font-size: 14px; line-height: 1.6;">
+                                <div>⏳ Loading server metrics...</div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #28a745;">
+                            <h4 style="margin: 0 0 10px 0; color: #28a745;">🗄️ Database Status</h4>
+                            <div id="db-metrics" style="font-size: 14px; line-height: 1.6;">
+                                <div>⏳ Loading database metrics...</div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #fd7e14;">
+                            <h4 style="margin: 0 0 10px 0; color: #fd7e14;">⚡ Application Status</h4>
+                            <div id="app-metrics" style="font-size: 14px; line-height: 1.6;">
+                                <div>⏳ Loading application metrics...</div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; border-left: 4px solid #6f42c1;">
+                            <h4 style="margin: 0 0 10px 0; color: #6f42c1;">📊 Performance Metrics</h4>
+                            <div style="font-size: 14px; line-height: 1.6;">
+                                <div>📈 <a href="/performance" style="color: #6f42c1; text-decoration: none;">View Detailed Performance Dashboard →</a></div>
+                                <div style="color: #666; font-size: 12px; margin-top: 5px;">API response times, error rates, and endpoint statistics</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 20px; text-align: center;">
+                        <button onclick="location.reload()" style="background: #007bff; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; margin-right: 10px;">🔄 Refresh</button>
+                        <button onclick="this.closest('[style*=\"position: fixed\"]').remove()" style="background: #6c757d; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">Close</button>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // Load real system metrics
+            loadSystemMetrics();
+            
+            // Auto-refresh every 30 seconds while modal is open
+            const refreshInterval = setInterval(() => {
+                if (document.contains(modal)) {
+                    loadSystemMetrics();
+                } else {
+                    clearInterval(refreshInterval);
+                }
+            }, 30000);
+        }
+        
+        // Function to load real server metrics
+        function loadSystemMetrics() {
+            // Load server metrics (we'll implement this via a new API endpoint)
+            fetch('/api/system-metrics')
+                .then(response => response.json())
+                .then(data => {
+                    const serverMetrics = document.getElementById('server-metrics');
+                    const dbMetrics = document.getElementById('db-metrics');  
+                    const appMetrics = document.getElementById('app-metrics');
+                    
+                    if (serverMetrics) {
+                        serverMetrics.innerHTML = \`
+                            <div>💻 <strong>CPU Usage:</strong> \${data.cpu_percent || 'N/A'}%</div>
+                            <div>🧠 <strong>Memory:</strong> \${data.memory_percent || 'N/A'}% (\${data.memory_used || 'N/A'} / \${data.memory_total || 'N/A'})</div>
+                            <div>💾 <strong>Disk Usage:</strong> \${data.disk_percent || 'N/A'}% (\${data.disk_used || 'N/A'} / \${data.disk_total || 'N/A'})</div>
+                            <div>⏰ <strong>Uptime:</strong> \${data.uptime || 'N/A'}</div>
+                        \`;
+                    }
+                    
+                    if (dbMetrics) {
+                        dbMetrics.innerHTML = \`
+                            <div>🔗 <strong>Connection:</strong> <span style="color: \${data.database === 'healthy' ? '#28a745' : '#dc3545'}">\${data.database || 'Unknown'}</span></div>
+                            <div>📊 <strong>Active Connections:</strong> \${data.db_connections || 'N/A'}</div>
+                            <div>📈 <strong>Total Circuits:</strong> \${data.total_circuits?.toLocaleString() || 'N/A'}</div>
+                            <div>🏭 <strong>Total Devices:</strong> \${data.total_devices?.toLocaleString() || 'N/A'}</div>
+                        \`;
+                    }
+                    
+                    if (appMetrics) {
+                        appMetrics.innerHTML = \`
+                            <div>🌐 <strong>Flask App:</strong> <span style="color: #28a745">Running</span></div>
+                            <div>💨 <strong>Redis Cache:</strong> <span style="color: \${data.cache === 'healthy' ? '#28a745' : '#dc3545'}">\${data.cache || 'Unknown'}</span></div>
+                            <div>🔢 <strong>Version:</strong> \${data.version || '2.0.0'}</div>
+                            <div>🕒 <strong>Last Updated:</strong> \${new Date().toLocaleTimeString()}</div>
+                        \`;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading system metrics:', error);
+                    const serverMetrics = document.getElementById('server-metrics');
+                    if (serverMetrics) {
+                        serverMetrics.innerHTML = '<div style="color: #dc3545;">❌ Unable to load server metrics</div>';
+                    }
+                });
+        }
+    </script>
+    
+    <style>
+        /* Ripple effect */
+        .card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .ripple {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translate(-50%, -50%);
+            animation: ripple 0.6s ease-out;
+        }
+        
+        @keyframes ripple {
+            to {
+                width: 400px;
+                height: 400px;
+                opacity: 0;
+            }
+        }
+    </style>
+</body>
+</html>

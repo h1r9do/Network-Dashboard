@@ -1,0 +1,80 @@
+[
+  {
+    "number": 3,
+    "enabled": true,
+    "type": "trunk",
+    "dropUntaggedTraffic": false,
+    "vlan": 1,
+    "allowedVlans": "1,101,201,300,301,900,803"
+  },
+  {
+    "number": 4,
+    "enabled": true,
+    "type": "trunk",
+    "dropUntaggedTraffic": false,
+    "vlan": 300,
+    "allowedVlans": "1,101,201,300,301,800,801,802,803"
+  },
+  {
+    "number": 5,
+    "enabled": true,
+    "type": "trunk",
+    "dropUntaggedTraffic": false,
+    "vlan": 300,
+    "allowedVlans": "1,101,201,300,301,800,801,802,803"
+  },
+  {
+    "number": 6,
+    "enabled": true,
+    "type": "trunk",
+    "dropUntaggedTraffic": false,
+    "vlan": 300,
+    "allowedVlans": "1,101,201,300,301,800,801,802,803"
+  },
+  {
+    "number": 7,
+    "enabled": false,
+    "dropUntaggedTraffic": true,
+    "type": "trunk",
+    "allowedVlans": "all"
+  },
+  {
+    "number": 8,
+    "enabled": true,
+    "type": "trunk",
+    "dropUntaggedTraffic": false,
+    "vlan": 802,
+    "allowedVlans": "802"
+  },
+  {
+    "number": 9,
+    "enabled": true,
+    "type": "access",
+    "dropUntaggedTraffic": false,
+    "vlan": 801,
+    "accessPolicy": "open"
+  },
+  {
+    "number": 10,
+    "enabled": true,
+    "type": "trunk",
+    "dropUntaggedTraffic": false,
+    "vlan": 1,
+    "allowedVlans": "1,101,201,300,301"
+  },
+  {
+    "number": 11,
+    "enabled": false,
+    "dropUntaggedTraffic": true,
+    "type": "trunk",
+    "allowedVlans": "all"
+  },
+  {
+    "number": 12,
+    "enabled": true,
+    "type": "trunk",
+    "dropUntaggedTraffic": false,
+    "vlan": 800,
+    "allowedVlans": "800,802"
+  }
+]

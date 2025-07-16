@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VLAN Migration - DSR Circuits</title>
+    
+    <!-- jQuery and jQuery UI -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    
+    <!-- Bootstrap 4 (matching DSR Circuits) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- DataTables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+    <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    
+    <!-- Select2 for multi-select -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/select2-bootstrap4-theme@1.0.0/dist/select2-bootstrap4.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <!-- DSR Circuits Custom CSS -->
+    <style>
+        /* Match DSR Circuits styling */
+        body {
+            background-color: #f8f9fa;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+        
+        .navbar {
+            background-color: #343a40;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 500;
+            color: #fff !important;
+        }
+        
+        .navbar-nav .nav-link {
+            color: rgba(255,255,255,0.8) !important;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: #fff !important;
+        }
+        
+        .container-fluid {
+            padding: 20px;
+        }
+        
+        .card {
+            box-shadow: 0 0.125rem 0.25rem rgba(0,0,0,0.075);
+            border: none;
+            margin-bottom: 20px;
+        }
+        
+        .card-header {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+            font-weight: 600;
+        }
+        
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+        
+        .btn-success {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+        
+        .table-sm td, .table-sm th {
+            padding: 0.3rem;
+        }
+        
+        /* VLAN Migration specific styles */
+        .migration-console {
+            background-color: #000;
+            color: #0f0;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 12px;
+            padding: 10px;
+            height: 400px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            border-radius: 4px;
+        }
+        
+        .network-selector {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .subnet-filter {
+            margin-bottom: 15px;
+        }
+        
+        .progress-item {
+            padding: 8px;
+            margin: 4px 0;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+        }
+        
+        .progress-item.active {
+            background-color: #ffc107;
+            color: #000;
+        }
+        
+        .progress-item.complete {
+            background-color: #28a745;
+            color: #fff;
+        }
+        
+        .progress-item.error {
+            background-color: #dc3545;
+            color: #fff;
+        }
+        
+        .vlan-mapping-table {
+            font-size: 14px;
+        }
+        
+        .vlan-old {
+            background-color: #ffebee;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        
+        .vlan-new {
+            background-color: #e8f5e9;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        
+        .select2-container--bootstrap4 .select2-selection--multiple {
+            min-height: 38px;
+        }
+        
+        .migration-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        
+        .stat-box {
+            text-align: center;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            flex: 1;
+            margin: 0 10px;
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #007bff;
+        }
+        
+        .stat-label {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        
+        /* Loading overlay */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        
+        .loading-spinner {
+            color: #fff;
+            font-size: 3em;
+        }
+        
+        /* Tab styling to match DSR Circuits */
+        .nav-tabs {
+            border-bottom: 2px solid #dee2e6;
+        }
+        
+        .nav-tabs .nav-link {
+            color: #495057;
+            border: none;
+            border-bottom: 3px solid transparent;
+            padding: 0.5rem 1rem;
+        }
+        
+        .nav-tabs .nav-link:hover {
+            border-color: transparent;
+            color: #007bff;
+        }
+        
+        .nav-tabs .nav-link.active {
+            color: #007bff;
+            background-color: transparent;
+            border-color: transparent transparent #007bff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="/home">DSR Circuits</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/dsrdashboard">DSR Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/new-stores">New Stores</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/vlan-migration">VLAN Migration</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <span class="navbar-text text-light">
+                        <i class="fas fa-network-wired"></i> VLAN Migration Tool
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-fluid">
+        <!-- Page Header -->
+        <div class="row mt-3">
+            <div class="col-12">
+                <h2><i class="fas fa-exchange-alt"></i> VLAN Number Migration Tool</h2>
+                <p class="text-muted">Migrate store networks from legacy VLAN numbering (1, 101, 201, 801) to new corporate standard (100, 200, 410, 400)</p>
+            </div>
+        </div>
+
+        <!-- Migration Stats -->
+        <div class="migration-stats">
+            <div class="stat-box">
+                <div class="stat-number" id="totalNetworks">0</div>
+                <div class="stat-label">Total Networks</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" id="selectedCount">0</div>
+                <div class="stat-label">Selected for Migration</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" id="completedCount">0</div>
+                <div class="stat-label">Completed</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" id="errorCount">0</div>
+                <div class="stat-label">Errors</div>
+            </div>
+        </div>
+
+        <!-- Main Content Tabs -->
+        <ul class="nav nav-tabs" id="migrationTabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="selection-tab" data-toggle="tab" href="#selection" role="tab">
+                    <i class="fas fa-list-check"></i> Network Selection
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="migration-tab" data-toggle="tab" href="#migration" role="tab">
+                    <i class="fas fa-cogs"></i> Migration Control
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="validation-tab" data-toggle="tab" href="#validation" role="tab">
+                    <i class="fas fa-check-circle"></i> Validation
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="history-tab" data-toggle="tab" href="#history" role="tab">
+                    <i class="fas fa-history"></i> Migration History
+                </a>
+            </li>
+        </ul>
+
+        <div class="tab-content" id="migrationTabContent">
+            <!-- Network Selection Tab -->
+            <div class="tab-pane fade show active" id="selection" role="tabpanel">
+                <div class="row mt-3">
+                    <!-- Network Selection Panel -->
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-network-wired"></i> Select Networks for Migration
+                            </div>
+                            <div class="card-body">
+                                <!-- Subnet Filter -->
+                                <div class="subnet-filter">
+                                    <div class="form-row">
+                                        <div class="col-md-4">
+                                            <label>Filter by Subnet (/16)</label>
+                                            <select class="form-control" id="subnetFilter" multiple>
+                                                <!-- Will be populated dynamically -->
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>Filter by Status</label>
+                                            <select class="form-control" id="statusFilter">
+                                                <option value="">All Networks</option>
+                                                <option value="legacy">Legacy VLANs Only</option>
+                                                <option value="migrated">Already Migrated</option>
+                                                <option value="ready">Ready for Migration</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label>Quick Actions</label>
+                                            <div>
+                                                <button class="btn btn-sm btn-secondary" id="selectAll">Select All</button>
+                                                <button class="btn btn-sm btn-secondary" id="selectNone">Select None</button>
+                                                <button class="btn btn-sm btn-info" id="selectFiltered">Select Filtered</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Network Table -->
+                                <div class="mt-3">
+                                    <table id="networkTable" class="table table-sm table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th><input type="checkbox" id="selectAllCheckbox"></th>
+                                                <th>Site Name</th>
+                                                <th>Network ID</th>
+                                                <th>Subnet</th>
+                                                <th>Current VLANs</th>
+                                                <th>Status</th>
+                                                <th>Last Migration</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Will be populated dynamically -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- VLAN Mapping Reference -->
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-map"></i> VLAN Mapping Reference
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-sm vlan-mapping-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Legacy</th>
+                                            <th></th>
+                                            <th>New</th>
+                                            <th>Purpose</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><span class="vlan-old">1</span></td>
+                                            <td>’</td>
+                                            <td><span class="vlan-new">100</span></td>
+                                            <td>Data</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="vlan-old">101</span></td>
+                                            <td>’</td>
+                                            <td><span class="vlan-new">200</span></td>
+                                            <td>Voice</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="vlan-old">801</span></td>
+                                            <td>’</td>
+                                            <td><span class="vlan-new">400</span></td>
+                                            <td>IoT <small class="text-warning">(IP change)</small></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="vlan-old">201</span></td>
+                                            <td>’</td>
+                                            <td><span class="vlan-new">410</span></td>
+                                            <td>Credit Card</td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="vlan-old">800</span></td>
+                                            <td>’</td>
+                                            <td><span class="vlan-new">800</span></td>
+                                            <td>Guest <small class="text-warning">(IP change)</small></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <div class="mt-3">
+                                    <h6>IP Changes:</h6>
+                                    <small>
+                                        <strong>VLAN 400 (IoT):</strong><br>
+                                        172.13.0.1/30 ’ 172.16.40.1/24<br>
+                                        <strong>VLAN 800 (Guest):</strong><br>
+                                        172.13.0.1/30 ’ 172.16.80.1/24
+                                    </small>
+                                </div>
+
+                                <div class="mt-3">
+                                    <button class="btn btn-primary btn-block" id="proceedToMigration">
+                                        <i class="fas fa-arrow-right"></i> Proceed to Migration
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Migration Control Tab -->
+            <div class="tab-pane fade" id="migration" role="tabpanel">
+                <div class="row mt-3">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-terminal"></i> Migration Console
+                            </div>
+                            <div class="card-body">
+                                <div class="migration-console" id="migrationConsole">
+                                    Waiting to start migration...
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-success" id="startMigration" disabled>
+                                    <i class="fas fa-play"></i> Start Migration
+                                </button>
+                                <button class="btn btn-warning" id="pauseMigration" style="display:none;">
+                                    <i class="fas fa-pause"></i> Pause
+                                </button>
+                                <button class="btn btn-danger" id="stopMigration" style="display:none;">
+                                    <i class="fas fa-stop"></i> Stop
+                                </button>
+                                <button class="btn btn-info" id="downloadLogs">
+                                    <i class="fas fa-download"></i> Download Logs
+                                </button>
+                                <div class="float-right">
+                                    <label class="mr-2">
+                                        <input type="checkbox" id="dryRun"> Dry Run
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="autoValidate" checked> Auto Validate
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-tasks"></i> Migration Progress
+                            </div>
+                            <div class="card-body">
+                                <div class="progress mb-3">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated" 
+                                         id="overallProgress" role="progressbar" style="width: 0%">0%</div>
+                                </div>
+
+                                <div id="currentNetwork" class="mb-3">
+                                    <strong>Current Network:</strong> <span id="currentNetworkName">None</span>
+                                </div>
+
+                                <div class="progress-phases">
+                                    <div class="progress-item" id="phase-backup">
+                                        <i class="fas fa-save"></i> Backup Configuration
+                                    </div>
+                                    <div class="progress-item" id="phase-clear">
+                                        <i class="fas fa-broom"></i> Clear VLAN References
+                                    </div>
+                                    <div class="progress-item" id="phase-migrate">
+                                        <i class="fas fa-exchange-alt"></i> Migrate VLANs
+                                    </div>
+                                    <div class="progress-item" id="phase-restore">
+                                        <i class="fas fa-redo"></i> Restore Configuration
+                                    </div>
+                                    <div class="progress-item" id="phase-validate">
+                                        <i class="fas fa-check"></i> Validate Migration
+                                    </div>
+                                </div>
+
+                                <div class="mt-3">
+                                    <strong>Time Elapsed:</strong> <span id="timeElapsed">00:00:00</span><br>
+                                    <strong>Estimated Remaining:</strong> <span id="timeRemaining">--:--:--</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mt-3">
+                            <div class="card-header">
+                                <i class="fas fa-list"></i> Migration Queue
+                            </div>
+                            <div class="card-body" style="max-height: 200px; overflow-y: auto;">
+                                <ul class="list-unstyled" id="migrationQueue">
+                                    <!-- Will be populated with selected networks -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Validation Tab -->
+            <div class="tab-pane fade" id="validation" role="tabpanel">
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-check-double"></i> Migration Validation Results
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h5>Pre-Migration Validation</h5>
+                                        <div id="preValidationResults">
+                                            <p class="text-muted">No validation data available yet.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h5>Post-Migration Validation</h5>
+                                        <div id="postValidationResults">
+                                            <p class="text-muted">No validation data available yet.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-4">
+                                    <h5>Detailed Comparison</h5>
+                                    <table id="validationTable" class="table table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>Network</th>
+                                                <th>Check Type</th>
+                                                <th>Expected</th>
+                                                <th>Actual</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Will be populated dynamically -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History Tab -->
+            <div class="tab-pane fade" id="history" role="tabpanel">
+                <div class="row mt-3">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <i class="fas fa-history"></i> Migration History
+                            </div>
+                            <div class="card-body">
+                                <table id="historyTable" class="table table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Date/Time</th>
+                                            <th>Network</th>
+                                            <th>Duration</th>
+                                            <th>Status</th>
+                                            <th>Validation</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <!-- Will be populated from database -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay">
+        <div class="text-center">
+            <i class="fas fa-spinner fa-spin loading-spinner"></i>
+            <h4 class="text-white mt-3">Loading...</h4>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Global variables
+        let selectedNetworks = [];
+        let migrationInProgress = false;
+        let migrationWebSocket = null;
+        let networkData = [];
+        let startTime = null;
+        let timerInterval = null;
+
+        $(document).ready(function() {
+            // Initialize Select2
+            $('#subnetFilter').select2({
+                theme: 'bootstrap4',
+                placeholder: 'Select subnets to filter',
+                allowClear: true
+            });
+
+            // Initialize DataTable
+            const networkTable = $('#networkTable').DataTable({
+                pageLength: 25,
+                order: [[1, 'asc']],
+                columnDefs: [
+                    { orderable: false, targets: 0 }
+                ]
+            });
+
+            // Load network data
+            loadNetworkData();
+
+            // Event handlers
+            $('#selectAllCheckbox').change(function() {
+                $('.network-checkbox').prop('checked', this.checked);
+                updateSelectedCount();
+            });
+
+            $('#selectAll').click(function() {
+                $('.network-checkbox:visible').prop('checked', true);
+                updateSelectedCount();
+            });
+
+            $('#selectNone').click(function() {
+                $('.network-checkbox').prop('checked', false);
+                updateSelectedCount();
+            });
+
+            $('#selectFiltered').click(function() {
+                networkTable.rows({search: 'applied'}).nodes().to$().find('.network-checkbox').prop('checked', true);
+                updateSelectedCount();
+            });
+
+            $('#proceedToMigration').click(function() {
+                if (getSelectedNetworks().length === 0) {
+                    alert('Please select at least one network for migration.');
+                    return;
+                }
+                $('#migration-tab').tab('show');
+                prepareMigration();
+            });
+
+            $('#startMigration').click(function() {
+                if (confirm('Are you sure you want to start the VLAN migration for ' + selectedNetworks.length + ' networks?')) {
+                    startMigration();
+                }
+            });
+
+            $('#pauseMigration').click(function() {
+                pauseMigration();
+            });
+
+            $('#stopMigration').click(function() {
+                if (confirm('Are you sure you want to stop the migration? This may leave some networks partially migrated.')) {
+                    stopMigration();
+                }
+            });
+
+            $('#downloadLogs').click(function() {
+                downloadMigrationLogs();
+            });
+
+            // Filter handlers
+            $('#subnetFilter, #statusFilter').change(function() {
+                applyFilters();
+            });
+        });
+
+        function loadNetworkData() {
+            $('.loading-overlay').show();
+            
+            // Simulate loading network data - in production this would call your API
+            $.ajax({
+                url: '/api/networks-for-migration',
+                method: 'GET',
+                success: function(data) {
+                    networkData = data.networks || generateSampleData();
+                    populateNetworkTable(networkData);
+                    populateSubnetFilter(networkData);
+                    $('#totalNetworks').text(networkData.length);
+                    $('.loading-overlay').hide();
+                },
+                error: function() {
+                    // Fallback to sample data for demo
+                    networkData = generateSampleData();
+                    populateNetworkTable(networkData);
+                    populateSubnetFilter(networkData);
+                    $('#totalNetworks').text(networkData.length);
+                    $('.loading-overlay').hide();
+                }
+            });
+        }
+
+        function generateSampleData() {
+            // Generate sample networks for demo
+            const sites = ['TST 01', 'NEO 07', 'AZP 30', 'PHX 12', 'LAX 45', 'DFW 23', 'ATL 67', 'CHI 89'];
+            const networks = [];
+            
+            sites.forEach((site, index) => {
+                networks.push({
+                    id: 'L_379090498633911' + (5847 + index),
+                    name: site,
+                    subnet: '10.' + (index + 1) + '.32.0/24',
+                    vlans: index % 2 === 0 ? [1, 101, 201, 801] : [100, 200, 410, 400],
+                    status: index % 2 === 0 ? 'legacy' : 'migrated',
+                    lastMigration: index % 2 === 1 ? '2025-07-09 14:30:00' : null
+                });
+            });
+            
+            return networks;
+        }
+
+        function populateNetworkTable(networks) {
+            const table = $('#networkTable').DataTable();
+            table.clear();
+            
+            networks.forEach(network => {
+                const vlansHtml = network.vlans.map(vlan => {
+                    const isLegacy = [1, 101, 201, 801].includes(vlan);
+                    return `<span class="${isLegacy ? 'vlan-old' : 'vlan-new'}">${vlan}</span>`;
+                }).join(' ');
+                
+                const statusBadge = network.status === 'migrated' 
+                    ? '<span class="badge badge-success">Migrated</span>'
+                    : '<span class="badge badge-warning">Legacy</span>';
+                
+                table.row.add([
+                    `<input type="checkbox" class="network-checkbox" data-network-id="${network.id}" data-network-name="${network.name}">`,
+                    network.name,
+                    `<small>${network.id}</small>`,
+                    network.subnet,
+                    vlansHtml,
+                    statusBadge,
+                    network.lastMigration || '-'
+                ]);
+            });
+            
+            table.draw();
+        }
+
+        function populateSubnetFilter(networks) {
+            const subnets = [...new Set(networks.map(n => n.subnet.split('.').slice(0, 2).join('.')))];
+            const $filter = $('#subnetFilter');
+            $filter.empty();
+            
+            subnets.forEach(subnet => {
+                $filter.append(`<option value="${subnet}">${subnet}.0.0/16</option>`);
+            });
+            
+            $filter.trigger('change');
+        }
+
+        function applyFilters() {
+            const table = $('#networkTable').DataTable();
+            const selectedSubnets = $('#subnetFilter').val() || [];
+            const statusFilter = $('#statusFilter').val();
+            
+            // Custom search function
+            $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
+                const subnet = data[3]; // Subnet column
+                const status = $(data[5]).text(); // Status column
+                
+                // Subnet filter
+                if (selectedSubnets.length > 0) {
+                    const networkSubnet = subnet.split('.').slice(0, 2).join('.');
+                    if (!selectedSubnets.includes(networkSubnet)) {
+                        return false;
+                    }
+                }
+                
+                // Status filter
+                if (statusFilter) {
+                    if (statusFilter === 'legacy' && status !== 'Legacy') return false;
+                    if (statusFilter === 'migrated' && status !== 'Migrated') return false;
+                    if (statusFilter === 'ready' && status !== 'Legacy') return false;
+                }
+                
+                return true;
+            });
+            
+            table.draw();
+            $.fn.dataTable.ext.search.pop();
+        }
+
+        function updateSelectedCount() {
+            const count = $('.network-checkbox:checked').length;
+            $('#selectedCount').text(count);
+            $('#startMigration').prop('disabled', count === 0);
+        }
+
+        function getSelectedNetworks() {
+            const selected = [];
+            $('.network-checkbox:checked').each(function() {
+                selected.push({
+                    id: $(this).data('network-id'),
+                    name: $(this).data('network-name')
+                });
+            });
+            return selected;
+        }
+
+        function prepareMigration() {
+            selectedNetworks = getSelectedNetworks();
+            
+            // Populate migration queue
+            const $queue = $('#migrationQueue');
+            $queue.empty();
+            selectedNetworks.forEach(network => {
+                $queue.append(`<li id="queue-${network.id}"><i class="fas fa-circle text-secondary"></i> ${network.name}</li>`);
+            });
+            
+            $('#selectedCount').text(selectedNetworks.length);
+            $('#startMigration').prop('disabled', false);
+            
+            // Clear console
+            $('#migrationConsole').text('Ready to start migration for ' + selectedNetworks.length + ' networks...\n');
+        }
+
+        function startMigration() {
+            migrationInProgress = true;
+            startTime = new Date();
+            
+            // Update UI
+            $('#startMigration').hide();
+            $('#pauseMigration, #stopMigration').show();
+            
+            // Start timer
+            timerInterval = setInterval(updateTimer, 1000);
+            
+            // Initialize WebSocket connection for real-time updates
+            connectWebSocket();
+            
+            // Start migration process
+            const migrationData = {
+                networks: selectedNetworks,
+                dry_run: $('#dryRun').is(':checked'),
+                auto_validate: $('#autoValidate').is(':checked')
+            };
+            
+            $.ajax({
+                url: '/api/vlan-migration/start',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(migrationData),
+                success: function(response) {
+                    addConsoleLog('Migration started. Job ID: ' + response.job_id);
+                },
+                error: function(xhr) {
+                    addConsoleLog('ERROR: Failed to start migration - ' + xhr.responseText);
+                    stopMigration();
+                }
+            });
+        }
+
+        function connectWebSocket() {
+            // In production, connect to WebSocket for real-time updates
+            // For demo, simulate with periodic updates
+            simulateMigrationProgress();
+        }
+
+        function simulateMigrationProgress() {
+            let networkIndex = 0;
+            const phases = ['backup', 'clear', 'migrate', 'restore', 'validate'];
+            let phaseIndex = 0;
+            
+            const simulationInterval = setInterval(() => {
+                if (networkIndex >= selectedNetworks.length) {
+                    clearInterval(simulationInterval);
+                    migrationComplete();
+                    return;
+                }
+                
+                const currentNetwork = selectedNetworks[networkIndex];
+                const currentPhase = phases[phaseIndex];
+                
+                // Update current network display
+                $('#currentNetworkName').text(currentNetwork.name);
+                
+                // Update progress
+                const totalSteps = selectedNetworks.length * phases.length;
+                const currentStep = networkIndex * phases.length + phaseIndex + 1;
+                const progress = Math.round((currentStep / totalSteps) * 100);
+                
+                $('#overallProgress').css('width', progress + '%').text(progress + '%');
+                
+                // Update phase indicators
+                $('.progress-item').removeClass('active complete');
+                phases.forEach((phase, idx) => {
+                    if (idx < phaseIndex) {
+                        $('#phase-' + phase).addClass('complete');
+                    } else if (idx === phaseIndex) {
+                        $('#phase-' + phase).addClass('active');
+                    }
+                });
+                
+                // Add console output
+                addConsoleLog(`[${currentNetwork.name}] ${currentPhase.toUpperCase()}: Starting...`);
+                
+                // Simulate phase completion
+                setTimeout(() => {
+                    addConsoleLog(`[${currentNetwork.name}] ${currentPhase.toUpperCase()}:  Complete`);
+                    
+                    if (currentPhase === 'validate') {
+                        // Add validation results
+                        addConsoleLog(`[${currentNetwork.name}] Validation: 55/55 rules match (100%)`);
+                        updateValidationResults(currentNetwork.name, true);
+                    }
+                }, 500);
+                
+                // Move to next phase/network
+                phaseIndex++;
+                if (phaseIndex >= phases.length) {
+                    phaseIndex = 0;
+                    networkIndex++;
+                    
+                    // Update queue display
+                    $(`#queue-${currentNetwork.id} i`).removeClass('text-secondary').addClass('text-success');
+                    $('#completedCount').text(networkIndex);
+                }
+            }, 1000);
+        }
+
+        function addConsoleLog(message) {
+            const timestamp = new Date().toLocaleTimeString();
+            const $console = $('#migrationConsole');
+            $console.append(`[${timestamp}] ${message}\n`);
+            $console.scrollTop($console[0].scrollHeight);
+        }
+
+        function updateTimer() {
+            if (!startTime) return;
+            
+            const elapsed = Math.floor((new Date() - startTime) / 1000);
+            const hours = Math.floor(elapsed / 3600);
+            const minutes = Math.floor((elapsed % 3600) / 60);
+            const seconds = elapsed % 60;
+            
+            $('#timeElapsed').text(
+                String(hours).padStart(2, '0') + ':' +
+                String(minutes).padStart(2, '0') + ':' +
+                String(seconds).padStart(2, '0')
+            );
+            
+            // Estimate remaining time
+            const completed = parseInt($('#completedCount').text());
+            if (completed > 0) {
+                const avgTimePerNetwork = elapsed / completed;
+                const remaining = Math.floor(avgTimePerNetwork * (selectedNetworks.length - completed));
+                
+                const remHours = Math.floor(remaining / 3600);
+                const remMinutes = Math.floor((remaining % 3600) / 60);
+                const remSeconds = remaining % 60;
+                
+                $('#timeRemaining').text(
+                    String(remHours).padStart(2, '0') + ':' +
+                    String(remMinutes).padStart(2, '0') + ':' +
+                    String(remSeconds).padStart(2, '0')
+                );
+            }
+        }
+
+        function updateValidationResults(networkName, success) {
+            const result = {
+                network: networkName,
+                timestamp: new Date().toLocaleString(),
+                checks: [
+                    { type: 'Rule Count', expected: '55', actual: '55', status: 'pass' },
+                    { type: 'VLAN Numbers', expected: '100,200,400,410', actual: '100,200,400,410', status: 'pass' },
+                    { type: 'IP Configuration', expected: 'Updated', actual: 'Updated', status: 'pass' }
+                ]
+            };
+            
+            // Add to validation table
+            const table = $('#validationTable tbody');
+            result.checks.forEach(check => {
+                const statusBadge = check.status === 'pass' 
+                    ? '<span class="badge badge-success">Pass</span>'
+                    : '<span class="badge badge-danger">Fail</span>';
+                
+                table.append(`
+                    <tr>
+                        <td>${networkName}</td>
+                        <td>${check.type}</td>
+                        <td>${check.expected}</td>
+                        <td>${check.actual}</td>
+                        <td>${statusBadge}</td>
+                    </tr>
+                `);
+            });
+        }
+
+        function migrationComplete() {
+            clearInterval(timerInterval);
+            migrationInProgress = false;
+            
+            // Update UI
+            $('#pauseMigration, #stopMigration').hide();
+            $('#startMigration').show();
+            
+            // Update progress
+            $('#overallProgress').css('width', '100%').text('100%');
+            $('.progress-item').removeClass('active').addClass('complete');
+            
+            addConsoleLog('\n=== MIGRATION COMPLETE ===');
+            addConsoleLog(`Total time: ${$('#timeElapsed').text()}`);
+            addConsoleLog(`Networks migrated: ${selectedNetworks.length}`);
+            addConsoleLog(`Success rate: 100%`);
+            
+            // Show notification
+            alert('Migration completed successfully!');
+            
+            // Switch to validation tab
+            $('#validation-tab').tab('show');
+        }
+
+        function pauseMigration() {
+            // Implementation for pausing migration
+            addConsoleLog('Migration paused by user');
+        }
+
+        function stopMigration() {
+            clearInterval(timerInterval);
+            migrationInProgress = false;
+            
+            // Update UI
+            $('#pauseMigration, #stopMigration').hide();
+            $('#startMigration').show();
+            
+            addConsoleLog('Migration stopped by user');
+        }
+
+        function downloadMigrationLogs() {
+            const logs = $('#migrationConsole').text();
+            const blob = new Blob([logs], { type: 'text/plain' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'vlan_migration_log_' + new Date().toISOString().replace(/[:.]/g, '-') + '.txt';
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>

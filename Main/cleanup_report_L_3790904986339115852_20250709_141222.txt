@@ -1,0 +1,55 @@
+
+Network Cleanup Report
+======================
+Timestamp: 2025-07-09 14:12:22
+Network ID: L_3790904986339115852
+Organization: 3790904986339115010
+
+Cleanup Log:
+[14:11:52] INFO: Network Cleaner initialized for L_3790904986339115852
+[14:11:52] INFO: Organization: 3790904986339115010
+[14:11:52] INFO: 
+Step 1: Clearing firewall rules...
+[14:11:53] INFO:   Found 56 existing firewall rules
+[14:11:55] INFO:   ✓ Firewall rules cleared (set to default allow)
+[14:11:55] INFO: 
+Step 2: Clearing syslog configuration...
+[14:11:56] INFO:   Found 1 syslog server(s)
+[14:11:57] INFO:   ✓ Syslog configuration cleared
+[14:11:57] INFO: 
+Step 3: Deleting VLANs...
+[14:11:58] INFO:   Found 7 VLANs
+[14:11:58] INFO:   Deleting VLAN 800 (Guest)...
+[14:11:59] INFO:     ✓ Deleted VLAN 800
+[14:12:00] INFO:   Deleting VLAN 410 (Ccard)...
+[14:12:01] INFO:     ✓ Deleted VLAN 410
+[14:12:02] INFO:   Deleting VLAN 400 (IoT)...
+[14:12:03] INFO:     ✓ Deleted VLAN 400
+[14:12:04] INFO:   Deleting VLAN 301 (Scanner)...
+[14:12:05] INFO:     ✓ Deleted VLAN 301
+[14:12:06] INFO:   Deleting VLAN 300 (Net Mgmt)...
+[14:12:07] INFO:     ✓ Deleted VLAN 300
+[14:12:08] INFO:   Deleting VLAN 200 (Voice)...
+[14:12:09] INFO:     ✓ Deleted VLAN 200
+[14:12:10] INFO:   Keeping VLAN 100 (Data) - required minimum
+[14:12:11] INFO:     ✓ Reset VLAN 100 to default configuration
+[14:12:11] INFO:   Deleted 6 VLANs, kept 1 minimum required
+[14:12:11] INFO: 
+Step 4: Deleting group policies...
+[14:12:12] INFO:   Found 3 group policies
+[14:12:12] INFO:   Deleting group policy: Guest Network (ID: 102)
+[14:12:14] INFO:     ✓ Deleted group policy 102
+[14:12:15] INFO:   Deleting group policy: Indeed.com (ID: 101)
+[14:12:16] INFO:     ✓ Deleted group policy 101
+[14:12:17] INFO:   Deleting group policy: Ebay Access (ID: 100)
+[14:12:18] INFO:     ✓ Deleted group policy 100
+[14:12:19] INFO:   Deleted 3 group policies
+[14:12:19] INFO: 
+Step 5: Skipping policy objects deletion (use --include-policy-objects to delete)
+[14:12:19] INFO: 
+Step 6: Verifying cleanup...
+[14:12:20] INFO:   Remaining VLANs: 1
+[14:12:21] INFO:   Remaining group policies: 0
+[14:12:21] INFO:   Firewall rules: 2 (should be 1 default)
+[14:12:22] INFO:   Syslog servers: 0 (should be 0)
+[14:12:22] WARNING:   ⚠️  Some items may not have been cleaned up

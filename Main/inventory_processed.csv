@@ -1,0 +1,2172 @@
+hostname,ip_address,position,model,serial_number,port_location,vendor,notes
+2960-CX-Series-NOC.dtc_phx.com,10.0.255.10,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,WS-C2960CX-8PC-L - Fixed Module 0
+AL-3130-R16-Enc1-A.dtc_phx.com,10.101.255.118,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-CBS3130X-S - Fixed Module 0
+,,Module,,FDO14340A8H     ,,Cisco,TwinGig Converter Module
+,,Module,,FDO14340AFL     ,,Cisco,TwinGig Converter Module
+AL-3130-R16-ENC1-B.dtc_phx.com,10.101.255.119,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-CBS3130X-S - Fixed Module 0
+,,Module,,FDO141813Y8     ,,Cisco,TwinGig Converter Module
+,,Module,,FDO141814P2     ,,Cisco,TwinGig Converter Module
+AL-3130-R3-ENC2-A.dtc_phx.com,10.101.255.115,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-CBS3130X-S - Fixed Module 0
+,,Module,,FDO14181E8Y     ,,Cisco,TwinGig Converter Module
+,,Module,,FDO141800PJ     ,,Cisco,TwinGig Converter Module
+AL-3130-R3-ENC2-B.dtc_phx.com,10.101.255.117,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-CBS3130X-S - Fixed Module 0
+,,Module,,FDO141816DL     ,,Cisco,TwinGig Converter Module
+,,Module,,FDO141816MQ     ,,Cisco,TwinGig Converter Module
+AL-5000-01,10.101.145.125,Parent Switch,,,,Cisco,
+,,Module,SFP,JAF1417AFMD,,Cisco,20 port 10GE SFP+/Supervisor in Fixed Module-1
+,,Module,N2K-C2248TP-1GE,JAF1415CKKF,,Cisco,"Fex-105 Fabric Extender Module: 48x1GE, 4x10GE in FixedModule-1"
+,,Module,N2K-C2248TP-1GE,JAF1416BLFJ,,Cisco,"Fex-106 Fabric Extender Module: 48x1GE, 4x10GE in FixedModule-1"
+AL-5000-02,10.101.145.126,Parent Switch,,,,Cisco,
+,,Module,SFP,JAF1417DCKR,,Cisco,20 port 10GE SFP+/Supervisor in Fixed Module-1
+,,Module,N2K-C2248TP-1GE,JAF1415CKKF,,Cisco,"Fex-105 Fabric Extender Module: 48x1GE, 4x10GE in FixedModule-1"
+,,Module,N2K-C2248TP-1GE,JAF1416BLFJ,,Cisco,"Fex-106 Fabric Extender Module: 48x1GE, 4x10GE in FixedModule-1"
+AL-7000-01-ADMIN,10.101.145.123,Parent Switch,,,,Cisco,
+,,Module,,JAE191207AL,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE19150EWX,,Cisco,Supervisor Module-2
+,,Module,,JAE1914000P,,Cisco,Supervisor Module-2
+,,Module,,JAE191208KP,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE19100085,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE1915099A,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAE191509BS,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAF1903ACJP,,Cisco,Fabric card module
+,,Module,,JAF1903ACJH,,Cisco,Fabric card module
+,,Module,,JAF1903ACNF,,Cisco,Fabric card module
+,,Module,,JAF1903ACKC,,Cisco,Fabric card module
+,,Module,,JAF1903ACPD,,Cisco,Fabric card module
+,,Module,,"""""",,Cisco,module-1 FwdEngine-1
+,,Module,,"""""",,Cisco,module-1 FwdEngine-2
+,,Module,,"""""",,Cisco,module-1 FwdEngine-3
+,,Module,,"""""",,Cisco,module-1 FwdEngine-4
+,,Module,,"""""",,Cisco,module-1 FwdEngine-5
+,,Module,,"""""",,Cisco,module-1 FwdEngine-6
+,,Module,,"""""",,Cisco,module-5 FwdEngine-1
+,,Module,,"""""",,Cisco,module-6 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-2
+,,Module,,"""""",,Cisco,module-7 FwdEngine-3
+,,Module,,"""""",,Cisco,module-7 FwdEngine-4
+,,Module,,"""""",,Cisco,module-7 FwdEngine-5
+,,Module,,"""""",,Cisco,module-7 FwdEngine-6
+,,Module,,"""""",,Cisco,module-8 FwdEngine-1
+,,Module,,"""""",,Cisco,module-8 FwdEngine-2
+,,Module,,"""""",,Cisco,module-8 FwdEngine-3
+,,Module,,"""""",,Cisco,module-8 FwdEngine-4
+,,Module,,"""""",,Cisco,module-8 FwdEngine-5
+,,Module,,"""""",,Cisco,module-8 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-1
+,,Module,,"""""",,Cisco,module-9 FwdEngine-2
+,,Module,,"""""",,Cisco,module-9 FwdEngine-3
+,,Module,,"""""",,Cisco,module-9 FwdEngine-4
+,,Module,,"""""",,Cisco,module-9 FwdEngine-5
+,,Module,,"""""",,Cisco,module-9 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-7
+,,Module,,"""""",,Cisco,module-9 FwdEngine-8
+,,Module,,"""""",,Cisco,module-9 FwdEngine-9
+,,Module,,"""""",,Cisco,module-9 FwdEngine-10
+,,Module,,"""""",,Cisco,module-9 FwdEngine-11
+,,Module,,"""""",,Cisco,module-9 FwdEngine-12
+,,Module,,"""""",,Cisco,module-10 FwdEngine-1
+,,Module,,"""""",,Cisco,module-10 FwdEngine-2
+,,Module,,"""""",,Cisco,module-10 FwdEngine-3
+,,Module,,"""""",,Cisco,module-10 FwdEngine-4
+,,Module,,"""""",,Cisco,module-10 FwdEngine-5
+,,Module,,"""""",,Cisco,module-10 FwdEngine-6
+,,Module,,"""""",,Cisco,module-10 FwdEngine-7
+,,Module,,"""""",,Cisco,module-10 FwdEngine-8
+,,Module,,"""""",,Cisco,module-10 FwdEngine-9
+,,Module,,"""""",,Cisco,module-10 FwdEngine-10
+,,Module,,"""""",,Cisco,module-10 FwdEngine-11
+,,Module,,"""""",,Cisco,module-10 FwdEngine-12
+,,Module,,MTC1911028N     ,,Cisco,Transceiver(slot:9-port:7)
+,,Module,,MTC1911038E     ,,Cisco,Transceiver(slot:9-port:8)
+,,Module,,00000MTC134004GB,,Cisco,Transceiver(slot:9-port:11)
+,,Module,,AVC232221GM     ,,Cisco,Transceiver(slot:9-port:21)
+,,Module,,00000MTC14100200,,Cisco,Transceiver(slot:9-port:22)
+,,Module,,MTC191102TJ     ,,Cisco,Transceiver(slot:9-port:25)
+,,Module,,00000MTC141000QJ,,Cisco,Transceiver(slot:9-port:26)
+,,Module,,00000MTC141002AW,,Cisco,Transceiver(slot:9-port:27)
+,,Module,,AGM184749FF     ,,Cisco,Transceiver(slot:9-port:28)
+,,Module,,00000MTC141001UG,,Cisco,Transceiver(slot:9-port:29)
+,,Module,,00000MTC141000K0,,Cisco,Transceiver(slot:9-port:30)
+,,Module,,AGM142622SG     ,,Cisco,Transceiver(slot:9-port:31)
+,,Module,,00000MTC141108WX,,Cisco,Transceiver(slot:9-port:32)
+,,Module,,AGM142622C1     ,,Cisco,Transceiver(slot:9-port:33)
+,,Module,,AGM2042448A     ,,Cisco,Transceiver(slot:9-port:34)
+,,Module,,AGM142622NR     ,,Cisco,Transceiver(slot:9-port:35)
+,,Module,,AGM151125MT     ,,Cisco,Transceiver(slot:9-port:37)
+,,Module,,AGM142622S6     ,,Cisco,Transceiver(slot:9-port:38)
+,,Module,,AGM14061698     ,,Cisco,Transceiver(slot:9-port:39)
+,,Module,,AGM140616AG     ,,Cisco,Transceiver(slot:9-port:40)
+,,Module,,AGM140616AE     ,,Cisco,Transceiver(slot:9-port:41)
+,,Module,,AGM140616AF     ,,Cisco,Transceiver(slot:9-port:42)
+,,Module,,AGM1406168J     ,,Cisco,Transceiver(slot:9-port:43)
+,,Module,,00000MTC141108T8,,Cisco,Transceiver(slot:9-port:45)
+,,Module,,00000MTC1410020S,,Cisco,Transceiver(slot:9-port:46)
+,,Module,,00000MTC141108X6,,Cisco,Transceiver(slot:9-port:47)
+,,Module,,FNS0846B3UQ     ,,Cisco,Transceiver(slot:9-port:48)
+,,Module,,MTC1911035S     ,,Cisco,Transceiver(slot:10-port:3)
+,,Module,,MTC191102SS     ,,Cisco,Transceiver(slot:10-port:7)
+,,Module,,MTC191102R8     ,,Cisco,Transceiver(slot:10-port:8)
+,,Module,,MTC22380Q1D     ,,Cisco,Transceiver(slot:10-port:27)
+,,Module,,00000MTC1611072Z,,Cisco,Transceiver(slot:10-port:28)
+,,Module,,00000MTC161405AB,,Cisco,Transceiver(slot:10-port:29)
+,,Module,,00000MTC161109RQ,,Cisco,Transceiver(slot:10-port:30)
+,,Module,,00000MTC161405FD,,Cisco,Transceiver(slot:10-port:31)
+,,Module,,00000MTC161109SF,,Cisco,Transceiver(slot:10-port:32)
+,,Module,,AGM1821208K     ,,Cisco,Transceiver(slot:10-port:33)
+,,Module,,AGM184749F9     ,,Cisco,Transceiver(slot:10-port:34)
+,,Module,,AGM142622CB     ,,Cisco,Transceiver(slot:10-port:35)
+,,Module,,FNS12390FAJ     ,,Cisco,Transceiver(slot:10-port:37)
+,,Module,,AGM1821209F     ,,Cisco,Transceiver(slot:10-port:38)
+,,Module,,AGM18212098     ,,Cisco,Transceiver(slot:10-port:39)
+,,Module,,AGM1821211V     ,,Cisco,Transceiver(slot:10-port:40)
+,,Module,,00000MTC161405EY,,Cisco,Transceiver(slot:10-port:41)
+,,Module,,00000MTC161404NJ,,Cisco,Transceiver(slot:10-port:42)
+,,Module,,00000MTC1611077Z,,Cisco,Transceiver(slot:10-port:43)
+,,Module,,AGM184749GF     ,,Cisco,Transceiver(slot:10-port:44)
+,,Module,,FNS111711YQ     ,,Cisco,Transceiver(slot:10-port:45)
+,,Module,,AGM201540KU     ,,Cisco,Transceiver(slot:10-port:47)
+AL-7000-01-CORE,10.101.255.244,Parent Switch,,,,Cisco,
+,,Module,,JAE191207AL,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE19150EWX,,Cisco,Supervisor Module-2
+,,Module,,JAE1914000P,,Cisco,Supervisor Module-2
+,,Module,,JAE191208KP,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE19100085,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE1915099A,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAE191509BS,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAF1903ACJP,,Cisco,Fabric card module
+,,Module,,JAF1903ACJH,,Cisco,Fabric card module
+,,Module,,JAF1903ACNF,,Cisco,Fabric card module
+,,Module,,JAF1903ACKC,,Cisco,Fabric card module
+,,Module,,JAF1903ACPD,,Cisco,Fabric card module
+,,Module,,"""""",,Cisco,module-1 FwdEngine-1
+,,Module,,"""""",,Cisco,module-1 FwdEngine-2
+,,Module,,"""""",,Cisco,module-1 FwdEngine-3
+,,Module,,"""""",,Cisco,module-1 FwdEngine-4
+,,Module,,"""""",,Cisco,module-1 FwdEngine-5
+,,Module,,"""""",,Cisco,module-1 FwdEngine-6
+,,Module,,"""""",,Cisco,module-5 FwdEngine-1
+,,Module,,"""""",,Cisco,module-6 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-2
+,,Module,,"""""",,Cisco,module-7 FwdEngine-3
+,,Module,,"""""",,Cisco,module-7 FwdEngine-4
+,,Module,,"""""",,Cisco,module-7 FwdEngine-5
+,,Module,,"""""",,Cisco,module-7 FwdEngine-6
+,,Module,,"""""",,Cisco,module-8 FwdEngine-1
+,,Module,,"""""",,Cisco,module-8 FwdEngine-2
+,,Module,,"""""",,Cisco,module-8 FwdEngine-3
+,,Module,,"""""",,Cisco,module-8 FwdEngine-4
+,,Module,,"""""",,Cisco,module-8 FwdEngine-5
+,,Module,,"""""",,Cisco,module-8 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-1
+,,Module,,"""""",,Cisco,module-9 FwdEngine-2
+,,Module,,"""""",,Cisco,module-9 FwdEngine-3
+,,Module,,"""""",,Cisco,module-9 FwdEngine-4
+,,Module,,"""""",,Cisco,module-9 FwdEngine-5
+,,Module,,"""""",,Cisco,module-9 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-7
+,,Module,,"""""",,Cisco,module-9 FwdEngine-8
+,,Module,,"""""",,Cisco,module-9 FwdEngine-9
+,,Module,,"""""",,Cisco,module-9 FwdEngine-10
+,,Module,,"""""",,Cisco,module-9 FwdEngine-11
+,,Module,,"""""",,Cisco,module-9 FwdEngine-12
+,,Module,,"""""",,Cisco,module-10 FwdEngine-1
+,,Module,,"""""",,Cisco,module-10 FwdEngine-2
+,,Module,,"""""",,Cisco,module-10 FwdEngine-3
+,,Module,,"""""",,Cisco,module-10 FwdEngine-4
+,,Module,,"""""",,Cisco,module-10 FwdEngine-5
+,,Module,,"""""",,Cisco,module-10 FwdEngine-6
+,,Module,,"""""",,Cisco,module-10 FwdEngine-7
+,,Module,,"""""",,Cisco,module-10 FwdEngine-8
+,,Module,,"""""",,Cisco,module-10 FwdEngine-9
+,,Module,,"""""",,Cisco,module-10 FwdEngine-10
+,,Module,,"""""",,Cisco,module-10 FwdEngine-11
+,,Module,,"""""",,Cisco,module-10 FwdEngine-12
+,,Module,,MTC1911028N     ,,Cisco,Transceiver(slot:9-port:7)
+,,Module,,MTC1911038E     ,,Cisco,Transceiver(slot:9-port:8)
+,,Module,,00000MTC134004GB,,Cisco,Transceiver(slot:9-port:11)
+,,Module,,AVC232221GM     ,,Cisco,Transceiver(slot:9-port:21)
+,,Module,,00000MTC14100200,,Cisco,Transceiver(slot:9-port:22)
+,,Module,,MTC191102TJ     ,,Cisco,Transceiver(slot:9-port:25)
+,,Module,,00000MTC141000QJ,,Cisco,Transceiver(slot:9-port:26)
+,,Module,,00000MTC141002AW,,Cisco,Transceiver(slot:9-port:27)
+,,Module,,AGM184749FF     ,,Cisco,Transceiver(slot:9-port:28)
+,,Module,,00000MTC141001UG,,Cisco,Transceiver(slot:9-port:29)
+,,Module,,00000MTC141000K0,,Cisco,Transceiver(slot:9-port:30)
+,,Module,,AGM142622SG     ,,Cisco,Transceiver(slot:9-port:31)
+,,Module,,00000MTC141108WX,,Cisco,Transceiver(slot:9-port:32)
+,,Module,,AGM142622C1     ,,Cisco,Transceiver(slot:9-port:33)
+,,Module,,AGM2042448A     ,,Cisco,Transceiver(slot:9-port:34)
+,,Module,,AGM142622NR     ,,Cisco,Transceiver(slot:9-port:35)
+,,Module,,AGM151125MT     ,,Cisco,Transceiver(slot:9-port:37)
+,,Module,,AGM142622S6     ,,Cisco,Transceiver(slot:9-port:38)
+,,Module,,AGM14061698     ,,Cisco,Transceiver(slot:9-port:39)
+,,Module,,AGM140616AG     ,,Cisco,Transceiver(slot:9-port:40)
+,,Module,,AGM140616AE     ,,Cisco,Transceiver(slot:9-port:41)
+,,Module,,AGM140616AF     ,,Cisco,Transceiver(slot:9-port:42)
+,,Module,,AGM1406168J     ,,Cisco,Transceiver(slot:9-port:43)
+,,Module,,00000MTC141108T8,,Cisco,Transceiver(slot:9-port:45)
+,,Module,,00000MTC1410020S,,Cisco,Transceiver(slot:9-port:46)
+,,Module,,00000MTC141108X6,,Cisco,Transceiver(slot:9-port:47)
+,,Module,,FNS0846B3UQ     ,,Cisco,Transceiver(slot:9-port:48)
+,,Module,,MTC1911035S     ,,Cisco,Transceiver(slot:10-port:3)
+,,Module,,MTC191102SS     ,,Cisco,Transceiver(slot:10-port:7)
+,,Module,,MTC191102R8     ,,Cisco,Transceiver(slot:10-port:8)
+,,Module,,MTC22380Q1D     ,,Cisco,Transceiver(slot:10-port:27)
+,,Module,,00000MTC1611072Z,,Cisco,Transceiver(slot:10-port:28)
+,,Module,,00000MTC161405AB,,Cisco,Transceiver(slot:10-port:29)
+,,Module,,00000MTC161109RQ,,Cisco,Transceiver(slot:10-port:30)
+,,Module,,00000MTC161405FD,,Cisco,Transceiver(slot:10-port:31)
+,,Module,,00000MTC161109SF,,Cisco,Transceiver(slot:10-port:32)
+,,Module,,AGM1821208K     ,,Cisco,Transceiver(slot:10-port:33)
+,,Module,,AGM184749F9     ,,Cisco,Transceiver(slot:10-port:34)
+,,Module,,AGM142622CB     ,,Cisco,Transceiver(slot:10-port:35)
+,,Module,,FNS12390FAJ     ,,Cisco,Transceiver(slot:10-port:37)
+,,Module,,AGM1821209F     ,,Cisco,Transceiver(slot:10-port:38)
+,,Module,,AGM18212098     ,,Cisco,Transceiver(slot:10-port:39)
+,,Module,,AGM1821211V     ,,Cisco,Transceiver(slot:10-port:40)
+,,Module,,00000MTC161405EY,,Cisco,Transceiver(slot:10-port:41)
+,,Module,,00000MTC161404NJ,,Cisco,Transceiver(slot:10-port:42)
+,,Module,,00000MTC1611077Z,,Cisco,Transceiver(slot:10-port:43)
+,,Module,,AGM184749GF     ,,Cisco,Transceiver(slot:10-port:44)
+,,Module,,FNS111711YQ     ,,Cisco,Transceiver(slot:10-port:45)
+,,Module,,AGM201540KU     ,,Cisco,Transceiver(slot:10-port:47)
+AL-7000-01-EDGE,10.101.100.209,Parent Switch,,,,Cisco,
+,,Module,,JAE191207AL,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE19150EWX,,Cisco,Supervisor Module-2
+,,Module,,JAE1914000P,,Cisco,Supervisor Module-2
+,,Module,,JAE191208KP,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE19100085,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE1915099A,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAE191509BS,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAF1903ACJP,,Cisco,Fabric card module
+,,Module,,JAF1903ACJH,,Cisco,Fabric card module
+,,Module,,JAF1903ACNF,,Cisco,Fabric card module
+,,Module,,JAF1903ACKC,,Cisco,Fabric card module
+,,Module,,JAF1903ACPD,,Cisco,Fabric card module
+,,Module,,"""""",,Cisco,module-1 FwdEngine-1
+,,Module,,"""""",,Cisco,module-1 FwdEngine-2
+,,Module,,"""""",,Cisco,module-1 FwdEngine-3
+,,Module,,"""""",,Cisco,module-1 FwdEngine-4
+,,Module,,"""""",,Cisco,module-1 FwdEngine-5
+,,Module,,"""""",,Cisco,module-1 FwdEngine-6
+,,Module,,"""""",,Cisco,module-5 FwdEngine-1
+,,Module,,"""""",,Cisco,module-6 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-2
+,,Module,,"""""",,Cisco,module-7 FwdEngine-3
+,,Module,,"""""",,Cisco,module-7 FwdEngine-4
+,,Module,,"""""",,Cisco,module-7 FwdEngine-5
+,,Module,,"""""",,Cisco,module-7 FwdEngine-6
+,,Module,,"""""",,Cisco,module-8 FwdEngine-1
+,,Module,,"""""",,Cisco,module-8 FwdEngine-2
+,,Module,,"""""",,Cisco,module-8 FwdEngine-3
+,,Module,,"""""",,Cisco,module-8 FwdEngine-4
+,,Module,,"""""",,Cisco,module-8 FwdEngine-5
+,,Module,,"""""",,Cisco,module-8 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-1
+,,Module,,"""""",,Cisco,module-9 FwdEngine-2
+,,Module,,"""""",,Cisco,module-9 FwdEngine-3
+,,Module,,"""""",,Cisco,module-9 FwdEngine-4
+,,Module,,"""""",,Cisco,module-9 FwdEngine-5
+,,Module,,"""""",,Cisco,module-9 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-7
+,,Module,,"""""",,Cisco,module-9 FwdEngine-8
+,,Module,,"""""",,Cisco,module-9 FwdEngine-9
+,,Module,,"""""",,Cisco,module-9 FwdEngine-10
+,,Module,,"""""",,Cisco,module-9 FwdEngine-11
+,,Module,,"""""",,Cisco,module-9 FwdEngine-12
+,,Module,,"""""",,Cisco,module-10 FwdEngine-1
+,,Module,,"""""",,Cisco,module-10 FwdEngine-2
+,,Module,,"""""",,Cisco,module-10 FwdEngine-3
+,,Module,,"""""",,Cisco,module-10 FwdEngine-4
+,,Module,,"""""",,Cisco,module-10 FwdEngine-5
+,,Module,,"""""",,Cisco,module-10 FwdEngine-6
+,,Module,,"""""",,Cisco,module-10 FwdEngine-7
+,,Module,,"""""",,Cisco,module-10 FwdEngine-8
+,,Module,,"""""",,Cisco,module-10 FwdEngine-9
+,,Module,,"""""",,Cisco,module-10 FwdEngine-10
+,,Module,,"""""",,Cisco,module-10 FwdEngine-11
+,,Module,,"""""",,Cisco,module-10 FwdEngine-12
+,,Module,,MTC1911028N     ,,Cisco,Transceiver(slot:9-port:7)
+,,Module,,MTC1911038E     ,,Cisco,Transceiver(slot:9-port:8)
+,,Module,,00000MTC134004GB,,Cisco,Transceiver(slot:9-port:11)
+,,Module,,AVC232221GM     ,,Cisco,Transceiver(slot:9-port:21)
+,,Module,,00000MTC14100200,,Cisco,Transceiver(slot:9-port:22)
+,,Module,,MTC191102TJ     ,,Cisco,Transceiver(slot:9-port:25)
+,,Module,,00000MTC141000QJ,,Cisco,Transceiver(slot:9-port:26)
+,,Module,,00000MTC141002AW,,Cisco,Transceiver(slot:9-port:27)
+,,Module,,AGM184749FF     ,,Cisco,Transceiver(slot:9-port:28)
+,,Module,,00000MTC141001UG,,Cisco,Transceiver(slot:9-port:29)
+,,Module,,00000MTC141000K0,,Cisco,Transceiver(slot:9-port:30)
+,,Module,,AGM142622SG     ,,Cisco,Transceiver(slot:9-port:31)
+,,Module,,00000MTC141108WX,,Cisco,Transceiver(slot:9-port:32)
+,,Module,,AGM142622C1     ,,Cisco,Transceiver(slot:9-port:33)
+,,Module,,AGM2042448A     ,,Cisco,Transceiver(slot:9-port:34)
+,,Module,,AGM142622NR     ,,Cisco,Transceiver(slot:9-port:35)
+,,Module,,AGM151125MT     ,,Cisco,Transceiver(slot:9-port:37)
+,,Module,,AGM142622S6     ,,Cisco,Transceiver(slot:9-port:38)
+,,Module,,AGM14061698     ,,Cisco,Transceiver(slot:9-port:39)
+,,Module,,AGM140616AG     ,,Cisco,Transceiver(slot:9-port:40)
+,,Module,,AGM140616AE     ,,Cisco,Transceiver(slot:9-port:41)
+,,Module,,AGM140616AF     ,,Cisco,Transceiver(slot:9-port:42)
+,,Module,,AGM1406168J     ,,Cisco,Transceiver(slot:9-port:43)
+,,Module,,00000MTC141108T8,,Cisco,Transceiver(slot:9-port:45)
+,,Module,,00000MTC1410020S,,Cisco,Transceiver(slot:9-port:46)
+,,Module,,00000MTC141108X6,,Cisco,Transceiver(slot:9-port:47)
+,,Module,,FNS0846B3UQ     ,,Cisco,Transceiver(slot:9-port:48)
+,,Module,,MTC1911035S     ,,Cisco,Transceiver(slot:10-port:3)
+,,Module,,MTC191102SS     ,,Cisco,Transceiver(slot:10-port:7)
+,,Module,,MTC191102R8     ,,Cisco,Transceiver(slot:10-port:8)
+,,Module,,MTC22380Q1D     ,,Cisco,Transceiver(slot:10-port:27)
+,,Module,,00000MTC1611072Z,,Cisco,Transceiver(slot:10-port:28)
+,,Module,,00000MTC161405AB,,Cisco,Transceiver(slot:10-port:29)
+,,Module,,00000MTC161109RQ,,Cisco,Transceiver(slot:10-port:30)
+,,Module,,00000MTC161405FD,,Cisco,Transceiver(slot:10-port:31)
+,,Module,,00000MTC161109SF,,Cisco,Transceiver(slot:10-port:32)
+,,Module,,AGM1821208K     ,,Cisco,Transceiver(slot:10-port:33)
+,,Module,,AGM184749F9     ,,Cisco,Transceiver(slot:10-port:34)
+,,Module,,AGM142622CB     ,,Cisco,Transceiver(slot:10-port:35)
+,,Module,,FNS12390FAJ     ,,Cisco,Transceiver(slot:10-port:37)
+,,Module,,AGM1821209F     ,,Cisco,Transceiver(slot:10-port:38)
+,,Module,,AGM18212098     ,,Cisco,Transceiver(slot:10-port:39)
+,,Module,,AGM1821211V     ,,Cisco,Transceiver(slot:10-port:40)
+,,Module,,00000MTC161405EY,,Cisco,Transceiver(slot:10-port:41)
+,,Module,,00000MTC161404NJ,,Cisco,Transceiver(slot:10-port:42)
+,,Module,,00000MTC1611077Z,,Cisco,Transceiver(slot:10-port:43)
+,,Module,,AGM184749GF     ,,Cisco,Transceiver(slot:10-port:44)
+,,Module,,FNS111711YQ     ,,Cisco,Transceiver(slot:10-port:45)
+,,Module,,AGM201540KU     ,,Cisco,Transceiver(slot:10-port:47)
+AL-7000-01-PCI,10.101.100.189,Parent Switch,,,,Cisco,
+,,Module,,JAE191207AL,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE19150EWX,,Cisco,Supervisor Module-2
+,,Module,,JAE1914000P,,Cisco,Supervisor Module-2
+,,Module,,JAE191208KP,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE19100085,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE1915099A,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAE191509BS,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAF1903ACJP,,Cisco,Fabric card module
+,,Module,,JAF1903ACJH,,Cisco,Fabric card module
+,,Module,,JAF1903ACNF,,Cisco,Fabric card module
+,,Module,,JAF1903ACKC,,Cisco,Fabric card module
+,,Module,,JAF1903ACPD,,Cisco,Fabric card module
+,,Module,,"""""",,Cisco,module-1 FwdEngine-1
+,,Module,,"""""",,Cisco,module-1 FwdEngine-2
+,,Module,,"""""",,Cisco,module-1 FwdEngine-3
+,,Module,,"""""",,Cisco,module-1 FwdEngine-4
+,,Module,,"""""",,Cisco,module-1 FwdEngine-5
+,,Module,,"""""",,Cisco,module-1 FwdEngine-6
+,,Module,,"""""",,Cisco,module-5 FwdEngine-1
+,,Module,,"""""",,Cisco,module-6 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-2
+,,Module,,"""""",,Cisco,module-7 FwdEngine-3
+,,Module,,"""""",,Cisco,module-7 FwdEngine-4
+,,Module,,"""""",,Cisco,module-7 FwdEngine-5
+,,Module,,"""""",,Cisco,module-7 FwdEngine-6
+,,Module,,"""""",,Cisco,module-8 FwdEngine-1
+,,Module,,"""""",,Cisco,module-8 FwdEngine-2
+,,Module,,"""""",,Cisco,module-8 FwdEngine-3
+,,Module,,"""""",,Cisco,module-8 FwdEngine-4
+,,Module,,"""""",,Cisco,module-8 FwdEngine-5
+,,Module,,"""""",,Cisco,module-8 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-1
+,,Module,,"""""",,Cisco,module-9 FwdEngine-2
+,,Module,,"""""",,Cisco,module-9 FwdEngine-3
+,,Module,,"""""",,Cisco,module-9 FwdEngine-4
+,,Module,,"""""",,Cisco,module-9 FwdEngine-5
+,,Module,,"""""",,Cisco,module-9 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-7
+,,Module,,"""""",,Cisco,module-9 FwdEngine-8
+,,Module,,"""""",,Cisco,module-9 FwdEngine-9
+,,Module,,"""""",,Cisco,module-9 FwdEngine-10
+,,Module,,"""""",,Cisco,module-9 FwdEngine-11
+,,Module,,"""""",,Cisco,module-9 FwdEngine-12
+,,Module,,"""""",,Cisco,module-10 FwdEngine-1
+,,Module,,"""""",,Cisco,module-10 FwdEngine-2
+,,Module,,"""""",,Cisco,module-10 FwdEngine-3
+,,Module,,"""""",,Cisco,module-10 FwdEngine-4
+,,Module,,"""""",,Cisco,module-10 FwdEngine-5
+,,Module,,"""""",,Cisco,module-10 FwdEngine-6
+,,Module,,"""""",,Cisco,module-10 FwdEngine-7
+,,Module,,"""""",,Cisco,module-10 FwdEngine-8
+,,Module,,"""""",,Cisco,module-10 FwdEngine-9
+,,Module,,"""""",,Cisco,module-10 FwdEngine-10
+,,Module,,"""""",,Cisco,module-10 FwdEngine-11
+,,Module,,"""""",,Cisco,module-10 FwdEngine-12
+,,Module,,MTC1911028N     ,,Cisco,Transceiver(slot:9-port:7)
+,,Module,,MTC1911038E     ,,Cisco,Transceiver(slot:9-port:8)
+,,Module,,00000MTC134004GB,,Cisco,Transceiver(slot:9-port:11)
+,,Module,,AVC232221GM     ,,Cisco,Transceiver(slot:9-port:21)
+,,Module,,00000MTC14100200,,Cisco,Transceiver(slot:9-port:22)
+,,Module,,MTC191102TJ     ,,Cisco,Transceiver(slot:9-port:25)
+,,Module,,00000MTC141000QJ,,Cisco,Transceiver(slot:9-port:26)
+,,Module,,00000MTC141002AW,,Cisco,Transceiver(slot:9-port:27)
+,,Module,,AGM184749FF     ,,Cisco,Transceiver(slot:9-port:28)
+,,Module,,00000MTC141001UG,,Cisco,Transceiver(slot:9-port:29)
+,,Module,,00000MTC141000K0,,Cisco,Transceiver(slot:9-port:30)
+,,Module,,AGM142622SG     ,,Cisco,Transceiver(slot:9-port:31)
+,,Module,,00000MTC141108WX,,Cisco,Transceiver(slot:9-port:32)
+,,Module,,AGM142622C1     ,,Cisco,Transceiver(slot:9-port:33)
+,,Module,,AGM2042448A     ,,Cisco,Transceiver(slot:9-port:34)
+,,Module,,AGM142622NR     ,,Cisco,Transceiver(slot:9-port:35)
+,,Module,,AGM151125MT     ,,Cisco,Transceiver(slot:9-port:37)
+,,Module,,AGM142622S6     ,,Cisco,Transceiver(slot:9-port:38)
+,,Module,,AGM14061698     ,,Cisco,Transceiver(slot:9-port:39)
+,,Module,,AGM140616AG     ,,Cisco,Transceiver(slot:9-port:40)
+,,Module,,AGM140616AE     ,,Cisco,Transceiver(slot:9-port:41)
+,,Module,,AGM140616AF     ,,Cisco,Transceiver(slot:9-port:42)
+,,Module,,AGM1406168J     ,,Cisco,Transceiver(slot:9-port:43)
+,,Module,,00000MTC141108T8,,Cisco,Transceiver(slot:9-port:45)
+,,Module,,00000MTC1410020S,,Cisco,Transceiver(slot:9-port:46)
+,,Module,,00000MTC141108X6,,Cisco,Transceiver(slot:9-port:47)
+,,Module,,FNS0846B3UQ     ,,Cisco,Transceiver(slot:9-port:48)
+,,Module,,MTC1911035S     ,,Cisco,Transceiver(slot:10-port:3)
+,,Module,,MTC191102SS     ,,Cisco,Transceiver(slot:10-port:7)
+,,Module,,MTC191102R8     ,,Cisco,Transceiver(slot:10-port:8)
+,,Module,,MTC22380Q1D     ,,Cisco,Transceiver(slot:10-port:27)
+,,Module,,00000MTC1611072Z,,Cisco,Transceiver(slot:10-port:28)
+,,Module,,00000MTC161405AB,,Cisco,Transceiver(slot:10-port:29)
+,,Module,,00000MTC161109RQ,,Cisco,Transceiver(slot:10-port:30)
+,,Module,,00000MTC161405FD,,Cisco,Transceiver(slot:10-port:31)
+,,Module,,00000MTC161109SF,,Cisco,Transceiver(slot:10-port:32)
+,,Module,,AGM1821208K     ,,Cisco,Transceiver(slot:10-port:33)
+,,Module,,AGM184749F9     ,,Cisco,Transceiver(slot:10-port:34)
+,,Module,,AGM142622CB     ,,Cisco,Transceiver(slot:10-port:35)
+,,Module,,FNS12390FAJ     ,,Cisco,Transceiver(slot:10-port:37)
+,,Module,,AGM1821209F     ,,Cisco,Transceiver(slot:10-port:38)
+,,Module,,AGM18212098     ,,Cisco,Transceiver(slot:10-port:39)
+,,Module,,AGM1821211V     ,,Cisco,Transceiver(slot:10-port:40)
+,,Module,,00000MTC161405EY,,Cisco,Transceiver(slot:10-port:41)
+,,Module,,00000MTC161404NJ,,Cisco,Transceiver(slot:10-port:42)
+,,Module,,00000MTC1611077Z,,Cisco,Transceiver(slot:10-port:43)
+,,Module,,AGM184749GF     ,,Cisco,Transceiver(slot:10-port:44)
+,,Module,,FNS111711YQ     ,,Cisco,Transceiver(slot:10-port:45)
+,,Module,,AGM201540KU     ,,Cisco,Transceiver(slot:10-port:47)
+AL-7000-02-ADMIN,10.101.145.124,Parent Switch,,,,Cisco,
+,,Module,,JAE191208KU,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE1915031M,,Cisco,Supervisor Module-2
+,,Module,,JAE1915032L,,Cisco,Supervisor Module-2
+,,Module,,JAE19100084,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE191208L7,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE191509AC,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAE191509D6,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAF1903ACEK,,Cisco,Fabric card module
+,,Module,,JAF1903ACGA,,Cisco,Fabric card module
+,,Module,,JAF1903ACKF,,Cisco,Fabric card module
+,,Module,,JAF1903ACFF,,Cisco,Fabric card module
+,,Module,,JAF1903ACFN,,Cisco,Fabric card module
+,,Module,,"""""",,Cisco,module-1 FwdEngine-1
+,,Module,,"""""",,Cisco,module-1 FwdEngine-2
+,,Module,,"""""",,Cisco,module-1 FwdEngine-3
+,,Module,,"""""",,Cisco,module-1 FwdEngine-4
+,,Module,,"""""",,Cisco,module-1 FwdEngine-5
+,,Module,,"""""",,Cisco,module-1 FwdEngine-6
+,,Module,,"""""",,Cisco,module-5 FwdEngine-1
+,,Module,,"""""",,Cisco,module-6 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-2
+,,Module,,"""""",,Cisco,module-7 FwdEngine-3
+,,Module,,"""""",,Cisco,module-7 FwdEngine-4
+,,Module,,"""""",,Cisco,module-7 FwdEngine-5
+,,Module,,"""""",,Cisco,module-7 FwdEngine-6
+,,Module,,"""""",,Cisco,module-8 FwdEngine-1
+,,Module,,"""""",,Cisco,module-8 FwdEngine-2
+,,Module,,"""""",,Cisco,module-8 FwdEngine-3
+,,Module,,"""""",,Cisco,module-8 FwdEngine-4
+,,Module,,"""""",,Cisco,module-8 FwdEngine-5
+,,Module,,"""""",,Cisco,module-8 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-1
+,,Module,,"""""",,Cisco,module-9 FwdEngine-2
+,,Module,,"""""",,Cisco,module-9 FwdEngine-3
+,,Module,,"""""",,Cisco,module-9 FwdEngine-4
+,,Module,,"""""",,Cisco,module-9 FwdEngine-5
+,,Module,,"""""",,Cisco,module-9 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-7
+,,Module,,"""""",,Cisco,module-9 FwdEngine-8
+,,Module,,"""""",,Cisco,module-9 FwdEngine-9
+,,Module,,"""""",,Cisco,module-9 FwdEngine-10
+,,Module,,"""""",,Cisco,module-9 FwdEngine-11
+,,Module,,"""""",,Cisco,module-9 FwdEngine-12
+,,Module,,"""""",,Cisco,module-10 FwdEngine-1
+,,Module,,"""""",,Cisco,module-10 FwdEngine-2
+,,Module,,"""""",,Cisco,module-10 FwdEngine-3
+,,Module,,"""""",,Cisco,module-10 FwdEngine-4
+,,Module,,"""""",,Cisco,module-10 FwdEngine-5
+,,Module,,"""""",,Cisco,module-10 FwdEngine-6
+,,Module,,"""""",,Cisco,module-10 FwdEngine-7
+,,Module,,"""""",,Cisco,module-10 FwdEngine-8
+,,Module,,"""""",,Cisco,module-10 FwdEngine-9
+,,Module,,"""""",,Cisco,module-10 FwdEngine-10
+,,Module,,"""""",,Cisco,module-10 FwdEngine-11
+,,Module,,"""""",,Cisco,module-10 FwdEngine-12
+,,Module,,MTC191101HG     ,,Cisco,Transceiver(slot:9-port:7)
+,,Module,,00000MTC141109B5,,Cisco,Transceiver(slot:9-port:8)
+,,Module,,00000MTC133904Z0,,Cisco,Transceiver(slot:9-port:11)
+,,Module,,AVC23222566     ,,Cisco,Transceiver(slot:9-port:21)
+,,Module,,00000MTC141303SV,,Cisco,Transceiver(slot:9-port:22)
+,,Module,,AGM2042464S     ,,Cisco,Transceiver(slot:9-port:23)
+,,Module,,MTC22380Q2J     ,,Cisco,Transceiver(slot:9-port:25)
+,,Module,,00000MTC141303R4,,Cisco,Transceiver(slot:9-port:26)
+,,Module,,AGM18212093     ,,Cisco,Transceiver(slot:9-port:27)
+,,Module,,AGM184749FH     ,,Cisco,Transceiver(slot:9-port:28)
+,,Module,,00000MTC141303RJ,,Cisco,Transceiver(slot:9-port:29)
+,,Module,,00000MTC141303CT,,Cisco,Transceiver(slot:9-port:30)
+,,Module,,AGM142622R9     ,,Cisco,Transceiver(slot:9-port:31)
+,,Module,,AGM18212290     ,,Cisco,Transceiver(slot:9-port:35)
+,,Module,,FNS14141W34     ,,Cisco,Transceiver(slot:9-port:39)
+,,Module,,FNS14141W31     ,,Cisco,Transceiver(slot:9-port:40)
+,,Module,,FNS14141W4L     ,,Cisco,Transceiver(slot:9-port:41)
+,,Module,,FNS14141W4F     ,,Cisco,Transceiver(slot:9-port:42)
+,,Module,,FNS14141W2X     ,,Cisco,Transceiver(slot:9-port:43)
+,,Module,,00000MTC133904VV,,Cisco,Transceiver(slot:9-port:45)
+,,Module,,00000MTC141303TT,,Cisco,Transceiver(slot:9-port:46)
+,,Module,,00000MTC141303TW,,Cisco,Transceiver(slot:9-port:47)
+,,Module,,AGM12481529     ,,Cisco,Transceiver(slot:9-port:48)
+,,Module,,MTC22380Q1N     ,,Cisco,Transceiver(slot:10-port:3)
+,,Module,,00000MTC141303RF,,Cisco,Transceiver(slot:10-port:7)
+,,Module,,MTC22380WQ9     ,,Cisco,Transceiver(slot:10-port:8)
+,,Module,,MTC22380Q12     ,,Cisco,Transceiver(slot:10-port:27)
+,,Module,,00000MTC1611070K,,Cisco,Transceiver(slot:10-port:28)
+,,Module,,AGM151125M9     ,,Cisco,Transceiver(slot:10-port:29)
+,,Module,,00000MTC161405BF,,Cisco,Transceiver(slot:10-port:30)
+,,Module,,00000MTC1611074P,,Cisco,Transceiver(slot:10-port:31)
+,,Module,,00000MTC161109RN,,Cisco,Transceiver(slot:10-port:32)
+,,Module,,AGM142622S9     ,,Cisco,Transceiver(slot:10-port:33)
+,,Module,,AGM201541E4     ,,Cisco,Transceiver(slot:10-port:34)
+,,Module,,FNS12420M0T     ,,Cisco,Transceiver(slot:10-port:37)
+,,Module,,AGM182927AE     ,,Cisco,Transceiver(slot:10-port:38)
+,,Module,,AGM182927AJ     ,,Cisco,Transceiver(slot:10-port:39)
+,,Module,,AGM182927AF     ,,Cisco,Transceiver(slot:10-port:40)
+,,Module,,00000MTC161107SV,,Cisco,Transceiver(slot:10-port:41)
+,,Module,,00000MTC1611073B,,Cisco,Transceiver(slot:10-port:42)
+,,Module,,00000MTC16140592,,Cisco,Transceiver(slot:10-port:43)
+,,Module,,AGM18474DQK     ,,Cisco,Transceiver(slot:10-port:44)
+,,Module,,FNS0837H0FY     ,,Cisco,Transceiver(slot:10-port:45)
+,,Module,,AGM142622QX     ,,Cisco,Transceiver(slot:10-port:46)
+,,Module,,00000MTC141303T4,,Cisco,Transceiver(slot:10-port:47)
+AL-7000-02-CORE,10.0.184.20,Parent Switch,,,,Cisco,
+,,Module,,JAE191208KU,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE1915031M,,Cisco,Supervisor Module-2
+,,Module,,JAE1915032L,,Cisco,Supervisor Module-2
+,,Module,,JAE19100084,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE191208L7,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE191509AC,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAE191509D6,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAF1903ACEK,,Cisco,Fabric card module
+,,Module,,JAF1903ACGA,,Cisco,Fabric card module
+,,Module,,JAF1903ACKF,,Cisco,Fabric card module
+,,Module,,JAF1903ACFF,,Cisco,Fabric card module
+,,Module,,JAF1903ACFN,,Cisco,Fabric card module
+,,Module,,"""""",,Cisco,module-1 FwdEngine-1
+,,Module,,"""""",,Cisco,module-1 FwdEngine-2
+,,Module,,"""""",,Cisco,module-1 FwdEngine-3
+,,Module,,"""""",,Cisco,module-1 FwdEngine-4
+,,Module,,"""""",,Cisco,module-1 FwdEngine-5
+,,Module,,"""""",,Cisco,module-1 FwdEngine-6
+,,Module,,"""""",,Cisco,module-5 FwdEngine-1
+,,Module,,"""""",,Cisco,module-6 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-2
+,,Module,,"""""",,Cisco,module-7 FwdEngine-3
+,,Module,,"""""",,Cisco,module-7 FwdEngine-4
+,,Module,,"""""",,Cisco,module-7 FwdEngine-5
+,,Module,,"""""",,Cisco,module-7 FwdEngine-6
+,,Module,,"""""",,Cisco,module-8 FwdEngine-1
+,,Module,,"""""",,Cisco,module-8 FwdEngine-2
+,,Module,,"""""",,Cisco,module-8 FwdEngine-3
+,,Module,,"""""",,Cisco,module-8 FwdEngine-4
+,,Module,,"""""",,Cisco,module-8 FwdEngine-5
+,,Module,,"""""",,Cisco,module-8 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-1
+,,Module,,"""""",,Cisco,module-9 FwdEngine-2
+,,Module,,"""""",,Cisco,module-9 FwdEngine-3
+,,Module,,"""""",,Cisco,module-9 FwdEngine-4
+,,Module,,"""""",,Cisco,module-9 FwdEngine-5
+,,Module,,"""""",,Cisco,module-9 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-7
+,,Module,,"""""",,Cisco,module-9 FwdEngine-8
+,,Module,,"""""",,Cisco,module-9 FwdEngine-9
+,,Module,,"""""",,Cisco,module-9 FwdEngine-10
+,,Module,,"""""",,Cisco,module-9 FwdEngine-11
+,,Module,,"""""",,Cisco,module-9 FwdEngine-12
+,,Module,,"""""",,Cisco,module-10 FwdEngine-1
+,,Module,,"""""",,Cisco,module-10 FwdEngine-2
+,,Module,,"""""",,Cisco,module-10 FwdEngine-3
+,,Module,,"""""",,Cisco,module-10 FwdEngine-4
+,,Module,,"""""",,Cisco,module-10 FwdEngine-5
+,,Module,,"""""",,Cisco,module-10 FwdEngine-6
+,,Module,,"""""",,Cisco,module-10 FwdEngine-7
+,,Module,,"""""",,Cisco,module-10 FwdEngine-8
+,,Module,,"""""",,Cisco,module-10 FwdEngine-9
+,,Module,,"""""",,Cisco,module-10 FwdEngine-10
+,,Module,,"""""",,Cisco,module-10 FwdEngine-11
+,,Module,,"""""",,Cisco,module-10 FwdEngine-12
+,,Module,,MTC191101HG     ,,Cisco,Transceiver(slot:9-port:7)
+,,Module,,00000MTC141109B5,,Cisco,Transceiver(slot:9-port:8)
+,,Module,,00000MTC133904Z0,,Cisco,Transceiver(slot:9-port:11)
+,,Module,,AVC23222566     ,,Cisco,Transceiver(slot:9-port:21)
+,,Module,,00000MTC141303SV,,Cisco,Transceiver(slot:9-port:22)
+,,Module,,AGM2042464S     ,,Cisco,Transceiver(slot:9-port:23)
+,,Module,,MTC22380Q2J     ,,Cisco,Transceiver(slot:9-port:25)
+,,Module,,00000MTC141303R4,,Cisco,Transceiver(slot:9-port:26)
+,,Module,,AGM18212093     ,,Cisco,Transceiver(slot:9-port:27)
+,,Module,,AGM184749FH     ,,Cisco,Transceiver(slot:9-port:28)
+,,Module,,00000MTC141303RJ,,Cisco,Transceiver(slot:9-port:29)
+,,Module,,00000MTC141303CT,,Cisco,Transceiver(slot:9-port:30)
+,,Module,,AGM142622R9     ,,Cisco,Transceiver(slot:9-port:31)
+,,Module,,AGM18212290     ,,Cisco,Transceiver(slot:9-port:35)
+,,Module,,FNS14141W34     ,,Cisco,Transceiver(slot:9-port:39)
+,,Module,,FNS14141W31     ,,Cisco,Transceiver(slot:9-port:40)
+,,Module,,FNS14141W4L     ,,Cisco,Transceiver(slot:9-port:41)
+,,Module,,FNS14141W4F     ,,Cisco,Transceiver(slot:9-port:42)
+,,Module,,FNS14141W2X     ,,Cisco,Transceiver(slot:9-port:43)
+,,Module,,00000MTC133904VV,,Cisco,Transceiver(slot:9-port:45)
+,,Module,,00000MTC141303TT,,Cisco,Transceiver(slot:9-port:46)
+,,Module,,00000MTC141303TW,,Cisco,Transceiver(slot:9-port:47)
+,,Module,,AGM12481529     ,,Cisco,Transceiver(slot:9-port:48)
+,,Module,,MTC22380Q1N     ,,Cisco,Transceiver(slot:10-port:3)
+,,Module,,00000MTC141303RF,,Cisco,Transceiver(slot:10-port:7)
+,,Module,,MTC22380WQ9     ,,Cisco,Transceiver(slot:10-port:8)
+,,Module,,MTC22380Q12     ,,Cisco,Transceiver(slot:10-port:27)
+,,Module,,00000MTC1611070K,,Cisco,Transceiver(slot:10-port:28)
+,,Module,,AGM151125M9     ,,Cisco,Transceiver(slot:10-port:29)
+,,Module,,00000MTC161405BF,,Cisco,Transceiver(slot:10-port:30)
+,,Module,,00000MTC1611074P,,Cisco,Transceiver(slot:10-port:31)
+,,Module,,00000MTC161109RN,,Cisco,Transceiver(slot:10-port:32)
+,,Module,,AGM142622S9     ,,Cisco,Transceiver(slot:10-port:33)
+,,Module,,AGM201541E4     ,,Cisco,Transceiver(slot:10-port:34)
+,,Module,,FNS12420M0T     ,,Cisco,Transceiver(slot:10-port:37)
+,,Module,,AGM182927AE     ,,Cisco,Transceiver(slot:10-port:38)
+,,Module,,AGM182927AJ     ,,Cisco,Transceiver(slot:10-port:39)
+,,Module,,AGM182927AF     ,,Cisco,Transceiver(slot:10-port:40)
+,,Module,,00000MTC161107SV,,Cisco,Transceiver(slot:10-port:41)
+,,Module,,00000MTC1611073B,,Cisco,Transceiver(slot:10-port:42)
+,,Module,,00000MTC16140592,,Cisco,Transceiver(slot:10-port:43)
+,,Module,,AGM18474DQK     ,,Cisco,Transceiver(slot:10-port:44)
+,,Module,,FNS0837H0FY     ,,Cisco,Transceiver(slot:10-port:45)
+,,Module,,AGM142622QX     ,,Cisco,Transceiver(slot:10-port:46)
+,,Module,,00000MTC141303T4,,Cisco,Transceiver(slot:10-port:47)
+AL-7000-02-EDGE,10.101.100.217,Parent Switch,,,,Cisco,
+,,Module,,JAE191208KU,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE1915031M,,Cisco,Supervisor Module-2
+,,Module,,JAE1915032L,,Cisco,Supervisor Module-2
+,,Module,,JAE19100084,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE191208L7,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE191509AC,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAE191509D6,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAF1903ACEK,,Cisco,Fabric card module
+,,Module,,JAF1903ACGA,,Cisco,Fabric card module
+,,Module,,JAF1903ACKF,,Cisco,Fabric card module
+,,Module,,JAF1903ACFF,,Cisco,Fabric card module
+,,Module,,JAF1903ACFN,,Cisco,Fabric card module
+,,Module,,"""""",,Cisco,module-1 FwdEngine-1
+,,Module,,"""""",,Cisco,module-1 FwdEngine-2
+,,Module,,"""""",,Cisco,module-1 FwdEngine-3
+,,Module,,"""""",,Cisco,module-1 FwdEngine-4
+,,Module,,"""""",,Cisco,module-1 FwdEngine-5
+,,Module,,"""""",,Cisco,module-1 FwdEngine-6
+,,Module,,"""""",,Cisco,module-5 FwdEngine-1
+,,Module,,"""""",,Cisco,module-6 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-2
+,,Module,,"""""",,Cisco,module-7 FwdEngine-3
+,,Module,,"""""",,Cisco,module-7 FwdEngine-4
+,,Module,,"""""",,Cisco,module-7 FwdEngine-5
+,,Module,,"""""",,Cisco,module-7 FwdEngine-6
+,,Module,,"""""",,Cisco,module-8 FwdEngine-1
+,,Module,,"""""",,Cisco,module-8 FwdEngine-2
+,,Module,,"""""",,Cisco,module-8 FwdEngine-3
+,,Module,,"""""",,Cisco,module-8 FwdEngine-4
+,,Module,,"""""",,Cisco,module-8 FwdEngine-5
+,,Module,,"""""",,Cisco,module-8 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-1
+,,Module,,"""""",,Cisco,module-9 FwdEngine-2
+,,Module,,"""""",,Cisco,module-9 FwdEngine-3
+,,Module,,"""""",,Cisco,module-9 FwdEngine-4
+,,Module,,"""""",,Cisco,module-9 FwdEngine-5
+,,Module,,"""""",,Cisco,module-9 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-7
+,,Module,,"""""",,Cisco,module-9 FwdEngine-8
+,,Module,,"""""",,Cisco,module-9 FwdEngine-9
+,,Module,,"""""",,Cisco,module-9 FwdEngine-10
+,,Module,,"""""",,Cisco,module-9 FwdEngine-11
+,,Module,,"""""",,Cisco,module-9 FwdEngine-12
+,,Module,,"""""",,Cisco,module-10 FwdEngine-1
+,,Module,,"""""",,Cisco,module-10 FwdEngine-2
+,,Module,,"""""",,Cisco,module-10 FwdEngine-3
+,,Module,,"""""",,Cisco,module-10 FwdEngine-4
+,,Module,,"""""",,Cisco,module-10 FwdEngine-5
+,,Module,,"""""",,Cisco,module-10 FwdEngine-6
+,,Module,,"""""",,Cisco,module-10 FwdEngine-7
+,,Module,,"""""",,Cisco,module-10 FwdEngine-8
+,,Module,,"""""",,Cisco,module-10 FwdEngine-9
+,,Module,,"""""",,Cisco,module-10 FwdEngine-10
+,,Module,,"""""",,Cisco,module-10 FwdEngine-11
+,,Module,,"""""",,Cisco,module-10 FwdEngine-12
+,,Module,,MTC191101HG     ,,Cisco,Transceiver(slot:9-port:7)
+,,Module,,00000MTC141109B5,,Cisco,Transceiver(slot:9-port:8)
+,,Module,,00000MTC133904Z0,,Cisco,Transceiver(slot:9-port:11)
+,,Module,,AVC23222566     ,,Cisco,Transceiver(slot:9-port:21)
+,,Module,,00000MTC141303SV,,Cisco,Transceiver(slot:9-port:22)
+,,Module,,AGM2042464S     ,,Cisco,Transceiver(slot:9-port:23)
+,,Module,,MTC22380Q2J     ,,Cisco,Transceiver(slot:9-port:25)
+,,Module,,00000MTC141303R4,,Cisco,Transceiver(slot:9-port:26)
+,,Module,,AGM18212093     ,,Cisco,Transceiver(slot:9-port:27)
+,,Module,,AGM184749FH     ,,Cisco,Transceiver(slot:9-port:28)
+,,Module,,00000MTC141303RJ,,Cisco,Transceiver(slot:9-port:29)
+,,Module,,00000MTC141303CT,,Cisco,Transceiver(slot:9-port:30)
+,,Module,,AGM142622R9     ,,Cisco,Transceiver(slot:9-port:31)
+,,Module,,AGM18212290     ,,Cisco,Transceiver(slot:9-port:35)
+,,Module,,FNS14141W34     ,,Cisco,Transceiver(slot:9-port:39)
+,,Module,,FNS14141W31     ,,Cisco,Transceiver(slot:9-port:40)
+,,Module,,FNS14141W4L     ,,Cisco,Transceiver(slot:9-port:41)
+,,Module,,FNS14141W4F     ,,Cisco,Transceiver(slot:9-port:42)
+,,Module,,FNS14141W2X     ,,Cisco,Transceiver(slot:9-port:43)
+,,Module,,00000MTC133904VV,,Cisco,Transceiver(slot:9-port:45)
+,,Module,,00000MTC141303TT,,Cisco,Transceiver(slot:9-port:46)
+,,Module,,00000MTC141303TW,,Cisco,Transceiver(slot:9-port:47)
+,,Module,,AGM12481529     ,,Cisco,Transceiver(slot:9-port:48)
+,,Module,,MTC22380Q1N     ,,Cisco,Transceiver(slot:10-port:3)
+,,Module,,00000MTC141303RF,,Cisco,Transceiver(slot:10-port:7)
+,,Module,,MTC22380WQ9     ,,Cisco,Transceiver(slot:10-port:8)
+,,Module,,MTC22380Q12     ,,Cisco,Transceiver(slot:10-port:27)
+,,Module,,00000MTC1611070K,,Cisco,Transceiver(slot:10-port:28)
+,,Module,,AGM151125M9     ,,Cisco,Transceiver(slot:10-port:29)
+,,Module,,00000MTC161405BF,,Cisco,Transceiver(slot:10-port:30)
+,,Module,,00000MTC1611074P,,Cisco,Transceiver(slot:10-port:31)
+,,Module,,00000MTC161109RN,,Cisco,Transceiver(slot:10-port:32)
+,,Module,,AGM142622S9     ,,Cisco,Transceiver(slot:10-port:33)
+,,Module,,AGM201541E4     ,,Cisco,Transceiver(slot:10-port:34)
+,,Module,,FNS12420M0T     ,,Cisco,Transceiver(slot:10-port:37)
+,,Module,,AGM182927AE     ,,Cisco,Transceiver(slot:10-port:38)
+,,Module,,AGM182927AJ     ,,Cisco,Transceiver(slot:10-port:39)
+,,Module,,AGM182927AF     ,,Cisco,Transceiver(slot:10-port:40)
+,,Module,,00000MTC161107SV,,Cisco,Transceiver(slot:10-port:41)
+,,Module,,00000MTC1611073B,,Cisco,Transceiver(slot:10-port:42)
+,,Module,,00000MTC16140592,,Cisco,Transceiver(slot:10-port:43)
+,,Module,,AGM18474DQK     ,,Cisco,Transceiver(slot:10-port:44)
+,,Module,,FNS0837H0FY     ,,Cisco,Transceiver(slot:10-port:45)
+,,Module,,AGM142622QX     ,,Cisco,Transceiver(slot:10-port:46)
+,,Module,,00000MTC141303T4,,Cisco,Transceiver(slot:10-port:47)
+AL-7000-02-PCI,10.101.100.201,Parent Switch,,,,Cisco,
+,,Module,,JAE191208KU,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE1915031M,,Cisco,Supervisor Module-2
+,,Module,,JAE1915032L,,Cisco,Supervisor Module-2
+,,Module,,JAE19100084,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE191208L7,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE191509AC,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAE191509D6,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAF1903ACEK,,Cisco,Fabric card module
+,,Module,,JAF1903ACGA,,Cisco,Fabric card module
+,,Module,,JAF1903ACKF,,Cisco,Fabric card module
+,,Module,,JAF1903ACFF,,Cisco,Fabric card module
+,,Module,,JAF1903ACFN,,Cisco,Fabric card module
+,,Module,,"""""",,Cisco,module-1 FwdEngine-1
+,,Module,,"""""",,Cisco,module-1 FwdEngine-2
+,,Module,,"""""",,Cisco,module-1 FwdEngine-3
+,,Module,,"""""",,Cisco,module-1 FwdEngine-4
+,,Module,,"""""",,Cisco,module-1 FwdEngine-5
+,,Module,,"""""",,Cisco,module-1 FwdEngine-6
+,,Module,,"""""",,Cisco,module-5 FwdEngine-1
+,,Module,,"""""",,Cisco,module-6 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-2
+,,Module,,"""""",,Cisco,module-7 FwdEngine-3
+,,Module,,"""""",,Cisco,module-7 FwdEngine-4
+,,Module,,"""""",,Cisco,module-7 FwdEngine-5
+,,Module,,"""""",,Cisco,module-7 FwdEngine-6
+,,Module,,"""""",,Cisco,module-8 FwdEngine-1
+,,Module,,"""""",,Cisco,module-8 FwdEngine-2
+,,Module,,"""""",,Cisco,module-8 FwdEngine-3
+,,Module,,"""""",,Cisco,module-8 FwdEngine-4
+,,Module,,"""""",,Cisco,module-8 FwdEngine-5
+,,Module,,"""""",,Cisco,module-8 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-1
+,,Module,,"""""",,Cisco,module-9 FwdEngine-2
+,,Module,,"""""",,Cisco,module-9 FwdEngine-3
+,,Module,,"""""",,Cisco,module-9 FwdEngine-4
+,,Module,,"""""",,Cisco,module-9 FwdEngine-5
+,,Module,,"""""",,Cisco,module-9 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-7
+,,Module,,"""""",,Cisco,module-9 FwdEngine-8
+,,Module,,"""""",,Cisco,module-9 FwdEngine-9
+,,Module,,"""""",,Cisco,module-9 FwdEngine-10
+,,Module,,"""""",,Cisco,module-9 FwdEngine-11
+,,Module,,"""""",,Cisco,module-9 FwdEngine-12
+,,Module,,"""""",,Cisco,module-10 FwdEngine-1
+,,Module,,"""""",,Cisco,module-10 FwdEngine-2
+,,Module,,"""""",,Cisco,module-10 FwdEngine-3
+,,Module,,"""""",,Cisco,module-10 FwdEngine-4
+,,Module,,"""""",,Cisco,module-10 FwdEngine-5
+,,Module,,"""""",,Cisco,module-10 FwdEngine-6
+,,Module,,"""""",,Cisco,module-10 FwdEngine-7
+,,Module,,"""""",,Cisco,module-10 FwdEngine-8
+,,Module,,"""""",,Cisco,module-10 FwdEngine-9
+,,Module,,"""""",,Cisco,module-10 FwdEngine-10
+,,Module,,"""""",,Cisco,module-10 FwdEngine-11
+,,Module,,"""""",,Cisco,module-10 FwdEngine-12
+,,Module,,MTC191101HG     ,,Cisco,Transceiver(slot:9-port:7)
+,,Module,,00000MTC141109B5,,Cisco,Transceiver(slot:9-port:8)
+,,Module,,00000MTC133904Z0,,Cisco,Transceiver(slot:9-port:11)
+,,Module,,AVC23222566     ,,Cisco,Transceiver(slot:9-port:21)
+,,Module,,00000MTC141303SV,,Cisco,Transceiver(slot:9-port:22)
+,,Module,,AGM2042464S     ,,Cisco,Transceiver(slot:9-port:23)
+,,Module,,MTC22380Q2J     ,,Cisco,Transceiver(slot:9-port:25)
+,,Module,,00000MTC141303R4,,Cisco,Transceiver(slot:9-port:26)
+,,Module,,AGM18212093     ,,Cisco,Transceiver(slot:9-port:27)
+,,Module,,AGM184749FH     ,,Cisco,Transceiver(slot:9-port:28)
+,,Module,,00000MTC141303RJ,,Cisco,Transceiver(slot:9-port:29)
+,,Module,,00000MTC141303CT,,Cisco,Transceiver(slot:9-port:30)
+,,Module,,AGM142622R9     ,,Cisco,Transceiver(slot:9-port:31)
+,,Module,,AGM18212290     ,,Cisco,Transceiver(slot:9-port:35)
+,,Module,,FNS14141W34     ,,Cisco,Transceiver(slot:9-port:39)
+,,Module,,FNS14141W31     ,,Cisco,Transceiver(slot:9-port:40)
+,,Module,,FNS14141W4L     ,,Cisco,Transceiver(slot:9-port:41)
+,,Module,,FNS14141W4F     ,,Cisco,Transceiver(slot:9-port:42)
+,,Module,,FNS14141W2X     ,,Cisco,Transceiver(slot:9-port:43)
+,,Module,,00000MTC133904VV,,Cisco,Transceiver(slot:9-port:45)
+,,Module,,00000MTC141303TT,,Cisco,Transceiver(slot:9-port:46)
+,,Module,,00000MTC141303TW,,Cisco,Transceiver(slot:9-port:47)
+,,Module,,AGM12481529     ,,Cisco,Transceiver(slot:9-port:48)
+,,Module,,MTC22380Q1N     ,,Cisco,Transceiver(slot:10-port:3)
+,,Module,,00000MTC141303RF,,Cisco,Transceiver(slot:10-port:7)
+,,Module,,MTC22380WQ9     ,,Cisco,Transceiver(slot:10-port:8)
+,,Module,,MTC22380Q12     ,,Cisco,Transceiver(slot:10-port:27)
+,,Module,,00000MTC1611070K,,Cisco,Transceiver(slot:10-port:28)
+,,Module,,AGM151125M9     ,,Cisco,Transceiver(slot:10-port:29)
+,,Module,,00000MTC161405BF,,Cisco,Transceiver(slot:10-port:30)
+,,Module,,00000MTC1611074P,,Cisco,Transceiver(slot:10-port:31)
+,,Module,,00000MTC161109RN,,Cisco,Transceiver(slot:10-port:32)
+,,Module,,AGM142622S9     ,,Cisco,Transceiver(slot:10-port:33)
+,,Module,,AGM201541E4     ,,Cisco,Transceiver(slot:10-port:34)
+,,Module,,FNS12420M0T     ,,Cisco,Transceiver(slot:10-port:37)
+,,Module,,AGM182927AE     ,,Cisco,Transceiver(slot:10-port:38)
+,,Module,,AGM182927AJ     ,,Cisco,Transceiver(slot:10-port:39)
+,,Module,,AGM182927AF     ,,Cisco,Transceiver(slot:10-port:40)
+,,Module,,00000MTC161107SV,,Cisco,Transceiver(slot:10-port:41)
+,,Module,,00000MTC1611073B,,Cisco,Transceiver(slot:10-port:42)
+,,Module,,00000MTC16140592,,Cisco,Transceiver(slot:10-port:43)
+,,Module,,AGM18474DQK     ,,Cisco,Transceiver(slot:10-port:44)
+,,Module,,FNS0837H0FY     ,,Cisco,Transceiver(slot:10-port:45)
+,,Module,,AGM142622QX     ,,Cisco,Transceiver(slot:10-port:46)
+,,Module,,00000MTC141303T4,,Cisco,Transceiver(slot:10-port:47)
+ALA-3130-Rack3-ENC3-A.dtc_phx.com,10.101.255.120,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-CBS3130X-S - Fixed Module 0
+,,Module,,FDO141815M2     ,,Cisco,TwinGig Converter Module
+,,Module,,FDO14181F25     ,,Cisco,TwinGig Converter Module
+ALA-3130-Rack3-ENC3-B.dtc_phx.com,10.101.255.121,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-CBS3130X-S - Fixed Module 0
+,,Module,,FDO14340BUE     ,,Cisco,TwinGig Converter Module
+,,Module,,FDO14340AJT     ,,Cisco,TwinGig Converter Module
+aladasa06a,10.101.255.35,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Lane 0 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 1 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 2 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 3 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 0 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 1 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 2 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 3 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 0 for Xcvr for Ethernet56
+,,Module,,"""""",,Cisco,Lane 1 for Xcvr for Ethernet56
+,,Module,,"""""",,Cisco,Lane 2 for Xcvr for Ethernet56
+,,Module,,"""""",,Cisco,Lane 3 for Xcvr for Ethernet56
+aladasa06b,10.101.255.36,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Lane 0 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 1 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 2 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 3 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 0 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 1 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 2 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 3 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 0 for Xcvr for Ethernet56
+,,Module,,"""""",,Cisco,Lane 1 for Xcvr for Ethernet56
+,,Module,,"""""",,Cisco,Lane 2 for Xcvr for Ethernet56
+,,Module,,"""""",,Cisco,Lane 3 for Xcvr for Ethernet56
+aladasa08a,10.101.255.37,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Lane 0 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 1 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 2 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 3 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 0 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 1 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 2 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 3 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 0 for Xcvr for Ethernet56
+,,Module,,"""""",,Cisco,Lane 1 for Xcvr for Ethernet56
+,,Module,,"""""",,Cisco,Lane 2 for Xcvr for Ethernet56
+,,Module,,"""""",,Cisco,Lane 3 for Xcvr for Ethernet56
+aladasa08b,10.101.255.38,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Lane 0 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 1 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 2 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 3 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 0 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 1 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 2 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 3 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 0 for Xcvr for Ethernet56
+,,Module,,"""""",,Cisco,Lane 1 for Xcvr for Ethernet56
+,,Module,,"""""",,Cisco,Lane 2 for Xcvr for Ethernet56
+,,Module,,"""""",,Cisco,Lane 3 for Xcvr for Ethernet56
+Alameda-IDFA-3750-Stack.dtc_phx.com,10.101.255.50,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C3750-48P - Fixed Module 0
+,,Module,,"""""",,Cisco,Switch 2 - WS-C3750-48P - Fixed Module 0
+Alameda-IDFA-VG224,10.101.14.21,Parent Switch,,,,Cisco,
+,,Module,,FOC12412W57,,Cisco,"vg224 Motherboard with 24FXS, 2 Fast Ethernet"
+,,Module,,FOC12412W57,,Cisco,on-board 24 port FXS voice interface
+Alameda-IDFB-3750-Stack.dtc_phx.com,10.101.255.60,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C3750-48P - Fixed Module 0
+Alameda-IDFB-VG224.trtc.com,10.101.14.22,Parent Switch,,,,Cisco,
+,,Module,,FOC133454KB,,Cisco,"vg224 Motherboard with 24FXS, 2 Fast Ethernet"
+,,Module,,"""""",,Cisco,Unknown
+,,Module,,FOC133454KB,,Cisco,on-board 24 port FXS voice interface
+Alameda-IDFC-3750-Stack.dtc_phx.com,10.101.255.70,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C3750-48P - Fixed Module 0
+,,Module,,"""""",,Cisco,Switch 2 - WS-C3750-48P - Fixed Module 0
+,,Module,,"""""",,Cisco,Switch 3 - WS-C3750-48P - Fixed Module 0
+,,Module,,"""""",,Cisco,Switch 4 - WS-C3750-48P - Fixed Module 0
+Alameda-IDFC-VG224,10.101.14.23,Parent Switch,,,,Cisco,
+,,Module,,FOC12412W3K,,Cisco,"vg224 Motherboard with 24FXS, 2 Fast Ethernet"
+,,Module,,"""""",,Cisco,Unknown
+,,Module,,FOC12412W3K,,Cisco,on-board 24 port FXS voice interface
+Alameda-IDFD-3750-Stack.dtc_phx.com,10.101.255.80,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C3750-48P - Fixed Module 0
+Alameda-IDFD-VG224,10.101.14.24,Parent Switch,,,,Cisco,
+,,Module,,FOC12412WEJ,,Cisco,"vg224 Motherboard with 24FXS, 2 Fast Ethernet"
+,,Module,,FOC12412WEJ,,Cisco,on-board 24 port FXS voice interface
+Alameda-IDFE-3750-Stack.dtc_phx.com,10.101.255.90,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C3750V2-48PS - Fixed Module 0
+,,Module,,"""""",,Cisco,Switch 2 - WS-C3750V2-48PS - Fixed Module 0
+,,Module,,"""""",,Cisco,Switch 3 - WS-C3750V2-48PS - Fixed Module 0
+Alameda-IDFE-VG224,10.101.14.25,Parent Switch,,,,Cisco,
+,,Module,,FOC12412WB4,,Cisco,"vg224 Motherboard with 24FXS, 2 Fast Ethernet"
+,,Module,,FOC12412WB4,,Cisco,on-board 24 port FXS voice interface
+Alameda-MDF-VG224,10.101.14.26,Parent Switch,,,,Cisco,
+,,Module,,FOC14473GYZ,,Cisco,"vg224 Motherboard with 24FXS, 2 Fast Ethernet"
+,,Module,,FOC14473GYZ,,Cisco,on-board 24 port FXS voice interface
+Alameda-Rack3-3750-Stack,10.101.255.101,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C3750G-48TS - Fixed Module 0
+,,Module,,"""""",,Cisco,Switch 2 - WS-C3750G-48TS - Fixed Module 0
+Alameda-Rack4-3750-A.dtc_phx.com,10.101.255.103,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C3750G-48TS - Fixed Module 0
+Alameda-Rack4-3750-Stack.dtc_phx.com,10.101.255.102,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 2 - WS-C3750G-48TS - Fixed Module 0
+Alameda-Rack5-3750-Stack.dtc_phx.com,10.101.255.105,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 2 - WS-C3750G-48TS - Fixed Module 0
+AL-MPLS-R1.dtc_phx.com,10.101.100.106,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Cisco C8300-1N1S-4T2X Built-In NIM controller
+,,Module,,"""""",,Cisco,Cisco C8300-1N1S-4T2X Built-In SM controller
+,,Module,,FDO27410DQF,,Cisco,Cisco C8300-1N1S-4T2X Route Processor
+,,Module,,"""""",,Cisco,Cisco C8300-1N1S-4T2X Forwarding Processor
+AL-Rack2-2960-01.dtc_phx.com,10.101.255.29,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,WS-C2960-48TT-L - Fixed Module 0
+Asset-SW8-2960.trtc.com,10.101.108.17,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,WS-C2960S-48TS-S - Fixed Module 0
+CFG_03_SW.trtc.com,10.101.255.124,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,WS-C2960S-24TS-S - Fixed Module 0
+CFG_04_SW.dtc_phx.com,10.101.108.21,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C3750G-48TS - Fixed Module 0
+cordaso12a,10.0.255.115,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Lane 0 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 1 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 2 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 3 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 0 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 1 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 2 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 3 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 0 for Xcvr for Ethernet56
+,,Module,,"""""",,Cisco,Lane 1 for Xcvr for Ethernet56
+,,Module,,"""""",,Cisco,Lane 2 for Xcvr for Ethernet56
+,,Module,,"""""",,Cisco,Lane 3 for Xcvr for Ethernet56
+cordaso12b,10.0.255.116,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Lane 0 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 1 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 2 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 3 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 0 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 1 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 2 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 3 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 0 for Xcvr for Ethernet56
+,,Module,,"""""",,Cisco,Lane 1 for Xcvr for Ethernet56
+,,Module,,"""""",,Cisco,Lane 2 for Xcvr for Ethernet56
+,,Module,,"""""",,Cisco,Lane 3 for Xcvr for Ethernet56
+cordasq12a,10.0.255.117,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Lane 0 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 1 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 2 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 3 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 0 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 1 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 2 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 3 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 0 for Xcvr for Ethernet56
+,,Module,,"""""",,Cisco,Lane 1 for Xcvr for Ethernet56
+,,Module,,"""""",,Cisco,Lane 2 for Xcvr for Ethernet56
+,,Module,,"""""",,Cisco,Lane 3 for Xcvr for Ethernet56
+cordasq12b,10.0.255.118,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Lane 0 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 1 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 2 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 3 for Xcvr for Ethernet53
+,,Module,,"""""",,Cisco,Lane 0 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 1 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 2 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 3 for Xcvr for Ethernet55
+,,Module,,"""""",,Cisco,Lane 0 for Xcvr for Ethernet56
+,,Module,,"""""",,Cisco,Lane 1 for Xcvr for Ethernet56
+,,Module,,"""""",,Cisco,Lane 2 for Xcvr for Ethernet56
+,,Module,,"""""",,Cisco,Lane 3 for Xcvr for Ethernet56
+EQX-CldTrst-8500-01,10.44.158.41,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Cisco C8500-12X Modular Interface Processor
+,,Module,,JAE25230UM7,,Cisco,Cisco C8500-12X Route Processor
+,,Module,,"""""",,Cisco,Cisco C8500-12X Embedded Services Processor
+EQX-CldTrst-8500-02,10.44.158.42,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Cisco C8500-12X Modular Interface Processor
+,,Module,,JAE25230UM5,,Cisco,Cisco C8500-12X Route Processor
+,,Module,,"""""",,Cisco,Cisco C8500-12X Embedded Services Processor
+EQX-EdgeDIA-8300-01,10.44.158.51,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Cisco C8300-2N2S-4T2X Built-In NIM controller
+,,Module,,FDO2523055D,,Cisco,NIM Ten Gigabitethernet Module
+,,Module,,"""""",,Cisco,Cisco C8300-2N2S-4T2X Built-In SM controller
+,,Module,,"""""",,Cisco,Cisco C8300-2N2S-4T2X Built-In SM controller
+,,Module,,FDO25250DEH,,Cisco,Cisco C8300-2N2S-4T2X Route Processor
+,,Module,,"""""",,Cisco,Cisco C8300-2N2S-4T2X Forwarding Processor
+EQX-EdgeDIA-8300-02,10.44.158.52,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Cisco C8300-2N2S-4T2X Built-In NIM controller
+,,Module,,FDO25280CUV,,Cisco,NIM Ten Gigabitethernet Module
+,,Module,,"""""",,Cisco,Cisco C8300-2N2S-4T2X Built-In SM controller
+,,Module,,"""""",,Cisco,Cisco C8300-2N2S-4T2X Built-In SM controller
+,,Module,,FDO2522110J,,Cisco,Cisco C8300-2N2S-4T2X Route Processor
+,,Module,,"""""",,Cisco,Cisco C8300-2N2S-4T2X Forwarding Processor
+EQX-EXT-93180-01,10.44.158.11,Parent Switch,,,,Cisco,
+,,Module,,FDO25240WAU,,Cisco,24x10/25G/32G + 6x40/100G Ethernet/FC Module
+,,Module,,"""""",,Cisco,Module-1 Forwarding Engine-1
+,,Module,,MTC1911003G     ,,Cisco,Transceiver(slot:1-port:45)
+,,Module,,MTC191102AH     ,,Cisco,Transceiver(slot:1-port:46)
+,,Module,,FNS13290SFB     ,,Cisco,Transceiver(slot:1-port:47)
+,,Module,,00000MTC16110725,,Cisco,Transceiver(slot:1-port:48)
+EQX-EXT-93180-02,10.44.158.12,Parent Switch,,,,Cisco,
+,,Module,,FDO25240WAV,,Cisco,24x10/25G/32G + 6x40/100G Ethernet/FC Module
+,,Module,,"""""",,Cisco,Module-1 Forwarding Engine-1
+,,Module,,MTC19110299     ,,Cisco,Transceiver(slot:1-port:45)
+,,Module,,FNS13290R8Q     ,,Cisco,Transceiver(slot:1-port:47)
+,,Module,,00000MTC1339025P,,Cisco,Transceiver(slot:1-port:48)
+EQX-INT-93180-01,10.44.158.21,Parent Switch,,,,Cisco,
+,,Module,,FDO25240WCG,,Cisco,24x10/25G/32G + 6x40/100G Ethernet/FC Module
+,,Module,,"""""",,Cisco,Module-1 Forwarding Engine-1
+,,Module,,00000MTC134003WX,,Cisco,Transceiver(slot:1-port:24)
+,,Module,,00000MTC161107LF,,Cisco,Transceiver(slot:1-port:25)
+,,Module,,00000MTC134003HK,,Cisco,Transceiver(slot:1-port:33)
+,,Module,,00000MTC134001XR,,Cisco,Transceiver(slot:1-port:34)
+,,Module,,00000MTC13390538,,Cisco,Transceiver(slot:1-port:35)
+,,Module,,00000MTC134004H4,,Cisco,Transceiver(slot:1-port:36)
+,,Module,,00000MTC13400548,,Cisco,Transceiver(slot:1-port:37)
+,,Module,,00000MTC16140598,,Cisco,Transceiver(slot:1-port:38)
+,,Module,,AGM18212122     ,,Cisco,Transceiver(slot:1-port:39)
+,,Module,,AGM18212291     ,,Cisco,Transceiver(slot:1-port:40)
+,,Module,,AGM18474DSG     ,,Cisco,Transceiver(slot:1-port:43)
+,,Module,,AGM18474FJV     ,,Cisco,Transceiver(slot:1-port:44)
+,,Module,,00000MTC1340051C,,Cisco,Transceiver(slot:1-port:48)
+EQX-INT-93180-02,10.44.158.22,Parent Switch,,,,Cisco,
+,,Module,,FDO25240WBE,,Cisco,24x10/25G/32G + 6x40/100G Ethernet/FC Module
+,,Module,,"""""",,Cisco,Module-1 Forwarding Engine-1
+,,Module,,00000MTC134004F4,,Cisco,Transceiver(slot:1-port:24)
+,,Module,,MTC22380VM3     ,,Cisco,Transceiver(slot:1-port:25)
+,,Module,,00000MTC134003JF,,Cisco,Transceiver(slot:1-port:33)
+,,Module,,00000MTC134004UT,,Cisco,Transceiver(slot:1-port:34)
+,,Module,,00000MTC134001W8,,Cisco,Transceiver(slot:1-port:35)
+,,Module,,00000MTC1611076U,,Cisco,Transceiver(slot:1-port:36)
+,,Module,,00000MTC134002E9,,Cisco,Transceiver(slot:1-port:37)
+,,Module,,00000MTC1340058Y,,Cisco,Transceiver(slot:1-port:38)
+,,Module,,AGM181924XH     ,,Cisco,Transceiver(slot:1-port:43)
+,,Module,,AGM1821208N     ,,Cisco,Transceiver(slot:1-port:44)
+,,Module,,00000MTC134001YJ,,Cisco,Transceiver(slot:1-port:48)
+EQX-MPLS-8300-01,10.44.158.61,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Cisco C8300-2N2S-4T2X Built-In NIM controller
+,,Module,,FDO2523054G,,Cisco,NIM Ten Gigabitethernet Module
+,,Module,,FOC19416A4L,,Cisco,NIM-1MFT-T1/E1 - T1/E1 Serial Module
+,,Module,,"""""",,Cisco,Cisco C8300-2N2S-4T2X Built-In SM controller
+,,Module,,"""""",,Cisco,Cisco C8300-2N2S-4T2X Built-In SM controller
+,,Module,,FDO25250DD8,,Cisco,Cisco C8300-2N2S-4T2X Route Processor
+,,Module,,"""""",,Cisco,Cisco C8300-2N2S-4T2X Forwarding Processor
+EQX-MPLS-8300-02,10.44.158.62,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Cisco C8300-2N2S-4T2X Built-In NIM controller
+,,Module,,FDO25280CUL,,Cisco,NIM Ten Gigabitethernet Module
+,,Module,,FOC19431F3G,,Cisco,NIM-1MFT-T1/E1 - T1/E1 Serial Module
+,,Module,,"""""",,Cisco,Cisco C8300-2N2S-4T2X Built-In SM controller
+,,Module,,"""""",,Cisco,Cisco C8300-2N2S-4T2X Built-In SM controller
+,,Module,,FDO25250DDX,,Cisco,Cisco C8300-2N2S-4T2X Route Processor
+,,Module,,"""""",,Cisco,Cisco C8300-2N2S-4T2X Forwarding Processor
+Floater-2960-48-QA2.dtc_phx.com,10.41.3.33,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,WS-C2960-48TT-L - Fixed Module 0
+FW-9300-01,192.168.255.12,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - C9300-24T - Fixed Module 0
+,,Module,,FJZ2804MCTC,,Cisco,8x10G Uplink Module
+FW-9300-02,192.168.255.13,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - C9300-24T - Fixed Module 0
+,,Module,,FJZ28040RHQ,,Cisco,8x10G Uplink Module
+FW-9400-01,192.168.255.12,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - C9300-24T - Fixed Module 0
+,,Module,,FJZ2804MCTC,,Cisco,8x10G Uplink Module
+FW-9400-02,192.168.255.13,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - C9300-24T - Fixed Module 0
+,,Module,,FJZ28040RHQ,,Cisco,8x10G Uplink Module
+HQ-56128P-01,10.0.255.111,Parent Switch,,,,Cisco,
+,,Module,,FOC22110X9M,,Cisco,Nexus 56128P Supervisor in Fixed Module-1
+,,Module,SFP,FOC18394S23,,Cisco,24 ports 10GE SFP+ and 2xQSFP ports Ethernet Module
+,,Module,SFP,FOC20210ELJ,,Cisco,24 ports 10GE SFP+ and 2xQSFP ports Ethernet Module
+,,Module,N2K-C2232PP-10GE,FOC19110T4L,,Cisco,"Fex-105 Fabric Extender Module: 32x10GE, 8x10GE in FixedModule-1"
+,,Module,N2K-C2232PP-10GE,FOC191071L0,,Cisco,"Fex-106 Fabric Extender Module: 32x10GE, 8x10GE in FixedModule-1"
+,,Module,N2K-C2232PP-10GE,FOC19106XP6,,Cisco,"Fex-107 Fabric Extender Module: 32x10GE, 8x10GE in FixedModule-1"
+,,Module,N2K-C2232PP-10GE,FOC19110T51,,Cisco,"Fex-108 Fabric Extender Module: 32x10GE, 8x10GE in FixedModule-1"
+,,Module,N2K-C2232PP-10GE,FOC19110RYM,,Cisco,"Fex-109 Fabric Extender Module: 32x10GE, 8x10GE in FixedModule-1"
+,,Module,N2K-C2232PP-10GE,FOC19110RZJ,,Cisco,"Fex-110 Fabric Extender Module: 32x10GE, 8x10GE in FixedModule-1"
+,,Module,N2K-C2232PP-10GE,FOC18275F2H,,Cisco,"Fex-111 Fabric Extender Module: 32x10GE, 8x10GE in FixedModule-1"
+,,Module,N2K-C2232PP-10GE,FOC18275F8J,,Cisco,"Fex-112 Fabric Extender Module: 32x10GE, 8x10GE in FixedModule-1"
+,,Module,N2K-C2248TP-1GE,JAF1416DDHJ,,Cisco,"Fex-113 Fabric Extender Module: 48x1GE, 4x10GE in FixedModule-1"
+,,Module,N2K-C2248TP-1GE,JAF1416BLLC,,Cisco,"Fex-114 Fabric Extender Module: 48x1GE, 4x10GE in FixedModule-1"
+,,Module,,FOC16470GM1,,Cisco,"Fex-120 Fabric Extender Module: 16x10GE, 8x10GE in FixedModule-1"
+,,Module,,FOC16520U1R,,Cisco,"Fex-121 Fabric Extender Module: 16x10GE, 8x10GE in FixedModule-1"
+,,Module,,FOC16454DF7,,Cisco,"Fex-122 Fabric Extender Module: 16x10GE, 8x10GE in FixedModule-1"
+,,Module,N2K-C2232PP-10GE,FOC18275F81,,Cisco,"Fex-123 Fabric Extender Module: 32x10GE, 8x10GE in FixedModule-1"
+,,Module,N2K-C2232PP-10GE,FOC18275F9U,,Cisco,"Fex-124 Fabric Extender Module: 32x10GE, 8x10GE in FixedModule-1"
+,,Module,,FOC174624GD,,Cisco,"Fex-125 Fabric Extender Module: 16x10GE, 8x10GE in FixedModule-1"
+HQ-56128P-02,10.0.255.112,Parent Switch,,,,Cisco,
+,,Module,,FOC18303653,,Cisco,Nexus 56128P Supervisor in Fixed Module-1
+,,Module,SFP,FOC182778Q6,,Cisco,24 ports 10GE SFP+ and 2xQSFP ports Ethernet Module
+,,Module,SFP,FOC183211E5,,Cisco,24 ports 10GE SFP+ and 2xQSFP ports Ethernet Module
+,,Module,N2K-C2232PP-10GE,FOC19110T4L,,Cisco,"Fex-105 Fabric Extender Module: 32x10GE, 8x10GE in FixedModule-1"
+,,Module,N2K-C2232PP-10GE,FOC191071L0,,Cisco,"Fex-106 Fabric Extender Module: 32x10GE, 8x10GE in FixedModule-1"
+,,Module,N2K-C2232PP-10GE,FOC19106XP6,,Cisco,"Fex-107 Fabric Extender Module: 32x10GE, 8x10GE in FixedModule-1"
+,,Module,N2K-C2232PP-10GE,FOC19110T51,,Cisco,"Fex-108 Fabric Extender Module: 32x10GE, 8x10GE in FixedModule-1"
+,,Module,N2K-C2232PP-10GE,FOC19110RYM,,Cisco,"Fex-109 Fabric Extender Module: 32x10GE, 8x10GE in FixedModule-1"
+,,Module,N2K-C2232PP-10GE,FOC19110RZJ,,Cisco,"Fex-110 Fabric Extender Module: 32x10GE, 8x10GE in FixedModule-1"
+,,Module,N2K-C2232PP-10GE,FOC18275F2H,,Cisco,"Fex-111 Fabric Extender Module: 32x10GE, 8x10GE in FixedModule-1"
+,,Module,N2K-C2232PP-10GE,FOC18275F8J,,Cisco,"Fex-112 Fabric Extender Module: 32x10GE, 8x10GE in FixedModule-1"
+,,Module,N2K-C2248TP-1GE,JAF1416DDHJ,,Cisco,"Fex-113 Fabric Extender Module: 48x1GE, 4x10GE in FixedModule-1"
+,,Module,N2K-C2248TP-1GE,JAF1416BLLC,,Cisco,"Fex-114 Fabric Extender Module: 48x1GE, 4x10GE in FixedModule-1"
+,,Module,,FOC16470GM1,,Cisco,"Fex-120 Fabric Extender Module: 16x10GE, 8x10GE in FixedModule-1"
+,,Module,,FOC16520U1R,,Cisco,"Fex-121 Fabric Extender Module: 16x10GE, 8x10GE in FixedModule-1"
+,,Module,,FOC16454DF7,,Cisco,"Fex-122 Fabric Extender Module: 16x10GE, 8x10GE in FixedModule-1"
+,,Module,N2K-C2232PP-10GE,FOC18275F81,,Cisco,"Fex-123 Fabric Extender Module: 32x10GE, 8x10GE in FixedModule-1"
+,,Module,N2K-C2232PP-10GE,FOC18275F9U,,Cisco,"Fex-124 Fabric Extender Module: 32x10GE, 8x10GE in FixedModule-1"
+,,Module,,FOC174624GD,,Cisco,"Fex-125 Fabric Extender Module: 16x10GE, 8x10GE in FixedModule-1"
+HQ-7000-01-ADMIN,10.0.145.123,Parent Switch,,,,Cisco,
+,,Module,,JAE191207AK,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAF1825AQAN,,Cisco,Supervisor Module-2
+,,Module,,JAF1827ARNH,,Cisco,Supervisor Module-2
+,,Module,,JAE184905NJ,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE182305KD,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAF1827AHFJ,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAF1827AHET,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAF1828ANTQ,,Cisco,Fabric card module
+,,Module,,JAF1812ALPP,,Cisco,Fabric card module
+,,Module,,JAF1828ANTN,,Cisco,Fabric card module
+,,Module,,JAF1828ANPG,,Cisco,Fabric card module
+,,Module,,JAF1828ANRL,,Cisco,Fabric card module
+,,Module,,"""""",,Cisco,module-1 FwdEngine-1
+,,Module,,"""""",,Cisco,module-1 FwdEngine-2
+,,Module,,"""""",,Cisco,module-1 FwdEngine-3
+,,Module,,"""""",,Cisco,module-1 FwdEngine-4
+,,Module,,"""""",,Cisco,module-1 FwdEngine-5
+,,Module,,"""""",,Cisco,module-1 FwdEngine-6
+,,Module,,"""""",,Cisco,module-5 FwdEngine-1
+,,Module,,"""""",,Cisco,module-6 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-2
+,,Module,,"""""",,Cisco,module-7 FwdEngine-3
+,,Module,,"""""",,Cisco,module-7 FwdEngine-4
+,,Module,,"""""",,Cisco,module-7 FwdEngine-5
+,,Module,,"""""",,Cisco,module-7 FwdEngine-6
+,,Module,,"""""",,Cisco,module-8 FwdEngine-1
+,,Module,,"""""",,Cisco,module-8 FwdEngine-2
+,,Module,,"""""",,Cisco,module-8 FwdEngine-3
+,,Module,,"""""",,Cisco,module-8 FwdEngine-4
+,,Module,,"""""",,Cisco,module-8 FwdEngine-5
+,,Module,,"""""",,Cisco,module-8 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-1
+,,Module,,"""""",,Cisco,module-9 FwdEngine-2
+,,Module,,"""""",,Cisco,module-9 FwdEngine-3
+,,Module,,"""""",,Cisco,module-9 FwdEngine-4
+,,Module,,"""""",,Cisco,module-9 FwdEngine-5
+,,Module,,"""""",,Cisco,module-9 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-7
+,,Module,,"""""",,Cisco,module-9 FwdEngine-8
+,,Module,,"""""",,Cisco,module-9 FwdEngine-9
+,,Module,,"""""",,Cisco,module-9 FwdEngine-10
+,,Module,,"""""",,Cisco,module-9 FwdEngine-11
+,,Module,,"""""",,Cisco,module-9 FwdEngine-12
+,,Module,,"""""",,Cisco,module-10 FwdEngine-1
+,,Module,,"""""",,Cisco,module-10 FwdEngine-2
+,,Module,,"""""",,Cisco,module-10 FwdEngine-3
+,,Module,,"""""",,Cisco,module-10 FwdEngine-4
+,,Module,,"""""",,Cisco,module-10 FwdEngine-5
+,,Module,,"""""",,Cisco,module-10 FwdEngine-6
+,,Module,,"""""",,Cisco,module-10 FwdEngine-7
+,,Module,,"""""",,Cisco,module-10 FwdEngine-8
+,,Module,,"""""",,Cisco,module-10 FwdEngine-9
+,,Module,,"""""",,Cisco,module-10 FwdEngine-10
+,,Module,,"""""",,Cisco,module-10 FwdEngine-11
+,,Module,,"""""",,Cisco,module-10 FwdEngine-12
+,,Module,,00000MTC14130357,,Cisco,Transceiver(slot:9-port:7)
+,,Module,,MTC191102S1     ,,Cisco,Transceiver(slot:9-port:8)
+,,Module,,AVC232221GQ     ,,Cisco,Transceiver(slot:9-port:11)
+,,Module,,MTC1911037L     ,,Cisco,Transceiver(slot:9-port:13)
+,,Module,,OPM21310Q7G     ,,Cisco,Transceiver(slot:9-port:14)
+,,Module,,AGM161220VP     ,,Cisco,Transceiver(slot:9-port:21)
+,,Module,,00000MTC141303U6,,Cisco,Transceiver(slot:9-port:22)
+,,Module,,FNS111805ZR     ,,Cisco,Transceiver(slot:9-port:32)
+,,Module,,00000MTC134004NM,,Cisco,Transceiver(slot:9-port:33)
+,,Module,,00000MTC134004HA,,Cisco,Transceiver(slot:9-port:34)
+,,Module,,00000MTC134004RT,,Cisco,Transceiver(slot:9-port:35)
+,,Module,,00000MTC134001XF,,Cisco,Transceiver(slot:9-port:36)
+,,Module,,00000MTC141108W6,,Cisco,Transceiver(slot:9-port:37)
+,,Module,,00000MTC134004KL,,Cisco,Transceiver(slot:9-port:38)
+,,Module,,00000MTC134003YQ,,Cisco,Transceiver(slot:9-port:39)
+,,Module,,AGM142622T3     ,,Cisco,Transceiver(slot:9-port:40)
+,,Module,,AGM201540LN     ,,Cisco,Transceiver(slot:9-port:41)
+,,Module,,AGM201540L9     ,,Cisco,Transceiver(slot:9-port:42)
+,,Module,,00000MTC134004ZQ,,Cisco,Transceiver(slot:9-port:43)
+,,Module,,00000MTC133904X2,,Cisco,Transceiver(slot:9-port:44)
+,,Module,,00000MTC1339021E,,Cisco,Transceiver(slot:9-port:45)
+,,Module,,00000MTC133901WL,,Cisco,Transceiver(slot:9-port:46)
+,,Module,,00000MTC134003HU,,Cisco,Transceiver(slot:9-port:47)
+,,Module,,MTC132800ZX     ,,Cisco,Transceiver(slot:9-port:48)
+,,Module,,00000MTC134004FF,,Cisco,Transceiver(slot:10-port:13)
+,,Module,,00000MTC141000MV,,Cisco,Transceiver(slot:10-port:14)
+,,Module,,00000MTC133902M6,,Cisco,Transceiver(slot:10-port:15)
+,,Module,,00000MTC141000N0,,Cisco,Transceiver(slot:10-port:16)
+,,Module,,00000MTC1340040D,,Cisco,Transceiver(slot:10-port:24)
+,,Module,,AGM142623CW     ,,Cisco,Transceiver(slot:10-port:32)
+,,Module,,AGM1821211W     ,,Cisco,Transceiver(slot:10-port:33)
+,,Module,,AGM2042464V     ,,Cisco,Transceiver(slot:10-port:34)
+,,Module,,AGM20424650     ,,Cisco,Transceiver(slot:10-port:35)
+,,Module,,AGM18292723     ,,Cisco,Transceiver(slot:10-port:36)
+,,Module,,00000MTC1340040H,,Cisco,Transceiver(slot:10-port:37)
+,,Module,,AGM20424651     ,,Cisco,Transceiver(slot:10-port:38)
+,,Module,,00000MTC161405JL,,Cisco,Transceiver(slot:10-port:39)
+,,Module,,AGM1821209G     ,,Cisco,Transceiver(slot:10-port:40)
+,,Module,,00000MTC134004T4,,Cisco,Transceiver(slot:10-port:41)
+,,Module,,MTC22430BQK     ,,Cisco,Transceiver(slot:10-port:42)
+,,Module,,MTC223806M0     ,,Cisco,Transceiver(slot:10-port:43)
+HQ-7000-01-CORE.dtc_phx.com,10.0.100.194,Parent Switch,,,,Cisco,
+,,Module,,JAE191207AK,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAF1825AQAN,,Cisco,Supervisor Module-2
+,,Module,,JAF1827ARNH,,Cisco,Supervisor Module-2
+,,Module,,JAE184905NJ,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE182305KD,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAF1827AHFJ,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAF1827AHET,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAF1828ANTQ,,Cisco,Fabric card module
+,,Module,,JAF1812ALPP,,Cisco,Fabric card module
+,,Module,,JAF1828ANTN,,Cisco,Fabric card module
+,,Module,,JAF1828ANPG,,Cisco,Fabric card module
+,,Module,,JAF1828ANRL,,Cisco,Fabric card module
+,,Module,,"""""",,Cisco,module-1 FwdEngine-1
+,,Module,,"""""",,Cisco,module-1 FwdEngine-2
+,,Module,,"""""",,Cisco,module-1 FwdEngine-3
+,,Module,,"""""",,Cisco,module-1 FwdEngine-4
+,,Module,,"""""",,Cisco,module-1 FwdEngine-5
+,,Module,,"""""",,Cisco,module-1 FwdEngine-6
+,,Module,,"""""",,Cisco,module-5 FwdEngine-1
+,,Module,,"""""",,Cisco,module-6 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-2
+,,Module,,"""""",,Cisco,module-7 FwdEngine-3
+,,Module,,"""""",,Cisco,module-7 FwdEngine-4
+,,Module,,"""""",,Cisco,module-7 FwdEngine-5
+,,Module,,"""""",,Cisco,module-7 FwdEngine-6
+,,Module,,"""""",,Cisco,module-8 FwdEngine-1
+,,Module,,"""""",,Cisco,module-8 FwdEngine-2
+,,Module,,"""""",,Cisco,module-8 FwdEngine-3
+,,Module,,"""""",,Cisco,module-8 FwdEngine-4
+,,Module,,"""""",,Cisco,module-8 FwdEngine-5
+,,Module,,"""""",,Cisco,module-8 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-1
+,,Module,,"""""",,Cisco,module-9 FwdEngine-2
+,,Module,,"""""",,Cisco,module-9 FwdEngine-3
+,,Module,,"""""",,Cisco,module-9 FwdEngine-4
+,,Module,,"""""",,Cisco,module-9 FwdEngine-5
+,,Module,,"""""",,Cisco,module-9 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-7
+,,Module,,"""""",,Cisco,module-9 FwdEngine-8
+,,Module,,"""""",,Cisco,module-9 FwdEngine-9
+,,Module,,"""""",,Cisco,module-9 FwdEngine-10
+,,Module,,"""""",,Cisco,module-9 FwdEngine-11
+,,Module,,"""""",,Cisco,module-9 FwdEngine-12
+,,Module,,"""""",,Cisco,module-10 FwdEngine-1
+,,Module,,"""""",,Cisco,module-10 FwdEngine-2
+,,Module,,"""""",,Cisco,module-10 FwdEngine-3
+,,Module,,"""""",,Cisco,module-10 FwdEngine-4
+,,Module,,"""""",,Cisco,module-10 FwdEngine-5
+,,Module,,"""""",,Cisco,module-10 FwdEngine-6
+,,Module,,"""""",,Cisco,module-10 FwdEngine-7
+,,Module,,"""""",,Cisco,module-10 FwdEngine-8
+,,Module,,"""""",,Cisco,module-10 FwdEngine-9
+,,Module,,"""""",,Cisco,module-10 FwdEngine-10
+,,Module,,"""""",,Cisco,module-10 FwdEngine-11
+,,Module,,"""""",,Cisco,module-10 FwdEngine-12
+,,Module,,00000MTC14130357,,Cisco,Transceiver(slot:9-port:7)
+,,Module,,MTC191102S1     ,,Cisco,Transceiver(slot:9-port:8)
+,,Module,,AVC232221GQ     ,,Cisco,Transceiver(slot:9-port:11)
+,,Module,,MTC1911037L     ,,Cisco,Transceiver(slot:9-port:13)
+,,Module,,OPM21310Q7G     ,,Cisco,Transceiver(slot:9-port:14)
+,,Module,,AGM161220VP     ,,Cisco,Transceiver(slot:9-port:21)
+,,Module,,00000MTC141303U6,,Cisco,Transceiver(slot:9-port:22)
+,,Module,,FNS111805ZR     ,,Cisco,Transceiver(slot:9-port:32)
+,,Module,,00000MTC134004NM,,Cisco,Transceiver(slot:9-port:33)
+,,Module,,00000MTC134004HA,,Cisco,Transceiver(slot:9-port:34)
+,,Module,,00000MTC134004RT,,Cisco,Transceiver(slot:9-port:35)
+,,Module,,00000MTC134001XF,,Cisco,Transceiver(slot:9-port:36)
+,,Module,,00000MTC141108W6,,Cisco,Transceiver(slot:9-port:37)
+,,Module,,00000MTC134004KL,,Cisco,Transceiver(slot:9-port:38)
+,,Module,,00000MTC134003YQ,,Cisco,Transceiver(slot:9-port:39)
+,,Module,,AGM142622T3     ,,Cisco,Transceiver(slot:9-port:40)
+,,Module,,AGM201540LN     ,,Cisco,Transceiver(slot:9-port:41)
+,,Module,,AGM201540L9     ,,Cisco,Transceiver(slot:9-port:42)
+,,Module,,00000MTC134004ZQ,,Cisco,Transceiver(slot:9-port:43)
+,,Module,,00000MTC133904X2,,Cisco,Transceiver(slot:9-port:44)
+,,Module,,00000MTC1339021E,,Cisco,Transceiver(slot:9-port:45)
+,,Module,,00000MTC133901WL,,Cisco,Transceiver(slot:9-port:46)
+,,Module,,00000MTC134003HU,,Cisco,Transceiver(slot:9-port:47)
+,,Module,,MTC132800ZX     ,,Cisco,Transceiver(slot:9-port:48)
+,,Module,,00000MTC134004FF,,Cisco,Transceiver(slot:10-port:13)
+,,Module,,00000MTC141000MV,,Cisco,Transceiver(slot:10-port:14)
+,,Module,,00000MTC133902M6,,Cisco,Transceiver(slot:10-port:15)
+,,Module,,00000MTC141000N0,,Cisco,Transceiver(slot:10-port:16)
+,,Module,,00000MTC1340040D,,Cisco,Transceiver(slot:10-port:24)
+,,Module,,AGM142623CW     ,,Cisco,Transceiver(slot:10-port:32)
+,,Module,,AGM1821211W     ,,Cisco,Transceiver(slot:10-port:33)
+,,Module,,AGM2042464V     ,,Cisco,Transceiver(slot:10-port:34)
+,,Module,,AGM20424650     ,,Cisco,Transceiver(slot:10-port:35)
+,,Module,,AGM18292723     ,,Cisco,Transceiver(slot:10-port:36)
+,,Module,,00000MTC1340040H,,Cisco,Transceiver(slot:10-port:37)
+,,Module,,AGM20424651     ,,Cisco,Transceiver(slot:10-port:38)
+,,Module,,00000MTC161405JL,,Cisco,Transceiver(slot:10-port:39)
+,,Module,,AGM1821209G     ,,Cisco,Transceiver(slot:10-port:40)
+,,Module,,00000MTC134004T4,,Cisco,Transceiver(slot:10-port:41)
+,,Module,,MTC22430BQK     ,,Cisco,Transceiver(slot:10-port:42)
+,,Module,,MTC223806M0     ,,Cisco,Transceiver(slot:10-port:43)
+HQ-7000-01-EDGE,10.0.145.2,Parent Switch,,,,Cisco,
+,,Module,,JAE191207AK,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAF1825AQAN,,Cisco,Supervisor Module-2
+,,Module,,JAF1827ARNH,,Cisco,Supervisor Module-2
+,,Module,,JAE184905NJ,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE182305KD,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAF1827AHFJ,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAF1827AHET,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAF1828ANTQ,,Cisco,Fabric card module
+,,Module,,JAF1812ALPP,,Cisco,Fabric card module
+,,Module,,JAF1828ANTN,,Cisco,Fabric card module
+,,Module,,JAF1828ANPG,,Cisco,Fabric card module
+,,Module,,JAF1828ANRL,,Cisco,Fabric card module
+,,Module,,"""""",,Cisco,module-1 FwdEngine-1
+,,Module,,"""""",,Cisco,module-1 FwdEngine-2
+,,Module,,"""""",,Cisco,module-1 FwdEngine-3
+,,Module,,"""""",,Cisco,module-1 FwdEngine-4
+,,Module,,"""""",,Cisco,module-1 FwdEngine-5
+,,Module,,"""""",,Cisco,module-1 FwdEngine-6
+,,Module,,"""""",,Cisco,module-5 FwdEngine-1
+,,Module,,"""""",,Cisco,module-6 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-2
+,,Module,,"""""",,Cisco,module-7 FwdEngine-3
+,,Module,,"""""",,Cisco,module-7 FwdEngine-4
+,,Module,,"""""",,Cisco,module-7 FwdEngine-5
+,,Module,,"""""",,Cisco,module-7 FwdEngine-6
+,,Module,,"""""",,Cisco,module-8 FwdEngine-1
+,,Module,,"""""",,Cisco,module-8 FwdEngine-2
+,,Module,,"""""",,Cisco,module-8 FwdEngine-3
+,,Module,,"""""",,Cisco,module-8 FwdEngine-4
+,,Module,,"""""",,Cisco,module-8 FwdEngine-5
+,,Module,,"""""",,Cisco,module-8 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-1
+,,Module,,"""""",,Cisco,module-9 FwdEngine-2
+,,Module,,"""""",,Cisco,module-9 FwdEngine-3
+,,Module,,"""""",,Cisco,module-9 FwdEngine-4
+,,Module,,"""""",,Cisco,module-9 FwdEngine-5
+,,Module,,"""""",,Cisco,module-9 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-7
+,,Module,,"""""",,Cisco,module-9 FwdEngine-8
+,,Module,,"""""",,Cisco,module-9 FwdEngine-9
+,,Module,,"""""",,Cisco,module-9 FwdEngine-10
+,,Module,,"""""",,Cisco,module-9 FwdEngine-11
+,,Module,,"""""",,Cisco,module-9 FwdEngine-12
+,,Module,,"""""",,Cisco,module-10 FwdEngine-1
+,,Module,,"""""",,Cisco,module-10 FwdEngine-2
+,,Module,,"""""",,Cisco,module-10 FwdEngine-3
+,,Module,,"""""",,Cisco,module-10 FwdEngine-4
+,,Module,,"""""",,Cisco,module-10 FwdEngine-5
+,,Module,,"""""",,Cisco,module-10 FwdEngine-6
+,,Module,,"""""",,Cisco,module-10 FwdEngine-7
+,,Module,,"""""",,Cisco,module-10 FwdEngine-8
+,,Module,,"""""",,Cisco,module-10 FwdEngine-9
+,,Module,,"""""",,Cisco,module-10 FwdEngine-10
+,,Module,,"""""",,Cisco,module-10 FwdEngine-11
+,,Module,,"""""",,Cisco,module-10 FwdEngine-12
+,,Module,,00000MTC14130357,,Cisco,Transceiver(slot:9-port:7)
+,,Module,,MTC191102S1     ,,Cisco,Transceiver(slot:9-port:8)
+,,Module,,AVC232221GQ     ,,Cisco,Transceiver(slot:9-port:11)
+,,Module,,MTC1911037L     ,,Cisco,Transceiver(slot:9-port:13)
+,,Module,,OPM21310Q7G     ,,Cisco,Transceiver(slot:9-port:14)
+,,Module,,AGM161220VP     ,,Cisco,Transceiver(slot:9-port:21)
+,,Module,,00000MTC141303U6,,Cisco,Transceiver(slot:9-port:22)
+,,Module,,FNS111805ZR     ,,Cisco,Transceiver(slot:9-port:32)
+,,Module,,00000MTC134004NM,,Cisco,Transceiver(slot:9-port:33)
+,,Module,,00000MTC134004HA,,Cisco,Transceiver(slot:9-port:34)
+,,Module,,00000MTC134004RT,,Cisco,Transceiver(slot:9-port:35)
+,,Module,,00000MTC134001XF,,Cisco,Transceiver(slot:9-port:36)
+,,Module,,00000MTC141108W6,,Cisco,Transceiver(slot:9-port:37)
+,,Module,,00000MTC134004KL,,Cisco,Transceiver(slot:9-port:38)
+,,Module,,00000MTC134003YQ,,Cisco,Transceiver(slot:9-port:39)
+,,Module,,AGM142622T3     ,,Cisco,Transceiver(slot:9-port:40)
+,,Module,,AGM201540LN     ,,Cisco,Transceiver(slot:9-port:41)
+,,Module,,AGM201540L9     ,,Cisco,Transceiver(slot:9-port:42)
+,,Module,,00000MTC134004ZQ,,Cisco,Transceiver(slot:9-port:43)
+,,Module,,00000MTC133904X2,,Cisco,Transceiver(slot:9-port:44)
+,,Module,,00000MTC1339021E,,Cisco,Transceiver(slot:9-port:45)
+,,Module,,00000MTC133901WL,,Cisco,Transceiver(slot:9-port:46)
+,,Module,,00000MTC134003HU,,Cisco,Transceiver(slot:9-port:47)
+,,Module,,MTC132800ZX     ,,Cisco,Transceiver(slot:9-port:48)
+,,Module,,00000MTC134004FF,,Cisco,Transceiver(slot:10-port:13)
+,,Module,,00000MTC141000MV,,Cisco,Transceiver(slot:10-port:14)
+,,Module,,00000MTC133902M6,,Cisco,Transceiver(slot:10-port:15)
+,,Module,,00000MTC141000N0,,Cisco,Transceiver(slot:10-port:16)
+,,Module,,00000MTC1340040D,,Cisco,Transceiver(slot:10-port:24)
+,,Module,,AGM142623CW     ,,Cisco,Transceiver(slot:10-port:32)
+,,Module,,AGM1821211W     ,,Cisco,Transceiver(slot:10-port:33)
+,,Module,,AGM2042464V     ,,Cisco,Transceiver(slot:10-port:34)
+,,Module,,AGM20424650     ,,Cisco,Transceiver(slot:10-port:35)
+,,Module,,AGM18292723     ,,Cisco,Transceiver(slot:10-port:36)
+,,Module,,00000MTC1340040H,,Cisco,Transceiver(slot:10-port:37)
+,,Module,,AGM20424651     ,,Cisco,Transceiver(slot:10-port:38)
+,,Module,,00000MTC161405JL,,Cisco,Transceiver(slot:10-port:39)
+,,Module,,AGM1821209G     ,,Cisco,Transceiver(slot:10-port:40)
+,,Module,,00000MTC134004T4,,Cisco,Transceiver(slot:10-port:41)
+,,Module,,MTC22430BQK     ,,Cisco,Transceiver(slot:10-port:42)
+,,Module,,MTC223806M0     ,,Cisco,Transceiver(slot:10-port:43)
+HQ-7000-01-PCI.dtc_phx.com,10.0.179.2,Parent Switch,,,,Cisco,
+,,Module,,JAE191207AK,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAF1825AQAN,,Cisco,Supervisor Module-2
+,,Module,,JAF1827ARNH,,Cisco,Supervisor Module-2
+,,Module,,JAE184905NJ,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE182305KD,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAF1827AHFJ,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAF1827AHET,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAF1828ANTQ,,Cisco,Fabric card module
+,,Module,,JAF1812ALPP,,Cisco,Fabric card module
+,,Module,,JAF1828ANTN,,Cisco,Fabric card module
+,,Module,,JAF1828ANPG,,Cisco,Fabric card module
+,,Module,,JAF1828ANRL,,Cisco,Fabric card module
+,,Module,,"""""",,Cisco,module-1 FwdEngine-1
+,,Module,,"""""",,Cisco,module-1 FwdEngine-2
+,,Module,,"""""",,Cisco,module-1 FwdEngine-3
+,,Module,,"""""",,Cisco,module-1 FwdEngine-4
+,,Module,,"""""",,Cisco,module-1 FwdEngine-5
+,,Module,,"""""",,Cisco,module-1 FwdEngine-6
+,,Module,,"""""",,Cisco,module-5 FwdEngine-1
+,,Module,,"""""",,Cisco,module-6 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-2
+,,Module,,"""""",,Cisco,module-7 FwdEngine-3
+,,Module,,"""""",,Cisco,module-7 FwdEngine-4
+,,Module,,"""""",,Cisco,module-7 FwdEngine-5
+,,Module,,"""""",,Cisco,module-7 FwdEngine-6
+,,Module,,"""""",,Cisco,module-8 FwdEngine-1
+,,Module,,"""""",,Cisco,module-8 FwdEngine-2
+,,Module,,"""""",,Cisco,module-8 FwdEngine-3
+,,Module,,"""""",,Cisco,module-8 FwdEngine-4
+,,Module,,"""""",,Cisco,module-8 FwdEngine-5
+,,Module,,"""""",,Cisco,module-8 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-1
+,,Module,,"""""",,Cisco,module-9 FwdEngine-2
+,,Module,,"""""",,Cisco,module-9 FwdEngine-3
+,,Module,,"""""",,Cisco,module-9 FwdEngine-4
+,,Module,,"""""",,Cisco,module-9 FwdEngine-5
+,,Module,,"""""",,Cisco,module-9 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-7
+,,Module,,"""""",,Cisco,module-9 FwdEngine-8
+,,Module,,"""""",,Cisco,module-9 FwdEngine-9
+,,Module,,"""""",,Cisco,module-9 FwdEngine-10
+,,Module,,"""""",,Cisco,module-9 FwdEngine-11
+,,Module,,"""""",,Cisco,module-9 FwdEngine-12
+,,Module,,"""""",,Cisco,module-10 FwdEngine-1
+,,Module,,"""""",,Cisco,module-10 FwdEngine-2
+,,Module,,"""""",,Cisco,module-10 FwdEngine-3
+,,Module,,"""""",,Cisco,module-10 FwdEngine-4
+,,Module,,"""""",,Cisco,module-10 FwdEngine-5
+,,Module,,"""""",,Cisco,module-10 FwdEngine-6
+,,Module,,"""""",,Cisco,module-10 FwdEngine-7
+,,Module,,"""""",,Cisco,module-10 FwdEngine-8
+,,Module,,"""""",,Cisco,module-10 FwdEngine-9
+,,Module,,"""""",,Cisco,module-10 FwdEngine-10
+,,Module,,"""""",,Cisco,module-10 FwdEngine-11
+,,Module,,"""""",,Cisco,module-10 FwdEngine-12
+,,Module,,00000MTC14130357,,Cisco,Transceiver(slot:9-port:7)
+,,Module,,MTC191102S1     ,,Cisco,Transceiver(slot:9-port:8)
+,,Module,,AVC232221GQ     ,,Cisco,Transceiver(slot:9-port:11)
+,,Module,,MTC1911037L     ,,Cisco,Transceiver(slot:9-port:13)
+,,Module,,OPM21310Q7G     ,,Cisco,Transceiver(slot:9-port:14)
+,,Module,,AGM161220VP     ,,Cisco,Transceiver(slot:9-port:21)
+,,Module,,00000MTC141303U6,,Cisco,Transceiver(slot:9-port:22)
+,,Module,,FNS111805ZR     ,,Cisco,Transceiver(slot:9-port:32)
+,,Module,,00000MTC134004NM,,Cisco,Transceiver(slot:9-port:33)
+,,Module,,00000MTC134004HA,,Cisco,Transceiver(slot:9-port:34)
+,,Module,,00000MTC134004RT,,Cisco,Transceiver(slot:9-port:35)
+,,Module,,00000MTC134001XF,,Cisco,Transceiver(slot:9-port:36)
+,,Module,,00000MTC141108W6,,Cisco,Transceiver(slot:9-port:37)
+,,Module,,00000MTC134004KL,,Cisco,Transceiver(slot:9-port:38)
+,,Module,,00000MTC134003YQ,,Cisco,Transceiver(slot:9-port:39)
+,,Module,,AGM142622T3     ,,Cisco,Transceiver(slot:9-port:40)
+,,Module,,AGM201540LN     ,,Cisco,Transceiver(slot:9-port:41)
+,,Module,,AGM201540L9     ,,Cisco,Transceiver(slot:9-port:42)
+,,Module,,00000MTC134004ZQ,,Cisco,Transceiver(slot:9-port:43)
+,,Module,,00000MTC133904X2,,Cisco,Transceiver(slot:9-port:44)
+,,Module,,00000MTC1339021E,,Cisco,Transceiver(slot:9-port:45)
+,,Module,,00000MTC133901WL,,Cisco,Transceiver(slot:9-port:46)
+,,Module,,00000MTC134003HU,,Cisco,Transceiver(slot:9-port:47)
+,,Module,,MTC132800ZX     ,,Cisco,Transceiver(slot:9-port:48)
+,,Module,,00000MTC134004FF,,Cisco,Transceiver(slot:10-port:13)
+,,Module,,00000MTC141000MV,,Cisco,Transceiver(slot:10-port:14)
+,,Module,,00000MTC133902M6,,Cisco,Transceiver(slot:10-port:15)
+,,Module,,00000MTC141000N0,,Cisco,Transceiver(slot:10-port:16)
+,,Module,,00000MTC1340040D,,Cisco,Transceiver(slot:10-port:24)
+,,Module,,AGM142623CW     ,,Cisco,Transceiver(slot:10-port:32)
+,,Module,,AGM1821211W     ,,Cisco,Transceiver(slot:10-port:33)
+,,Module,,AGM2042464V     ,,Cisco,Transceiver(slot:10-port:34)
+,,Module,,AGM20424650     ,,Cisco,Transceiver(slot:10-port:35)
+,,Module,,AGM18292723     ,,Cisco,Transceiver(slot:10-port:36)
+,,Module,,00000MTC1340040H,,Cisco,Transceiver(slot:10-port:37)
+,,Module,,AGM20424651     ,,Cisco,Transceiver(slot:10-port:38)
+,,Module,,00000MTC161405JL,,Cisco,Transceiver(slot:10-port:39)
+,,Module,,AGM1821209G     ,,Cisco,Transceiver(slot:10-port:40)
+,,Module,,00000MTC134004T4,,Cisco,Transceiver(slot:10-port:41)
+,,Module,,MTC22430BQK     ,,Cisco,Transceiver(slot:10-port:42)
+,,Module,,MTC223806M0     ,,Cisco,Transceiver(slot:10-port:43)
+HQ-7000-02-ADMIN,10.0.145.124,Parent Switch,,,,Cisco,
+,,Module,,JAE191207AJ,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAF1827ARRJ,,Cisco,Supervisor Module-2
+,,Module,,JAF1827ASAR,,Cisco,Supervisor Module-2
+,,Module,,JAE182305LE,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE182305MB,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAF1827AHDM,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAF1827AHFT,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAF1828ANMR,,Cisco,Fabric card module
+,,Module,,JAF1828ANRQ,,Cisco,Fabric card module
+,,Module,,JAF1828ANRM,,Cisco,Fabric card module
+,,Module,,JAF1827ANPS,,Cisco,Fabric card module
+,,Module,,JAF1828ANNG,,Cisco,Fabric card module
+,,Module,,"""""",,Cisco,module-1 FwdEngine-1
+,,Module,,"""""",,Cisco,module-1 FwdEngine-2
+,,Module,,"""""",,Cisco,module-1 FwdEngine-3
+,,Module,,"""""",,Cisco,module-1 FwdEngine-4
+,,Module,,"""""",,Cisco,module-1 FwdEngine-5
+,,Module,,"""""",,Cisco,module-1 FwdEngine-6
+,,Module,,"""""",,Cisco,module-5 FwdEngine-1
+,,Module,,"""""",,Cisco,module-6 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-2
+,,Module,,"""""",,Cisco,module-7 FwdEngine-3
+,,Module,,"""""",,Cisco,module-7 FwdEngine-4
+,,Module,,"""""",,Cisco,module-7 FwdEngine-5
+,,Module,,"""""",,Cisco,module-7 FwdEngine-6
+,,Module,,"""""",,Cisco,module-8 FwdEngine-1
+,,Module,,"""""",,Cisco,module-8 FwdEngine-2
+,,Module,,"""""",,Cisco,module-8 FwdEngine-3
+,,Module,,"""""",,Cisco,module-8 FwdEngine-4
+,,Module,,"""""",,Cisco,module-8 FwdEngine-5
+,,Module,,"""""",,Cisco,module-8 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-1
+,,Module,,"""""",,Cisco,module-9 FwdEngine-2
+,,Module,,"""""",,Cisco,module-9 FwdEngine-3
+,,Module,,"""""",,Cisco,module-9 FwdEngine-4
+,,Module,,"""""",,Cisco,module-9 FwdEngine-5
+,,Module,,"""""",,Cisco,module-9 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-7
+,,Module,,"""""",,Cisco,module-9 FwdEngine-8
+,,Module,,"""""",,Cisco,module-9 FwdEngine-9
+,,Module,,"""""",,Cisco,module-9 FwdEngine-10
+,,Module,,"""""",,Cisco,module-9 FwdEngine-11
+,,Module,,"""""",,Cisco,module-9 FwdEngine-12
+,,Module,,"""""",,Cisco,module-10 FwdEngine-1
+,,Module,,"""""",,Cisco,module-10 FwdEngine-2
+,,Module,,"""""",,Cisco,module-10 FwdEngine-3
+,,Module,,"""""",,Cisco,module-10 FwdEngine-4
+,,Module,,"""""",,Cisco,module-10 FwdEngine-5
+,,Module,,"""""",,Cisco,module-10 FwdEngine-6
+,,Module,,"""""",,Cisco,module-10 FwdEngine-7
+,,Module,,"""""",,Cisco,module-10 FwdEngine-8
+,,Module,,"""""",,Cisco,module-10 FwdEngine-9
+,,Module,,"""""",,Cisco,module-10 FwdEngine-10
+,,Module,,"""""",,Cisco,module-10 FwdEngine-11
+,,Module,,"""""",,Cisco,module-10 FwdEngine-12
+,,Module,,MTC191102RU     ,,Cisco,Transceiver(slot:9-port:7)
+,,Module,,MTC191100ZG     ,,Cisco,Transceiver(slot:9-port:8)
+,,Module,,00000MTC134002KL,,Cisco,Transceiver(slot:9-port:11)
+,,Module,,MTC191103YL     ,,Cisco,Transceiver(slot:9-port:13)
+,,Module,,OPM21310Q83     ,,Cisco,Transceiver(slot:9-port:14)
+,,Module,,AGM18474CDT     ,,Cisco,Transceiver(slot:9-port:21)
+,,Module,,00000MTC141303S5,,Cisco,Transceiver(slot:9-port:22)
+,,Module,,FNS111711YY     ,,Cisco,Transceiver(slot:9-port:32)
+,,Module,,00000MTC1339021M,,Cisco,Transceiver(slot:9-port:33)
+,,Module,,00000MTC133903UT,,Cisco,Transceiver(slot:9-port:34)
+,,Module,,AGM1821208H     ,,Cisco,Transceiver(slot:9-port:35)
+,,Module,,00000MTC13390506,,Cisco,Transceiver(slot:9-port:36)
+,,Module,,00000MTC141000MZ,,Cisco,Transceiver(slot:9-port:37)
+,,Module,,00000MTC13400413,,Cisco,Transceiver(slot:9-port:38)
+,,Module,,00000MTC13400532,,Cisco,Transceiver(slot:9-port:39)
+,,Module,,AGM151125MV     ,,Cisco,Transceiver(slot:9-port:40)
+,,Module,,AGM151125N7     ,,Cisco,Transceiver(slot:9-port:41)
+,,Module,,AGM151125MB     ,,Cisco,Transceiver(slot:9-port:42)
+,,Module,,AGM18212293     ,,Cisco,Transceiver(slot:9-port:43)
+,,Module,,00000MTC1340060L,,Cisco,Transceiver(slot:9-port:44)
+,,Module,,00000MTC134004LH,,Cisco,Transceiver(slot:9-port:45)
+,,Module,,00000MTC13400556,,Cisco,Transceiver(slot:9-port:46)
+,,Module,,00000MTC1410000H,,Cisco,Transceiver(slot:9-port:47)
+,,Module,,AGM151520SN     ,,Cisco,Transceiver(slot:9-port:48)
+,,Module,,FNS134608QK     ,,Cisco,Transceiver(slot:10-port:8)
+,,Module,,MTC132800V3     ,,Cisco,Transceiver(slot:10-port:13)
+,,Module,,00000MTC134003Y2,,Cisco,Transceiver(slot:10-port:14)
+,,Module,,AGM1515255U     ,,Cisco,Transceiver(slot:10-port:15)
+,,Module,,MTC132800HV     ,,Cisco,Transceiver(slot:10-port:16)
+,,Module,,00000MTC134005PD,,Cisco,Transceiver(slot:10-port:24)
+,,Module,,AGM142622C8     ,,Cisco,Transceiver(slot:10-port:32)
+,,Module,,00000MTC141108TM,,Cisco,Transceiver(slot:10-port:33)
+,,Module,,AGM151125NG     ,,Cisco,Transceiver(slot:10-port:34)
+,,Module,,AGM2042464T     ,,Cisco,Transceiver(slot:10-port:35)
+,,Module,,AGM18212123     ,,Cisco,Transceiver(slot:10-port:36)
+,,Module,,00000MTC1339025N,,Cisco,Transceiver(slot:10-port:37)
+,,Module,,00000MTC16140528,,Cisco,Transceiver(slot:10-port:38)
+,,Module,,00000MTC16140524,,Cisco,Transceiver(slot:10-port:39)
+,,Module,,AGM182121YU     ,,Cisco,Transceiver(slot:10-port:40)
+,,Module,,00000MTC134005B0,,Cisco,Transceiver(slot:10-port:41)
+,,Module,,MTC223806K7     ,,Cisco,Transceiver(slot:10-port:42)
+,,Module,,MTC223803PE     ,,Cisco,Transceiver(slot:10-port:43)
+,,Module,,00000MTC13400541,,Cisco,Transceiver(slot:10-port:46)
+HQ-7000-02-CORE.dtc_phx.com,10.0.100.210,Parent Switch,,,,Cisco,
+,,Module,,JAE191207AJ,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAF1827ARRJ,,Cisco,Supervisor Module-2
+,,Module,,JAF1827ASAR,,Cisco,Supervisor Module-2
+,,Module,,JAE182305LE,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE182305MB,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAF1827AHDM,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAF1827AHFT,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAF1828ANMR,,Cisco,Fabric card module
+,,Module,,JAF1828ANRQ,,Cisco,Fabric card module
+,,Module,,JAF1828ANRM,,Cisco,Fabric card module
+,,Module,,JAF1827ANPS,,Cisco,Fabric card module
+,,Module,,JAF1828ANNG,,Cisco,Fabric card module
+,,Module,,"""""",,Cisco,module-1 FwdEngine-1
+,,Module,,"""""",,Cisco,module-1 FwdEngine-2
+,,Module,,"""""",,Cisco,module-1 FwdEngine-3
+,,Module,,"""""",,Cisco,module-1 FwdEngine-4
+,,Module,,"""""",,Cisco,module-1 FwdEngine-5
+,,Module,,"""""",,Cisco,module-1 FwdEngine-6
+,,Module,,"""""",,Cisco,module-5 FwdEngine-1
+,,Module,,"""""",,Cisco,module-6 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-2
+,,Module,,"""""",,Cisco,module-7 FwdEngine-3
+,,Module,,"""""",,Cisco,module-7 FwdEngine-4
+,,Module,,"""""",,Cisco,module-7 FwdEngine-5
+,,Module,,"""""",,Cisco,module-7 FwdEngine-6
+,,Module,,"""""",,Cisco,module-8 FwdEngine-1
+,,Module,,"""""",,Cisco,module-8 FwdEngine-2
+,,Module,,"""""",,Cisco,module-8 FwdEngine-3
+,,Module,,"""""",,Cisco,module-8 FwdEngine-4
+,,Module,,"""""",,Cisco,module-8 FwdEngine-5
+,,Module,,"""""",,Cisco,module-8 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-1
+,,Module,,"""""",,Cisco,module-9 FwdEngine-2
+,,Module,,"""""",,Cisco,module-9 FwdEngine-3
+,,Module,,"""""",,Cisco,module-9 FwdEngine-4
+,,Module,,"""""",,Cisco,module-9 FwdEngine-5
+,,Module,,"""""",,Cisco,module-9 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-7
+,,Module,,"""""",,Cisco,module-9 FwdEngine-8
+,,Module,,"""""",,Cisco,module-9 FwdEngine-9
+,,Module,,"""""",,Cisco,module-9 FwdEngine-10
+,,Module,,"""""",,Cisco,module-9 FwdEngine-11
+,,Module,,"""""",,Cisco,module-9 FwdEngine-12
+,,Module,,"""""",,Cisco,module-10 FwdEngine-1
+,,Module,,"""""",,Cisco,module-10 FwdEngine-2
+,,Module,,"""""",,Cisco,module-10 FwdEngine-3
+,,Module,,"""""",,Cisco,module-10 FwdEngine-4
+,,Module,,"""""",,Cisco,module-10 FwdEngine-5
+,,Module,,"""""",,Cisco,module-10 FwdEngine-6
+,,Module,,"""""",,Cisco,module-10 FwdEngine-7
+,,Module,,"""""",,Cisco,module-10 FwdEngine-8
+,,Module,,"""""",,Cisco,module-10 FwdEngine-9
+,,Module,,"""""",,Cisco,module-10 FwdEngine-10
+,,Module,,"""""",,Cisco,module-10 FwdEngine-11
+,,Module,,"""""",,Cisco,module-10 FwdEngine-12
+,,Module,,MTC191102RU     ,,Cisco,Transceiver(slot:9-port:7)
+,,Module,,MTC191100ZG     ,,Cisco,Transceiver(slot:9-port:8)
+,,Module,,00000MTC134002KL,,Cisco,Transceiver(slot:9-port:11)
+,,Module,,MTC191103YL     ,,Cisco,Transceiver(slot:9-port:13)
+,,Module,,OPM21310Q83     ,,Cisco,Transceiver(slot:9-port:14)
+,,Module,,AGM18474CDT     ,,Cisco,Transceiver(slot:9-port:21)
+,,Module,,00000MTC141303S5,,Cisco,Transceiver(slot:9-port:22)
+,,Module,,FNS111711YY     ,,Cisco,Transceiver(slot:9-port:32)
+,,Module,,00000MTC1339021M,,Cisco,Transceiver(slot:9-port:33)
+,,Module,,00000MTC133903UT,,Cisco,Transceiver(slot:9-port:34)
+,,Module,,AGM1821208H     ,,Cisco,Transceiver(slot:9-port:35)
+,,Module,,00000MTC13390506,,Cisco,Transceiver(slot:9-port:36)
+,,Module,,00000MTC141000MZ,,Cisco,Transceiver(slot:9-port:37)
+,,Module,,00000MTC13400413,,Cisco,Transceiver(slot:9-port:38)
+,,Module,,00000MTC13400532,,Cisco,Transceiver(slot:9-port:39)
+,,Module,,AGM151125MV     ,,Cisco,Transceiver(slot:9-port:40)
+,,Module,,AGM151125N7     ,,Cisco,Transceiver(slot:9-port:41)
+,,Module,,AGM151125MB     ,,Cisco,Transceiver(slot:9-port:42)
+,,Module,,AGM18212293     ,,Cisco,Transceiver(slot:9-port:43)
+,,Module,,00000MTC1340060L,,Cisco,Transceiver(slot:9-port:44)
+,,Module,,00000MTC134004LH,,Cisco,Transceiver(slot:9-port:45)
+,,Module,,00000MTC13400556,,Cisco,Transceiver(slot:9-port:46)
+,,Module,,00000MTC1410000H,,Cisco,Transceiver(slot:9-port:47)
+,,Module,,AGM151520SN     ,,Cisco,Transceiver(slot:9-port:48)
+,,Module,,FNS134608QK     ,,Cisco,Transceiver(slot:10-port:8)
+,,Module,,MTC132800V3     ,,Cisco,Transceiver(slot:10-port:13)
+,,Module,,00000MTC134003Y2,,Cisco,Transceiver(slot:10-port:14)
+,,Module,,AGM1515255U     ,,Cisco,Transceiver(slot:10-port:15)
+,,Module,,MTC132800HV     ,,Cisco,Transceiver(slot:10-port:16)
+,,Module,,00000MTC134005PD,,Cisco,Transceiver(slot:10-port:24)
+,,Module,,AGM142622C8     ,,Cisco,Transceiver(slot:10-port:32)
+,,Module,,00000MTC141108TM,,Cisco,Transceiver(slot:10-port:33)
+,,Module,,AGM151125NG     ,,Cisco,Transceiver(slot:10-port:34)
+,,Module,,AGM2042464T     ,,Cisco,Transceiver(slot:10-port:35)
+,,Module,,AGM18212123     ,,Cisco,Transceiver(slot:10-port:36)
+,,Module,,00000MTC1339025N,,Cisco,Transceiver(slot:10-port:37)
+,,Module,,00000MTC16140528,,Cisco,Transceiver(slot:10-port:38)
+,,Module,,00000MTC16140524,,Cisco,Transceiver(slot:10-port:39)
+,,Module,,AGM182121YU     ,,Cisco,Transceiver(slot:10-port:40)
+,,Module,,00000MTC134005B0,,Cisco,Transceiver(slot:10-port:41)
+,,Module,,MTC223806K7     ,,Cisco,Transceiver(slot:10-port:42)
+,,Module,,MTC223803PE     ,,Cisco,Transceiver(slot:10-port:43)
+,,Module,,00000MTC13400541,,Cisco,Transceiver(slot:10-port:46)
+HQ-7000-02-EDGE.dtc_phx.com,10.253.253.3,Parent Switch,,,,Cisco,
+,,Module,,JAE191207AJ,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAF1827ARRJ,,Cisco,Supervisor Module-2
+,,Module,,JAF1827ASAR,,Cisco,Supervisor Module-2
+,,Module,,JAE182305LE,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE182305MB,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAF1827AHDM,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAF1827AHFT,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAF1828ANMR,,Cisco,Fabric card module
+,,Module,,JAF1828ANRQ,,Cisco,Fabric card module
+,,Module,,JAF1828ANRM,,Cisco,Fabric card module
+,,Module,,JAF1827ANPS,,Cisco,Fabric card module
+,,Module,,JAF1828ANNG,,Cisco,Fabric card module
+,,Module,,"""""",,Cisco,module-1 FwdEngine-1
+,,Module,,"""""",,Cisco,module-1 FwdEngine-2
+,,Module,,"""""",,Cisco,module-1 FwdEngine-3
+,,Module,,"""""",,Cisco,module-1 FwdEngine-4
+,,Module,,"""""",,Cisco,module-1 FwdEngine-5
+,,Module,,"""""",,Cisco,module-1 FwdEngine-6
+,,Module,,"""""",,Cisco,module-5 FwdEngine-1
+,,Module,,"""""",,Cisco,module-6 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-2
+,,Module,,"""""",,Cisco,module-7 FwdEngine-3
+,,Module,,"""""",,Cisco,module-7 FwdEngine-4
+,,Module,,"""""",,Cisco,module-7 FwdEngine-5
+,,Module,,"""""",,Cisco,module-7 FwdEngine-6
+,,Module,,"""""",,Cisco,module-8 FwdEngine-1
+,,Module,,"""""",,Cisco,module-8 FwdEngine-2
+,,Module,,"""""",,Cisco,module-8 FwdEngine-3
+,,Module,,"""""",,Cisco,module-8 FwdEngine-4
+,,Module,,"""""",,Cisco,module-8 FwdEngine-5
+,,Module,,"""""",,Cisco,module-8 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-1
+,,Module,,"""""",,Cisco,module-9 FwdEngine-2
+,,Module,,"""""",,Cisco,module-9 FwdEngine-3
+,,Module,,"""""",,Cisco,module-9 FwdEngine-4
+,,Module,,"""""",,Cisco,module-9 FwdEngine-5
+,,Module,,"""""",,Cisco,module-9 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-7
+,,Module,,"""""",,Cisco,module-9 FwdEngine-8
+,,Module,,"""""",,Cisco,module-9 FwdEngine-9
+,,Module,,"""""",,Cisco,module-9 FwdEngine-10
+,,Module,,"""""",,Cisco,module-9 FwdEngine-11
+,,Module,,"""""",,Cisco,module-9 FwdEngine-12
+,,Module,,"""""",,Cisco,module-10 FwdEngine-1
+,,Module,,"""""",,Cisco,module-10 FwdEngine-2
+,,Module,,"""""",,Cisco,module-10 FwdEngine-3
+,,Module,,"""""",,Cisco,module-10 FwdEngine-4
+,,Module,,"""""",,Cisco,module-10 FwdEngine-5
+,,Module,,"""""",,Cisco,module-10 FwdEngine-6
+,,Module,,"""""",,Cisco,module-10 FwdEngine-7
+,,Module,,"""""",,Cisco,module-10 FwdEngine-8
+,,Module,,"""""",,Cisco,module-10 FwdEngine-9
+,,Module,,"""""",,Cisco,module-10 FwdEngine-10
+,,Module,,"""""",,Cisco,module-10 FwdEngine-11
+,,Module,,"""""",,Cisco,module-10 FwdEngine-12
+,,Module,,MTC191102RU     ,,Cisco,Transceiver(slot:9-port:7)
+,,Module,,MTC191100ZG     ,,Cisco,Transceiver(slot:9-port:8)
+,,Module,,00000MTC134002KL,,Cisco,Transceiver(slot:9-port:11)
+,,Module,,MTC191103YL     ,,Cisco,Transceiver(slot:9-port:13)
+,,Module,,OPM21310Q83     ,,Cisco,Transceiver(slot:9-port:14)
+,,Module,,AGM18474CDT     ,,Cisco,Transceiver(slot:9-port:21)
+,,Module,,00000MTC141303S5,,Cisco,Transceiver(slot:9-port:22)
+,,Module,,FNS111711YY     ,,Cisco,Transceiver(slot:9-port:32)
+,,Module,,00000MTC1339021M,,Cisco,Transceiver(slot:9-port:33)
+,,Module,,00000MTC133903UT,,Cisco,Transceiver(slot:9-port:34)
+,,Module,,AGM1821208H     ,,Cisco,Transceiver(slot:9-port:35)
+,,Module,,00000MTC13390506,,Cisco,Transceiver(slot:9-port:36)
+,,Module,,00000MTC141000MZ,,Cisco,Transceiver(slot:9-port:37)
+,,Module,,00000MTC13400413,,Cisco,Transceiver(slot:9-port:38)
+,,Module,,00000MTC13400532,,Cisco,Transceiver(slot:9-port:39)
+,,Module,,AGM151125MV     ,,Cisco,Transceiver(slot:9-port:40)
+,,Module,,AGM151125N7     ,,Cisco,Transceiver(slot:9-port:41)
+,,Module,,AGM151125MB     ,,Cisco,Transceiver(slot:9-port:42)
+,,Module,,AGM18212293     ,,Cisco,Transceiver(slot:9-port:43)
+,,Module,,00000MTC1340060L,,Cisco,Transceiver(slot:9-port:44)
+,,Module,,00000MTC134004LH,,Cisco,Transceiver(slot:9-port:45)
+,,Module,,00000MTC13400556,,Cisco,Transceiver(slot:9-port:46)
+,,Module,,00000MTC1410000H,,Cisco,Transceiver(slot:9-port:47)
+,,Module,,AGM151520SN     ,,Cisco,Transceiver(slot:9-port:48)
+,,Module,,FNS134608QK     ,,Cisco,Transceiver(slot:10-port:8)
+,,Module,,MTC132800V3     ,,Cisco,Transceiver(slot:10-port:13)
+,,Module,,00000MTC134003Y2,,Cisco,Transceiver(slot:10-port:14)
+,,Module,,AGM1515255U     ,,Cisco,Transceiver(slot:10-port:15)
+,,Module,,MTC132800HV     ,,Cisco,Transceiver(slot:10-port:16)
+,,Module,,00000MTC134005PD,,Cisco,Transceiver(slot:10-port:24)
+,,Module,,AGM142622C8     ,,Cisco,Transceiver(slot:10-port:32)
+,,Module,,00000MTC141108TM,,Cisco,Transceiver(slot:10-port:33)
+,,Module,,AGM151125NG     ,,Cisco,Transceiver(slot:10-port:34)
+,,Module,,AGM2042464T     ,,Cisco,Transceiver(slot:10-port:35)
+,,Module,,AGM18212123     ,,Cisco,Transceiver(slot:10-port:36)
+,,Module,,00000MTC1339025N,,Cisco,Transceiver(slot:10-port:37)
+,,Module,,00000MTC16140528,,Cisco,Transceiver(slot:10-port:38)
+,,Module,,00000MTC16140524,,Cisco,Transceiver(slot:10-port:39)
+,,Module,,AGM182121YU     ,,Cisco,Transceiver(slot:10-port:40)
+,,Module,,00000MTC134005B0,,Cisco,Transceiver(slot:10-port:41)
+,,Module,,MTC223806K7     ,,Cisco,Transceiver(slot:10-port:42)
+,,Module,,MTC223803PE     ,,Cisco,Transceiver(slot:10-port:43)
+,,Module,,00000MTC13400541,,Cisco,Transceiver(slot:10-port:46)
+HQ-7000-02-PCI.dtc_phx.com,10.0.179.3,Parent Switch,,,,Cisco,
+,,Module,,JAE191207AJ,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAF1827ARRJ,,Cisco,Supervisor Module-2
+,,Module,,JAF1827ASAR,,Cisco,Supervisor Module-2
+,,Module,,JAE182305LE,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAE182305MB,,Cisco,10/40 Gbps Ethernet Module
+,,Module,,JAF1827AHDM,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAF1827AHFT,,Cisco,1/10 Gbps Ethernet Module
+,,Module,,JAF1828ANMR,,Cisco,Fabric card module
+,,Module,,JAF1828ANRQ,,Cisco,Fabric card module
+,,Module,,JAF1828ANRM,,Cisco,Fabric card module
+,,Module,,JAF1827ANPS,,Cisco,Fabric card module
+,,Module,,JAF1828ANNG,,Cisco,Fabric card module
+,,Module,,"""""",,Cisco,module-1 FwdEngine-1
+,,Module,,"""""",,Cisco,module-1 FwdEngine-2
+,,Module,,"""""",,Cisco,module-1 FwdEngine-3
+,,Module,,"""""",,Cisco,module-1 FwdEngine-4
+,,Module,,"""""",,Cisco,module-1 FwdEngine-5
+,,Module,,"""""",,Cisco,module-1 FwdEngine-6
+,,Module,,"""""",,Cisco,module-5 FwdEngine-1
+,,Module,,"""""",,Cisco,module-6 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-1
+,,Module,,"""""",,Cisco,module-7 FwdEngine-2
+,,Module,,"""""",,Cisco,module-7 FwdEngine-3
+,,Module,,"""""",,Cisco,module-7 FwdEngine-4
+,,Module,,"""""",,Cisco,module-7 FwdEngine-5
+,,Module,,"""""",,Cisco,module-7 FwdEngine-6
+,,Module,,"""""",,Cisco,module-8 FwdEngine-1
+,,Module,,"""""",,Cisco,module-8 FwdEngine-2
+,,Module,,"""""",,Cisco,module-8 FwdEngine-3
+,,Module,,"""""",,Cisco,module-8 FwdEngine-4
+,,Module,,"""""",,Cisco,module-8 FwdEngine-5
+,,Module,,"""""",,Cisco,module-8 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-1
+,,Module,,"""""",,Cisco,module-9 FwdEngine-2
+,,Module,,"""""",,Cisco,module-9 FwdEngine-3
+,,Module,,"""""",,Cisco,module-9 FwdEngine-4
+,,Module,,"""""",,Cisco,module-9 FwdEngine-5
+,,Module,,"""""",,Cisco,module-9 FwdEngine-6
+,,Module,,"""""",,Cisco,module-9 FwdEngine-7
+,,Module,,"""""",,Cisco,module-9 FwdEngine-8
+,,Module,,"""""",,Cisco,module-9 FwdEngine-9
+,,Module,,"""""",,Cisco,module-9 FwdEngine-10
+,,Module,,"""""",,Cisco,module-9 FwdEngine-11
+,,Module,,"""""",,Cisco,module-9 FwdEngine-12
+,,Module,,"""""",,Cisco,module-10 FwdEngine-1
+,,Module,,"""""",,Cisco,module-10 FwdEngine-2
+,,Module,,"""""",,Cisco,module-10 FwdEngine-3
+,,Module,,"""""",,Cisco,module-10 FwdEngine-4
+,,Module,,"""""",,Cisco,module-10 FwdEngine-5
+,,Module,,"""""",,Cisco,module-10 FwdEngine-6
+,,Module,,"""""",,Cisco,module-10 FwdEngine-7
+,,Module,,"""""",,Cisco,module-10 FwdEngine-8
+,,Module,,"""""",,Cisco,module-10 FwdEngine-9
+,,Module,,"""""",,Cisco,module-10 FwdEngine-10
+,,Module,,"""""",,Cisco,module-10 FwdEngine-11
+,,Module,,"""""",,Cisco,module-10 FwdEngine-12
+,,Module,,MTC191102RU     ,,Cisco,Transceiver(slot:9-port:7)
+,,Module,,MTC191100ZG     ,,Cisco,Transceiver(slot:9-port:8)
+,,Module,,00000MTC134002KL,,Cisco,Transceiver(slot:9-port:11)
+,,Module,,MTC191103YL     ,,Cisco,Transceiver(slot:9-port:13)
+,,Module,,OPM21310Q83     ,,Cisco,Transceiver(slot:9-port:14)
+,,Module,,AGM18474CDT     ,,Cisco,Transceiver(slot:9-port:21)
+,,Module,,00000MTC141303S5,,Cisco,Transceiver(slot:9-port:22)
+,,Module,,FNS111711YY     ,,Cisco,Transceiver(slot:9-port:32)
+,,Module,,00000MTC1339021M,,Cisco,Transceiver(slot:9-port:33)
+,,Module,,00000MTC133903UT,,Cisco,Transceiver(slot:9-port:34)
+,,Module,,AGM1821208H     ,,Cisco,Transceiver(slot:9-port:35)
+,,Module,,00000MTC13390506,,Cisco,Transceiver(slot:9-port:36)
+,,Module,,00000MTC141000MZ,,Cisco,Transceiver(slot:9-port:37)
+,,Module,,00000MTC13400413,,Cisco,Transceiver(slot:9-port:38)
+,,Module,,00000MTC13400532,,Cisco,Transceiver(slot:9-port:39)
+,,Module,,AGM151125MV     ,,Cisco,Transceiver(slot:9-port:40)
+,,Module,,AGM151125N7     ,,Cisco,Transceiver(slot:9-port:41)
+,,Module,,AGM151125MB     ,,Cisco,Transceiver(slot:9-port:42)
+,,Module,,AGM18212293     ,,Cisco,Transceiver(slot:9-port:43)
+,,Module,,00000MTC1340060L,,Cisco,Transceiver(slot:9-port:44)
+,,Module,,00000MTC134004LH,,Cisco,Transceiver(slot:9-port:45)
+,,Module,,00000MTC13400556,,Cisco,Transceiver(slot:9-port:46)
+,,Module,,00000MTC1410000H,,Cisco,Transceiver(slot:9-port:47)
+,,Module,,AGM151520SN     ,,Cisco,Transceiver(slot:9-port:48)
+,,Module,,FNS134608QK     ,,Cisco,Transceiver(slot:10-port:8)
+,,Module,,MTC132800V3     ,,Cisco,Transceiver(slot:10-port:13)
+,,Module,,00000MTC134003Y2,,Cisco,Transceiver(slot:10-port:14)
+,,Module,,AGM1515255U     ,,Cisco,Transceiver(slot:10-port:15)
+,,Module,,MTC132800HV     ,,Cisco,Transceiver(slot:10-port:16)
+,,Module,,00000MTC134005PD,,Cisco,Transceiver(slot:10-port:24)
+,,Module,,AGM142622C8     ,,Cisco,Transceiver(slot:10-port:32)
+,,Module,,00000MTC141108TM,,Cisco,Transceiver(slot:10-port:33)
+,,Module,,AGM151125NG     ,,Cisco,Transceiver(slot:10-port:34)
+,,Module,,AGM2042464T     ,,Cisco,Transceiver(slot:10-port:35)
+,,Module,,AGM18212123     ,,Cisco,Transceiver(slot:10-port:36)
+,,Module,,00000MTC1339025N,,Cisco,Transceiver(slot:10-port:37)
+,,Module,,00000MTC16140528,,Cisco,Transceiver(slot:10-port:38)
+,,Module,,00000MTC16140524,,Cisco,Transceiver(slot:10-port:39)
+,,Module,,AGM182121YU     ,,Cisco,Transceiver(slot:10-port:40)
+,,Module,,00000MTC134005B0,,Cisco,Transceiver(slot:10-port:41)
+,,Module,,MTC223806K7     ,,Cisco,Transceiver(slot:10-port:42)
+,,Module,,MTC223803PE     ,,Cisco,Transceiver(slot:10-port:43)
+,,Module,,00000MTC13400541,,Cisco,Transceiver(slot:10-port:46)
+HQ-ATT-DIA,192.168.255.15,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Cisco C8300-2N2S-4T2X Built-In NIM controller
+,,Module,,FDO2824095D,,Cisco,NIM Ten Gigabitethernet Module
+,,Module,,"""""",,Cisco,Cisco C8300-2N2S-4T2X Built-In SM controller
+,,Module,,"""""",,Cisco,Cisco C8300-2N2S-4T2X Built-In SM controller
+,,Module,,FDO282409X2,,Cisco,Cisco C8300-2N2S-4T2X Route Processor
+,,Module,,"""""",,Cisco,Cisco C8300-2N2S-4T2X Forwarding Processor
+HQ-LUMEN-DIA,192.168.255.14,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Cisco C8300-2N2S-4T2X Built-In NIM controller
+,,Module,,FDO28240955,,Cisco,NIM Ten Gigabitethernet Module
+,,Module,,"""""",,Cisco,Cisco C8300-2N2S-4T2X Built-In SM controller
+,,Module,,"""""",,Cisco,Cisco C8300-2N2S-4T2X Built-In SM controller
+,,Module,,FDO281618B0,,Cisco,Cisco C8300-2N2S-4T2X Route Processor
+,,Module,,"""""",,Cisco,Cisco C8300-2N2S-4T2X Forwarding Processor
+HQ-MPLS-R1.dtc_phx.com,10.0.255.248,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Cisco C8300-1N1S-4T2X Built-In NIM controller
+,,Module,,AGA1747RGCF     ,,Cisco,GE SX
+,,Module,,"""""",,Cisco,Cisco C8300-1N1S-4T2X Built-In SM controller
+,,Module,,FDO27410DPX,,Cisco,Cisco C8300-1N1S-4T2X Route Processor
+,,Module,,"""""",,Cisco,Cisco C8300-1N1S-4T2X Forwarding Processor
+HQ-VG350-01,172.16.4.50,Parent Switch,,,,Cisco,
+,,Module,,FOC19313XL2,,Cisco,VG350 High Density Analog Gateway
+,,Module,,FOC19337284,,Cisco,PVDM3 DSP DIMM with 256 Channels
+,,Module,,FOC19335U77,,Cisco,High Density Analog Voice Module - 48FXS-E
+,,Module,,FOC19335U7X,,Cisco,High Density Analog Voice Module - 48FXS-E
+HQ-VG350-02,172.16.4.51,Parent Switch,,,,Cisco,
+,,Module,,FOC19313XP6,,Cisco,VG350 High Density Analog Gateway
+,,Module,,FOC19337286,,Cisco,PVDM3 DSP DIMM with 256 Channels
+,,Module,,FOC19335U7M,,Cisco,High Density Analog Voice Module - 48FXS-E
+,,Module,,FOC19348M9N,,Cisco,High Density Analog Voice Module - 48FXS-E
+IDF-1A-2960X-SecCam.dtc_phx.com,10.0.255.4,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C2960X-24PS-L - Fixed Module 0
+IDF1A-4510.trtc.com,10.0.255.121,Parent Switch,,,,Cisco,
+,,Module,,CAT1944L6DD,,Cisco,10/100/1000BaseT (RJ45)+V E Series with 48 10/100/1000 baseT Premium PoE ports (Cisco/IEEE)
+,,Module,,JAE193901BA,,Cisco,10/100/1000BaseT (RJ45)+V E Series with 48 10/100/1000 baseT Premium PoE ports (Cisco/IEEE)
+,,Module,,JAE193903GW,,Cisco,10/100/1000BaseT (RJ45)+V E Series with 48 10/100/1000 baseT Premium PoE ports (Cisco/IEEE)
+,,Module,,JAE19390160,,Cisco,10/100/1000BaseT (RJ45)+V E Series with 48 10/100/1000 baseT Premium PoE ports (Cisco/IEEE)
+,,Module,SFP,CAT1944L38J,,Cisco,"Sup 8-E 10GE (SFP+), 1000BaseX (SFP) with 8 SFP+ Ports"
+,,Module,SFP,"""""",,Cisco,"Sup 8-E 10GE (SFP+), 1000BaseX (SFP) with 8 SFP+ Ports"
+IDF-1B-2960X-SecCam.dtc_phx.com,10.0.255.5,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C2960X-24PS-L - Fixed Module 0
+IDF1B-4510-SW1.trtc.com,10.0.255.123,Parent Switch,,,,Cisco,
+,,Module,,CAT1944L0AJ,,Cisco,10/100/1000BaseT (RJ45)+V E Series with 48 10/100/1000 baseT Premium PoE ports (Cisco/IEEE)
+,,Module,,JAE19390156,,Cisco,10/100/1000BaseT (RJ45)+V E Series with 48 10/100/1000 baseT Premium PoE ports (Cisco/IEEE)
+,,Module,,JAE193809KY,,Cisco,10/100/1000BaseT (RJ45)+V E Series with 48 10/100/1000 baseT Premium PoE ports (Cisco/IEEE)
+,,Module,,JAE193809EC,,Cisco,10/100/1000BaseT (RJ45)+V E Series with 48 10/100/1000 baseT Premium PoE ports (Cisco/IEEE)
+,,Module,SFP,CAT2012L3UB,,Cisco,"Sup 8-E 10GE (SFP+), 1000BaseX (SFP) with 8 SFP+ Ports"
+,,Module,SFP,CAT1944L2Z4,,Cisco,"Sup 8-E 10GE (SFP+), 1000BaseX (SFP) with 8 SFP+ Ports"
+,,Module,,JAE1939017W,,Cisco,10/100/1000BaseT (RJ45)+V E Series with 48 10/100/1000 baseT Premium PoE ports (Cisco/IEEE)
+,,Module,,JAE1939015R,,Cisco,10/100/1000BaseT (RJ45)+V E Series with 48 10/100/1000 baseT Premium PoE ports (Cisco/IEEE)
+,,Module,,JAE193901EB,,Cisco,10/100/1000BaseT (RJ45)+V E Series with 48 10/100/1000 baseT Premium PoE ports (Cisco/IEEE)
+,,Module,,CAT1944L1KU,,Cisco,10/100/1000BaseT (RJ45)+V E Series with 48 10/100/1000 baseT Premium PoE ports (Cisco/IEEE)
+IDF1B-4510-SW2.trtc.com,10.0.255.124,Parent Switch,,,,Cisco,
+,,Module,,CAT1950L6QP,,Cisco,10/100/1000BaseT (RJ45)+V E Series with 48 10/100/1000 baseT Premium PoE ports (Cisco/IEEE)
+,,Module,,CAT1950L6VV,,Cisco,10/100/1000BaseT (RJ45)+V E Series with 48 10/100/1000 baseT Premium PoE ports (Cisco/IEEE)
+,,Module,,CAT1944L66H,,Cisco,10/100/1000BaseT (RJ45)+V E Series with 48 10/100/1000 baseT Premium PoE ports (Cisco/IEEE)
+,,Module,,JAE193901FH,,Cisco,10/100/1000BaseT (RJ45)+V E Series with 48 10/100/1000 baseT Premium PoE ports (Cisco/IEEE)
+,,Module,SFP,CAT1944L358,,Cisco,"Sup 8-E 10GE (SFP+), 1000BaseX (SFP) with 8 SFP+ Ports"
+,,Module,SFP,CAT2023L1L8,,Cisco,"Sup 8-E 10GE (SFP+), 1000BaseX (SFP) with 8 SFP+ Ports"
+IDF-1C-2960X-SecCam.dtc_phx.com,10.0.255.6,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C2960X-24PS-L - Fixed Module 0
+IDF1C-9410-SW.trtc.com,10.0.255.61,Parent Switch,,,,Cisco,
+,,Module,,JAE22310F8W,,Cisco,Cisco Catalyst 9400 Series 48-Port POE+ 10/100/1000 (RJ-45)
+,,Module,,JAE22320JRF,,Cisco,Cisco Catalyst 9400 Series 48-Port POE+ 10/100/1000 (RJ-45)
+,,Module,,JAE22380JCT,,Cisco,Cisco Catalyst 9400 Series 48-Port POE+ 10/100/1000 (RJ-45)
+,,Module,,JAE22380SPT,,Cisco,Cisco Catalyst 9400 Series 48-Port POE+ 10/100/1000 (RJ-45)
+,,Module,,JAE223409C3,,Cisco,Cisco Catalyst 9400 Series Supervisor 1 XL Module
+,,Module,,JAE223409DL,,Cisco,Cisco Catalyst 9400 Series Supervisor 1 XL Module
+,,Module,,JAE22380TBN,,Cisco,Cisco Catalyst 9400 Series 48-Port POE+ 10/100/1000 (RJ-45)
+,,Module,,JAE22380SPS,,Cisco,Cisco Catalyst 9400 Series 48-Port POE+ 10/100/1000 (RJ-45)
+,,Module,,JAE22380SLE,,Cisco,Cisco Catalyst 9400 Series 48-Port POE+ 10/100/1000 (RJ-45)
+,,Module,,JAD2350022B,,Cisco,Cisco Catalyst 9400 Series 48-Port POE+ 10/100/1000 (RJ-45)
+IDF-2A-2960CX-SecCam.dtc_phx.com,10.0.255.7,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,WS-C2960CX-8PC-L - Fixed Module 0
+IDF2A-4510.trtc.com,10.0.255.122,Parent Switch,,,,Cisco,
+,,Module,,CAT1943LAMS,,Cisco,10/100/1000BaseT (RJ45)+V E Series with 48 10/100/1000 baseT Premium PoE ports (Cisco/IEEE)
+,,Module,,JAE1939016A,,Cisco,10/100/1000BaseT (RJ45)+V E Series with 48 10/100/1000 baseT Premium PoE ports (Cisco/IEEE)
+,,Module,,JAE193903H5,,Cisco,10/100/1000BaseT (RJ45)+V E Series with 48 10/100/1000 baseT Premium PoE ports (Cisco/IEEE)
+,,Module,,JAE1939015U,,Cisco,10/100/1000BaseT (RJ45)+V E Series with 48 10/100/1000 baseT Premium PoE ports (Cisco/IEEE)
+,,Module,SFP,"""""",,Cisco,"Sup 8-E 10GE (SFP+), 1000BaseX (SFP) with 8 SFP+ Ports"
+,,Module,SFP,CAT1944L33U,,Cisco,"Sup 8-E 10GE (SFP+), 1000BaseX (SFP) with 8 SFP+ Ports"
+,,Module,,JAE1939017X,,Cisco,10/100/1000BaseT (RJ45)+V E Series with 48 10/100/1000 baseT Premium PoE ports (Cisco/IEEE)
+,,Module,,JAE19390171,,Cisco,10/100/1000BaseT (RJ45)+V E Series with 48 10/100/1000 baseT Premium PoE ports (Cisco/IEEE)
+,,Module,,JAE193809FA,,Cisco,10/100/1000BaseT (RJ45)+V E Series with 48 10/100/1000 baseT Premium PoE ports (Cisco/IEEE)
+,,Module,,CAT1944L0JX,,Cisco,10/100/1000BaseT (RJ45)+V E Series with 48 10/100/1000 baseT Premium PoE ports (Cisco/IEEE)
+IDF2B-9410-SW.trtc.com,10.0.255.125,Parent Switch,,,,Cisco,
+,,Module,,JAE22340958,,Cisco,Cisco Catalyst 9400 Series 48-Port POE+ 10/100/1000 (RJ-45)
+,,Module,,JAE2234096L,,Cisco,Cisco Catalyst 9400 Series 48-Port POE+ 10/100/1000 (RJ-45)
+,,Module,,JAE22380SK8,,Cisco,Cisco Catalyst 9400 Series 48-Port POE+ 10/100/1000 (RJ-45)
+,,Module,,JAE22380TC2,,Cisco,Cisco Catalyst 9400 Series 48-Port POE+ 10/100/1000 (RJ-45)
+,,Module,,JAE22320FZP,,Cisco,Cisco Catalyst 9400 Series Supervisor 1 XL Module
+,,Module,,JAE223409FB,,Cisco,Cisco Catalyst 9400 Series Supervisor 1 XL Module
+,,Module,,JAE22380SKZ,,Cisco,Cisco Catalyst 9400 Series 48-Port POE+ 10/100/1000 (RJ-45)
+,,Module,,JAE22380TBC,,Cisco,Cisco Catalyst 9400 Series 48-Port POE+ 10/100/1000 (RJ-45)
+,,Module,,JAE22380SWG,,Cisco,Cisco Catalyst 9400 Series 48-Port POE+ 10/100/1000 (RJ-45)
+,,Module,,JAE22391H9L,,Cisco,Cisco Catalyst 9400 Series 48-Port POE+ 10/100/1000 (RJ-45)
+IDF-2C-2960CX-SecCam.dtc_phx.com,10.0.255.9,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,WS-C2960CX-8PC-L - Fixed Module 0
+IDF2C-9410-SW.trtc.com,10.0.255.62,Parent Switch,,,,Cisco,
+,,Module,,JAE2234094V,,Cisco,Cisco Catalyst 9400 Series 48-Port POE+ 10/100/1000 (RJ-45)
+,,Module,,JAE22320JPH,,Cisco,Cisco Catalyst 9400 Series 48-Port POE+ 10/100/1000 (RJ-45)
+,,Module,,JAE22391K82,,Cisco,Cisco Catalyst 9400 Series 48-Port POE+ 10/100/1000 (RJ-45)
+,,Module,,JAE22380TBZ,,Cisco,Cisco Catalyst 9400 Series 48-Port POE+ 10/100/1000 (RJ-45)
+,,Module,,JAE222906C8,,Cisco,Cisco Catalyst 9400 Series Supervisor 1 XL Module
+,,Module,,JAE223108EB,,Cisco,Cisco Catalyst 9400 Series Supervisor 1 XL Module
+,,Module,,JAE22380SKF,,Cisco,Cisco Catalyst 9400 Series 48-Port POE+ 10/100/1000 (RJ-45)
+IDF-A-2960X-SecCam.dtc_phx.com,10.101.255.10,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C2960X-24PS-L - Fixed Module 0
+IDF-B-2960X-SecCam.dtc_phx.com,10.101.255.11,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C2960X-24PS-L - Fixed Module 0
+IDF-C-2960X-SecCam.dtc_phx.com,10.101.255.12,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C2960X-24PS-L - Fixed Module 0
+IDFCNF-3750-Stack.dtc_phx.com,10.0.255.66,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C3750-48P - Fixed Module 0
+,,Module,,"""""",,Cisco,Switch 2 - WS-C3750-48P - Fixed Module 0
+IDF-D-2960CX-SecCam.dtc_phx.com,10.101.255.13,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,WS-C2960CX-8PC-L - Fixed Module 0
+IDF-E-2960CX-SecCam.dtc_phx.com,10.101.255.14,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,WS-C2960CX-8PC-L - Fixed Module 0
+IDFHQ-3750-TestLab.trtc.com,10.0.255.84,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C3750-48P - Fixed Module 0
+MDF-3130-I9-StackA,10.0.255.51,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-CBS3130X-S-F - Fixed Module 0
+,,Module,,FDO12120A23     ,,Cisco,TwinGig Converter Module
+,,Module,,FDO12120A7L     ,,Cisco,TwinGig Converter Module
+,,Module,,"""""",,Cisco,Switch 2 - WS-CBS3130X-S - Fixed Module 0
+,,Module,,FDO140403PA     ,,Cisco,TwinGig Converter Module
+,,Module,,FDO1404072D     ,,Cisco,TwinGig Converter Module
+,,Module,,"""""",,Cisco,Switch 3 - WS-CBS3130X-S-F - Fixed Module 0
+,,Module,,FDO143319D1     ,,Cisco,TwinGig Converter Module
+,,Module,,FDO14340B30     ,,Cisco,TwinGig Converter Module
+MDF-3130-I9-StackB,10.0.255.52,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-CBS3130X-S - Fixed Module 0
+,,Module,,FDO18501G0E     ,,Cisco,TwinGig Converter Module
+,,Module,,FDO18501G7N     ,,Cisco,TwinGig Converter Module
+,,Module,,"""""",,Cisco,Switch 2 - WS-CBS3130X-S-F - Fixed Module 0
+,,Module,,FDO134708SX     ,,Cisco,TwinGig Converter Module
+,,Module,,FDO13430JEY     ,,Cisco,TwinGig Converter Module
+,,Module,,"""""",,Cisco,Switch 3 - WS-CBS3130X-S - Fixed Module 0
+,,Module,,FDO18471WB7     ,,Cisco,TwinGig Converter Module
+,,Module,,FDO18471WBB     ,,Cisco,TwinGig Converter Module
+MDF-3130-J9-ENC3-A.trtc,10.0.255.56,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-CBS3130X-S-F - Fixed Module 0
+,,Module,,FDO151512MP     ,,Cisco,TwinGig Converter Module
+,,Module,,FDO151615AS     ,,Cisco,TwinGig Converter Module
+,,Module,,"""""",,Cisco,Switch 2 - WS-CBS3130X-S-F - Fixed Module 0
+,,Module,,FDO16020CYM     ,,Cisco,TwinGig Converter Module
+,,Module,,FDO16020CWS     ,,Cisco,TwinGig Converter Module
+MDF-3130-J9-ENC3-B.trtc,10.0.255.57,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-CBS3130X-S-F - Fixed Module 0
+,,Module,,FDO151615AP     ,,Cisco,TwinGig Converter Module
+,,Module,,FDO151614LG     ,,Cisco,TwinGig Converter Module
+,,Module,,"""""",,Cisco,Switch 2 - WS-CBS3130X-S-F - Fixed Module 0
+,,Module,,FDO16020N9T     ,,Cisco,TwinGig Converter Module
+,,Module,,FDO16020N8S     ,,Cisco,TwinGig Converter Module
+MDF-3130-O3-ENC1-A,10.0.255.93,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-CBS3130X-S-F - Fixed Module 0
+,,Module,,FDO131905PY     ,,Cisco,TwinGig Converter Module
+,,Module,,FDO131908ZG     ,,Cisco,TwinGig Converter Module
+MDF-3130-O3-ENC1-B,10.0.255.47,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-CBS3130X-S-F - Fixed Module 0
+,,Module,,FDO13180593     ,,Cisco,TwinGig Converter Module
+,,Module,,FDO1318067T     ,,Cisco,TwinGig Converter Module
+MDF-3750-I9-SwA.dtc_phx.com,10.0.255.53,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C3750G-48TS - Fixed Module 0
+MDF-3750-I9-SwB.dtc_phx.com,10.0.255.54,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C3750G-48TS - Fixed Module 0
+MDF-3750-L3.dtc_phx.com,10.0.255.46,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C3750G-48TS - Fixed Module 0
+,,Module,,"""""",,Cisco,Switch 2 - WS-C3750G-48TS - Fixed Module 0
+MDF-3750-Stk-J9.dtc_phx.com,10.0.255.36,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C3750G-48TS - Fixed Module 0
+,,Module,,"""""",,Cisco,Switch 2 - WS-C3750G-48TS - Fixed Module 0
+MDF-3750-Stk-M9.dtc_phx.com,10.0.255.39,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C3750G-48TS - Fixed Module 0
+,,Module,,"""""",,Cisco,Switch 2 - WS-C3750G-48TS - Fixed Module 0
+MDF-3750-Stk-N9.dtc_phx.com,10.0.255.42,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C3750G-48TS - Fixed Module 0
+,,Module,,"""""",,Cisco,Switch 2 - WS-C3750G-48TS - Fixed Module 0
+MDF-3750-Stk-O9.dtc_phx.com,10.0.255.43,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C3750G-48TS - Fixed Module 0
+,,Module,,"""""",,Cisco,Switch 2 - WS-C3750G-48TS - Fixed Module 0
+MDF-3750-Stk-P9.dtc_phx.com,10.0.255.44,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C3750G-48TS - Fixed Module 0
+,,Module,,"""""",,Cisco,Switch 2 - WS-C3750G-48TS - Fixed Module 0
+SVALTOR,10.101.100.138,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C3750G-24TS-1U - Fixed Module 0
+,,Module,,"""""",,Cisco,Switch 2 - WS-C3750G-24TS-1U - Fixed Module 0
+svgw1.dtc_phx.com,10.0.99.254,Parent Switch,,,,Cisco,
+,,Module,,FOC171211ZD,,Cisco,Cisco Services Performance Engine 250 for Cisco 3900 ISR
+,,Module,,FOC17114L7M,,Cisco,PVDM3 DSP DIMM with 64 Channels
+svgw3.dtc_phx.com,10.101.99.254,Parent Switch,,,,Cisco,
+,,Module,,FOC1712123E,,Cisco,Cisco Services Performance Engine 250 for Cisco 3900 ISR
+,,Module,,FOC17114L7Z,,Cisco,PVDM3 DSP DIMM with 64 Channels
+SVHQTOR.DTC_PHX.COM.trtc.com,10.0.99.1,Parent Switch,,,,Cisco,
+,,Module,,"""""",,Cisco,Switch 1 - WS-C3750G-48TS - Fixed Module 0
+,,Module,,"""""",,Cisco,Switch 2 - WS-C3750G-48TS - Fixed Module 0
+svxcode1.dtc_phx.com,10.0.99.205,Parent Switch,,,,Cisco,
+,,Module,,FOC14314JRH,,Cisco,Cisco Services Performance Engine 150 for Cisco 3900 ISR
+,,Module,,FOC17440HKB,,Cisco,PVDM3 DSP DIMM with 256 Channels
+svxcode2.dtc_phx.com,10.101.99.205,Parent Switch,,,,Cisco,
+,,Module,,FOC14304JQL,,Cisco,Cisco Services Performance Engine 150 for Cisco 3900 ISR
+,,Module,,FOC17440HHQ,,Cisco,PVDM3 DSP DIMM with 256 Channels
+svxgw1.dtc_phx.com,10.0.99.200,Parent Switch,,,,Cisco,
+,,Module,,FOC14300S16,,Cisco,Cisco Services Performance Engine 150 for Cisco 3900 ISR
+,,Module,,FOC143221FH,,Cisco,PVDM3 DSP DIMM with 64 Channels
+svxgw2.dtc_phx.com,10.0.99.201,Parent Switch,,,,Cisco,
+,,Module,,FOC14304JTQ,,Cisco,Cisco Services Performance Engine 150 for Cisco 3900 ISR
+,,Module,,FOC143220B9,,Cisco,PVDM3 DSP DIMM with 64 Channels
+svxgw3.dtc_phx.com,10.101.99.200,Parent Switch,,,,Cisco,
+,,Module,,FOC14304KEK,,Cisco,Cisco Services Performance Engine 150 for Cisco 3900 ISR
+,,Module,,FOC143221FG,,Cisco,PVDM3 DSP DIMM with 64 Channels
+svxgw4.dtc_phx.com,10.101.98.201,Parent Switch,,,,Cisco,
+,,Module,,FOC14300RQW,,Cisco,Cisco Services Performance Engine 150 for Cisco 3900 ISR
+,,Module,,FOC16347YRK,,Cisco,PVDM3 DSP DIMM with 64 Channels
+TestLab2950-03.trtc.com,10.0.255.76,Parent Switch,,,,Cisco,

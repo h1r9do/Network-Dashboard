@@ -1,0 +1,107 @@
+
+Complete VLAN Migration Report
+==============================
+Network: TST 01 (L_3790904986339115852)
+Start Time: 2025-07-10 11:14:36
+Duration: 0:01:40.707177
+Mode: LIVE
+
+VLAN Mapping Applied:
+  VLAN 1 → VLAN 100
+  VLAN 101 → VLAN 200
+  VLAN 801 → VLAN 400
+  VLAN 201 → VLAN 410
+
+Log Entries:
+[11:14:37] INFO: Complete VLAN Migrator initialized for TST 01
+[11:14:37] INFO: Mode: LIVE
+[11:14:37] INFO: 
+============================================================
+[11:14:37] INFO: Taking complete configuration backup...
+[11:14:37] INFO: ============================================================
+[11:14:37] INFO: Backing up VLANs...
+[11:14:37] INFO:   ✓ Backed up 10 VLANs
+[11:14:37] INFO: Backing up firewall rules...
+[11:14:38] INFO:   ✓ Backed up 59 firewall rules
+[11:14:38] INFO: Backing up group policies...
+[11:14:38] INFO:   ✓ Backed up 3 group policies
+[11:14:38] INFO: Backing up switch configurations...
+[11:14:39] INFO:   ✓ Backed up 28 ports for TST_01SW01
+[11:14:40] INFO:   ✓ Backed up 28 ports for TST_01SW02
+[11:14:40] INFO: Backing up MX ports...
+[11:14:40] INFO:   ✓ Backed up 10 MX ports
+[11:14:40] INFO: Backing up syslog configuration...
+[11:14:40] INFO: 
+✓ Complete backup saved to complete_vlan_backup_L_3790904986339115852_20250710_111440.json
+[11:14:40] INFO: 
+============================================================
+[11:14:40] INFO: Clearing VLAN references...
+[11:14:40] INFO: ============================================================
+[11:14:40] INFO: 
+Step 1: Clearing firewall rules...
+[11:14:41] INFO:   ✓ Firewall rules cleared
+[11:14:41] INFO: 
+Step 2: Moving switch ports to temporary VLANs...
+[11:14:41] INFO:   Creating temporary VLAN 999...
+[11:14:42] INFO:   Creating temporary VLAN 998...
+[11:14:42] INFO:   Creating temporary VLAN 997...
+[11:14:43] INFO:   Creating temporary VLAN 996...
+[11:14:56] INFO:   ✓ Updated 23 ports on TST_01SW01
+[11:15:09] INFO:   ✓ Updated 23 ports on TST_01SW02
+[11:15:09] INFO: 
+Step 3: Updating MX ports to temporary VLANs...
+[11:15:13] INFO:   ✓ Updated 8 MX ports
+[11:15:13] INFO: 
+============================================================
+[11:15:13] INFO: Migrating VLANs to new IDs...
+[11:15:13] INFO: ============================================================
+[11:15:13] INFO: 
+Migrating VLAN 1 → 100
+[11:15:13] INFO:   Deleting VLAN 1...
+[11:15:17] INFO:   Creating VLAN 100...
+[11:15:17] INFO:   ✓ Created VLAN 100
+[11:15:18] INFO: 
+Migrating VLAN 101 → 200
+[11:15:18] INFO:   Deleting VLAN 101...
+[11:15:22] INFO:   Creating VLAN 200...
+[11:15:23] INFO:   ✓ Created VLAN 200
+[11:15:24] INFO: 
+Migrating VLAN 201 → 410
+[11:15:24] INFO:   Deleting VLAN 201...
+[11:15:27] INFO:   Creating VLAN 410...
+[11:15:28] INFO:   ✓ Created VLAN 410
+[11:15:29] INFO: 
+VLAN 300 - No change needed
+[11:15:29] INFO: 
+VLAN 301 - No change needed
+[11:15:29] INFO: 
+VLAN 800 - Updating IP configuration...
+[11:15:30] INFO:   ✓ Updated VLAN 800 IP configuration
+[11:15:31] INFO: 
+Migrating VLAN 801 → 400
+[11:15:31] INFO:   Deleting VLAN 801...
+[11:15:35] INFO:   Creating VLAN 400...
+[11:15:35] INFO:     Applying IP changes for VLAN 400
+[11:15:35] INFO:   ✓ Created VLAN 400
+[11:15:36] INFO: 
+VLAN 803 - No change needed
+[11:15:36] INFO: 
+VLAN 900 - No change needed
+[11:15:36] INFO: 
+============================================================
+[11:15:36] INFO: Restoring configurations with new VLAN IDs...
+[11:15:36] INFO: ============================================================
+[11:15:36] INFO: 
+Step 1: Updating switch ports to new VLAN IDs...
+[11:15:50] INFO:   ✓ Updated 24 ports on TST_01SW01
+[11:16:04] INFO:   ✓ Updated 24 ports on TST_01SW02
+[11:16:04] INFO: 
+Step 2: Updating MX ports to new VLAN IDs...
+[11:16:08] INFO:   ✓ Updated 7 MX ports
+[11:16:08] INFO: 
+Step 3: Applying NEO 07 firewall template...
+[11:16:08] INFO:   Loaded 54-rule NEO 07 firewall template: 54 rules (Meraki will auto-add default)
+[11:16:08] INFO:   Processed 54 template rules (no policy object issues, Meraki will auto-add default)
+[11:16:10] INFO:   ✓ Applied 54 NEO 07 firewall template rules
+[11:16:10] INFO: 
+Step 4: Cleaning up temporary VLANs...

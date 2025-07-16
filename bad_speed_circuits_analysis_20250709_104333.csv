@@ -1,0 +1,1432 @@
+Site Name,Circuit Purpose,Status,IP Address,Circuits Table Provider,Circuits Table Speed,Enriched Network Name,Enriched Provider,Enriched Speed,DSR Provider,DSR Speed,Has Meraki Notes,Notes Preview
+CAN 16,Primary,Customer Action Required,NaN,Spectrum,400.0M x 10.0M,CAN 16,Frontier Communications,500.0 M,,,Yes,"WAN 1
+Frontier Communications
+500.0M x 500.0M
+WAN 2
+Digi
+Cell..."
+CAN 25,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,CAN 25,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+AT&T Broadband II
+300.0M x 300.0M..."
+CAN 25,Secondary,Enabled,99.3.127.17,AT&T Broadband II,300.0M x 300.0M,CAN 25,AT&T Broadband II,300.0M x 300.0M,AT&T Broadband II,300.0M x 300.0M,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+AT&T Broadband II
+300.0M x 300.0M..."
+CAN 35,Primary,Information/Approval Needed From Sponsor,NaN,Comcast Workplace,500.0M x 30.0M,CAN 35,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II	
+1000.0M x 1000.0M
+WAN 2
+Comcast
+1000.0M x 1000.0M..."
+CAN 35,Secondary,Enabled,99.156.67.249,AT&T Broadband II,1000.0M x 1000.0M,CAN 35,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II	
+1000.0M x 1000.0M
+WAN 2
+Comcast
+1000.0M x 1000.0M..."
+CAS 35,Primary,Order Canceled,NaN,Spectrum,600.0M x 35.0M,CAS 35,Frontier Communications,500.0 M,,,Yes,WAN 1\nFrontier Communications\n500.0M x 500.0M\nWAN 2\nVZW Cell\nCell...
+CAS 40,Primary,No Service Available,NaN,NSA ,,CAS 40,Frontier Communications,500.0 M,,,Yes,"WAN 1
+Frontier Communications
+500.0M x 50.0M
+WAN 2
+Digi
+Cell..."
+CAS 41,Primary,No Service Available,NaN,NSA,,CAS 41,Frontier Communications,500.0 M,,,Yes,"WAN 1
+Frontier Communications
+500.0M x 500.0M
+WAN 2
+VZW Cell
+Cell..."
+CAS 45,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,CAS 45,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II	
+1000.0M x 1000.0M
+WAN 2
+Digi
+Cell..."
+CAS 45,Secondary,Enabled,162.196.235.249,AT&T Broadband II,1000.0M x 1000.0M,CAS 45,Digi,Cell,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II	
+1000.0M x 1000.0M
+WAN 2
+Digi
+Cell..."
+CAS 46,Secondary,Order Canceled,NaN,Spectrum,600.0M x 35.0M,CAS 46,VZW Cell,Cell,,,Yes,"WAN 1
+AT&T
+20.0M x 20.0M
+WAN 2
+VZW Cell
+Cell..."
+COD 01,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,COD 01,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+Verizon Business..."
+COD 01,Secondary,Order Canceled,NaN,NaN,,COD 01,Verizon Business,Cell,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+Verizon Business..."
+COD 03,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,COD 03,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+Unknown..."
+COD 03,Secondary,No Service Available,NaN,NSA,,COD 03,Unknown,,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+Unknown..."
+COD 08,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,COD 08,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+Unknown..."
+COD 08,Secondary,Order Canceled,NaN,NaN,,COD 08,Unknown,,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+Unknown..."
+COD 09,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,COD 09,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Unknown..."
+COD 09,Secondary,No Service Available,NaN,NSA,,COD 09,Unknown,,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Unknown..."
+COD 13,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,COD 13,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+VZW Cell
+Cell..."
+COD 13,Secondary,Order Canceled,NaN,NaN,,COD 13,VZW Cell,Cell,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+VZW Cell
+Cell..."
+COD 23,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,COD 23,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+EB2-Lumen DSL
+100.0M x 10.0M..."
+COD 23,Secondary,Enabled,67.40.43.129,EB2-Lumen DSL,100.0M x 10.0M,COD 23,EB2-Lumen DSL,100.0M x 10.0M,EB2-Lumen DSL,100.0M x 10.0M,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+EB2-Lumen DSL
+100.0M x 10.0M..."
+COD 38,Primary,Order Canceled,NaN,Comcast Workplace,250.0M x 25.0M,COD 38,CenturyLink,100.0 M,,,Yes,"WAN 1
+CenturyLink
+100.0M x 10.0M
+WAN 2
+Digi
+Cell..."
+COD 38,Secondary,Enabled,63.229.225.1,CenturyLink/Qwest,100.0M x 10.0M,COD 38,Digi,Cell,CenturyLink/Qwest,100.0M x 10.0M,Yes,"WAN 1
+CenturyLink
+100.0M x 10.0M
+WAN 2
+Digi
+Cell..."
+COD 41,Primary,Order Canceled,NaN,Comcast Workplace,300.0M x 30.0M,COD 41,Lumen,300.0 M,,,Yes,"WAN 1
+Lumen
+300.0M x 300.0M
+WAN 2
+Verizon Business..."
+COD 41,Secondary,Order Canceled,NaN,NaN,,COD 41,Verizon Business,Cell,,,Yes,"WAN 1
+Lumen
+300.0M x 300.0M
+WAN 2
+Verizon Business..."
+FLJ 00,Primary,Enabled,96.76.16.49,Comcast Workplace,300.0M x 30.0M,FLJ_00,Comcast,300.0 M,Comcast Workplace,300.0M x 30.0M,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+AT&T
+300.0M x 300.0M..."
+FLJ 00,Secondary,Enabled,99.27.27.113,AT&T Broadband II,300.0M x 300.0M,FLJ_00,AT&T,300.0 M,AT&T Broadband II,300.0M x 300.0M,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+AT&T
+300.0M x 300.0M..."
+FLT 02,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,FLT 02,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+MetroNet
+300.0M x 300.0M..."
+FLT 02,Secondary,Enabled,46.110.100.229,MetroNet,300.0M x 300.0M,FLT 02,MetroNet,300.0M x 300.0M,MetroNet,300.0M x 300.0M,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+MetroNet
+300.0M x 300.0M..."
+GAA 01,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,GAA 01,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+300.0M x 300.0M..."
+GAA 01,Secondary,Enabled,75.52.168.161,AT&T Broadband II,300.0M x 300.0M,GAA 01,AT&T Broadband II,300.0M x 300.0M,AT&T Broadband II,300.0M x 300.0M,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+300.0M x 300.0M..."
+GAA 10,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,GAA 10,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 30.0M..."
+GAA 10,Secondary,Enabled,162.195.253.1,AT&T Broadband II,1000.0M x 1000.0M,GAA 10,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 30.0M..."
+GAA 12,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,GAA 12,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+GAA 12,Secondary,Enabled,104.188.254.185,AT&T Broadband II,1000.0M x 1000.0M,GAA 12,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+GAA 13,Primary,Information/Approval Needed From Sponsor,NaN,Comcast Workplace,,GAA 13,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 30.0M..."
+GAA 13,Secondary,Enabled,76.216.69.1,AT&T Broadband II,1000.0M x 1000.0M,GAA 13,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 30.0M..."
+GAA 14,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,GAA 14,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+500.0M x 500.0M..."
+GAA 14,Secondary,Enabled,107.130.209.169,AT&T Broadband II,1000.0M x 1000.0M,GAA 14,AT&T Broadband II,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+500.0M x 500.0M..."
+GAA 15,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,GAA 15,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+GAA 15,Secondary,Enabled,162.205.233.145,AT&T Broadband II,1000.0M x 1000.0M,GAA 15,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+GAA 18,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,GAA 18,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+GAA 18,Secondary,Enabled,107.130.210.65,AT&T Broadband II,1000.0M x 1000.0M,GAA 18,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+GAA 21,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,GAA 21,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast Cable Communications, LLC..."
+GAA 21,Secondary,Enabled,108.209.103.225,AT&T Broadband II,1000.0M x 1000.0M,GAA 21,"Comcast Cable Communications, LLC",1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast Cable Communications, LLC..."
+GAA 25,Primary,Information/Approval Needed From Sponsor,NaN,Comcast Workplace,,GAA 25,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M..."
+GAA 25,Secondary,Enabled,162.235.81.185,AT&T Broadband II,1000.0M x 1000.0M,GAA 25,AT&T Broadband II,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M..."
+GAA 27,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,GAA 27,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast..."
+GAA 27,Secondary,Enabled,162.235.50.185,AT&T Broadband II,1000.0M x 1000.0M,GAA 27,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast..."
+GAA 28,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,GAA 28,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+300.0M x 300.0M..."
+GAA 28,Secondary,Enabled,99.8.195.153,AT&T Broadband II,300.0M x 300.0M,GAA 28,AT&T Broadband II,300.0M x 300.0M,AT&T Broadband II,300.0M x 300.0M,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+300.0M x 300.0M..."
+GAA 30,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,GAA 30,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+GAA 30,Secondary,Enabled,107.216.87.73,AT&T Broadband II,1000.0M x 1000.0M,GAA 30,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+GAA W00,Primary,Enabled/Disconnect Pending,45.22.51.193,AT&T Broadband II,1000.0M x 200.0M,GAA W00,AT&T Broadband II,300.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+300.0M x 30.0M
+WAN 2
+Digi
+Cell..."
+GAA W00,Secondary,Order Canceled,NaN,Comcast Workplace,500.0M x 30.0M,GAA W00,Digi,Cell,,,Yes,"WAN 1
+AT&T Broadband II
+300.0M x 30.0M
+WAN 2
+Digi
+Cell..."
+GAA 00,Primary,Enabled,64.109.201.225,AT&T Broadband II,1000.0M x 1000.0M,GAA_00,AT&T,1000.0 M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T
+1000.0M x 1000.0M
+WAN 2
+Comcast
+750.0M x 35.0M..."
+GAA 00,Secondary,Enabled,173.15.209.109,Comcast Workplace,750.0M x 35.0M,GAA_00,Comcast,750.0 M,Comcast Workplace,750.0M x 35.0M,Yes,"WAN 1
+AT&T
+1000.0M x 1000.0M
+WAN 2
+Comcast
+750.0M x 35.0M..."
+ILC 01,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,ILC 01,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+ILC 01,Secondary,Enabled,104.12.155.57,AT&T Broadband II,1000.0M x 1000.0M,ILC 01,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+ILC 02,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,ILC 02,Comcast Workplace,750.0 M,,,Yes,"WAN 1
+Comcast Workplace
+750.0M x 35.0M
+WAN 2
+Comcast Workplace
+750.0M x 35.0M..."
+ILC 02,Secondary,Enabled,96.81.226.89,Comcast Workplace,750.0M x 35.0M,ILC 02,Comcast Workplace,600.0M x 35.0M,Comcast Workplace,750.0M x 35.0M,Yes,"WAN 1
+Comcast Workplace
+750.0M x 35.0M
+WAN 2
+Comcast Workplace
+750.0M x 35.0M..."
+ILC 04,Primary,Information/Approval Needed From Sponsor,NaN,Comcast Workplace,,ILC 04,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+ComcastAgg Comcast
+300.0M x 35.0M..."
+ILC 04,Secondary,Enabled,NaN,AT&T Broadband II,1000.0M x 1000.0M,ILC 04,ComcastAgg Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+ComcastAgg Comcast
+300.0M x 35.0M..."
+ILC 06,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,ILC 06,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+ILC 06,Secondary,Enabled,108.91.15.137,AT&T Broadband II,1000.0M x 1000.0M,ILC 06,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+ILC 09,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,ILC 09,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M..."
+ILC 09,Secondary,Enabled,104.4.89.113,AT&T Broadband II,1000.0M x 1000.0M,ILC 09,AT&T Broadband II,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+Comcast
+300.0M x 35.0M..."
+ILC 11,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,ILC 11,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+Unknown..."
+ILC 11,Secondary,No Service Available,NaN,NSA,,ILC 11,Unknown,,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+Unknown..."
+ILC 12,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,ILC 12,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+Verizon Business..."
+ILC 12,Secondary,Information/Approval Needed From Sponsor,NaN,NaN,,ILC 12,Verizon Business,Cell,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+Verizon Business..."
+ILC 15,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,ILC 15,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast..."
+ILC 15,Secondary,Enabled,172.125.39.129,AT&T Broadband II,1000.0M x 1000.0M,ILC 15,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast..."
+ILC 18,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,ILC 18,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+ILC 18,Secondary,Enabled,107.200.191.1,AT&T Broadband II,1000.0M x 1000.0M,ILC 18,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+ILC 19,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,ILC 19,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+ILC 19,Secondary,Enabled,162.229.147.233,AT&T Broadband II,1000.0M x 1000.0M,ILC 19,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+ILC 24,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,ILC 24,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+1000.0M x 1000.0M..."
+ILC 24,Secondary,Enabled,108.223.111.1,AT&T Broadband II,1000.0M x 1000.0M,ILC 24,AT&T Broadband II,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+1000.0M x 1000.0M..."
+ILC 29,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,ILC 29,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+ILC 29,Secondary,Enabled,107.223.63.169,AT&T Broadband II,1000.0M x 1000.0M,ILC 29,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+ILP 01,Primary,Order Canceled,45.20.166.17,AT&T Broadband II,300.0M x 300.0M,ILP 01,i3 Broadband,250.0 M,,,Yes,"WAN 1
+i3 Broadband
+250.0M x 250.0M
+WAN 2
+Starlink
+Satellite..."
+ILP 01,Secondary,Enabled,140.141.187.98,i3 Broadband,250.0M x 250.0M,ILP 01,Starlink,250.0M x 250.0M,i3 Broadband,250.0M x 250.0M,Yes,"WAN 1
+i3 Broadband
+250.0M x 250.0M
+WAN 2
+Starlink
+Satellite..."
+ILR 01,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,ILR 01,Comcast,600.0 M,,,Yes,"WAN 1
+Comcast
+600.0M x 35.0M
+WAN 2
+Unknown..."
+ILR 01,Secondary,Order Canceled,NaN,AT&T Broadband II,1000.0M x 1000.0M,ILR 01,Unknown,,,,Yes,"WAN 1
+Comcast
+600.0M x 35.0M
+WAN 2
+Unknown..."
+INI 03,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,INI 03,AT&T Broadband II,300.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+300.0M x 300.0M
+WAN 2
+Digi
+Cell..."
+INI 03,Secondary,Enabled,76.210.157.217,AT&T Broadband II,300.0M x 300.0M,INI 03,Digi,Cell,AT&T Broadband II,300.0M x 300.0M,Yes,"WAN 1
+AT&T Broadband II
+300.0M x 300.0M
+WAN 2
+Digi
+Cell..."
+INI 05,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,INI 05,ComcastAgg Comcast,300.0 M,,,Yes,"WAN 1
+ComcastAgg Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+300.0M x 300.0M..."
+INI 05,Secondary,Enabled,75.61.116.233,AT&T Broadband II,300.0M x 300.0M,INI 05,AT&T Broadband II,300.0M x 300.0M,AT&T Broadband II,300.0M x 300.0M,Yes,"WAN 1
+ComcastAgg Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+300.0M x 300.0M..."
+INI 09,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,INI 09,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+300.0M x 300.0M..."
+INI 09,Secondary,Enabled,107.220.40.169,AT&T Broadband II,300.0M x 300.0M,INI 09,AT&T Broadband II,300.0M x 300.0M,AT&T Broadband II,300.0M x 300.0M,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+300.0M x 300.0M..."
+INW 01,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,INW 01,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+INW 01,Secondary,Enabled,99.39.182.185,AT&T Broadband II,1000.0M x 1000.0M,INW 01,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+INW 02,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,INW 02,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+Digi
+Cell..."
+INW 02,Secondary,No Service Available,NaN,NSA,,INW 02,Digi,Cell,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+Digi
+Cell..."
+KSK 01,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,KSK 01,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+KSK 01,Secondary,Enabled,104.5.151.241,AT&T Broadband II,1000.0M x 1000.0M,KSK 01,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+MIA 17,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,MIA 17,D & P Communications,1000.0 M,,,Yes,"WAN 1
+D & P Communications
+1000.0M x 500.0M
+WAN 2
+Comcast..."
+MIA 17,Secondary,Enabled,63.143.19.230,D & P Communications,1000.0M x 500.0M,MIA 17,Comcast,1000.0M x 500.0M,D & P Communications,1000.0M x 500.0M,Yes,"WAN 1
+D & P Communications
+1000.0M x 500.0M
+WAN 2
+Comcast..."
+MID 05,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,MID 05,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 25.0M..."
+MID 05,Secondary,Enabled,108.85.101.97,AT&T Broadband II,1000.0M x 1000.0M,MID 05,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 25.0M..."
+MID 07,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,MID 07,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+MID 07,Secondary,Enabled,108.224.190.33,AT&T Broadband II,1000.0M x 1000.0M,MID 07,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+MID 09,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,MID 09,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+MID 09,Secondary,Enabled,99.95.104.17,AT&T Broadband II,1000.0M x 1000.0M,MID 09,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+MID 13,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,MID 13,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+MID 13,Secondary,Enabled,104.59.8.249,AT&T Broadband II,1000.0M x 1000.0M,MID 13,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+MID 14,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,MID 14,AT&T Broadband II,300.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+300.0M x 300.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+MID 14,Secondary,Enabled,76.227.245.41,AT&T Broadband II,300.0M x 300.0M,MID 14,Comcast,300.0M x 300.0M,AT&T Broadband II,300.0M x 300.0M,Yes,"WAN 1
+AT&T Broadband II
+300.0M x 300.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+MID 16,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,MID 16,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+MID 16,Secondary,Enabled,104.59.15.185,AT&T Broadband II,1000.0M x 1000.0M,MID 16,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+MID 17,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,MID 17,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+MID 17,Secondary,Enabled,71.150.237.33,AT&T Broadband II,1000.0M x 1000.0M,MID 17,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+MID 18,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,MID 18,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+300.0M x 300.0M..."
+MID 18,Secondary,Enabled,23.123.121.129,AT&T Broadband II,300.0M x 300.0M,MID 18,AT&T Broadband II,300.0M x 300.0M,AT&T Broadband II,300.0M x 300.0M,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+300.0M x 300.0M..."
+MID 19,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,MID 19,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+MID 19,Secondary,Enabled,108.203.130.1,AT&T Broadband II,1000.0M x 1000.0M,MID 19,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+MID 24,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,MID 24,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+300.0M x 300.0M..."
+MID 24,Secondary,Enabled,76.227.244.153,AT&T Broadband II,300.0M x 300.0M,MID 24,AT&T Broadband II,300.0M x 300.0M,AT&T Broadband II,300.0M x 300.0M,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+300.0M x 300.0M..."
+MIF 04,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,MIF 04,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+MIF 04,Secondary,Enabled,104.59.13.225,AT&T Broadband II,1000.0M x 1000.0M,MIF 04,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+MIF 05,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,MIF 05,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+VZW Cell
+Cell..."
+MIF 05,Secondary,Order Canceled,NaN,AT&T Broadband II,1000.0M x 1000.0M,MIF 05,VZW Cell,Cell,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+VZW Cell
+Cell..."
+MIG 07,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,MIG 07,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+MIG 07,Secondary,Enabled,104.190.110.9,AT&T Broadband II,1000.0M x 1000.0M,MIG 07,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+MIL 15,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,MIL 15,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+MIL 15,Secondary,Enabled,70.142.28.121,AT&T Broadband II,1000.0M x 1000.0M,MIL 15,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+MIW 21,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,MIW 21,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+300.0M x 300.0M..."
+MIW 21,Secondary,Enabled,99.39.180.209,AT&T Broadband II,300.0M x 300.0M,MIW 21,AT&T Broadband II,300.0M x 300.0M,AT&T Broadband II,300.0M x 300.0M,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+300.0M x 300.0M..."
+MNM 02,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,MNM 02,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Starlink
+Satellite..."
+MNM 02,Secondary,Order Canceled,NaN,NaN,,MNM 02,Starlink,Satellite,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Starlink
+Satellite..."
+MNM 03,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,MNM 03,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+VZW Cell
+Cell..."
+MNM 03,Secondary,No Service Available,NaN,NSA,,MNM 03,VZW Cell,Cell,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+VZW Cell
+Cell..."
+MNM 09,Primary,No Service Available,NaN,NSA,,MNM 09,DSR Comcast,750.0 M,,,Yes,"WAN 1
+DSR Comcast
+750.0M x 35.0M
+WAN 2
+Digi
+Cell..."
+MNM 11,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,MNM 11,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+VZW Cell
+Cell..."
+MNM 11,Secondary,No Service Available,NaN,NSA,,MNM 11,VZW Cell,Cell,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+VZW Cell
+Cell..."
+MNM 29,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,MNM 29,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Verizon Business..."
+MNM 29,Secondary,Order Canceled,NaN,NaN,,MNM 29,Verizon Business,Cell,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Verizon Business..."
+MNM 00,Primary,Enabled,173.165.242.141,Comcast Workplace,750.0M x 35.0M,MNM_00,Comcast,600.0 M,Comcast Workplace,750.0M x 35.0M,Yes,"WAN 1
+Comcast
+600.0M x 35.0M
+WAN 2
+Digi
+Cell..."
+MOO 01,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,MOO 01,ComcastAgg CableOne,300.0 M,,,Yes,"WAN 1
+ComcastAgg CableOne
+300.0M x 35.0M
+WAN 2
+Digi
+Cell..."
+MOO 04,Primary,Pending Scheduled Deployment,NaN,NaN,,MOO 04,Level 3,300.0 M,,,Yes,"WAN 1
+Level 3
+300.0M x 300.0M
+WAN 2
+Verizon 5G..."
+MOO 04,Secondary,Order Canceled,NaN,Altice West,300.0M x 50.0M,MOO 04,Verizon,Cell,,,Yes,"WAN 1
+Level 3
+300.0M x 300.0M
+WAN 2
+Verizon 5G..."
+MOS 00,Primary,Enabled,24.182.253.114,Spectrum,750.0M x 35.0M,MOS_00,Charter Communications,750.0 M,Spectrum,750.0M x 35.0M,Yes,"WAN 1
+Charter Communications
+750.0M x 35.0M
+WAN 2
+AT&T
+1000.0M x 1000.0M..."
+MOS 00,Secondary,Enabled,75.36.177.1,AT&T Broadband II,1000.0M x 1000.0M,MOS_00,AT&T,1000.0 M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+Charter Communications
+750.0M x 35.0M
+WAN 2
+AT&T
+1000.0M x 1000.0M..."
+NCC 38,Primary,Construction Approved,NaN,Spectrum,750.0M x 35.0M,NCC 38,MetroNet,1000.0 M,,,Yes,"WAN 1
+MetroNet
+1000.0M x 1000.0M
+WAN 2
+VZW Cell
+Cell..."
+NCC 38,Secondary,Enabled,195.252.194.188,MetroNet,1000.0M x 1000.0M,NCC 38,VZW Cell,Cell,MetroNet,1000.0M x 1000.0M,Yes,"WAN 1
+MetroNet
+1000.0M x 1000.0M
+WAN 2
+VZW Cell
+Cell..."
+NCC 48,Primary,Order Canceled,NaN,Spectrum,600.0M x 35.0M,NCC 48,Brightspeed,300.0 M,,,Yes,"WAN 1
+Brightspeed
+300.0M x 300.0M
+WAN 2
+VZW Cell
+Cell..."
+NCC 48,Secondary,Enabled,64.158.8.74,Brightspeed,300.0M x 300.0M,NCC 48,VZW Cell,Cell,Brightspeed,300.0M x 300.0M,Yes,"WAN 1
+Brightspeed
+300.0M x 300.0M
+WAN 2
+VZW Cell
+Cell..."
+NMA 10,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,NMA 10,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+VZW Cell
+Cell..."
+NMA 10,Secondary,Information/Approval Needed From Sponsor,NaN,NaN,,NMA 10,VZW Cell,Cell,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+VZW Cell
+Cell..."
+NMA 13,Primary,Order Canceled,NaN,EB2-CableOne Cable,300.0M x 30.0M,NMA 13,Unite Private Networks,300.0 M,,,Yes,"WAN 1
+Unite Private Networks
+300.0M x 300.0M
+WAN 2
+VZW Cell
+Cell..."
+NMA 13,Secondary,Enabled,209.71.136.18,Unite Private Networks,300.0M x 300.0M,NMA 13,VZW Cell,Cell,Unite Private Networks,300.0M x 300.0M,Yes,"WAN 1
+Unite Private Networks
+300.0M x 300.0M
+WAN 2
+VZW Cell
+Cell..."
+NVL 07,Primary,Order Canceled,NaN,Cox Business/BOI,300.0M x 30.0M,NVL 07,Cox Communications,300.0 M,,,Yes,"WAN 1
+Cox Communications
+300.0M x 30.0M
+WAN 2
+Verizon Business..."
+NVL 07,Secondary,Enabled,174.71.198.86,Cox Business/BOI,300.0M x 50.0M,NVL 07,Verizon Business,300.0M x 30.0M,Cox Business/BOI,300.0M x 50.0M,Yes,"WAN 1
+Cox Communications
+300.0M x 30.0M
+WAN 2
+Verizon Business..."
+NVL 15,Primary,Enabled Using Existing Broadband,75.171.91.197,Lumen/Embarq,80.0M x 10.0M,NVL 15,Cox Business/BOI,300.0 M,,,Yes,"WAN 1
+Cox Business BOI
+300.0M x 30.0M
+WAN 2
+CenturyLink
+80.0M x 10.0M..."
+NVL 15,Secondary,Enabled,24.234.120.82,Cox Business/BOI,300.0M x 30.0M,NVL 15,CenturyLink,300.0M x 30.0M,Cox Business/BOI,300.0M x 30.0M,Yes,"WAN 1
+Cox Business BOI
+300.0M x 30.0M
+WAN 2
+CenturyLink
+80.0M x 10.0M..."
+ORP 01,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,ORP 01,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Digi
+Cell..."
+ORP 01,Secondary,No Service Available,NaN,NSA,,ORP 01,Digi,Cell,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Digi
+Cell..."
+ORP 03,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,ORP 03,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Ziply Fiber
+500.0M x 500.0M..."
+ORP 03,Secondary,Enabled,50.126.114.122,EB2-Ziply Fiber,500.0M x 500.0M,ORP 03,Ziply Fiber,500.0M x 500.0M,EB2-Ziply Fiber,500.0M x 500.0M,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Ziply Fiber
+500.0M x 500.0M..."
+ORP 05,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,ORP 05,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+VZW Cell
+Cell..."
+ORP 05,Secondary,Order Canceled,NaN,NaN,,ORP 05,VZW Cell,Cell,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+VZW Cell
+Cell..."
+TNE 01,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,TNE 01,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+BrightRidge
+300.0M x 30.0M..."
+TNE 01,Secondary,Enabled,152.86.78.119,BrightRidge Broadband,300.0M x 30.0M,TNE 01,BrightRidge,300.0M x 30.0M,BrightRidge Broadband,300.0M x 30.0M,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+BrightRidge
+300.0M x 30.0M..."
+TNN 02,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,TNN 02,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M..."
+TNN 02,Secondary,Enabled,99.96.219.25,AT&T Broadband II,1000.0M x 1000.0M,TNN 02,AT&T Broadband II,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M..."
+TNN 06,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,TNN 06,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+TNN 06,Secondary,Enabled,70.237.81.129,AT&T Broadband II,1000.0M x 1000.0M,TNN 06,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+TNN 11,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,TNN 11,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+300.0M x 300.0M..."
+TNN 11,Secondary,Enabled,76.221.223.145,AT&T Broadband II,300.0M x 300.0M,TNN 11,AT&T Broadband II,300.0M x 300.0M,AT&T Broadband II,300.0M x 300.0M,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+300.0M x 300.0M..."
+TXA 24,Primary,Order Canceled,NaN,AT&T Broadband II,2000.0M x 2000.0M,TXA 24,Spectrum,750.0 M,,,Yes,"WAN 1
+Spectrum
+750.0M x 35.0M
+WAN 2
+AT&T Enterprises, LLC..."
+TXA 24,Secondary,Enabled,67.79.200.206,Spectrum,750.0M x 35.0M,TXA 24,"AT&T Enterprises, LLC",600.0M x 35.0M,Spectrum,750.0M x 35.0M,Yes,"WAN 1
+Spectrum
+750.0M x 35.0M
+WAN 2
+AT&T Enterprises, LLC..."
+TXD 71,Primary,Order Canceled,NaN,Altice,500.0M x 50.0M,TXD 71,AT&T Broadband II,300.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+300.0M x 300.0M
+WAN 2
+VZW Cell
+Cell..."
+TXD 71,Secondary,Enabled,162.205.137.169,AT&T Broadband II,300.0M x 300.0M,TXD 71,VZW Cell,Cell,AT&T Broadband II,300.0M x 300.0M,Yes,"WAN 1
+AT&T Broadband II
+300.0M x 300.0M
+WAN 2
+VZW Cell
+Cell..."
+TXD 00,Primary,Enabled,50.84.170.198,Spectrum,750.0M x 35.0M,TXD_00,DSR Road Runner BOC | Extended Cable |,600.0 M,Spectrum,750.0M x 35.0M,Yes,"WAN 1
+DSR Road Runner BOC | Extended Cable |
+600.0M x 35.0M
+WAN 2
+Unknown..."
+TXD 00,Secondary,Customer Action Required,NaN,AT&T Broadband II,1000.0M x 1000.0M,TXD_00,Unknown,,,,Yes,"WAN 1
+DSR Road Runner BOC | Extended Cable |
+600.0M x 35.0M
+WAN 2
+Unknown..."
+TXG 02,Primary,Pending Scheduled Deployment,NaN,NSA,,TXG 02,Consolidated Communications,300.0 M,,,Yes,"WAN 1
+Consolidated Communications
+300.0M x 300.0M
+WAN 2
+VZW Cell
+Cell..."
+TXG 02,Secondary,Enabled,156.47.166.66,Consolidated Communications,300.0M x 300.0M,TXG 02,VZW Cell,Cell,Consolidated Communications,300.0M x 300.0M,Yes,"WAN 1
+Consolidated Communications
+300.0M x 300.0M
+WAN 2
+VZW Cell
+Cell..."
+TXG 03,Primary,No Service Available,NaN,NSA,600.0M x 35.0M,TXG 03,Comcast Workplace,750.0 M,,,Yes,"WAN 1
+Comcast Workplace
+750.0M x 35.0M
+WAN 2
+Starlink
+Satellite..."
+TXG 03,Secondary,Enabled,96.76.181.37,Comcast Workplace,750.0M x 35.0M,TXG 03,Starlink,600.0M x 35.0M,Comcast Workplace,750.0M x 35.0M,Yes,"WAN 1
+Comcast Workplace
+750.0M x 35.0M
+WAN 2
+Starlink
+Satellite..."
+TXH 04,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,TXH 04,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast..."
+TXH 04,Secondary,Enabled,99.125.136.1,AT&T Broadband II,1000.0M x 1000.0M,TXH 04,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast..."
+TXH 05,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,TXH 05,AT&T Broadband II,300.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+300.0M x 300.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+TXH 05,Secondary,Enabled,99.110.95.201,AT&T Broadband II,300.0M x 300.0M,TXH 05,Comcast,300.0M x 300.0M,AT&T Broadband II,300.0M x 300.0M,Yes,"WAN 1
+AT&T Broadband II
+300.0M x 300.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+TXH 17,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,TXH 17,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+300.0M x 300.0M..."
+TXH 17,Secondary,Enabled,99.76.17.49,AT&T Broadband II,300.0M x 300.0M,TXH 17,AT&T Broadband II,300.0M x 300.0M,AT&T Broadband II,300.0M x 300.0M,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+300.0M x 300.0M..."
+TXH 24,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,TXH 24,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+300.0M x 300.0M..."
+TXH 24,Secondary,Enabled,99.111.248.9,AT&T Broadband II,300.0M x 300.0M,TXH 24,AT&T Broadband II,300.0M x 300.0M,AT&T Broadband II,300.0M x 300.0M,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+300.0M x 300.0M..."
+TXH 25,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,TXH 25,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+VZW Cell
+Cell..."
+TXH 25,Secondary,No Service Available,NaN,NSA,,TXH 25,VZW Cell,Cell,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+VZW Cell
+Cell..."
+TXH 28,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,TXH 28,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+Unknown..."
+TXH 28,Secondary,Construction In Progress,NaN,AT&T Broadband II,1000.0M x 1000.0M,TXH 28,Unknown,,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+Unknown..."
+TXH 34,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,TXH 34,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Starlink
+Satellite..."
+TXH 34,Secondary,Enabled,23.126.108.177,AT&T Broadband II,1000.0M x 1000.0M,TXH 34,Starlink,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Starlink
+Satellite..."
+TXH 41,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,TXH 41,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+TXH 41,Secondary,Enabled,162.236.70.129,AT&T Broadband II,1000.0M x 1000.0M,TXH 41,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+TXH 44,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,TXH 44,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Verizon Business..."
+TXH 44,Secondary,No Service Available,NaN,NSA,,TXH 44,Verizon Business,Cell,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Verizon Business..."
+TXH 52,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,TXH 52,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+TXH 52,Secondary,Enabled,68.74.126.121,AT&T Broadband II,1000.0M x 1000.0M,TXH 52,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+TXH 55,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,TXH 55,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast Cable Communications, LLC..."
+TXH 55,Secondary,Enabled,108.223.37.121,AT&T Broadband II,1000.0M x 1000.0M,TXH 55,"Comcast Cable Communications, LLC",1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast Cable Communications, LLC..."
+TXH 56,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,TXH 56,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+TXH 56,Secondary,Enabled,172.10.171.81,AT&T Broadband II,1000.0M x 1000.0M,TXH 56,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+TXH 64,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,TXH 64,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+Unknown..."
+TXH 64,Secondary,No Service Available,NaN,NSA,,TXH 64,Unknown,,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+Unknown..."
+TXH 65,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,TXH 65,AT&T Broadband II,1000.0 M,,,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+TXH 65,Secondary,Enabled,108.210.135.209,AT&T Broadband II,1000.0M x 1000.0M,TXH 65,Comcast,1000.0M x 1000.0M,AT&T Broadband II,1000.0M x 1000.0M,Yes,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Comcast
+300.0M x 35.0M..."
+TXH 70,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,TXH 70,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+Digi
+Cell..."
+TXH 70,Secondary,Order Canceled,NaN,NaN,,TXH 70,Digi,Cell,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+Digi
+Cell..."
+TXH 82,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,TXH 82,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+300.0M x 300.0M..."
+TXH 82,Secondary,Enabled,75.51.12.57,AT&T Broadband II,300.0M x 300.0M,TXH 82,AT&T Broadband II,300.0M x 300.0M,AT&T Broadband II,300.0M x 300.0M,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+AT&T Broadband II
+300.0M x 300.0M..."
+TXH 86,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,TXH 86,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 25.0M
+WAN 2
+Verizon Business..."
+TXH 86,Secondary,Information/Approval Needed From Sponsor,NaN,NaN,,TXH 86,Verizon Business,Cell,,,Yes,"WAN 1
+Comcast
+300.0M x 25.0M
+WAN 2
+Verizon Business..."
+UTS 02,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,UTS 02,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Digi
+Cell..."
+UTS 02,Secondary,Order Cancellation Pending,NaN,First Digital,100.0M x 100.0M,UTS 02,Digi,Cell,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Digi
+Cell..."
+UTS 07,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,UTS 07,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+DSR Lumen DSL
+80.0M x 10.0M..."
+UTS 07,Secondary,Enabled,65.100.251.193,EB2-Lumen DSL,80.0M x 10.0M,UTS 07,DSR Lumen DSL,80.0M x 10.0M,EB2-Lumen DSL,80.0M x 10.0M,Yes,"WAN 1
+Comcast
+300.0M x 35.0M
+WAN 2
+DSR Lumen DSL
+80.0M x 10.0M..."
+UTS 11,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,UTS 11,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Centracom
+300.0M x 30.0M..."
+UTS 11,Secondary,Enabled,64.77.208.93,Centracom,300.0M x 30.0M,UTS 11,Centracom,300.0M x 30.0M,Centracom,300.0M x 30.0M,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Centracom
+300.0M x 30.0M..."
+UTS 15,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,UTS 15,Comcast,600.0 M,,,Yes,"WAN 1
+Comcast
+600.0M x 35.0M
+WAN 2
+VZW Cell
+Cell..."
+UTS 15,Secondary,No Service Available,NaN,NSA,,UTS 15,VZW Cell,Cell,,,Yes,"WAN 1
+Comcast
+600.0M x 35.0M
+WAN 2
+VZW Cell
+Cell..."
+UTS 16,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,UTS 16,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+DSR CLink
+100.0M x 10.0M..."
+UTS 16,Secondary,Enabled,65.100.251.161,EB2-Lumen DSL,100.0M x 10.0M,UTS 16,DSR CLink,100.0M x 10.0M,EB2-Lumen DSL,100.0M x 10.0M,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+DSR CLink
+100.0M x 10.0M..."
+UTS 17,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,UTS 17,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Verizon Business..."
+UTS 17,Secondary,No Service Available,NaN,NSA ,100.0M x 10.0M,UTS 17,Verizon Business,Cell,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Verizon Business..."
+UTS 19,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,UTS 19,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+VZW Cell
+Cell..."
+UTS 19,Secondary,No Service Available,NaN,NSA,,UTS 19,VZW Cell,Cell,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+VZW Cell
+Cell..."
+UTS 26,Primary,No Service Available,NaN,NSA,,UTS 26,Infowest Inc,250.0 M,,,Yes,"WAN 1
+Infowest Inc
+250.0M x 250.0M
+WAN 2
+VZW Cell
+Cell..."
+UTS 26,Secondary,Enabled,209.33.214.82,Infowest Inc,250.0M x 250.0M,UTS 26,VZW Cell,Cell,Infowest Inc,250.0M x 250.0M,Yes,"WAN 1
+Infowest Inc
+250.0M x 250.0M
+WAN 2
+VZW Cell
+Cell..."
+UTS W02,Primary,Order Canceled,NaN,NaN,,UTS W02,DSR Comcast Cable,600.0 M,,,Yes,"WAN 1
+DSR Comcast Cable
+600.0M x 35.0M
+WAN 2
+VZW Cell
+Cell..."
+UTS W02,Secondary,Order Canceled,NaN,Comcast Workplace,500.0M x 30.0M,UTS W02,VZW Cell,Cell,,,Yes,"WAN 1
+DSR Comcast Cable
+600.0M x 35.0M
+WAN 2
+VZW Cell
+Cell..."
+VAR 01,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,VAR 01,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+VZW Cell
+Cell..."
+VAR 01,Secondary,No Service Available,NaN,NSA,,VAR 01,VZW Cell,Cell,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+VZW Cell
+Cell..."
+VAR 00,Primary,Enabled,50.210.2.145,Comcast Workplace,750.0M x 35.0M,VAR_00,Comcast,600.0 M,Comcast Workplace,750.0M x 35.0M,Yes,"WAN 1
+Comcast
+600.0M x 35.0M
+WAN 2
+Digi
+Cell..."
+VAR 00,Secondary,No Service Available,NaN,NSA,,VAR_00,Digi,Cell,,,Yes,"WAN 1
+Comcast
+600.0M x 35.0M
+WAN 2
+Digi
+Cell..."
+WAE 01,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,WAE 01,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Verizon Business..."
+WAE 01,Secondary,Order Canceled,NaN,EB2-Lumen DSL,140.0M x 20.0M,WAE 01,Verizon Business,Cell,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Verizon Business..."
+WAE 02,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,WAE 02,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 300.0M
+WAN 2
+Verizon Business..."
+WAE 02,Secondary,No Service Available,NaN,NSA,,WAE 02,Verizon Business,Cell,,,Yes,"WAN 1
+Comcast
+300.0M x 300.0M
+WAN 2
+Verizon Business..."
+WAS 09,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,WAS 09,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Digi
+Cell..."
+WAS 09,Secondary,No Service Available,NaN,NSA,,WAS 09,Digi,Cell,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Digi
+Cell..."
+WAS 11,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,WAS 11,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Digi
+Cell..."
+WAS 11,Secondary,Order Canceled,NaN,NaN,,WAS 11,Digi,Cell,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Digi
+Cell..."
+WAS 14,Primary,Information/Approval Needed From Sponsor,NaN,NaN,,WAS 14,Comcast,300.0 M,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Digi
+Cell..."
+WAS 14,Secondary,No Service Available,NaN,NSA,80.0M x 10.0M,WAS 14,Digi,Cell,,,Yes,"WAN 1
+Comcast
+300.0M x 30.0M
+WAN 2
+Digi
+Cell..."
+WAS 23,Primary,Order Canceled,NaN,Lumen Fiber Plus ,500.0M x 500.0M,WAS 23,ComcastAgg CLink,10.0 M,,,Yes,"WAN 1
+ComcastAgg CLink
+10.0M x 1.0M
+WAN 2
+Digi
+Cell..."
+WAS 23,Secondary,Construction In Progress,NaN,Astound,300.0M x 300.0M,WAS 23,Digi,Cell,,,Yes,"WAN 1
+ComcastAgg CLink
+10.0M x 1.0M
+WAN 2
+Digi
+Cell..."
+WDTD 01,Primary,Order Canceled,NaN,AT&T Broadband II,1000.0M x 1000.0M,WDTD 01,AT&T,1000.0 M,,,Yes,"WAN 1
+AT&T
+1000.0M x 1000.0M
+WAN 2
+ATT
+100.0M x 10.0M..."

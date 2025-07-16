@@ -1,0 +1,98 @@
+Site_Name,WAN1_Provider,WAN1_Speed,WAN2_Provider,WAN2_Speed,Category,Master_Carrier_A,Master_Cost_A,Master_Carrier_B,Master_Cost_B,DSR_Circuits_Found,Notes
+AZN 04,Frontier,20.0M x 20.0M,Digi,Cell,Master No Cost,Frontier,,Cell,,Primary: Sparklight $248.75 (Order Canceled); Primary: CenturyLink Fiber Plus $440.00 (Order Canceled); Primary: Altice $128.73 (Order Canceled); Primary: CenturyLink Fiber Plus $490.00 (Order Canceled); Primary: SparkLight $224.99 (Order Canceled); Primary: EB2-CableOne Cable $335.00 (Order Canceled); Primary: Altice West $151.12 (Order Canceled); Primary: Altice West $151.12 (Order Canceled); Primary: EB2-CableOne Cable $335.00 (Order Canceled); Primary: EB2-CableOne Cable $335.00 (Order Canceled); Primary: nan $0.00 (Order Canceled); Primary: EB2-Sparklight Cable $207.00 (Order Cancellation Pending); Primary: nan $0.00 (Prequal Required); Secondary: EB2-CableOne Cable $335.00 (Order Canceled); Secondary: nan $0.00 (Order Canceled),In master list but no cost data
+AZP_00,Cox Communications Inc.,300.0M x 30.0M,Digi,Cell,Construction Site,,,,,None,Appears to be construction/new site
+AZP 56,Comcast,10.0M x 10.0M,Digi,Cell,Master No Cost,Century Link,,Cell,,Primary: Cox Business/BOI $220.22 (Order Canceled); Primary: nan $0.00 (Order Canceled); Primary: Cox Business/BOI $266.67 (Order Canceled); Primary: Lumen Fiber Plus $990.00 (Order Canceled); Primary: nan $0.00 (Information/Approval Needed From Sponsor); Primary: Cox Business/BOI $266.67 (Order Canceled); Secondary: EB2-Centurylink DSL $128.00 (Order Canceled),In master list but no cost data
+AZP 63,NEW STORE NOT SET UP,,,,Master No Cost,,,,,Primary: Starlink $0.00 (Order Placed); Secondary: Cox Business/BOI $266.67 (Construction Approved),In master list but no cost data
+CAL_00,Charter Communications,500.0M x 500.0M,Charter Communications Inc,600.0M x 35.0M,Construction Site,,,,,None,Appears to be construction/new site
+CAL W01,Frontier,1000.0M x 1000.0M,,,Construction Site,,,,,None,Appears to be construction/new site
+CAN_00,Comcast,300.0M x 30.0M,AT&T,300.0M x 300.0M,Construction Site,,,,,None,Appears to be construction/new site
+CAN W02,Verizon,Cell,,,Construction Site,,,,,None,Appears to be construction/new site
+CAS_00,Private Customer - AT&T Internet Services,300.0M x 300.0M,Cox Communications Inc.,300.0M x 30.0M,Special Provider,,,,,None,Special provider type - likely legitimate $0.00
+CAS 35,Frontier Communications,500.0M x 500.0M,VZW Cell,Cell,Master No Cost,Frontier,,Cell,,Primary: Spectrum $172.23 (Order Canceled); Primary: nan $0.00 (Prequal Required),In master list but no cost data
+CAS 41,Charter Communications,500.0M x 500.0M,VZW Cell,Cell,Provider Mismatch,Frontier,830.0,Cell,,Primary: Spectrum $172.23 (Order Canceled); Primary: NSA $0.00 (No Service Available),Master has cost but provider mismatch: WAN1='Charter Communications' vs Master='Frontier'
+CAS 42,Cox Communications,,VZW Cell,Cell,Master No Cost,Cox,,Cell,,None,In master list but no cost data
+CAS 46,AT&T,20.0M x 20.0M,VZW Cell,Cell,Master No Cost,AT&T,,Cell,,Secondary: Spectrum $172.23 (Order Canceled); Secondary: Spectrum Business $1099.00 (Order Canceled),In master list but no cost data
+COD_00,Comcast,600.0M x 35.0M,Digi,,Construction Site,,,,,None,Appears to be construction/new site
+COD 01,Comcast,300.0M x 35.0M,VZW Cell,,Master No Cost,Comcast,,Cell,,Primary: nan $0.00 (Information/Approval Needed From Sponsor); Secondary: nan $0.00 (Order Canceled),In master list but no cost data
+Desert Ridge,Cox Network 500 500,100.0M x 100.0M,,,Special Facility,,,,,None,Special facility - not standard store
+Flight Department,Cox Communications,500.0M x 50.0M,Verizon,,Special Facility,,,,,None,Special facility - not standard store
+FLJ_00,Comcast,300.0M x 30.0M,AT&T,300.0M x 300.0M,Construction Site,,,,,None,Appears to be construction/new site
+GAA_00,AT&T,1000.0M x 1000.0M,Comcast,750.0M x 35.0M,Construction Site,,,,,None,Appears to be construction/new site
+GAACALLCNTR,AT&T,300.0M x 300.0M,Charter Communications,100.0M x 30.0M,Special Facility,,,,,None,Special facility - not standard store
+HPL_00,This is a one man office for Todd Richards.,,,,Construction Site,,,,,None,Appears to be construction/new site
+ILC_00,Comcast,300.0M x 30.0M,AT&T,300.0M x 300.0M,Construction Site,,,,,None,Appears to be construction/new site
+ILC 28,Unknown,,,,Special Provider,,,,,Primary: nan $0.00 (Information/Approval Needed From Sponsor); Secondary: MetroNet $139.95 (Customer Action Required),Special provider type - likely legitimate $0.00
+ILC 41,"Comcast Cable Communications, LLC",,Verizon Business,Cell,Not in Master,,,,,None,Site not found in master circuit list
+ILC 42,Oswego Static /32,,Verizon Business,Cell,Not in Master,,,,,None,Site not found in master circuit list
+ILC 43,"Comcast Cable Communications, LLC",,Verizon Business,Cell,Not in Master,,,,,None,Site not found in master circuit list
+ILC 44,Static pool - Cinergy MetroNet,,Verizon Business,Cell,Not in Master,,,,,None,Site not found in master circuit list
+ILC 45,"Comcast Cable Communications, LLC",,Verizon Business,Cell,Not in Master,,,,,None,Site not found in master circuit list
+ILC 46,"Comcast Cable Communications, LLC",,Verizon Business,Cell,Not in Master,,,,,None,Site not found in master circuit list
+INF 02,Unknown,,VZW Cell,Cell,Special Provider,,,,,Primary: nan $0.00 (Information/Approval Needed From Sponsor); Secondary: nan $0.00 (Order Canceled),Special provider type - likely legitimate $0.00
+INI_00,Cincinnati Bell A,400.0M x 200.0M,Charter Communications,600.0M x 35.0M,Construction Site,,,,,None,Appears to be construction/new site
+INI W01,Comcast,300.0M x 30.0M,AT&T,300.0M x 300.0M,Construction Site,,,,,None,Appears to be construction/new site
+KSK_00,Charter Communications,600.0M x 35.0M,AT&T,300.0M x 300.0M,Construction Site,,,,,None,Appears to be construction/new site
+MID W00,- MIHW00,,,,Construction Site,,,,,None,Appears to be construction/new site
+MNM_00,Comcast,600.0M x 35.0M,Digi,Cell,Construction Site,,,,,None,Appears to be construction/new site
+MNM 03,Comcast,300.0M x 30.0M,VZW Cell,Cell,Master No Cost,Comcast - ISP,,Cell,,Primary: nan $0.00 (Information/Approval Needed From Sponsor); Secondary: NSA $0.00 (No Service Available),In master list but no cost data
+MNM 24,Comcast,300.0M x 30.0M,VZW Cell,,Master No Cost,Comcast - ISP,,Cell,,None,In master list but no cost data
+MNM 25,x,,VZW Cell,,Master No Cost,Comcast,,Cell,,Primary: Comcast Workplace $0.00 (Information/Approval Needed From Sponsor); Secondary: nan $0.00 (Order Canceled),In master list but no cost data
+MNM W01,Comcast,,,,Construction Site,,,,,None,Appears to be construction/new site
+MOO 01,CableOne,300.0M x 35.0M,Digi,Cell,Master No Cost,Comcast,,Cell,,Primary: nan $0.00 (Information/Approval Needed From Sponsor),In master list but no cost data
+MOO 04,Level 3,300.0M x 300.0M,VZW Cell,,Provider Mismatch,Brightspeed,172.23,Cell,,Primary: nan $0.00 (Order Canceled); Primary: Altice West $311.12 (Order Canceled); Primary: Altice West $311.12 (Customer Action Required); Primary: nan $0.00 (Pending Scheduled Deployment); Secondary: Altice West $106.67 (Order Canceled); Secondary: nan $0.00 (Order Canceled),Master has cost but provider mismatch: WAN1='Level 3' vs Master='Brightspeed'
+MOS_00,Charter Communications,750.0M x 35.0M,AT&T,1000.0M x 1000.0M,Construction Site,,,,,None,Appears to be construction/new site
+MOSW 01,arco trucking08162011143812942,,Charter Communications LLC,,Not in Master,,,,,None,Site not found in master circuit list
+NCC_00,Charter Communications,600.0M x 35.0M,,,Construction Site,,,,,None,Appears to be construction/new site
+NMA_00,Comcast,300.0M x 30.0M,CenturyLink,100.0M x 10.0M,Construction Site,,,,,None,Appears to be construction/new site
+NMA 10,Comcast,300.0M x 35.0M,VZW Cell,Cell,Master No Cost,Comcast - ISP,,Cell,,Primary: nan $0.00 (Information/Approval Needed From Sponsor); Secondary: Unite Private Networks $575.00 (Order Canceled); Secondary: nan $0.00 (Information/Approval Needed From Sponsor),In master list but no cost data
+NMACALLCNTR,Comcast,,,,Special Facility,,,,,None,Special facility - not standard store
+NVL_00,Charter Communications,,Digi,Cell,Construction Site,,,,,None,Appears to be construction/new site
+NVL W01,Charter Communications,,,,Construction Site,,,,,None,Appears to be construction/new site
+NYB 01,DUNN TIRE,,"AT&T Enterprises, LLC",,Not in Master,,,,,Primary: nan $0.00 (Order Canceled); Secondary: nan $0.00 (Order Canceled),Site not found in master circuit list
+NYB 02,DUNN TIRE,,Verizon Business,Cell,Not in Master,,,,,Primary: nan $0.00 (Order Canceled); Secondary: nan $0.00 (Order Canceled),Site not found in master circuit list
+NYB 03,DUNN TIRE,,"AT&T Enterprises, LLC",,Not in Master,,,,,Primary: nan $0.00 (Order Canceled); Secondary: nan $0.00 (Order Canceled),Site not found in master circuit list
+NYB 04,DUNN TIRE,,"AT&T Enterprises, LLC",,Not in Master,,,,,Primary: nan $0.00 (Order Canceled); Secondary: nan $0.00 (Order Canceled),Site not found in master circuit list
+NYB 05,DUNN TIRE,,"AT&T Enterprises, LLC",,Not in Master,,,,,Primary: nan $0.00 (Order Canceled); Secondary: nan $0.00 (Order Canceled),Site not found in master circuit list
+NYB 06,DUNN TIRE,,"AT&T Enterprises, LLC",,Not in Master,,,,,Primary: nan $0.00 (Order Canceled); Secondary: nan $0.00 (Order Canceled),Site not found in master circuit list
+NYB 07,DUNN TIRE,,"AT&T Enterprises, LLC",,Not in Master,,,,,Primary: nan $0.00 (Order Canceled); Secondary: NSA $0.00 (No Service Available); Secondary: nan $0.00 (Order Canceled),Site not found in master circuit list
+NYB 08,DUNN TIRE,,"AT&T Enterprises, LLC",,Not in Master,,,,,None,Site not found in master circuit list
+NYF 01,DUNN TIRE,,"AT&T Enterprises, LLC",,Not in Master,,,,,Primary: nan $0.00 (Order Canceled); Secondary: DFT Communications $189.95 (Order Canceled),Site not found in master circuit list
+NYF 02,DUNN TIRE,,"AT&T Enterprises, LLC",,Not in Master,,,,,Primary: nan $0.00 (Order Canceled); Secondary: nan $0.00 (Order Canceled),Site not found in master circuit list
+NYF 03,DUNN TIRE,,"AT&T Enterprises, LLC",,Not in Master,,,,,Primary: nan $0.00 (Order Canceled); Secondary: NSA $0.00 (Order Canceled); Secondary: nan $0.00 (Order Canceled),Site not found in master circuit list
+NYR 02,Charter Communications Inc,,"AT&T Enterprises, LLC",,Not in Master,,,,,Primary: nan $0.00 (Order Canceled); Secondary: nan $0.00 (Order Canceled),Site not found in master circuit list
+NYR 03,DUNN TIRE,,"AT&T Enterprises, LLC",,Not in Master,,,,,Primary: nan $0.00 (Order Canceled); Secondary: nan $0.00 (Order Canceled),Site not found in master circuit list
+NYR 04,DUNN TIRE,,"AT&T Enterprises, LLC",,Not in Master,,,,,Primary: nan $0.00 (Order Canceled); Secondary: nan $0.00 (Order Canceled),Site not found in master circuit list
+NYR 05,DUNN TIRE,,"AT&T Enterprises, LLC",,Not in Master,,,,,Primary: nan $0.00 (Order Canceled); Secondary: nan $0.00 (Order Canceled),Site not found in master circuit list
+NYR 06,DUNN TIRE,,"AT&T Enterprises, LLC",,Not in Master,,,,,Primary: nan $0.00 (Order Canceled); Secondary: nan $0.00 (Order Canceled),Site not found in master circuit list
+NYR 07,DUNN TIRE,,"AT&T Enterprises, LLC",,Not in Master,,,,,Primary: nan $0.00 (Order Canceled); Secondary: nan $0.00 (Order Canceled),Site not found in master circuit list
+NYS 01,DUNN TIRE,,"AT&T Enterprises, LLC",,Not in Master,,,,,Primary: nan $0.00 (Order Canceled); Secondary: nan $0.00 (Order Canceled),Site not found in master circuit list
+NYS 02,DUNN TIRE,,Verizon Business,Cell,Not in Master,,,,,Primary: nan $0.00 (Order Canceled); Secondary: nan $0.00 (Order Canceled),Site not found in master circuit list
+NYS 03,DUNN TIRE,,Verizon Business,Cell,Not in Master,,,,,Primary: nan $0.00 (Order Canceled); Secondary: nan $0.00 (Order Canceled),Site not found in master circuit list
+NYS 04,DUNN TIRE,,Verizon Business,Cell,Not in Master,,,,,Primary: nan $0.00 (Order Canceled); Secondary: nan $0.00 (Order Canceled),Site not found in master circuit list
+PAN 03,DUNN TIRE,,"AT&T Enterprises, LLC",,Not in Master,,,,,Primary: nan $0.00 (Order Canceled); Secondary: nan $0.00 (Order Canceled),Site not found in master circuit list
+PAN 04,DUNN TIRE,,"AT&T Enterprises, LLC",,Not in Master,,,,,Primary: nan $0.00 (Order Canceled); Secondary: nan $0.00 (Order Canceled),Site not found in master circuit list
+PAN 05,DUNN TIRE,,"AT&T Enterprises, LLC",,Not in Master,,,,,Primary: nan $0.00 (Order Canceled); Secondary: nan $0.00 (Order Canceled),Site not found in master circuit list
+TNN_00,AT&T,300.0M x 300.0M,Comcast,300.0M x 30.0M,Construction Site,,,,,None,Appears to be construction/new site
+TXA 12,Unknown,,VZW Cell,,Special Provider,,,,,Primary: Altice $212.77 (Order Canceled); Primary: Spectrum $207.45 (Order Canceled); Primary: Spectrum $172.23 (Order Canceled); Primary: Altice West $222.23 (Order Canceled); Primary: FiberFirst $249.99 (Order Canceled); Secondary: Spectrum $172.23 (Order Canceled); Secondary: nan $0.00 (Order Canceled); Secondary: Spectrum $350.00 (Order Canceled); Secondary: NSA $0.00 (No Service Available),Special provider type - likely legitimate $0.00
+TXD_00,Road Runner BOC ||,600.0M x 35.0M,,,Construction Site,,,,,None,Appears to be construction/new site
+TXH_00,AT&T,300.0M x 300.0M,Comcast,300.0M x 30.0M,Construction Site,,,,,None,Appears to be construction/new site
+TXH 14,Comcast,300.0M x 35.0M,VZW Cell,Cell,Master No Cost,Comcast,,Cell,,Primary: nan $0.00 (Information/Approval Needed From Sponsor); Secondary: NSA $0.00 (No Service Available),In master list but no cost data
+TXH 25,Comcast,300.0M x 35.0M,VZW Cell,Cell,Master No Cost,Comcast,,Cell,,Primary: nan $0.00 (Information/Approval Needed From Sponsor); Secondary: NSA $0.00 (No Service Available),In master list but no cost data
+TXHT00,Comcast,300.0M x 30.0M,,,Not in Master,,,,,None,Site not found in master circuit list
+TXH W00,Comcast,600.0M x 35.0M,,,Construction Site,,,,,None,Appears to be construction/new site
+TXS_00,AT&T,300.0M x 300.0M,Charter Communications,400.0M x 30.0M,Construction Site,,,,,None,Appears to be construction/new site
+UTS_00,Zayo,100.0M x 100.0M,VZW Cell,Cell,Construction Site,,,,,None,Appears to be construction/new site
+UTS 02,Comcast,300.0M x 30.0M,Digi,Cell,Master No Cost,Comcast,,Cell,,Primary: nan $0.00 (Information/Approval Needed From Sponsor); Secondary: First Digital $510.00 (Order Cancellation Pending),In master list but no cost data
+UTS W01,Comcast,600.0M x 35.0M,Digi,Cell,Construction Site,,,,,None,Appears to be construction/new site
+UTS W02,Comcast,600.0M x 35.0M,VZW Cell,Cell,Construction Site,,,,,Primary: nan $0.00 (Order Canceled); Secondary: Comcast Workplace $175.56 (Order Canceled); Secondary: nan $0.00 (Order Canceled),Appears to be construction/new site
+VAF 01 - appliance,Comcast,250.0M x 25.0M,Digi,Cell,Not in Master,,,,,None,Site not found in master circuit list
+VAR_00,Comcast,600.0M x 35.0M,Digi,Cell,Construction Site,,,,,None,Appears to be construction/new site
+VAW 04,NEW STORE NOT SET UP,,,,Master No Cost,,,,,Primary: Comcast Workplace $234.45 (Jeopardy); Primary: Comcast Workplace $234.45 (Order Canceled); Secondary: Starlink $273.00 (Order Placed),In master list but no cost data
+WAS_00,Ziply,1000.0M x 1000.0M,,,Construction Site,,,,,None,Appears to be construction/new site
+WAS 09,Comcast,300.0M x 30.0M,Digi,Cell,Master No Cost,Comcast - ISP,,Cell,,Primary: nan $0.00 (Order Canceled); Primary: nan $0.00 (Information/Approval Needed From Sponsor); Secondary: NSA $0.00 (No Service Available); Secondary: nan $0.00 (Order Canceled),In master list but no cost data
+WAS 23,CLink,10.0M x 1.0M,Digi,Cell,Provider Mismatch,Century Link,175.56,Cell,,Primary: Lumen Fiber Plus $1390.00 (Order Canceled); Primary: nan $0.00 (Order Canceled); Secondary: Astound $726.00 (Construction In Progress); Secondary: NSA $0.00 (Order Canceled),Master has cost but provider mismatch: WAN1='CLink' vs Master='Century Link'
+WAS 25,Unknown,,,,Special Provider,,,,,Primary: nan $0.00 (Information/Approval Needed From Sponsor); Secondary: NSA $0.00 (No Service Available),Special provider type - likely legitimate $0.00
+WAS W00,Comcast,200.0M x 20.0M,Digi,Cell,Construction Site,,,,,None,Appears to be construction/new site
+WDGA01,AT&T,300.0M x 300.0M,Digi,Cell,Not in Master,,,,,Primary: Comcast Workplace Guest WiFi $142.56 (Order Canceled); Primary: AT&T Broadband II $165.00 (Enabled/Disconnected); Primary: Comcast Workplace $175.56 (Order Canceled); Primary: nan $0.00 (Information/Approval Needed From Sponsor); Secondary: Comcast Workplace $175.56 (Order Canceled),Site not found in master circuit list
+WDIL 01,Comcast,300.0M x 30.0M,AT&T,1000.0M x 1000.0M,Not in Master,,,,,Primary: nan $0.00 (Order Canceled),Site not found in master circuit list
+WDTD 01,AT&T,1000.0M x 1000.0M,AT&T,100.0M x 10.0M,Not in Master,,,,,Primary: AT&T Broadband II $165.01 (Order Canceled),Site not found in master circuit list

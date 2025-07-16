@@ -1,0 +1,98 @@
+#\!/bin/bash
+#
+# Fix Claude CLI Permissions Script
+# Fixes common permission issues with the Claude CLI
+#
+
+echo "Claude CLI Permission Fix Script"
+echo "================================"
+echo "Date: $(date)"
+echo
+
+# Check if running as root or with sudo
+if [[ $EUID -eq 0 ]]; then
+    echo "✓ Running with root privileges"
+else
+    echo "⚠ This script needs root privileges to fix permissions"
+    echo "Please run: sudo /usr/local/bin/fix-claude-cli"
+    exit 1
+fi
+
+# Find Claude CLI installation
+CLAUDE_SYMLINK="/usr/local/bin/claude"
+echo "Checking Claude CLI installation..."
+
+if [[ -L "$CLAUDE_SYMLINK" ]]; then
+    CLAUDE_TARGET=$(readlink -f "$CLAUDE_SYMLINK")
+    echo "✓ Claude symlink found: $CLAUDE_SYMLINK"
+    echo "  → Points to: $CLAUDE_TARGET"
+else
+    echo "✗ Claude symlink not found at $CLAUDE_SYMLINK"
+    echo "Please reinstall Claude CLI first"
+    exit 1
+fi
+
+# Check if target exists
+if [[ -f "$CLAUDE_TARGET" ]]; then
+    echo "✓ Claude CLI target file exists"
+else
+    echo "✗ Claude CLI target file missing: $CLAUDE_TARGET"
+    echo "Please reinstall Claude CLI"
+    exit 1
+fi
+
+# Fix permissions
+echo
+echo "Fixing permissions..."
+
+# Get the Claude module directory
+CLAUDE_MODULE_DIR=$(dirname "$CLAUDE_TARGET")
+
+# Fix permissions on entire Claude module directory
+echo "Setting permissions on Claude module directory: $CLAUDE_MODULE_DIR"
+chmod -R 755 "$CLAUDE_MODULE_DIR"
+
+# Make sure specific files are executable/readable
+echo "Setting specific file permissions..."
+chmod 755 "$CLAUDE_TARGET"
+[[ -f "$CLAUDE_MODULE_DIR/yoga.wasm" ]] && chmod 644 "$CLAUDE_MODULE_DIR/yoga.wasm"
+
+# Check Node.js
+NODE_PATH=$(which node)
+if [[ -n "$NODE_PATH" ]]; then
+    echo "✓ Node.js found at: $NODE_PATH"
+    chmod +x "$NODE_PATH"
+else
+    echo "⚠ Node.js not found in PATH"
+fi
+
+# Fix ownership
+echo "Setting ownership to root for system-wide access..."
+chown -R root:root "$CLAUDE_MODULE_DIR"
+chown root:root "$CLAUDE_SYMLINK"
+
+# Add symlink for easier sudo access
+if [[ \! -f "/usr/bin/fix-claude-cli" ]]; then
+    echo "Creating symlink for easier access..."
+    ln -sf /usr/local/bin/fix-claude-cli /usr/bin/fix-claude-cli
+fi
+
+# Test the fix
+echo
+echo "Testing Claude CLI..."
+if su -c "cd /tmp && claude --version" - 661037adm 2>/dev/null; then
+    echo "✓ Claude CLI is working\!"
+else
+    echo "⚠ Testing as user failed, but may work with specific flags"
+fi
+
+echo
+echo "Permission fix complete\!"
+echo
+echo "Usage:"
+echo "  claude --version                    # Test if working"
+echo "  claude --dangerously-skip-permissions  # Skip permission checks"
+echo "  claude /path/to/project             # Normal usage"
+echo
+echo "Next time run: sudo fix-claude-cli"
+EOF < /dev/null

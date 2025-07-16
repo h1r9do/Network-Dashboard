@@ -1,0 +1,2019 @@
+[14:57:45] Initializing systems...
+=== Database-driven Bulk DDNS Enablement (No Hubs) ===
+Started at: 2025-07-08 14:57:45
+[14:57:45] Connecting to database...
+[14:57:45] Found 1330 store networks
+[14:57:45] Excluded 0 hub-tagged networks
+[14:57:45] Ready to process 1330 store networks
+[14:57:45] Will process 133 batches
+[14:57:45] Estimated time: 11.1 minutes
+
+[14:57:45] === BATCH 1 ===
+Processing networks 1 to 10
+[14:57:45]      1. ALB 01     - ALREADY ENABLED
+[14:57:46]      2. ALB 03     - ALREADY ENABLED
+[14:57:46]      3. AL-HUB     - ALREADY ENABLED
+[14:57:47]      4. ALM 01     - ALREADY ENABLED
+[14:57:47]      5. ALM 02     - ALREADY ENABLED
+[14:57:48]      6. ALM 03     - ALREADY ENABLED
+[14:57:49]      7. ALM 04     - ALREADY ENABLED
+[14:57:49]      8. ALN 01     - ALREADY ENABLED
+[14:57:50]      9. ALN 02     - ALREADY ENABLED
+[14:57:50]     10. ALS 01     - ALREADY ENABLED
+[14:57:51] Batch summary: 0 enabled, 10 already enabled, 0 errors
+[14:57:51] Overall progress: 10/1330 (0.8%)
+[14:57:51] Waiting 3 seconds before next batch...
+[14:57:54] === BATCH 2 ===
+Processing networks 11 to 20
+[14:57:54]     11. ALS 02     - ALREADY ENABLED
+[14:57:54]     12. ARL 01     - ALREADY ENABLED
+[14:57:55]     13. ARL 02     - ALREADY ENABLED
+[14:57:56]     14. ARL 03     - ALREADY ENABLED
+[14:57:58]     15. ARL 04     - ALREADY ENABLED
+[14:57:58]     16. ARL 05     - ALREADY ENABLED
+[14:57:59]     17. ARL 06     - ALREADY ENABLED
+[14:58:05]     18. ARO 01     - ALREADY ENABLED
+[14:58:05]     19. ARO 02     - ALREADY ENABLED
+[14:58:06]     20. ARO 03     - ALREADY ENABLED
+[14:58:06] Batch summary: 0 enabled, 10 already enabled, 0 errors
+[14:58:06] Overall progress: 20/1330 (1.5%)
+[14:58:06] Waiting 3 seconds before next batch...
+[14:58:09] === BATCH 3 ===
+Processing networks 21 to 30
+[14:58:09]     21. ARO 04     - ALREADY ENABLED
+[14:58:10]     22. ARO 05     - ENABLED -> aro-05-tctgdmwdrp.dynamic-m.com
+[14:58:20]     23. ARO 06     - ALREADY ENABLED
+[14:58:21]     24. AZC 01     - ENABLED -> azc-01-zrpnqqvhrp.dynamic-m.com
+[14:58:34]     25. AZF 01     - ENABLED -> azf-01-phjthhvprp.dynamic-m.com
+[14:58:42]     26. AZF 02     - ENABLED -> azf-02-jqnzkkkmrp.dynamic-m.com
+[14:58:50]     27. AZH 01     - ENABLED -> azh-01-wqddqvrrrp.dynamic-m.com
+[14:59:01]     28. AZK 01     - ENABLED -> azk-01-wmmqhtjgrp.dynamic-m.com
+[14:59:10]     29. AZM 01     - ENABLED -> azm-01-dtndnrwmrp.dynamic-m.com
+[14:59:20]     30. AZN 02     - ENABLED -> azn-02-qvbpvrkvrp.dynamic-m.com
+[14:59:28] Batch summary: 8 enabled, 2 already enabled, 0 errors
+[14:59:28] Overall progress: 30/1330 (2.3%)
+[14:59:28] Waiting 3 seconds before next batch...
+[14:59:31] === BATCH 4 ===
+Processing networks 31 to 40
+[14:59:31]     31. AZN 03     - ENABLED -> azn-03-gmqkttqbrp.dynamic-m.com
+[14:59:44]     32. AZN 04     - ENABLED -> azn-04-kthgrbqhrp.dynamic-m.com
+[14:59:56]     33. AZN 05     - ENABLED -> azn-05-wvpzjtrcrp.dynamic-m.com
+[15:00:06]     34. AZN 06     - ENABLED -> azn-06-jnzkkrqprp.dynamic-m.com
+[15:00:16]     35. AZP_00     - ERROR: appliance, updateNetworkApplianceSettings - 400 Bad Request, {'errors': ['The Dynamic DNS name can consist only of lowercase letters or numbers separated by hyphens.']}
+[15:00:22]     36. AZP 01     - ENABLED -> azp-01-mqhjvwzmrp.dynamic-m.com
+[15:00:30]     37. AZP 03     - ENABLED -> azp-03-qrbwprkvrp.dynamic-m.com
+[15:00:41]     38. AZP 05     - ENABLED -> azp-05-chbvhpzbrp.dynamic-m.com
+[15:00:53]     39. AZP 07     - ENABLED -> azp-07-jdnvhpnwrp.dynamic-m.com
+[15:01:03]     40. AZP 08     - ENABLED -> azp-08-zbvqpwbbrp.dynamic-m.com
+[15:01:13] Batch summary: 9 enabled, 0 already enabled, 1 errors
+[15:01:13] Overall progress: 40/1330 (3.0%)
+[15:01:13] Waiting 3 seconds before next batch...
+[15:01:16] === BATCH 5 ===
+Processing networks 41 to 50
+[15:01:16]     41. AZP 09     - ENABLED -> azp-09-mgjpqkrrrp.dynamic-m.com
+[15:01:25]     42. AZP 10     - ENABLED -> azp-10-qkhzkvnprp.dynamic-m.com
+[15:01:33]     43. AZP 11     - ENABLED -> azp-11-rpwmmcgvrp.dynamic-m.com
+[15:01:42]     44. AZP 13     - ENABLED -> azp-13-kjqppzjzrp.dynamic-m.com
+[15:01:51]     45. AZP 14     - ENABLED -> azp-14-pmntvjnjrp.dynamic-m.com
+[15:02:00]     46. AZP 16     - ENABLED -> azp-16-ztzrczvjrp.dynamic-m.com
+[15:02:10]     47. AZP 17     - ENABLED -> azp-17-cmknzztbrp.dynamic-m.com
+[15:02:19]     48. AZP 18     - ENABLED -> azp-18-tvtzqpzkrp.dynamic-m.com
+[15:02:29]     49. AZP 19     - ENABLED -> azp-19-mqtbdmrkrp.dynamic-m.com
+[15:02:38]     50. AZP 20     - ENABLED -> azp-20-czrwbwnprp.dynamic-m.com
+[15:02:51] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[15:02:51] Overall progress: 50/1330 (3.8%)
+[15:02:51] Waiting 3 seconds before next batch...
+[15:02:54] === BATCH 6 ===
+Processing networks 51 to 60
+[15:02:54]     51. AZP 21     - ENABLED -> azp-21-hpwdkjvnrp.dynamic-m.com
+[15:03:02]     52. AZP 22     - ENABLED -> azp-22-wthcgctmrp.dynamic-m.com
+[15:03:12]     53. AZP 23     - ENABLED -> azp-23-nvcjphrdrp.dynamic-m.com
+[15:03:19]     54. AZP 24     - ENABLED -> azp-24-gbpmdnzjrp.dynamic-m.com
+[15:03:33]     55. AZP 25     - ENABLED -> azp-25-kmpmnjctrp.dynamic-m.com
+[15:03:40]     56. AZP 26     - ENABLED -> azp-26-rmvnvbkbrp.dynamic-m.com
+[15:03:49]     57. AZP 27     - ENABLED -> azp-27-mmkqdtvrrp.dynamic-m.com
+[15:03:57]     58. AZP 28     - ENABLED -> azp-28-chdzdqjgrp.dynamic-m.com
+[15:04:05]     59. AZP 29     - ENABLED -> azp-29-zjcwdjvprp.dynamic-m.com
+[15:04:16]     60. AZP 30     - ENABLED -> azp-30-wqdtkgwmrp.dynamic-m.com
+[15:04:24] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[15:04:24] Overall progress: 60/1330 (4.5%)
+[15:04:24] Waiting 3 seconds before next batch...
+[15:04:27] === BATCH 7 ===
+Processing networks 61 to 70
+[15:04:27]     61. AZP 31     - ERROR: appliance, updateNetworkApplianceSettings - 400 Bad Request, {'errors': ['Unsupported for networks bound to a template']}
+[15:04:28]     62. AZP 32     - ENABLED -> azp-32-wqqzdhmbrp.dynamic-m.com
+[15:04:37]     63. AZP 33     - ENABLED -> azp-33-gwgkcnhrrp.dynamic-m.com
+[15:04:47]     64. AZP 34     - ENABLED -> azp-34-qwhtgbjbrp.dynamic-m.com
+[15:04:56]     65. AZP 35     - ENABLED -> azp-35-bvkdnqpvrp.dynamic-m.com
+[15:05:05]     66. AZP 36     - ENABLED -> azp-36-bjrpbzdjrp.dynamic-m.com
+[15:05:14]     67. AZP 37     - ENABLED -> azp-37-qhhvcmbwrp.dynamic-m.com
+[15:05:23]     68. AZP 38     - ENABLED -> azp-38-npzvthdrrp.dynamic-m.com
+[15:05:32]     69. AZP 39     - ENABLED -> azp-39-hpqgjcmzrp.dynamic-m.com
+[15:05:40]     70. AZP 41     - ENABLED -> azp-41-qjtzgrrnrp.dynamic-m.com
+[15:05:50] Batch summary: 9 enabled, 0 already enabled, 1 errors
+[15:05:50] Overall progress: 70/1330 (5.3%)
+[15:05:50] Waiting 3 seconds before next batch...
+[15:05:53] === BATCH 8 ===
+Processing networks 71 to 80
+[15:05:53]     71. AZP 42     - ENABLED -> azp-42-drhcrccprp.dynamic-m.com
+[15:06:02]     72. AZP 43     - ENABLED -> azp-43-mhbchthcrp.dynamic-m.com
+[15:06:11]     73. AZP 44     - ENABLED -> azp-44-ggrhdkwvrp.dynamic-m.com
+[15:06:20]     74. AZP 45     - ENABLED -> azp-45-pvzzkjrvrp.dynamic-m.com
+[15:06:28]     75. AZP 46     - ENABLED -> azp-46-jmcgvvtvrp.dynamic-m.com
+[15:06:36]     76. AZP 47     - ENABLED -> azp-47-kqdvbznvrp.dynamic-m.com
+[15:06:44]     77. AZP 48     - ENABLED -> azp-48-hprrkhgtrp.dynamic-m.com
+[15:06:53]     78. AZP 49     - ENABLED -> azp-49-vcrtkrdjrp.dynamic-m.com
+[15:07:01]     79. AZP 50     - ENABLED -> azp-50-vhbcbcjzrp.dynamic-m.com
+[15:07:09]     80. AZP 51     - ENABLED -> azp-51-zztqrqhdrp.dynamic-m.com
+[15:07:17] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[15:07:17] Overall progress: 80/1330 (6.0%)
+[15:07:17] Waiting 3 seconds before next batch...
+[15:07:20] === BATCH 9 ===
+Processing networks 81 to 90
+[15:07:20]     81. AZP 53     - ENABLED -> azp-53-wqwcpwgjrp.dynamic-m.com
+[15:07:31]     82. AZP 54     - ENABLED -> azp-54-bqhhggvwrp.dynamic-m.com
+[15:07:39]     83. AZP 55     - ENABLED -> azp-55-crkmzmjnrp.dynamic-m.com
+[15:07:49]     84. AZP 56     - ENABLED -> azp-56-gwtrrpdqrp.dynamic-m.com
+[15:07:57]     85. AZP 57     - ENABLED -> azp-57-tjmwhdtnrp.dynamic-m.com
+[15:08:05]     86. AZP 58     - ENABLED -> azp-58-nmncrztkrp.dynamic-m.com
+[15:08:13]     87. AZP 59     - ENABLED -> azp-59-bmdrqmvvrp.dynamic-m.com
+[15:08:21]     88. AZP 60     - ENABLED -> azp-60-hpcmkwmjrp.dynamic-m.com
+[15:08:29]     89. AZP 61     - ENABLED -> azp-61-zjqtdtjmrp.dynamic-m.com
+[15:08:37]     90. AZP 62     - ENABLED -> azp-62-zmnjbbdnrp.dynamic-m.com
+[15:08:45] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[15:08:45] Overall progress: 90/1330 (6.8%)
+[15:08:45] Waiting 3 seconds before next batch...
+[15:08:48] === BATCH 10 ===
+Processing networks 91 to 100
+[15:08:48]     91. AZP 63     - ENABLED -> azp-63-tmgtrwwgkkkc.dynamic-m.com
+[15:08:56]     92. AZP 64     - ALREADY ENABLED
+[15:08:57]     93. AZPB 20    - ALREADY ENABLED
+[15:08:57]     94. AZS 01     - ENABLED -> azs-01-qzvtjvrbrp.dynamic-m.com
+[15:09:06]     95. AZSB 01    - ALREADY ENABLED
+[15:09:06]     96. AZT 01     - ENABLED -> azt-01-ntdppcqnrp.dynamic-m.com
+[15:09:15]     97. AZT 02     - ENABLED -> azt-02-mhrhzgzprp.dynamic-m.com
+[15:09:24]     98. AZT 03     - ENABLED -> azt-03-vjhrgrwvrp.dynamic-m.com
+[15:09:32]     99. AZT 06     - ENABLED -> azt-06-gwczbzdzrp.dynamic-m.com
+[15:09:40]    100. AZT 07     - ENABLED -> azt-07-bgjhmcktrp.dynamic-m.com
+[15:09:50] Batch summary: 7 enabled, 3 already enabled, 0 errors
+[15:09:50] Overall progress: 100/1330 (7.5%)
+[15:09:50] Waiting 3 seconds before next batch...
+[15:09:53] === BATCH 11 ===
+Processing networks 101 to 110
+[15:09:53]    101. AZT 09     - ENABLED -> azt-09-nwhjqzrwrp.dynamic-m.com
+[15:10:02]    102. AZT 10     - ENABLED -> azt-10-mdvghtqtrp.dynamic-m.com
+[15:10:12]    103. AZT 11     - ENABLED -> azt-11-tczwmbqmrp.dynamic-m.com
+[15:10:22]    104. AZT 12     - ENABLED -> azt-12-hdbrvkdzrp.dynamic-m.com
+[15:10:32]    105. AZT 13     - ENABLED -> azt-13-bpgcnbdkrp.dynamic-m.com
+[15:10:43]    106. AZT 14     - ENABLED -> azt-14-rqhmjqdzrp.dynamic-m.com
+[15:10:52]    107. AZY 01     - ENABLED -> azy-01-zphmgpgkrp.dynamic-m.com
+[15:11:03]    108. AZY 02     - ENABLED -> azy-02-qwvcbkwkrp.dynamic-m.com
+[15:11:12]    109. BSM Test Network - ALREADY ENABLED
+[15:11:12]    110. CAL_00     - ALREADY ENABLED
+[15:11:13] Batch summary: 8 enabled, 2 already enabled, 0 errors
+[15:11:13] Overall progress: 110/1330 (8.3%)
+[15:11:13] Waiting 3 seconds before next batch...
+[15:11:16] === BATCH 12 ===
+Processing networks 111 to 120
+[15:11:16]    111. CAL 01     - ENABLED -> cal-01-bcmgggbkrp.dynamic-m.com
+[15:11:27]    112. CAL 02     - ENABLED -> cal-02-jjjhqrgkrp.dynamic-m.com
+[15:11:37]    113. CAL 03     - ENABLED -> cal-03-rgrvkqhrrp.dynamic-m.com
+[15:11:45]    114. CAL 04     - ENABLED -> cal-04-vcknnwtprp.dynamic-m.com
+[15:11:53]    115. CAL 05     - ENABLED -> cal-05-gpnckjnmrp.dynamic-m.com
+[15:12:02]    116. CAL 06     - ENABLED -> cal-06-zmhbqvmwrp.dynamic-m.com
+[15:12:11]    117. CAL 07     - ENABLED -> cal-07-vhnchgpqrp.dynamic-m.com
+[15:12:20]    118. CAL 08     - ENABLED -> cal-08-dhmzvbmrrp.dynamic-m.com
+[15:12:28]    119. CAL 09     - ENABLED -> cal-09-hkrztqzwrp.dynamic-m.com
+[15:12:36]    120. CAL 10     - ENABLED -> cal-10-bqvhdwdgrp.dynamic-m.com
+[15:12:44] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[15:12:44] Overall progress: 120/1330 (9.0%)
+[15:12:44] Waiting 3 seconds before next batch...
+[15:12:47] === BATCH 13 ===
+Processing networks 121 to 130
+[15:12:47]    121. CAL 11     - ENABLED -> cal-11-zgkqbddwrp.dynamic-m.com
+[15:12:56]    122. CAL 12     - ENABLED -> cal-12-cgndkzzbrp.dynamic-m.com
+[15:13:03]    123. CAL 13     - ENABLED -> cal-13-vbhwpjmtrp.dynamic-m.com
+[15:13:13]    124. CAL 14     - ENABLED -> cal-14-pzgzjvmgrp.dynamic-m.com
+[15:13:20]    125. CAL 15     - ENABLED -> cal-15-htmqqdvqrp.dynamic-m.com
+[15:13:28]    126. CAL 17     - ENABLED -> cal-17-qvrrvqmbrp.dynamic-m.com
+[15:13:37]    127. CAL 18     - ENABLED -> cal-18-kdjwmbcjrp.dynamic-m.com
+[15:13:45]    128. CAL 19     - ENABLED -> cal-19-jbpztvcqrp.dynamic-m.com
+[15:13:53]    129. CAL 20     - ENABLED -> cal-20-hpqnhnkhrp.dynamic-m.com
+[15:14:02]    130. CAL 21     - ENABLED -> cal-21-kjpkggqmrp.dynamic-m.com
+[15:14:11] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[15:14:11] Overall progress: 130/1330 (9.8%)
+[15:14:11] Waiting 3 seconds before next batch...
+[15:14:14] === BATCH 14 ===
+Processing networks 131 to 140
+[15:14:14]    131. CAL 22     - ENABLED -> cal-22-pzhcrmqkrp.dynamic-m.com
+[15:14:21]    132. CAL 23     - ENABLED -> cal-23-gghgbgzcrp.dynamic-m.com
+[15:14:30]    133. CAL 24     - ENABLED -> cal-24-tkdzmmvrrp.dynamic-m.com
+[15:14:39]    134. CAL 26     - ENABLED -> cal-26-mhmmcqvdrp.dynamic-m.com
+[15:14:48]    135. CAL 28     - ENABLED -> cal-28-dvjgzbvgrp.dynamic-m.com
+[15:14:56]    136. CAL 29     - ENABLED -> cal-29-wwqhhhqcrp.dynamic-m.com
+[15:15:04]    137. CAL 31     - ENABLED -> cal-31-vqknjhdqrp.dynamic-m.com
+[15:15:13]    138. CAL 33     - ENABLED -> cal-33-vqcttjwnrp.dynamic-m.com
+[15:15:22]    139. CAL 35     - ENABLED -> cal-35-rvwcwgctrp.dynamic-m.com
+[15:15:31]    140. CAL 37     - ENABLED -> cal-37-cvpcjwhwrp.dynamic-m.com
+[15:15:38] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[15:15:38] Overall progress: 140/1330 (10.5%)
+[15:15:38] Waiting 3 seconds before next batch...
+[15:15:41] === BATCH 15 ===
+Processing networks 141 to 150
+[15:15:41]    141. CAL 38     - ENABLED -> cal-38-hkcdvwghrp.dynamic-m.com
+[15:15:51]    142. CAL 40     - ENABLED -> cal-40-tztpbgpdrp.dynamic-m.com
+[15:16:01]    143. CAL 41     - ENABLED -> cal-41-whjjtppgrp.dynamic-m.com
+[15:16:10]    144. CAL 42     - ENABLED -> cal-42-rzrwqbpnrp.dynamic-m.com
+[15:16:18]    145. CAL 43     - ENABLED -> cal-43-wgwhgjnwrp.dynamic-m.com
+[15:16:29]    146. CAL 44     - ENABLED -> cal-44-jdrpjtmjrp.dynamic-m.com
+[15:16:38]    147. CAL 46     - ENABLED -> cal-46-gvpwdrwzrp.dynamic-m.com
+[15:16:47]    148. CAL 47     - ENABLED -> cal-47-gjqdjghhrp.dynamic-m.com
+[15:16:54]    149. CAL 48     - ENABLED -> cal-48-dpktgmjnrp.dynamic-m.com
+[15:17:03]    150. CAL 49     - ENABLED -> cal-49-tmtvbnvhrp.dynamic-m.com
+[15:17:11] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[15:17:11] Overall progress: 150/1330 (11.3%)
+[15:17:11] Waiting 3 seconds before next batch...
+[15:17:14] === BATCH 16 ===
+Processing networks 151 to 160
+[15:17:14]    151. CAL 50     - ALREADY ENABLED
+[15:17:15]    152. CAL W01    - ALREADY ENABLED
+[15:17:16]    153. CAN_00     - ALREADY ENABLED
+[15:17:16]    154. CAN 02     - ENABLED -> can-02-qhgmzjzrrp.dynamic-m.com
+[15:17:24]    155. CAN 03     - ENABLED -> can-03-nwzvdnpkrp.dynamic-m.com
+[15:17:32]    156. CAN 04     - ENABLED -> can-04-trpkqkjvrp.dynamic-m.com
+[15:17:39]    157. CAN 05     - ENABLED -> can-05-zcqtrtbtrp.dynamic-m.com
+[15:17:47]    158. CAN 07     - ENABLED -> can-07-jbpjgjpzrp.dynamic-m.com
+[15:17:57]    159. CAN 10     - ENABLED -> can-10-cpgncdgrrp.dynamic-m.com
+[15:18:06]    160. CAN 11     - ENABLED -> can-11-dncgpwbqrp.dynamic-m.com
+[15:18:14] Batch summary: 7 enabled, 3 already enabled, 0 errors
+[15:18:14] Overall progress: 160/1330 (12.0%)
+[15:18:14] Waiting 3 seconds before next batch...
+[15:18:17] === BATCH 17 ===
+Processing networks 161 to 170
+[15:18:17]    161. CAN 12     - ENABLED -> can-12-grddmcjtrp.dynamic-m.com
+[15:18:25]    162. CAN 13     - ENABLED -> can-13-nbbqqbvhrp.dynamic-m.com
+[15:18:34]    163. CAN 14     - ENABLED -> can-14-nkbgdjwbrp.dynamic-m.com
+[15:18:43]    164. CAN 15     - ENABLED -> can-15-jdgtggndrp.dynamic-m.com
+[15:18:51]    165. CAN 16     - ENABLED -> can-16-jdrbmnjjrp.dynamic-m.com
+[15:19:00]    166. CAN 17     - ENABLED -> can-17-dcpwbjvjrp.dynamic-m.com
+[15:19:08]    167. CAN 18     - ENABLED -> can-18-zrmnzbrnrp.dynamic-m.com
+[15:19:17]    168. CAN 19     - ENABLED -> can-19-cgpgnmjmrp.dynamic-m.com
+[15:19:25]    169. CAN 20     - ENABLED -> can-20-vzdkqwczrp.dynamic-m.com
+[15:19:34]    170. CAN 21     - ENABLED -> can-21-vdtkkgkmrp.dynamic-m.com
+[15:19:43] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[15:19:43] Overall progress: 170/1330 (12.8%)
+[15:19:43] Waiting 3 seconds before next batch...
+[15:19:46] === BATCH 18 ===
+Processing networks 171 to 180
+[15:19:46]    171. CAN 22     - ENABLED -> can-22-zvkcmjczrp.dynamic-m.com
+[15:19:55]    172. CAN 23     - ENABLED -> can-23-kmqhcthhrp.dynamic-m.com
+[15:20:05]    173. CAN 24     - ENABLED -> can-24-mvcngmvdrp.dynamic-m.com
+[15:20:16]    174. CAN 25     - ENABLED -> can-25-gnrcqhvnrp.dynamic-m.com
+[15:20:25]    175. CAN 26     - ENABLED -> can-26-pdztpcknrp.dynamic-m.com
+[15:20:36]    176. CAN 28     - ENABLED -> can-28-wzmnnmnzrp.dynamic-m.com
+[15:20:45]    177. CAN 29     - ENABLED -> can-29-kqncdvghrp.dynamic-m.com
+[15:20:54]    178. CAN 30     - ENABLED -> can-30-gzqprvnrrp.dynamic-m.com
+[15:21:04]    179. CAN 31     - ENABLED -> can-31-mcrpdcncrp.dynamic-m.com
+[15:21:14]    180. CAN 32     - ENABLED -> can-32-zncbpnqprp.dynamic-m.com
+[15:21:24] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[15:21:24] Overall progress: 180/1330 (13.5%)
+[15:21:24] Waiting 3 seconds before next batch...
+[15:21:27] === BATCH 19 ===
+Processing networks 181 to 190
+[15:21:27]    181. CAN 33     - ENABLED -> can-33-nrddwjzzrp.dynamic-m.com
+[15:21:36]    182. CAN 34     - ENABLED -> can-34-hwmmbzphrp.dynamic-m.com
+[15:21:46]    183. CAN 35     - ENABLED -> can-35-tnkkmzjzrp.dynamic-m.com
+[15:21:54]    184. CAN 36     - ENABLED -> can-36-pbztwbkvrp.dynamic-m.com
+[15:22:04]    185. CAN 37     - ENABLED -> can-37-hbrrwqgwrp.dynamic-m.com
+[15:22:13]    186. CAN 38     - ENABLED -> can-38-mdmwvwmdrp.dynamic-m.com
+[15:22:22]    187. CAN 39     - ENABLED -> can-39-wcrmhttzrp.dynamic-m.com
+[15:22:30]    188. CAN 40     - ENABLED -> can-40-rbjkzgpprp.dynamic-m.com
+[15:22:39]    189. CAN 41     - ENABLED -> can-41-zgkkjcngrp.dynamic-m.com
+[15:22:47]    190. CAN 42     - ENABLED -> can-42-bhcdknjbrp.dynamic-m.com
+[15:22:55] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[15:22:55] Overall progress: 190/1330 (14.3%)
+[15:22:55] Waiting 3 seconds before next batch...
+[15:22:58] === BATCH 20 ===
+Processing networks 191 to 200
+[15:22:58]    191. CAN 43     - ENABLED -> can-43-zhzmcwbprp.dynamic-m.com
+[15:23:06]    192. CAN 44     - ENABLED -> can-44-bpdrkvndrp.dynamic-m.com
+[15:23:14]    193. CAN 45     - ENABLED -> can-45-zbzdkhzhrp.dynamic-m.com
+[15:23:22]    194. CAN 46     - ENABLED -> can-46-zkqqbvqprp.dynamic-m.com
+[15:23:31]    195. CAN 47     - ENABLED -> can-47-cgcjzcrcrp.dynamic-m.com
+[15:23:38]    196. CAN 48     - ENABLED -> can-48-mtdkhzcjrp.dynamic-m.com
+[15:23:46]    197. CAN 49     - ENABLED -> can-49-nghwhccmrp.dynamic-m.com
+[15:23:54]    198. CAN 50     - ENABLED -> can-50-zhwzthcjrp.dynamic-m.com
+[15:24:01]    199. CAN 51     - ENABLED -> can-51-wtcgmmbvrp.dynamic-m.com
+[15:24:11]    200. CAN 52     - ENABLED -> can-52-mnkcvwhgrp.dynamic-m.com
+[15:24:19] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[15:24:19] Overall progress: 200/1330 (15.0%)
+[15:24:19] Waiting 3 seconds before next batch...
+[15:24:22] === BATCH 21 ===
+Processing networks 201 to 210
+[15:24:22]    201. CAN 53     - ENABLED -> can-53-brckhhqbrp.dynamic-m.com
+[15:24:30]    202. CAN 54     - ENABLED -> can-54-ndtbpcjwrp.dynamic-m.com
+[15:24:38]    203. CAN 55     - ENABLED -> can-55-pkdjzhrwrp.dynamic-m.com
+[15:24:45]    204. CAN 56     - ENABLED -> can-56-ntvtwbttrp.dynamic-m.com
+[15:24:53]    205. CAN 57     - ENABLED -> can-57-brgnbztbrp.dynamic-m.com
+[15:25:02]    206. CAN 58     - ALREADY ENABLED
+[15:25:03]    207. CAN 60     - ALREADY ENABLED
+[15:25:03]    208. CAN 61     - ENABLED -> can-61-wwdmqmbjkkkc.dynamic-m.com
+[15:25:12]    209. CAN W02    - ALREADY ENABLED
+[15:25:13]    210. CAO 01     - ENABLED -> cao-01-bknmpjrjrp.dynamic-m.com
+[15:25:23] Batch summary: 7 enabled, 3 already enabled, 0 errors
+[15:25:23] Overall progress: 210/1330 (15.8%)
+[15:25:23] Waiting 3 seconds before next batch...
+[15:25:26] === BATCH 22 ===
+Processing networks 211 to 220
+[15:25:26]    211. CAO 03     - ENABLED -> cao-03-zrrkrkcnrp.dynamic-m.com
+[15:25:34]    212. CAO 05     - ENABLED -> cao-05-mtpgnncnrp.dynamic-m.com
+[15:25:42]    213. CAO 06     - ENABLED -> cao-06-wvqvqgnbrp.dynamic-m.com
+[15:25:50]    214. CAS_00     - ALREADY ENABLED
+[15:25:51]    215. CAS 01     - ENABLED -> cas-01-gcgwzggbrp.dynamic-m.com
+[15:25:59]    216. CAS 02     - ENABLED -> cas-02-wvgcpwjgrp.dynamic-m.com
+[15:26:07]    217. CAS 03     - ENABLED -> cas-03-cgcbqjcqrp.dynamic-m.com
+[15:26:14]    218. CAS 04     - ENABLED -> cas-04-dpnjvmtbrp.dynamic-m.com
+[15:26:22]    219. CAS 05     - ENABLED -> cas-05-kphkmmpbrp.dynamic-m.com
+[15:26:30]    220. CAS 06     - ENABLED -> cas-06-vvbjbdcbrp.dynamic-m.com
+[15:26:37] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[15:26:37] Overall progress: 220/1330 (16.5%)
+[15:26:37] Waiting 3 seconds before next batch...
+[15:26:40] === BATCH 23 ===
+Processing networks 221 to 230
+[15:26:40]    221. CAS 07     - ENABLED -> cas-07-gnqbmvkqrp.dynamic-m.com
+[15:26:49]    222. CAS 08     - ENABLED -> cas-08-mgmkkmqqrp.dynamic-m.com
+[15:26:59]    223. CAS 09     - ENABLED -> cas-09-tqhvpqbbrp.dynamic-m.com
+[15:27:08]    224. CAS 10     - ENABLED -> cas-10-pmrzjmbcrp.dynamic-m.com
+[15:27:17]    225. CAS 11     - ENABLED -> cas-11-nvmjnjtbrp.dynamic-m.com
+[15:27:24]    226. CAS 12     - ENABLED -> cas-12-hgqnvdbnrp.dynamic-m.com
+[15:27:33]    227. CAS 13     - ENABLED -> cas-13-hzrkvrcvrp.dynamic-m.com
+[15:27:42]    228. CAS 14     - ENABLED -> cas-14-nhqkghmnrp.dynamic-m.com
+[15:27:51]    229. CAS 15     - ENABLED -> cas-15-vmvpjcnwrp.dynamic-m.com
+[15:28:00]    230. CAS 16     - ENABLED -> cas-16-qgmbmmqjrp.dynamic-m.com
+[15:28:08] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[15:28:08] Overall progress: 230/1330 (17.3%)
+[15:28:08] Waiting 3 seconds before next batch...
+[15:28:11] === BATCH 24 ===
+Processing networks 231 to 240
+[15:28:11]    231. CAS 17     - ENABLED -> cas-17-cjpbhzvcrp.dynamic-m.com
+[15:28:20]    232. CAS 18     - ENABLED -> cas-18-ptcqmmnjrp.dynamic-m.com
+[15:28:29]    233. CAS 19     - ENABLED -> cas-19-ndzwbwzhrp.dynamic-m.com
+[15:28:37]    234. CAS 20     - ENABLED -> cas-20-djqckrknrp.dynamic-m.com
+[15:28:45]    235. CAS 21     - ENABLED -> cas-21-rghcjmckrp.dynamic-m.com
+[15:28:53]    236. CAS 22     - ENABLED -> cas-22-zvnrqtzwrp.dynamic-m.com
+[15:29:02]    237. CAS 23     - ENABLED -> cas-23-wgrjbvqnrp.dynamic-m.com
+[15:29:10]    238. CAS 24     - ENABLED -> cas-24-gkvzrtcmrp.dynamic-m.com
+[15:29:21]    239. CAS 25     - ENABLED -> cas-25-tdkgjqvrrp.dynamic-m.com
+[15:29:29]    240. CAS 27     - ENABLED -> cas-27-twjwvhzbrp.dynamic-m.com
+[15:29:38] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[15:29:38] Overall progress: 240/1330 (18.0%)
+[15:29:38] Waiting 3 seconds before next batch...
+[15:29:41] === BATCH 25 ===
+Processing networks 241 to 250
+[15:29:41]    241. CAS 28     - ENABLED -> cas-28-znkrvjtdrp.dynamic-m.com
+[15:29:51]    242. CAS 31     - ENABLED -> cas-31-tkhdhwzprp.dynamic-m.com
+[15:30:00]    243. CAS 32     - ENABLED -> cas-32-wctzrmqwrp.dynamic-m.com
+[15:30:10]    244. CAS 33     - ENABLED -> cas-33-qgrjmmpvrp.dynamic-m.com
+[15:30:19]    245. CAS 34     - ENABLED -> cas-34-hptrmwvqrp.dynamic-m.com
+[15:30:29]    246. CAS 35     - ENABLED -> cas-35-hrzvpmktrp.dynamic-m.com
+[15:30:38]    247. CAS 36     - ENABLED -> cas-36-dzztknpdrp.dynamic-m.com
+[15:30:47]    248. CAS 37     - ENABLED -> cas-37-hgpjjnttrp.dynamic-m.com
+[15:30:56]    249. CAS 38     - ENABLED -> cas-38-ckhcjhrwrp.dynamic-m.com
+[15:31:04]    250. CAS 39     - ENABLED -> cas-39-tkkbcjwprp.dynamic-m.com
+[15:31:13] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[15:31:13] Overall progress: 250/1330 (18.8%)
+[15:31:13] Waiting 3 seconds before next batch...
+[15:31:16] === BATCH 26 ===
+Processing networks 251 to 260
+[15:31:17]    251. CAS 40     - ENABLED -> cas-40-brcwdwwwrp.dynamic-m.com
+[15:31:26]    252. CAS 41     - ENABLED -> cas-41-pgrvjcmgrp.dynamic-m.com
+[15:31:35]    253. CAS 42     - ENABLED -> cas-42-tnkpjgzdrp.dynamic-m.com
+[15:31:44]    254. CAS 43     - ENABLED -> cas-43-kcrvnjdnrp.dynamic-m.com
+[15:31:54]    255. CAS 44     - ENABLED -> cas-44-dwkwrpgqrp.dynamic-m.com
+[15:32:03]    256. CAS 45     - ENABLED -> cas-45-ctndjrkdrp.dynamic-m.com
+[15:32:12]    257. CAS 46     - ENABLED -> cas-46-ndkvhtzdrp.dynamic-m.com
+[15:32:21]    258. CAS 47     - ENABLED -> cas-47-wbgtzwjhrp.dynamic-m.com
+[15:32:30]    259. CAS 48     - ENABLED -> cas-48-zqgcnzwmrp.dynamic-m.com
+[15:32:37]    260. CAS 49     - ENABLED -> cas-49-mrrvwcnqrp.dynamic-m.com
+[15:32:44] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[15:32:44] Overall progress: 260/1330 (19.5%)
+[15:32:44] Waiting 3 seconds before next batch...
+[15:32:47] === BATCH 27 ===
+Processing networks 261 to 270
+[15:32:47]    261. CAS 50     - ENABLED -> cas-50-mzzchjdhrp.dynamic-m.com
+[15:32:55]    262. CAS 51     - ENABLED -> cas-51-zmzdkrjmrp.dynamic-m.com
+[15:33:03]    263. CAS 53     - ALREADY ENABLED
+[15:33:03]    264. Central Store Test - ENABLED -> central-store-test-dbczjhdgkkkc.dynamic-m.com
+[15:33:10]    265. COB 01     - ENABLED -> cob-01-gtvbkznwrp.dynamic-m.com
+[15:33:18]    266. COD_00     - ALREADY ENABLED
+[15:33:19]    267. COD 01     - ENABLED -> cod-01-tjzkwcvprp.dynamic-m.com
+[15:33:27]    268. COD 02     - ENABLED -> cod-02-mkhnnphkrp.dynamic-m.com
+[15:33:35]    269. COD 03     - ENABLED -> cod-03-vvqdtqnqrp.dynamic-m.com
+[15:33:43]    270. COD 04     - ENABLED -> cod-04-gvhcjtzwrp.dynamic-m.com
+[15:33:51] Batch summary: 8 enabled, 2 already enabled, 0 errors
+[15:33:51] Overall progress: 270/1330 (20.3%)
+[15:33:51] Waiting 3 seconds before next batch...
+[15:33:54] === BATCH 28 ===
+Processing networks 271 to 280
+[15:33:54]    271. COD 05     - ENABLED -> cod-05-kjwdkgqqrp.dynamic-m.com
+[15:34:03]    272. COD 06     - ENABLED -> cod-06-kdwpzrjqrp.dynamic-m.com
+[15:34:11]    273. COD 07     - ENABLED -> cod-07-zbnqjwnvrp.dynamic-m.com
+[15:34:18]    274. COD 08     - ENABLED -> cod-08-ngmkkwhcrp.dynamic-m.com
+[15:34:26]    275. COD 09     - ERROR: appliance, updateNetworkApplianceSettings - 400 Bad Request, {'errors': ['Unsupported for networks bound to a template']}
+[15:34:28]    276. COD 10     - ENABLED -> cod-10-jmkqzrhtrp.dynamic-m.com
+[15:34:37]    277. COD 11     - ENABLED -> cod-11-nqccbqgtrp.dynamic-m.com
+[15:34:45]    278. COD 13     - ENABLED -> cod-13-dmrbdjbhrp.dynamic-m.com
+[15:34:53]    279. COD 14     - ENABLED -> cod-14-dmvmqttzrp.dynamic-m.com
+[15:35:01]    280. COD 15     - ENABLED -> cod-15-qhrjqvhprp.dynamic-m.com
+[15:35:09] Batch summary: 9 enabled, 0 already enabled, 1 errors
+[15:35:09] Overall progress: 280/1330 (21.1%)
+[15:35:09] Waiting 3 seconds before next batch...
+[15:35:12] === BATCH 29 ===
+Processing networks 281 to 290
+[15:35:12]    281. COD 17     - ENABLED -> cod-17-wbvbzhttrp.dynamic-m.com
+[15:35:21]    282. COD 18     - ENABLED -> cod-18-dgwmzqjcrp.dynamic-m.com
+[15:35:29]    283. COD 19     - ENABLED -> cod-19-pmjmhvzvrp.dynamic-m.com
+[15:35:37]    284. COD 20     - ENABLED -> cod-20-mmdqkkjtrp.dynamic-m.com
+[15:35:45]    285. COD 21     - ENABLED -> cod-21-wrvttbvkrp.dynamic-m.com
+[15:35:54]    286. COD 22     - ENABLED -> cod-22-jjkvgzcqrp.dynamic-m.com
+[15:36:03]    287. COD 23     - ENABLED -> cod-23-gkmjwqqcrp.dynamic-m.com
+[15:36:11]    288. COD 24     - ENABLED -> cod-24-pjnwpdmgrp.dynamic-m.com
+[15:36:20]    289. COD 25     - ENABLED -> cod-25-jwhnrbhgrp.dynamic-m.com
+[15:36:28]    290. COD 26     - ENABLED -> cod-26-nvdpnqkqrp.dynamic-m.com
+[15:36:35] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[15:36:35] Overall progress: 290/1330 (21.8%)
+[15:36:35] Waiting 3 seconds before next batch...
+[15:36:38] === BATCH 30 ===
+Processing networks 291 to 300
+[15:36:38]    291. COD 27     - ENABLED -> cod-27-rhkwzzpmrp.dynamic-m.com
+[15:36:45]    292. COD 28     - ENABLED -> cod-28-rhzvdbqkrp.dynamic-m.com
+[15:36:52]    293. COD 29     - ENABLED -> cod-29-mwdtqhwvrp.dynamic-m.com
+[15:37:00]    294. COD 30     - ENABLED -> cod-30-gdzkzhgtrp.dynamic-m.com
+[15:37:09]    295. COD 31     - ENABLED -> cod-31-dmcgqgmdrp.dynamic-m.com
+[15:37:16]    296. COD 32     - ENABLED -> cod-32-pdhwnpbnrp.dynamic-m.com
+[15:37:23]    297. COD 34     - ENABLED -> cod-34-kqjdhqztrp.dynamic-m.com
+[15:37:32]    298. COD 35     - ENABLED -> cod-35-pttvbnhjrp.dynamic-m.com
+[15:37:40]    299. COD 36     - ENABLED -> cod-36-jqrgbcnrrp.dynamic-m.com
+[15:37:47]    300. COD 37     - ENABLED -> cod-37-djzbvqkkrp.dynamic-m.com
+[15:37:56] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[15:37:56] Overall progress: 300/1330 (22.6%)
+[15:37:56] Waiting 3 seconds before next batch...
+[15:37:59] === BATCH 31 ===
+Processing networks 301 to 310
+[15:37:59]    301. COD 38     - ENABLED -> cod-38-hzzgdzmkrp.dynamic-m.com
+[15:38:07]    302. COD 39     - ENABLED -> cod-39-pnwjtrqtrp.dynamic-m.com
+[15:38:15]    303. COD 40     - ENABLED -> cod-40-cgwbkhkzrp.dynamic-m.com
+[15:38:23]    304. COD 41     - ENABLED -> cod-41-cnbcrgwtrp.dynamic-m.com
+[15:38:31]    305. COD 42     - ENABLED -> cod-42-bqjbkdjvkkkc.dynamic-m.com
+[15:38:41]    306. COG 01     - ENABLED -> cog-01-vcqcnttnrp.dynamic-m.com
+[15:38:49]    307. Cog 02     - ENABLED -> cog-02-gtgwvhcqrp.dynamic-m.com
+[15:38:57]    308. COG 03     - ENABLED -> cog-03-cwzqzqjhrp.dynamic-m.com
+[15:39:04]    309. CON 02     - ENABLED -> con-02-qnqpdjvqrp.dynamic-m.com
+[15:39:13]    310. CON 03     - ENABLED -> con-03-qmdgbqjrrp.dynamic-m.com
+[15:39:20] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[15:39:20] Overall progress: 310/1330 (23.3%)
+[15:39:20] Waiting 3 seconds before next batch...
+[15:39:23] === BATCH 32 ===
+Processing networks 311 to 320
+[15:39:23]    311. COP 02     - ENABLED -> cop-02-hrhpdtvwrp.dynamic-m.com
+[15:39:33]    312. COP 03     - ENABLED -> cop-03-gwtmtgdjrp.dynamic-m.com
+[15:39:41]    313. Corporate Store0 - ALREADY ENABLED
+[15:39:41]    314. COS 01     - ENABLED -> cos-01-ggczcpkkrp.dynamic-m.com
+[15:39:50]    315. COS 02     - ENABLED -> cos-02-vknjdvwdrp.dynamic-m.com
+[15:39:58]    316. COS 03     - ENABLED -> cos-03-tmnprdrcrp.dynamic-m.com
+[15:40:08]    317. COS 04     - ENABLED -> cos-04-znjcnpgzrp.dynamic-m.com
+[15:40:17]    318. COS 05     - ENABLED -> cos-05-ttvhbvntrp.dynamic-m.com
+[15:40:25]    319. COS 06     - ENABLED -> cos-06-mbrtmdnrrp.dynamic-m.com
+[15:40:34]    320. COS 07     - ENABLED -> cos-07-rmwqmntmrp.dynamic-m.com
+[15:40:43] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[15:40:43] Overall progress: 320/1330 (24.1%)
+[15:40:43] Waiting 3 seconds before next batch...
+[15:40:46] === BATCH 33 ===
+Processing networks 321 to 330
+[15:40:46]    321. COW 01     - ENABLED -> cow-01-hmzrbwwhrp.dynamic-m.com
+[15:40:55]    322. COW 02     - ENABLED -> cow-02-nhghwhhtrp.dynamic-m.com
+[15:41:03]    323. COX 01     - ALREADY ENABLED
+[15:41:04]    324. COX 01     - ALREADY ENABLED
+[15:41:04]    325. Desert Ridge - ENABLED -> desert-ridge-pbjrmwhwrp.dynamic-m.com
+[15:41:13]    326. Desert Ridge Building I Security - ALREADY ENABLED
+[15:41:13]    327. DR VTV Test Lab II - ENABLED -> dr-vtv-test-lab-ii-tjqdmcwdkkkc.dynamic-m.com
+[15:41:22]    328. East Store Test - ALREADY ENABLED
+[15:41:23]    329. EQX-DataCenter-WA - ALREADY ENABLED
+[15:41:24]    330. EQX-DataCenter-WA - ALREADY ENABLED
+[15:41:24] Batch summary: 4 enabled, 6 already enabled, 0 errors
+[15:41:24] Overall progress: 330/1330 (24.8%)
+[15:41:24] Waiting 3 seconds before next batch...
+[15:41:27] === BATCH 34 ===
+Processing networks 331 to 340
+[15:41:27]    331. EQX-OOB-WA-01 - ALREADY ENABLED
+[15:41:28]    332. EQX-OOB-WA-02 - ALREADY ENABLED
+[15:41:28]    333. FLD 01     - ENABLED -> fld-01-whbqrkwwrp.dynamic-m.com
+[15:41:37]    334. FLD 02     - ENABLED -> fld-02-rhpkvjdwrp.dynamic-m.com
+[15:41:44]    335. FLD 04     - ENABLED -> fld-04-pmwbtzmqrp.dynamic-m.com
+[15:41:53]    336. FLF 01     - ENABLED -> flf-01-mnvtprwcrp.dynamic-m.com
+[15:42:01]    337. FLG 01     - ENABLED -> flg-01-nzwgzvdcrp.dynamic-m.com
+[15:42:10]    338. FLG 02     - ENABLED -> flg-02-hqzrncwgrp.dynamic-m.com
+[15:42:19]    339. FLG 03     - ENABLED -> flg-03-pzvbcrrmrp.dynamic-m.com
+[15:42:27]    340. Flight Department - ALREADY ENABLED
+[15:42:28] Batch summary: 7 enabled, 3 already enabled, 0 errors
+[15:42:28] Overall progress: 340/1330 (25.6%)
+[15:42:28] Waiting 3 seconds before next batch...
+[15:42:31] === BATCH 35 ===
+Processing networks 341 to 350
+[15:42:31]    341. Flight Department - Pilot - ALREADY ENABLED
+[15:42:31]    342. FLJ_00     - ALREADY ENABLED
+[15:42:32]    343. FLJ 01     - ENABLED -> flj-01-tnzwnwbbrp.dynamic-m.com
+[15:42:41]    344. FLJ 02     - ENABLED -> flj-02-rrhvccqbrp.dynamic-m.com
+[15:42:49]    345. FLJ 03     - ENABLED -> flj-03-mkvcwjnzrp.dynamic-m.com
+[15:42:57]    346. FLJ 05     - ENABLED -> flj-05-ghvhwmbhrp.dynamic-m.com
+[15:43:06]    347. FLJ 06     - ENABLED -> flj-06-zqrpwdmgrp.dynamic-m.com
+[15:43:14]    348. FLJ 07     - ENABLED -> flj-07-mdgtwrpwrp.dynamic-m.com
+[15:43:21]    349. FLJ 09     - ENABLED -> flj-09-nggggnbwrp.dynamic-m.com
+[15:43:28]    350. FLJ 10     - ENABLED -> flj-10-rzbhtnhprp.dynamic-m.com
+[15:43:36] Batch summary: 8 enabled, 2 already enabled, 0 errors
+[15:43:36] Overall progress: 350/1330 (26.3%)
+[15:43:36] Waiting 3 seconds before next batch...
+[15:43:39] === BATCH 36 ===
+Processing networks 351 to 360
+[15:43:39]    351. FLJ 11     - ENABLED -> flj-11-hmzvbzrdrp.dynamic-m.com
+[15:43:47]    352. FLJ 12     - ALREADY ENABLED
+[15:43:47]    353. FLM 01     - ENABLED -> flm-01-tqdjtwdnrp.dynamic-m.com
+[15:43:55]    354. FLM 02     - ENABLED -> flm-02-kktbbrzwrp.dynamic-m.com
+[15:44:03]    355. FLO 01     - ENABLED -> flo-01-wwbjwnkwrp.dynamic-m.com
+[15:44:11]    356. FLO 02     - ENABLED -> flo-02-wtnbbbmvrp.dynamic-m.com
+[15:44:20]    357. FLO 03     - ENABLED -> flo-03-vphwgnpkrp.dynamic-m.com
+[15:44:28]    358. FLO 04     - ENABLED -> flo-04-bbtnhwddrp.dynamic-m.com
+[15:44:36]    359. FLO 05     - ENABLED -> flo-05-kgzqnndjrp.dynamic-m.com
+[15:44:44]    360. FLO 06     - ENABLED -> flo-06-zqzvvbhqrp.dynamic-m.com
+[15:44:52] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[15:44:52] Overall progress: 360/1330 (27.1%)
+[15:44:52] Waiting 3 seconds before next batch...
+[15:44:55] === BATCH 37 ===
+Processing networks 361 to 370
+[15:44:55]    361. FLO 07     - ENABLED -> flo-07-kbqhhwvzrp.dynamic-m.com
+[15:45:03]    362. FLO 08     - ENABLED -> flo-08-ckjgjjqqrp.dynamic-m.com
+[15:45:12]    363. FLO 09     - ENABLED -> flo-09-bnmktttcrp.dynamic-m.com
+[15:45:20]    364. FLO 10     - ENABLED -> flo-10-vbdjtgtnrp.dynamic-m.com
+[15:45:27]    365. FLO 11     - ENABLED -> flo-11-chvdvkrcrp.dynamic-m.com
+[15:45:34]    366. FLO 12     - ENABLED -> flo-12-wpwddjmvrp.dynamic-m.com
+[15:45:43]    367. FLO 13     - ALREADY ENABLED
+[15:45:44]    368. FLO 14     - ENABLED -> flo-14-jnjkcwzgkkkc.dynamic-m.com
+[15:45:54]    369. FLO 15     - ENABLED -> flo-15-khgpqqwwkkkc.dynamic-m.com
+[15:46:03]    370. FLO 16     - ALREADY ENABLED
+[15:46:03] Batch summary: 8 enabled, 2 already enabled, 0 errors
+[15:46:03] Overall progress: 370/1330 (27.8%)
+[15:46:03] Waiting 3 seconds before next batch...
+[15:46:06] === BATCH 38 ===
+Processing networks 371 to 380
+[15:46:06]    371. FLP 01     - ENABLED -> flp-01-nwdgthzcrp.dynamic-m.com
+[15:46:15]    372. FLP 02     - ENABLED -> flp-02-bbhrqbndrp.dynamic-m.com
+[15:46:23]    373. FLP 03     - ENABLED -> flp-03-mwhnwjvvrp.dynamic-m.com
+[15:46:31]    374. FLP 04     - ENABLED -> flp-04-hznpgpgdrp.dynamic-m.com
+[15:46:39]    375. FLS 01     - ENABLED -> fls-01-pzrrphpjrp.dynamic-m.com
+[15:46:47]    376. FLS 02     - ENABLED -> fls-02-rwrzrnjjrp.dynamic-m.com
+[15:46:55]    377. FLS 03     - ENABLED -> fls-03-tpptgdcqrp.dynamic-m.com
+[15:47:03]    378. FLS 04     - ALREADY ENABLED
+[15:47:04]    379. FLT 01     - ENABLED -> flt-01-kbdmmghgrp.dynamic-m.com
+[15:47:12]    380. FLT 02     - ENABLED -> flt-02-dcwmcmjprp.dynamic-m.com
+[15:47:20] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[15:47:20] Overall progress: 380/1330 (28.6%)
+[15:47:20] Waiting 3 seconds before next batch...
+[15:47:23] === BATCH 39 ===
+Processing networks 381 to 390
+[15:47:23]    381. FP-ATL-OOBMGMT-01 - ALREADY ENABLED
+[15:47:24]    382. FP-DAL-OOBMGMT-01 - ALREADY ENABLED
+[15:47:24]    383. FP-DAL-OOBMGMT-02 - ALREADY ENABLED
+[15:47:25]    384. FP-iSeries-ATL - ALREADY ENABLED
+[15:47:25]    385. FP-iSeries-DAL - ALREADY ENABLED
+[15:47:26]    386. FP-iSeries-DAL - ALREADY ENABLED
+[15:47:27]    387. GAA_00     - ALREADY ENABLED
+[15:47:27]    388. GAA 01     - ENABLED -> gaa-01-pkmhvqdjrp.dynamic-m.com
+[15:47:35]    389. GAA 03     - ENABLED -> gaa-03-vbmdbdddrp.dynamic-m.com
+[15:47:42]    390. GAA 05     - ENABLED -> gaa-05-qgvjhhmqrp.dynamic-m.com
+[15:47:50] Batch summary: 3 enabled, 7 already enabled, 0 errors
+[15:47:50] Overall progress: 390/1330 (29.3%)
+[15:47:50] Waiting 3 seconds before next batch...
+[15:47:53] === BATCH 40 ===
+Processing networks 391 to 400
+[15:47:53]    391. GAA 06     - ENABLED -> gaa-06-vmnmpzgprp.dynamic-m.com
+[15:48:00]    392. GAA 07     - ENABLED -> gaa-07-ntgvwbjrrp.dynamic-m.com
+[15:48:08]    393. GAA 08     - ENABLED -> gaa-08-kwdvtvnkrp.dynamic-m.com
+[15:48:15]    394. GAA 10     - ENABLED -> gaa-10-mrtpnbwdrp.dynamic-m.com
+[15:48:23]    395. GAA 11     - ENABLED -> gaa-11-dcpqtvhkrp.dynamic-m.com
+[15:48:31]    396. GAA 12     - ENABLED -> gaa-12-tctndhvgrp.dynamic-m.com
+[15:48:39]    397. GAA 13     - ENABLED -> gaa-13-pzztcwkcrp.dynamic-m.com
+[15:48:48]    398. GAA 14     - ENABLED -> gaa-14-nnqzqdmwrp.dynamic-m.com
+[15:48:56]    399. GAA 15     - ENABLED -> gaa-15-ngprkvzbrp.dynamic-m.com
+[15:49:04]    400. GAA 17     - ENABLED -> gaa-17-pppdjkpdrp.dynamic-m.com
+[15:49:13] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[15:49:13] Overall progress: 400/1330 (30.1%)
+[15:49:13] Waiting 3 seconds before next batch...
+[15:49:16] === BATCH 41 ===
+Processing networks 401 to 410
+[15:49:16]    401. GAA 18     - ENABLED -> gaa-18-kbczvjqzrp.dynamic-m.com
+[15:49:25]    402. GAA 19     - ENABLED -> gaa-19-vtwdmnnjrp.dynamic-m.com
+[15:49:33]    403. GAA 21     - ENABLED -> gaa-21-bkzqkmkprp.dynamic-m.com
+[15:49:42]    404. GAA 22     - ENABLED -> gaa-22-mkpnqjwkrp.dynamic-m.com
+[15:49:51]    405. GAA 24     - ENABLED -> gaa-24-wtqrgzzdrp.dynamic-m.com
+[15:49:59]    406. GAA 25     - ENABLED -> gaa-25-nppwpwkhrp.dynamic-m.com
+[15:50:09]    407. GAA 26     - ENABLED -> gaa-26-hnctwrzrrp.dynamic-m.com
+[15:50:18]    408. GAA 27     - ENABLED -> gaa-27-tmvmzcvrrp.dynamic-m.com
+[15:50:28]    409. GAA 28     - ENABLED -> gaa-28-znvcvrjmrp.dynamic-m.com
+[15:50:37]    410. GAA 29     - ENABLED -> gaa-29-zkkqqbnprp.dynamic-m.com
+[15:50:46] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[15:50:46] Overall progress: 410/1330 (30.8%)
+[15:50:46] Waiting 3 seconds before next batch...
+[15:50:49] === BATCH 42 ===
+Processing networks 411 to 420
+[15:50:49]    411. GAA 30     - ENABLED -> gaa-30-kckvddwqrp.dynamic-m.com
+[15:50:57]    412. GAA 31     - ENABLED -> gaa-31-dnbzwtgnrp.dynamic-m.com
+[15:51:06]    413. GAA 32     - ENABLED -> gaa-32-kmjqtbrtrp.dynamic-m.com
+[15:51:15]    414. GAA 33     - ENABLED -> gaa-33-qphrtmrrrp.dynamic-m.com
+[15:51:23]    415. GAA 34     - ENABLED -> gaa-34-gzvdvnqdrp.dynamic-m.com
+[15:51:30]    416. GAA 35     - ENABLED -> gaa-35-zwgwjzctrp.dynamic-m.com
+[15:51:39]    417. GAA 36     - ENABLED -> gaa-36-cqrcghchrp.dynamic-m.com
+[15:51:48]    418. GAA 37     - ENABLED -> gaa-37-jbczdgphrp.dynamic-m.com
+[15:51:55]    419. GAA 38     - ENABLED -> gaa-38-zbmvphnwrp.dynamic-m.com
+[15:52:05]    420. GAA 39     - ENABLED -> gaa-39-kbhkbcvkrp.dynamic-m.com
+[15:52:12] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[15:52:12] Overall progress: 420/1330 (31.6%)
+[15:52:12] Waiting 3 seconds before next batch...
+[15:52:15] === BATCH 43 ===
+Processing networks 421 to 430
+[15:52:15]    421. GAA 40     - ENABLED -> gaa-40-vktjtrhqrp.dynamic-m.com
+[15:52:24]    422. GAA 41     - ENABLED -> gaa-41-mnqpwzqjrp.dynamic-m.com
+[15:52:32]    423. GAA 42     - ENABLED -> gaa-42-bzpphcmvrp.dynamic-m.com
+[15:52:40]    424. GAA 43     - ALREADY ENABLED
+[15:52:40]    425. GAA 43     - ALREADY ENABLED
+[15:52:41]    426. GAA 44     - ENABLED -> gaa-44-tknbqzcprp.dynamic-m.com
+[15:52:49]    427. GAA 45     - ENABLED -> gaa-45-cwcmvmnwrp.dynamic-m.com
+[15:52:57]    428. GAA 46     - ALREADY ENABLED
+[15:52:58]    429. GAACALLCNTR - ENABLED -> gaacallcntr-twqwqcbbrp.dynamic-m.com
+[15:53:05]    430. GAA W00    - ALREADY ENABLED
+[15:53:05] Batch summary: 6 enabled, 4 already enabled, 0 errors
+[15:53:05] Overall progress: 430/1330 (32.3%)
+[15:53:05] Waiting 3 seconds before next batch...
+[15:53:08] === BATCH 44 ===
+Processing networks 431 to 440
+[15:53:08]    431. GAE 01     - ENABLED -> gae-01-vhjjrqdwrp.dynamic-m.com
+[15:53:16]    432. GAE 02     - ENABLED -> gae-02-dqzhwgntrp.dynamic-m.com
+[15:53:24]    433. GAE 03     - ENABLED -> gae-03-zjbckpcwrp.dynamic-m.com
+[15:53:31]    434. GAN 01     - ENABLED -> gan-01-gnrjgvvmrp.dynamic-m.com
+[15:53:38]    435. GAS 01     - ENABLED -> gas-01-pjcmvmjkrp.dynamic-m.com
+[15:53:46]    436. HPL_00     - ALREADY ENABLED
+[15:53:47]    437. HQ-HUB     - ALREADY ENABLED
+[15:53:48]    438. HQ-HUB     - ALREADY ENABLED
+[15:53:48]    439. IAC 01     - ENABLED -> iac-01-hqnzpgctrp.dynamic-m.com
+[15:53:56]    440. IAC 02     - ENABLED -> iac-02-wzdkdgkqrp.dynamic-m.com
+[15:54:04] Batch summary: 7 enabled, 3 already enabled, 0 errors
+[15:54:04] Overall progress: 440/1330 (33.1%)
+[15:54:04] Waiting 3 seconds before next batch...
+[15:54:07] === BATCH 45 ===
+Processing networks 441 to 450
+[15:54:07]    441. IAD 01     - ENABLED -> iad-01-chkkqjdrrp.dynamic-m.com
+[15:54:15]    442. IAD 02     - ENABLED -> iad-02-tbrjmgpwrp.dynamic-m.com
+[15:54:22]    443. IAD 03     - ENABLED -> iad-03-ndmbbrkhrp.dynamic-m.com
+[15:54:30]    444. IAD 04     - ENABLED -> iad-04-vjnhbmzkrp.dynamic-m.com
+[15:54:38]    445. IAD 05     - ALREADY ENABLED
+[15:54:38]    446. IAF 01     - ENABLED -> iaf-01-kqbhrpddrp.dynamic-m.com
+[15:54:47]    447. IAI 01     - ENABLED -> iai-01-zwpdvwzvrp.dynamic-m.com
+[15:54:55]    448. IAN 01     - ENABLED -> ian-01-zvkbqcmzrp.dynamic-m.com
+[15:55:03]    449. IAN 02     - ENABLED -> ian-02-cpvnvpwprp.dynamic-m.com
+[15:55:12]    450. IAN 03     - ENABLED -> ian-03-jjdtnprkrp.dynamic-m.com
+[15:55:21] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[15:55:21] Overall progress: 450/1330 (33.8%)
+[15:55:21] Waiting 3 seconds before next batch...
+[15:55:24] === BATCH 46 ===
+Processing networks 451 to 460
+[15:55:24]    451. IAQ 01     - ENABLED -> iaq-01-phjhrmdkrp.dynamic-m.com
+[15:55:34]    452. IAQ 02     - ENABLED -> iaq-02-wmhvgmnbrp.dynamic-m.com
+[15:55:42]    453. IAS 01     - ENABLED -> ias-01-pbrmnrtcrp.dynamic-m.com
+[15:55:49]    454. IDB 01     - ENABLED -> idb-01-hvqcgnzzrp.dynamic-m.com
+[15:55:56]    455. IDB 03     - ENABLED -> idb-03-kzcrkjtmrp.dynamic-m.com
+[15:56:04]    456. IDB 04     - ENABLED -> idb-04-bzthzgmtrp.dynamic-m.com
+[15:56:12]    457. IDB 05     - ENABLED -> idb-05-wvhknhcjrp.dynamic-m.com
+[15:56:20]    458. IDB 06     - ENABLED -> idb-06-cdqkbqqmrp.dynamic-m.com
+[15:56:29]    459. IDB 07     - ENABLED -> idb-07-qwjcgqgdrp.dynamic-m.com
+[15:56:36]    460. IDN 01     - ENABLED -> idn-01-bghthjkmrp.dynamic-m.com
+[15:56:44] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[15:56:44] Overall progress: 460/1330 (34.6%)
+[15:56:44] Waiting 3 seconds before next batch...
+[15:56:47] === BATCH 47 ===
+Processing networks 461 to 470
+[15:56:47]    461. Igor Lab   - ALREADY ENABLED
+[15:56:47]    462. ILC_00     - ALREADY ENABLED
+[15:56:48]    463. ILC 01     - ENABLED -> ilc-01-gnzbdrgtrp.dynamic-m.com
+[15:56:55]    464. ILC 02     - ENABLED -> ilc-02-mjjqtkmdrp.dynamic-m.com
+[15:57:03]    465. ILC 03     - ENABLED -> ilc-03-bcqtmgqgrp.dynamic-m.com
+[15:57:11]    466. ILC 04     - ENABLED -> ilc-04-htmndrvdrp.dynamic-m.com
+[15:57:20]    467. ILC 05     - ENABLED -> ilc-05-cbngbwwmrp.dynamic-m.com
+[15:57:28]    468. ILC 06     - ENABLED -> ilc-06-zhhnbvrvrp.dynamic-m.com
+[15:57:35]    469. ILC 07     - ENABLED -> ilc-07-jrvtwkwmrp.dynamic-m.com
+[15:57:43]    470. ILC 08     - ENABLED -> ilc-08-hqwrqghqrp.dynamic-m.com
+[15:57:51] Batch summary: 8 enabled, 2 already enabled, 0 errors
+[15:57:51] Overall progress: 470/1330 (35.3%)
+[15:57:51] Waiting 3 seconds before next batch...
+[15:57:54] === BATCH 48 ===
+Processing networks 471 to 480
+[15:57:54]    471. ILC 09     - ENABLED -> ilc-09-wzmmwwmqrp.dynamic-m.com
+[15:58:01]    472. ILC 11     - ENABLED -> ilc-11-hcdgppkhrp.dynamic-m.com
+[15:58:09]    473. ILC 12     - ENABLED -> ilc-12-cqncgtgrrp.dynamic-m.com
+[15:58:16]    474. ILC 13     - ENABLED -> ilc-13-vzprdvggrp.dynamic-m.com
+[15:58:24]    475. ILC 14     - ENABLED -> ilc-14-kqpbcnkqrp.dynamic-m.com
+[15:58:32]    476. ILC 15     - ENABLED -> ilc-15-ntwbpqqgrp.dynamic-m.com
+[15:58:40]    477. ILC 16     - ENABLED -> ilc-16-jbwhvpjjrp.dynamic-m.com
+[15:58:48]    478. ILC 17     - ENABLED -> ilc-17-ghdrbpvprp.dynamic-m.com
+[15:58:59]    479. ILC 18     - ENABLED -> ilc-18-cdrjmqkzrp.dynamic-m.com
+[15:59:06]    480. ILC 19     - ENABLED -> ilc-19-hhvzbtbbrp.dynamic-m.com
+[15:59:15] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[15:59:15] Overall progress: 480/1330 (36.1%)
+[15:59:15] Waiting 3 seconds before next batch...
+[15:59:18] === BATCH 49 ===
+Processing networks 481 to 490
+[15:59:18]    481. ILC 21     - ENABLED -> ilc-21-wpwrqkknrp.dynamic-m.com
+[15:59:25]    482. ILC 22     - ENABLED -> ilc-22-hzgkkcvrrp.dynamic-m.com
+[15:59:33]    483. ILC 24     - ENABLED -> ilc-24-tznqpqdgrp.dynamic-m.com
+[15:59:40]    484. ILC 25     - ENABLED -> ilc-25-pmzvhntbrp.dynamic-m.com
+[15:59:48]    485. ILC 27     - ENABLED -> ilc-27-vqckmgztrp.dynamic-m.com
+[15:59:56]    486. ILC 28     - ENABLED -> ilc-28-djtwzbtzrp.dynamic-m.com
+[16:00:06]    487. ILC 29     - ENABLED -> ilc-29-vrwpmtdrrp.dynamic-m.com
+[16:00:15]    488. ILC 30     - ENABLED -> ilc-30-qhdcmkvmrp.dynamic-m.com
+[16:00:25]    489. ILC 31     - ENABLED -> ilc-31-pjchqpdvrp.dynamic-m.com
+[16:00:36]    490. ILC 32     - ENABLED -> ilc-32-gmvzjhwzrp.dynamic-m.com
+[16:00:45] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[16:00:45] Overall progress: 490/1330 (36.8%)
+[16:00:45] Waiting 3 seconds before next batch...
+[16:00:48] === BATCH 50 ===
+Processing networks 491 to 500
+[16:00:48]    491. ILC 33     - ENABLED -> ilc-33-qqmdzdgnrp.dynamic-m.com
+[16:00:57]    492. ILC 34     - ENABLED -> ilc-34-qqnkqzckrp.dynamic-m.com
+[16:01:06]    493. ILC 35     - ENABLED -> ilc-35-rnhmghvgrp.dynamic-m.com
+[16:01:15]    494. ILC 36     - ENABLED -> ilc-36-vnzmjngjrp.dynamic-m.com
+[16:01:24]    495. ILC 37     - ALREADY ENABLED
+[16:01:25]    496. ILC 41     - ALREADY ENABLED
+[16:01:26]    497. ILC 42     - ALREADY ENABLED
+[16:01:26]    498. ILC 43     - ALREADY ENABLED
+[16:01:27]    499. ILC 44     - ALREADY ENABLED
+[16:01:27]    500. ILC 45     - ALREADY ENABLED
+[16:01:28] Batch summary: 4 enabled, 6 already enabled, 0 errors
+[16:01:28] Overall progress: 500/1330 (37.6%)
+[16:01:28] Waiting 3 seconds before next batch...
+[16:01:31] === BATCH 51 ===
+Processing networks 501 to 510
+[16:01:31]    501. ILC 46     - ALREADY ENABLED
+[16:01:32]    502. ILP 01     - ENABLED -> ilp-01-rcwbzjmdkkkc.dynamic-m.com
+[16:01:41]    503. ILR 01     - ENABLED -> ilr-01-bzckhcdgrp.dynamic-m.com
+[16:01:50]    504. ILR 02     - ENABLED -> ilr-02-wqpmmjcmrp.dynamic-m.com
+[16:01:59]    505. ILS 01     - ENABLED -> ils-01-tzbpjhzkrp.dynamic-m.com
+[16:02:11]    506. ILW 01     - ENABLED -> ilw-01-kjkqpvbkrp.dynamic-m.com
+[16:02:20]    507. ILW 02     - ALREADY ENABLED
+[16:02:21]    508. INC 01     - ENABLED -> inc-01-jbcgvvncrp.dynamic-m.com
+[16:02:30]    509. INC 02     - ENABLED -> inc-02-zpqjmvktrp.dynamic-m.com
+[16:02:38]    510. INC 03     - ENABLED -> inc-03-wtbwzpckrp.dynamic-m.com
+[16:02:46] Batch summary: 8 enabled, 2 already enabled, 0 errors
+[16:02:46] Overall progress: 510/1330 (38.3%)
+[16:02:46] Waiting 3 seconds before next batch...
+[16:02:49] === BATCH 52 ===
+Processing networks 511 to 520
+[16:02:49]    511. INE 01     - ENABLED -> ine-01-bjntvnmtrp.dynamic-m.com
+[16:02:58]    512. INE 02     - ENABLED -> ine-02-ndbgdkwmrp.dynamic-m.com
+[16:03:06]    513. INF 01     - ENABLED -> inf-01-rdbnjbgtrp.dynamic-m.com
+[16:03:13]    514. INF 02     - ENABLED -> inf-02-gjcwptpprp.dynamic-m.com
+[16:03:21]    515. INF 03     - ENABLED -> inf-03-gndkbbmprp.dynamic-m.com
+[16:03:29]    516. INF 04     - ENABLED -> inf-04-khdcmwrmrp.dynamic-m.com
+[16:03:37]    517. INI_00     - ALREADY ENABLED
+[16:03:37]    518. INI 01     - ENABLED -> ini-01-pbhpznkbrp.dynamic-m.com
+[16:03:46]    519. INI 02     - ENABLED -> ini-02-hnpmhtgzrp.dynamic-m.com
+[16:03:53]    520. INI 03     - ENABLED -> ini-03-kttjbdtprp.dynamic-m.com
+[16:04:02] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[16:04:02] Overall progress: 520/1330 (39.1%)
+[16:04:02] Waiting 3 seconds before next batch...
+[16:04:05] === BATCH 53 ===
+Processing networks 521 to 530
+[16:04:05]    521. INI 05     - ENABLED -> ini-05-jbvznhgkrp.dynamic-m.com
+[16:04:14]    522. INI 06     - ENABLED -> ini-06-kgpzqjcjrp.dynamic-m.com
+[16:04:22]    523. INI 07     - ENABLED -> ini-07-npqzmvctrp.dynamic-m.com
+[16:04:30]    524. INI 08     - ENABLED -> ini-08-qvgnvqnnrp.dynamic-m.com
+[16:04:39]    525. INI 09     - ENABLED -> ini-09-rhrnbghdrp.dynamic-m.com
+[16:04:47]    526. INI 10     - ENABLED -> ini-10-dwwbbgjdrp.dynamic-m.com
+[16:04:55]    527. INI 12     - ENABLED -> ini-12-hnhdzcpdrp.dynamic-m.com
+[16:05:04]    528. INI 13     - ENABLED -> ini-13-vjjnnmnzrp.dynamic-m.com
+[16:05:13]    529. INI 14     - ENABLED -> ini-14-hqmcppwwrp.dynamic-m.com
+[16:05:21]    530. INI 15     - ENABLED -> ini-15-mwhwmjmbrp.dynamic-m.com
+[16:05:29] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[16:05:29] Overall progress: 530/1330 (39.8%)
+[16:05:29] Waiting 3 seconds before next batch...
+[16:05:32] === BATCH 54 ===
+Processing networks 531 to 540
+[16:05:32]    531. INI 16     - ENABLED -> ini-16-ttvwmqbdrp.dynamic-m.com
+[16:05:40]    532. INI W01    - ALREADY ENABLED
+[16:05:41]    533. INJ 01     - ENABLED -> inj-01-tqdqcptvrp.dynamic-m.com
+[16:05:49]    534. INL 01     - ENABLED -> inl-01-bmbpbmzhrp.dynamic-m.com
+[16:05:57]    535. INN 01     - ENABLED -> inn-01-pjjgqntgrp.dynamic-m.com
+[16:06:05]    536. INW 01     - ENABLED -> inw-01-qdtgdrqnrp.dynamic-m.com
+[16:06:13]    537. INW 02     - ENABLED -> inw-02-hzdqrjncrp.dynamic-m.com
+[16:06:22]    538. INW 03     - ENABLED -> inw-03-htmmvjhnrp.dynamic-m.com
+[16:06:29]    539. KSK_00     - ALREADY ENABLED
+[16:06:30]    540. KSK 01     - ENABLED -> ksk-01-vztbqgrtrp.dynamic-m.com
+[16:06:38] Batch summary: 8 enabled, 2 already enabled, 0 errors
+[16:06:38] Overall progress: 540/1330 (40.6%)
+[16:06:38] Waiting 3 seconds before next batch...
+[16:06:41] === BATCH 55 ===
+Processing networks 541 to 550
+[16:06:41]    541. KSK 02     - ENABLED -> ksk-02-rjhrcbrrrp.dynamic-m.com
+[16:06:49]    542. KSK 03     - ENABLED -> ksk-03-pnrccgwprp.dynamic-m.com
+[16:06:57]    543. KSK 04     - ENABLED -> ksk-04-qzptpkphrp.dynamic-m.com
+[16:07:05]    544. KSK 05     - ENABLED -> ksk-05-cmvvbpqcrp.dynamic-m.com
+[16:07:14]    545. KSK 06     - ENABLED -> ksk-06-ghwqzpggrp.dynamic-m.com
+[16:07:22]    546. KSL 01     - ENABLED -> ksl-01-bqwhjpnnrp.dynamic-m.com
+[16:07:30]    547. KSM 01     - ENABLED -> ksm-01-cqggwgbprp.dynamic-m.com
+[16:07:37]    548. KSM 02     - ENABLED -> ksm-02-ktgtghqwrp.dynamic-m.com
+[16:07:46]    549. KST 01     - ENABLED -> kst-01-hdrqkphgrp.dynamic-m.com
+[16:07:53]    550. KSW 01     - ENABLED -> ksw-01-qqnrqhcgrp.dynamic-m.com
+[16:08:00] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[16:08:00] Overall progress: 550/1330 (41.4%)
+[16:08:00] Waiting 3 seconds before next batch...
+[16:08:03] === BATCH 56 ===
+Processing networks 551 to 560
+[16:08:03]    551. KSW 02     - ENABLED -> ksw-02-zhnzhbtkrp.dynamic-m.com
+[16:08:10]    552. KSW 03     - ENABLED -> ksw-03-trrkhwrbrp.dynamic-m.com
+[16:08:18]    553. KYB 01     - ENABLED -> kyb-01-cdgbddncrp.dynamic-m.com
+[16:08:26]    554. KYE 01     - ENABLED -> kye-01-zcchpqckrp.dynamic-m.com
+[16:08:33]    555. KYL 01     - ENABLED -> kyl-01-ztgzczmmrp.dynamic-m.com
+[16:08:40]    556. KYL 02     - ENABLED -> kyl-02-gwrnbgnmrp.dynamic-m.com
+[16:08:48]    557. KYL 03     - ENABLED -> kyl-03-hvvtkgcnrp.dynamic-m.com
+[16:08:56]    558. LAB 01     - ENABLED -> lab-01-dnzhkkngrp.dynamic-m.com
+[16:09:04]    559. LAB 02     - ENABLED -> lab-02-mkprjbgtrp.dynamic-m.com
+[16:09:11]    560. LAB 03     - ENABLED -> lab-03-bnvgtptvrp.dynamic-m.com
+[16:09:18] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[16:09:18] Overall progress: 560/1330 (42.1%)
+[16:09:18] Waiting 3 seconds before next batch...
+[16:09:21] === BATCH 57 ===
+Processing networks 561 to 570
+[16:09:21]    561. LAB 04     - ENABLED -> lab-04-gckjncgwkkkc.dynamic-m.com
+[16:09:29]    562. LAB 06     - ALREADY ENABLED
+[16:09:30]    563. LAS 01     - ENABLED -> las-01-cmcthrprrp.dynamic-m.com
+[16:09:37]    564. LAS 02     - ENABLED -> las-02-wgjncrrhrp.dynamic-m.com
+[16:09:45]    565. LAS 03     - ENABLED -> las-03-kgpktzntkkkc.dynamic-m.com
+[16:09:54]    566. MIA 01     - ENABLED -> mia-01-wnbvqgnnrp.dynamic-m.com
+[16:10:03]    567. MIA 04     - ENABLED -> mia-04-rvnnmmkwrp.dynamic-m.com
+[16:10:12]    568. MIA 16     - ENABLED -> mia-16-nhbhjrzkrp.dynamic-m.com
+[16:10:22]    569. MIA 17     - ENABLED -> mia-17-ppchtgkqrp.dynamic-m.com
+[16:10:32]    570. MIAC02     - ALREADY ENABLED
+[16:10:32] Batch summary: 8 enabled, 2 already enabled, 0 errors
+[16:10:32] Overall progress: 570/1330 (42.9%)
+[16:10:32] Waiting 3 seconds before next batch...
+[16:10:35] === BATCH 58 ===
+Processing networks 571 to 580
+[16:10:35]    571. MIB 01     - ENABLED -> mib-01-kqhmhnwnrp.dynamic-m.com
+[16:10:45]    572. MID 01     - ENABLED -> mid-01-rjtcghnjrp.dynamic-m.com
+[16:10:53]    573. MID 04     - ENABLED -> mid-04-wzmghnwnrp.dynamic-m.com
+[16:11:02]    574. MID 05     - ENABLED -> mid-05-vwbvqjrrrp.dynamic-m.com
+[16:11:11]    575. MID 06     - ENABLED -> mid-06-wpjtrkjkrp.dynamic-m.com
+[16:11:20]    576. MID 07     - ENABLED -> mid-07-brqvvkhqrp.dynamic-m.com
+[16:11:27]    577. MID 09     - ENABLED -> mid-09-tmbgpnpmrp.dynamic-m.com
+[16:11:36]    578. MID 10     - ENABLED -> mid-10-ppqzgnpbrp.dynamic-m.com
+[16:11:44]    579. MID 11     - ENABLED -> mid-11-gwbkqzhhrp.dynamic-m.com
+[16:11:52]    580. MID 12     - ENABLED -> mid-12-hqvcjcknrp.dynamic-m.com
+[16:11:59] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[16:11:59] Overall progress: 580/1330 (43.6%)
+[16:11:59] Waiting 3 seconds before next batch...
+[16:12:02] === BATCH 59 ===
+Processing networks 581 to 590
+[16:12:02]    581. MID 13     - ENABLED -> mid-13-hmhjmrktrp.dynamic-m.com
+[16:12:12]    582. MID 14     - ENABLED -> mid-14-tkjcjbhhrp.dynamic-m.com
+[16:12:21]    583. MID 16     - ENABLED -> mid-16-ntnvppbdrp.dynamic-m.com
+[16:12:30]    584. MID 17     - ENABLED -> mid-17-pgmndhbgrp.dynamic-m.com
+[16:12:38]    585. MID 18     - ENABLED -> mid-18-kpmwvjqnrp.dynamic-m.com
+[16:12:46]    586. MID 19     - ENABLED -> mid-19-pmjcdgqhrp.dynamic-m.com
+[16:12:55]    587. MID 20     - ENABLED -> mid-20-wtpdzqvzrp.dynamic-m.com
+[16:13:03]    588. MID 22     - ENABLED -> mid-22-nkpkgpvvrp.dynamic-m.com
+[16:13:11]    589. MID 23     - ENABLED -> mid-23-jcrgjwkwrp.dynamic-m.com
+[16:13:18]    590. MID 24     - ENABLED -> mid-24-wnpdzrcwrp.dynamic-m.com
+[16:13:26] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[16:13:26] Overall progress: 590/1330 (44.4%)
+[16:13:26] Waiting 3 seconds before next batch...
+[16:13:29] === BATCH 60 ===
+Processing networks 591 to 600
+[16:13:29]    591. MID 25     - ENABLED -> mid-25-tbdjbrttrp.dynamic-m.com
+[16:13:37]    592. MID 26     - ENABLED -> mid-26-bghgwkwqrp.dynamic-m.com
+[16:13:44]    593. MID 27     - ENABLED -> mid-27-wdbjbdzkrp.dynamic-m.com
+[16:13:52]    594. MID W00    - ALREADY ENABLED
+[16:13:53]    595. MIF 04     - ENABLED -> mif-04-phghdmmrrp.dynamic-m.com
+[16:14:04]    596. MIF 05     - ENABLED -> mif-05-vbdmdrgkrp.dynamic-m.com
+[16:14:13]    597. MIF 25     - ENABLED -> mif-25-tpwvgrpvrp.dynamic-m.com
+[16:14:21]    598. MIF 26     - ENABLED -> mif-26-cgdwjzzbrp.dynamic-m.com
+[16:14:29]    599. MIG 07     - ENABLED -> mig-07-htwqcqdcrp.dynamic-m.com
+[16:14:38]    600. MIG 08     - ENABLED -> mig-08-pjkbrtwkrp.dynamic-m.com
+[16:14:47] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[16:14:47] Overall progress: 600/1330 (45.1%)
+[16:14:47] Waiting 3 seconds before next batch...
+[16:14:50] === BATCH 61 ===
+Processing networks 601 to 610
+[16:14:50]    601. MIG 09     - ENABLED -> mig-09-jdbvrdhdrp.dynamic-m.com
+[16:14:58]    602. MIG 23     - ENABLED -> mig-23-mpgmdgmprp.dynamic-m.com
+[16:15:06]    603. MIG 24     - ENABLED -> mig-24-rrvkcrmcrp.dynamic-m.com
+[16:15:18]    604. MIG 25     - ENABLED -> mig-25-kqtqzjqcrp.dynamic-m.com
+[16:15:27]    605. MIG 29     - ENABLED -> mig-29-bznhbrwhrp.dynamic-m.com
+[16:15:37]    606. MIG 30     - ENABLED -> mig-30-gqmtjdwzrp.dynamic-m.com
+[16:15:45]    607. MIH 27     - ENABLED -> mih-27-crdprddhrp.dynamic-m.com
+[16:15:56]    608. MIK 06     - ENABLED -> mik-06-pbzvcptwrp.dynamic-m.com
+[16:16:05]    609. MIK 14     - ENABLED -> mik-14-whckrbjdrp.dynamic-m.com
+[16:16:14]    610. MIK 30     - ENABLED -> mik-30-mtpmgvcprp.dynamic-m.com
+[16:16:25] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[16:16:25] Overall progress: 610/1330 (45.9%)
+[16:16:25] Waiting 3 seconds before next batch...
+[16:16:28] === BATCH 62 ===
+Processing networks 611 to 620
+[16:16:28]    611. MIK 31     - ENABLED -> mik-31-bqhrtjrhrp.dynamic-m.com
+[16:16:36]    612. MIL 00     - ALREADY ENABLED
+[16:16:37]    613. MIL 11     - ENABLED -> mil-11-htkqgncdrp.dynamic-m.com
+[16:16:45]    614. MIL 15     - ENABLED -> mil-15-zkdgnqcgrp.dynamic-m.com
+[16:16:53]    615. MIL 28     - ENABLED -> mil-28-zchpcjmkrp.dynamic-m.com
+[16:17:02]    616. MIM 01     - ENABLED -> mim-01-qvwnkrtprp.dynamic-m.com
+[16:17:11]    617. MIN 01     - ENABLED -> min-01-rgwbhbmzrp.dynamic-m.com
+[16:17:22]    618. MIP 01     - ALREADY ENABLED
+[16:17:22]    619. MIS 12     - ENABLED -> mis-12-dprhdjngrp.dynamic-m.com
+[16:17:31]    620. MIS 17     - ENABLED -> mis-17-ktdbjvcvrp.dynamic-m.com
+[16:17:40] Batch summary: 8 enabled, 2 already enabled, 0 errors
+[16:17:40] Overall progress: 620/1330 (46.6%)
+[16:17:40] Waiting 3 seconds before next batch...
+[16:17:43] === BATCH 63 ===
+Processing networks 621 to 630
+[16:17:43]    621. MIS 20     - ENABLED -> mis-20-dkzpgpmkrp.dynamic-m.com
+[16:17:53]    622. MIT 26     - ENABLED -> mit-26-ztbwmjkvrp.dynamic-m.com
+[16:18:01]    623. MIW 21     - ENABLED -> miw-21-vbmhtndjrp.dynamic-m.com
+[16:18:09]    624. MNM_00     - ALREADY ENABLED
+[16:18:10]    625. MNM 01     - ENABLED -> mnm-01-mdzkqhmkrp.dynamic-m.com
+[16:18:19]    626. MNM 02     - ENABLED -> mnm-02-dnttpkmprp.dynamic-m.com
+[16:18:27]    627. MNM 03     - ENABLED -> mnm-03-tpppmzzmrp.dynamic-m.com
+[16:18:36]    628. MNM 05     - ENABLED -> mnm-05-mpbktqrrrp.dynamic-m.com
+[16:18:44]    629. MNM 06     - ENABLED -> mnm-06-pnrkztgmrp.dynamic-m.com
+[16:18:52]    630. MNM 07     - ENABLED -> mnm-07-kwqkjmzcrp.dynamic-m.com
+[16:19:00] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[16:19:00] Overall progress: 630/1330 (47.4%)
+[16:19:00] Waiting 3 seconds before next batch...
+[16:19:03] === BATCH 64 ===
+Processing networks 631 to 640
+[16:19:03]    631. MNM 08     - ENABLED -> mnm-08-pvnnbrzhrp.dynamic-m.com
+[16:19:11]    632. MNM 09     - ENABLED -> mnm-09-gkvdvmmbrp.dynamic-m.com
+[16:19:19]    633. MNM 10     - ENABLED -> mnm-10-wrjngnbkrp.dynamic-m.com
+[16:19:27]    634. MNM 11     - ENABLED -> mnm-11-drnbdkprrp.dynamic-m.com
+[16:19:37]    635. MNM 12     - ENABLED -> mnm-12-khncgwwkrp.dynamic-m.com
+[16:19:44]    636. MNM 13     - ENABLED -> mnm-13-bzmmkhrnrp.dynamic-m.com
+[16:19:53]    637. MNM 14     - ENABLED -> mnm-14-brdqptrmrp.dynamic-m.com
+[16:20:01]    638. MNM 15     - ENABLED -> mnm-15-rhwmhppmrp.dynamic-m.com
+[16:20:11]    639. MNM 16     - ENABLED -> mnm-16-jqdtmjbhrp.dynamic-m.com
+[16:20:21]    640. MNM 17     - ENABLED -> mnm-17-hbbkzrhbrp.dynamic-m.com
+[16:20:30] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[16:20:30] Overall progress: 640/1330 (48.1%)
+[16:20:30] Waiting 3 seconds before next batch...
+[16:20:33] === BATCH 65 ===
+Processing networks 641 to 650
+[16:20:33]    641. MNM 18     - ENABLED -> mnm-18-jcqcmwnbrp.dynamic-m.com
+[16:20:43]    642. MNM 19     - ENABLED -> mnm-19-ptgdmpwwrp.dynamic-m.com
+[16:20:52]    643. MNM 20     - ENABLED -> mnm-20-nqcrtwrqrp.dynamic-m.com
+[16:21:00]    644. MNM 21     - ENABLED -> mnm-21-jctntdkmrp.dynamic-m.com
+[16:21:10]    645. MNM 22     - ENABLED -> mnm-22-kjbzvvvwrp.dynamic-m.com
+[16:21:19]    646. MNM 23     - ENABLED -> mnm-23-nqnjjgkzrp.dynamic-m.com
+[16:21:27]    647. MNM 24     - ENABLED -> mnm-24-vqbghpkwrp.dynamic-m.com
+[16:21:35]    648. MNM 25     - ENABLED -> mnm-25-zgwvdzzbrp.dynamic-m.com
+[16:21:43]    649. MNM 26     - ENABLED -> mnm-26-dtchgjhhrp.dynamic-m.com
+[16:21:51]    650. MNM 27     - ENABLED -> mnm-27-vvktvrwmrp.dynamic-m.com
+[16:21:59] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[16:21:59] Overall progress: 650/1330 (48.9%)
+[16:21:59] Waiting 3 seconds before next batch...
+[16:22:02] === BATCH 66 ===
+Processing networks 651 to 660
+[16:22:02]    651. MNM 29     - ENABLED -> mnm-29-hcngkdwbrp.dynamic-m.com
+[16:22:10]    652. MNM 31     - ENABLED -> mnm-31-qwbvbzvwkkkc.dynamic-m.com
+[16:22:18]    653. MNM W01    - ALREADY ENABLED
+[16:22:19]    654. MOK 01     - ENABLED -> mok-01-pdprtjgzrp.dynamic-m.com
+[16:22:27]    655. MOK 02     - ENABLED -> mok-02-wpzrtwtqrp.dynamic-m.com
+[16:22:36]    656. MOK 03     - ENABLED -> mok-03-bqbmvrdqrp.dynamic-m.com
+[16:22:44]    657. MOK 05     - ENABLED -> mok-05-hqrptptgrp.dynamic-m.com
+[16:22:52]    658. MOK 06     - ENABLED -> mok-06-brkjjgtgrp.dynamic-m.com
+[16:23:01]    659. MOK 07     - ENABLED -> mok-07-ctnzcwtnrp.dynamic-m.com
+[16:23:09]    660. MON 01     - ENABLED -> mon-01-bgwkjcnnrp.dynamic-m.com
+[16:23:17] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[16:23:17] Overall progress: 660/1330 (49.6%)
+[16:23:17] Waiting 3 seconds before next batch...
+[16:23:20] === BATCH 67 ===
+Processing networks 661 to 670
+[16:23:20]    661. MOO 01     - ENABLED -> moo-01-cwthqjvprp.dynamic-m.com
+[16:23:27]    662. MOO 02     - ENABLED -> moo-02-zwzzqzmnrp.dynamic-m.com
+[16:23:35]    663. MOO 03     - ENABLED -> moo-03-qggnrbhcrp.dynamic-m.com
+[16:23:43]    664. MOO 04     - ENABLED -> moo-04-bvbmhwhnrp.dynamic-m.com
+[16:23:49]    665. MOR 01     - ENABLED -> mor-01-qtbckrwmrp.dynamic-m.com
+[16:23:56]    666. MOS_00     - ALREADY ENABLED
+[16:23:56]    667. MOS 01     - ENABLED -> mos-01-tcpvvqrcrp.dynamic-m.com
+[16:24:04]    668. MOS 02     - ENABLED -> mos-02-qtdmbmdqrp.dynamic-m.com
+[16:24:12]    669. MOS 03     - ENABLED -> mos-03-wbdqvtjbrp.dynamic-m.com
+[16:24:20]    670. MOS 04     - ENABLED -> mos-04-mntrnbhgrp.dynamic-m.com
+[16:24:29] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[16:24:29] Overall progress: 670/1330 (50.4%)
+[16:24:29] Waiting 3 seconds before next batch...
+[16:24:32] === BATCH 68 ===
+Processing networks 671 to 680
+[16:24:32]    671. MOS 05     - ENABLED -> mos-05-dtkhgbtvrp.dynamic-m.com
+[16:24:40]    672. MOS 06     - ENABLED -> mos-06-gbcnmpczrp.dynamic-m.com
+[16:24:48]    673. MOS 07     - ALREADY ENABLED
+[16:24:49]    674. MOS 08     - ENABLED -> mos-08-kmzvzvjgrp.dynamic-m.com
+[16:24:57]    675. MOS 09     - ENABLED -> mos-09-rkbgbztbrp.dynamic-m.com
+[16:25:08]    676. MOS 10     - ENABLED -> mos-10-zdwncbqcrp.dynamic-m.com
+[16:25:16]    677. MOS 12     - ALREADY ENABLED
+[16:25:17]    678. MOSW 01    - ENABLED -> mosw-01-wwhnqzcqkkkc.dynamic-m.com
+[16:25:25]    679. MSG 01     - ENABLED -> msg-01-pwjkdpngkkkc.dynamic-m.com
+[16:25:33]    680. MSN 01     - ENABLED -> msn-01-rgtmnddbrp.dynamic-m.com
+[16:25:40] Batch summary: 8 enabled, 2 already enabled, 0 errors
+[16:25:40] Overall progress: 680/1330 (51.1%)
+[16:25:40] Waiting 3 seconds before next batch...
+[16:25:43] === BATCH 69 ===
+Processing networks 681 to 690
+[16:25:43]    681. MSN 02     - ALREADY ENABLED
+[16:25:44]    682. MTB 01     - ENABLED -> mtb-01-bwhpwbmtrp.dynamic-m.com
+[16:25:50]    683. MTM 01     - ENABLED -> mtm-01-nwwcrkqhrp.dynamic-m.com
+[16:25:58]    684. MTM 02     - ENABLED -> mtm-02-hgrzvvjcrp.dynamic-m.com
+[16:26:06]    685. Mt. Prospect Voice - ALREADY ENABLED
+[16:26:07]    686. NCC_00     - ALREADY ENABLED
+[16:26:07]    687. NCC 01     - ENABLED -> ncc-01-qmwzntggrp.dynamic-m.com
+[16:26:15]    688. NCC 02     - ENABLED -> ncc-02-htgthjwzrp.dynamic-m.com
+[16:26:23]    689. NCC 03     - ENABLED -> ncc-03-kwtqbbbgrp.dynamic-m.com
+[16:26:30]    690. NCC 04     - ENABLED -> ncc-04-rtzpwmjtrp.dynamic-m.com
+[16:26:40] Batch summary: 7 enabled, 3 already enabled, 0 errors
+[16:26:40] Overall progress: 690/1330 (51.9%)
+[16:26:40] Waiting 3 seconds before next batch...
+[16:26:43] === BATCH 70 ===
+Processing networks 691 to 700
+[16:26:43]    691. NCC 05     - ENABLED -> ncc-05-ccvhdkwbrp.dynamic-m.com
+[16:26:51]    692. NCC 06     - ENABLED -> ncc-06-hgnhhdrprp.dynamic-m.com
+[16:26:59]    693. NCC 07     - ENABLED -> ncc-07-vmdzmbwvrp.dynamic-m.com
+[16:27:07]    694. NCC 08     - ENABLED -> ncc-08-kwmmpmdmrp.dynamic-m.com
+[16:27:15]    695. NCC 09     - ENABLED -> ncc-09-krcqthgdrp.dynamic-m.com
+[16:27:24]    696. NCC 10     - ENABLED -> ncc-10-ctgwprjcrp.dynamic-m.com
+[16:27:33]    697. NCC 11     - ENABLED -> ncc-11-hpwvwcrmrp.dynamic-m.com
+[16:27:40]    698. NCC 13     - ENABLED -> ncc-13-cmmjrktqrp.dynamic-m.com
+[16:27:48]    699. NCC 14     - ENABLED -> ncc-14-ztqznwjgrp.dynamic-m.com
+[16:27:57]    700. NCC 15     - ENABLED -> ncc-15-kbrkddmprp.dynamic-m.com
+[16:28:05] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[16:28:05] Overall progress: 700/1330 (52.6%)
+[16:28:05] Waiting 3 seconds before next batch...
+[16:28:08] === BATCH 71 ===
+Processing networks 701 to 710
+[16:28:08]    701. NCC 16     - ENABLED -> ncc-16-jmjwzkpprp.dynamic-m.com
+[16:28:15]    702. NCC 17     - ENABLED -> ncc-17-wttdwnrnrp.dynamic-m.com
+[16:28:22]    703. NCC 18     - ENABLED -> ncc-18-tccmtnqvrp.dynamic-m.com
+[16:28:30]    704. NCC 19     - ENABLED -> ncc-19-jjqcpbmqrp.dynamic-m.com
+[16:28:38]    705. NCC 20     - ENABLED -> ncc-20-pkbmjbmgrp.dynamic-m.com
+[16:28:45]    706. NCC 21     - ENABLED -> ncc-21-mgmzzptwrp.dynamic-m.com
+[16:28:53]    707. NCC 23     - ENABLED -> ncc-23-grjdpwkwrp.dynamic-m.com
+[16:29:00]    708. NCC 24     - ENABLED -> ncc-24-rqjzhndjrp.dynamic-m.com
+[16:29:08]    709. NCC 25     - ENABLED -> ncc-25-bcbvmpbdrp.dynamic-m.com
+[16:29:16]    710. NCC 26     - ENABLED -> ncc-26-gcwmwcmzrp.dynamic-m.com
+[16:29:24] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[16:29:24] Overall progress: 710/1330 (53.4%)
+[16:29:24] Waiting 3 seconds before next batch...
+[16:29:27] === BATCH 72 ===
+Processing networks 711 to 720
+[16:29:27]    711. NCC 27     - ENABLED -> ncc-27-ddnvktbnrp.dynamic-m.com
+[16:29:37]    712. NCC 28     - ENABLED -> ncc-28-gznpqhrjrp.dynamic-m.com
+[16:29:44]    713. NCC 30     - ENABLED -> ncc-30-cjbmgmdnrp.dynamic-m.com
+[16:29:53]    714. NCC 33     - ENABLED -> ncc-33-gwczgmhgrp.dynamic-m.com
+[16:30:00]    715. NCC 35     - ENABLED -> ncc-35-qpkktqgzrp.dynamic-m.com
+[16:30:10]    716. NCC 36     - ENABLED -> ncc-36-zbtrnmjprp.dynamic-m.com
+[16:30:19]    717. NCC 37     - ENABLED -> ncc-37-tzgkpgzmrp.dynamic-m.com
+[16:30:29]    718. NCC 38     - ENABLED -> ncc-38-hmrcwbmzrp.dynamic-m.com
+[16:30:37]    719. NCC 39     - ENABLED -> ncc-39-dcbmngwgrp.dynamic-m.com
+[16:30:45]    720. NCC 40     - ENABLED -> ncc-40-ckrwzwddrp.dynamic-m.com
+[16:30:56] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[16:30:56] Overall progress: 720/1330 (54.1%)
+[16:30:56] Waiting 3 seconds before next batch...
+[16:30:59] === BATCH 73 ===
+Processing networks 721 to 730
+[16:30:59]    721. NCC 41     - ENABLED -> ncc-41-hbwwvvwwrp.dynamic-m.com
+[16:31:09]    722. NCC 42     - ENABLED -> ncc-42-tbpmbqccrp.dynamic-m.com
+[16:31:19]    723. NCC 43     - ENABLED -> ncc-43-kvcdrczjrp.dynamic-m.com
+[16:31:28]    724. NCC 44     - ALREADY ENABLED
+[16:31:29]    725. NCC 45     - ENABLED -> ncc-45-rbgzngtzkkkc.dynamic-m.com
+[16:31:38]    726. NCC 46     - ALREADY ENABLED
+[16:31:39]    727. NCC 47     - ALREADY ENABLED
+[16:31:39]    728. NCC 48     - ALREADY ENABLED
+[16:31:40]    729. NCC 51     - ENABLED -> ncc-51-wrrmpgndkkkc.dynamic-m.com
+[16:31:49]    730. NCC 52     - ALREADY ENABLED
+[16:31:49] Batch summary: 5 enabled, 5 already enabled, 0 errors
+[16:31:49] Overall progress: 730/1330 (54.9%)
+[16:31:49] Waiting 3 seconds before next batch...
+[16:31:52] === BATCH 74 ===
+Processing networks 731 to 740
+[16:31:52]    731. NCN 01     - ENABLED -> ncn-01-crpjrnqmrp.dynamic-m.com
+[16:32:04]    732. NDG 01     - ENABLED -> ndg-01-jqchtvjzrp.dynamic-m.com
+[16:32:13]    733. NEG 01     - ENABLED -> neg-01-pnjcwdpwrp.dynamic-m.com
+[16:32:22]    734. NEL 01     - ALREADY ENABLED
+[16:32:23]    735. NEO 01     - ENABLED -> neo-01-qkkjzzmbrp.dynamic-m.com
+[16:32:33]    736. NEO 03     - ENABLED -> neo-03-nrvtpdkzrp.dynamic-m.com
+[16:32:40]    737. NEO 03 TEMP - ENABLED -> neo-03-temp-mkbpwznwkkkc.dynamic-m.com
+[16:32:49]    738. NEO 04     - ENABLED -> neo-04-cjjvjqnprp.dynamic-m.com
+[16:32:58]    739. NEO 05     - ENABLED -> neo-05-jvcrzwhwrp.dynamic-m.com
+[16:33:07]    740. NEO 06     - ENABLED -> neo-06-ncpdhhbjrp.dynamic-m.com
+[16:33:14] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[16:33:14] Overall progress: 740/1330 (55.6%)
+[16:33:14] Waiting 3 seconds before next batch...
+[16:33:17] === BATCH 75 ===
+Processing networks 741 to 750
+[16:33:17]    741. NEO 07     - ENABLED -> neo-07-ccrrdgbbkkkc.dynamic-m.com
+[16:33:25]    742. NMA_00     - ALREADY ENABLED
+[16:33:26]    743. NMA 01     - ENABLED -> nma-01-znqkznrzrp.dynamic-m.com
+[16:33:34]    744. NMA 02     - ENABLED -> nma-02-tgmwnwwkrp.dynamic-m.com
+[16:33:42]    745. NMA 03     - ENABLED -> nma-03-gqtmcqjrrp.dynamic-m.com
+[16:33:49]    746. NMA 04     - ENABLED -> nma-04-jdthrvbvrp.dynamic-m.com
+[16:33:58]    747. NMA 05     - ENABLED -> nma-05-qzthbvgkrp.dynamic-m.com
+[16:34:06]    748. NMA 06     - ENABLED -> nma-06-zbbqbhgprp.dynamic-m.com
+[16:34:15]    749. NMA 07     - ENABLED -> nma-07-kjgbtggqrp.dynamic-m.com
+[16:34:23]    750. NMA 08     - ENABLED -> nma-08-kdvjmcrdrp.dynamic-m.com
+[16:34:32] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[16:34:32] Overall progress: 750/1330 (56.4%)
+[16:34:32] Waiting 3 seconds before next batch...
+[16:34:35] === BATCH 76 ===
+Processing networks 751 to 760
+[16:34:35]    751. NMA 09     - ENABLED -> nma-09-hwjnzqhbrp.dynamic-m.com
+[16:34:43]    752. NMA 10     - ENABLED -> nma-10-bdmrhwpvrp.dynamic-m.com
+[16:34:52]    753. NMA 11     - ENABLED -> nma-11-hrccnbjbrp.dynamic-m.com
+[16:35:01]    754. NMA 12     - ENABLED -> nma-12-zwdgnzqprp.dynamic-m.com
+[16:35:09]    755. NMA 13     - ENABLED -> nma-13-cbbdjbdnkkkc.dynamic-m.com
+[16:35:18]    756. NMACALLCNTR - ENABLED -> nmacallcntr-vpvzcptprp.dynamic-m.com
+[16:35:25]    757. NMAW00     - ALREADY ENABLED
+[16:35:25]    758. NMC 01     - ENABLED -> nmc-01-qpghrpmtrp.dynamic-m.com
+[16:35:33]    759. NMF 01     - ENABLED -> nmf-01-phgwzvgzrp.dynamic-m.com
+[16:35:40]    760. NMH 01     - ENABLED -> nmh-01-dkpgknpjrp.dynamic-m.com
+[16:35:47] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[16:35:47] Overall progress: 760/1330 (57.1%)
+[16:35:47] Waiting 3 seconds before next batch...
+[16:35:50] === BATCH 77 ===
+Processing networks 761 to 770
+[16:35:50]    761. NML 01     - ENABLED -> nml-01-gcwnkwhprp.dynamic-m.com
+[16:35:58]    762. NMR 01     - ENABLED -> nmr-01-kdgdmmqtrp.dynamic-m.com
+[16:36:07]    763. NMS 02     - ENABLED -> nms-02-wgzhbwggrp.dynamic-m.com
+[16:36:15]    764. NMS 03     - ENABLED -> nms-03-dbzvrvgnrp.dynamic-m.com
+[16:36:24]    765. NVL_00     - ALREADY ENABLED
+[16:36:24]    766. NVL 03     - ENABLED -> nvl-03-qvgmrpdqrp.dynamic-m.com
+[16:36:33]    767. NVL 04     - ENABLED -> nvl-04-gjdqbbbkrp.dynamic-m.com
+[16:36:42]    768. NVL 05     - ENABLED -> nvl-05-pkmdntrtrp.dynamic-m.com
+[16:36:51]    769. NVL 06     - ENABLED -> nvl-06-nkpbhmpcrp.dynamic-m.com
+[16:36:58]    770. NVL 07     - ENABLED -> nvl-07-mbckncjnrp.dynamic-m.com
+[16:37:06] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[16:37:06] Overall progress: 770/1330 (57.9%)
+[16:37:06] Waiting 3 seconds before next batch...
+[16:37:09] === BATCH 78 ===
+Processing networks 771 to 780
+[16:37:09]    771. NVL 08     - ENABLED -> nvl-08-vbbdtwzhrp.dynamic-m.com
+[16:37:16]    772. NVL 09     - ENABLED -> nvl-09-kzvtdbctrp.dynamic-m.com
+[16:37:24]    773. NVL 11     - ENABLED -> nvl-11-vrvjkpmnrp.dynamic-m.com
+[16:37:32]    774. NVL 13     - ENABLED -> nvl-13-ddzqmnmwrp.dynamic-m.com
+[16:37:40]    775. NVL 14     - ENABLED -> nvl-14-vcpppmwhrp.dynamic-m.com
+[16:37:48]    776. NVL 15     - ENABLED -> nvl-15-wwpjpzggrp.dynamic-m.com
+[16:37:56]    777. NVL 16     - ENABLED -> nvl-16-tzpknwrhrp.dynamic-m.com
+[16:38:04]    778. NVL 17     - ENABLED -> nvl-17-jvkmhzjgrp.dynamic-m.com
+[16:38:12]    779. NVL 22     - ENABLED -> nvl-22-dmdwthkprp.dynamic-m.com
+[16:38:19]    780. NVL 23     - ENABLED -> nvl-23-cbtmntqmrp.dynamic-m.com
+[16:38:26] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[16:38:26] Overall progress: 780/1330 (58.6%)
+[16:38:26] Waiting 3 seconds before next batch...
+[16:38:29] === BATCH 79 ===
+Processing networks 781 to 790
+[16:38:29]    781. NVL 24     - ENABLED -> nvl-24-zgjrqhmwrp.dynamic-m.com
+[16:38:36]    782. NVL 25     - ENABLED -> nvl-25-pkkkczgdrp.dynamic-m.com
+[16:38:44]    783. NVL 26     - ENABLED -> nvl-26-hhdhnpkdrp.dynamic-m.com
+[16:38:52]    784. NVL W01    - ALREADY ENABLED
+[16:38:53]    785. NVR 01     - ENABLED -> nvr-01-knkwdqpmrp.dynamic-m.com
+[16:39:00]    786. NVR 02     - ENABLED -> nvr-02-mmrwhhkprp.dynamic-m.com
+[16:39:09]    787. NVR 04     - ENABLED -> nvr-04-mwddrjgbrp.dynamic-m.com
+[16:39:17]    788. NVR 05     - ENABLED -> nvr-05-bwrnkrpjrp.dynamic-m.com
+[16:39:24]    789. NVRB04     - ENABLED -> nvrb04-wnbhnpwrrp.dynamic-m.com
+[16:39:33]    790. NYB 01     - ALREADY ENABLED
+[16:39:34] Batch summary: 8 enabled, 2 already enabled, 0 errors
+[16:39:34] Overall progress: 790/1330 (59.4%)
+[16:39:34] Waiting 3 seconds before next batch...
+[16:39:37] === BATCH 80 ===
+Processing networks 791 to 800
+[16:39:37]    791. NYB 02     - ALREADY ENABLED
+[16:39:37]    792. NYB 03     - ALREADY ENABLED
+[16:39:38]    793. NYB 04     - ALREADY ENABLED
+[16:39:38]    794. NYB 05     - ALREADY ENABLED
+[16:39:39]    795. NYB 06     - ALREADY ENABLED
+[16:39:39]    796. NYB 07     - ALREADY ENABLED
+[16:39:40]    797. NYB 08     - ALREADY ENABLED
+[16:39:41]    798. NYF 01     - ALREADY ENABLED
+[16:39:41]    799. NYF 02     - ALREADY ENABLED
+[16:39:42]    800. NYF 03     - ALREADY ENABLED
+[16:39:42] Batch summary: 0 enabled, 10 already enabled, 0 errors
+[16:39:42] Overall progress: 800/1330 (60.2%)
+[16:39:42] Waiting 3 seconds before next batch...
+[16:39:45] === BATCH 81 ===
+Processing networks 801 to 810
+[16:39:45]    801. NYR 01     - ALREADY ENABLED
+[16:39:46]    802. NYR 02     - ALREADY ENABLED
+[16:39:46]    803. NYR 03     - ALREADY ENABLED
+[16:39:47]    804. NYR 04     - ALREADY ENABLED
+[16:39:48]    805. NYR 05     - ALREADY ENABLED
+[16:39:48]    806. NYR 06     - ALREADY ENABLED
+[16:39:49]    807. NYR 07     - ALREADY ENABLED
+[16:39:50]    808. NYS 01     - ALREADY ENABLED
+[16:39:50]    809. NYS 02     - ALREADY ENABLED
+[16:39:51]    810. NYS 03     - ALREADY ENABLED
+[16:39:51] Batch summary: 0 enabled, 10 already enabled, 0 errors
+[16:39:51] Overall progress: 810/1330 (60.9%)
+[16:39:51] Waiting 3 seconds before next batch...
+[16:39:54] === BATCH 82 ===
+Processing networks 811 to 820
+[16:39:54]    811. NYS 04     - ALREADY ENABLED
+[16:39:55]    812. OHC 03     - ENABLED -> ohc-03-nbjvwwrkrp.dynamic-m.com
+[16:40:04]    813. OHC 04     - ENABLED -> ohc-04-bmhccqjwrp.dynamic-m.com
+[16:40:13]    814. OHC 05     - ENABLED -> ohc-05-rvgkqpzkrp.dynamic-m.com
+[16:40:21]    815. OHC 06     - ENABLED -> ohc-06-nmcmhgrqrp.dynamic-m.com
+[16:40:31]    816. OHC 07     - ENABLED -> ohc-07-vvhmhmnbrp.dynamic-m.com
+[16:40:38]    817. OHC 08     - ENABLED -> ohc-08-vzgvbmdnrp.dynamic-m.com
+[16:40:48]    818. OHC 10     - ENABLED -> ohc-10-kzrdpnwvrp.dynamic-m.com
+[16:40:56]    819. OHD 02     - ENABLED -> ohd-02-rtmrbtzvrp.dynamic-m.com
+[16:41:04]    820. OHD 03     - ENABLED -> ohd-03-mrvvvvpmrp.dynamic-m.com
+[16:41:12] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[16:41:12] Overall progress: 820/1330 (61.7%)
+[16:41:12] Waiting 3 seconds before next batch...
+[16:41:15] === BATCH 83 ===
+Processing networks 821 to 830
+[16:41:15]    821. OHD 04     - ALREADY ENABLED
+[16:41:16]    822. OHL 01     - ENABLED -> ohl-01-rqmvpbpbrp.dynamic-m.com
+[16:41:24]    823. OHN 01     - ENABLED -> ohn-01-rgdgqbzdrp.dynamic-m.com
+[16:41:32]    824. OHN 02     - ENABLED -> ohn-02-bdjpgkrdrp.dynamic-m.com
+[16:41:40]    825. OHN 03     - ENABLED -> ohn-03-grngtzhcrp.dynamic-m.com
+[16:41:49]    826. OHN 04     - ENABLED -> ohn-04-pjdztcnnrp.dynamic-m.com
+[16:41:55]    827. OHN 05     - ENABLED -> ohn-05-nkpzqghdrp.dynamic-m.com
+[16:42:03]    828. OHN 06     - ENABLED -> ohn-06-zwbrbcwwrp.dynamic-m.com
+[16:42:12]    829. OHS 01     - ENABLED -> ohs-01-gkjwvdpzrp.dynamic-m.com
+[16:42:20]    830. OHS 02     - ENABLED -> ohs-02-kjdwmbrbrp.dynamic-m.com
+[16:42:28] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[16:42:28] Overall progress: 830/1330 (62.4%)
+[16:42:28] Waiting 3 seconds before next batch...
+[16:42:31] === BATCH 84 ===
+Processing networks 831 to 840
+[16:42:31]    831. OHS 03     - ENABLED -> ohs-03-vkmvzwzwrp.dynamic-m.com
+[16:42:39]    832. OHS 04     - ENABLED -> ohs-04-kmkcvddprp.dynamic-m.com
+[16:42:48]    833. OHS 05     - ENABLED -> ohs-05-ggzmjjrmrp.dynamic-m.com
+[16:42:56]    834. OHT 01     - ENABLED -> oht-01-wdjjmkmjrp.dynamic-m.com
+[16:43:05]    835. OHT 02     - ENABLED -> oht-02-kvnnvwjdrp.dynamic-m.com
+[16:43:12]    836. OKA 01     - ENABLED -> oka-01-mqdkggbvrp.dynamic-m.com
+[16:43:20]    837. OKE 01     - ENABLED -> oke-01-pngrngzqrp.dynamic-m.com
+[16:43:28]    838. OKO_00     - ALREADY ENABLED
+[16:43:28]    839. OKO 02     - ENABLED -> oko-02-qgtvbvjzrp.dynamic-m.com
+[16:43:35]    840. OKO 03     - ENABLED -> oko-03-gvwddzdcrp.dynamic-m.com
+[16:43:42] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[16:43:42] Overall progress: 840/1330 (63.2%)
+[16:43:42] Waiting 3 seconds before next batch...
+[16:43:45] === BATCH 85 ===
+Processing networks 841 to 850
+[16:43:45]    841. OKO 04     - ENABLED -> oko-04-zkjbmbwkrp.dynamic-m.com
+[16:43:54]    842. OKO 05     - ENABLED -> oko-05-nqzvmzjwrp.dynamic-m.com
+[16:44:02]    843. OKO 06     - ENABLED -> oko-06-jgdvwbzhrp.dynamic-m.com
+[16:44:11]    844. OKO 07     - ENABLED -> oko-07-pbcwcvwvrp.dynamic-m.com
+[16:44:18]    845. OKO 08     - ENABLED -> oko-08-dmbtdjrvrp.dynamic-m.com
+[16:44:25]    846. OKO 09     - ENABLED -> oko-09-ddmtqvtvrp.dynamic-m.com
+[16:44:33]    847. OKO 10     - ENABLED -> oko-10-kkvnvwpprp.dynamic-m.com
+[16:44:41]    848. OKO 11     - ENABLED -> oko-11-kjkdhmpkrp.dynamic-m.com
+[16:44:50]    849. OKO 12     - ENABLED -> oko-12-mbhrbwhtrp.dynamic-m.com
+[16:44:59]    850. OKO 13     - ENABLED -> oko-13-qwmprkjgrp.dynamic-m.com
+[16:45:07] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[16:45:07] Overall progress: 850/1330 (63.9%)
+[16:45:07] Waiting 3 seconds before next batch...
+[16:45:10] === BATCH 86 ===
+Processing networks 851 to 860
+[16:45:10]    851. OKO 14     - ENABLED -> oko-14-hwzdqdpwrp.dynamic-m.com
+[16:45:19]    852. OKO 15     - ENABLED -> oko-15-rdwmrkmprp.dynamic-m.com
+[16:45:28]    853. OKT 01     - ENABLED -> okt-01-wwcmcgcwrp.dynamic-m.com
+[16:45:36]    854. OKT 02     - ENABLED -> okt-02-mwmnqtwkrp.dynamic-m.com
+[16:45:45]    855. OKT 03     - ENABLED -> okt-03-mznkmtqcrp.dynamic-m.com
+[16:45:53]    856. OKT 05     - ENABLED -> okt-05-vkrrhbzhrp.dynamic-m.com
+[16:46:01]    857. OKT 06     - ENABLED -> okt-06-kcmvjkbdrp.dynamic-m.com
+[16:46:09]    858. OKT 07     - ENABLED -> okt-07-bdnhjpjnrp.dynamic-m.com
+[16:46:17]    859. OKT 08     - ENABLED -> okt-08-hzjjmppkrp.dynamic-m.com
+[16:46:27]    860. ORM 01     - ENABLED -> orm-01-rcvdvzmbrp.dynamic-m.com
+[16:46:35] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[16:46:35] Overall progress: 860/1330 (64.7%)
+[16:46:35] Waiting 3 seconds before next batch...
+[16:46:38] === BATCH 87 ===
+Processing networks 861 to 870
+[16:46:38]    861. ORM 02     - ENABLED -> orm-02-prkjvpcdrp.dynamic-m.com
+[16:46:46]    862. ORP 01     - ENABLED -> orp-01-gmdwrghzrp.dynamic-m.com
+[16:46:54]    863. ORP 02     - ENABLED -> orp-02-pdtmgddnrp.dynamic-m.com
+[16:47:02]    864. ORP 03     - ENABLED -> orp-03-rpmmvhzzrp.dynamic-m.com
+[16:47:10]    865. ORP 04     - ENABLED -> orp-04-gpdtzzpwrp.dynamic-m.com
+[16:47:19]    866. ORP 05     - ENABLED -> orp-05-tjrprrrmrp.dynamic-m.com
+[16:47:27]    867. ORP 07     - ENABLED -> orp-07-czwhpvnjrp.dynamic-m.com
+[16:47:35]    868. ORP 08     - ENABLED -> orp-08-zbkhcvtwrp.dynamic-m.com
+[16:47:42]    869. ORP 09     - ENABLED -> orp-09-tnjgrkdwrp.dynamic-m.com
+[16:47:50]    870. ORP 10     - ENABLED -> orp-10-qdjhhhpnrp.dynamic-m.com
+[16:47:57] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[16:47:57] Overall progress: 870/1330 (65.4%)
+[16:47:57] Waiting 3 seconds before next batch...
+[16:48:00] === BATCH 88 ===
+Processing networks 871 to 880
+[16:48:00]    871. ORP 11     - ENABLED -> orp-11-qvhtqqdwrp.dynamic-m.com
+[16:48:09]    872. ORP 12     - ENABLED -> orp-12-zmghnqzjrp.dynamic-m.com
+[16:48:15]    873. PAC 01     - ENABLED -> pac-01-btnrwckwrp.dynamic-m.com
+[16:48:23]    874. PAN 01     - ENABLED -> pan-01-nqhwvccdrp.dynamic-m.com
+[16:48:32]    875. PAN 02     - ENABLED -> pan-02-nvjkrbgbrp.dynamic-m.com
+[16:48:41]    876. PAN 03     - ALREADY ENABLED
+[16:48:42]    877. PAN 04     - ALREADY ENABLED
+[16:48:42]    878. PAN 05     - ALREADY ENABLED
+[16:48:43]    879. PAP 01     - ALREADY ENABLED
+[16:48:44]    880. PAP 02     - ENABLED -> pap-02-tcqpzbqtkkkc.dynamic-m.com
+[16:48:53] Batch summary: 6 enabled, 4 already enabled, 0 errors
+[16:48:53] Overall progress: 880/1330 (66.2%)
+[16:48:53] Waiting 3 seconds before next batch...
+[16:48:56] === BATCH 89 ===
+Processing networks 881 to 890
+[16:48:56]    881. PAW 01     - ENABLED -> paw-01-ppvvtnrjrp.dynamic-m.com
+[16:49:04]    882. PAW 02     - ALREADY ENABLED
+[16:49:05]    883. SCA 01     - ENABLED -> sca-01-chjvjkphrp.dynamic-m.com
+[16:49:13]    884. SCC 01     - ENABLED -> scc-01-wbbcrvnwrp.dynamic-m.com
+[16:49:21]    885. SCC 02     - ENABLED -> scc-02-vhqkmpqqrp.dynamic-m.com
+[16:49:30]    886. SCC 03     - ENABLED -> scc-03-pwjpzzqgrp.dynamic-m.com
+[16:49:39]    887. SCC 04     - ENABLED -> scc-04-dkhmrpcmrp.dynamic-m.com
+[16:49:46]    888. SCC 05     - ENABLED -> scc-05-pwhdgwdbrp.dynamic-m.com
+[16:49:55]    889. SCC 06     - ENABLED -> scc-06-jhkpthnhrp.dynamic-m.com
+[16:50:03]    890. SCC 07     - ENABLED -> scc-07-bkpbdqrkrp.dynamic-m.com
+[16:50:12] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[16:50:12] Overall progress: 890/1330 (66.9%)
+[16:50:12] Waiting 3 seconds before next batch...
+[16:50:15] === BATCH 90 ===
+Processing networks 891 to 900
+[16:50:15]    891. SCC 08     - ENABLED -> scc-08-rjgwkhdhrp.dynamic-m.com
+[16:50:25]    892. SCC 09     - ENABLED -> scc-09-qvmrrtwmrp.dynamic-m.com
+[16:50:34]    893. SCC 10     - ENABLED -> scc-10-bgzvknkbrp.dynamic-m.com
+[16:50:43]    894. SCC 11     - ENABLED -> scc-11-trzmdvhmrp.dynamic-m.com
+[16:50:52]    895. SCC 12     - ENABLED -> scc-12-rrwjnvrvrp.dynamic-m.com
+[16:51:00]    896. SCC 13     - ENABLED -> scc-13-bhtvqhvdrp.dynamic-m.com
+[16:51:08]    897. SCC 14     - ENABLED -> scc-14-gdcbmrnqrp.dynamic-m.com
+[16:51:16]    898. SCC 15     - ENABLED -> scc-15-qjdgvcwmrp.dynamic-m.com
+[16:51:25]    899. SCC 16     - ENABLED -> scc-16-dmvjzvjgrp.dynamic-m.com
+[16:51:33]    900. SCC 17     - ENABLED -> scc-17-brjngnvjrp.dynamic-m.com
+[16:51:42] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[16:51:42] Overall progress: 900/1330 (67.7%)
+[16:51:42] Waiting 3 seconds before next batch...
+[16:51:45] === BATCH 91 ===
+Processing networks 901 to 910
+[16:51:45]    901. SCC 18     - ENABLED -> scc-18-ztvrgdgrrp.dynamic-m.com
+[16:51:54]    902. SCC 19     - ENABLED -> scc-19-qzrhnzvkrp.dynamic-m.com
+[16:52:02]    903. SDR 01     - ENABLED -> sdr-01-gnbhzjcqrp.dynamic-m.com
+[16:52:11]    904. SDS 01     - ENABLED -> sds-01-rjqktmvqrp.dynamic-m.com
+[16:52:19]    905. Starlink POC - ALREADY ENABLED
+[16:52:20]    906. Store in a box #2 - ERROR: appliance, updateNetworkApplianceSettings - 400 Bad Request, {'errors': ['The Dynamic DNS name can consist only of lowercase letters or numbers separated by hyphens.']}
+[16:52:26]    907. Strike Team Lab - ALREADY ENABLED
+[16:52:26]    908. Temp Wireless - ALREADY ENABLED
+[16:52:27]    909. TNC 01     - ENABLED -> tnc-01-bvhhnjcwrp.dynamic-m.com
+[16:52:32]    910. TNC 02     - ENABLED -> tnc-02-pmzrtghqrp.dynamic-m.com
+[16:52:40] Batch summary: 6 enabled, 3 already enabled, 1 errors
+[16:52:40] Overall progress: 910/1330 (68.4%)
+[16:52:40] Waiting 3 seconds before next batch...
+[16:52:43] === BATCH 92 ===
+Processing networks 911 to 920
+[16:52:43]    911. TNC 03     - ENABLED -> tnc-03-cwpptwdqrp.dynamic-m.com
+[16:52:52]    912. TNE 01     - ENABLED -> tne-01-mvnqnmthrp.dynamic-m.com
+[16:53:00]    913. TNE 02     - ENABLED -> tne-02-bjkkrdbwrp.dynamic-m.com
+[16:53:07]    914. TNK 01     - ENABLED -> tnk-01-qnknjkjprp.dynamic-m.com
+[16:53:14]    915. TNK 02     - ENABLED -> tnk-02-rpmcvgdvrp.dynamic-m.com
+[16:53:22]    916. TNK 03     - ALREADY ENABLED
+[16:53:22]    917. TNM 01     - ENABLED -> tnm-01-bdrjhjnzrp.dynamic-m.com
+[16:53:29]    918. TNM 02     - ENABLED -> tnm-02-ddbktmnnrp.dynamic-m.com
+[16:53:36]    919. TNM 03     - ENABLED -> tnm-03-qqhphhvmrp.dynamic-m.com
+[16:53:44]    920. TNM 04     - ENABLED -> tnm-04-vcdwrqnvrp.dynamic-m.com
+[16:53:51] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[16:53:51] Overall progress: 920/1330 (69.2%)
+[16:53:51] Waiting 3 seconds before next batch...
+[16:53:54] === BATCH 93 ===
+Processing networks 921 to 930
+[16:53:54]    921. TNM 05     - ENABLED -> tnm-05-vjccthhtrp.dynamic-m.com
+[16:54:04]    922. TNN_00     - ALREADY ENABLED
+[16:54:04]    923. TNN 02     - ENABLED -> tnn-02-mmckjvtzrp.dynamic-m.com
+[16:54:12]    924. TNN 03     - ENABLED -> tnn-03-rkbpdbrwrp.dynamic-m.com
+[16:54:20]    925. TNN 04     - ENABLED -> tnn-04-wmwtccrgrp.dynamic-m.com
+[16:54:28]    926. TNN 05     - ENABLED -> tnn-05-kbbddbmprp.dynamic-m.com
+[16:54:36]    927. TNN 06     - ENABLED -> tnn-06-dbtzmrqtrp.dynamic-m.com
+[16:54:44]    928. TNN 07     - ENABLED -> tnn-07-zchdqbtwrp.dynamic-m.com
+[16:54:52]    929. TNN 08     - ENABLED -> tnn-08-tcwpbknhrp.dynamic-m.com
+[16:54:59]    930. TNN 09     - ENABLED -> tnn-09-kwzkccchrp.dynamic-m.com
+[16:55:08] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[16:55:08] Overall progress: 930/1330 (69.9%)
+[16:55:08] Waiting 3 seconds before next batch...
+[16:55:11] === BATCH 94 ===
+Processing networks 931 to 940
+[16:55:11]    931. TNN 10     - ENABLED -> tnn-10-zhcrtjqgrp.dynamic-m.com
+[16:55:20]    932. TNN 11     - ENABLED -> tnn-11-zvmbmnzzrp.dynamic-m.com
+[16:55:28]    933. TNN 12     - ENABLED -> tnn-12-zmhrkdbhrp.dynamic-m.com
+[16:55:35]    934. TNN 13     - ENABLED -> tnn-13-qqbdzwrnrp.dynamic-m.com
+[16:55:44]    935. TNN 14     - ENABLED -> tnn-14-mqtngkccrp.dynamic-m.com
+[16:55:52]    936. TNN 15     - ENABLED -> tnn-15-tmgzgmwrrp.dynamic-m.com
+[16:55:59]    937. TNN 16     - ENABLED -> tnn-16-dvnjkpgtrp.dynamic-m.com
+[16:56:08]    938. TXA 01     - ENABLED -> txa-01-qgmvgdhprp.dynamic-m.com
+[16:56:16]    939. TXA 02     - ENABLED -> txa-02-mrctqdnzrp.dynamic-m.com
+[16:56:23]    940. TXA 03     - ENABLED -> txa-03-phmrhzcjrp.dynamic-m.com
+[16:56:31] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[16:56:31] Overall progress: 940/1330 (70.7%)
+[16:56:31] Waiting 3 seconds before next batch...
+[16:56:34] === BATCH 95 ===
+Processing networks 941 to 950
+[16:56:34]    941. TXA 04     - ENABLED -> txa-04-nwhhctqbrp.dynamic-m.com
+[16:56:42]    942. TXA 05     - ENABLED -> txa-05-rdbbghpqrp.dynamic-m.com
+[16:56:50]    943. TXA 06     - ENABLED -> txa-06-vwgnghzkrp.dynamic-m.com
+[16:56:58]    944. TXA 07     - ENABLED -> txa-07-wbtwwwtbrp.dynamic-m.com
+[16:57:06]    945. TXA 08     - ENABLED -> txa-08-bkdwcbvrrp.dynamic-m.com
+[16:57:14]    946. TXA 09     - ENABLED -> txa-09-wvvnqtvrrp.dynamic-m.com
+[16:57:22]    947. TXA 10     - ENABLED -> txa-10-pzmcnjbjrp.dynamic-m.com
+[16:57:30]    948. TXA 11     - ENABLED -> txa-11-ctgtrbhprp.dynamic-m.com
+[16:57:38]    949. TXA 12     - ENABLED -> txa-12-pgkzqknjrp.dynamic-m.com
+[16:57:46]    950. TXA 13     - ENABLED -> txa-13-qtvjhqnqrp.dynamic-m.com
+[16:57:53] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[16:57:53] Overall progress: 950/1330 (71.4%)
+[16:57:53] Waiting 3 seconds before next batch...
+[16:57:56] === BATCH 96 ===
+Processing networks 951 to 960
+[16:57:56]    951. TXA 14     - ENABLED -> txa-14-vjzrrgrhrp.dynamic-m.com
+[16:58:04]    952. TXA 15     - ENABLED -> txa-15-wvcqtccjrp.dynamic-m.com
+[16:58:11]    953. TXA 16     - ENABLED -> txa-16-ctprgwphrp.dynamic-m.com
+[16:58:19]    954. TXA 17     - ENABLED -> txa-17-vptndnmprp.dynamic-m.com
+[16:58:27]    955. TXA 18     - ENABLED -> txa-18-mnhqjmqvrp.dynamic-m.com
+[16:58:35]    956. TXA 19     - ENABLED -> txa-19-dbtrbbqprp.dynamic-m.com
+[16:58:44]    957. TXA 20     - ENABLED -> txa-20-ppmmqtcgrp.dynamic-m.com
+[16:58:51]    958. TXA 21     - ENABLED -> txa-21-qwdhdzcdrp.dynamic-m.com
+[16:59:00]    959. TXA 22     - ENABLED -> txa-22-mhnzgjkcrp.dynamic-m.com
+[16:59:08]    960. TXA 23     - ENABLED -> txa-23-mhdkvqjwrp.dynamic-m.com
+[16:59:15] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[16:59:15] Overall progress: 960/1330 (72.2%)
+[16:59:15] Waiting 3 seconds before next batch...
+[16:59:18] === BATCH 97 ===
+Processing networks 961 to 970
+[16:59:18]    961. TXA 24     - ALREADY ENABLED
+[16:59:19]    962. TXC 01     - ENABLED -> txc-01-qczccpqrrp.dynamic-m.com
+[16:59:27]    963. TXC 03     - ENABLED -> txc-03-vnzdtkqnrp.dynamic-m.com
+[16:59:35]    964. TXC 04     - ENABLED -> txc-04-npqdkrjcrp.dynamic-m.com
+[16:59:44]    965. TXC 05     - ENABLED -> txc-05-vtvcvjgjrp.dynamic-m.com
+[16:59:51]    966. TXC 06     - ENABLED -> txc-06-ckgqhtkprp.dynamic-m.com
+[17:00:00]    967. TXC 07     - ENABLED -> txc-07-jqttrqqmrp.dynamic-m.com
+[17:00:10]    968. TXC 08     - ENABLED -> txc-08-gbzwnjmvrp.dynamic-m.com
+[17:00:20]    969. TXC 09     - ENABLED -> txc-09-trvrrzzwrp.dynamic-m.com
+[17:00:29]    970. TXC 10     - ENABLED -> txc-10-hcbdtqdqrp.dynamic-m.com
+[17:00:37] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[17:00:37] Overall progress: 970/1330 (72.9%)
+[17:00:37] Waiting 3 seconds before next batch...
+[17:00:40] === BATCH 98 ===
+Processing networks 971 to 980
+[17:00:40]    971. TXC 11     - ENABLED -> txc-11-qvbqrrjbrp.dynamic-m.com
+[17:00:50]    972. TXC 12     - ENABLED -> txc-12-hdjmnttvrp.dynamic-m.com
+[17:00:59]    973. TXC 13     - ENABLED -> txc-13-gdjmqkgcrp.dynamic-m.com
+[17:01:08]    974. TXC 14     - ENABLED -> txc-14-zzpmjcjprp.dynamic-m.com
+[17:01:17]    975. TXC 15     - ENABLED -> txc-15-mkpjtcnmrp.dynamic-m.com
+[17:01:26]    976. TXC 16     - ENABLED -> txc-16-vpcvkntcrp.dynamic-m.com
+[17:01:34]    977. TXC 17     - ENABLED -> txc-17-rvjnvmjzrp.dynamic-m.com
+[17:01:43]    978. TXC 18     - ENABLED -> txc-18-hcjzpvvdrp.dynamic-m.com
+[17:01:52]    979. TXC 19     - ENABLED -> txc-19-kjpjggntrp.dynamic-m.com
+[17:02:01]    980. TXC 20     - ENABLED -> txc-20-dmrjhwzmrp.dynamic-m.com
+[17:02:11] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[17:02:11] Overall progress: 980/1330 (73.7%)
+[17:02:11] Waiting 3 seconds before next batch...
+[17:02:14] === BATCH 99 ===
+Processing networks 981 to 990
+[17:02:14]    981. TXC 21     - ENABLED -> txc-21-dcznjprrrp.dynamic-m.com
+[17:02:23]    982. TXD_00     - ALREADY ENABLED
+[17:02:24]    983. TXD 01     - ENABLED -> txd-01-kmjzrbhrrp.dynamic-m.com
+[17:02:33]    984. TXD 02     - ENABLED -> txd-02-zdrrbpnrrp.dynamic-m.com
+[17:02:41]    985. TXD 04     - ENABLED -> txd-04-qmphjdzqrp.dynamic-m.com
+[17:02:51]    986. TXD 05     - ENABLED -> txd-05-mtqrcbqkrp.dynamic-m.com
+[17:03:00]    987. TXD 06     - ENABLED -> txd-06-zzvmdnwmrp.dynamic-m.com
+[17:03:10]    988. TXD 08     - ENABLED -> txd-08-hvzhcdjbrp.dynamic-m.com
+[17:03:20]    989. TXD 09     - ENABLED -> txd-09-ggtjrtmtrp.dynamic-m.com
+[17:03:28]    990. TXD 10     - ENABLED -> txd-10-kdjtnbnhrp.dynamic-m.com
+[17:03:37] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[17:03:37] Overall progress: 990/1330 (74.4%)
+[17:03:37] Waiting 3 seconds before next batch...
+[17:03:40] === BATCH 100 ===
+Processing networks 991 to 1000
+[17:03:40]    991. TXD 11     - ENABLED -> txd-11-jvzqwqbzrp.dynamic-m.com
+[17:03:48]    992. TXD 12     - ENABLED -> txd-12-brkjpkwprp.dynamic-m.com
+[17:03:57]    993. TXD 13     - ENABLED -> txd-13-njkdgjjkrp.dynamic-m.com
+[17:04:05]    994. TXD 15     - ENABLED -> txd-15-nmqjhzkqrp.dynamic-m.com
+[17:04:13]    995. TXD 17     - ENABLED -> txd-17-wzrrkjgzrp.dynamic-m.com
+[17:04:22]    996. TXD 18     - ENABLED -> txd-18-bjmbvjjmrp.dynamic-m.com
+[17:04:30]    997. TXD 19     - ENABLED -> txd-19-vhwtwpccrp.dynamic-m.com
+[17:04:38]    998. TXD 20     - ENABLED -> txd-20-qkdhhtqcrp.dynamic-m.com
+[17:04:47]    999. TXD 22     - ENABLED -> txd-22-zjqwmpvnrp.dynamic-m.com
+[17:04:55]   1000. TXD 23     - ENABLED -> txd-23-brgtvkkmrp.dynamic-m.com
+[17:05:04] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[17:05:04] Overall progress: 1000/1330 (75.2%)
+[17:05:04] Waiting 3 seconds before next batch...
+[17:05:07] === BATCH 101 ===
+Processing networks 1001 to 1010
+[17:05:07]   1001. TXD 25     - ENABLED -> txd-25-cdpdwmqnrp.dynamic-m.com
+[17:05:17]   1002. TXD 26     - ENABLED -> txd-26-prrzqrjprp.dynamic-m.com
+[17:05:24]   1003. TXD 28     - ENABLED -> txd-28-pjcvktbjrp.dynamic-m.com
+[17:05:33]   1004. TXD 29     - ENABLED -> txd-29-hcrnnjmdrp.dynamic-m.com
+[17:05:41]   1005. TXD 30     - ENABLED -> txd-30-jvhmbhvgrp.dynamic-m.com
+[17:05:49]   1006. TXD 31     - ENABLED -> txd-31-gpnprccjrp.dynamic-m.com
+[17:05:57]   1007. TXD 32     - ENABLED -> txd-32-tjvpwghnrp.dynamic-m.com
+[17:06:05]   1008. TXD 33     - ENABLED -> txd-33-nqgmgcdbrp.dynamic-m.com
+[17:06:13]   1009. TXD 34     - ENABLED -> txd-34-tvvmvkndrp.dynamic-m.com
+[17:06:21]   1010. TXD 35     - ENABLED -> txd-35-cqnzqrvbrp.dynamic-m.com
+[17:06:27] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[17:06:27] Overall progress: 1010/1330 (75.9%)
+[17:06:27] Waiting 3 seconds before next batch...
+[17:06:30] === BATCH 102 ===
+Processing networks 1011 to 1020
+[17:06:30]   1011. TXD 36     - ENABLED -> txd-36-gqbczjkjrp.dynamic-m.com
+[17:06:38]   1012. TXD 37     - ENABLED -> txd-37-rptkwkjvrp.dynamic-m.com
+[17:06:46]   1013. TXD 38     - ENABLED -> txd-38-pjjbmppgrp.dynamic-m.com
+[17:06:54]   1014. TXD 39     - ENABLED -> txd-39-tphtdbqhrp.dynamic-m.com
+[17:07:02]   1015. TXD 40     - ENABLED -> txd-40-wtzhqgbtrp.dynamic-m.com
+[17:07:09]   1016. TXD 41     - ENABLED -> txd-41-mczmnmwcrp.dynamic-m.com
+[17:07:18]   1017. TXD 42     - ENABLED -> txd-42-jjrrrjwwrp.dynamic-m.com
+[17:07:25]   1018. TXD 43     - ENABLED -> txd-43-pkvkbmjhrp.dynamic-m.com
+[17:07:33]   1019. TXD 44     - ENABLED -> txd-44-nvvdbztwrp.dynamic-m.com
+[17:07:41]   1020. TXD 45     - ENABLED -> txd-45-tnwztdhprp.dynamic-m.com
+[17:07:49] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[17:07:49] Overall progress: 1020/1330 (76.7%)
+[17:07:49] Waiting 3 seconds before next batch...
+[17:07:52] === BATCH 103 ===
+Processing networks 1021 to 1030
+[17:07:52]   1021. TXD 46     - ENABLED -> txd-46-bzmmkhjcrp.dynamic-m.com
+[17:08:00]   1022. TXD 47     - ENABLED -> txd-47-rrpqbjddrp.dynamic-m.com
+[17:08:08]   1023. TXD 48     - ENABLED -> txd-48-cnqpbhhtrp.dynamic-m.com
+[17:08:15]   1024. TXD 50     - ENABLED -> txd-50-gqjmqwvrrp.dynamic-m.com
+[17:08:22]   1025. TXD 51     - ENABLED -> txd-51-qpgwdwbcrp.dynamic-m.com
+[17:08:30]   1026. TXD 52     - ENABLED -> txd-52-vnmnwqckrp.dynamic-m.com
+[17:08:38]   1027. TXD 54     - ENABLED -> txd-54-jjbjdkkmrp.dynamic-m.com
+[17:08:45]   1028. TXD 55     - ENABLED -> txd-55-tbjbtkgwrp.dynamic-m.com
+[17:08:53]   1029. TXD 56     - ENABLED -> txd-56-phdhdvkcrp.dynamic-m.com
+[17:09:01]   1030. TXD 57     - ENABLED -> txd-57-mqwrmggkrp.dynamic-m.com
+[17:09:09] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[17:09:09] Overall progress: 1030/1330 (77.4%)
+[17:09:09] Waiting 3 seconds before next batch...
+[17:09:12] === BATCH 104 ===
+Processing networks 1031 to 1040
+[17:09:12]   1031. TXD 58     - ENABLED -> txd-58-bzwczzghrp.dynamic-m.com
+[17:09:20]   1032. TXD 59     - ENABLED -> txd-59-tckmrvzqrp.dynamic-m.com
+[17:09:29]   1033. TXD 60     - ENABLED -> txd-60-qdjhkpphrp.dynamic-m.com
+[17:09:37]   1034. TXD 61     - ENABLED -> txd-61-zbrmvrpmrp.dynamic-m.com
+[17:09:46]   1035. TXD 62     - ENABLED -> txd-62-tvpppmcnrp.dynamic-m.com
+[17:09:54]   1036. TXD 63     - ENABLED -> txd-63-dckjzvcqrp.dynamic-m.com
+[17:10:03]   1037. TXD 64     - ENABLED -> txd-64-qdwpqmptrp.dynamic-m.com
+[17:10:13]   1038. TXD 65     - ENABLED -> txd-65-wwrjgggtrp.dynamic-m.com
+[17:10:22]   1039. TXD 66     - ENABLED -> txd-66-vbvvqvjkrp.dynamic-m.com
+[17:10:31]   1040. TXD 67     - ENABLED -> txd-67-vnjqqmpgrp.dynamic-m.com
+[17:10:39] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[17:10:39] Overall progress: 1040/1330 (78.2%)
+[17:10:39] Waiting 3 seconds before next batch...
+[17:10:42] === BATCH 105 ===
+Processing networks 1041 to 1050
+[17:10:42]   1041. TXD 68     - ENABLED -> txd-68-krghnbwkrp.dynamic-m.com
+[17:10:51]   1042. TXD 69     - ENABLED -> txd-69-zpdcvjtwrp.dynamic-m.com
+[17:11:00]   1043. TXD 70     - ENABLED -> txd-70-hnqptqmtrp.dynamic-m.com
+[17:11:09]   1044. TXD 71     - ENABLED -> txd-71-pcrqthtkrp.dynamic-m.com
+[17:11:17]   1045. TXD 72     - ENABLED -> txd-72-hhcbcvmgrp.dynamic-m.com
+[17:11:25]   1046. TXD 73     - ENABLED -> txd-73-hrhzwgpprp.dynamic-m.com
+[17:11:35]   1047. TXD 74     - ENABLED -> txd-74-gpbtqprjrp.dynamic-m.com
+[17:11:43]   1048. TXD 75     - ENABLED -> txd-75-zvnbtnvmrp.dynamic-m.com
+[17:11:52]   1049. TXD 76     - ENABLED -> txd-76-twhwvcgdrp.dynamic-m.com
+[17:11:59]   1050. TXD 77     - ENABLED -> txd-77-phcjkmdhrp.dynamic-m.com
+[17:12:07] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[17:12:07] Overall progress: 1050/1330 (78.9%)
+[17:12:07] Waiting 3 seconds before next batch...
+[17:12:10] === BATCH 106 ===
+Processing networks 1051 to 1060
+[17:12:10]   1051. TXD 78     - ENABLED -> txd-78-dgrczqktrp.dynamic-m.com
+[17:12:20]   1052. TXD 79     - ENABLED -> txd-79-kzwckzmrrp.dynamic-m.com
+[17:12:28]   1053. TXD 80     - ENABLED -> txd-80-nnnmnwpjrp.dynamic-m.com
+[17:12:36]   1054. TXD 81     - ENABLED -> txd-81-bqdqgvjjrp.dynamic-m.com
+[17:12:44]   1055. TXD 82     - ENABLED -> txd-82-pvjcpvgqrp.dynamic-m.com
+[17:12:52]   1056. TXD 83     - ENABLED -> txd-83-zjmwdbvdrp.dynamic-m.com
+[17:13:00]   1057. TXD 84     - ENABLED -> txd-84-tcnzhcwdrp.dynamic-m.com
+[17:13:07]   1058. TXD 85     - ENABLED -> txd-85-cbnchqncrp.dynamic-m.com
+[17:13:14]   1059. TXD 86     - ENABLED -> txd-86-ggrnhtvkrp.dynamic-m.com
+[17:13:22]   1060. TXD 87     - ENABLED -> txd-87-bdhhqzrkrp.dynamic-m.com
+[17:13:30] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[17:13:30] Overall progress: 1060/1330 (79.7%)
+[17:13:30] Waiting 3 seconds before next batch...
+[17:13:33] === BATCH 107 ===
+Processing networks 1061 to 1070
+[17:13:33]   1061. TXD 88     - ENABLED -> txd-88-mrpvnnzbrp.dynamic-m.com
+[17:13:40]   1062. TXD 89     - ENABLED -> txd-89-qjgrwjpmrp.dynamic-m.com
+[17:13:49]   1063. TXD 90     - ENABLED -> txd-90-dzvqkbgbrp.dynamic-m.com
+[17:13:57]   1064. TXD 91     - ENABLED -> txd-91-bhvbhpmgrp.dynamic-m.com
+[17:14:04]   1065. TXD 92     - ENABLED -> txd-92-dmkwdvgrrp.dynamic-m.com
+[17:14:13]   1066. TXD 93     - ENABLED -> txd-93-nmbtthnkrp.dynamic-m.com
+[17:14:20]   1067. TXD 94     - ENABLED -> txd-94-jqcpmcqnrp.dynamic-m.com
+[17:14:29]   1068. TXD 95     - ENABLED -> txd-95-jmkqqbnjrp.dynamic-m.com
+[17:14:36]   1069. TXD 96     - ALREADY ENABLED
+[17:14:37]   1070. TXE 01     - ENABLED -> txe-01-ckqrbkrdrp.dynamic-m.com
+[17:14:46] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[17:14:46] Overall progress: 1070/1330 (80.5%)
+[17:14:46] Waiting 3 seconds before next batch...
+[17:14:49] === BATCH 108 ===
+Processing networks 1071 to 1080
+[17:14:49]   1071. TXE 02     - ENABLED -> txe-02-rcrdckhmrp.dynamic-m.com
+[17:14:58]   1072. TXE 03     - ENABLED -> txe-03-mdwcpzmmrp.dynamic-m.com
+[17:15:07]   1073. TXE 05     - ENABLED -> txe-05-mvbgnbtdrp.dynamic-m.com
+[17:15:16]   1074. TXE 06     - ENABLED -> txe-06-ddvgdgrmrp.dynamic-m.com
+[17:15:25]   1075. TXE 07     - ENABLED -> txe-07-mpthdvdbrp.dynamic-m.com
+[17:15:34]   1076. TXG 01     - ENABLED -> txg-01-jbwdrqbqrp.dynamic-m.com
+[17:15:42]   1077. TXG 02     - ALREADY ENABLED
+[17:15:42]   1078. TXG 03     - ENABLED -> txg-03-jcbhhdvbkkkc.dynamic-m.com
+[17:15:50]   1079. TXH_00     - ALREADY ENABLED
+[17:15:51]   1080. TXH 01     - ENABLED -> txh-01-hwjpmkbprp.dynamic-m.com
+[17:15:59] Batch summary: 8 enabled, 2 already enabled, 0 errors
+[17:15:59] Overall progress: 1080/1330 (81.2%)
+[17:15:59] Waiting 3 seconds before next batch...
+[17:16:02] === BATCH 109 ===
+Processing networks 1081 to 1090
+[17:16:02]   1081. TXH 02     - ENABLED -> txh-02-hgwkppnnrp.dynamic-m.com
+[17:16:11]   1082. TXH 03     - ENABLED -> txh-03-jhtzgrhvrp.dynamic-m.com
+[17:16:20]   1083. TXH 04     - ENABLED -> txh-04-jqdrktztrp.dynamic-m.com
+[17:16:28]   1084. TXH 05     - ENABLED -> txh-05-gnvzzcktrp.dynamic-m.com
+[17:16:36]   1085. TXH 10     - ENABLED -> txh-10-trwznppkrp.dynamic-m.com
+[17:16:44]   1086. TXH 11     - ENABLED -> txh-11-hkcqkrgkrp.dynamic-m.com
+[17:16:55]   1087. TXH 12     - ENABLED -> txh-12-nqdjvmbhrp.dynamic-m.com
+[17:17:03]   1088. TXH 14     - ENABLED -> txh-14-mkdnddcjrp.dynamic-m.com
+[17:17:12]   1089. TXH 15     - ENABLED -> txh-15-hgvhzcgprp.dynamic-m.com
+[17:17:21]   1090. TXH 16     - ENABLED -> txh-16-wqjzjcdkrp.dynamic-m.com
+[17:17:28] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[17:17:28] Overall progress: 1090/1330 (82.0%)
+[17:17:28] Waiting 3 seconds before next batch...
+[17:17:31] === BATCH 110 ===
+Processing networks 1091 to 1100
+[17:17:31]   1091. TXH 17     - ENABLED -> txh-17-wzrnmmhdrp.dynamic-m.com
+[17:17:40]   1092. TXH 18     - ENABLED -> txh-18-rgtnzwrbrp.dynamic-m.com
+[17:17:48]   1093. TXH 20     - ENABLED -> txh-20-qkzvncmprp.dynamic-m.com
+[17:17:56]   1094. TXH 21     - ENABLED -> txh-21-bmrdnbpmrp.dynamic-m.com
+[17:18:04]   1095. TXH 22     - ENABLED -> txh-22-btghznwjrp.dynamic-m.com
+[17:18:12]   1096. TXH 23     - ENABLED -> txh-23-rwhbbjvhrp.dynamic-m.com
+[17:18:21]   1097. TXH 24     - ENABLED -> txh-24-bkbvrpqkrp.dynamic-m.com
+[17:18:29]   1098. TXH 25     - ENABLED -> txh-25-bdckkmwgrp.dynamic-m.com
+[17:18:38]   1099. TXH 26     - ENABLED -> txh-26-whbrbvqhrp.dynamic-m.com
+[17:18:45]   1100. TXH 27     - ENABLED -> txh-27-znkvcpmcrp.dynamic-m.com
+[17:18:54] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[17:18:54] Overall progress: 1100/1330 (82.7%)
+[17:18:54] Waiting 3 seconds before next batch...
+[17:18:57] === BATCH 111 ===
+Processing networks 1101 to 1110
+[17:18:57]   1101. TXH 28     - ENABLED -> txh-28-kvqdvpntrp.dynamic-m.com
+[17:19:05]   1102. TXH 29     - ENABLED -> txh-29-zkjjkktmrp.dynamic-m.com
+[17:19:14]   1103. TXH 30     - ENABLED -> txh-30-mnzjvthdrp.dynamic-m.com
+[17:19:22]   1104. TXH 31     - ENABLED -> txh-31-wmnbkjmvrp.dynamic-m.com
+[17:19:30]   1105. TXH 33     - ENABLED -> txh-33-pqbwqpkwrp.dynamic-m.com
+[17:19:39]   1106. TXH 34     - ENABLED -> txh-34-cgqnzctrrp.dynamic-m.com
+[17:19:47]   1107. TXH 37     - ENABLED -> txh-37-gbczbkmrrp.dynamic-m.com
+[17:19:55]   1108. TXH 39     - ENABLED -> txh-39-cbbkhqmdrp.dynamic-m.com
+[17:20:04]   1109. TXH 41     - ENABLED -> txh-41-qkbpdkzqrp.dynamic-m.com
+[17:20:12]   1110. TXH 43     - ENABLED -> txh-43-qrwnhhptrp.dynamic-m.com
+[17:20:21] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[17:20:21] Overall progress: 1110/1330 (83.5%)
+[17:20:21] Waiting 3 seconds before next batch...
+[17:20:24] === BATCH 112 ===
+Processing networks 1111 to 1120
+[17:20:24]   1111. TXH 44     - ENABLED -> txh-44-dwnccgbhrp.dynamic-m.com
+[17:20:33]   1112. TXH 45     - ENABLED -> txh-45-bmbgcghprp.dynamic-m.com
+[17:20:41]   1113. TXH 46     - ENABLED -> txh-46-cwzttnzdrp.dynamic-m.com
+[17:20:50]   1114. TXH 48     - ENABLED -> txh-48-wrnnndvnrp.dynamic-m.com
+[17:20:59]   1115. TXH 49     - ENABLED -> txh-49-vnwqhrbvrp.dynamic-m.com
+[17:21:07]   1116. TXH 50     - ENABLED -> txh-50-hggtgvqwrp.dynamic-m.com
+[17:21:16]   1117. TXH 51     - ENABLED -> txh-51-bmgmnhzzrp.dynamic-m.com
+[17:21:25]   1118. TXH 52     - ENABLED -> txh-52-zbqrhdzprp.dynamic-m.com
+[17:21:32]   1119. TXH 53     - ENABLED -> txh-53-kkkbrpngrp.dynamic-m.com
+[17:21:41]   1120. TXH 54     - ENABLED -> txh-54-nhzvbpjtrp.dynamic-m.com
+[17:21:49] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[17:21:49] Overall progress: 1120/1330 (84.2%)
+[17:21:49] Waiting 3 seconds before next batch...
+[17:21:52] === BATCH 113 ===
+Processing networks 1121 to 1130
+[17:21:52]   1121. TXH 55     - ENABLED -> txh-55-dqvwvjbkrp.dynamic-m.com
+[17:22:00]   1122. TXH 56     - ENABLED -> txh-56-jgvwbmzkrp.dynamic-m.com
+[17:22:08]   1123. TXH 57     - ENABLED -> txh-57-hhqcrqgnrp.dynamic-m.com
+[17:22:16]   1124. TXH 58     - ENABLED -> txh-58-wdzhbcmrrp.dynamic-m.com
+[17:22:24]   1125. TXH 59     - ENABLED -> txh-59-vqmmwjjqrp.dynamic-m.com
+[17:22:33]   1126. TXH 60     - ENABLED -> txh-60-thjpwnkbrp.dynamic-m.com
+[17:22:40]   1127. TXH 61     - ENABLED -> txh-61-rkrzmrvrrp.dynamic-m.com
+[17:22:48]   1128. TXH 62     - ENABLED -> txh-62-dckzbtdwrp.dynamic-m.com
+[17:22:55]   1129. TXH 63     - ENABLED -> txh-63-nnmgbtbdrp.dynamic-m.com
+[17:23:03]   1130. TXH 64     - ENABLED -> txh-64-vtwgctvmrp.dynamic-m.com
+[17:23:11] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[17:23:11] Overall progress: 1130/1330 (85.0%)
+[17:23:11] Waiting 3 seconds before next batch...
+[17:23:14] === BATCH 114 ===
+Processing networks 1131 to 1140
+[17:23:14]   1131. TXH 65     - ENABLED -> txh-65-jrdzzphqrp.dynamic-m.com
+[17:23:21]   1132. TXH 66     - ENABLED -> txh-66-dtvrkkngrp.dynamic-m.com
+[17:23:29]   1133. TXH 67     - ENABLED -> txh-67-gtzzzzqhrp.dynamic-m.com
+[17:23:37]   1134. TXH 68     - ENABLED -> txh-68-bngbtkzcrp.dynamic-m.com
+[17:23:45]   1135. TXH 69     - ENABLED -> txh-69-kzdzncmvrp.dynamic-m.com
+[17:23:53]   1136. TXH 70     - ENABLED -> txh-70-mvqhwtwwrp.dynamic-m.com
+[17:24:00]   1137. TXH 71     - ENABLED -> txh-71-zrkkpjnbrp.dynamic-m.com
+[17:24:08]   1138. TXH 72     - ENABLED -> txh-72-knbmjzzkrp.dynamic-m.com
+[17:24:16]   1139. TXH 73     - ENABLED -> txh-73-hzrhdnbnrp.dynamic-m.com
+[17:24:23]   1140. TXH 74     - ENABLED -> txh-74-zbmkkbzkrp.dynamic-m.com
+[17:24:31] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[17:24:31] Overall progress: 1140/1330 (85.7%)
+[17:24:31] Waiting 3 seconds before next batch...
+[17:24:34] === BATCH 115 ===
+Processing networks 1141 to 1150
+[17:24:34]   1141. TXH 75     - ENABLED -> txh-75-dhngjqgcrp.dynamic-m.com
+[17:24:42]   1142. TXH 77     - ENABLED -> txh-77-zcdrjmhprp.dynamic-m.com
+[17:24:51]   1143. TXH 78     - ENABLED -> txh-78-hktkkgtkrp.dynamic-m.com
+[17:24:59]   1144. TXH 79     - ENABLED -> txh-79-zwrmjzkqrp.dynamic-m.com
+[17:25:09]   1145. TXH 79     - ALREADY ENABLED
+[17:25:10]   1146. TXH 80     - ENABLED -> txh-80-dbdzwknrrp.dynamic-m.com
+[17:25:19]   1147. TXH 81     - ENABLED -> txh-81-djdkghdvrp.dynamic-m.com
+[17:25:28]   1148. TXH 82     - ENABLED -> txh-82-kjvpqzjmrp.dynamic-m.com
+[17:25:37]   1149. TXH 83     - ENABLED -> txh-83-bcvtrhkcrp.dynamic-m.com
+[17:25:44]   1150. TXH 84     - ENABLED -> txh-84-tqggvcpmrp.dynamic-m.com
+[17:25:52] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[17:25:52] Overall progress: 1150/1330 (86.5%)
+[17:25:52] Waiting 3 seconds before next batch...
+[17:25:55] === BATCH 116 ===
+Processing networks 1151 to 1160
+[17:25:55]   1151. TXH 85     - ENABLED -> txh-85-rqnjzdkdrp.dynamic-m.com
+[17:26:02]   1152. TXH 86     - ENABLED -> txh-86-mvmpdgmtrp.dynamic-m.com
+[17:26:10]   1153. TXH 87     - ENABLED -> txh-87-ggdtqhhkrp.dynamic-m.com
+[17:26:18]   1154. TXH 88     - ENABLED -> txh-88-hmvjrhvtrp.dynamic-m.com
+[17:26:26]   1155. TXH 89     - ENABLED -> txh-89-hhkqkbwprp.dynamic-m.com
+[17:26:34]   1156. TXH 90     - ENABLED -> txh-90-kjqqhzzcrp.dynamic-m.com
+[17:26:44]   1157. TXH 91     - ENABLED -> txh-91-wcrgmzqhrp.dynamic-m.com
+[17:26:52]   1158. TXH 92     - ENABLED -> txh-92-jrjkbmtmrp.dynamic-m.com
+[17:27:00]   1159. TXH 93     - ENABLED -> txh-93-kzprzmgkrp.dynamic-m.com
+[17:27:09]   1160. TXH 94     - ENABLED -> txh-94-nhpknzktrp.dynamic-m.com
+[17:27:17] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[17:27:17] Overall progress: 1160/1330 (87.2%)
+[17:27:17] Waiting 3 seconds before next batch...
+[17:27:20] === BATCH 117 ===
+Processing networks 1161 to 1170
+[17:27:20]   1161. TXH 95     - ENABLED -> txh-95-bjjchncmrp.dynamic-m.com
+[17:27:28]   1162. TXH 96     - ENABLED -> txh-96-hcknkdztrp.dynamic-m.com
+[17:27:35]   1163. TXH 97     - ENABLED -> txh-97-jntrthzrrp.dynamic-m.com
+[17:27:43]   1164. TXH SE Flex DTU - ALREADY ENABLED
+[17:27:43]   1165. TXHT00     - ALREADY ENABLED
+[17:27:44]   1166. TXH W00    - ALREADY ENABLED
+[17:27:45]   1167. TXL 01     - ENABLED -> txl-01-ttcztzpgrp.dynamic-m.com
+[17:27:53]   1168. TXL 02     - ENABLED -> txl-02-jzzwmbpdrp.dynamic-m.com
+[17:28:01]   1169. TXL 03     - ENABLED -> txl-03-cvzkgjvbrp.dynamic-m.com
+[17:28:09]   1170. TXL 04     - ENABLED -> txl-04-jzmchzngrp.dynamic-m.com
+[17:28:17] Batch summary: 7 enabled, 3 already enabled, 0 errors
+[17:28:17] Overall progress: 1170/1330 (88.0%)
+[17:28:17] Waiting 3 seconds before next batch...
+[17:28:20] === BATCH 118 ===
+Processing networks 1171 to 1180
+[17:28:20]   1171. TXL 05     - ENABLED -> txl-05-vnbdmnjgrp.dynamic-m.com
+[17:28:28]   1172. TXM 01     - ENABLED -> txm-01-tncqbgnjrp.dynamic-m.com
+[17:28:37]   1173. TXM 02     - ENABLED -> txm-02-btqvkbbkrp.dynamic-m.com
+[17:28:45]   1174. TXM 03     - ENABLED -> txm-03-rrgkwhtzrp.dynamic-m.com
+[17:28:53]   1175. TXN 01     - ENABLED -> txn-01-kzchgdvrrp.dynamic-m.com
+[17:29:01]   1176. TXO 01     - ENABLED -> txo-01-qtdbtmczrp.dynamic-m.com
+[17:29:09]   1177. TXO 02     - ENABLED -> txo-02-mphktmzwrp.dynamic-m.com
+[17:29:16]   1178. TXS_00     - ALREADY ENABLED
+[17:29:17]   1179. TXS 02     - ENABLED -> txs-02-bhgwvzcrrp.dynamic-m.com
+[17:29:25]   1180. TXS 05     - ENABLED -> txs-05-jtnvztcprp.dynamic-m.com
+[17:29:34] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[17:29:34] Overall progress: 1180/1330 (88.7%)
+[17:29:34] Waiting 3 seconds before next batch...
+[17:29:37] === BATCH 119 ===
+Processing networks 1181 to 1190
+[17:29:37]   1181. TXS 06     - ENABLED -> txs-06-jnzkjbqbrp.dynamic-m.com
+[17:29:45]   1182. TXS 07     - ENABLED -> txs-07-nmqmkcjdrp.dynamic-m.com
+[17:29:52]   1183. TXS 08     - ENABLED -> txs-08-mcbjcgkwrp.dynamic-m.com
+[17:30:01]   1184. TXS 09     - ENABLED -> txs-09-qrgtjgrmrp.dynamic-m.com
+[17:30:11]   1185. TXS 11     - ENABLED -> txs-11-twmbgcptrp.dynamic-m.com
+[17:30:20]   1186. TXS 12     - ENABLED -> txs-12-bmrgtvhcrp.dynamic-m.com
+[17:30:29]   1187. TXS 13     - ENABLED -> txs-13-prpthrmbrp.dynamic-m.com
+[17:30:40]   1188. TXS 14     - ENABLED -> txs-14-hczhqpgjrp.dynamic-m.com
+[17:30:49]   1189. TXS 15     - ENABLED -> txs-15-qbrhjbjvrp.dynamic-m.com
+[17:30:58]   1190. TXS 16     - ENABLED -> txs-16-phvhqmczrp.dynamic-m.com
+[17:31:06] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[17:31:06] Overall progress: 1190/1330 (89.5%)
+[17:31:06] Waiting 3 seconds before next batch...
+[17:31:09] === BATCH 120 ===
+Processing networks 1191 to 1200
+[17:31:09]   1191. TXS 17     - ENABLED -> txs-17-kqztmdqzrp.dynamic-m.com
+[17:31:17]   1192. TXS 18     - ENABLED -> txs-18-wkkjdhbrrp.dynamic-m.com
+[17:31:25]   1193. TXS 19     - ENABLED -> txs-19-dqpntncprp.dynamic-m.com
+[17:31:34]   1194. TXS 20     - ENABLED -> txs-20-pjmjzzgjrp.dynamic-m.com
+[17:31:43]   1195. TXS 21     - ENABLED -> txs-21-vpdkcchbrp.dynamic-m.com
+[17:31:52]   1196. TXS 22     - ENABLED -> txs-22-mjbjgkrkrp.dynamic-m.com
+[17:32:01]   1197. TXS 23     - ENABLED -> txs-23-rrmnrdkmrp.dynamic-m.com
+[17:32:11]   1198. TXS 24     - ENABLED -> txs-24-gvqzgzcprp.dynamic-m.com
+[17:32:21]   1199. TXS 25     - ENABLED -> txs-25-pgmbwqpjrp.dynamic-m.com
+[17:32:31]   1200. TXS 26     - ENABLED -> txs-26-qtmbzckhrp.dynamic-m.com
+[17:32:40] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[17:32:40] Overall progress: 1200/1330 (90.2%)
+[17:32:40] Waiting 3 seconds before next batch...
+[17:32:43] === BATCH 121 ===
+Processing networks 1201 to 1210
+[17:32:43]   1201. TXS 27     - ENABLED -> txs-27-zcgtpnwbrp.dynamic-m.com
+[17:32:51]   1202. TXS 28     - ENABLED -> txs-28-nvzdkhthrp.dynamic-m.com
+[17:33:00]   1203. TXS 29     - ENABLED -> txs-29-tchnttnvrp.dynamic-m.com
+[17:33:08]   1204. TXS 30     - ENABLED -> txs-30-dngkqzzkrp.dynamic-m.com
+[17:33:15]   1205. TXS 31     - ALREADY ENABLED
+[17:33:16]   1206. TXW 01     - ENABLED -> txw-01-kbmjjrjzrp.dynamic-m.com
+[17:33:24]   1207. TXW 02     - ENABLED -> txw-02-cgbmhbvgrp.dynamic-m.com
+[17:33:33]   1208. TXW 03     - ENABLED -> txw-03-rbrzqqgwrp.dynamic-m.com
+[17:33:40]   1209. TXW 04     - ENABLED -> txw-04-gpzjwgpqrp.dynamic-m.com
+[17:33:49]   1210. TXW 05     - ENABLED -> txw-05-vdkrgdjzrp.dynamic-m.com
+[17:33:58] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[17:33:58] Overall progress: 1210/1330 (91.0%)
+[17:33:58] Waiting 3 seconds before next batch...
+[17:34:01] === BATCH 122 ===
+Processing networks 1211 to 1220
+[17:34:01]   1211. TXW 06     - ENABLED -> txw-06-bwvmjtbhrp.dynamic-m.com
+[17:34:09]   1212. TXW 07     - ENABLED -> txw-07-krqbmnzkrp.dynamic-m.com
+[17:34:18]   1213. TXW 08     - ENABLED -> txw-08-kcgrwtpmrp.dynamic-m.com
+[17:34:27]   1214. TXW 09     - ENABLED -> txw-09-mggktqqgrp.dynamic-m.com
+[17:34:36]   1215. UTS_00     - ALREADY ENABLED
+[17:34:36]   1216. UTS 01     - ENABLED -> uts-01-ghzjrtvvrp.dynamic-m.com
+[17:34:44]   1217. UTS 02     - ENABLED -> uts-02-vpgpcwtgrp.dynamic-m.com
+[17:34:53]   1218. UTS 03     - ENABLED -> uts-03-rpwbdbwwrp.dynamic-m.com
+[17:35:03]   1219. UTS 04     - ENABLED -> uts-04-thvptkmmrp.dynamic-m.com
+[17:35:13]   1220. UTS 05     - ENABLED -> uts-05-jcznjdrqrp.dynamic-m.com
+[17:35:22] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[17:35:22] Overall progress: 1220/1330 (91.7%)
+[17:35:22] Waiting 3 seconds before next batch...
+[17:35:25] === BATCH 123 ===
+Processing networks 1221 to 1230
+[17:35:25]   1221. UTS 06     - ENABLED -> uts-06-qzzjhktzrp.dynamic-m.com
+[17:35:33]   1222. UTS 07     - ENABLED -> uts-07-jrthqbwrrp.dynamic-m.com
+[17:35:42]   1223. UTS 09     - ENABLED -> uts-09-qgvvcdjgrp.dynamic-m.com
+[17:35:51]   1224. UTS 11     - ENABLED -> uts-11-rjmwgbzqrp.dynamic-m.com
+[17:35:58]   1225. UTS 12     - ENABLED -> uts-12-zwwntnthrp.dynamic-m.com
+[17:36:06]   1226. UTS 13     - ENABLED -> uts-13-pvzzkddqrp.dynamic-m.com
+[17:36:13]   1227. UTS 14     - ENABLED -> uts-14-bbhrchwprp.dynamic-m.com
+[17:36:21]   1228. UTS 15     - ENABLED -> uts-15-rpzcmbcmrp.dynamic-m.com
+[17:36:30]   1229. UTS 16     - ENABLED -> uts-16-jpmzpmknrp.dynamic-m.com
+[17:36:39]   1230. UTS 17     - ENABLED -> uts-17-zqwwjjbrrp.dynamic-m.com
+[17:36:48] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[17:36:48] Overall progress: 1230/1330 (92.5%)
+[17:36:48] Waiting 3 seconds before next batch...
+[17:36:51] === BATCH 124 ===
+Processing networks 1231 to 1240
+[17:36:51]   1231. UTS 18     - ENABLED -> uts-18-mcpczzndrp.dynamic-m.com
+[17:36:59]   1232. UTS 19     - ENABLED -> uts-19-hzdbvbjqrp.dynamic-m.com
+[17:37:09]   1233. UTS 20     - ENABLED -> uts-20-tmkkqchcrp.dynamic-m.com
+[17:37:17]   1234. UTS 21     - ENABLED -> uts-21-vjnzprwcrp.dynamic-m.com
+[17:37:26]   1235. UTS 22     - ENABLED -> uts-22-nvzznqghrp.dynamic-m.com
+[17:37:33]   1236. UTS 23     - ENABLED -> uts-23-dzqwthwmrp.dynamic-m.com
+[17:37:41]   1237. UTS 24     - ENABLED -> uts-24-zwctpmnjrp.dynamic-m.com
+[17:37:49]   1238. UTS 25     - ENABLED -> uts-25-pwkwrpvrrp.dynamic-m.com
+[17:37:57]   1239. UTS 26     - ENABLED -> uts-26-pdgwvrvckkkc.dynamic-m.com
+[17:38:06]   1240. UTS W01    - ALREADY ENABLED
+[17:38:06] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[17:38:06] Overall progress: 1240/1330 (93.2%)
+[17:38:06] Waiting 3 seconds before next batch...
+[17:38:09] === BATCH 125 ===
+Processing networks 1241 to 1250
+[17:38:09]   1241. UTS W02    - ALREADY ENABLED
+[17:38:10]   1242. VAB 01     - ENABLED -> vab-01-cjcbpcccrp.dynamic-m.com
+[17:38:17]   1243. VAB 02     - ENABLED -> vab-02-dmjnrdbrrp.dynamic-m.com
+[17:38:26]   1244. VAB 03     - ENABLED -> vab-03-krzjqgprrp.dynamic-m.com
+[17:38:35]   1245. VAB 04     - ENABLED -> vab-04-vdrwqrbtrp.dynamic-m.com
+[17:38:44]   1246. VAB 05     - ENABLED -> vab-05-kkbdhdgnrp.dynamic-m.com
+[17:38:53]   1247. VAB 06     - ENABLED -> vab-06-kvhjzmbkrp.dynamic-m.com
+[17:39:01]   1248. VAB 07     - ENABLED -> vab-07-mbpvhbzzrp.dynamic-m.com
+[17:39:11]   1249. VAB 08     - ENABLED -> vab-08-vqbpznqrrp.dynamic-m.com
+[17:39:19]   1250. VAB 09     - ENABLED -> vab-09-khbdnbhmrp.dynamic-m.com
+[17:39:27] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[17:39:27] Overall progress: 1250/1330 (94.0%)
+[17:39:27] Waiting 3 seconds before next batch...
+[17:39:30] === BATCH 126 ===
+Processing networks 1251 to 1260
+[17:39:30]   1251. VAF 01 - appliance - ERROR: appliance, updateNetworkApplianceSettings - 400 Bad Request, {'errors': ['The Dynamic DNS name can consist only of lowercase letters or numbers separated by hyphens.']}
+[17:39:36]   1252. VAF 02     - ENABLED -> vaf-02-pbgzrrwnkkkc.dynamic-m.com
+[17:39:42]   1253. VAR_00     - ALREADY ENABLED
+[17:39:42]   1254. VAR 01     - ENABLED -> var-01-bmkgggnprp.dynamic-m.com
+[17:39:51]   1255. VAR 02     - ENABLED -> var-02-vkvgmmhhrp.dynamic-m.com
+[17:39:59]   1256. VAR 03     - ENABLED -> var-03-ttnbhwnprp.dynamic-m.com
+[17:40:08]   1257. VAR 04     - ENABLED -> var-04-kqrmhtgkrp.dynamic-m.com
+[17:40:19]   1258. VAR 05     - ENABLED -> var-05-jddnkhcqrp.dynamic-m.com
+[17:40:27]   1259. VAR 06     - ENABLED -> var-06-pnjmwntrrp.dynamic-m.com
+[17:40:36]   1260. VAR 07     - ENABLED -> var-07-jnjdddcbrp.dynamic-m.com
+[17:40:45] Batch summary: 8 enabled, 1 already enabled, 1 errors
+[17:40:45] Overall progress: 1260/1330 (94.7%)
+[17:40:45] Waiting 3 seconds before next batch...
+[17:40:48] === BATCH 127 ===
+Processing networks 1261 to 1270
+[17:40:48]   1261. VAR 08     - ENABLED -> var-08-hvdbvrgqkkkc.dynamic-m.com
+[17:40:57]   1262. VAT 01     - ENABLED -> vat-01-zzjjzgdqrp.dynamic-m.com
+[17:41:05]   1263. VAW 01     - ENABLED -> vaw-01-pmbpgtkkrp.dynamic-m.com
+[17:41:15]   1264. VAW 02     - ENABLED -> vaw-02-ndgcqwrnrp.dynamic-m.com
+[17:41:23]   1265. VAW 03     - ENABLED -> vaw-03-qvhwmmhhkkkc.dynamic-m.com
+[17:41:32]   1266. VAW 04     - ENABLED -> vaw-04-znbqmnttkkkc.dynamic-m.com
+[17:41:41]   1267. VISION_Store0 - ALREADY ENABLED
+[17:41:41]   1268. VISION_Test_Lab_MinesW - ALREADY ENABLED
+[17:41:42]   1269. WAE 01     - ENABLED -> wae-01-hhwvdqqwrp.dynamic-m.com
+[17:41:50]   1270. WAE 02     - ENABLED -> wae-02-rbgmhngzrp.dynamic-m.com
+[17:41:58] Batch summary: 8 enabled, 2 already enabled, 0 errors
+[17:41:58] Overall progress: 1270/1330 (95.5%)
+[17:41:58] Waiting 3 seconds before next batch...
+[17:42:01] === BATCH 128 ===
+Processing networks 1271 to 1280
+[17:42:01]   1271. WAE 03     - ENABLED -> wae-03-khnrtdctrp.dynamic-m.com
+[17:42:10]   1272. WAE 04     - ENABLED -> wae-04-hgdrbphdrp.dynamic-m.com
+[17:42:18]   1273. WAS_00     - ALREADY ENABLED
+[17:42:19]   1274. WAS 01     - ENABLED -> was-01-mvkbtbwrrp.dynamic-m.com
+[17:42:28]   1275. WAS 02     - ENABLED -> was-02-qtdhncdmrp.dynamic-m.com
+[17:42:36]   1276. WAS 03     - ENABLED -> was-03-htgchrnqrp.dynamic-m.com
+[17:42:44]   1277. WAS 04     - ENABLED -> was-04-qhvbgbcrrp.dynamic-m.com
+[17:42:52]   1278. WAS 05     - ENABLED -> was-05-vrbqwczvrp.dynamic-m.com
+[17:43:00]   1279. WAS 06     - ENABLED -> was-06-wqttvqjprp.dynamic-m.com
+[17:43:10]   1280. WAS 08     - ENABLED -> was-08-chjbjjcrrp.dynamic-m.com
+[17:43:18] Batch summary: 9 enabled, 1 already enabled, 0 errors
+[17:43:18] Overall progress: 1280/1330 (96.2%)
+[17:43:18] Waiting 3 seconds before next batch...
+[17:43:21] === BATCH 129 ===
+Processing networks 1281 to 1290
+[17:43:21]   1281. WAS 09     - ENABLED -> was-09-dqjzqnmbrp.dynamic-m.com
+[17:43:30]   1282. WAS 11     - ENABLED -> was-11-dhwckhtnrp.dynamic-m.com
+[17:43:39]   1283. WAS 12     - ENABLED -> was-12-mnjrkqpdrp.dynamic-m.com
+[17:43:48]   1284. WAS 13     - ENABLED -> was-13-tqzhrcbtrp.dynamic-m.com
+[17:43:56]   1285. WAS 14     - ENABLED -> was-14-gmcrhkkbrp.dynamic-m.com
+[17:44:04]   1286. WAS 15     - ENABLED -> was-15-kmgvjgbwrp.dynamic-m.com
+[17:44:13]   1287. WAS 17     - ENABLED -> was-17-cjvnrzjprp.dynamic-m.com
+[17:44:21]   1288. WAS 18     - ENABLED -> was-18-wchgdchtrp.dynamic-m.com
+[17:44:29]   1289. WAS 19     - ENABLED -> was-19-bnwzwbmprp.dynamic-m.com
+[17:44:37]   1290. WAS 20     - ENABLED -> was-20-kgmmnmmbrp.dynamic-m.com
+[17:44:45] Batch summary: 10 enabled, 0 already enabled, 0 errors
+[17:44:45] Overall progress: 1290/1330 (97.0%)
+[17:44:45] Waiting 3 seconds before next batch...
+[17:44:48] === BATCH 130 ===
+Processing networks 1291 to 1300
+[17:44:48]   1291. WAS 21     - ENABLED -> was-21-tddbgkvkrp.dynamic-m.com
+[17:44:57]   1292. WAS 22     - ENABLED -> was-22-mdjmtnvnrp.dynamic-m.com
+[17:45:06]   1293. WAS 23     - ENABLED -> was-23-qkwkqhkgrp.dynamic-m.com
+[17:45:15]   1294. WAS 24     - ENABLED -> was-24-whdwpkjcrp.dynamic-m.com
+[17:45:24]   1295. WAS 25     - ENABLED -> was-25-rzcrrqgrrp.dynamic-m.com
+[17:45:32]   1296. WAS 26     - ENABLED -> was-26-gdtnnvmrrp.dynamic-m.com
+[17:45:41]   1297. WAS 27     - ENABLED -> was-27-wjckcmcwrp.dynamic-m.com
+[17:45:48]   1298. WAS 28     - ENABLED -> was-28-pntpzdqrrp.dynamic-m.com
+[17:45:56]   1299. WAS 29     - ALREADY ENABLED
+[17:45:57]   1300. WAS W00    - ALREADY ENABLED
+[17:45:57] Batch summary: 8 enabled, 2 already enabled, 0 errors
+[17:45:57] Overall progress: 1300/1330 (97.7%)
+[17:45:57] Waiting 3 seconds before next batch...
+[17:46:00] === BATCH 131 ===
+Processing networks 1301 to 1310
+[17:46:00]   1301. WAV 01     - ENABLED -> wav-01-rqzcmpbdrp.dynamic-m.com
+[17:46:08]   1302. WAV 02     - ENABLED -> wav-02-bqzkzwjwrp.dynamic-m.com
+[17:46:16]   1303. WAX 01     - ALREADY ENABLED
+[17:46:17]   1304. WAX 01     - ALREADY ENABLED
+[17:46:17]   1305. WAY 01     - ENABLED -> way-01-bhtnczzwrp.dynamic-m.com
+[17:46:25]   1306. WDCA 01    - ALREADY ENABLED
+[17:46:25]   1307. WDGA01     - ENABLED -> wdga01-kvtzhrcmrp.dynamic-m.com
+[17:46:33]   1308. WDIL 01    - ALREADY ENABLED
+[17:46:34]   1309. WDTD 01    - ALREADY ENABLED
+[17:46:34]   1310. West Store Test - ERROR: appliance, updateNetworkApplianceSettings - 400 Bad Request, {'errors': ['Unsupported for networks bound to a template']}
+[17:46:35] Batch summary: 4 enabled, 5 already enabled, 1 errors
+[17:46:35] Overall progress: 1310/1330 (98.5%)
+[17:46:35] Waiting 3 seconds before next batch...
+[17:46:38] === BATCH 132 ===
+Processing networks 1311 to 1320
+[17:46:38]   1311. WIA 01     - ENABLED -> wia-01-cnhgbwgqrp.dynamic-m.com
+[17:46:47]   1312. WIA 02     - ENABLED -> wia-02-gjndkmmqrp.dynamic-m.com
+[17:46:55]   1313. WIC 01     - ALREADY ENABLED
+[17:46:56]   1314. WIE 01     - ALREADY ENABLED
+[17:46:56]   1315. WIE 02     - ENABLED -> wie-02-kbzmprzvkkkc.dynamic-m.com
+[17:47:05]   1316. WIG 01     - ENABLED -> wig-01-nkjrbjkvrp.dynamic-m.com
+[17:47:13]   1317. WIL 01     - ALREADY ENABLED
+[17:47:13]   1318. WIM 01     - ENABLED -> wim-01-mghjhwdgrp.dynamic-m.com
+[17:47:22]   1319. WIM 02     - ENABLED -> wim-02-kmdtgcmprp.dynamic-m.com
+[17:47:30]   1320. WIM 03     - ENABLED -> wim-03-ggbgbmrnrp.dynamic-m.com
+[17:47:37] Batch summary: 7 enabled, 3 already enabled, 0 errors
+[17:47:37] Overall progress: 1320/1330 (99.2%)
+[17:47:37] Waiting 3 seconds before next batch...
+[17:47:40] === BATCH 133 ===
+Processing networks 1321 to 1330
+[17:47:40]   1321. WIM 04     - ENABLED -> wim-04-qhgpbjbnrp.dynamic-m.com
+[17:47:49]   1322. WIM 05     - ENABLED -> wim-05-pbztmrkqrp.dynamic-m.com
+[17:47:57]   1323. WIM 06     - ENABLED -> wim-06-zhwcrbnmrp.dynamic-m.com
+[17:48:04]   1324. WIO 01     - ENABLED -> wio-01-cjdkvmgvrp.dynamic-m.com
+[17:48:12]   1325. WIW 01     - ENABLED -> wiw-01-gpdcbpcdrp.dynamic-m.com
+[17:48:19]   1326. WVE 01     - ENABLED -> wve-01-zmmzhtzgrp.dynamic-m.com
+[17:48:28]   1327. WYO 01     - ENABLED -> wyo-01-jzwzjtmcrp.dynamic-m.com
+[17:48:36]   1328. WYO 02     - ENABLED -> wyo-02-kvbwrztrrp.dynamic-m.com
+[17:48:43]   1329. WYO 03     - ALREADY ENABLED
+[17:48:44]   1330. Wyomissing Voice - ALREADY ENABLED
+[17:48:45] Batch summary: 8 enabled, 2 already enabled, 0 errors
+[17:48:45] Overall progress: 1330/1330 (100.0%)
+[17:48:45] === FINAL SUMMARY ===
+Completed at: 2025-07-08 17:48:45
+Networks processed: 1330
+Newly enabled: 1157
+Already enabled: 167
+Errors: 6
+Success rate: 99.5%
+
+Errors encountered:
+  - AZP_00: appliance, updateNetworkApplianceSettings - 400 Bad Request, {'errors': ['The Dynamic DNS name can consist only of lowercase letters or numbers separated by hyphens.']}
+  - AZP 31: appliance, updateNetworkApplianceSettings - 400 Bad Request, {'errors': ['Unsupported for networks bound to a template']}
+  - COD 09: appliance, updateNetworkApplianceSettings - 400 Bad Request, {'errors': ['Unsupported for networks bound to a template']}
+  - Store in a box #2: appliance, updateNetworkApplianceSettings - 400 Bad Request, {'errors': ['The Dynamic DNS name can consist only of lowercase letters or numbers separated by hyphens.']}
+  - VAF 01 - appliance: appliance, updateNetworkApplianceSettings - 400 Bad Request, {'errors': ['The Dynamic DNS name can consist only of lowercase letters or numbers separated by hyphens.']}
+  - West Store Test: appliance, updateNetworkApplianceSettings - 400 Bad Request, {'errors': ['Unsupported for networks bound to a template']}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Not Vision Ready Filter Logic</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Test Not Vision Ready Filter Logic</h1>
+    
+    <h2>Test Data</h2>
+    <div id="testResults"></div>
+    
+    <script>
+        // Test data based on user examples
+        var testData = [
+            // [Site, WAN1 Provider, WAN1 Speed, WAN1 Cost, WAN2 Provider, WAN2 Speed, WAN2 Cost, Action]
+            ['CAS 02', 'ComcastAgg CLinkNON-DSR', '10.0M x 1.0M', '$0.00', 'AT&T📶 AT&T', 'Cell', '$0.00', 'Edit'],
+            ['NVL 16', 'SomeProvider', '15.0M x 2.0M', '$50.00', 'Verizon', 'Cell', '$0.00', 'Edit'],
+            ['WAS 23', 'ComcastAgg CLinkNON-DSR', '10.0M x 1.0M', '$0.00', 'AT&T📶 AT&T', 'Cell', '$0.00', 'Edit'],
+            ['AZP 56', 'ComcastNON-DSR', '10.0M x 10.0M', '$0.00', 'AT&T📶 AT&T', 'Cell', '$0.00', 'Edit'],
+            ['CAN 12', 'Etheric NetworksDSR', '10.0M x 10.0M', '$250.00', 'AT&T📶 AT&T', 'Cell', '$0.00', 'Edit'],
+            ['AZP 49', 'CenturyLink/QwestDSR', '12.0M x 2.0M', '$89.99', 'AT&T📶 AT&T', 'Cell', '$0.00', 'Edit'],
+            ['TEST 01', 'High Speed Provider', '200.0M x 50.0M', '$200.00', 'Cable Provider', '100.0M x 20.0M', '$150.00', 'Edit']
+        ];
+        
+        // Copy of the filter function from dsrcircuits.html
+        function testNotVisionReadyFilter(data) {
+            // Column indexes: 0=Site, 1=WAN1 Provider, 2=WAN1 Speed, 3=WAN1 Cost, 
+            //                 4=WAN2 Provider, 5=WAN2 Speed, 6=WAN2 Cost, 7=Action
+            var siteName = data[0].trim();
+            var wan1Speed = data[2].trim();
+            var wan2Speed = data[5].trim();
+            
+            console.log('Testing site:', siteName);
+            console.log('WAN1 Speed:', '"' + wan1Speed + '"');
+            console.log('WAN2 Speed:', '"' + wan2Speed + '"');
+            
+            // SIMPLIFIED LOGIC per user request:
+            // 1. Both WAN1 and WAN2 speeds = "Cell"
+            // 2. OR one WAN speed has download < 100M
+            
+            // Check for Cell speeds (handle any whitespace or case issues)
+            var wan1IsCell = wan1Speed.toLowerCase().includes('cell');
+            var wan2IsCell = wan2Speed.toLowerCase().includes('cell');
+            
+            // If both are Cell, include it
+            if (wan1IsCell && wan2IsCell) {
+                console.log('MATCH: Both Cell - WAN1:', wan1IsCell, 'WAN2:', wan2IsCell);
+                return true;
+            }
+            
+            // Check for low bandwidth (< 100M download)
+            function hasLowBandwidth(speedStr) {
+                if (!speedStr || speedStr === 'N/A' || speedStr === 'null' || 
+                    speedStr.toLowerCase().includes('cell') || speedStr.toLowerCase().includes('satellite') || 
+                    speedStr === 'TBD' || speedStr === 'Unknown') {
+                    return false;
+                }
+                
+                // Parse speed string like "10.0M x 1.0M"
+                var match = speedStr.match(/^([\d.]+)M\s*[xX]\s*([\d.]+)M$/);
+                if (match) {
+                    var download = parseFloat(match[1]);
+                    return download < 100.0;  // Less than 100M download
+                }
+                return false;
+            }
+            
+            // Check if either WAN has low bandwidth
+            var wan1HasLowBandwidth = hasLowBandwidth(wan1Speed);
+            var wan2HasLowBandwidth = hasLowBandwidth(wan2Speed);
+            
+            var matchesLowBandwidth = wan1HasLowBandwidth || wan2HasLowBandwidth;
+            
+            console.log('Low bandwidth check - WAN1:', wan1HasLowBandwidth, 'WAN2:', wan2HasLowBandwidth);
+            console.log('Final result:', matchesLowBandwidth);
+            console.log('---');
+            
+            // Include if any WAN has low bandwidth
+            return matchesLowBandwidth;
+        }
+        
+        // Test the filter
+        var results = [];
+        testData.forEach(function(row) {
+            var shouldMatch = testNotVisionReadyFilter(row);
+            results.push({
+                site: row[0],
+                wan1Speed: row[2],
+                wan2Speed: row[5],
+                matches: shouldMatch
+            });
+        });
+        
+        // Display results
+        var html = '<table border="1" style="border-collapse: collapse; margin-top: 20px;">';
+        html += '<tr><th>Site</th><th>WAN1 Speed</th><th>WAN2 Speed</th><th>Matches Filter</th><th>Expected</th></tr>';
+        
+        results.forEach(function(result) {
+            var expected = 'Yes'; // All test sites should match
+            var color = result.matches ? 'green' : 'red';
+            html += '<tr>';
+            html += '<td>' + result.site + '</td>';
+            html += '<td>' + result.wan1Speed + '</td>';
+            html += '<td>' + result.wan2Speed + '</td>';
+            html += '<td style="color: ' + color + '">' + (result.matches ? 'Yes' : 'No') + '</td>';
+            html += '<td>' + expected + '</td>';
+            html += '</tr>';
+        });
+        
+        html += '</table>';
+        document.getElementById('testResults').innerHTML = html;
+    </script>
+</body>
+</html>

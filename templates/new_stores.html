@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Stores Management - Discount Tire</title>
+    <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f5f5;
+            color: #333;
+            margin: 20px;
+        }
+        
+        .header-container {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-container h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        /* Navigation Buttons - Standardized */
+        .nav-buttons {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-buttons button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .nav-buttons button:hover {
+            background: #2980b9;
+        }
+        
+        .nav-buttons button.active {
+            background: #27ae60;
+        }
+        
+        /* Tab Navigation */
+        .tab-nav {
+            margin-bottom: 20px;
+            border-bottom: 2px solid #dee2e6;
+        }
+        
+        .tab-nav button {
+            background: none;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            color: #6c757d;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-nav button.active {
+            border-bottom: 3px solid #007bff;
+            color: #007bff;
+            font-weight: 600;
+        }
+        
+        /* Main Content Area */
+        .content-area {
+            margin-top: 20px;
+        }
+        
+        /* Stats Cards */
+        .stats-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .stat-card {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stat-card h3 {
+            font-size: 32px;
+            color: #007bff;
+            margin: 0;
+        }
+        
+        .stat-card p {
+            color: #6c757d;
+            margin: 5px 0 0 0;
+            font-size: 14px;
+        }
+        
+        /* Table Styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 13px;
+        }
+        
+        th {
+            background: #f8f9fa;
+            padding: 10px;
+            text-align: left;
+            border: 1px solid #dee2e6;
+            font-weight: 600;
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        th:hover {
+            background: #e9ecef;
+        }
+        
+        td {
+            padding: 8px;
+            border: 1px solid #dee2e6;
+        }
+        
+        /* Editable Input Styles */
+        input[type="text"], select {
+            width: 100%;
+            border: none;
+            background: transparent;
+            padding: 2px 4px;
+            font-size: 13px;
+        }
+        
+        input[type="text"]:focus, select:focus {
+            outline: 2px solid #007bff;
+            background: white;
+        }
+        
+        /* Button Styles */
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: #007bff;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #0056b3;
+        }
+        
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #218838;
+        }
+        
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+            padding: 4px 8px;
+            font-size: 11px;
+        }
+        
+        .btn-danger:hover {
+            background: #c82333;
+        }
+        
+        /* Filter Input */
+        .filter-input {
+            width: 300px;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 12px 20px;
+            border-radius: 4px;
+            color: white;
+            font-size: 14px;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .toast.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .toast.success {
+            background: #28a745;
+        }
+        
+        .toast.error {
+            background: #dc3545;
+        }
+        
+        .toast.warning {
+            background: #ffc107;
+            color: #212529;
+        }
+        
+        .toast.info {
+            background: #17a2b8;
+        }
+        
+        /* Circuit Table Section */
+        .circuit-section {
+            margin-top: 40px;
+            border-top: 2px solid #dee2e6;
+            padding-top: 20px;
+        }
+        
+        .circuit-section h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .no-data {
+            text-align: center;
+            color: #999;
+            font-style: italic;
+            padding: 40px;
+        }
+        
+        /* Loading Spinner */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <h1>🏗️ New Stores Management</h1>
+    </div>
+
+    <div class="container">
+        <!-- Navigation -->
+        <div class="nav-buttons">
+            <button onclick="window.location.href='/home'">🏠 Home</button>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-cards">
+            <div class="stat-card">
+                <h3 id="total-stores">0</h3>
+                <p>Total New Stores</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="construction-stores">0</h3>
+                <p>In Construction</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="tbd-stores">0</h3>
+                <p>TOD: TBD</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="total-circuits">0</h3>
+                <p>Total Circuits</p>
+            </div>
+        </div>
+
+        <!-- Tab Navigation -->
+        <div class="tab-nav">
+            <button id="tab-manual" class="active" onclick="showTab('manual')">✏️ Manual Entry</button>
+            <button id="tab-upload" onclick="showTab('upload')">📁 Upload Excel File</button>
+            <button id="tab-current" onclick="showTab('current')">📋 Current Stores</button>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- Manual Entry Tab -->
+            <div id="manual-entry-section">
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 10px; font-weight: 600;">
+                        How many stores do you want to add?
+                    </label>
+                    <input type="number" id="store-count" min="1" max="50" value="1" 
+                        style="width: 100px; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                    <button onclick="generateStoreRows()" class="btn btn-primary" style="margin-left: 10px;">
+                        Generate Rows
+                    </button>
+                </div>
+                
+                <div id="store-input-rows" style="margin-bottom: 20px;">
+                    <!-- Dynamic rows will be generated here -->
+                </div>
+                
+                <div>
+                    <button onclick="addNewStoresManual()" class="btn btn-success">
+                        ➕ Add Stores
+                    </button>
+                </div>
+            </div>
+
+            <!-- File Upload Tab -->
+            <div id="file-upload-section" style="display: none;">
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; margin-bottom: 10px; font-weight: 600;">
+                        Upload Target Opening Dates Excel File:
+                    </label>
+                    <input type="file" id="excel-file-input" accept=".xlsx,.xls" 
+                        style="margin-bottom: 10px;">
+                    <p style="font-size: 12px; color: #666; margin: 10px 0;">
+                        Excel file should contain columns: Store # (Site Name) and TOD (Target Opening Date)
+                    </p>
+                    <button onclick="uploadExcelFile()" class="btn btn-success">
+                        📤 Upload File
+                    </button>
+                </div>
+            </div>
+
+            <!-- Current Stores Tab -->
+            <div id="current-stores-section" style="display: none;">
+                <input type="text" id="new-stores-filter" placeholder="Filter stores..." 
+                    class="filter-input" onkeyup="filterNewStores()">
+                
+                <div id="new-stores-list">
+                    <!-- Table will be populated here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Circuit Data Section -->
+        <div class="circuit-section" id="circuit-section" style="display: none;">
+            <h2>Circuit Data for New Stores</h2>
+            <div id="circuit-data">
+                <!-- Circuit table will be populated here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <script>
+        // Global variables
+        let allNewStores = [];
+        let newStoresSortColumn = 'tod';
+        let newStoresSortDirection = 'asc';
+        let currentTab = 'manual';
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            generateStoreRows();
+            loadNewStores();
+            updateStats();
+        });
+
+        // Tab navigation
+        function showTab(tab) {
+            currentTab = tab;
+            
+            // Update tab buttons
+            document.querySelectorAll('.tab-nav button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`tab-${tab}`).classList.add('active');
+            
+            // Show/hide sections
+            document.getElementById('manual-entry-section').style.display = tab === 'manual' ? 'block' : 'none';
+            document.getElementById('file-upload-section').style.display = tab === 'upload' ? 'block' : 'none';
+            document.getElementById('current-stores-section').style.display = tab === 'current' ? 'block' : 'none';
+            
+            // Show circuit section only for current stores tab
+            document.getElementById('circuit-section').style.display = tab === 'current' ? 'block' : 'none';
+            
+            if (tab === 'current') {
+                loadNewStoreCircuits();
+            }
+        }
+
+        // Toast notification
+        function showNotification(message, type = 'info') {
+            const toast = document.getElementById('toast');
+            toast.textContent = message;
+            toast.className = `toast ${type}`;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Update statistics
+        function updateStats() {
+            fetch('/api/new-stores')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.stores) {
+                        document.getElementById('total-stores').textContent = data.total || 0;
+                        
+                        let constructionCount = 0;
+                        let tbdCount = 0;
+                        
+                        data.stores.forEach(store => {
+                            if (store.project_status && store.project_status.includes('Construction')) {
+                                constructionCount++;
+                            }
+                            if (store.target_opening_date_text === 'TBD') {
+                                tbdCount++;
+                            }
+                        });
+                        
+                        document.getElementById('construction-stores').textContent = constructionCount;
+                        document.getElementById('tbd-stores').textContent = tbdCount;
+                    }
+                })
+                .catch(error => console.error('Error updating stats:', error));
+            
+            // Get circuit count
+            fetch('/api/new-store-circuits-with-tod')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('total-circuits').textContent = data.total_circuits || 0;
+                })
+                .catch(error => console.error('Error getting circuit count:', error));
+        }
+
+        // Generate dynamic store input rows
+        function generateStoreRows() {
+            const count = parseInt(document.getElementById('store-count').value) || 1;
+            const container = document.getElementById('store-input-rows');
+            
+            container.innerHTML = `
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="cursor: default;">Store #</th>
+                                <th style="cursor: default;">Region</th>
+                                <th style="cursor: default;">City</th>
+                                <th style="cursor: default;">State</th>
+                                <th style="cursor: default;">Project Status</th>
+                                <th style="cursor: default;">TOD</th>
+                            </tr>
+                        </thead>
+                        <tbody id="store-rows-tbody">
+                        </tbody>
+                    </table>
+                </div>
+            `;
+            
+            const tbody = document.getElementById('store-rows-tbody');
+            for (let i = 0; i < count; i++) {
+                tbody.innerHTML += `
+                    <tr>
+                        <td>
+                            <input type="text" id="site-name-${i}" placeholder="ABC 01" 
+                                style="text-transform: uppercase;"
+                                onblur="this.value = this.value.toUpperCase()">
+                        </td>
+                        <td>
+                            <input type="text" id="region-${i}" placeholder="Arizona">
+                        </td>
+                        <td>
+                            <input type="text" id="city-${i}" placeholder="Phoenix">
+                        </td>
+                        <td>
+                            <input type="text" id="state-${i}" placeholder="AZ" maxlength="2"
+                                style="width: 50px; text-transform: uppercase;"
+                                onblur="this.value = this.value.toUpperCase()">
+                        </td>
+                        <td>
+                            <select id="status-${i}">
+                                <option value="">Select Status</option>
+                                <option value="01 - Feasibility">01 - Feasibility</option>
+                                <option value="02 - Acquired">02 - Acquired</option>
+                                <option value="03 - Pre-Construction">03 - Pre-Construction</option>
+                                <option value="04 - Construction">04 - Construction</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input type="text" id="tod-${i}" placeholder="YYYY-MM-DD or TBD" 
+                                style="width: 120px;">
+                        </td>
+                    </tr>
+                `;
+            }
+        }
+
+        // Add new stores manually
+        function addNewStoresManual() {
+            const count = parseInt(document.getElementById('store-count').value) || 1;
+            const stores = [];
+            
+            for (let i = 0; i < count; i++) {
+                const siteName = document.getElementById(`site-name-${i}`).value.trim();
+                const region = document.getElementById(`region-${i}`).value.trim();
+                const city = document.getElementById(`city-${i}`).value.trim();
+                const state = document.getElementById(`state-${i}`).value.trim();
+                const projectStatus = document.getElementById(`status-${i}`).value;
+                const tod = document.getElementById(`tod-${i}`).value.trim();
+                
+                if (siteName) {
+                    stores.push({
+                        site_name: siteName,
+                        region: region || null,
+                        city: city || null,
+                        state: state || null,
+                        project_status: projectStatus || null,
+                        target_opening_date: tod || null
+                    });
+                }
+            }
+            
+            if (stores.length === 0) {
+                showNotification('Please enter at least one site name', 'warning');
+                return;
+            }
+            
+            fetch('/api/new-stores/manual', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ stores: stores })
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    showNotification(`Added ${result.total_added} new stores`, 'success');
+                    if (result.total_updated > 0) {
+                        showNotification(`Updated ${result.total_updated} existing stores`, 'info');
+                    }
+                    // Clear inputs
+                    for (let i = 0; i < count; i++) {
+                        document.getElementById(`site-name-${i}`).value = '';
+                        document.getElementById(`region-${i}`).value = '';
+                        document.getElementById(`city-${i}`).value = '';
+                        document.getElementById(`state-${i}`).value = '';
+                        document.getElementById(`status-${i}`).value = '';
+                        document.getElementById(`tod-${i}`).value = '';
+                    }
+                    loadNewStores();
+                    updateStats();
+                } else {
+                    showNotification('Error adding new stores', 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showNotification('Error adding new stores', 'error');
+            });
+        }
+
+        // Upload Excel file
+        function uploadExcelFile() {
+            const fileInput = document.getElementById('excel-file-input');
+            const file = fileInput.files[0];
+            
+            if (!file) {
+                showNotification('Please select a file', 'warning');
+                return;
+            }
+            
+            const formData = new FormData();
+            formData.append('file', file);
+            
+            showNotification('Uploading file...', 'info');
+            
+            fetch('/api/new-stores/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    showNotification(`Added ${result.total_added} new stores`, 'success');
+                    if (result.total_updated > 0) {
+                        showNotification(`Updated ${result.total_updated} existing stores`, 'info');
+                    }
+                    if (result.total_errors > 0) {
+                        showNotification(`${result.total_errors} errors occurred - check console`, 'warning');
+                        console.error('Upload errors:', result.errors);
+                    }
+                    fileInput.value = '';
+                    loadNewStores();
+                    updateStats();
+                } else {
+                    showNotification(`Error: ${result.error}`, 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showNotification('Error uploading file', 'error');
+            });
+        }
+
+        // Load current new stores
+        function loadNewStores() {
+            fetch('/api/new-stores')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.stores && data.stores.length > 0) {
+                        allNewStores = data.stores;
+                        renderNewStoresTable();
+                    } else {
+                        document.getElementById('new-stores-list').innerHTML = '<p class="no-data">No new stores currently being tracked</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading new stores:', error);
+                    document.getElementById('new-stores-list').innerHTML = '<p style="color: #dc3545;">Error loading new stores</p>';
+                });
+        }
+
+        // Render new stores table
+        function renderNewStoresTable(filteredStores = null) {
+            const stores = filteredStores || allNewStores;
+            const listDiv = document.getElementById('new-stores-list');
+            
+            // Sort stores
+            const sortedStores = [...stores].sort((a, b) => {
+                let aVal, bVal;
+                
+                if (newStoresSortColumn === 'tod') {
+                    aVal = a.target_opening_date || (a.target_opening_date_text === 'TBD' ? '9999-12-31' : '9999-12-30');
+                    bVal = b.target_opening_date || (b.target_opening_date_text === 'TBD' ? '9999-12-31' : '9999-12-30');
+                } else if (newStoresSortColumn === 'site_name') {
+                    aVal = a.site_name || '';
+                    bVal = b.site_name || '';
+                } else if (newStoresSortColumn === 'status') {
+                    aVal = a.project_status || '';
+                    bVal = b.project_status || '';
+                } else {
+                    aVal = a[newStoresSortColumn] || '';
+                    bVal = b[newStoresSortColumn] || '';
+                }
+                
+                if (aVal < bVal) return newStoresSortDirection === 'asc' ? -1 : 1;
+                if (aVal > bVal) return newStoresSortDirection === 'asc' ? 1 : -1;
+                return 0;
+            });
+            
+            listDiv.innerHTML = `
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th onclick="sortNewStores('site_name')">
+                                    Store # ${newStoresSortColumn === 'site_name' ? (newStoresSortDirection === 'asc' ? '▲' : '▼') : ''}
+                                </th>
+                                <th onclick="sortNewStores('region')">
+                                    Region ${newStoresSortColumn === 'region' ? (newStoresSortDirection === 'asc' ? '▲' : '▼') : ''}
+                                </th>
+                                <th onclick="sortNewStores('city')">
+                                    City ${newStoresSortColumn === 'city' ? (newStoresSortDirection === 'asc' ? '▲' : '▼') : ''}
+                                </th>
+                                <th onclick="sortNewStores('state')">
+                                    State ${newStoresSortColumn === 'state' ? (newStoresSortDirection === 'asc' ? '▲' : '▼') : ''}
+                                </th>
+                                <th onclick="sortNewStores('status')">
+                                    Project Status ${newStoresSortColumn === 'status' ? (newStoresSortDirection === 'asc' ? '▲' : '▼') : ''}
+                                </th>
+                                <th onclick="sortNewStores('tod')">
+                                    TOD ${newStoresSortColumn === 'tod' ? (newStoresSortDirection === 'asc' ? '▲' : '▼') : ''}
+                                </th>
+                                <th style="text-align: center; cursor: default;">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${sortedStores.map(store => {
+                                let todDisplay = '';
+                                let todValue = '';
+                                let todColor = '#212529';
+                                if (store.target_opening_date_text) {
+                                    todDisplay = store.target_opening_date_text;
+                                    todValue = store.target_opening_date_text;
+                                    todColor = store.target_opening_date_text === 'TBD' ? '#ffc107' : '#212529';
+                                } else if (store.target_opening_date) {
+                                    todDisplay = new Date(store.target_opening_date).toLocaleDateString();
+                                    todValue = store.target_opening_date;
+                                    todColor = '#28a745';
+                                } else {
+                                    todDisplay = 'Not specified';
+                                    todValue = '';
+                                    todColor = '#6c757d';
+                                }
+                                
+                                return `
+                                    <tr>
+                                        <td style="font-weight: 600;">${store.site_name}</td>
+                                        <td>
+                                            <input type="text" value="${store.region || ''}" 
+                                                onchange="updateStore(${store.id}, 'region', this.value)">
+                                        </td>
+                                        <td>
+                                            <input type="text" value="${store.city || ''}" 
+                                                onchange="updateStore(${store.id}, 'city', this.value)">
+                                        </td>
+                                        <td>
+                                            <input type="text" value="${store.state || ''}" maxlength="2"
+                                                onchange="updateStore(${store.id}, 'state', this.value.toUpperCase())"
+                                                style="width: 50px; text-transform: uppercase;">
+                                        </td>
+                                        <td>
+                                            <select onchange="updateStore(${store.id}, 'project_status', this.value)">
+                                                <option value="">-</option>
+                                                <option value="01 - Feasibility" ${store.project_status === '01 - Feasibility' ? 'selected' : ''}>01 - Feasibility</option>
+                                                <option value="02 - Acquired" ${store.project_status === '02 - Acquired' ? 'selected' : ''}>02 - Acquired</option>
+                                                <option value="03 - Pre-Construction" ${store.project_status === '03 - Pre-Construction' ? 'selected' : ''}>03 - Pre-Construction</option>
+                                                <option value="04 - Construction" ${store.project_status === '04 - Construction' ? 'selected' : ''}>04 - Construction</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <input type="text" value="${todValue}" placeholder="YYYY-MM-DD or TBD"
+                                                onchange="updateStore(${store.id}, 'target_opening_date', this.value)"
+                                                style="width: 120px; color: ${todColor}; font-weight: 500;">
+                                        </td>
+                                        <td style="text-align: center;">
+                                            <button onclick="removeNewStore(${store.id}, '${store.site_name}')" 
+                                                class="btn btn-danger">
+                                                Remove
+                                            </button>
+                                        </td>
+                                    </tr>
+                                `;
+                            }).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }
+
+        // Sort new stores
+        function sortNewStores(column) {
+            if (newStoresSortColumn === column) {
+                newStoresSortDirection = newStoresSortDirection === 'asc' ? 'desc' : 'asc';
+            } else {
+                newStoresSortColumn = column;
+                newStoresSortDirection = 'asc';
+            }
+            renderNewStoresTable();
+        }
+
+        // Filter new stores
+        function filterNewStores() {
+            const filterText = document.getElementById('new-stores-filter').value.toLowerCase();
+            if (!filterText) {
+                renderNewStoresTable();
+                return;
+            }
+            
+            const filtered = allNewStores.filter(store => {
+                return (store.site_name && store.site_name.toLowerCase().includes(filterText)) ||
+                       (store.region && store.region.toLowerCase().includes(filterText)) ||
+                       (store.city && store.city.toLowerCase().includes(filterText)) ||
+                       (store.state && store.state.toLowerCase().includes(filterText)) ||
+                       (store.project_status && store.project_status.toLowerCase().includes(filterText));
+            });
+            
+            renderNewStoresTable(filtered);
+        }
+
+        // Update store
+        function updateStore(storeId, field, value) {
+            const data = {};
+            data[field] = value;
+            
+            fetch(`/api/new-stores/${storeId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(result => {
+                if (result.success) {
+                    showNotification('Store updated', 'success');
+                    // Update local data
+                    const store = allNewStores.find(s => s.id === storeId);
+                    if (store) {
+                        if (field === 'target_opening_date') {
+                            if (value.toUpperCase() === 'TBD') {
+                                store.target_opening_date = null;
+                                store.target_opening_date_text = 'TBD';
+                            } else if (value) {
+                                store.target_opening_date = value;
+                                store.target_opening_date_text = null;
+                            }
+                        } else {
+                            store[field] = value;
+                        }
+                    }
+                    updateStats();
+                } else {
+                    showNotification('Error updating store', 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showNotification('Error updating store', 'error');
+            });
+        }
+
+        // Remove store
+        function removeNewStore(storeId, storeName) {
+            if (confirm(`Remove ${storeName} from new store tracking?`)) {
+                fetch(`/api/new-stores/${storeId}`, {
+                    method: 'DELETE'
+                })
+                .then(response => response.json())
+                .then(result => {
+                    if (result.success) {
+                        showNotification(`${storeName} removed`, 'success');
+                        loadNewStores();
+                        updateStats();
+                        if (currentTab === 'current') {
+                            loadNewStoreCircuits();
+                        }
+                    } else {
+                        showNotification('Error removing store', 'error');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    showNotification('Error removing store', 'error');
+                });
+            }
+        }
+
+        // Load circuit data for new stores
+        function loadNewStoreCircuits() {
+            const circuitDiv = document.getElementById('circuit-data');
+            circuitDiv.innerHTML = '<div class="loading">Loading circuit data...</div>';
+            
+            fetch('/api/new-store-circuits-with-tod')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.circuits && data.circuits.length > 0) {
+                        renderCircuitTable(data.circuits);
+                    } else {
+                        circuitDiv.innerHTML = '<p class="no-data">No circuits found for new stores</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading circuits:', error);
+                    circuitDiv.innerHTML = '<p style="color: #dc3545;">Error loading circuit data</p>';
+                });
+        }
+
+        // Render circuit table
+        function renderCircuitTable(circuits) {
+            const circuitDiv = document.getElementById('circuit-data');
+            
+            circuitDiv.innerHTML = `
+                <div style="overflow-x: auto;">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="cursor: default;">Site Name</th>
+                                <th style="cursor: default;">TOD</th>
+                                <th style="cursor: default;">Site ID</th>
+                                <th style="cursor: default;">Circuit Purpose</th>
+                                <th style="cursor: default;">Status</th>
+                                <th style="cursor: default;">Substatus</th>
+                                <th style="cursor: default;">Provider</th>
+                                <th style="cursor: default;">Speed</th>
+                                <th style="cursor: default;">Monthly Cost</th>
+                                <th style="cursor: default;">Last Updated</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            ${circuits.map(circuit => {
+                                let todDisplay = '';
+                                let todColor = '#212529';
+                                if (circuit.target_opening_date_text) {
+                                    todDisplay = circuit.target_opening_date_text;
+                                    todColor = circuit.target_opening_date_text === 'TBD' ? '#ffc107' : '#212529';
+                                } else if (circuit.target_opening_date) {
+                                    todDisplay = new Date(circuit.target_opening_date).toLocaleDateString();
+                                    todColor = '#28a745';
+                                } else {
+                                    todDisplay = '-';
+                                    todColor = '#6c757d';
+                                }
+                                
+                                return `
+                                    <tr>
+                                        <td style="font-weight: 600;">${circuit['Site Name'] || ''}</td>
+                                        <td style="color: ${todColor}; font-weight: 500;">${todDisplay}</td>
+                                        <td>${circuit['Site ID'] || ''}</td>
+                                        <td>${circuit['Circuit Purpose'] || ''}</td>
+                                        <td>${circuit.status || ''}</td>
+                                        <td>${circuit.substatus || ''}</td>
+                                        <td>${circuit.provider_name || ''}</td>
+                                        <td>${circuit.details_ordered_service_speed || ''}</td>
+                                        <td>${circuit.billing_monthly_cost || ''}</td>
+                                        <td>${circuit.date_record_updated || ''}</td>
+                                    </tr>
+                                `;
+                            }).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

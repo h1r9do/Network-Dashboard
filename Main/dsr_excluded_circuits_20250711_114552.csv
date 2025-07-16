@@ -1,0 +1,104 @@
+site_name,site_id,circuit_purpose,circuit_provider,circuit_speed,circuit_cost,circuit_ip,status,data_source,meraki_wan1_provider,meraki_wan1_speed,meraki_wan1_ip,meraki_wan2_provider,meraki_wan2_speed,meraki_wan2_ip,has_meraki_device,has_dt_tag,exclusion_reason,provider_match,would_get_dsr_badge
+AZF 02,AZF 02,Primary,Altice West,500.0M x 50.0M,222.23,NaN,Enabled,csv_import,Lightpath ,300.0M x 300.0M,207.192.240.178,Lightpath,300.0M x 300.0M,24.121.190.245,Yes,Yes,Eligible,No match,No
+AZH 01,AZH 01,Primary,Altice West,500.0M x 50.0M,212.77,24.121.227.61,Enabled,csv_import,Optimum,500.0M x 50.0M,24.121.227.61,Digi,Cell,192.168.2.215,Yes,Yes,Eligible,No match,No
+AZP 00,AZP000,Primary,Cox Business/BOI,300.0M x 30.0M,387.24,174.71.173.226,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+AZT 14,AZT 14 -B,Secondary,Login,100.0M x 20.0M,450.00,204.17.35.54,Enabled,csv_import,Cox Business/BOI,300.0M x 30.0M,68.14.243.158,"Login, Inc.",100.0M x 20.0M,204.17.35.54,Yes,Yes,Eligible,No match,No
+CAL000,CAL000,Primary,Frontier FIOS,500.0M x 500.0M,59.99,47.180.93.139,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+CAL000,CAL000 -B,Secondary,Spectrum,600.0M x 35.0M,172.23,98.152.193.10,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+CALW01,CALW01,Primary,EB2-Frontier Fiber,1000.0M x 1000.0M,339.00,47.178.4.124,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+CAN00,CAN00,Primary,Comcast Workplace,250.0M x 25.0M,186.18,96.81.183.205,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+CAN00,CAN00 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,108.86.147.217,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+CAN 22,CAN 22,Primary,Vista Broadband,15.0M x 15.0M,250.00,206.176.254.42,Enabled,csv_import,Comcast Workplace,15.0M x 15.0M,50.213.15.41,AT&T Broadband II,300.0M x 300.0M,99.87.250.177,Yes,Yes,Eligible,No match,No
+CAN 58,CAN 58 -B,Secondary,AT&T Broadband II,1000.0M x 1000.0M,165.01,99.33.119.65,Enabled,csv_import,Private Customer - AT&T Internet Services,250.0M x 25.0M,99.33.119.66,Comcast Workplace,1000.0M x 1000.0M,75.150.3.233,Yes,Yes,Eligible,No match,No
+CAS00,CAS00,Primary,Cox Business/BOI,300.0M x 30.0M,266.67,98.178.226.110,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+CAS00,CAS00 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,76.210.250.113,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+COD00,COD00,Primary,Comcast Workplace,600.0M x 35.0M,234.45,173.164.63.45,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+COX 01,WDCO01,Primary,Comcast Workplace,600.0M x 35.0M,234.45,50.189.54.253,Enabled,csv_import,,,,Comcast Workplace,750.0M x 35.0M,10.1.10.53,Yes,No,No Discount-Tire tag,Exact match WAN2,No
+COX 01,WDCO01,Primary,Comcast Workplace,600.0M x 35.0M,234.45,50.189.54.253,Enabled,csv_import,,,12.55.24.82,Comcast Workplace,750.0M x 35.0M,50.189.54.253,Yes,No,No Discount-Tire tag,Exact match WAN2,No
+FLJ 00,FLJ 00,Primary,Comcast Workplace,300.0M x 30.0M,175.56,96.76.16.49,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+FLJ 00,FLJ 00 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,99.27.27.113,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+GAA 00,GAA 00,Primary,AT&T Broadband II,1000.0M x 1000.0M,165.01,64.109.201.225,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+GAA 00,GAA 00 -B,Secondary,Comcast Workplace,600.0M x 35.0M,234.45,173.15.209.109,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+GAA 03,GAA 03 -B,Secondary,AT&T Broadband II,1000.0M x 1000.0M,165.01,99.34.24.241,Enabled,csv_import,Private Customer - AT&T Internet Services,250.0M x 25.0M,99.34.24.243,"Comcast Cable Communications, LLC",1000.0M x 1000.0M,10.1.10.85,Yes,Yes,Eligible,No match,No
+GAACALLCTR,GAACALLCTR,Primary,Spectrum,600.0M x 35.0M,244.45,47.46.162.82,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+GAACALLCTR,GAACALLCTR -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,104.184.151.49,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+ILC00,ILC00,Primary,Comcast Workplace,300.0M x 30.0M,175.56,96.74.249.185,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+ILC00,ILC00 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,107.209.6.145,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+ILR01,ILR01,Primary,Comcast Workplace,600.0M x 35.0M,234.45,74.94.116.73,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+ILX 01,ILX 01,Primary,Comcast Workplace,250.0M x 25.0M,186.18,173.165.103.213,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+INIW00,INIW00,Primary,Comcast Workplace,250.0M x 25.0M,186.18,50.195.198.237,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+INIW00,INIW00 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,99.33.34.9,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+KONFARA,KONFARA,Primary,Cox Business/BOI,500.0M x 50.0M,342.23,70.175.22.38,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+KSK00N,KSK00N,Primary,Spectrum,300.0M x 20.0M,207.45,150.220.245.70,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+KSK00N,KSK00N -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,76.201.157.129,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+KYN 00,KYN 00,Primary,Cincinnati Bell,400.0M x 200.0M,84.99,66.42.186.206,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+KYN 00,KYN 00 -B,Secondary,Spectrum,600.0M x 35.0M,172.23,71.66.89.90,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+LAB 01,LAB 01,Primary,Cox Business/BOI,300.0M x 30.0M,266.67,68.96.156.235,Enabled,csv_import,: Cox Business/BOI,300.0M x 30.0M,68.96.156.235,: REV Business,100.0M x 100.0M,209.124.218.134,Yes,Yes,Lab site,No match,No
+LAB 01,LAB 01 -B,Secondary,REV Business,100.0M x 100.0M,100.00,209.124.218.134,Enabled,csv_import,: Cox Business/BOI,300.0M x 30.0M,68.96.156.235,: REV Business,100.0M x 100.0M,209.124.218.134,Yes,Yes,Lab site,No match,No
+LAB 02,LAB 02,Primary,Cox Business/BOI,300.0M x 30.0M,266.67,68.96.147.246,Enabled,csv_import,: Cox Business/BOI,300.0M x 30.0M,68.96.147.246,: AT&T Broadband II,300.0M x 300.0M,99.18.29.121,Yes,Yes,Lab site,No match,No
+LAB 02,LAB 02 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,99.18.29.121,Enabled,csv_import,: Cox Business/BOI,300.0M x 30.0M,68.96.147.246,: AT&T Broadband II,300.0M x 300.0M,99.18.29.121,Yes,Yes,Lab site,No match,No
+LAB 03,LAB 03,Primary,Cox Business/BOI,300.0M x 30.0M,266.67,72.215.247.249,Enabled,csv_import,: AT&T Broadband II,300.0M x 30.0M,104.62.190.17,: Cox Business/BOI,1000.0M x 1000.0M,72.215.247.249,Yes,Yes,Lab site,No match,No
+LAB 03,LAB 03- B,Secondary,AT&T Broadband II,1000.0M x 1000.0M,165.01,104.62.190.17,Enabled,csv_import,: AT&T Broadband II,300.0M x 30.0M,104.62.190.17,: Cox Business/BOI,1000.0M x 1000.0M,72.215.247.249,Yes,Yes,Lab site,No match,No
+LAB 04,LAB 04,Primary,AT&T Broadband II,1000.0M x 1000.0M,165.01,99.26.78.105,Enabled,csv_import,: AT&T Broadband II,1000.0M x 1000.0M,99.26.78.107,,,192.168.2.153,Yes,Yes,Lab site,Partial match WAN2,No
+LAB 06,LAB 06,Primary,AT&T Broadband II,1000.0M x 1000.0M,165.01,99.76.204.153,Enabled,csv_import,: AT&T Broadband II,1000.0M x 1000.0M,99.76.204.153,: Cox Business/BOI,300.0M x 30.0M,98.185.13.102,Yes,Yes,Lab site,No match,No
+LAB 06,LAB 06- B,Secondary,Cox Business/BOI,300.0M x 30.0M,266.67,98.185.13.102,Enabled,csv_import,: AT&T Broadband II,1000.0M x 1000.0M,99.76.204.153,: Cox Business/BOI,300.0M x 30.0M,98.185.13.102,Yes,Yes,Lab site,No match,No
+MIA00,MIA00,Primary,Comcast Workplace,600.0M x 35.0M,234.45,50.252.88.137,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+MIAC02,MIAC02,Primary,AT&T Broadband II,1000.0M x 200.0M,165.00,108.85.98.249,Enabled,csv_import,AT&T Broadband II,1000.0M x 200.0M,108.85.98.249,Digi,Cell,192.168.2.210,Yes,No,No Discount-Tire tag,Exact match WAN1,No
+MIHW00,MIHW00,Primary,Comcast Workplace,250.0M x 25.0M,186.18,173.167.236.165,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+MIL 00,MIL 00,Primary,Comcast Workplace,250.0M x 25.0M,186.18,173.15.250.73,Enabled,csv_import,Comcast Workplace,250.0M x 25.0M,173.15.250.73,AT&T Broadband II,300.0M x 300.0M,107.130.140.97,Yes,No,No Discount-Tire tag,Exact match WAN1,No
+MIL 00,MIL 00 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,107.130.140.97,Enabled,csv_import,Comcast Workplace,250.0M x 25.0M,173.15.250.73,AT&T Broadband II,300.0M x 300.0M,107.130.140.97,Yes,No,No Discount-Tire tag,Exact match WAN2,No
+MNM 00,MNM 00 New,Primary,Comcast Workplace,600.0M x 35.0M,234.45,173.165.242.141,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+MNM 09 -B,MNM 09 -B,Secondary,Comcast Workplace,600.0M x 35.0M,234.45,NaN,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+MNMW01,MNMW01,Primary,Comcast Workplace,600.0M x 35.0M,234.45,50.211.20.237,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+MOS 00,MOS 00,Primary,Spectrum,600.0M x 35.0M,172.23,24.182.253.114,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+MOS 00,MOS 00-B,Secondary,AT&T Broadband II,1000.0M x 1000.0M,165.01,75.36.177.1,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+MOS 12,MOS 12 -B,Secondary,AT&T Broadband II,1000.0M x 1000.0M,165.01,162.203.66.113,Enabled,csv_import,Private Customer - AT&T Internet Services,600.0M x 35.0M,162.203.66.114,Spectrum,1000.0M x 1000.0M,47.50.179.106,Yes,Yes,Eligible,No match,No
+MOS XX,MOS XX,Primary,Spectrum,600.0M x 35.0M,172.23,47.50.140.114,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+MOS XX,MOS XX -B,Secondary,AT&T Broadband II,1000.0M x 1000.0M,165.01,108.192.139.225,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+NCC00,NCC00 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,45.23.77.145,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+NCC 35,NCC 35,Primary,Altice,500.0M x 50.0M,212.77,208.180.149.183,Enabled,csv_import,Metronet,500.0M x 50.0M,75.110.68.57,Metronet,300.0M x 300.0M,100.104.231.236,Yes,Yes,Eligible,No match,No
+NCC W00,NCC W00,Primary,Spectrum,600.0M x 35.0M,244.45,66.57.166.218,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+NMA00,NMA00,Primary,Comcast Workplace,300.0M x 30.0M,175.56,96.64.151.241,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+NMA00,NMA00- B,Secondary,EB2-Centurylink DSL,100.0M x 10.0M,128.00,168.103.98.137,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+NMA Call Center,NMA Call Center,Primary,Comcast Workplace,600.0M x 35.0M,234.45,74.92.206.225,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+NMAW00,NMAW00,Primary,Comcast Workplace,600.0M x 35.0M,234.45,96.92.78.213,Enabled,csv_import,Comcast Workplace,600.0M x 35.0M,96.92.78.213,Digi,Cell,107.80.188.250,Yes,No,No Discount-Tire tag,Exact match WAN1,No
+NNM 09,NNM 09,Primary,Comcast Workplace,600.0M x 35.0M,234.45,50.249.116.145,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+NVL000,NVL000,Primary,Cox Business/BOI,300.0M x 30.0M,266.67,24.234.187.243,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+NVLW 01,NVLW 01,Primary,Cox Business/BOI,300.0M x 30.0M,266.67,24.120.171.73,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+OKA 01,OKA 01,Primary,SparkLight,300.0M x 30.0M,224.99,159.118.225.250,Enabled,csv_import,AT&T Broadband II,300.0M x 30.0M,159.118.225.250,AT&T Broadband II,300.0M x 300.0M,104.7.187.169,Yes,Yes,Eligible,No match,No
+OKO00,OKO00,Primary,Cox Business/BOI,300.0M x 30.0M,266.67,68.228.123.109,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+TNN00,TNN00,Primary,Comcast Workplace,300.0M x 30.0M,175.56,96.69.101.185,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+TNN00,TNN00 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,162.203.252.161,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+TXA 20,TXA 20- B,Secondary,Vyve,250.0M x 25.0M,165.90,24.54.120.229,Enabled,csv_import,Spectrum,600.0M x 35.0M,192.168.1.138,NORTHLAND CABLE TELEVISION INC.,,,Yes,Yes,Eligible,No match,No
+TXD 00,TXD 00,Primary,Spectrum,600.0M x 35.0M,244.45,50.84.170.198,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+TXD00,TXD00,Primary,Spectrum,600.0M x 35.0M,172.23,50.84.170.198,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+TXD 28,TXD 28 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,NaN,Enabled,csv_import,Spectrum,600.0M x 35.0M,162.205.143.25,Spectrum,300.0M x 300.0M,98.6.99.58,Yes,Yes,Eligible,No match,No
+TXD 50,TXD 50,Primary,Spectrum,600.0M x 35.0M,244.45,71.40.111.46,Enabled,csv_import,Private Customer - AT&T Internet Services,600.0M x 35.0M,107.143.177.97,Charter Communications Inc,300.0M x 300.0M,71.40.111.46,Yes,Yes,Eligible,No match,No
+TXD 50,TXD 50 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,107.143.177.97,Enabled,csv_import,Private Customer - AT&T Internet Services,600.0M x 35.0M,107.143.177.97,Charter Communications Inc,300.0M x 300.0M,71.40.111.46,Yes,Yes,Eligible,No match,No
+TXH00,TXH00,Primary,Comcast Workplace,300.0M x 30.0M,175.56,96.85.28.9,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+TXH00,TXH00 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,162.201.19.73,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+TXH 23,TXH 23,Primary,Altice West,500.0M x 50.0M,222.23,66.76.13.154,Enabled,csv_import,Optimum,500.0M x 50.0M,66.76.13.154,Digi,Cell,192.168.2.100,Yes,Yes,Eligible,No match,No
+TXH 43,TXH 43,Primary,Altice West,500.0M x 50.0M,222.23,208.180.223.58,Enabled,csv_import,"AT&T Enterprises, LLC",500.0M x 50.0M,108.249.194.9,Optimum,1000.0M x 1000.0M,208.180.223.58,Yes,Yes,Eligible,No match,No
+TXH 48,TXH 48,Primary,Altice,500.0M x 50.0M,212.77,173.219.22.185,Enabled,csv_import,Optimum,500.0M x 50.0M,173.219.22.185,AT&T Cell,cell,192.168.2.131,Yes,Yes,Eligible,No match,No
+TXH 74,TXH 74,Primary,Altice,500.0M x 50.0M,212.77,208.180.4.110,Enabled,csv_import,Optimum,500.0M x 50.0M,192.168.1.243,VZW Cell,Cell,192.168.0.151,Yes,Yes,Eligible,No match,No
+TXH 85,TXH 85,Primary,Altice West,500.0M x 50.0M,222.23,173.219.73.189,Enabled,csv_import,Optimum,500.0M x 50.0M,173.219.73.189,Verizon Business,Cell,166.169.67.203,Yes,Yes,Eligible,No match,No
+TXH 92,TXH 92- B,Secondary,Brightspeed,80.0M x 10.0M,149.99,71.37.162.209,Enabled,csv_import,Comcast Workplace,250.0M x 25.0M,96.88.62.237,"CenturyLink Communications, LLC",80.0M x 10.0M,192.168.0.2,Yes,Yes,Eligible,No match,No
+TXH SE Flex DTU,TXH SE Flex DTU,Primary,Comcast Workplace,600.0M x 35.0M,234.45,50.209.109.209,Enabled,csv_import,Comcast Workplace,600.0M x 35.0M,10.1.10.143,,,,Yes,No,No Discount-Tire tag,Exact match WAN1,No
+TXH Training,TXH Training,Primary,Comcast Workplace,300.0M x 30.0M,175.56,75.148.163.185,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+TXHW00,TXHW00,Primary,Comcast Workplace,600.0M x 35.0M,234.45,50.210.214.113,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+TXHW00,TXHW00 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,99.164.140.169,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+TXS 00,TXS 00 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,104.4.85.177,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+TXS000,TXS 00,Primary,Spectrum,600.0M x 35.0M,244.45,71.78.86.2,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+TXW 03,TXW 03,Primary,Altice West,500.0M x 50.0M,222.23,66.76.135.93,Enabled,csv_import,Optimum,500.0M x 50.0M,66.76.135.93,Digi,Cell,10.0.0.2,Yes,Yes,Eligible,No match,No
+TXW 06,TXW 06,Primary,Altice West,500.0M x 50.0M,222.23,66.76.135.32,Enabled,csv_import,Optimum,500.0M x 50.0M,66.76.135.32,Digi,Cell,192.168.2.160,Yes,Yes,Eligible,No match,No
+UTS 00,UTS 00,Primary,Zayo Communications,100.0M x 100.0M,495.00,209.66.104.34,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+UTSW01,UTSW01,Primary,Comcast Workplace,600.0M x 35.0M,234.45,50.208.244.41,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+UTSW02,UTSW02,Primary,Comcast Workplace,600.0M x 35.0M,234.45,50.215.217.149,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+VAB 03,VAB 03 -B,Secondary,Cox Business/BOI,300.0M x 30.0M,266.67,70.168.213.210,Enabled,csv_import,Verizon FIOS,500.0M x 500.0M,173.50.103.27,DSR Cox Cable,300.0M x 30.0M,192.168.2.140,Yes,Yes,Eligible,No match,No
+VAF 01,VAF 01,Primary,Comcast Workplace,250.0M x 25.0M,186.18,50.211.60.57,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+VAR 00,VAR 00,Primary,Comcast Workplace,600.0M x 35.0M,234.45,50.210.2.145,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+VAR 02,VAR 02,Primary,Comcast Workplace,200.0M x 20.0M,134.45,23.25.122.237,Enabled,csv_import,Comcast Workplace,250.0M x 25.0M,,VZW Cell,Cell,,Yes,No,No Discount-Tire tag,Exact match WAN1,No
+WAS00,WAS00,Primary,Ziply Fiber,1000.0M x 1000.0M,200.00,50.34.4.82,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+WDGA01_01,WDGA01_01 -B,Secondary,AT&T Broadband II,300.0M x 300.0M,105.01,104.61.91.209,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+WDIL01,WDIL01,Primary,AT&T Broadband II,1000.0M x 1000.0M,165.01,104.185.193.161,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No
+WDTD01,WDTD01,Primary,AT&T Broadband II,1000.0M x 1000.0M,165.00,107.132.157.73,Enabled,csv_import,,,,,,,No,No,No Meraki device,No match,No

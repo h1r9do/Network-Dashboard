@@ -1,0 +1,2392 @@
+{
+  "extraction_time": "2025-07-10T06:49:11.557267",
+  "network_id": "L_650207196201635912",
+  "switch_count": 2,
+  "total_ports": 56,
+  "switches": {
+    "Q3DB-RNYT-SC2N": {
+      "device_info": {
+        "serial": "Q3DB-RNYT-SC2N",
+        "name": "azp_30sw02",
+        "model": "MS125-24P",
+        "mac": "98:18:88:b8:db:ec",
+        "lanIp": "10.1.32.189",
+        "firmware": "switch-17-1-4"
+      },
+      "ports": [
+        {
+          "portId": "1",
+          "name": "Workstation Data Legacy Vlan",
+          "tags": [
+            "Store_Workstation_Data_Legacy_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 100,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "2",
+          "name": "Workstation Data Legacy Vlan",
+          "tags": [
+            "Store_Workstation_Data_Legacy_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 100,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "3",
+          "name": "Workstation Data Legacy Vlan",
+          "tags": [
+            "Store_Workstation_Data_Legacy_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 100,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "4",
+          "name": "Algo Horn",
+          "tags": [
+            "Store_Workstation_Data_Legacy_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 100,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "5",
+          "name": "Printer Data Legacy Vlan",
+          "tags": [
+            "Store_Printer_Data_Legacy_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 100,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "6",
+          "name": "Printer Data Legacy Vlan",
+          "tags": [
+            "Store_Printer_Data_Legacy_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 100,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "7",
+          "name": "Printer Data Legacy Vlan",
+          "tags": [
+            "Store_Printer_Data_Legacy_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 100,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "8",
+          "name": "POS Vlan",
+          "tags": [
+            "Store_POS_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 410,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "9",
+          "name": "POS Vlan",
+          "tags": [
+            "Store_POS_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 410,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "10",
+          "name": "POS Vlan",
+          "tags": [
+            "Store_POS_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 410,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "11",
+          "name": "IOT Vlan",
+          "tags": [
+            "Store_IOT_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 400,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "12",
+          "name": "IOT Vlan",
+          "tags": [
+            "Store_IOT_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 400,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "13",
+          "name": "IOT Vlan",
+          "tags": [
+            "Store_IOT_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 400,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "14",
+          "name": "IOT Vlan",
+          "tags": [
+            "Store_IOT_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 400,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "15",
+          "name": "IOT Vlan",
+          "tags": [
+            "Store_IOT_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 400,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "16",
+          "name": "IOT Vlan",
+          "tags": [
+            "Store_IOT_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 400,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "17",
+          "name": "IOT Vlan",
+          "tags": [
+            "Store_IOT_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 400,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "18",
+          "name": "IOT Vlan",
+          "tags": [
+            "Store_IOT_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 400,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "19",
+          "name": "IOT Vlan",
+          "tags": [
+            "Store_IOT_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 400,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "20",
+          "name": "Workstation Data Legacy Vlan",
+          "tags": [
+            "Store_Workstation_Data_Legacy_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 100,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "21",
+          "name": "Wireless Vlans",
+          "tags": [
+            "Store_Wireless_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "trunk",
+          "vlan": 300,
+          "voiceVlan": null,
+          "allowedVlans": "100,300,301,400,410,800,803",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "22",
+          "name": "Wireless Vlans",
+          "tags": [
+            "Store_Wireless_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "trunk",
+          "vlan": 300,
+          "voiceVlan": null,
+          "allowedVlans": "100,300,301,400,410,800,803",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "23",
+          "name": "Wireless Vlans",
+          "tags": [
+            "Store_Wireless_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "trunk",
+          "vlan": 300,
+          "voiceVlan": null,
+          "allowedVlans": "100,300,301,400,410,800,803",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "24",
+          "name": "Uplink",
+          "tags": [
+            "Store_Uplink"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "trunk",
+          "vlan": 300,
+          "voiceVlan": null,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "loop guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "25",
+          "name": "SFP Unused",
+          "tags": [
+            "Store_SFP_Unused"
+          ],
+          "enabled": false,
+          "poeEnabled": false,
+          "type": "access",
+          "vlan": 999,
+          "voiceVlan": null,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "loop guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "26",
+          "name": "SFP Unused",
+          "tags": [
+            "Store_SFP_Unused"
+          ],
+          "enabled": false,
+          "poeEnabled": false,
+          "type": "access",
+          "vlan": 999,
+          "voiceVlan": null,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "loop guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "27",
+          "name": "SFP Unused",
+          "tags": [
+            "Store_SFP_Unused"
+          ],
+          "enabled": false,
+          "poeEnabled": false,
+          "type": "access",
+          "vlan": 999,
+          "voiceVlan": null,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "loop guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "28",
+          "name": "SFP Unused",
+          "tags": [
+            "Store_SFP_Unused"
+          ],
+          "enabled": false,
+          "poeEnabled": false,
+          "type": "access",
+          "vlan": 999,
+          "voiceVlan": null,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "loop guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        }
+      ]
+    },
+    "Q3DB-7H4V-YGPG": {
+      "device_info": {
+        "serial": "Q3DB-7H4V-YGPG",
+        "name": "azp_30sw01",
+        "model": "MS125-24P",
+        "mac": "98:18:88:b8:cc:67",
+        "lanIp": "10.1.32.188",
+        "firmware": "switch-17-1-4"
+      },
+      "ports": [
+        {
+          "portId": "1",
+          "name": "Workstation Data Legacy Vlan",
+          "tags": [
+            "Store_Workstation_Data_Legacy_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 100,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "2",
+          "name": "Workstation Data Legacy Vlan",
+          "tags": [
+            "Store_Workstation_Data_Legacy_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 100,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "3",
+          "name": "Workstation Data Legacy Vlan",
+          "tags": [
+            "Store_Workstation_Data_Legacy_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 100,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "4",
+          "name": "Workstation Data Legacy Vlan",
+          "tags": [
+            "Store_Workstation_Data_Legacy_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 100,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "5",
+          "name": "Printer Data Legacy Vlan",
+          "tags": [
+            "Store_Printer_Data_Legacy_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 100,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "6",
+          "name": "Printer Data Legacy Vlan",
+          "tags": [
+            "Store_Printer_Data_Legacy_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 100,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "7",
+          "name": "Printer Data Legacy Vlan",
+          "tags": [
+            "Store_Printer_Data_Legacy_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 100,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "8",
+          "name": "POS Vlan",
+          "tags": [
+            "Store_POS_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 410,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "9",
+          "name": "POS Vlan",
+          "tags": [
+            "Store_POS_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 410,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "10",
+          "name": "POS Vlan",
+          "tags": [
+            "Store_POS_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 410,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "11",
+          "name": "IOT Vlan",
+          "tags": [
+            "Store_IOT_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 400,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "12",
+          "name": "IOT Vlan",
+          "tags": [
+            "Store_IOT_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 400,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "13",
+          "name": "IOT Vlan",
+          "tags": [
+            "Store_IOT_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 400,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "14",
+          "name": "IOT Vlan",
+          "tags": [
+            "Store_IOT_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 400,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "15",
+          "name": "IOT Vlan",
+          "tags": [
+            "Store_IOT_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 400,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "16",
+          "name": "IOT Vlan",
+          "tags": [
+            "Store_IOT_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 400,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "17",
+          "name": "IOT Vlan",
+          "tags": [
+            "Store_IOT_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 400,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "18",
+          "name": "IOT Vlan",
+          "tags": [
+            "Store_IOT_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 400,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "19",
+          "name": "IOT Vlan",
+          "tags": [
+            "Store_IOT_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 400,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "20",
+          "name": "IOT Vlan",
+          "tags": [
+            "Store_IOT_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "access",
+          "vlan": 400,
+          "voiceVlan": 200,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "21",
+          "name": "Wireless Vlans",
+          "tags": [
+            "Store_Wireless_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "trunk",
+          "vlan": 300,
+          "voiceVlan": null,
+          "allowedVlans": "100,300,301,400,410,800,803",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "22",
+          "name": "Wireless Vlans",
+          "tags": [
+            "Store_Wireless_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "trunk",
+          "vlan": 300,
+          "voiceVlan": null,
+          "allowedVlans": "100,300,301,400,410,800,803",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "23",
+          "name": "Wireless Vlans",
+          "tags": [
+            "Store_Wireless_Vlan"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "trunk",
+          "vlan": 300,
+          "voiceVlan": null,
+          "allowedVlans": "100,300,301,400,410,800,803",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "bpdu guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "24",
+          "name": "Uplink",
+          "tags": [
+            "Store_Uplink"
+          ],
+          "enabled": true,
+          "poeEnabled": true,
+          "type": "trunk",
+          "vlan": 300,
+          "voiceVlan": null,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "loop guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)",
+            "100 Megabit (auto)",
+            "100 Megabit half duplex (forced)",
+            "100 Megabit full duplex (forced)",
+            "10 Megabit (auto)",
+            "10 Megabit half duplex (forced)",
+            "10 Megabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "25",
+          "name": "SFP Unused",
+          "tags": [
+            "Store_SFP_Unused"
+          ],
+          "enabled": false,
+          "poeEnabled": false,
+          "type": "access",
+          "vlan": 999,
+          "voiceVlan": null,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "loop guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "26",
+          "name": "SFP Unused",
+          "tags": [
+            "Store_SFP_Unused"
+          ],
+          "enabled": false,
+          "poeEnabled": false,
+          "type": "access",
+          "vlan": 999,
+          "voiceVlan": null,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "loop guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "27",
+          "name": "SFP Unused",
+          "tags": [
+            "Store_SFP_Unused"
+          ],
+          "enabled": false,
+          "poeEnabled": false,
+          "type": "access",
+          "vlan": 999,
+          "voiceVlan": null,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "loop guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        },
+        {
+          "portId": "28",
+          "name": "SFP Unused",
+          "tags": [
+            "Store_SFP_Unused"
+          ],
+          "enabled": false,
+          "poeEnabled": false,
+          "type": "access",
+          "vlan": 999,
+          "voiceVlan": null,
+          "allowedVlans": "all",
+          "isolationEnabled": false,
+          "rstpEnabled": true,
+          "stpGuard": "loop guard",
+          "linkNegotiation": "Auto negotiate",
+          "portScheduleId": null,
+          "schedule": null,
+          "udld": "Alert only",
+          "linkNegotiationCapabilities": [
+            "Auto negotiate",
+            "1 Gigabit full duplex (forced)"
+          ],
+          "accessPolicyType": "Open",
+          "daiTrusted": false,
+          "profile": {
+            "enabled": false,
+            "id": "",
+            "iname": null
+          },
+          "module": {
+            "model": null
+          },
+          "mirror": {
+            "mode": "Not mirroring traffic"
+          }
+        }
+      ]
+    }
+  }
+}

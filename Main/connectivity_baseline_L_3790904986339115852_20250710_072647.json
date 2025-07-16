@@ -1,0 +1,147 @@
+{
+  "network_id": "L_3790904986339115852",
+  "network_name": "TST 01",
+  "capture_time": "2025-07-10T07:26:48.069370",
+  "clients": [],
+  "devices": [
+    {
+      "name": "TST_01SW01",
+      "model": "MS125-24P",
+      "serial": "Q3DB-4X9P-QRW3",
+      "ip": "10.255.255.2",
+      "type": "network_device"
+    },
+    {
+      "name": "TST_01SW02",
+      "model": "MS125-24P",
+      "serial": "Q3DB-77XE-5BRN",
+      "ip": "192.168.128.2",
+      "type": "network_device"
+    }
+  ],
+  "reservations": [
+    {
+      "mac": "00:18:0a:80:8b:6a",
+      "ip": "10.255.255.180",
+      "name": "AP1",
+      "vlan": 300,
+      "type": "dhcp_reservation"
+    },
+    {
+      "mac": "00:18:0a:80:8b:e4",
+      "ip": "10.255.255.183",
+      "name": "AP4",
+      "vlan": 300,
+      "type": "dhcp_reservation"
+    },
+    {
+      "mac": "00:18:0a:80:91:46",
+      "ip": "10.255.255.181",
+      "name": "AP2",
+      "vlan": 300,
+      "type": "dhcp_reservation"
+    },
+    {
+      "mac": "00:18:0a:80:92:fc",
+      "ip": "10.255.255.182",
+      "name": "AP3",
+      "vlan": 300,
+      "type": "dhcp_reservation"
+    },
+    {
+      "mac": "0c:8d:db:6e:bb:dc",
+      "ip": "10.255.255.190",
+      "name": "SW3",
+      "vlan": 300,
+      "type": "dhcp_reservation"
+    },
+    {
+      "mac": "0c:8d:db:6e:be:2c",
+      "ip": "10.255.255.188",
+      "name": "SW1",
+      "vlan": 300,
+      "type": "dhcp_reservation"
+    },
+    {
+      "mac": "0c:8d:db:b3:0e:78",
+      "ip": "10.255.255.189",
+      "name": "SW2",
+      "vlan": 300,
+      "type": "dhcp_reservation"
+    }
+  ],
+  "connectivity": {
+    "10.255.255.2": {
+      "type": "device",
+      "name": "TST_01SW01",
+      "ping_result": {
+        "reachable": false,
+        "rtt": null
+      }
+    },
+    "192.168.128.2": {
+      "type": "device",
+      "name": "TST_01SW02",
+      "ping_result": {
+        "reachable": false,
+        "rtt": null
+      }
+    },
+    "10.255.255.180": {
+      "type": "reservation",
+      "name": "AP1",
+      "ping_result": {
+        "reachable": false,
+        "rtt": null
+      }
+    },
+    "10.255.255.183": {
+      "type": "reservation",
+      "name": "AP4",
+      "ping_result": {
+        "reachable": false,
+        "rtt": null
+      }
+    },
+    "10.255.255.181": {
+      "type": "reservation",
+      "name": "AP2",
+      "ping_result": {
+        "reachable": false,
+        "rtt": null
+      }
+    },
+    "10.255.255.182": {
+      "type": "reservation",
+      "name": "AP3",
+      "ping_result": {
+        "reachable": false,
+        "rtt": null
+      }
+    },
+    "10.255.255.190": {
+      "type": "reservation",
+      "name": "SW3",
+      "ping_result": {
+        "reachable": false,
+        "rtt": null
+      }
+    },
+    "10.255.255.188": {
+      "type": "reservation",
+      "name": "SW1",
+      "ping_result": {
+        "reachable": false,
+        "rtt": null
+      }
+    },
+    "10.255.255.189": {
+      "type": "reservation",
+      "name": "SW2",
+      "ping_result": {
+        "reachable": false,
+        "rtt": null
+      }
+    }
+  }
+}

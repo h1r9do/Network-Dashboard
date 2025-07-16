@@ -1,0 +1,15 @@
+# Enhanced EOL Tracking and Inventory Collection
+# ================================================
+# This should be added to your existing crontab
+
+# Run EOL tracker daily at 1:00 AM to check for new EOL announcements
+0 1 * * * /usr/bin/python3 /usr/local/bin/Main/meraki_eol_tracker.py >> /var/log/meraki-eol-tracker.log 2>&1
+
+# Run enhanced inventory collection with EOL data daily at 2:00 AM
+0 2 * * * /usr/bin/python3 /usr/local/bin/Main/nightly_inventory_db_enhanced.py >> /var/log/nightly-inventory-db-enhanced.log 2>&1
+
+# Alternative: Run combined script that does both in sequence
+# 0 1 * * * /usr/bin/python3 /usr/local/bin/Main/nightly_eol_and_inventory.py >> /var/log/nightly-eol-and-inventory.log 2>&1
+
+# Weekly comprehensive EOL check (Sundays at 3:00 AM)
+0 3 * * 0 /usr/bin/python3 /usr/local/bin/Main/meraki_eol_tracker.py --force-update >> /var/log/meraki-eol-tracker-weekly.log 2>&1

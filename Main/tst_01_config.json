@@ -1,0 +1,2906 @@
+{
+  "extractionDate": "2025-07-09T12:51:12.260033",
+  "network": {
+    "id": "L_3790904986339115852",
+    "name": "TST 01",
+    "organizationId": "3790904986339115010",
+    "organizationName": "DTC-Network-Engineering",
+    "timeZone": "US/Arizona",
+    "tags": [],
+    "productTypes": [
+      "appliance",
+      "switch"
+    ],
+    "enrollmentString": null,
+    "notes": null,
+    "isBoundToConfigTemplate": false,
+    "configTemplateId": null
+  },
+  "devices": [
+    {
+      "lat": 33.6707739239271,
+      "lng": -111.924476763229,
+      "address": "20225 N Scottsdale Rd, Scottsdale, AZ 85255",
+      "serial": "Q2QN-G8GX-6TWQ",
+      "mac": "e0:cb:bc:18:d2:d8",
+      "wan1Ip": "192.168.0.152",
+      "wan2Ip": null,
+      "notes": "Network ID - L_3790904986339115852",
+      "url": "https://n734.meraki.com/TST-01-appliance/n/aKTLQcMzb/manage/nodes/new_list/247165638726360",
+      "networkId": "L_3790904986339115852",
+      "tags": [],
+      "name": "TST 01MX",
+      "details": [],
+      "model": "MX65",
+      "firmware": "wired-18-1-07",
+      "floorPlanId": null,
+      "managementInterface": {
+        "wan1": {
+          "wanEnabled": "not configured",
+          "usingStaticIp": false,
+          "vlan": null
+        },
+        "wan2": {
+          "wanEnabled": "not configured",
+          "usingStaticIp": false,
+          "vlan": null
+        },
+        "ddnsHostnames": {
+          "activeDdnsHostname": "aktlqcmzb-bbpvkpqqkkkc.dynamic-m.com",
+          "ddnsHostnameWan1": "aktlqcmzb-bbpvkpqqkkkc-1.dynamic-m.com",
+          "ddnsHostnameWan2": "aktlqcmzb-bbpvkpqqkkkc-2.dynamic-m.com"
+        }
+      }
+    },
+    {
+      "lat": 37.4180951010362,
+      "lng": -122.098531723022,
+      "address": "",
+      "serial": "Q3DB-4X9P-QRW3",
+      "mac": "cc:9c:3e:5d:be:09",
+      "lanIp": "192.168.128.2",
+      "url": "https://n734.meraki.com/TST-01-switch/n/VyQp4cMzb/manage/nodes/new_list/224971433295369",
+      "networkId": "L_3790904986339115852",
+      "tags": [],
+      "name": "TST_01SW01",
+      "details": [],
+      "model": "MS125-24P",
+      "switchProfileId": null,
+      "firmware": "cs-17-2-1",
+      "floorPlanId": null,
+      "managementInterface": {
+        "wan1": {
+          "usingStaticIp": false,
+          "vlan": null
+        }
+      }
+    },
+    {
+      "lat": 37.4180951010362,
+      "lng": -122.098531723022,
+      "address": "",
+      "serial": "Q3DB-77XE-5BRN",
+      "mac": "cc:9c:3e:5e:ea:1e",
+      "lanIp": "192.168.128.2",
+      "tags": [
+        "recently-added"
+      ],
+      "url": "https://n734.meraki.com/TST-01-switch/n/VyQp4cMzb/manage/nodes/new_list/224971433372190",
+      "networkId": "L_3790904986339115852",
+      "name": "TST_01SW02",
+      "details": [],
+      "model": "MS125-24P",
+      "switchProfileId": null,
+      "firmware": "cs-17-2-1",
+      "floorPlanId": null,
+      "managementInterface": {
+        "wan1": {
+          "usingStaticIp": false,
+          "vlan": null
+        }
+      }
+    }
+  ],
+  "appliance": {
+    "vlans": [
+      {
+        "id": 1,
+        "networkId": "L_3790904986339115852",
+        "name": "Data",
+        "applianceIp": "192.168.128.1",
+        "subnet": "192.168.128.0/24",
+        "fixedIpAssignments": {},
+        "reservedIpRanges": [],
+        "dnsNameservers": "upstream_dns",
+        "dhcpHandling": "Run a DHCP server",
+        "dhcpLeaseTime": "1 day",
+        "dhcpBootOptionsEnabled": false,
+        "dhcpOptions": [
+          {
+            "code": "66",
+            "type": "text",
+            "value": "https://159357:68473900@config.tetravx.com/provision/us3/app/"
+          }
+        ],
+        "interfaceId": "3790904986341384689",
+        "ipv6": {
+          "enabled": false
+        },
+        "mandatoryDhcp": {
+          "enabled": false
+        }
+      }
+    ],
+    "staticRoutes": [],
+    "l3FirewallRules": [
+      {
+        "comment": "Object rule",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "OBJ(3790904986339115206)",
+        "destPort": "Any",
+        "destCidr": "Any",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Allow Splunk outbound",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "10.0.0.0/8",
+        "destPort": "9997",
+        "destCidr": "52.10.15.20/32",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Test Apply",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "10.0.0.0/8",
+        "destPort": "999",
+        "destCidr": "52.10.15.20/32",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Default rule",
+        "policy": "allow",
+        "protocol": "Any",
+        "srcPort": "Any",
+        "srcCidr": "Any",
+        "destPort": "Any",
+        "destCidr": "Any",
+        "syslogEnabled": false
+      }
+    ],
+    "l7FirewallRules": [],
+    "contentFiltering": {
+      "blockedUrlCategories": [],
+      "blockedUrlPatterns": [],
+      "allowedUrlPatterns": [
+        "google.com"
+      ]
+    },
+    "trafficShaping": {
+      "globalBandwidthLimits": {
+        "limitUp": 0,
+        "limitDown": 0
+      }
+    },
+    "portForwardingRules": [],
+    "oneToOneNatRules": [],
+    "siteToSiteVpn": {
+      "mode": "none"
+    },
+    "intrusion": {
+      "mode": "disabled"
+    },
+    "malware": {
+      "mode": "disabled",
+      "allowedUrls": [],
+      "allowedFiles": []
+    },
+    "uplinkSettings": {},
+    "warmSpare": {
+      "enabled": false,
+      "primarySerial": "Q2QN-G8GX-6TWQ",
+      "spareSerial": null
+    },
+    "connectivityMonitoringDestinations": {
+      "destinations": [
+        {
+          "ip": "8.8.8.8",
+          "description": "Google",
+          "default": true
+        }
+      ]
+    },
+    "dhcpSettings": [
+      {
+        "vlanId": 1,
+        "vlanName": "Data",
+        "subnet": "192.168.128.0/24",
+        "applianceIp": "192.168.128.1",
+        "dhcpHandling": "Run a DHCP server",
+        "dhcpLeaseTime": "1 day",
+        "dhcpBootOptionsEnabled": false,
+        "dhcpBootNextServer": null,
+        "dhcpBootFilename": null,
+        "dhcpOptions": [
+          {
+            "code": "66",
+            "type": "text",
+            "value": "https://159357:68473900@config.tetravx.com/provision/us3/app/"
+          }
+        ],
+        "reservedIpRanges": [],
+        "fixedIpAssignments": {},
+        "dnsNameservers": "upstream_dns"
+      }
+    ],
+    "groupPolicies": []
+  },
+  "switch": {
+    "settings": {
+      "vlan": 1,
+      "useCombinedPower": false,
+      "powerExceptions": [],
+      "uplinkClientSampling": {
+        "enabled": false
+      },
+      "macBlocklist": {
+        "enabled": false
+      }
+    },
+    "stp": {
+      "rstpEnabled": true,
+      "stpBridgePriority": [
+        {
+          "switches": [
+            "Q3DB-4X9P-QRW3",
+            "Q3DB-77XE-5BRN"
+          ],
+          "stpPriority": 32768
+        }
+      ]
+    },
+    "acls": {
+      "rules": [
+        {
+          "comment": "Default rule",
+          "policy": "allow",
+          "ipVersion": "any",
+          "protocol": "any",
+          "srcCidr": "any",
+          "srcPort": "any",
+          "dstCidr": "any",
+          "dstPort": "any",
+          "vlan": "any"
+        }
+      ]
+    },
+    "portSchedules": [],
+    "qosRules": [],
+    "stormControl": {
+      "broadcastThreshold": 100,
+      "multicastThreshold": 100,
+      "unknownUnicastThreshold": 100,
+      "treatTheseTrafficTypesAsOneThreshold": []
+    },
+    "mtu": {
+      "defaultMtuSize": 9578,
+      "overrides": []
+    },
+    "dhcpServerPolicy": {
+      "alerts": {
+        "email": {
+          "enabled": false
+        }
+      },
+      "defaultPolicy": "allow",
+      "blockedServers": [],
+      "allowedServers": [],
+      "arpInspection": {
+        "enabled": false,
+        "unsupportedModels": []
+      }
+    },
+    "ports": {
+      "Q3DB-4X9P-QRW3": {
+        "deviceName": "TST_01SW01",
+        "model": "MS125-24P",
+        "ports": [
+          {
+            "portId": "1",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "2",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "3",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "4",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "5",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "6",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "7",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "8",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "9",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "10",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "11",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "12",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "13",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "14",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "15",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "16",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "17",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "18",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "19",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "20",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "21",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "22",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "23",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "24",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "25",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": false,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "26",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": false,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "27",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": false,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "28",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": false,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          }
+        ]
+      },
+      "Q3DB-77XE-5BRN": {
+        "deviceName": "TST_01SW02",
+        "model": "MS125-24P",
+        "ports": [
+          {
+            "portId": "1",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "2",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "3",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "4",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "5",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "6",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "7",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "8",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "9",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "10",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "11",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "12",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "13",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "14",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "15",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "16",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "17",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "18",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "19",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "20",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "21",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "22",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "23",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "24",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": true,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)",
+              "100 Megabit (auto)",
+              "100 Megabit half duplex (forced)",
+              "100 Megabit full duplex (forced)",
+              "10 Megabit (auto)",
+              "10 Megabit half duplex (forced)",
+              "10 Megabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "25",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": false,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "26",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": false,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "27",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": false,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          },
+          {
+            "portId": "28",
+            "name": null,
+            "tags": [],
+            "enabled": true,
+            "poeEnabled": false,
+            "type": "trunk",
+            "vlan": 1,
+            "voiceVlan": null,
+            "allowedVlans": "all",
+            "isolationEnabled": false,
+            "rstpEnabled": true,
+            "stpGuard": "disabled",
+            "linkNegotiation": "Auto negotiate",
+            "portScheduleId": null,
+            "schedule": null,
+            "udld": "Alert only",
+            "linkNegotiationCapabilities": [
+              "Auto negotiate",
+              "1 Gigabit full duplex (forced)"
+            ],
+            "accessPolicyType": "Open",
+            "daiTrusted": false,
+            "profile": {
+              "enabled": false,
+              "id": "",
+              "iname": null
+            },
+            "module": {
+              "model": null
+            },
+            "mirror": {
+              "mode": "Not mirroring traffic"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "monitoring": {
+    "alerts": {
+      "defaultDestinations": {
+        "emails": [],
+        "snmp": false,
+        "allAdmins": true,
+        "httpServerIds": []
+      },
+      "alerts": [
+        {
+          "type": "ampMalwareDetected",
+          "enabled": true,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {}
+        },
+        {
+          "type": "ampMalwareBlocked",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {}
+        },
+        {
+          "type": "applianceDown",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {
+            "timeout": 60
+          }
+        },
+        {
+          "type": "failoverEvent",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {}
+        },
+        {
+          "type": "dhcpNoLeases",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {}
+        },
+        {
+          "type": "rogueDhcp",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {}
+        },
+        {
+          "type": "ipConflict",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {}
+        },
+        {
+          "type": "ip6Conflict",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {}
+        },
+        {
+          "type": "dhcp6naRenumber",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {}
+        },
+        {
+          "type": "dhcp6pdRenumber",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {}
+        },
+        {
+          "type": "cellularUpDown",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {}
+        },
+        {
+          "type": "clientConnectivity",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {
+            "clients": []
+          }
+        },
+        {
+          "type": "vrrp",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {}
+        },
+        {
+          "type": "vpnConnectivityChange",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {}
+        },
+        {
+          "type": "settingsChanged",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {}
+        },
+        {
+          "type": "usageAlert",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {
+            "threshold": 104857600,
+            "period": 1200
+          }
+        },
+        {
+          "type": "weeklyUmbrella",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {}
+        },
+        {
+          "type": "prefixStarvation",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {}
+        },
+        {
+          "type": "portDown",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {
+            "timeout": 60,
+            "selector": "any port"
+          }
+        },
+        {
+          "type": "powerSupplyDown",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {}
+        },
+        {
+          "type": "rpsBackup",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {}
+        },
+        {
+          "type": "udldError",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {}
+        },
+        {
+          "type": "portError",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {
+            "selector": "any port"
+          }
+        },
+        {
+          "type": "portSpeed",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {
+            "selector": "any port"
+          }
+        },
+        {
+          "type": "newDhcpServer",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {}
+        },
+        {
+          "type": "switchDown",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {
+            "timeout": 60
+          }
+        },
+        {
+          "type": "switchCriticalTemperature",
+          "enabled": false,
+          "alertDestinations": {
+            "emails": [],
+            "snmp": false,
+            "allAdmins": false,
+            "httpServerIds": []
+          },
+          "filters": {}
+        }
+      ],
+      "muting": {}
+    },
+    "syslogServers": {
+      "servers": []
+    },
+    "snmp": {
+      "access": "none",
+      "communityString": null,
+      "users": []
+    }
+  }
+}

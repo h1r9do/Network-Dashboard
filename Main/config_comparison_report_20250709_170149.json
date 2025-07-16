@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-07-09T17:01:49.740960",
+  "source": "AZP 30",
+  "target": "TST 01",
+  "differences": {
+    "vlans": [
+      "Missing VLAN 100",
+      "Old VLAN 1 not removed",
+      "Missing VLAN 200",
+      "Old VLAN 101 not removed",
+      "Missing VLAN 400",
+      "Old VLAN 801 not removed",
+      "Missing VLAN 410",
+      "Old VLAN 201 not removed"
+    ]
+  }
+}

@@ -1,0 +1,73 @@
+REVERT OPERATION SUMMARY
+========================
+Date: June 27, 2025
+Time: 15:10 - 15:26 (approximately)
+
+OPERATION DETAILS
+-----------------
+Script: revert_notes_to_original.py
+Purpose: Revert 654 sites from new multi-line format back to original DSR format
+Source: /var/www/html/meraki-data.bak/mx_inventory_live.json
+
+SITES REVERTED
+--------------
+Total sites targeted: 654
+Successfully reverted: 652 (99.7%)
+Failed to revert: 1 (ARO 06 - device error)
+Not found in backup: 1
+
+VERIFICATION RESULTS
+--------------------
+Sample verification (65 sites):
+- Exact matches: 64 (98.5%)
+- Still new format: 0 (0.0%)
+- Empty notes: 1 (1.5%)
+- Mismatches: 0 (0.0%)
+
+ESTIMATED FULL RESULTS
+----------------------
+Based on the sample, estimated results for all 654 sites:
+- Successfully reverted: ~643 sites (98.5%)
+- Not reverted: ~0 sites (0.0%)
+- Other issues: ~11 sites (1.5%)
+
+FORMAT CHANGES
+--------------
+FROM (New format):
+  WAN 1
+  Provider Name
+  Speed
+  WAN 2
+  Provider Name
+  Speed
+
+TO (Original DSR format):
+  WAN1 DSR Provider Speed
+  First IP x.x.x.x
+  Gateway x.x.x.x
+  Subnet 255.255.255.xxx
+  
+  WAN2 DSR Provider Speed
+  First IP x.x.x.x
+  Gateway x.x.x.x
+  Subnet 255.255.255.xxx
+
+KNOWN ISSUES
+------------
+1. ARO 06 (Q2KY-537C-KJS2) - Failed with error "Device does not belong to a network"
+2. One site not found in original backup
+3. GAA 08 - Has empty notes (may have been empty originally)
+
+CONCLUSION
+----------
+✅ REVERT OPERATION SUCCESSFUL
+The operation successfully restored 98.5%+ of the 654 sites to their original notes format.
+The new multi-line format has been reverted to the original DSR format with complete
+IP addressing details.
+
+FILES CREATED
+-------------
+- /usr/local/bin/Main/654_sites_reverted.txt (detailed list by state)
+- /usr/local/bin/Main/654_sites_reverted_list_only.txt (simple list)
+- /tmp/revert_full_output.log (complete operation log)
+- This summary file

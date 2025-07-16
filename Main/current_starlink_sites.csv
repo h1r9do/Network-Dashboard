@@ -1,0 +1,76 @@
+Site Name,Starlink Position,Starlink Speed,Other Provider,Other Speed,Device Notes Preview
+AZP 05,WAN2,Satellite,WAN1: Cox Business/BOI,300.0M x 30.0M,"WAN 1
+Cox Business/BOI
+300.0M x 30.0M
+WAN 2
+Starlink
+Satellite"
+AZP 34,WAN2,Satellite,WAN1: Cox Business/BOI,300.0M x 30.0M,WAN 1 | Cox Communications | 300.0M x 30.0M | WAN 2 | Starlink | Satellite
+AZP 36,WAN2,Satellite,WAN1: Wyyerd Fiber,2000.0M x 2000.0M,WAN 1 | Wyyerd Fiber | 2000.0M x 2000.0M | WAN 2 | Starlink | Satellite
+AZP 41,WAN2,Satellite,WAN1: AT&T,20.0M x 20.0M,WAN 1 | AT&T | 20.0M x 20.0M | WAN 2 | Starlink | Satellite
+AZP 45,WAN2,Satellite,WAN1: Cox Business/BOI,300.0M x 30.0M,WAN 1 | Cox Communications | 300.0M x 30.0M | WAN 2 | Starlink | Satellite
+AZP 64,WAN1,Satellite,WAN2: AT&T Cell,Cell,"WAN 1
+Starlink
+Satellite
+WAN 2
+AT&T Cell
+Cell"
+AZT 07,WAN2,Satellite,WAN1: Cox Business,200.0M x 200.0M,WAN 1 | Cox Communications | 200.0M x 200.0M | WAN 2 | Starlink | Satellite
+CAN 40,WAN2,Satellite,WAN1: nVZW Cell nCell n,,WAN 1 | VZW Cell | Cell | WAN 2 | Starlink | Satellite
+CAS 49,WAN2,Satellite,WAN1: Spectrum,750.0M x 35.0M,WAN 1 | Spectrum | 600.0M x 35.0M | WAN 2 | Starlink | Satellite
+FLO 05,WAN2,Satellite,WAN1: Spectrum,750.0M x 35.0M,WAN 1 | Spectrum | 600.0M x 35.0M | WAN 2 | Starlink | Satellite
+ILC 31,WAN2,Satellite,WAN1: Comcast Workplace,750.0M x 35.0M,WAN 1 | Comcast Workplace | 600.0M x 35.0M | WAN 2 | Starlink | Satellite
+ILP 01,WAN2,Satellite,WAN1: i3 Broadband,250.0M x 250.0M,"WAN 1
+i3 Broadband
+250.0M x 250.0M
+WAN 2
+Starlink
+Satellite"
+ILR 02,WAN2,Satellite,WAN1: Comcast Workplace,300.0M x 25.0M,WAN 1 | Comcast Workplace | 250.0M x 25.0M | WAN 2 | Starlink | Satellite
+MNM 02,WAN2,Satellite,WAN1: Comcast,300.0M x 30.0M,WAN 1 | Comcast | 300.0M x 30.0M | WAN 2 | Starlink | Satellite
+MOS 10,WAN2,Satellite,WAN1: Spectrum,750.0M x 35.0M,"WAN 1
+Spectrum
+600.0M x 35.0M
+WAN 2
+Starlink
+Satellite"
+NCC 51,WAN2,Satellite,WAN1: Altice West,300.0M x 50.0M,"WAN 1
+Altice West
+300.0M x 50.0M
+WAN 2
+Starlink
+Satellite"
+TNK 03,WAN2,Satellite,WAN1: Comcast Workplace,500.0M x 30.0M,"WAN 1
+Comcast Workplace
+500.0M x 30.0M
+WAN 2
+Starlink
+Satellite"
+TXD 82,WAN2,Satellite,WAN1: AT&T Broadband II,1000.0M x 200.0M,WAN 1 | AT&T Broadband II | 1000.0M x 200.0M | WAN 2 | Starlink | Satellite
+TXG 03,WAN2,Satellite,WAN1: Comcast Workplace,750.0M x 35.0M,"WAN 1
+Comcast Workplace
+750.0M x 35.0M
+WAN 2
+Starlink
+Satellite"
+TXH 34,WAN2,Satellite,WAN1: AT&T Broadband II,1000.0M x 1000.0M,"WAN 1
+AT&T Broadband II
+1000.0M x 1000.0M
+WAN 2
+Starlink
+Satellite"
+TXH 49,WAN2,Satellite,WAN1: Comcast Workplace,750.0M x 35.0M,WAN 1 | Comcast Workplace | 750.0M x 35.0M | WAN 2 | Starlink | Satellite
+TXH 54,WAN2,Satellite,WAN1: Comcast Workplace,750.0M x 35.0M,"WAN 1
+Comcast Cable Communications, LLC
+WAN 2
+Starlink
+Satellite"
+VAF 02,WAN2,Satellite,WAN1: Comcast Workplace,750.0M x 35.0M,"WAN 1
+Comcast Workplace
+750.0M x 35.0M
+WAN 2
+Starlink
+Satellite"
+WAS 12,WAN1,Satellite,WAN2: Digi,,WAN 1 | Starlink | Satellite | WAN 2 | Digi | Cell
+WAS 15,WAN2,,WAN1: Comcast Workplace,500.0M x 35.0M,"WAN 1 | Comcast Workplace | 300.0M x 30.0M
+ | WAN 2\STARLINK Connection"

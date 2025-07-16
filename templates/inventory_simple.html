@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Network Inventory Summary - Discount Tire</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .header { background: #2c3e50; color: white; padding: 20px; }
+        .tab-content { padding: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background: #3498db; color: white; }
+        tr:nth-child(even) { background: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Network Inventory Summary</h1>
+    </div>
+    
+    <div class="tab-content">
+        <h2>Tab 4: Datacenter Inventory</h2>
+        <p>Total: {{ datacenter_data.summary.total_rows|default(0) }} rows</p>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Site</th>
+                    <th>Hostname</th>
+                    <th>Relationship</th>
+                    <th>IP Address</th>
+                    <th>Position</th>
+                    <th>Model</th>
+                    <th>Serial Number</th>
+                    <th>Port Location</th>
+                    <th>Vendor</th>
+                    <th>Notes</th>
+                    <th>End of Sale</th>
+                    <th>End of Life</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if datacenter_data and datacenter_data.inventory %}
+                {% for row in datacenter_data.inventory %}
+                <tr>
+                    <td>{{ row.site }}</td>
+                    <td>{{ row.parent_hostname or row.hostname }}</td>
+                    <td>{{ row.relationship }}</td>
+                    <td>{{ row.ip_address }}</td>
+                    <td>{{ row.position }}</td>
+                    <td>{{ row.model }}</td>
+                    <td>{{ row.serial_number }}</td>
+                    <td>{{ row.port_location }}</td>
+                    <td>{{ row.vendor }}</td>
+                    <td>{{ row.notes }}</td>
+                    <td>{{ row.end_of_sale.strftime('%Y-%m-%d') if row.end_of_sale else '' }}</td>
+                    <td>{{ row.end_of_support.strftime('%Y-%m-%d') if row.end_of_support else '' }}</td>
+                </tr>
+                {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

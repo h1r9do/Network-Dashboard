@@ -1,0 +1,133 @@
+
+Complete Network Migration Report
+=================================
+Timestamp: 2025-07-09 15:58:29
+Network ID: L_3790904986339115852
+Organization: 3790904986339115010
+Mode: TEST
+Duration: 0:00:46.276487
+
+Policy Object Mappings:
+  Object 3790904986339115064 → 3790904986339115199
+  Object 3790904986339115065 → 3790904986339115200
+  Object 3790904986339115066 → 3790904986339115201
+  Object 3790904986339115067 → 3790904986339115202
+  Object 3790904986339115068 → 3790904986339115197
+  Object 3790904986339115069 → 3790904986339115198
+  Object 3790904986339115074 → 3790904986339115305
+  Object 3790904986339115107 → 3790904986339115306
+  Object 3790904986339115108 → 3790904986339115307
+  Object 3790904986339115109 → 3790904986339115308
+  Object 3790904986339115110 → 3790904986339115309
+  Object 3790904986339115204 → 3790904986339115310
+  Object 3790904986339115205 → 3790904986339115311
+
+Policy Group Mappings:
+  Group 3790904986339115043 → 3790904986339115120
+  Group 3790904986339115076 → 3790904986339115121
+  Group 3790904986339115077 → 3790904986339115122
+
+Group Policy Mappings:
+  Policy 102 → 100
+  Policy 101 → 101
+  Policy 100 → 102
+
+Migration Log:
+[15:57:42] INFO: Complete Network Migrator v1.0 initialized
+[15:57:42] INFO: Target Network: L_3790904986339115852
+[15:57:42] INFO: Target Organization: 3790904986339115010
+[15:57:42] INFO: Mode: TEST
+[15:57:42] INFO: 
+Step 1: Discovering policy object references...
+[15:57:42] INFO:   Found 5 policy object references
+[15:57:42] INFO:   Found 3 policy group references
+[15:57:42] INFO: 
+Step 2: Migrating policy objects...
+[15:57:49] INFO: 
+Step 3: Creating group policies...
+[15:57:49] INFO:   Creating group policy: Ebay Access (ID: 102)
+[15:57:51] INFO:     ✓ Created policy with new ID: 100
+[15:57:52] INFO:   Creating group policy: Indeed.com (ID: 101)
+[15:57:53] INFO:     ✓ Created policy with new ID: 101
+[15:57:54] INFO:   Creating group policy: Guest Network (ID: 100)
+[15:57:55] INFO:     ✓ Created policy with new ID: 102
+[15:57:56] INFO: 
+Step 4: Cleaning up existing VLANs...
+[15:57:57] INFO: 
+Step 5: Migrating VLANs...
+[15:57:57] INFO:     TEST MODE: Changing IP from 10.1.32.0/25 to 10.255.255.0/25
+[15:57:57] INFO:       DHCP settings: handling=Relay DHCP to another server, DNS=upstream_dns
+[15:57:57] INFO:       TEST MODE: Converting DHCP relay to DHCP server (relay servers not reachable from test range)
+[15:57:57] INFO:       TEST MODE: Updated to DHCP server with 12 hour lease
+[15:57:57] INFO:       DHCP settings: handling=Run a DHCP server, lease=12 hours, DNS=upstream_dns
+[15:57:57] INFO:   Updating existing VLAN 100 (Data) with subnet 10.255.255.0/25
+[15:57:58] INFO:     ✓ Updated VLAN 100
+[15:58:00] INFO:   Creating VLAN 200 (was 101)
+[15:58:00] INFO:     TEST MODE: Changing IP from 10.1.32.128/27 to 10.255.255.128/27
+[15:58:00] INFO:       DHCP settings: handling=Run a DHCP server, DNS=10.0.175.27
+10.101.175.28
+[15:58:00] INFO:       Preserving 3 DHCP options
+[15:58:00] INFO:       DHCP settings: handling=Run a DHCP server, lease=12 hours, DNS=10.0.175.27
+10.101.175.28
+[15:58:01] INFO:     ✓ Created VLAN 200 - Voice (10.255.255.128/27)
+[15:58:02] INFO:   Creating VLAN 410 (was 201)
+[15:58:02] INFO:     TEST MODE: Changing IP from 10.1.32.160/28 to 10.255.255.160/28
+[15:58:02] INFO:       DHCP settings: handling=Relay DHCP to another server, DNS=upstream_dns
+[15:58:02] INFO:       TEST MODE: Converting DHCP relay to DHCP server (relay servers not reachable from test range)
+[15:58:02] INFO:       TEST MODE: Updated to DHCP server with 12 hour lease
+[15:58:02] INFO:       DHCP settings: handling=Run a DHCP server, lease=12 hours, DNS=upstream_dns
+[15:58:03] INFO:     ✓ Created VLAN 410 - Ccard (10.255.255.160/28)
+[15:58:04] INFO:   Creating VLAN 300 (was 300)
+[15:58:04] INFO:     TEST MODE: Changing IP from 10.1.32.176/28 to 10.255.255.176/28
+[15:58:04] INFO:       DHCP settings: handling=Run a DHCP server, DNS=10.0.175.27
+10.101.175.28
+[15:58:04] INFO:       DHCP settings: handling=Run a DHCP server, lease=1 day, DNS=10.0.175.27
+10.101.175.28
+[15:58:09] INFO:     ✓ Created VLAN 300 - Net Mgmt (10.255.255.176/28)
+[15:58:10] INFO:   Creating VLAN 301 (was 301)
+[15:58:10] INFO:     TEST MODE: Changing IP from 10.1.32.192/28 to 10.255.255.192/28
+[15:58:10] INFO:       DHCP settings: handling=Run a DHCP server, DNS=10.0.175.27
+10.101.175.28
+[15:58:10] INFO:       DHCP settings: handling=Run a DHCP server, lease=1 day, DNS=10.0.175.27
+10.101.175.28
+[15:58:11] INFO:     ✓ Created VLAN 301 - Scanner (10.255.255.192/28)
+[15:58:12] INFO:   Creating VLAN 800 (was 800)
+[15:58:12] INFO:     TEST MODE: Changing IP from 172.13.0.0/30 to 172.16.80.0/24
+[15:58:12] INFO:     Updated group policy ID: 100 → 102
+[15:58:12] INFO:       DHCP settings: handling=Run a DHCP server, DNS=upstream_dns
+[15:58:12] INFO:       DHCP settings: handling=Run a DHCP server, lease=1 day, DNS=upstream_dns
+[15:58:13] INFO:     ✓ Created VLAN 800 - Guest (172.16.80.0/24)
+[15:58:14] INFO:   Creating VLAN 400 (was 801)
+[15:58:14] INFO:     TEST MODE: Changing IP from 172.14.0.0/24 to 172.16.40.0/24
+[15:58:14] INFO:     Updated group policy ID: 100 → 102
+[15:58:14] INFO:       DHCP settings: handling=Run a DHCP server, DNS=upstream_dns
+[15:58:14] INFO:       DHCP settings: handling=Run a DHCP server, lease=1 day, DNS=upstream_dns
+[15:58:15] INFO:     ✓ Created VLAN 400 - IoT (172.16.40.0/24)
+[15:58:16] INFO:   Skipping VLAN 802 (will be removed)
+[15:58:16] INFO:   Creating VLAN 803 (was 803)
+[15:58:16] INFO:     Updated group policy ID: 100 → 102
+[15:58:16] INFO:       DHCP settings: handling=Run a DHCP server, DNS=upstream_dns
+[15:58:16] INFO:       DHCP settings: handling=Run a DHCP server, lease=1 day, DNS=upstream_dns
+[15:58:17] INFO:     ✓ Created VLAN 803 - IoT Wireless (172.22.0.0/24)
+[15:58:18] INFO:   Creating VLAN 900 (was 900)
+[15:58:18] INFO:     TEST MODE: Changing IP from 10.1.32.252/30 to 10.255.255.252/30
+[15:58:18] INFO:       DHCP settings: handling=Run a DHCP server, DNS=upstream_dns
+[15:58:18] INFO:       DHCP settings: handling=Run a DHCP server, lease=1 day, DNS=upstream_dns
+[15:58:20] INFO:     ✓ Created VLAN 900 - Mgmt (10.255.255.252/30)
+[15:58:21] INFO: 
+Step 6: Configuring syslog server...
+[15:58:21] INFO:   Using default syslog server: 10.0.175.30:514
+[15:58:21] INFO:   TEST MODE: Updated syslog server from 10.0.175.30 to 10.255.255.30
+[15:58:22] INFO:   ✓ Syslog server configured: 10.255.255.30:514
+[15:58:22] INFO: 
+Step 7: Applying firewall rules...
+[15:58:22] INFO: Applying 55 firewall rules...
+[15:58:24] INFO:   ✓ Successfully applied 56 firewall rules
+[15:58:24] INFO: 
+Step 8: Validating deployment...
+[15:58:25] INFO:   ✓ VLANs: 9 configured
+[15:58:25] INFO:   ✓ Group Policies: 3 configured
+[15:58:27] INFO:   ✓ Firewall Rules: 56 configured
+[15:58:27] INFO:   ✓ Syslog: 1 server(s) configured
+[15:58:29] INFO:   ✓ Switches: 2 configured
+[15:58:29] INFO:   🎉 All validation checks passed!

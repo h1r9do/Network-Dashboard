@@ -1,0 +1,9 @@
+2025-07-11 07:42:01,268 - INFO - ============================================================
+2025-07-11 07:42:01,268 - INFO - Starting Inventory Web Format Update - CSV Match Version
+2025-07-11 07:42:01,268 - INFO - Timestamp: 20250711_074201
+2025-07-11 07:42:01,268 - INFO - ============================================================
+2025-07-11 07:42:01,391 - ERROR - Error updating web format table: value too long for type character varying(50)
+
+2025-07-11 07:42:01,391 - ERROR - Error processing inventory: value too long for type character varying(50)
+
+2025-07-11 07:42:01,392 - ERROR - Update failed

@@ -1,0 +1,338 @@
+#!/usr/bin/env python3
+"""
+Database-Integrated Nightly Enablement Processor
+Replaces file-based nightly_enablement_processor.py with direct database operations
+Tracks circuit enablements using database instead of JSON files
+"""
+
+import os
+import sys
+import logging
+import psycopg2
+from psycopg2.extras import execute_values
+from datetime import datetime, timezone, timedelta
+import pandas as pd
+import glob
+
+# Add current directory to path for imports
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from config import Config
+
+# Setup logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('/var/log/nightly-enablement-db.log'),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
+
+def get_db_connection():
+    """Get database connection using config"""
+    import re
+    match = re.match(r'postgresql://(.+):(.+)@(.+):(\d+)/(.+)', Config.SQLALCHEMY_DATABASE_URI)
+    if not match:
+        raise ValueError("Invalid database URI")
+    
+    user, password, host, port, database = match.groups()
+    
+    return psycopg2.connect(
+        host=host,
+        port=int(port),
+        database=database,
+        user=user,
+        password=password
+    )
+
+def is_enabled_status(status):
+    """Check if a status indicates an enabled circuit"""
+    if not status:
+        return False
+    
+    enabled_keywords = [
+        'enabled', 'service activated', 'activated',
+        'enabled using existing broadband'
+    ]
+    
+    status_lower = str(status).lower().strip()
+    return any(keyword in status_lower for keyword in enabled_keywords)
+
+def process_csv_file(file_path):
+    """Process a single CSV file and return circuit data"""
+    try:
+        df = pd.read_csv(file_path, low_memory=False)
+        logger.info(f"Processing {file_path}: {len(df)} rows")
+        
+        # Extract date from filename
+        filename = os.path.basename(file_path)
+        if 'sample_data' in filename:
+            file_date = 'sample_data'
+        else:
+            import re
+            date_match = re.search(r'(\d{4}-\d{2}-\d{2})', filename)
+            file_date = date_match.group(1) if date_match else None
+        
+        if not file_date or file_date == 'sample_data':
+            logger.warning(f"Skipping file with invalid date: {filename}")
+            return None, file_date
+        
+        # Create circuit records
+        circuits = []
+        for _, row in df.iterrows():
+            circuit = {
+                'site_name': str(row.get('Site Name', '')).strip(),
+                'circuit_purpose': str(row.get('Circuit Purpose', '')).strip(),
+                'status': str(row.get('status', '')).strip(),
+                'provider_name': str(row.get('provider_name', '')).strip(),
+                'service_speed': str(row.get('details_service_speed', '')).strip(),
+                'monthly_cost': row.get('billing_monthly_cost', 0),
+                'date_record_updated': str(row.get('date_record_updated', '')).strip(),
+                'file_date': file_date
+            }
+            circuits.append(circuit)
+        
+        return circuits, file_date
+        
+    except Exception as e:
+        logger.error(f"Error processing {file_path}: {e}")
+        return None, None
+
+def detect_enablements(conn):
+    """Detect new enablements by comparing circuit status changes"""
+    cursor = conn.cursor()
+    
+    try:
+        # Get all CSV files in chronological order
+        csv_dir = "/var/www/html/circuitinfo"
+        csv_files = glob.glob(f"{csv_dir}/tracking_data_*.csv")
+        csv_files.sort()
+        
+        logger.info(f"Found {len(csv_files)} CSV files to process")
+        
+        previous_circuits = {}
+        total_enablements = 0
+        
+        for csv_file in csv_files:
+            circuits, file_date = process_csv_file(csv_file)
+            
+            if circuits is None:
+                continue
+            
+            daily_enablements = 0
+            
+            # Check each circuit against previous day
+            for circuit in circuits:
+                site_key = f"{circuit['site_name']}_{circuit['circuit_purpose']}_{circuit['provider_name']}"
+                current_status = circuit['status']
+                
+                # Check if currently enabled
+                if is_enabled_status(current_status):
+                    # Check if was NOT enabled previously
+                    if site_key in previous_circuits:
+                        previous_status = previous_circuits[site_key]['status']
+                        if not is_enabled_status(previous_status):
+                            # This is a new enablement!
+                            enablement_record = {
+                                'site_name': circuit['site_name'],
+                                'circuit_purpose': circuit['circuit_purpose'],
+                                'provider_name': circuit['provider_name'],
+                                'enablement_date': file_date,
+                                'previous_status': previous_status,
+                                'current_status': current_status,
+                                'service_speed': circuit['service_speed'],
+                                'monthly_cost': circuit['monthly_cost'],
+                                'detected_at': datetime.now(timezone.utc)
+                            }
+                            
+                            # Insert enablement record
+                            insert_sql = """
+                                INSERT INTO circuit_enablements (
+                                    site_name, circuit_purpose, provider_name, enablement_date,
+                                    previous_status, current_status, service_speed, monthly_cost,
+                                    detected_at
+                                ) VALUES (
+                                    %(site_name)s, %(circuit_purpose)s, %(provider_name)s, %(enablement_date)s,
+                                    %(previous_status)s, %(current_status)s, %(service_speed)s, %(monthly_cost)s,
+                                    %(detected_at)s
+                                )
+                                ON CONFLICT (site_name, circuit_purpose, provider_name, enablement_date) 
+                                DO NOTHING
+                            """
+                            
+                            cursor.execute(insert_sql, enablement_record)
+                            daily_enablements += 1
+                            total_enablements += 1
+            
+            # Store daily summary
+            if file_date != 'sample_data':
+                summary_sql = """
+                    INSERT INTO enablement_summary (
+                        summary_date, daily_count, created_at
+                    ) VALUES (%s, %s, %s)
+                    ON CONFLICT (summary_date) DO UPDATE SET
+                        daily_count = EXCLUDED.daily_count
+                """
+                cursor.execute(summary_sql, (file_date, daily_enablements, datetime.now(timezone.utc)))
+            
+            logger.info(f"Found {daily_enablements} enablements on {file_date}")
+            
+            # Update previous_circuits for next iteration
+            previous_circuits = {}
+            for circuit in circuits:
+                site_key = f"{circuit['site_name']}_{circuit['circuit_purpose']}_{circuit['provider_name']}"
+                previous_circuits[site_key] = circuit
+        
+        # Calculate trend data
+        calculate_trends(cursor)
+        
+        conn.commit()
+        logger.info(f"Total enablements processed: {total_enablements}")
+        return True
+        
+    except Exception as e:
+        logger.error(f"Error detecting enablements: {e}")
+        conn.rollback()
+        return False
+    finally:
+        cursor.close()
+
+def calculate_trends(cursor):
+    """Calculate weekly and monthly trends"""
+    try:
+        # Calculate weekly trends
+        cursor.execute("""
+            INSERT INTO enablement_trends (
+                period_type, period_start, period_end, enablement_count, created_at
+            )
+            SELECT 
+                'weekly',
+                DATE_TRUNC('week', summary_date::date),
+                DATE_TRUNC('week', summary_date::date) + INTERVAL '6 days',
+                SUM(daily_count),
+                NOW()
+            FROM enablement_summary 
+            GROUP BY DATE_TRUNC('week', summary_date::date)
+            ON CONFLICT (period_type, period_start) DO UPDATE SET
+                enablement_count = EXCLUDED.enablement_count,
+                period_end = EXCLUDED.period_end
+        """)
+        
+        # Calculate monthly trends
+        cursor.execute("""
+            INSERT INTO enablement_trends (
+                period_type, period_start, period_end, enablement_count, created_at
+            )
+            SELECT 
+                'monthly',
+                DATE_TRUNC('month', summary_date::date),
+                DATE_TRUNC('month', summary_date::date) + INTERVAL '1 month' - INTERVAL '1 day',
+                SUM(daily_count),
+                NOW()
+            FROM enablement_summary 
+            GROUP BY DATE_TRUNC('month', summary_date::date)
+            ON CONFLICT (period_type, period_start) DO UPDATE SET
+                enablement_count = EXCLUDED.enablement_count,
+                period_end = EXCLUDED.period_end
+        """)
+        
+        logger.info("Trend calculations completed")
+        
+    except Exception as e:
+        logger.error(f"Error calculating trends: {e}")
+
+def create_enablement_tables(conn):
+    """Create enablement tracking tables if they don't exist"""
+    cursor = conn.cursor()
+    
+    try:
+        # Circuit enablements table
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS circuit_enablements (
+                id SERIAL PRIMARY KEY,
+                site_name VARCHAR(200),
+                circuit_purpose VARCHAR(100),
+                provider_name VARCHAR(100),
+                enablement_date DATE,
+                previous_status VARCHAR(100),
+                current_status VARCHAR(100),
+                service_speed VARCHAR(50),
+                monthly_cost DECIMAL(10,2),
+                detected_at TIMESTAMP,
+                UNIQUE(site_name, circuit_purpose, provider_name, enablement_date)
+            )
+        """)
+        
+        # Daily enablement summary
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS enablement_summary (
+                id SERIAL PRIMARY KEY,
+                summary_date DATE UNIQUE,
+                daily_count INTEGER,
+                created_at TIMESTAMP DEFAULT NOW()
+            )
+        """)
+        
+        # Enablement trends
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS enablement_trends (
+                id SERIAL PRIMARY KEY,
+                period_type VARCHAR(20),
+                period_start DATE,
+                period_end DATE,
+                enablement_count INTEGER,
+                created_at TIMESTAMP DEFAULT NOW(),
+                UNIQUE(period_type, period_start)
+            )
+        """)
+        
+        # Create indexes
+        cursor.execute("""
+            CREATE INDEX IF NOT EXISTS idx_enablements_date ON circuit_enablements(enablement_date);
+            CREATE INDEX IF NOT EXISTS idx_enablements_site ON circuit_enablements(site_name);
+            CREATE INDEX IF NOT EXISTS idx_enablements_provider ON circuit_enablements(provider_name);
+            CREATE INDEX IF NOT EXISTS idx_summary_date ON enablement_summary(summary_date);
+            CREATE INDEX IF NOT EXISTS idx_trends_period ON enablement_trends(period_type, period_start);
+        """)
+        
+        conn.commit()
+        logger.info("Enablement tables created/verified")
+        
+    except Exception as e:
+        logger.error(f"Error creating enablement tables: {e}")
+        conn.rollback()
+        raise
+    finally:
+        cursor.close()
+
+def main():
+    """Main processing function"""
+    logger.info("Starting database-integrated nightly enablement processing")
+    
+    try:
+        # Get database connection
+        conn = get_db_connection()
+        
+        # Create tables if needed
+        create_enablement_tables(conn)
+        
+        # Process enablement data
+        success = detect_enablements(conn)
+        
+        if success:
+            logger.info("Nightly enablement processing completed successfully")
+        else:
+            logger.error("Nightly enablement processing failed")
+            return False
+            
+        conn.close()
+        return True
+        
+    except Exception as e:
+        logger.error(f"Error in main process: {e}")
+        return False
+
+if __name__ == "__main__":
+    success = main()
+    sys.exit(0 if success else 1)

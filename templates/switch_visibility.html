@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Switch Port Visibility - Discount Tire Network Management System</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- CSS Libraries -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    
+    <!-- JS Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        /* Header styling */
+        .header-container {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .header-container h1 {
+            margin: 0;
+            font-size: 24px;
+            display: inline-block;
+        }
+        
+        .row-count {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 14px;
+            color: #ecf0f1;
+            font-weight: 400;
+        }
+        
+        /* Main container */
+        .switch-table-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        /* Export buttons */
+        .export-buttons {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .export-buttons button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .export-buttons button:hover {
+            background: #2980b9;
+        }
+        
+        #refreshStore, #refreshSwitch {
+            background: #3498db;
+        }
+        
+        #refreshStore:hover, #refreshSwitch:hover {
+            background: #2980b9;
+        }
+        
+        /* Filter controls */
+        .filter-controls {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+        
+        .filter-control {
+            padding: 5px;
+        }
+        
+        .filter-control input,
+        .filter-control select {
+            width: 100%;
+            padding: 6px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+        
+        /* Table styling */
+        .switch-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .switch-table thead th {
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .switch-table tbody tr {
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .switch-table tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        .switch-table tbody tr:hover {
+            background-color: #f1f8ff;
+        }
+        
+        .switch-table td {
+            padding: 12px 15px;
+            color: #333;
+        }
+        
+        /* DataTables customization */
+        .dataTables_wrapper .dataTables_filter {
+            float: left;
+            text-align: left;
+            margin-bottom: 10px;
+        }
+        
+        .dataTables_wrapper .dataTables_length {
+            float: right;
+        }
+        
+        .dataTables_wrapper .dataTables_info {
+            float: left;
+        }
+        
+        .dataTables_wrapper .dataTables_paginate {
+            float: right;
+        }
+        
+        /* Clear floats */
+        .dataTables_wrapper::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        
+        /* Manufacturer badge */
+        .manufacturer-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            background: #e0e0e0;
+        }
+        
+        .manufacturer-badge.cisco { background: #00bceb; color: white; }
+        .manufacturer-badge.meraki { background: #78be20; color: white; }
+        .manufacturer-badge.dell { background: #007db8; color: white; }
+        .manufacturer-badge.hp { background: #0096d6; color: white; }
+        .manufacturer-badge.apple { background: #555555; color: white; }
+        .manufacturer-badge.vmware { background: #717074; color: white; }
+        .manufacturer-badge.microsoft { background: #00bcf2; color: white; }
+        
+        /* Excel-style filter dropdown */
+        .excel-filter-dropdown {
+            position: absolute;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            z-index: 1000;
+            display: none;
+            min-width: 250px;
+            max-width: 350px;
+        }
+        
+        .excel-filter-header {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .excel-filter-search {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            margin-bottom: 10px;
+        }
+        
+        .excel-filter-conditions {
+            padding: 5px 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .excel-filter-conditions select {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .excel-filter-list {
+            max-height: 300px;
+            overflow-y: auto;
+            padding: 5px 0;
+        }
+        
+        .excel-filter-item {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        
+        .excel-filter-item:hover {
+            background: #f5f5f5;
+        }
+        
+        .excel-filter-item input[type="checkbox"] {
+            margin-right: 8px;
+        }
+        
+        .excel-filter-buttons {
+            padding: 10px;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .excel-filter-buttons button {
+            padding: 5px 15px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        .excel-filter-apply {
+            background: #3498db;
+            color: white;
+        }
+        
+        .excel-filter-clear {
+            background: #e74c3c;
+            color: white;
+        }
+        
+        .excel-filter-select-all {
+            padding: 5px 10px;
+            border-bottom: 1px solid #eee;
+            font-weight: bold;
+        }
+        
+        .filter-control.excel-style {
+            position: relative;
+        }
+        
+        .excel-filter-trigger {
+            position: absolute;
+            right: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            padding: 5px;
+            color: #666;
+        }
+        
+        /* Loading overlay */
+        .loading-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 9999;
+        }
+        
+        .loading-spinner {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <h1>Discount Tire Switch Port Visibility</h1>
+        <div class="row-count" id="rowCount">Loading...</div>
+    </div>
+
+    <div class="switch-table-container">
+        <!-- Export Buttons -->
+        <div class="export-buttons">
+            <!-- Left side buttons -->
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <button onclick="window.location.href='/home'">🏠 Home</button>
+                <button id="refreshStore" title="Refresh all switches in selected store">🔄 Refresh Store</button>
+                <button id="refreshSwitch" title="Refresh selected switch">🔄 Refresh Switch</button>
+            </div>
+            
+            <!-- Right side export buttons -->
+            <div style="display: flex; gap: 8px; margin-left: auto;">
+                <button id="exportExcel">📊 Export to Excel</button>
+                <button id="exportAllExcel">📊 Export All to Excel</button>
+                <button id="exportPDF">📄 Export to PDF</button>
+            </div>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="filter-controls">
+            <div class="filter-control excel-style">
+                <input type="text" id="storeFilter" placeholder="Filter Stores..." readonly style="cursor: pointer;">
+                <span class="excel-filter-trigger" id="storeFilterTrigger">▼</span>
+                <div class="excel-filter-dropdown" id="storeFilterDropdown">
+                    <div class="excel-filter-header">
+                        <input type="text" class="excel-filter-search" placeholder="Search stores...">
+                        <div class="excel-filter-conditions">
+                            <select class="condition-type">
+                                <option value="contains">Contains</option>
+                                <option value="equals">Equals</option>
+                                <option value="startswith">Starts with</option>
+                                <option value="endswith">Ends with</option>
+                                <option value="notcontains">Does not contain</option>
+                            </select>
+                            <input type="text" class="condition-value" placeholder="Enter value...">
+                        </div>
+                    </div>
+                    <div class="excel-filter-select-all">
+                        <label><input type="checkbox" id="storeSelectAll"> Select All</label>
+                    </div>
+                    <div class="excel-filter-list" id="storeFilterList">
+                        <!-- Store items will be populated here -->
+                    </div>
+                    <div class="excel-filter-buttons">
+                        <button class="excel-filter-clear">Clear</button>
+                        <button class="excel-filter-apply">Apply</button>
+                    </div>
+                </div>
+            </div>
+            <div class="filter-control excel-style">
+                <input type="text" id="switchFilter" placeholder="Filter Switches..." readonly style="cursor: pointer;">
+                <span class="excel-filter-trigger" id="switchFilterTrigger">▼</span>
+                <div class="excel-filter-dropdown" id="switchFilterDropdown">
+                    <div class="excel-filter-header">
+                        <input type="text" class="excel-filter-search" placeholder="Search switches...">
+                        <div class="excel-filter-conditions">
+                            <select class="condition-type">
+                                <option value="contains">Contains</option>
+                                <option value="equals">Equals</option>
+                                <option value="startswith">Starts with</option>
+                                <option value="endswith">Ends with</option>
+                                <option value="notcontains">Does not contain</option>
+                            </select>
+                            <input type="text" class="condition-value" placeholder="Enter value...">
+                        </div>
+                    </div>
+                    <div class="excel-filter-select-all">
+                        <label><input type="checkbox" id="switchSelectAll"> Select All</label>
+                    </div>
+                    <div class="excel-filter-list" id="switchFilterList">
+                        <!-- Switch items will be populated here -->
+                    </div>
+                    <div class="excel-filter-buttons">
+                        <button class="excel-filter-clear">Clear</button>
+                        <button class="excel-filter-apply">Apply</button>
+                    </div>
+                </div>
+            </div>
+            <div class="filter-control">
+                <input type="text" id="portFilter" placeholder="Filter Port ID...">
+            </div>
+            <div class="filter-control">
+                <input type="text" id="hostnameFilter" placeholder="Filter Hostname...">
+            </div>
+            <div class="filter-control">
+                <input type="text" id="ipFilter" placeholder="Filter IP Address...">
+            </div>
+            <div class="filter-control">
+                <input type="text" id="macFilter" placeholder="Filter MAC Address..." disabled>
+            </div>
+            <div class="filter-control">
+                <input type="text" id="vlanFilter" placeholder="Filter VLAN..." disabled>
+            </div>
+            <div class="filter-control">
+                <select id="manufacturerFilter" disabled>
+                    <option value="">All Manufacturers</option>
+                    <option value="Cisco">Cisco</option>
+                    <option value="Cisco Meraki">Cisco Meraki</option>
+                    <option value="Dell">Dell</option>
+                    <option value="HP">HP</option>
+                    <option value="Apple">Apple</option>
+                    <option value="VMware">VMware</option>
+                    <option value="Microsoft">Microsoft</option>
+                    <option value="Unknown">Unknown</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- DataTable -->
+        <table id="switchTable" class="switch-table">
+            <thead>
+                <tr>
+                    <th>Store</th>
+                    <th>Switch Name</th>
+                    <th>Switch Serial</th>
+                    <th>Port ID</th>
+                    <th>Hostname</th>
+                    <th>IP Address</th>
+                    <th>MAC Address</th>
+                    <th>VLAN</th>
+                    <th>Manufacturer</th>
+                    <th>Last Seen</th>
+                </tr>
+            </thead>
+            <tbody id="switchData">
+                <tr>
+                    <td colspan="10" style="text-align: center; padding: 40px; color: #666;">
+                        <h3>Start filtering to view data</h3>
+                        <p>Select a store, enter an IP range, or search by hostname to begin</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Loading overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div>⏳ Loading...</div>
+        </div>
+    </div>
+
+    <script>
+        let switchTable;
+        let allData = [];
+        let filters = {
+            stores: [],
+            switches: []
+        };
+        let currentPage = 1;
+        let totalRecords = 0;
+        let recordsPerPage = 1000;
+        let searchTimeout = null;
+        let initialLoad = true;
+        let selectedStores = new Set();  // Global variable for selected stores
+        let selectedSwitches = new Set();  // Global variable for selected switches
+        let availableSwitches = [];  // Store available switches
+
+        // Timezone formatting function
+        function formatTimestamp(utcTimestamp) {
+            try {
+                // Parse UTC timestamp and convert to local timezone
+                const utcDate = new Date(utcTimestamp + 'Z'); // Ensure UTC parsing
+                return utcDate.toLocaleString('en-US', {
+                    timeZone: 'America/Phoenix', // MST timezone
+                    year: 'numeric',
+                    month: '2-digit', 
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit',
+                    hour12: false
+                });
+            } catch (e) {
+                console.error('Error formatting timestamp:', utcTimestamp, e);
+                return utcTimestamp; // Fallback to original
+            }
+        }
+
+        $(document).ready(function() {
+            // Don't load data initially
+            loadFiltersOnly();
+            showFilterMessage();
+        });
+
+        function loadSwitchPortData(append = false, filterParams = {}) {
+            console.log('🔄 DEBUG: loadSwitchPortData called');
+            console.log('  - append:', append);
+            console.log('  - filterParams:', filterParams);
+            console.log('  - currentPage:', currentPage);
+            console.log('  - recordsPerPage:', recordsPerPage);
+            
+            $('#loadingOverlay').show();
+            console.log('  - Loading overlay shown');
+            
+            // Build request parameters
+            const requestData = { 
+                page: currentPage,
+                per_page: recordsPerPage
+            };
+            
+            // Add filter parameters if provided
+            if (filterParams.store) requestData.store = filterParams.store;
+            if (filterParams.switch) requestData.switch = filterParams.switch;
+            if (filterParams.search) requestData.search = filterParams.search;
+            
+            console.log('  - Request data:', requestData);
+            
+            console.log('  - Making AJAX request to /api/switch-port-clients');
+            
+            $.ajax({
+                url: '/api/switch-port-clients',
+                method: 'GET',
+                data: requestData,
+                timeout: 30000,  // 30 second timeout
+                success: function(response) {
+                    console.log('✅ DEBUG: AJAX success response received');
+                    console.log('  - Response data length:', response.data ? response.data.length : 0);
+                    console.log('  - Response pagination:', response.pagination);
+                    
+                    if (append) {
+                        allData = allData.concat(response.data || []);
+                        console.log('  - Appended data, total length:', allData.length);
+                    } else {
+                        allData = response.data || [];
+                        console.log('  - Replaced data, new length:', allData.length);
+                        // Only populate filters on initial unfiltered load
+                        if (!filterParams.store && !filterParams.switch && !filterParams.search) {
+                            filters = response.filters || { stores: [], switches: [] };
+                            populateFilters();
+                            console.log('  - Populated filters');
+                        }
+                    }
+                    
+                    totalRecords = response.pagination ? response.pagination.total : allData.length;
+                    console.log('  - Total records:', totalRecords);
+                    
+                    // Initialize or update DataTable
+                    console.log('  - Calling initializeDataTable()');
+                    initializeDataTable();
+                    
+                    // Update row count
+                    console.log('  - Calling updateRowCount()');
+                    updateRowCount();
+                    
+                    console.log('  - Hiding loading overlay');
+                    $('#loadingOverlay').hide();
+                    console.log('✅ DEBUG: loadSwitchPortData completed successfully');
+                },
+                error: function(xhr, status, error) {
+                    console.error('❌ DEBUG: AJAX error in loadSwitchPortData');
+                    console.error('  - xhr:', xhr);
+                    console.error('  - status:', status);
+                    console.error('  - error:', error);
+                    console.error('  - responseText:', xhr.responseText);
+                    
+                    $('#switchData').html('<tr><td colspan="10" style="text-align: center; color: red;">Error loading data: ' + error + '</td></tr>');
+                    $('#loadingOverlay').hide();
+                    console.log('  - Loading overlay hidden after error');
+                }
+            });
+        }
+
+        function showFilterMessage() {
+            $('#switchData').html(`
+                <tr>
+                    <td colspan="10" style="text-align: center; padding: 40px; color: #666;">
+                        <h3>Start filtering to view data</h3>
+                        <p>Select a store, enter an IP range, or search by hostname to begin</p>
+                    </td>
+                </tr>
+            `);
+            $('#rowCount').text('No data loaded - use filters to begin');
+        }
+
+        function disableSecondaryFilters() {
+            $('#macFilter, #vlanFilter, #manufacturerFilter').prop('disabled', true);
+            $('#macFilter, #vlanFilter, #manufacturerFilter').css('background-color', '#f0f0f0');
+        }
+
+        function enableSecondaryFilters() {
+            $('#macFilter, #vlanFilter, #manufacturerFilter').prop('disabled', false);
+            $('#macFilter, #vlanFilter, #manufacturerFilter').css('background-color', '');
+        }
+
+        function loadFiltersOnly() {
+            // Load just the filter options without data
+            $.ajax({
+                url: '/api/switch-port-clients',
+                method: 'GET',
+                data: { per_page: 0 },  // Request 0 records, just filters
+                success: function(response) {
+                    filters = response.filters || { stores: [], switches: [] };
+                    populateFilters();
+                    initializeExcelFilters();
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error loading filters:', error);
+                }
+            });
+        }
+
+        function populateFilters() {
+            // Store filter - just update the available data
+            // No need to populate select elements anymore
+            
+            // Initialize available switches from filters
+            availableSwitches = filters.switches.map(sw => ({
+                serial: sw.serial,
+                name: sw.name,
+                store: ''  // No store info in global list
+            }));
+        }
+
+        function initializeDataTable() {
+            // Destroy existing table if it exists
+            if (switchTable) {
+                switchTable.destroy();
+            }
+
+            // Clear and populate table
+            const tbody = $('#switchData');
+            tbody.empty();
+
+            allData.forEach(client => {
+                // Fix timezone display - UTC timestamps from database
+                const lastSeen = client.last_seen ? formatTimestamp(client.last_seen) : 'Unknown';
+                const manufacturerClass = client.manufacturer.toLowerCase().replace(' ', '-');
+                
+                tbody.append(`
+                    <tr>
+                        <td>${client.store_name || 'Unknown'}</td>
+                        <td>${client.switch_name || 'Unknown'}</td>
+                        <td>${client.switch_serial || 'Unknown'}</td>
+                        <td>${client.port_id || 'Unknown'}</td>
+                        <td>${client.hostname || ''}</td>
+                        <td>${client.ip_address || ''}</td>
+                        <td>${client.mac_address || ''}</td>
+                        <td>${client.vlan || ''}</td>
+                        <td><span class="manufacturer-badge ${manufacturerClass}">${client.manufacturer || 'Unknown'}</span></td>
+                        <td>${lastSeen}</td>
+                    </tr>
+                `);
+            });
+
+            // Initialize DataTable
+            switchTable = $('#switchTable').DataTable({
+                pageLength: 100,
+                lengthMenu: [[25, 50, 100, 250, -1], [25, 50, 100, 250, "All"]],
+                order: [[0, 'asc'], [1, 'asc'], [3, 'asc']],
+                dom: 'lfrtip',
+                language: {
+                    search: "Global Search:",
+                    searchPlaceholder: "Search all columns..."
+                },
+                drawCallback: function() {
+                    updateRowCount();
+                }
+            });
+
+            // Setup custom filters
+            setupCustomFilters();
+        }
+
+        function updateSwitchFilter(selectedStores) {
+            // Clear selected switches when stores change
+            selectedSwitches.clear();
+            $('#switchFilter').val('');
+            
+            if (selectedStores && (typeof selectedStores === 'string' || selectedStores.length > 0)) {
+                // Convert to string if it's an array
+                const storeFilter = Array.isArray(selectedStores) ? selectedStores.join(',') : selectedStores;
+                
+                // Make an API call to get all switches for the selected stores
+                $.ajax({
+                    url: '/api/switch-port-clients',
+                    method: 'GET',
+                    data: { store: storeFilter, per_page: 50000 },
+                    success: function(response) {
+                        const uniqueSwitches = new Map();
+                        response.data.forEach(client => {
+                            if (client.switch_serial && client.switch_serial !== 'Unknown') {
+                                uniqueSwitches.set(client.switch_serial, {
+                                    name: client.switch_name,
+                                    store: client.store_name
+                                });
+                            }
+                        });
+                        
+                        // Convert to array format for availableSwitches
+                        availableSwitches = [];
+                        uniqueSwitches.forEach((info, serial) => {
+                            availableSwitches.push({
+                                serial: serial,
+                                name: info.name,
+                                store: info.store
+                            });
+                        });
+                        
+                        // Sort switches by store then by name
+                        availableSwitches.sort((a, b) => {
+                            const storeCompare = a.store.localeCompare(b.store);
+                            if (storeCompare !== 0) return storeCompare;
+                            return a.name.localeCompare(b.name);
+                        });
+                        
+                        // Clear and repopulate the filter list
+                        $('#switchFilterList').empty();
+                        
+                        // Update placeholder
+                        $('#switchFilter').attr('placeholder', `Filter ${availableSwitches.length} switches...`);
+                    }
+                });
+            } else {
+                // Use all switches from the global filter
+                availableSwitches = filters.switches.map(sw => ({
+                    serial: sw.serial,
+                    name: sw.name,
+                    store: ''  // No store info in global list
+                }));
+                
+                // Clear and repopulate the filter list
+                $('#switchFilterList').empty();
+                
+                // Update placeholder
+                $('#switchFilter').attr('placeholder', `Filter ${availableSwitches.length} switches...`);
+            }
+        }
+
+        function setupCustomFilters() {
+            // Store and switch filters are now handled by Excel-style filters
+            // No need for change events here
+
+            // Port filter
+            $('#portFilter').on('keyup', function() {
+                switchTable.column(3).search(this.value).draw();
+            });
+
+            // Hostname filter - server-side with debouncing
+            $('#hostnameFilter').on('keyup', function() {
+                const value = this.value;
+                
+                // Clear existing timeout
+                if (searchTimeout) {
+                    clearTimeout(searchTimeout);
+                }
+                
+                if (value.length === 0) {
+                    // Clear search
+                    showFilterMessage();
+                    if (switchTable) {
+                        switchTable.clear().draw();
+                    }
+                } else if (value.length >= 5) {
+                    // Debounce server search
+                    searchTimeout = setTimeout(function() {
+                        currentPage = 1;
+                        recordsPerPage = 50000;
+                        loadSwitchPortData(false, { search: value });
+                        enableSecondaryFilters();
+                    }, 500); // Wait 500ms after typing stops
+                } else if (switchTable && allData.length > 0) {
+                    // Local filter for less than 5 chars if we have data
+                    switchTable.column(4).search(value).draw();
+                }
+            });
+
+            // IP filter - server-side with debouncing
+            $('#ipFilter').on('keyup', function() {
+                const value = this.value;
+                
+                // Clear existing timeout
+                if (searchTimeout) {
+                    clearTimeout(searchTimeout);
+                }
+                
+                // Check if we have enough for a search
+                const ipParts = value.split('.');
+                const hasValidSearch = ipParts.length >= 2 && ipParts[0] && ipParts[1] && ipParts[1].length >= 1;
+                
+                if (value.length === 0) {
+                    // Clear search
+                    showFilterMessage();
+                    if (switchTable) {
+                        switchTable.clear().draw();
+                    }
+                } else if (hasValidSearch) {
+                    // Debounce server search
+                    searchTimeout = setTimeout(function() {
+                        currentPage = 1;
+                        recordsPerPage = 50000;
+                        loadSwitchPortData(false, { search: value });
+                        enableSecondaryFilters();
+                    }, 500); // Wait 500ms after typing stops
+                } else if (switchTable && allData.length > 0) {
+                    // Local filter if we have data
+                    switchTable.column(5).search(value).draw();
+                }
+            });
+
+            // MAC filter - server-side after first 8 bytes (e.g., "00:11:22")
+            $('#macFilter').on('keyup', function() {
+                const value = this.value;
+                const cleanMac = value.replace(/[:-]/g, '');
+                if (cleanMac.length >= 6 || (value.match(/[:-]/g) || []).length >= 2) {
+                    // Has at least first 3 octets
+                    currentPage = 1;
+                    recordsPerPage = 50000;
+                    loadSwitchPortData(false, { search: value });
+                } else if (value.length === 0) {
+                    // Reset to initial load
+                    recordsPerPage = 1000;
+                    loadSwitchPortData();
+                } else {
+                    // Local filter for partial MAC
+                    switchTable.column(6).search(value).draw();
+                }
+            });
+
+            // VLAN filter
+            $('#vlanFilter').on('keyup', function() {
+                switchTable.column(7).search(this.value).draw();
+            });
+
+            // Manufacturer filter
+            $('#manufacturerFilter').on('change', function() {
+                switchTable.column(8).search(this.value).draw();
+            });
+        }
+
+        function updateRowCount() {
+            const info = switchTable ? switchTable.page.info() : { recordsDisplay: 0, recordsTotal: 0 };
+            const loadedCount = allData.length;
+            
+            // Check if we're filtered
+            const storeFilter = $('#storeFilter').val();
+            const searchActive = $('#hostnameFilter').val().length >= 5 || 
+                               $('#ipFilter').val().split('.').length >= 2 ||
+                               $('#macFilter').val().replace(/[:-]/g, '').length >= 6;
+            
+            if (storeFilter) {
+                $('#rowCount').text(`Store ${storeFilter}: ${info.recordsDisplay} of ${loadedCount} ports`);
+            } else if (searchActive) {
+                $('#rowCount').text(`Search results: ${info.recordsDisplay} of ${loadedCount} ports`);
+            } else {
+                $('#rowCount').text(`Showing ${info.recordsDisplay} of ${loadedCount} loaded (${totalRecords} total)`);
+            }
+        }
+
+        // Refresh Store button
+        $('#refreshStore').on('click', function() {
+            const selectedStore = $('#storeFilter').val();
+            
+            if (!selectedStore) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Select a Store',
+                    text: 'Please select a store from the dropdown to refresh.',
+                });
+                return;
+            }
+
+            Swal.fire({
+                title: 'Refresh Store Data?',
+                text: `This will refresh all switches in ${selectedStore}. This may take a moment.`,
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Refresh',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    refreshStoreData(selectedStore);
+                }
+            });
+        });
+
+        // Refresh Switch button
+        $('#refreshSwitch').on('click', function() {
+            const selectedSwitch = $('#switchFilter').val();
+            
+            if (!selectedSwitch) {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Select a Switch',
+                    text: 'Please select a switch from the dropdown to refresh.',
+                });
+                return;
+            }
+
+            const switchInfo = filters.switches.find(sw => sw.serial === selectedSwitch);
+            const switchName = switchInfo ? switchInfo.name : selectedSwitch;
+
+            Swal.fire({
+                title: 'Refresh Switch Data?',
+                text: `This will refresh port data for ${switchName}.`,
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Refresh',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    refreshSwitchData(selectedSwitch);
+                }
+            });
+        });
+
+        function refreshStoreData(storeName) {
+            console.log('🔄 DEBUG: refreshStoreData called for store:', storeName);
+            
+            // Get current store filter to preserve it
+            const currentStoreFilter = $('#storeFilter').val();
+            console.log('  - Current store filter value:', currentStoreFilter);
+            
+            $('#loadingOverlay').show();
+            console.log('  - Loading overlay shown for refresh');
+
+            $.ajax({
+                url: `/api/switch-port-clients/refresh-store/${encodeURIComponent(storeName)}`,
+                method: 'POST',
+                timeout: 120000,  // 2 minute timeout for refresh
+                success: function(response) {
+                    console.log('✅ DEBUG: Store refresh successful');
+                    console.log('  - Response:', response);
+                    
+                    $('#loadingOverlay').hide();
+                    console.log('  - Loading overlay hidden after refresh');
+                    
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Store Refreshed',
+                        html: `<p>${response.message}</p>
+                               <p>Switches Updated: ${response.switches_updated}</p>
+                               <p>Clients Updated: ${response.clients_updated}</p>`,
+                        confirmButtonText: 'OK'
+                    }).then((result) => {
+                        console.log('🔄 DEBUG: Modal closed, starting data reload');
+                        console.log('  - Modal result:', result);
+                        console.log('  - Will reload data for store:', storeName);
+                        
+                        // Reload the page data with the specific store filter
+                        loadSwitchPortData(false, {store: storeName});
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error('❌ DEBUG: Store refresh failed');
+                    console.error('  - xhr:', xhr);
+                    console.error('  - status:', status);
+                    console.error('  - error:', error);
+                    
+                    $('#loadingOverlay').hide();
+                    console.log('  - Loading overlay hidden after refresh error');
+                    
+                    const errorMsg = xhr.responseJSON ? xhr.responseJSON.error : error;
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Refresh Failed',
+                        text: errorMsg || 'Failed to refresh store data.',
+                    });
+                }
+            });
+        }
+
+        function refreshSwitchData(serial) {
+            $('#loadingOverlay').show();
+
+            $.ajax({
+                url: `/api/switch-port-clients/refresh-switch/${serial}`,
+                method: 'POST',
+                success: function(response) {
+                    $('#loadingOverlay').hide();
+                    
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Switch Refreshed',
+                        html: `<p>${response.message}</p>
+                               <p>Clients Updated: ${response.clients_updated}</p>`,
+                        confirmButtonText: 'OK'
+                    }).then(() => {
+                        // Reload the page data
+                        loadSwitchPortData();
+                    });
+                },
+                error: function(xhr, status, error) {
+                    $('#loadingOverlay').hide();
+                    
+                    const errorMsg = xhr.responseJSON ? xhr.responseJSON.error : error;
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Refresh Failed',
+                        text: errorMsg || 'Failed to refresh switch data.',
+                    });
+                }
+            });
+        }
+
+        // Export to Excel (current view)
+        $('#exportExcel').on('click', function() {
+            window.location.href = '/api/switch-port-clients/export';
+        });
+
+        // Export All to Excel (full database)
+        $('#exportAllExcel').on('click', function() {
+            Swal.fire({
+                title: 'Export All Records?',
+                text: 'This will export all switch port data from the database. The file may be large.',
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Export All',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = '/api/switch-port-clients/export?all=true';
+                }
+            });
+        });
+
+        // Export to PDF
+        $('#exportPDF').on('click', function() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF('l', 'mm', 'a4'); // Landscape orientation
+
+            // Add title
+            doc.setFontSize(16);
+            doc.text('Switch Port Visibility Report', 14, 15);
+            doc.setFontSize(10);
+            doc.text(`Generated: ${formatTimestamp(new Date().toISOString())}`, 14, 22);
+
+            // Get visible data from DataTable
+            const visibleData = switchTable.rows({ search: 'applied' }).data().toArray();
+            
+            // Prepare data for the table
+            const tableData = [];
+            $('#switchTable tbody tr').each(function() {
+                const row = [];
+                $(this).find('td').each(function(index) {
+                    if (index < 10) { // Exclude any action columns
+                        row.push($(this).text());
+                    }
+                });
+                if (row.length > 0) {
+                    tableData.push(row);
+                }
+            });
+
+            // Add table to PDF
+            doc.autoTable({
+                head: [['Store', 'Switch Name', 'Serial', 'Port', 'Hostname', 'IP', 'MAC', 'VLAN', 'Manufacturer', 'Last Seen']],
+                body: tableData,
+                startY: 25,
+                styles: { fontSize: 8 },
+                headStyles: { fillColor: [76, 175, 80] }
+            });
+
+            // Save the PDF
+            doc.save(`switch_port_visibility_${new Date().getTime()}.pdf`);
+        });
+
+        // Excel-style filter functionality
+        function initializeExcelFilters() {
+            // Initialize store filter
+            initializeStoreFilter();
+            
+            // Initialize switch filter with Excel style
+            initializeSwitchFilter();
+        }
+
+        function initializeStoreFilter() {
+            // selectedStores is already defined globally
+            
+            // Show/hide dropdown on trigger click
+            $('#storeFilterTrigger, #storeFilter').on('click', function(e) {
+                e.stopPropagation();
+                $('#storeFilterDropdown').toggle();
+                
+                // Load stores if not already loaded
+                if ($('#storeFilterList').children().length === 0) {
+                    populateStoreFilterList();
+                }
+            });
+            
+            // Close dropdown when clicking outside
+            $(document).on('click', function(e) {
+                if (!$(e.target).closest('.excel-filter-dropdown').length && 
+                    !$(e.target).closest('#storeFilter').length &&
+                    !$(e.target).closest('#storeFilterTrigger').length) {
+                    $('#storeFilterDropdown').hide();
+                }
+            });
+            
+            // Search functionality
+            $('#storeFilterDropdown .excel-filter-search').on('keyup', function() {
+                const searchTerm = $(this).val().toLowerCase();
+                filterStoreList(searchTerm);
+            });
+            
+            // Conditional filter
+            $('#storeFilterDropdown .condition-value').on('keyup', function() {
+                applyConditionalFilter();
+            });
+            
+            $('#storeFilterDropdown .condition-type').on('change', function() {
+                applyConditionalFilter();
+            });
+            
+            // Select All functionality
+            $('#storeSelectAll').on('change', function() {
+                const isChecked = $(this).prop('checked');
+                $('#storeFilterList input[type="checkbox"]:visible').prop('checked', isChecked);
+                updateSelectedStores();
+            });
+            
+            // Clear button
+            $('#storeFilterDropdown .excel-filter-clear').on('click', function() {
+                selectedStores.clear();
+                $('#storeFilterList input[type="checkbox"]').prop('checked', false);
+                $('#storeSelectAll').prop('checked', false);
+                $('#storeFilter').val('');
+                $('#storeFilterDropdown .excel-filter-search').val('');
+                $('#storeFilterDropdown .condition-value').val('');
+            });
+            
+            // Apply button
+            $('#storeFilterDropdown .excel-filter-apply').on('click', function() {
+                applyStoreFilter();
+                $('#storeFilterDropdown').hide();
+            });
+        }
+        
+        function populateStoreFilterList() {
+            const storeList = $('#storeFilterList');
+            storeList.empty();
+            
+            filters.stores.forEach(store => {
+                const item = $(`
+                    <div class="excel-filter-item" data-value="${store}">
+                        <label>
+                            <input type="checkbox" value="${store}" ${selectedStores.has(store) ? 'checked' : ''}>
+                            ${store}
+                        </label>
+                    </div>
+                `);
+                
+                item.find('input[type="checkbox"]').on('change', function() {
+                    updateSelectedStores();
+                });
+                
+                storeList.append(item);
+            });
+        }
+        
+        function filterStoreList(searchTerm) {
+            $('#storeFilterList .excel-filter-item').each(function() {
+                const itemText = $(this).text().toLowerCase();
+                $(this).toggle(itemText.includes(searchTerm));
+            });
+        }
+        
+        function applyConditionalFilter() {
+            const conditionType = $('#storeFilterDropdown .condition-type').val();
+            const conditionValue = $('#storeFilterDropdown .condition-value').val().toLowerCase();
+            
+            if (!conditionValue) {
+                $('#storeFilterList .excel-filter-item').show();
+                return;
+            }
+            
+            $('#storeFilterList .excel-filter-item').each(function() {
+                const itemText = $(this).text().toLowerCase();
+                let showItem = false;
+                
+                switch(conditionType) {
+                    case 'contains':
+                        showItem = itemText.includes(conditionValue);
+                        break;
+                    case 'equals':
+                        showItem = itemText.trim() === conditionValue;
+                        break;
+                    case 'startswith':
+                        showItem = itemText.startsWith(conditionValue);
+                        break;
+                    case 'endswith':
+                        showItem = itemText.endsWith(conditionValue);
+                        break;
+                    case 'notcontains':
+                        showItem = !itemText.includes(conditionValue);
+                        break;
+                }
+                
+                $(this).toggle(showItem);
+            });
+        }
+        
+        function updateSelectedStores() {
+            selectedStores.clear();
+            $('#storeFilterList input[type="checkbox"]:checked').each(function() {
+                selectedStores.add($(this).val());
+            });
+            
+            // Update the main input to show selected count
+            if (selectedStores.size === 0) {
+                $('#storeFilter').val('');
+            } else if (selectedStores.size === 1) {
+                $('#storeFilter').val(Array.from(selectedStores)[0]);
+            } else {
+                $('#storeFilter').val(`${selectedStores.size} stores selected`);
+            }
+            
+            // Update Select All checkbox state
+            const totalVisible = $('#storeFilterList input[type="checkbox"]:visible').length;
+            const checkedVisible = $('#storeFilterList input[type="checkbox"]:visible:checked').length;
+            $('#storeSelectAll').prop('checked', totalVisible > 0 && totalVisible === checkedVisible);
+        }
+        
+        function applyStoreFilter() {
+            if (selectedStores.size === 0) {
+                // Clear filter
+                showFilterMessage();
+                if (switchTable) {
+                    switchTable.clear().draw();
+                }
+                disableSecondaryFilters();
+                updateSwitchFilter(null); // Clear switch filter
+            } else if (selectedStores.size === 1) {
+                // Single store selected
+                const store = Array.from(selectedStores)[0];
+                currentPage = 1;
+                recordsPerPage = 50000;
+                loadSwitchPortData(false, { store: store });
+                updateSwitchFilter(store);
+                enableSecondaryFilters();
+            } else {
+                // Multiple stores selected - load data for all
+                const storeArray = Array.from(selectedStores);
+                const storeList = storeArray.join(',');
+                currentPage = 1;
+                recordsPerPage = 100000; // Higher limit for multiple stores
+                loadSwitchPortData(false, { store: storeList });
+                updateSwitchFilter(storeArray); // Pass array of stores
+                enableSecondaryFilters();
+            }
+        }
+        
+        function initializeSwitchFilter() {
+            // Show/hide dropdown on trigger click
+            $('#switchFilterTrigger, #switchFilter').on('click', function(e) {
+                e.stopPropagation();
+                $('#switchFilterDropdown').toggle();
+                
+                // Load switches if not already loaded
+                if ($('#switchFilterList').children().length === 0) {
+                    populateSwitchFilterList();
+                }
+            });
+            
+            // Close dropdown when clicking outside
+            $(document).on('click', function(e) {
+                if (!$(e.target).closest('#switchFilterDropdown').length && 
+                    !$(e.target).closest('#switchFilter').length &&
+                    !$(e.target).closest('#switchFilterTrigger').length) {
+                    $('#switchFilterDropdown').hide();
+                }
+            });
+            
+            // Search functionality
+            $('#switchFilterDropdown .excel-filter-search').on('keyup', function() {
+                const searchTerm = $(this).val().toLowerCase();
+                filterSwitchList(searchTerm);
+            });
+            
+            // Conditional filter
+            $('#switchFilterDropdown .condition-value').on('keyup', function() {
+                applySwitchConditionalFilter();
+            });
+            
+            $('#switchFilterDropdown .condition-type').on('change', function() {
+                applySwitchConditionalFilter();
+            });
+            
+            // Select All functionality
+            $('#switchSelectAll').on('change', function() {
+                const isChecked = $(this).prop('checked');
+                $('#switchFilterList input[type="checkbox"]:visible').prop('checked', isChecked);
+                updateSelectedSwitches();
+            });
+            
+            // Clear button
+            $('#switchFilterDropdown .excel-filter-clear').on('click', function() {
+                selectedSwitches.clear();
+                $('#switchFilterList input[type="checkbox"]').prop('checked', false);
+                $('#switchSelectAll').prop('checked', false);
+                $('#switchFilter').val('');
+                $('#switchFilterDropdown .excel-filter-search').val('');
+                $('#switchFilterDropdown .condition-value').val('');
+            });
+            
+            // Apply button
+            $('#switchFilterDropdown .excel-filter-apply').on('click', function() {
+                applySwitchFilter();
+                $('#switchFilterDropdown').hide();
+            });
+        }
+        
+        function populateSwitchFilterList() {
+            const switchList = $('#switchFilterList');
+            switchList.empty();
+            
+            availableSwitches.forEach(sw => {
+                const displayText = sw.store ? `${sw.store} - ${sw.name} (${sw.serial})` : `${sw.name} (${sw.serial})`;
+                const item = $(`
+                    <div class="excel-filter-item" data-value="${sw.serial}" data-name="${sw.name}" data-store="${sw.store || ''}">
+                        <label>
+                            <input type="checkbox" value="${sw.serial}" ${selectedSwitches.has(sw.serial) ? 'checked' : ''}>
+                            ${displayText}
+                        </label>
+                    </div>
+                `);
+                
+                item.find('input[type="checkbox"]').on('change', function() {
+                    updateSelectedSwitches();
+                });
+                
+                switchList.append(item);
+            });
+        }
+        
+        function filterSwitchList(searchTerm) {
+            $('#switchFilterList .excel-filter-item').each(function() {
+                const itemText = $(this).text().toLowerCase();
+                $(this).toggle(itemText.includes(searchTerm));
+            });
+        }
+        
+        function applySwitchConditionalFilter() {
+            const conditionType = $('#switchFilterDropdown .condition-type').val();
+            const conditionValue = $('#switchFilterDropdown .condition-value').val().toLowerCase();
+            
+            if (!conditionValue) {
+                $('#switchFilterList .excel-filter-item').show();
+                return;
+            }
+            
+            $('#switchFilterList .excel-filter-item').each(function() {
+                const itemText = $(this).text().toLowerCase();
+                let showItem = false;
+                
+                switch(conditionType) {
+                    case 'contains':
+                        showItem = itemText.includes(conditionValue);
+                        break;
+                    case 'equals':
+                        showItem = itemText.trim() === conditionValue;
+                        break;
+                    case 'startswith':
+                        showItem = itemText.startsWith(conditionValue);
+                        break;
+                    case 'endswith':
+                        showItem = itemText.endsWith(conditionValue);
+                        break;
+                    case 'notcontains':
+                        showItem = !itemText.includes(conditionValue);
+                        break;
+                }
+                
+                $(this).toggle(showItem);
+            });
+        }
+        
+        function updateSelectedSwitches() {
+            selectedSwitches.clear();
+            $('#switchFilterList input[type="checkbox"]:checked').each(function() {
+                selectedSwitches.add($(this).val());
+            });
+            
+            // Update the main input to show selected count
+            if (selectedSwitches.size === 0) {
+                $('#switchFilter').val('');
+            } else if (selectedSwitches.size === 1) {
+                const serial = Array.from(selectedSwitches)[0];
+                const sw = availableSwitches.find(s => s.serial === serial);
+                $('#switchFilter').val(sw ? sw.name : serial);
+            } else {
+                $('#switchFilter').val(`${selectedSwitches.size} switches selected`);
+            }
+            
+            // Update Select All checkbox state
+            const totalVisible = $('#switchFilterList input[type="checkbox"]:visible').length;
+            const checkedVisible = $('#switchFilterList input[type="checkbox"]:visible:checked').length;
+            $('#switchSelectAll').prop('checked', totalVisible > 0 && totalVisible === checkedVisible);
+        }
+        
+        function applySwitchFilter() {
+            if (switchTable) {
+                if (selectedSwitches.size === 0) {
+                    // Clear switch filter
+                    switchTable.column(2).search('').draw();
+                } else {
+                    // Build regex pattern for multiple switches
+                    const pattern = Array.from(selectedSwitches).map(serial => {
+                        // Escape special regex characters
+                        return serial.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                    }).join('|');
+                    
+                    // Apply regex search
+                    switchTable.column(2).search(pattern, true, false).draw();
+                }
+            }
+        }
+    </script>
+</body>
+</html>

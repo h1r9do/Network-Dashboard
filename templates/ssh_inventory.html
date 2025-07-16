@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSH Network Device Inventory - DSR Circuits</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='libs/jquery-ui-1.11.4/themes/smoothness/jquery-ui.css') }}">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 300;
+        }
+        
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+        
+        .controls {
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .controls input, .controls select {
+            padding: 8px 12px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .controls button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        
+        .controls button:hover {
+            background-color: #0056b3;
+        }
+        
+        .stats {
+            padding: 15px 20px;
+            background-color: #e9ecef;
+            border-bottom: 1px solid #dee2e6;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .stat-number {
+            font-weight: bold;
+            font-size: 1.2em;
+            color: #495057;
+        }
+        
+        .stat-label {
+            color: #6c757d;
+            font-size: 0.9em;
+        }
+        
+        .table-container {
+            padding: 20px;
+            overflow-x: auto;
+        }
+        
+        .inventory-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        
+        .inventory-table th {
+            background-color: #343a40;
+            color: white;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #495057;
+        }
+        
+        .inventory-table td {
+            padding: 10px 12px;
+            border-bottom: 1px solid #dee2e6;
+            vertical-align: top;
+        }
+        
+        .inventory-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .device-row {
+            background-color: #ffffff;
+            font-weight: 600;
+        }
+        
+        .device-row td {
+            border-top: 2px solid #007bff;
+            padding: 12px;
+        }
+        
+        .component-row {
+            background-color: #f8f9fa;
+            font-size: 13px;
+        }
+        
+        .component-row td:first-child {
+            padding-left: 30px;
+            color: #495057;
+        }
+        
+        .component-type-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 11px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .chassis-badge {
+            background-color: #e7f3ff;
+            color: #0366d6;
+        }
+        
+        .hardware-badge {
+            background-color: #f0f9ff;
+            color: #0969da;
+        }
+        
+        .sfp-badge {
+            background-color: #f6ffed;
+            color: #52c41a;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 50px;
+            color: #6c757d;
+        }
+        
+        .error {
+            text-align: center;
+            padding: 50px;
+            color: #dc3545;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 4px;
+            margin: 20px;
+        }
+        
+        .expand-toggle {
+            cursor: pointer;
+            color: #007bff;
+            text-decoration: none;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+        
+        .expand-toggle:hover {
+            text-decoration: underline;
+        }
+        
+        .component-summary {
+            font-size: 12px;
+            color: #6c757d;
+            margin-top: 4px;
+        }
+        
+        .ip-address {
+            font-family: monospace;
+            background-color: #f1f3f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+        
+        .timestamp {
+            font-size: 12px;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>SSH Network Device Inventory</h1>
+            <p>Hierarchical view of network devices with chassis blades, SFP modules, and hardware components</p>
+        </div>
+        
+        <div class="controls">
+            <label>Device Filter:</label>
+            <input type="text" id="deviceFilter" placeholder="Filter by hostname or IP address...">
+            
+            <label>Component Type:</label>
+            <select id="componentType">
+                <option value="">All Components</option>
+                <option value="chassis_blade">Chassis Blades</option>
+                <option value="hardware_component">Hardware Components</option>
+                <option value="sfp_module">SFP Modules</option>
+            </select>
+            
+            <button onclick="loadInventory()">Apply Filters</button>
+            <button onclick="clearFilters()">Clear</button>
+        </div>
+        
+        <div class="stats" id="stats" style="display: none;">
+            <div class="stat-item">
+                <span class="stat-number" id="deviceCount">0</span>
+                <span class="stat-label">Devices</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="componentCount">0</span>
+                <span class="stat-label">Components</span>
+            </div>
+        </div>
+        
+        <div class="table-container">
+            <div id="loading" class="loading">
+                <p>Loading SSH inventory data...</p>
+            </div>
+            
+            <div id="error" class="error" style="display: none;">
+                <p>Error loading inventory data. Please try again.</p>
+            </div>
+            
+            <table id="inventoryTable" class="inventory-table" style="display: none;">
+                <thead>
+                    <tr>
+                        <th>Device / Component</th>
+                        <th>Type</th>
+                        <th>Details</th>
+                        <th>Model / Description</th>
+                        <th>Serial Number</th>
+                        <th>Additional Info</th>
+                        <th>Collection Time</th>
+                    </tr>
+                </thead>
+                <tbody id="inventoryBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='libs/jquery/jquery-1.11.3.min.js') }}"></script>
+    <script>
+        let inventoryData = [];
+        let expandedDevices = new Set();
+        
+        $(document).ready(function() {
+            loadInventory();
+        });
+        
+        function loadInventory() {
+            const deviceFilter = $('#deviceFilter').val();
+            const componentType = $('#componentType').val();
+            
+            $('#loading').show();
+            $('#error').hide();
+            $('#inventoryTable').hide();
+            $('#stats').hide();
+            
+            const params = new URLSearchParams();
+            if (deviceFilter) params.append('device_filter', deviceFilter);
+            if (componentType) params.append('component_type', componentType);
+            
+            $.ajax({
+                url: '/api/ssh-inventory?' + params.toString(),
+                method: 'GET',
+                success: function(data) {
+                    inventoryData = data;
+                    renderInventory();
+                    updateStats();
+                    $('#loading').hide();
+                    $('#inventoryTable').show();
+                    $('#stats').show();
+                },
+                error: function() {
+                    $('#loading').hide();
+                    $('#error').show();
+                }
+            });
+        }
+        
+        function renderInventory() {
+            const tbody = $('#inventoryBody');
+            tbody.empty();
+            
+            inventoryData.devices.forEach(device => {
+                renderDevice(device, tbody);
+            });
+        }
+        
+        function renderDevice(device, tbody) {
+            const componentsSummary = [];
+            if (device.components_summary.chassis_blades > 0) {
+                componentsSummary.push(`${device.components_summary.chassis_blades} chassis blades`);
+            }
+            if (device.components_summary.hardware_components > 0) {
+                componentsSummary.push(`${device.components_summary.hardware_components} hardware components`);
+            }
+            if (device.components_summary.sfp_modules > 0) {
+                componentsSummary.push(`${device.components_summary.sfp_modules} SFP modules`);
+            }
+            
+            const hasComponents = device.components.length > 0;
+            const isExpanded = expandedDevices.has(device.id);
+            
+            const deviceRow = $(`
+                <tr class="device-row" data-device-id="${device.id}">
+                    <td>
+                        <strong>${device.hostname || 'Unknown'}</strong>
+                        <br><span class="ip-address">${device.ip_address}</span>
+                        ${hasComponents ? `<a href="#" class="expand-toggle" onclick="toggleDevice(${device.id})">${isExpanded ? 'Collapse' : 'Expand'} (${device.components.length})</a>` : ''}
+                        ${componentsSummary.length > 0 ? `<div class="component-summary">${componentsSummary.join(', ')}</div>` : ''}
+                    </td>
+                    <td>Master Device</td>
+                    <td>${device.interfaces_count} interfaces</td>
+                    <td>Network Device</td>
+                    <td>-</td>
+                    <td>Device Type: ${device.device_type}</td>
+                    <td>
+                        ${device.collection_timestamp ? 
+                            `<span class="timestamp">${new Date(device.collection_timestamp).toLocaleString()}</span>` : 
+                            '-'
+                        }
+                    </td>
+                </tr>
+            `);
+            
+            tbody.append(deviceRow);
+            
+            // Add component rows if expanded
+            if (isExpanded && hasComponents) {
+                device.components.forEach(component => {
+                    renderComponent(component, tbody);
+                });
+            }
+        }
+        
+        function renderComponent(component, tbody) {
+            const badgeClass = component.type === 'chassis_blade' ? 'chassis-badge' : 
+                             component.type === 'hardware_component' ? 'hardware-badge' : 'sfp-badge';
+            
+            let details = '';
+            let model = '';
+            let additionalInfo = '';
+            
+            if (component.type === 'chassis_blade') {
+                details = `Module ${component.module_number}${component.ports ? `, ${component.ports} ports` : ''}`;
+                model = component.model || '-';
+                additionalInfo = component.description || '-';
+            } else if (component.type === 'hardware_component') {
+                details = component.interface || '-';
+                model = component.description || '-';
+                additionalInfo = `PID: ${component.pid || 'N/A'}, VID: ${component.vid || 'N/A'}`;
+            } else if (component.type === 'sfp_module') {
+                details = component.interface || '-';
+                model = component.module_type || '-';
+                additionalInfo = `Status: ${component.status || 'Unknown'}`;
+            }
+            
+            const componentRow = $(`
+                <tr class="component-row">
+                    <td>└─ ${component.interface || component.module_number || 'Component'}</td>
+                    <td><span class="component-type-badge ${badgeClass}">${component.type.replace('_', ' ')}</span></td>
+                    <td>${details}</td>
+                    <td>${model}</td>
+                    <td>${component.serial_number || '-'}</td>
+                    <td>${additionalInfo}</td>
+                    <td>-</td>
+                </tr>
+            `);
+            
+            tbody.append(componentRow);
+        }
+        
+        function toggleDevice(deviceId) {
+            if (expandedDevices.has(deviceId)) {
+                expandedDevices.delete(deviceId);
+            } else {
+                expandedDevices.add(deviceId);
+            }
+            renderInventory();
+        }
+        
+        function updateStats() {
+            $('#deviceCount').text(inventoryData.total_devices);
+            $('#componentCount').text(inventoryData.total_components);
+        }
+        
+        function clearFilters() {
+            $('#deviceFilter').val('');
+            $('#componentType').val('');
+            loadInventory();
+        }
+        
+        // Allow Enter key to trigger search
+        $('#deviceFilter').keypress(function(e) {
+            if (e.which === 13) {
+                loadInventory();
+            }
+        });
+    </script>
+</body>
+</html>

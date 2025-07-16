@@ -1,0 +1,107 @@
+
+Complete VLAN Migration Report
+==============================
+Network: TST 01 (L_3790904986339115852)
+Start Time: 2025-07-10 10:06:29
+Duration: 0:01:37.886153
+Mode: LIVE
+
+VLAN Mapping Applied:
+  VLAN 1 → VLAN 100
+  VLAN 101 → VLAN 200
+  VLAN 801 → VLAN 400
+  VLAN 201 → VLAN 410
+
+Log Entries:
+[10:06:29] INFO: Complete VLAN Migrator initialized for TST 01
+[10:06:29] INFO: Mode: LIVE
+[10:06:29] INFO: 
+============================================================
+[10:06:29] INFO: Taking complete configuration backup...
+[10:06:29] INFO: ============================================================
+[10:06:29] INFO: Backing up VLANs...
+[10:06:30] INFO:   ✓ Backed up 10 VLANs
+[10:06:30] INFO: Backing up firewall rules...
+[10:06:30] INFO:   ✓ Backed up 60 firewall rules
+[10:06:30] INFO: Backing up group policies...
+[10:06:31] INFO:   ✓ Backed up 3 group policies
+[10:06:31] INFO: Backing up switch configurations...
+[10:06:32] INFO:   ✓ Backed up 28 ports for TST_01SW01
+[10:06:32] INFO:   ✓ Backed up 28 ports for TST_01SW02
+[10:06:32] INFO: Backing up MX ports...
+[10:06:33] INFO:   ✓ Backed up 10 MX ports
+[10:06:33] INFO: Backing up syslog configuration...
+[10:06:33] INFO: 
+✓ Complete backup saved to complete_vlan_backup_L_3790904986339115852_20250710_100633.json
+[10:06:33] INFO: 
+============================================================
+[10:06:33] INFO: Clearing VLAN references...
+[10:06:33] INFO: ============================================================
+[10:06:33] INFO: 
+Step 1: Clearing firewall rules...
+[10:06:34] INFO:   ✓ Firewall rules cleared
+[10:06:34] INFO: 
+Step 2: Moving switch ports to temporary VLANs...
+[10:06:34] INFO:   Creating temporary VLAN 999...
+[10:06:34] INFO:   Creating temporary VLAN 998...
+[10:06:36] INFO:   Creating temporary VLAN 997...
+[10:06:36] INFO:   Creating temporary VLAN 996...
+[10:06:49] INFO:   ✓ Updated 23 ports on TST_01SW01
+[10:07:02] INFO:   ✓ Updated 23 ports on TST_01SW02
+[10:07:02] INFO: 
+Step 3: Updating MX ports to temporary VLANs...
+[10:07:06] INFO:   ✓ Updated 8 MX ports
+[10:07:06] INFO: 
+============================================================
+[10:07:06] INFO: Migrating VLANs to new IDs...
+[10:07:06] INFO: ============================================================
+[10:07:06] INFO: 
+Migrating VLAN 1 → 100
+[10:07:06] INFO:   Deleting VLAN 1...
+[10:07:09] INFO:   Creating VLAN 100...
+[10:07:10] INFO:   ✓ Created VLAN 100
+[10:07:11] INFO: 
+Migrating VLAN 101 → 200
+[10:07:11] INFO:   Deleting VLAN 101...
+[10:07:15] INFO:   Creating VLAN 200...
+[10:07:16] INFO:   ✓ Created VLAN 200
+[10:07:17] INFO: 
+Migrating VLAN 201 → 410
+[10:07:17] INFO:   Deleting VLAN 201...
+[10:07:21] INFO:   Creating VLAN 410...
+[10:07:21] INFO:   ✓ Created VLAN 410
+[10:07:22] INFO: 
+VLAN 300 - No change needed
+[10:07:22] INFO: 
+VLAN 301 - No change needed
+[10:07:22] INFO: 
+VLAN 800 - Updating IP configuration...
+[10:07:23] INFO:   ✓ Updated VLAN 800 IP configuration
+[10:07:24] INFO: 
+Migrating VLAN 801 → 400
+[10:07:24] INFO:   Deleting VLAN 801...
+[10:07:28] INFO:   Creating VLAN 400...
+[10:07:28] INFO:     Applying IP changes for VLAN 400
+[10:07:28] INFO:   ✓ Created VLAN 400
+[10:07:29] INFO: 
+VLAN 803 - No change needed
+[10:07:29] INFO: 
+VLAN 900 - No change needed
+[10:07:29] INFO: 
+============================================================
+[10:07:29] INFO: Restoring configurations with new VLAN IDs...
+[10:07:29] INFO: ============================================================
+[10:07:29] INFO: 
+Step 1: Updating switch ports to new VLAN IDs...
+[10:07:43] INFO:   ✓ Updated 24 ports on TST_01SW01
+[10:07:57] INFO:   ✓ Updated 24 ports on TST_01SW02
+[10:07:57] INFO: 
+Step 2: Updating MX ports to new VLAN IDs...
+[10:08:00] INFO:   ✓ Updated 7 MX ports
+[10:08:00] INFO: 
+Step 3: Applying NEO 07 firewall template...
+[10:08:00] INFO:   Loaded NEO 07 firewall template: 55 rules
+[10:08:01] ERROR: API Error: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/firewall/l3FirewallRules
+[10:08:01] ERROR: Response: {"errors":["At least one of your firewall rules is invalid: Contains references to Network Objects or Groups which don't exist."]}
+[10:08:01] INFO: 
+Step 4: Cleaning up temporary VLANs...

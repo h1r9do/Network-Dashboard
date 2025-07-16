@@ -1,0 +1,7 @@
+#!/bin/bash
+# Wrapper script for 661037adm to run claude with proper permissions
+export HOME=/home/661037adm
+export USER=661037adm
+
+# Run claude with the original arguments
+/usr/local/bin/claude "$@"

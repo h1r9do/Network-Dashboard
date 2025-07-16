@@ -1,0 +1,329 @@
+{
+  "network_name": "COX 01",
+  "network_id": "L_3790904986339115668",
+  "tag": "MDC",
+  "rule_count": 32,
+  "rules": [
+    {
+      "comment": "Block Traffic to Cybersecurity-Blocked Domains",
+      "policy": "deny",
+      "protocol": "any",
+      "srcPort": "Any",
+      "srcCidr": "Any",
+      "destPort": "Any",
+      "destCidr": "GRP(3790904986339115080)",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Block Traffic to Cybersecurity-Blocked IPs",
+      "policy": "deny",
+      "protocol": "any",
+      "srcPort": "Any",
+      "srcCidr": "Any",
+      "destPort": "Any",
+      "destCidr": "GRP(3790904986339115081)",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Deny Traffic from Prod VLANs to Guest and IoT VLANs",
+      "policy": "deny",
+      "protocol": "any",
+      "srcPort": "Any",
+      "srcCidr": "10.14.120.0/25,10.14.121.0/25,10.14.122.0/25,10.14.123.0/25,10.14.124.0/25,10.14.120.128/25,10.14.121.128/25,10.14.122.128/25,10.14.123.128/25,10.14.124.128/25,10.14.126.0/27,10.14.125.0/25",
+      "destPort": "Any",
+      "destCidr": "172.16.80.0/24,172.16.0.0/24",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Deny Traffic from Guest and IoT VLANs to Private IPs (RFC1918)",
+      "policy": "deny",
+      "protocol": "any",
+      "srcPort": "Any",
+      "srcCidr": "172.16.80.0/24,172.16.0.0/24",
+      "destPort": "Any",
+      "destCidr": "OBJ(3790904986339115242),OBJ(3790904986339115243),OBJ(3790904986339115244)",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Data VLAN to MS Teams Media",
+      "policy": "allow",
+      "protocol": "udp",
+      "srcPort": "Any",
+      "srcCidr": "10.14.120.0/25,10.14.121.0/25,10.14.122.0/25,10.14.123.0/25,10.14.124.0/25",
+      "destPort": "3478-3481",
+      "destCidr": "GRP(3790904986339115076)",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Data VLAN PING to Any",
+      "policy": "allow",
+      "protocol": "icmp",
+      "srcPort": "Any",
+      "srcCidr": "10.14.120.0/25,10.14.121.0/25,10.14.122.0/25,10.14.123.0/25,10.14.124.0/25",
+      "destPort": "Any",
+      "destCidr": "Any",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Deny Data VLAN to Private IPs (RFC1918)",
+      "policy": "deny",
+      "protocol": "any",
+      "srcPort": "Any",
+      "srcCidr": "10.14.120.0/25,10.14.121.0/25,10.14.122.0/25,10.14.123.0/25,10.14.124.0/25",
+      "destPort": "Any",
+      "destCidr": "OBJ(3790904986339115242),OBJ(3790904986339115244),OBJ(3790904986339115243)",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Data VLAN to Exchange Online for IMAP",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "10.14.120.0/25,10.14.121.0/25,10.14.122.0/25,10.14.123.0/25,10.14.124.0/25",
+      "destPort": "143,993",
+      "destCidr": "GRP(3790904986339115085)",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Data VLAN HTTP/HTTPS",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "10.14.120.0/25,10.14.121.0/25,10.14.122.0/25,10.14.123.0/25,10.14.124.0/25",
+      "destPort": "80,443,8080",
+      "destCidr": "Any",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Guest Network to NTP",
+      "policy": "allow",
+      "protocol": "udp",
+      "srcPort": "Any",
+      "srcCidr": "172.16.80.0/24",
+      "destPort": "123",
+      "destCidr": "pool.ntp.org",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Guest Access to Any",
+      "policy": "allow",
+      "protocol": "any",
+      "srcPort": "Any",
+      "srcCidr": "172.16.80.0/24",
+      "destPort": "Any",
+      "destCidr": "Any",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Net Mgmt NTP",
+      "policy": "allow",
+      "protocol": "udp",
+      "srcPort": "Any",
+      "srcCidr": "10.14.125.0/25",
+      "destPort": "123",
+      "destCidr": "OBJ(3790904986339115259)",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Meraki cloud communication and VPN registry",
+      "policy": "allow",
+      "protocol": "udp",
+      "srcPort": "Any",
+      "srcCidr": "10.14.125.0/25",
+      "destPort": "7351",
+      "destCidr": "GRP(3790904986339115078)",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Meraki cloud communication and VPN registry",
+      "policy": "allow",
+      "protocol": "udp",
+      "srcPort": "Any",
+      "srcCidr": "10.14.125.0/25",
+      "destPort": "9350-9381",
+      "destCidr": "GRP(3790904986339115078)",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Meraki API Requests",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "10.14.125.0/25",
+      "destPort": "443",
+      "destCidr": "OBJ(3790904986339115252)",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Meraki Cloud Comm, Splash Pages, Backup Comm and Config, Throughput to dashboard.meraki.com, Backup Firmware Downloads",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "10.14.125.0/25",
+      "destPort": "80,443,7734,7752",
+      "destCidr": "GRP(3790904986339115079)",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Scanner NTP",
+      "policy": "allow",
+      "protocol": "udp",
+      "srcPort": "Any",
+      "srcCidr": "10.14.126.0/27",
+      "destPort": "123",
+      "destCidr": "OBJ(3790904986339115259)",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Scanner HTTP/HTTPS",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "10.14.126.0/27",
+      "destPort": "80,443",
+      "destCidr": "Any",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Polycom Windows NTP",
+      "policy": "allow",
+      "protocol": "udp",
+      "srcPort": "Any",
+      "srcCidr": "10.14.120.128/25,10.14.121.128/25,10.14.122.128/25,10.14.123.128/25,10.14.124.128/25",
+      "destPort": "123",
+      "destCidr": "OBJ(3790904986339115074)",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Polycom SIP SSL/5061",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "10.14.120.128/25,10.14.121.128/25,10.14.122.128/25,10.14.123.128/25,10.14.124.128/25",
+      "destPort": "5061",
+      "destCidr": "GRP(3790904986339115076)",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Polycom TCP/49152",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "10.14.120.128/25,10.14.121.128/25,10.14.122.128/25,10.14.123.128/25,10.14.124.128/25",
+      "destPort": "49152",
+      "destCidr": "GRP(3790904986339115076)",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Polycom UDP/3478-3481",
+      "policy": "allow",
+      "protocol": "udp",
+      "srcPort": "Any",
+      "srcCidr": "10.14.120.128/25,10.14.121.128/25,10.14.122.128/25,10.14.123.128/25,10.14.124.128/25",
+      "destPort": "3478-3481",
+      "destCidr": "GRP(3790904986339115076)",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Polycom RTP and RTCP",
+      "policy": "allow",
+      "protocol": "udp",
+      "srcPort": "Any",
+      "srcCidr": "10.14.120.128/25,10.14.121.128/25,10.14.122.128/25,10.14.123.128/25,10.14.124.128/25",
+      "destPort": "49152-53247",
+      "destCidr": "GRP(3790904986339115076)",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Polycom Google Services",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "10.14.120.128/25,10.14.121.128/25,10.14.122.128/25,10.14.123.128/25,10.14.124.128/25",
+      "destPort": "5228",
+      "destCidr": "OBJ(3790904986339115064),OBJ(3790904986339115065),OBJ(3790904986339115066),OBJ(3790904986339115067)",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Polycom to nVX PBX TCP",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "10.14.120.128/25,10.14.121.128/25,10.14.122.128/25,10.14.123.128/25,10.14.124.128/25",
+      "destPort": "5061,9000",
+      "destCidr": "GRP(3790904986339115077)",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Polycom to nVX PBX UDP",
+      "policy": "allow",
+      "protocol": "udp",
+      "srcPort": "Any",
+      "srcCidr": "10.14.120.128/25,10.14.121.128/25,10.14.122.128/25,10.14.123.128/25,10.14.124.128/25",
+      "destPort": "16384-32768",
+      "destCidr": "GRP(3790904986339115077)",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Polycom HTTP and HTTPS",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "10.14.120.128/25,10.14.121.128/25,10.14.122.128/25,10.14.123.128/25,10.14.124.128/25",
+      "destPort": "80,443",
+      "destCidr": "Any",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Polycom Voice VLAN Deny All",
+      "policy": "deny",
+      "protocol": "any",
+      "srcPort": "Any",
+      "srcCidr": "10.14.120.128/25,10.14.121.128/25,10.14.122.128/25,10.14.123.128/25,10.14.124.128/25",
+      "destPort": "Any",
+      "destCidr": "Any",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Wireless Radials to Google DNS",
+      "policy": "allow",
+      "protocol": "udp",
+      "srcPort": "Any",
+      "srcCidr": "172.16.0.0/24",
+      "destPort": "53",
+      "destCidr": "8.8.8.8/32,8.8.4.4/32",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Wireless Radials to HTTP/HTTPS",
+      "policy": "allow",
+      "protocol": "tcp",
+      "srcPort": "Any",
+      "srcCidr": "172.16.0.0/24",
+      "destPort": "80,443",
+      "destCidr": "Any",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Deny all",
+      "policy": "deny",
+      "protocol": "any",
+      "srcPort": "Any",
+      "srcCidr": "Any",
+      "destPort": "Any",
+      "destCidr": "Any",
+      "syslogEnabled": false
+    },
+    {
+      "comment": "Default rule",
+      "policy": "allow",
+      "protocol": "Any",
+      "srcPort": "Any",
+      "srcCidr": "Any",
+      "destPort": "Any",
+      "destCidr": "Any",
+      "syslogEnabled": false
+    }
+  ],
+  "downloaded_at": "2025-06-26T23:54:51.224340+00:00"
+}

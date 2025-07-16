@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Meraki Inventory Details - Discount Tire</title>
+    <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <!-- Select2 CSS for enhanced dropdowns -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .header-container {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .header-container h1 {
+            margin: 0;
+            font-size: 24px;
+            display: inline-block;
+        }
+        .row-count {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 14px;
+            color: #ecf0f1;
+            font-weight: 400;
+        }
+        .inventory-table-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .org-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .org-tab {
+            background: #ecf0f1;
+            color: #2c3e50;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px 4px 0 0;
+            font-size: 13px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .org-tab:hover {
+            background: #bdc3c7;
+        }
+        .org-tab.active {
+            background: #3498db;
+            color: white;
+        }
+        .org-tab.all-orgs-tab {
+            background: #e74c3c;
+            color: white;
+            font-weight: bold;
+        }
+        .org-tab.all-orgs-tab:hover {
+            background: #c0392b;
+        }
+        .org-tab.all-orgs-tab.active {
+            background: #a93226;
+        }
+        .filter-controls {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+        .filter-control {
+            padding: 5px;
+        }
+        .filter-control input, .filter-control select {
+            width: 100%;
+            padding: 6px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+        .inventory-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .inventory-table thead th {
+            padding: 12px 8px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            background-color: #3498db;
+            color: white;
+            border: 1px solid #2980b9;
+            white-space: nowrap;
+            min-width: 80px;
+        }
+        .inventory-table tbody tr {
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .inventory-table tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .inventory-table tbody tr:hover {
+            background-color: #f1f8ff;
+        }
+        .inventory-table td {
+            padding: 8px 6px;
+            color: #333;
+            font-size: 11px;
+            border: 1px solid #e0e0e0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+		.export-buttons { 
+			margin-bottom: 15px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.nav-buttons {
+			display: flex;
+			gap: 8px;
+			align-items: center;
+		}
+
+		.export-actions {
+			display: flex;
+			gap: 8px;
+			align-items: center;
+		}
+        .export-buttons button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            margin-right: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .export-buttons button:hover {
+            background: #2980b9;
+        }
+        .export-buttons button.active {
+            background: #27ae60;
+        }
+        
+        .org-column {
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .model-column {
+            font-weight: 600;
+            color: #8e44ad;
+        }
+        
+        .serial-column {
+            font-family: monospace;
+            font-size: 9px;
+        }
+        
+        .network-column {
+            color: #27ae60;
+        }
+        
+        .tag-column {
+            font-size: 9px;
+            color: #e67e22;
+        }
+        
+        .org-content {
+            display: none;
+        }
+        .org-content.active {
+            display: block;
+        }
+        
+        /* Select2 customization */
+        .select2-container--default .select2-selection--single {
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            height: 34px;
+        }
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            line-height: 34px;
+            padding-left: 8px;
+            font-size: 13px;
+        }
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+            height: 32px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <h1>Meraki Inventory Details</h1>
+        <div class="row-count" id="rowCount">Showing 0 of 0 devices</div>
+    </div>
+
+    <div class="inventory-table-container">
+        <!-- Export Buttons -->
+        <div class="export-buttons">
+			<!-- Navigation -->
+			<div class="nav-buttons">
+				<button onclick="window.location.href='/home'">🏠 Home</button>
+			</div>
+			<div class="export-actions">
+				<button id="exportExcel">📊 Export to Excel</button>
+				<button id="exportPDF">📄 Export to PDF</button>
+			</div>
+		</div>
+
+        <!-- Organization Tabs -->
+        <div class="org-tabs">
+            {% for org in all_orgs %}
+                <button class="org-tab {% if loop.first %}active{% endif %}" data-org="{{ org }}">{{ org }}</button>
+            {% endfor %}
+            <button class="org-tab all-orgs-tab" data-org="all">All Orgs ({{ total_devices }} devices)</button>
+        </div>
+
+        <!-- Organization Content -->
+        {% for org in all_orgs %}
+        <div class="org-content {% if loop.first %}active{% endif %}" id="content-{{ loop.index0 }}">
+            <!-- Filter Controls for this org -->
+            <div class="filter-controls">
+                <div class="filter-control">
+                    <input type="text" class="modelFilter" placeholder="Filter Model..." data-org="{{ org }}">
+                </div>
+                <div class="filter-control">
+                    <input type="text" class="serialFilter" placeholder="Filter Serial..." data-org="{{ org }}">
+                </div>
+                <div class="filter-control">
+                    <input type="text" class="macFilter" placeholder="Filter MAC..." data-org="{{ org }}">
+                </div>
+                <div class="filter-control">
+                    <input type="text" class="networkIdFilter" placeholder="Filter Network ID..." data-org="{{ org }}">
+                </div>
+                <div class="filter-control">
+                    <input type="text" class="networkNameFilter" placeholder="Filter Network Name..." data-org="{{ org }}">
+                </div>
+                <div class="filter-control">
+                    <input type="text" class="deviceNameFilter" placeholder="Filter Device Name..." data-org="{{ org }}">
+                </div>
+                <div class="filter-control">
+                    <input type="text" class="productTypeFilter" placeholder="Filter Product Type..." data-org="{{ org }}">
+                </div>
+                <div class="filter-control">
+                    <input type="text" class="claimedAtFilter" placeholder="Filter Claimed Date..." data-org="{{ org }}">
+                </div>
+            </div>
+
+            <!-- DataTable for this org -->
+            <table class="inventory-table org-table" id="table-{{ loop.index0 }}">
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Serial</th>
+                        <th>MAC</th>
+                        <th>Network ID</th>
+                        <th>Network Name</th>
+                        <th>Name</th>
+                        <th>Product Type</th>
+                        <th>Claimed At</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for device in inventory[org] %}
+                    <tr>
+                        <td class="model-column">{{ device.device_model or device.model or '' }}</td>
+                        <td class="serial-column">{{ device.device_serial or device.serial or '' }}</td>
+                        <td class="serial-column">{{ device.mac or '' }}</td>
+                        <td class="serial-column">{{ device.network_id or device.networkId or '' }}</td>
+                        <td class="network-column">{{ device.network_name or device.networkName or '' }}</td>
+                        <td>{{ device.device_name or device.name or '' }}</td>
+                        <td class="tag-column">{{ device.productType or 'wireless' }}</td>
+                        <td>{{ device.claimedAt or '' }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endfor %}
+
+        <!-- All Orgs Content -->
+        <div class="org-content" id="content-all">
+            <!-- Filter Controls for all orgs -->
+            <div class="filter-controls">
+                <div class="filter-control">
+                    <select class="orgFilterAll">
+                        <option value="">All Organizations</option>
+                        {% for org in all_orgs %}
+                            <option value="{{ org }}">{{ org }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="filter-control">
+                    <input type="text" class="modelFilterAll" placeholder="Filter Model...">
+                </div>
+                <div class="filter-control">
+                    <input type="text" class="serialFilterAll" placeholder="Filter Serial...">
+                </div>
+                <div class="filter-control">
+                    <input type="text" class="macFilterAll" placeholder="Filter MAC...">
+                </div>
+                <div class="filter-control">
+                    <input type="text" class="networkIdFilterAll" placeholder="Filter Network ID...">
+                </div>
+                <div class="filter-control">
+                    <input type="text" class="networkNameFilterAll" placeholder="Filter Network Name...">
+                </div>
+                <div class="filter-control">
+                    <input type="text" class="deviceNameFilterAll" placeholder="Filter Device Name...">
+                </div>
+                <div class="filter-control">
+                    <input type="text" class="productTypeFilterAll" placeholder="Filter Product Type...">
+                </div>
+            </div>
+
+            <!-- DataTable for all orgs -->
+            <table class="inventory-table org-table" id="table-all">
+                <thead>
+                    <tr>
+                        <th>Organization</th>
+                        <th>Model</th>
+                        <th>Serial</th>
+                        <th>MAC</th>
+                        <th>Network ID</th>
+                        <th>Network Name</th>
+                        <th>Name</th>
+                        <th>Product Type</th>
+                        <th>Claimed At</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for org_name, devices in inventory.items() %}
+                        {% for device in devices %}
+                        <tr>
+                            <td class="org-column">{{ org_name }}</td>
+                            <td class="model-column">{{ device.device_model or device.model or '' }}</td>
+                            <td class="serial-column">{{ device.device_serial or device.serial or '' }}</td>
+                            <td class="serial-column">{{ device.mac or '' }}</td>
+                            <td class="serial-column">{{ device.network_id or device.networkId or '' }}</td>
+                            <td class="network-column">{{ device.network_name or device.networkName or '' }}</td>
+                            <td>{{ device.device_name or device.name or '' }}</td>
+                            <td class="tag-column">{{ device.productType or 'wireless' }}</td>
+                            <td>{{ device.claimedAt or '' }}</td>
+                        </tr>
+                        {% endfor %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <!-- Select2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        var tables = {};
+        var currentOrg = 0;
+
+        // Initialize DataTables for each org + all orgs table
+        $('.org-table').each(function(index) {
+            var tableId = $(this).attr('id');
+            var isAllOrgsTable = tableId === 'table-all';
+            
+            tables[tableId] = $(this).DataTable({
+                paging: false,
+                scrollCollapse: true,
+                scrollX: true,
+                scrollY: '60vh',
+                fixedHeader: true,
+                dom: 't',
+                order: isAllOrgsTable ? [[0, 'asc'], [1, 'asc']] : [[0, 'asc']],
+                autoWidth: false,
+                columnDefs: isAllOrgsTable ? [
+                    { width: "120px", targets: 0 }, // Organization
+                    { width: "80px", targets: 1 },  // Model
+                    { width: "120px", targets: 2 }, // Serial
+                    { width: "120px", targets: 3 }, // MAC
+                    { width: "150px", targets: 4 }, // Network ID
+                    { width: "180px", targets: 5 }, // Network Name
+                    { width: "180px", targets: 6 }, // Device Name
+                    { width: "80px", targets: 7 },  // Product Type
+                    { width: "150px", targets: 8 }  // Claimed At
+                ] : [
+                    { width: "80px", targets: 0 },  // Model
+                    { width: "120px", targets: 1 }, // Serial
+                    { width: "120px", targets: 2 }, // MAC
+                    { width: "150px", targets: 3 }, // Network ID
+                    { width: "200px", targets: 4 }, // Network Name
+                    { width: "200px", targets: 5 }, // Device Name
+                    { width: "80px", targets: 6 },  // Product Type
+                    { width: "150px", targets: 7 }  // Claimed At
+                ],
+                drawCallback: function() {
+                    this.api().columns.adjust();
+                }
+            });
+        });
+
+        // Update row count for current org
+        function updateRowCount() {
+            var table;
+            var orgName;
+            
+            if (currentOrg === 'all') {
+                table = tables['table-all'];
+                orgName = 'All Organizations';
+            } else {
+                table = tables['table-' + currentOrg];
+                orgName = $('.org-tab.active').text();
+            }
+            
+            if (table) {
+                var filteredCount = table.rows({ search: 'applied' }).count();
+                var totalCount = table.rows().count();
+                $('#rowCount').text(`Showing ${filteredCount} of ${totalCount} devices (${orgName})`);
+            }
+        }
+
+        // Tab switching
+        $('.org-tab').on('click', function() {
+            var orgName = $(this).data('org');
+            var tabIndex = $(this).index();
+            
+            // Update active tab
+            $('.org-tab').removeClass('active');
+            $(this).addClass('active');
+            
+            // Update active content
+            $('.org-content').removeClass('active');
+            
+            if (orgName === 'all') {
+                $('#content-all').addClass('active');
+                currentOrg = 'all';
+            } else {
+                $('#content-' + tabIndex).addClass('active');
+                currentOrg = tabIndex;
+            }
+            
+            // Force column adjustment for the newly visible table
+            setTimeout(function() {
+                var tableKey = currentOrg === 'all' ? 'table-all' : 'table-' + currentOrg;
+                if (tables[tableKey]) {
+                    tables[tableKey].columns.adjust().draw();
+                }
+                updateRowCount();
+            }, 100);
+        });
+
+        // Initialize filters for each org
+        function initFilters() {
+            $('.modelFilter').on('keyup', function() {
+                var orgIndex = $(this).closest('.org-content').attr('id').split('-')[1];
+                tables['table-' + orgIndex].column(0).search(this.value).draw();
+            });
+            
+            $('.serialFilter').on('keyup', function() {
+                var orgIndex = $(this).closest('.org-content').attr('id').split('-')[1];
+                tables['table-' + orgIndex].column(1).search(this.value).draw();
+            });
+            
+            $('.macFilter').on('keyup', function() {
+                var orgIndex = $(this).closest('.org-content').attr('id').split('-')[1];
+                tables['table-' + orgIndex].column(2).search(this.value).draw();
+            });
+            
+            $('.networkIdFilter').on('keyup', function() {
+                var orgIndex = $(this).closest('.org-content').attr('id').split('-')[1];
+                tables['table-' + orgIndex].column(3).search(this.value).draw();
+            });
+            
+            $('.networkNameFilter').on('keyup', function() {
+                var orgIndex = $(this).closest('.org-content').attr('id').split('-')[1];
+                tables['table-' + orgIndex].column(4).search(this.value).draw();
+            });
+            
+            $('.deviceNameFilter').on('keyup', function() {
+                var orgIndex = $(this).closest('.org-content').attr('id').split('-')[1];
+                tables['table-' + orgIndex].column(5).search(this.value).draw();
+            });
+            
+            $('.productTypeFilter').on('keyup', function() {
+                var orgIndex = $(this).closest('.org-content').attr('id').split('-')[1];
+                tables['table-' + orgIndex].column(6).search(this.value).draw();
+            });
+            
+            $('.claimedAtFilter').on('keyup', function() {
+                var orgIndex = $(this).closest('.org-content').attr('id').split('-')[1];
+                tables['table-' + orgIndex].column(7).search(this.value).draw();
+            });
+            
+            // All orgs filters
+            $('.orgFilterAll').on('change', function() {
+                tables['table-all'].column(0).search(this.value).draw();
+            });
+            
+            $('.modelFilterAll').on('keyup', function() {
+                tables['table-all'].column(1).search(this.value).draw();
+            });
+            
+            $('.serialFilterAll').on('keyup', function() {
+                tables['table-all'].column(2).search(this.value).draw();
+            });
+            
+            $('.macFilterAll').on('keyup', function() {
+                tables['table-all'].column(3).search(this.value).draw();
+            });
+            
+            $('.networkIdFilterAll').on('keyup', function() {
+                tables['table-all'].column(4).search(this.value).draw();
+            });
+            
+            $('.networkNameFilterAll').on('keyup', function() {
+                tables['table-all'].column(5).search(this.value).draw();
+            });
+            
+            $('.deviceNameFilterAll').on('keyup', function() {
+                tables['table-all'].column(6).search(this.value).draw();
+            });
+            
+            $('.productTypeFilterAll').on('keyup', function() {
+                tables['table-all'].column(7).search(this.value).draw();
+            });
+        }
+        
+        // Export buttons - export current org only
+        $('#exportExcel').on('click', function() {
+            var tableKey = currentOrg === 'all' ? 'table-all' : 'table-' + currentOrg;
+            var currentTable = tables[tableKey];
+            var orgName = $('.org-tab.active').text();
+            
+            new $.fn.dataTable.Buttons(currentTable, {
+                buttons: [{
+                    extend: 'excelHtml5',
+                    title: 'Meraki Inventory - ' + orgName,
+                    exportOptions: { columns: ':visible' }
+                }]
+            });
+            currentTable.button(0).trigger();
+        });
+        
+        $('#exportPDF').on('click', function() {
+            var tableKey = currentOrg === 'all' ? 'table-all' : 'table-' + currentOrg;
+            var currentTable = tables[tableKey];
+            var orgName = $('.org-tab.active').text();
+            
+            new $.fn.dataTable.Buttons(currentTable, {
+                buttons: [{
+                    extend: 'pdfHtml5',
+                    title: 'Meraki Inventory - ' + orgName,
+                    orientation: 'landscape',
+                    pageSize: 'LEGAL',
+                    exportOptions: { columns: ':visible' }
+                }]
+            });
+            currentTable.button(0).trigger();
+        });
+
+        // Initialize Select2 for org filter in all orgs view
+        $('.orgFilterAll').select2({
+            width: '100%'
+        });
+
+        // Update row count on draw for all tables
+        Object.values(tables).forEach(function(table) {
+            table.on('draw.dt', function() {
+                updateRowCount();
+            });
+        });
+        
+        // Initialize filters and row count
+        initFilters();
+        updateRowCount();
+        
+        // Force initial column adjustment
+        setTimeout(function() {
+            Object.values(tables).forEach(function(table) {
+                table.columns.adjust();
+            });
+        }, 500);
+    });
+    </script>
+</body>
+</html>

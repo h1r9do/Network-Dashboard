@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meraki WAN Issues Summary</title>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <style>
+    /* Style for the table and its components */
+    .alert-cell {
+      background-color: rgba(255, 0, 0, 0.5) !important;
+      font-weight: bold !important;
+      color: #000 !important;
+    }
+    .highlight-circuit {
+      background-color: #fffde7 !important;
+    }
+    .highlight-store {
+      background-color: #ffd6d6 !important;
+    }
+    .date-picker-container {
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .search-container {
+      margin: 20px 0;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 5px;
+    }
+    #metrics {
+      border-collapse: collapse;
+      width: 100%;
+      border: 2px solid #333;
+    }
+    #metrics th, #metrics td {
+      border: 1px solid #333 !important;
+      padding: 8px;
+      text-align: center;
+    }
+    #metrics th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+      border-bottom: 2px solid #333 !important;
+    }
+    #metrics tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    #metrics tr:hover {
+      background-color: #f1f1f1;
+    }
+    .btn {
+      padding: 6px 12px;
+      margin: 0 5px 5px 0;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .btn-primary {
+      color: #fff;
+      background-color: #337ab7;
+      border-color: #2e6da4;
+    }
+    .btn-secondary {
+      color: #fff;
+      background-color: #6c757d;
+      border-color: #6c757d;
+    }
+    .btn-warning {
+      color: #000;
+      background-color: #ffc107;
+      border-color: #ffc107;
+    }
+    .btn-outline-secondary {
+      color: #6c757d;
+      background-color: transparent;
+      border-color: #6c757d;
+    }
+    .btn-info {
+      color: #fff;
+      background-color: #17a2b8;
+      border-color: #17a2b8;
+    }
+    .btn-success {
+      color: #fff;
+      background-color: #28a745;
+      border-color: #28a745;
+    }
+    .btn-active {
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+    }
+    .form-control {
+      display: inline-block;
+      width: 200px;
+      height: 34px;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #555;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Meraki WAN Issues Summary</h2>
+
+  <div class="search-container">
+    <input type="text" id="circuitSearch" class="form-control" placeholder="Search circuits...">
+    <button class="btn btn-primary" type="button" id="searchBtn">Search</button>
+    <button class="btn btn-secondary" type="button" id="clearBtn">Clear Filters</button>
+    <button class="btn btn-outline-secondary quick-search-btn" data-search="inseego">Inseego</button>
+    <button class="btn btn-outline-secondary quick-search-btn" data-search="starlink">Starlink</button>
+    <button class="btn btn-outline-secondary quick-search-btn" data-search="inseego+starlink">Inseego + Starlink</button>
+    
+    <select id="tagFilter" style="width: 300px;">
+      <option value="">-- Filter by Tag --</option>
+    </select>
+    
+    <button class="btn btn-info" type="button" id="filterCellBtn">Filter Cell Stores</button>
+    <button class="btn btn-warning" type="button" id="filterLossBtn">Loss Issues</button>
+    <button class="btn btn-warning" type="button" id="filterLatencyBtn">Latency Issues</button>
+    <button class="btn btn-warning" type="button" id="filterJitterBtn">Jitter Issues</button>
+  </div>
+
+  <div class="date-picker-container">
+    <label for="datePicker">Select Date:</label>
+    <input type="text" id="datePicker" placeholder="Select date">
+    <button id="refreshBtn" class="btn btn-primary">Refresh Data</button>
+  </div>
+
+  <div style="text-align:right; margin-bottom: 5px;"><strong id="storeCount"></strong></div>
+  <table id="metrics" class="display">
+    <thead>
+      <tr>
+        <th>Store</th><th>Uplink</th><th>WAN Label</th>
+        <th>Loss Max</th><th>Latency Max</th><th>Jitter Max</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+<script>
+$(document).ready(function () {
+  let allData = [];
+  let tagMap = {};
+  let activeFilters = {
+    cell: false,
+    loss: false,
+    latency: false,
+    jitter: false
+  };
+
+  const table = $('#metrics').DataTable({
+    dom: 'rt',
+    pageLength: 50,
+    ordering: false
+  });
+
+  const datePicker = flatpickr("#datePicker", {
+    dateFormat: "Ymd", 
+    defaultDate: new Date(), 
+    maxDate: new Date()
+  });
+
+  function normalize(str) {
+    return str ? str.trim().toUpperCase() : "";
+  }
+
+  function loadTags() {
+    fetch('/tags')
+      .then(res => res.json())
+      .then(data => {
+        tagMap = data;
+        const tags = new Set();
+        Object.values(data).forEach(list => list.forEach(tag => tags.add(tag)));
+        const $tagSelect = $('#tagFilter');
+        $tagSelect.empty().append('<option value="">-- Filter by Tag --</option>');
+        Array.from(tags).sort().forEach(tag => {
+          $tagSelect.append(`<option value="${tag}">${tag}</option>`);
+        });
+        $tagSelect.select2({ placeholder: "Filter by Tag", allowClear: true });
+      });
+  }
+
+  function calculateVariance(row) {
+    const idealLoss = 0;
+    const idealLatency = 20;
+    const idealJitter = 0;
+
+    const lossVariance = Math.abs(row.max_loss - idealLoss);
+    const latencyVariance = Math.abs(row.max_latency - idealLatency);
+    const jitterVariance = Math.abs(row.max_jitter - idealJitter);
+
+    return {
+      lossVariance,
+      latencyVariance,
+      jitterVariance
+    };
+  }
+
+  function buildRow(store, rows, tags) {
+    const tooltip = tags?.join(', ') || '';
+    const normalizedStore = normalize(store);
+    return rows.map((row, i) => {
+      // Only include this row if it has issues
+      if (row.max_loss <= 3 && row.max_latency <= 120 && row.max_jitter <= 20) {
+        return '';
+      }
+      
+      return `<tr class="store-row" data-wan-label="${row.wanLabel}" data-store="${normalizedStore}">
+        ${i === 0 ? `<td rowspan="${rows.length}" title="${tooltip}">${normalizedStore}</td>` : ''}
+        <td>${row.uplink}</td>
+        <td>${row.wanLabel || ''}</td>
+        <td class="${row.max_loss > 3 ? 'alert-cell' : ''}">${row.max_loss > 3 ? row.max_loss : 'Normal'}</td>
+        <td class="${row.max_latency > 120 ? 'alert-cell' : ''}">${row.max_latency > 120 ? row.max_latency : 'Normal'}</td>
+        <td class="${row.max_jitter > 20 ? 'alert-cell' : ''}">${row.max_jitter > 20 ? row.max_jitter : 'Normal'}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  function renderTable(data) {
+    const grouped = {};
+    const uniqueStores = new Set();
+    
+    // First filter data to only include rows with issues
+    const filteredData = data.filter(row => 
+      row.max_loss > 3 || row.max_latency > 120 || row.max_jitter > 20
+    );
+    
+    filteredData.forEach(row => {
+      const store = normalize(row.store);
+      uniqueStores.add(store);
+      grouped[store] = grouped[store] || [];
+      grouped[store].push(row);
+    });
+
+    $('#storeCount').text(`Stores with issues: ${uniqueStores.size}`);
+    let body = '';
+    Object.keys(grouped).sort().forEach(store => {
+      body += buildRow(store, grouped[store], tagMap[store]);
+    });
+    $('#metrics tbody').html(body);
+  }
+
+  function loadData(date) {
+    fetch(`/metrics?date=${date || ''}`)
+      .then(res => res.json())
+      .then(data => {
+        allData = data;
+        applyFilters();
+      });
+  }
+
+  function resetFilters() {
+    activeFilters = {
+      cell: false,
+      loss: false,
+      latency: false,
+      jitter: false
+    };
+    updateButtonStates();
+  }
+
+  function updateButtonStates() {
+    $('#filterCellBtn').text(activeFilters.cell ? 'Clear Cell Filter' : 'Filter Cell Stores')
+                      .toggleClass('btn-success', activeFilters.cell)
+                      .toggleClass('btn-info', !activeFilters.cell);
+    $('#filterLossBtn').text(activeFilters.loss ? 'Clear Loss Filter' : 'Loss Issues')
+                      .toggleClass('btn-success', activeFilters.loss);
+    $('#filterLatencyBtn').text(activeFilters.latency ? 'Clear Latency Filter' : 'Latency Issues')
+                         .toggleClass('btn-success', activeFilters.latency);
+    $('#filterJitterBtn').text(activeFilters.jitter ? 'Clear Jitter Filter' : 'Jitter Issues')
+                        .toggleClass('btn-success', activeFilters.jitter);
+  }
+
+  function applyFilters() {
+    let filteredData = allData;
+    
+    // Apply cell filter first if active
+    if (activeFilters.cell) {
+      filteredData = filteredData.filter(row => {
+        const label = normalize(row.wanLabel || '');
+        return !label.includes('VZG') && !label.includes('VZN') && !label.includes('DIGI');
+      });
+    }
+    
+    // Apply issue filters
+    const issueFilters = [];
+    if (activeFilters.loss) issueFilters.push(row => row.max_loss > 3);
+    if (activeFilters.latency) issueFilters.push(row => row.max_latency > 120);
+    if (activeFilters.jitter) issueFilters.push(row => row.max_jitter > 20);
+    
+    if (issueFilters.length > 0) {
+      filteredData = filteredData.filter(row => {
+        return issueFilters.some(filter => filter(row));
+      });
+    }
+    
+    renderTable(filteredData);
+  }
+
+  function toggleFilter(filterType) {
+    activeFilters[filterType] = !activeFilters[filterType];
+    updateButtonStates();
+    applyFilters();
+  }
+
+  $('#refreshBtn').click(() => {
+    resetFilters();
+    loadData(datePicker.input.value);
+  });
+
+  $('#searchBtn').click(() => {
+    const rawSearch = $('#circuitSearch').val();
+    const keywords = rawSearch.split('+').map(k => normalize(k)).filter(Boolean);
+
+    let filtered = allData.filter(row => {
+      const label = normalize(row.wanLabel || '');
+      const store = normalize(row.store || '');
+      return keywords.some(k =>
+        label.includes(k) || store.includes(k)
+      );
+    });
+
+    renderTable(filtered);
+  });
+
+  $('#clearBtn').click(() => {
+    $('#circuitSearch').val('');
+    $('#tagFilter').val('').trigger('change');
+    resetFilters();
+    renderTable(allData);
+  });
+
+  $('.quick-search-btn').click(function () {
+    const searchTerm = $(this).data('search');
+    $('#circuitSearch').val(searchTerm);
+    $('#searchBtn').click();
+  });
+
+  $('#tagFilter').on('change', function () {
+    const tag = $(this).val();
+    if (!tag) return renderTable(allData);
+    const filtered = allData.filter(row => {
+      const store = normalize(row.store);
+      return tagMap[store]?.includes(tag);
+    });
+    renderTable(filtered);
+  });
+
+  // Filter Cell Stores (remove any WAN label with VZG, VZN or Digi)
+  $('#filterCellBtn').click(function() {
+    toggleFilter('cell');
+  });
+
+  // Filter Loss Issues (max_loss > 3)
+  $('#filterLossBtn').click(function() {
+    toggleFilter('loss');
+  });
+
+  // Filter Latency Issues (max_latency > 120)
+  $('#filterLatencyBtn').click(function() {
+    toggleFilter('latency');
+  });
+
+  // Filter Jitter Issues (max_jitter > 20)
+  $('#filterJitterBtn').click(function() {
+    toggleFilter('jitter');
+  });
+
+  loadTags();
+  loadData();
+});
+</script>
+</body>
+</html>

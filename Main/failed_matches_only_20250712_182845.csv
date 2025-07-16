@@ -1,0 +1,73 @@
+network_name,wan1_notes_provider,wan1_arin_provider,wan1_matched_dsr,wan1_match_method,wan2_notes_provider,wan2_arin_provider,wan2_matched_dsr,wan2_match_method,dsr_circuit_count
+AZF 02,WAN1: Lightpath  300.0M x 300.0M\n,Optimum,,none,Altice West 500.0M x 50.0M,Optimum,,none,2
+AZH 01,Optimum,Optimum,,none,Digi,AT&T,,none,1
+AZN 02,CABLE ONE INC.,"Cable One, Inc.",,none,Digi,AT&T,,none,1
+AZP 56,ComcastAgg,CenturyLink,,none,Digi,AT&T,,none,0
+AZP 60,Mediacom Communications Corporation,Mediacom Communications Corporation,,none,VZW Cell,Verizon,,none,1
+AZP 63,Starlink,"SpaceX Services, Inc.",,none,VZG Cell,Verizon,,none,0
+AZP 64,Starlink,"SpaceX Services, Inc.",,none,AT&T Cell,AT&T,,none,0
+CAL 13,Frontier Communications,Frontier Communications,,none,Digi,AT&T,,none,1
+CAL 14,DSR One Ring Networks | Fixed Wireless |,"Skyriver Communications, Inc.",,none,Digi,AT&T,,none,1
+CAL 17,Frontier Communications,Frontier Communications,,none,VZW Cell,Verizon,,none,1
+CAL 20,Frontier Communications,Frontier Communications,,none,VZW Cell,Verizon,,none,1
+CAL 24,Frontier Communications,Frontier Communications,,none,Verizon Business,Verizon,,none,2
+CAN 12,DSR Etheric FixedWireless,"Etheric Networks, Inc.",,none,Digi,AT&T,,none,1
+CAN 16,Frontier Communications,Frontier Communications,,none,Digi,AT&T,,none,1
+CAN 40,VZW Cell,Verizon,,none,Starlink,"SpaceX Services, Inc.",,none,0
+CAN 52,DSR ConsolComms,"Consolidated Communications, Inc.",,none,Verizon Business,Verizon,,none,1
+CAS 02,AT&T,AT&T,,none,VZW Cell,Verizon,,none,0
+CAS 13,,,,none,,,,none,2
+CAS 32,DSR Comcast,Charter Communications,,none,Verizon Business,Verizon,,none,1
+CAS 35,Frontier Communications,Frontier Communications,,none,VZW Cell,Verizon,,none,1
+CAS 40,Frontier Communications,Frontier Communications,,none,Digi,AT&T,,none,1
+CAS 41,Frontier Communications,Frontier Communications,,none,VZW Cell,Verizon,,none,1
+CAS 48,Frontier Communications,Frontier Communications,,none,Verizon Business,Verizon,,none,1
+COD 15,Comcast,Comcast,,none,Verizon Business,Verizon,,none,0
+COD 17,Comcast,Comcast,,none,VZW Cell,Verizon,,none,0
+COD 22,"Comcast Cable Communications, LLC",Comcast,,none,VZW Cell,Verizon,,none,0
+FLG 01,DSR Cox,Cox Communications,,none,VZW Cell,Verizon,,none,1
+IAD 03,DSR CLink Fiber,CenturyLink,,none,Unknown,AT&T,,none,1
+IAN 01,Mediacom,Mediacom Communications Corporation,,none,Cedar Falls,"The Municipal Communications Utility of the City of Cedar Falls, Iowa",,none,2
+IAN 02,Mediacom Communications Corporation,Mediacom Communications Corporation,,none,CenturyLink,CenturyLink,,none,2
+IAN 03,Mediacom Communications Corporation,Mediacom Communications Corporation,,none,Digi,AT&T,,none,1
+IAQ 01,DSR Mediacom,Mediacom Communications Corporation,,none,ComcastAgg CLink DSL,CenturyLink,,none,1
+ILC 28,Comcast,Comcast,,none,AT&T Cell,AT&T,,none,0
+INF 01,Comcast,Comcast,,none,AT&T Cell,AT&T,,none,0
+INF 02,Comcast,Comcast,,none,VZW Cell,Verizon,,none,0
+MIG 25,Comcast,Comcast,,none,VZW Cell,Verizon,,none,0
+MNM 16,Comcast,Comcast,,none,VZW Cell,Verizon,,none,0
+MNM 25,ComcastAgg x,Comcast,,none,Verizon Business,Verizon,,none,0
+MOO 04,Level 3,Level 3,,none,Verizon 5G,Verizon,,none,1
+MSG 01,,,,none,,,,none,0
+NCC 30,,CARDINAL INNOVATIONS HEALTHCARE SOLUTIONS,,none,Digi,AT&T,,none,1
+NMA 05,,Unite Private Networks LLC.,,none,DSR Unite Private 300.0M x 300.0M,Comcast,,none,1
+NVL 16,VZW Cell,Verizon,,none,Digi,AT&T,,none,0
+NVL 25,,DISCOUNT TIRE NVL 25,,none,VZW Cell,Verizon,,none,1
+NVL 26,DSR Cox,Cox Communications,,none,VZW Cell,AT&T,,none,1
+ORP 02,Port 3 connected to G0 1 on 2960 switch,Comcast,,none,Unknown,AT&T,,none,1
+ORP 08,DSR TDS Cable,Comcast,,none,Verizon Business,AT&T,,none,1
+PAN 02,DSR EB2-Penteledata Cable - NAM Cable -,EarthLink,,none,VZW Cell,Verizon,,none,1
+SCC 03,Comporium Com DDSL | Dedicated Line ADSL Dry Loop |,Internet Assigned Numbers Authority,,none,Digi,AT&T,,none,1
+SDR 01,Midcontinent - 3rd Party Cable -,Midcontinent Communications,,none,Unknown,AT&T,,none,1
+TNM 01,Comcast,Comcast,,none,Verizon Business,Verizon,,none,0
+TXA 12,,Frontier Communications,,none,Verizon Business,Verizon,,none,1
+TXD 62,CABLE ONE INC.,"CABLE ONE, INC.",,none,Digi,AT&T,,none,1
+TXD 84,DSR VyVe Cable,Vyve Broadband,,none,Digi,AT&T,,none,1
+TXD 87,,Frontier Communications,,none,Unknown,AT&T,,none,1
+TXD 93,DSR Altice,Classic Communications,,none,DSR CLink DSL,CenturyLink,,none,1
+TXH 14,"Comcast Cable Communications, LLC",Comcast,,none,VZW Cell,Verizon,,none,0
+TXH 23,Optimum,Optimum,,none,Digi,AT&T,,none,1
+TXH 48,Optimum,Optimum,,none,Unknown,AT&T,,none,1
+TXH 74,Optimum,Optimum,,none,VZW Cell,Verizon,,none,1
+TXH 85,Optimum,Optimum,,none,Verizon Business,Verizon,,none,1
+TXW 03,Optimum,Optimum,,none,Digi,AT&T,,none,1
+TXW 06,Optimum,Optimum,,none,Digi,AT&T,,none,1
+UTS 12,WAN 1 DSR TDS Cable - 3rd Party Cable Ordered Speed 500.0M x 100.0M,Frontier Communications,,none,Digi Cell,AT&T,,none,1
+UTS 13,Comcast,Comcast,,none,VZW Cell,AT&T,,none,0
+VAR 08,Verizon,Verizon,,none,Comcast,Comcast,,none,0
+VAW 04,,Comcast,,none,,"SpaceX Services, Inc.",,none,0
+WAS 03,WAN1: Comcast 300.0M x 30.0M\n,Comcast,,none,VZW Cell Cell,Verizon,,none,0
+WAS 05,Starlink Serial KITP00174439,"SpaceX Services, Inc.",,none,VZW Cell,Verizon,,none,0
+WAS 12,Starlink,"SpaceX Services, Inc.",,none,Accelerated,AT&T,,none,0
+WAS 24,Comcast,Comcast,,none,VZW Cell,Verizon,,none,0
+WAS 25,,Comcast,,none,Unknown,AT&T,,none,0

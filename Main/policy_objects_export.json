@@ -1,0 +1,59 @@
+{
+  "export_time": "2025-07-09T13:54:17.934787",
+  "organization": "DTC-Store-Inventory-All (436883)",
+  "objects": {
+    "3790904986339115064": {
+      "name": "Google_AndroidClients",
+      "type": "fqdn",
+      "value": "android.clients.google.com"
+    },
+    "3790904986339115065": {
+      "name": "Google_ClientServices",
+      "type": "fqdn",
+      "value": "clientservices.googleapis.com"
+    },
+    "3790904986339115066": {
+      "name": "Google_FireBaseRemoteConfig",
+      "type": "fqdn",
+      "value": "firebaseremoteconfig.googleapis.com"
+    },
+    "3790904986339115067": {
+      "name": "Google_MTalk",
+      "type": "fqdn",
+      "value": "mtalk.google.com"
+    },
+    "3790904986339115074": {
+      "name": "Windows NTP Server IP",
+      "type": "cidr",
+      "value": "40.119.6.228"
+    }
+  },
+  "groups": {
+    "3790904986339115043": {
+      "name": "Outbound EPX",
+      "category": "NetworkObjectGroup",
+      "objectIds": [
+        "3790904986339115107",
+        "3790904986339115108",
+        "3790904986339115109",
+        "3790904986339115110"
+      ]
+    },
+    "3790904986339115076": {
+      "name": "MS Teams Media IPs",
+      "category": "NetworkObjectGroup",
+      "objectIds": [
+        "3790904986339115068",
+        "3790904986339115069"
+      ]
+    },
+    "3790904986339115077": {
+      "name": "Netrix nVX PBX IPs",
+      "category": "NetworkObjectGroup",
+      "objectIds": [
+        "3790904986339115204",
+        "3790904986339115205"
+      ]
+    }
+  }
+}

@@ -1,0 +1,59 @@
+BACKUP NOTES - working pre tags
+Date: 2025-07-11 16:29:35
+
+This backup represents the state of the DSR Circuits application before adding tag display/edit functionality.
+
+KEY FEATURES COMPLETED:
+1. Non-DSR circuit speed normalization (G to Mbps conversion)
+2. Modal enhancement with Site ID and Data Source columns
+3. Removal of Circuit Purpose column from modal
+4. Changed "DSR Data" to "Circuit Data" in modal
+5. Non-DSR circuits now editable with auto-save functionality
+6. Smart WAN matching based on ARIN provider data
+7. Fixed enriched_circuits table for Non-DSR circuits with missing speeds
+8. Added ability to create new Non-DSR circuits from modal
+9. Added NON-DSR badges to main page (red, no checkmark)
+10. Added NON-DSR count to header badges
+11. Fixed cell site badges (VZW/AT&T) detection
+12. Added ARIN refresh button in modal with public IP support
+
+KEY FILES MODIFIED:
+- /usr/local/bin/Main/dsrcircuits_blueprint.py
+  - Added update-circuit endpoint for Non-DSR edits
+  - Added create-non-dsr-circuit endpoint
+  - Added refresh-arin endpoint
+  - Enhanced badge detection logic
+
+- /usr/local/bin/templates/dsrcircuits.html
+  - Added NON-DSR badge styling and JavaScript
+  - Enhanced modal with editable fields
+  - Added ARIN refresh functionality
+  - Modified table structure for Site ID display
+
+- /usr/local/bin/Main/confirm_meraki_notes_db_enhanced.py
+  - Removed CSV data usage
+  - Enhanced smart ARIN provider matching
+  - Updated to use only database circuits
+
+- /usr/local/bin/Main/models.py
+  - No changes in this session (existing model structure used)
+
+- /usr/local/bin/Main/nightly/nightly_dsr_pull_db_with_override.py
+  - Already had G to M conversion for DSR circuits
+
+SCRIPTS CREATED:
+- /usr/local/bin/Main/normalize_non_dsr_speeds.py
+  - One-time script to normalize Non-DSR speeds from G to M
+  
+- /usr/local/bin/Main/update_missing_non_dsr_speeds.py
+  - Fixed 71 Non-DSR circuits with missing speeds in enriched_circuits
+
+CURRENT STATE:
+- All NON-DSR badge functionality working
+- ARIN refresh button operational
+- Speed normalization complete
+- Modal fully database-driven (no CSV dependency)
+- Ready to add tag display/edit functionality
+
+NEXT TASK:
+Add display of tags in the modal and ability to add tags with dropdown for standard options (Discount-Tire, Full-Service-Store, MDC, Regional-Office) and push to database and Meraki MX.

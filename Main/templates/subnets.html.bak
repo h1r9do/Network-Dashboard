@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <meta charset="UTF-8">
+    <title>Subnet Analysis - DSR Circuits</title>
+    <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .header-container {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .header-container h1 {
+            margin: 0;
+            font-size: 24px;
+            display: inline-block;
+        }
+        .row-count {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 14px;
+            color: #ecf0f1;
+            font-weight: 400;
+        }
+        .subnet-table-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .stat-box {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            border: 1px solid #dee2e6;
+        }
+        .stat-value {
+            font-size: 28px;
+            font-weight: bold;
+            color: #3498db;
+        }
+        .stat-label {
+            font-size: 14px;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        .export-buttons {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .export-buttons button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .export-buttons button:hover {
+            background: #2980b9;
+        }
+        .view-toggle {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+        .view-toggle button {
+            background: #ecf0f1;
+            color: #2c3e50;
+            border: 1px solid #bdc3c7;
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .view-toggle button.active {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+        .filter-controls {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        .filter-control {
+            display: flex;
+            flex-direction: column;
+        }
+        .filter-control label {
+            font-size: 12px;
+            color: #6c757d;
+            margin-bottom: 5px;
+        }
+        .filter-control input, .filter-control select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+        
+        /* Improved table styles */
+        .subnet-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .subnet-table thead th {
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            background-color: #3498db;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .subnet-table tbody tr {
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .subnet-table tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .subnet-table tbody tr:hover {
+            background-color: #f1f8ff;
+        }
+        .subnet-table td {
+            padding: 12px 15px;
+            color: #333;
+            vertical-align: top;
+        }
+        .network-cell {
+            font-family: monospace;
+            font-weight: bold;
+            color: #2c3e50;
+            font-size: 14px;
+        }
+        
+        /* New expandable sites design */
+        .sites-container {
+            max-width: 600px;
+        }
+        .sites-summary {
+            cursor: pointer;
+            color: #3498db;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .sites-summary:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+        .expand-icon {
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+        .expand-icon.expanded {
+            transform: rotate(90deg);
+        }
+        .sites-grid {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            border: 1px solid #dee2e6;
+        }
+        .sites-grid.show {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+            gap: 5px;
+        }
+        .site-chip {
+            background-color: #e3f2fd;
+            color: #1976d2;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 1px solid #bbdefb;
+        }
+        .site-chip:hover {
+            background-color: #1976d2;
+            color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        /* Compact view option */
+        .compact-toggle {
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 12px;
+            color: #6c757d;
+        }
+        .compact-toggle input {
+            cursor: pointer;
+        }
+        
+        /* Modal improvements */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            overflow: auto;
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 900px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .modal-header {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .vlan-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        .vlan-table th, .vlan-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        .vlan-table th {
+            background-color: #f4f4f4;
+            font-weight: bold;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close:hover {
+            color: #000;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+        }
+        .no-data {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        /* Summary card for expanded view */
+        .network-summary-card {
+            background-color: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 10px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            font-size: 13px;
+        }
+        .summary-item {
+            text-align: center;
+        }
+        .summary-label {
+            color: #6c757d;
+            font-size: 11px;
+        }
+        .summary-value {
+            font-weight: bold;
+            color: #2e7d32;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <h1>Network Subnet Analysis</h1>
+        <div class="row-count" id="rowCount">Showing 0 of 0 networks</div>
+    </div>
+
+    <div class="subnet-table-container">
+        <!-- Statistics Grid -->
+        <div class="stats-grid">
+            <div class="stat-box">
+                <div class="stat-value">{{ total_networks or 0 }}</div>
+                <div class="stat-label">Total Networks</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">{{ total_vlans or 0 }}</div>
+                <div class="stat-label">Total VLANs</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">{{ unique_24_networks or 0 }}</div>
+                <div class="stat-label">Unique /24 Networks</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">{{ shared_16_count or 0 }}</div>
+                <div class="stat-label">Shared /16 Networks</div>
+            </div>
+        </div>
+
+        <!-- Export Buttons -->
+        <div class="export-buttons">
+            <div style="display: flex; gap: 8px;">
+                <button onclick="window.location.href='/home'">🏠 Home</button>
+                <button onclick="window.open('/docs/SUBNET_ANALYSIS.md', '_blank')">📖 Help & Documentation</button>
+                <button onclick="refreshData()">🔄 Refresh</button>
+            </div>
+            <div style="display: flex; gap: 8px; align-items: center;">
+                
+                <button onclick="exportData('excel')">📊 Export to Excel</button>
+                <button onclick="exportData('csv')">📄 Export to CSV</button>
+            </div>
+        </div>
+
+        <!-- View Toggle -->
+        <div class="view-toggle">
+            <button id="view16Btn" class="active" onclick="switchView('16')">Group by /16 Networks</button>
+            <button id="view24Btn" onclick="switchView('24')">Group by /24 Networks</button>
+            <button id="viewPatternsBtn" onclick="switchView('patterns')">Network Patterns</button>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="filter-controls">
+            <div class="filter-control">
+                <label>Search Networks/Sites</label>
+                <input type="text" id="networkFilter" placeholder="Filter by network or site name...">
+            </div>
+            <div class="filter-control">
+                <label>Minimum Sites</label>
+                <input type="number" id="minSitesFilter" value="1" min="1">
+            </div>
+            <div class="filter-control">
+                <label>&nbsp;</label>
+                <button onclick="applyFilters()" style="background: #27ae60;">Apply Filters</button>
+            </div>
+        </div>
+
+        <!-- Data Table Container -->
+        <div id="tableContainer">
+            <div class="loading">Loading network data...</div>
+        </div>
+    </div>
+
+    <!-- Site Details Modal -->
+    <div id="siteModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span id="modalSiteName">Site Details</span>
+                <span class="close" onclick="closeSiteModal()">&times;</span>
+            </div>
+            <div id="modalContent">
+                <div class="loading">Loading site details...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+
+    <script>
+    let currentView = '16';
+    let currentTable = null;
+    let compactMode = false;
+    let currentData = [];
+
+    $(document).ready(function() {
+        loadData();
+        
+        // Add enter key handler for filters
+        $('#networkFilter, #minSitesFilter').on('keypress', function(e) {
+            if (e.which === 13) {
+                applyFilters();
+            }
+        });
+    });
+
+    function switchView(view) {
+        currentView = view;
+        
+        // Update button states
+        $('.view-toggle button').removeClass('active');
+        $('#view' + view + 'Btn').addClass('active');
+        
+        // Update filter visibility
+        if (view === 'patterns') {
+            $('#minSitesFilter').parent().hide();
+        } else {
+            $('#minSitesFilter').parent().show();
+        }
+        
+        loadData();
+    }
+
+    function loadData() {
+        const container = $('#tableContainer');
+        container.html('<div class="loading">Loading network data...</div>');
+        
+        const params = {
+            network: $('#networkFilter').val(),
+            min_sites: $('#minSitesFilter').val()
+        };
+        
+        let url = '';
+        if (currentView === '16') {
+            url = '/subnets/api/by-16';
+        } else if (currentView === '24') {
+            url = '/subnets/api/by-24';
+        } else if (currentView === 'patterns') {
+            url = '/subnets/api/patterns';
+        }
+        
+        $.get(url, params)
+            .done(function(response) {
+                if (response.data && response.data.length > 0) {
+                    currentData = response.data;
+                    displayData(response.data);
+                } else {
+                    container.html('<div class="no-data">No networks found matching the criteria</div>');
+                    updateRowCount(0, 0);
+                }
+            })
+            .fail(function(xhr) {
+                container.html('<div class="no-data">Error loading data: ' + (xhr.responseJSON?.error || 'Unknown error') + '</div>');
+            });
+    }
+
+    function displayData(data) {
+        let html = '<table id="subnetTable" class="subnet-table"><thead><tr>';
+        
+        if (currentView === '16') {
+            html += '<th>Network /16</th><th>Sites</th><th>Unique /24s</th><th>Site Names</th>';
+        } else if (currentView === '24') {
+            html += '<th>Network /24</th><th>Sites</th><th>Total VLANs</th><th>Site Names</th>';
+        } else if (currentView === 'patterns') {
+            html += '<th>Network</th><th>Sites Using</th><th>Type</th><th>Site List</th>';
+        }
+        
+        html += '</tr></thead><tbody>';
+        
+        data.forEach(function(row, index) {
+            html += '<tr>';
+            
+            if (currentView === '16') {
+                html += '<td class="network-cell">' + row.network_16 + '</td>';
+                html += '<td style="text-align: center;">' + row.site_count + '</td>';
+                html += '<td style="text-align: center;">' + row.unique_24_networks + '</td>';
+                html += '<td>' + formatSitesExpandable(row.sites, row.network_16, index) + '</td>';
+            } else if (currentView === '24') {
+                html += '<td class="network-cell">' + row.network_24 + '</td>';
+                html += '<td style="text-align: center;">' + row.network_count + '</td>';
+                html += '<td style="text-align: center;">' + row.total_vlans + '</td>';
+                html += '<td>' + formatSitesExpandable(row.networks, row.network_24, index) + '</td>';
+            } else if (currentView === 'patterns') {
+                html += '<td class="network-cell">' + row.network + '</td>';
+                html += '<td style="text-align: center;">' + row.sites_using_network + '</td>';
+                html += '<td>' + (row.network_type || 'Standard') + '</td>';
+                html += '<td>' + formatSitesExpandable(row.site_list, row.network, index) + '</td>';
+            }
+            
+            html += '</tr>';
+        });
+        
+        html += '</tbody></table>';
+        
+        $('#tableContainer').html(html);
+        
+        // Initialize DataTable
+        if (currentTable) {
+            currentTable.destroy();
+        }
+        
+        currentTable = $('#subnetTable').DataTable({
+            paging: true,
+            pageLength: 25,
+            searching: true,
+            ordering: true,
+            info: true,
+            dom: 'ltip',
+            language: {
+                search: "Search table:"
+            },
+            order: [[1, 'desc']], // Sort by site count descending
+            drawCallback: function() {
+                updateRowCount(this.page.info().recordsDisplay, this.page.info().recordsTotal);
+            }
+        });
+        
+        // Initial row count update
+        updateRowCount(data.length, data.length);
+    }
+
+    function formatSitesExpandable(sites, networkId, rowIndex) {
+        if (!sites) return '';
+        
+        const siteArray = sites.split(', ');
+        const siteCount = siteArray.length;
+        
+        if (compactMode || siteCount <= 5) {
+            // Compact mode - just show clickable sites
+            return formatSiteLinks(sites);
+        }
+        
+        // Expandable mode for many sites
+        const uniqueId = 'sites_' + rowIndex;
+        
+        let html = '<div class="sites-container">';
+        html += '<div class="sites-summary" onclick="toggleSites(\'' + uniqueId + '\')">';
+        html += '<span class="expand-icon" id="icon_' + uniqueId + '">▶</span>';
+        html += '<span><strong>' + siteCount + ' sites</strong> (click to expand)</span>';
+        html += '</div>';
+        
+        // Network summary card
+        html += '<div id="' + uniqueId + '" class="sites-grid">';
+        
+        if (currentView === '16' && rowIndex < currentData.length) {
+            const rowData = currentData[rowIndex];
+            html += '<div class="network-summary-card">';
+            html += '<div class="summary-item"><div class="summary-label">Total Sites</div><div class="summary-value">' + rowData.site_count + '</div></div>';
+            html += '<div class="summary-item"><div class="summary-label">Unique /24s</div><div class="summary-value">' + rowData.unique_24_networks + '</div></div>';
+            html += '<div class="summary-item"><div class="summary-label">Network</div><div class="summary-value">' + rowData.network_16 + '</div></div>';
+            html += '</div>';
+        }
+        
+        // Site chips
+        siteArray.forEach(function(site) {
+            html += '<div class="site-chip" onclick="showSiteDetails(\'' + site.trim() + '\')">' + site.trim() + '</div>';
+        });
+        
+        html += '</div>';
+        html += '</div>';
+        
+        return html;
+    }
+
+    function formatSiteLinks(sites) {
+        if (!sites) return '';
+        
+        const siteArray = sites.split(', ');
+        let html = '';
+        
+        siteArray.forEach(function(site, index) {
+            html += '<a class="site-chip" style="display: inline-block; margin: 2px;" onclick="event.stopPropagation(); showSiteDetails(\'' + site.trim() + '\')">' + site.trim() + '</a>';
+        });
+        
+        return html;
+    }
+
+    function toggleSites(uniqueId) {
+        const sitesGrid = $('#' + uniqueId);
+        const icon = $('#icon_' + uniqueId);
+        
+        if (sitesGrid.hasClass('show')) {
+            sitesGrid.removeClass('show');
+            icon.removeClass('expanded');
+        } else {
+            sitesGrid.addClass('show');
+            icon.addClass('expanded');
+        }
+    }
+
+    function toggleCompactView() {
+        compactMode = $('#compactView').is(':checked');
+        if (currentData.length > 0) {
+            displayData(currentData);
+        }
+    }
+
+    function showSiteDetails(siteName) {
+        $('#modalSiteName').text('Network Details: ' + siteName);
+        $('#modalContent').html('<div class="loading">Loading site details...</div>');
+        $('#siteModal').show();
+        
+        $.get('/subnets/api/site-details/' + encodeURIComponent(siteName))
+            .done(function(response) {
+                let html = '<p><strong>Total VLANs:</strong> ' + response.vlans.length + '</p>';
+                html += '<p><strong>Unique /24 Networks:</strong> ' + response.unique_24_count + '</p>';
+                
+                if (response.vlans.length > 0) {
+                    html += '<table class="vlan-table">';
+                    html += '<thead><tr><th>VLAN ID</th><th>Name</th><th>Subnet</th><th>Parent /24</th><th>DHCP Mode</th><th>Gateway IP</th></tr></thead>';
+                    html += '<tbody>';
+                    
+                    response.vlans.forEach(function(vlan) {
+                        html += '<tr>';
+                        html += '<td>' + vlan.vlan_id + '</td>';
+                        html += '<td>' + (vlan.name || '-') + '</td>';
+                        html += '<td class="network-cell">' + vlan.subnet + '</td>';
+                        html += '<td class="network-cell">' + vlan.parent_24 + '</td>';
+                        html += '<td>' + (vlan.dhcp_handling || 'Run a DHCP server') + '</td>';
+                        html += '<td>' + (vlan.appliance_ip || '-') + '</td>';
+                        html += '</tr>';
+                    });
+                    
+                    html += '</tbody></table>';
+                } else {
+                    html += '<p><em>No VLAN data available for this site</em></p>';
+                }
+                
+                $('#modalContent').html(html);
+            })
+            .fail(function(xhr) {
+                $('#modalContent').html('<div class="no-data">Error loading site details: ' + (xhr.responseJSON?.error || 'Unknown error') + '</div>');
+            });
+    }
+
+    function closeSiteModal() {
+        $('#siteModal').hide();
+    }
+
+    function applyFilters() {
+        loadData();
+    }
+
+    function refreshData() {
+        Swal.fire({
+            icon: 'info',
+            title: 'Refreshing',
+            text: 'Updating network data...',
+            timer: 1000,
+            showConfirmButton: false
+        });
+        loadData();
+    }
+
+    function updateRowCount(displayed, total) {
+        $('#rowCount').text('Showing ' + displayed + ' of ' + total + ' networks');
+    }
+
+    function exportData(format) {
+        const params = new URLSearchParams({
+            view: currentView === '16' ? 'by16' : currentView === '24' ? 'by24' : 'patterns',
+            network: $('#networkFilter').val(),
+            min_sites: $('#minSitesFilter').val()
+        });
+        
+        window.location.href = '/subnets/api/export/' + format + '?' + params.toString();
+    }
+
+    // Close modal when clicking outside
+    $(window).on('click', function(event) {
+        if (event.target.id === 'siteModal') {
+            closeSiteModal();
+        }
+    });
+    </script>
+</body>
+</html>

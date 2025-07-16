@@ -1,0 +1,105 @@
+
+Complete VLAN Migration Report
+==============================
+Network: TST 01 (L_3790904986339115852)
+Start Time: 2025-07-10 09:39:44
+Duration: 0:01:42.394364
+Mode: LIVE
+
+VLAN Mapping Applied:
+  VLAN 1 → VLAN 100
+  VLAN 101 → VLAN 200
+  VLAN 801 → VLAN 400
+  VLAN 201 → VLAN 410
+
+Log Entries:
+[09:39:44] INFO: Complete VLAN Migrator initialized for TST 01
+[09:39:44] INFO: Mode: LIVE
+[09:39:44] INFO: 
+============================================================
+[09:39:44] INFO: Taking complete configuration backup...
+[09:39:44] INFO: ============================================================
+[09:39:44] INFO: Backing up VLANs...
+[09:39:45] INFO:   ✓ Backed up 10 VLANs
+[09:39:45] INFO: Backing up firewall rules...
+[09:39:45] INFO:   ✓ Backed up 60 firewall rules
+[09:39:45] INFO: Backing up group policies...
+[09:39:46] INFO:   ✓ Backed up 3 group policies
+[09:39:46] INFO: Backing up switch configurations...
+[09:39:47] INFO:   ✓ Backed up 28 ports for TST_01SW01
+[09:39:48] INFO:   ✓ Backed up 28 ports for TST_01SW02
+[09:39:48] INFO: Backing up MX ports...
+[09:39:48] INFO:   ✓ Backed up 10 MX ports
+[09:39:48] INFO: Backing up syslog configuration...
+[09:39:48] INFO: 
+✓ Complete backup saved to complete_vlan_backup_L_3790904986339115852_20250710_093948.json
+[09:39:48] INFO: 
+============================================================
+[09:39:48] INFO: Clearing VLAN references...
+[09:39:48] INFO: ============================================================
+[09:39:48] INFO: 
+Step 1: Clearing firewall rules...
+[09:39:49] INFO:   ✓ Firewall rules cleared
+[09:39:49] INFO: 
+Step 2: Moving switch ports to temporary VLANs...
+[09:39:49] INFO:   Creating temporary VLAN 999...
+[09:39:50] INFO:   Creating temporary VLAN 998...
+[09:39:50] INFO:   Creating temporary VLAN 997...
+[09:39:51] INFO:   Creating temporary VLAN 996...
+[09:40:06] INFO:   ✓ Updated 23 ports on TST_01SW01
+[09:40:18] INFO:   ✓ Updated 23 ports on TST_01SW02
+[09:40:18] INFO: 
+Step 3: Updating MX ports to temporary VLANs...
+[09:40:22] INFO:   ✓ Updated 8 MX ports
+[09:40:22] INFO: 
+============================================================
+[09:40:22] INFO: Migrating VLANs to new IDs...
+[09:40:22] INFO: ============================================================
+[09:40:22] INFO: 
+Migrating VLAN 1 → 100
+[09:40:22] INFO:   Deleting VLAN 1...
+[09:40:26] INFO:   Creating VLAN 100...
+[09:40:27] INFO:   ✓ Created VLAN 100
+[09:40:28] INFO: 
+Migrating VLAN 101 → 200
+[09:40:28] INFO:   Deleting VLAN 101...
+[09:40:32] INFO:   Creating VLAN 200...
+[09:40:32] INFO:   ✓ Created VLAN 200
+[09:40:33] INFO: 
+Migrating VLAN 201 → 410
+[09:40:33] INFO:   Deleting VLAN 201...
+[09:40:37] INFO:   Creating VLAN 410...
+[09:40:38] INFO:   ✓ Created VLAN 410
+[09:40:39] INFO: 
+VLAN 300 - No change needed
+[09:40:39] INFO: 
+VLAN 301 - No change needed
+[09:40:39] INFO: 
+VLAN 800 - Updating IP configuration...
+[09:40:39] INFO:   ✓ Updated VLAN 800 IP configuration
+[09:40:40] INFO: 
+Migrating VLAN 801 → 400
+[09:40:40] INFO:   Deleting VLAN 801...
+[09:40:44] INFO:   Creating VLAN 400...
+[09:40:44] INFO:     Applying IP changes for VLAN 400
+[09:40:45] INFO:   ✓ Created VLAN 400
+[09:40:46] INFO: 
+VLAN 803 - No change needed
+[09:40:46] INFO: 
+VLAN 900 - No change needed
+[09:40:46] INFO: 
+============================================================
+[09:40:46] INFO: Restoring configurations with new VLAN IDs...
+[09:40:46] INFO: ============================================================
+[09:40:46] INFO: 
+Step 1: Updating switch ports to new VLAN IDs...
+[09:41:01] INFO:   ✓ Updated 24 ports on TST_01SW01
+[09:41:14] INFO:   ✓ Updated 24 ports on TST_01SW02
+[09:41:14] INFO: 
+Step 2: Updating MX ports to new VLAN IDs...
+[09:41:17] INFO:   ✓ Updated 7 MX ports
+[09:41:17] INFO: 
+Step 3: Applying firewall rules with new VLAN IDs...
+[09:41:19] INFO:   ✓ Applied 60 firewall rules
+[09:41:19] INFO: 
+Step 4: Cleaning up temporary VLANs...

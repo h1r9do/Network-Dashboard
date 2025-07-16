@@ -1,0 +1,409 @@
+i<!DOCTYPE html>
+<html>
+<head>
+  <title>Meraki WAN Daily Summary</title>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <style>
+    /* Style for the table and its components */
+    .alert-cell {
+      background-color: rgba(255, 0, 0, 0.5) !important;
+      font-weight: bold !important;
+      color: #000 !important;
+    }
+    .highlight-circuit {
+      background-color: #fffde7 !important;
+    }
+    .highlight-store {
+      background-color: #ffd6d6 !important;
+    }
+    .date-picker-container {
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .search-container {
+      margin: 20px 0;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 5px;
+    }
+    #metrics {
+      border-collapse: collapse;
+      width: 100%;
+      border: 2px solid #333;
+    }
+    #metrics th, #metrics td {
+      border: 1px solid #333 !important;
+      padding: 8px;
+      text-align: center;
+    }
+    #metrics th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+      border-bottom: 2px solid #333 !important;
+    }
+    #metrics tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    #metrics tr:hover {
+      background-color: #f1f1f1;
+    }
+    .btn {
+      padding: 6px 12px;
+      margin: 0 5px 5px 0;
+      border: 1px solid transparent;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .btn-primary {
+      color: #fff;
+      background-color: #337ab7;
+      border-color: #2e6da4;
+    }
+    .btn-secondary {
+      color: #fff;
+      background-color: #6c757d;
+      border-color: #6c757d;
+    }
+    .btn-warning {
+      color: #000;
+      background-color: #ffc107;
+      border-color: #ffc107;
+    }
+    .btn-outline-secondary {
+      color: #6c757d;
+      background-color: transparent;
+      border-color: #6c757d;
+    }
+    .form-control {
+      display: inline-block;
+      width: 200px;
+      height: 34px;
+      padding: 6px 12px;
+      font-size: 14px;
+      line-height: 1.42857143;
+      color: #555;
+      background-color: #fff;
+      background-image: none;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Meraki WAN Daily Summary</h2>
+
+ <div class="search-container">
+  <input type="text" id="circuitSearch" class="form-control" placeholder="Search circuits...">
+  <button class="btn btn-primary" type="button" id="searchBtn">Search</button>
+  <button class="btn btn-secondary" type="button" id="clearBtn">Clear Filters</button>
+  <button class="btn btn-outline-secondary quick-search-btn" data-search="inseego">Inseego</button>
+  <button class="btn btn-outline-secondary quick-search-btn" data-search="starlink">Starlink</button>
+  <button class="btn btn-outline-secondary quick-search-btn" data-search="inseego+starlink">Inseego + Starlink</button>
+  
+  <!-- Keep the button and add JavaScript for redirection -->
+  <button class="btn btn-warning" type="button" id="showIssuesBtn">Show All with Issues</button>
+  
+  <select id="tagFilter" style="width: 300px;">
+    <option value="">-- Filter by Tag --</option>
+  </select>
+</div>
+
+<script>
+  document.getElementById('showIssuesBtn').addEventListener('click', function() {
+    window.location.href = '/issues.html';  // Redirect to issues.html when the button is clicked
+  });
+</script>
+
+
+  <div class="date-picker-container">
+    <label for="datePicker">Select Date:</label>
+    <input type="text" id="datePicker" placeholder="Select date">
+    <button id="refreshBtn" class="btn btn-primary">Refresh Data</button>
+  </div>
+
+  <div style="text-align:right; margin-bottom: 5px;"><strong id="storeCount"></strong></div>
+  <table id="metrics" class="display">
+    <thead>
+      <tr>
+        <th>Store</th><th>Uplink</th><th>WAN Label</th>
+        <th>Loss Min</th><th>Loss Max</th><th>Loss Avg</th>
+        <th>Latency Min</th><th>Latency Max</th><th>Latency Avg</th>
+        <th>Jitter Min</th><th>Jitter Max</th><th>Jitter Avg</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+<script>
+$(document).ready(function () {
+  let allData = [];
+  let tagMap = {};
+
+  const table = $('#metrics').DataTable({
+    dom: 'rt',
+    pageLength: 50,
+    ordering: false  // Disable sorting on the main page
+  });
+
+  const datePicker = flatpickr("#datePicker", {
+    dateFormat: "Ymd", 
+    defaultDate: new Date(), 
+    maxDate: new Date()
+  });
+
+  function normalize(str) {
+    return str ? str.trim().toUpperCase() : "";
+  }
+
+  function loadTags() {
+    fetch('/tags')
+      .then(res => res.json())
+      .then(data => {
+        tagMap = data;
+        const tags = new Set();
+        Object.values(data).forEach(list => list.forEach(tag => tags.add(tag)));
+        const $tagSelect = $('#tagFilter');
+        $tagSelect.empty().append('<option value="">-- Filter by Tag --</option>');
+        Array.from(tags).sort().forEach(tag => {
+          $tagSelect.append(`<option value="${tag}">${tag}</option>`);
+        });
+        $tagSelect.select2({ placeholder: "Filter by Tag", allowClear: true });
+      });
+  }
+
+  function calculateVariance(row) {
+    const idealLoss = 0;
+    const idealLatency = 20;
+    const idealJitter = 0;
+
+    // Calculate variance for each metric (Loss, Latency, Jitter)
+    const lossVariance = Math.abs(row.max_loss - idealLoss);
+    const latencyVariance = Math.abs(row.max_latency - idealLatency);
+    const jitterVariance = Math.abs(row.max_jitter - idealJitter);
+
+    // Return an object containing all the variances
+    return {
+      lossVariance,
+      latencyVariance,
+      jitterVariance
+    };
+  }
+
+  function buildRow(store, rows, tags) {
+    const tooltip = tags?.join(', ') || '';
+    const normalizedStore = normalize(store);
+    return rows.map((row, i) => {
+      return `<tr class="store-row" data-wan-label="${row.wanLabel}">
+        ${i === 0 ? `<td rowspan="${rows.length}" title="${tooltip}">${normalizedStore}</td>` : ''}
+        <td>${row.uplink}</td>
+        <td>${row.wanLabel || ''}</td>
+        <td class="loss-min">${row.min_loss}</td>
+        <td class="loss-max">${row.max_loss}</td>
+        <td class="loss-avg">${row.avg_loss}</td>
+        <td class="latency-min">${row.min_latency}</td>
+        <td class="latency-max">${row.max_latency}</td>
+        <td class="latency-avg">${row.avg_latency}</td>
+        <td class="jitter-min">${row.min_jitter}</td>
+        <td class="jitter-max">${row.max_jitter}</td>
+        <td class="jitter-avg">${row.avg_jitter}</td>
+      </tr>`;
+    }).join('');
+  }
+
+  function renderTable(data) {
+    const grouped = {};
+    const uniqueStores = new Set();
+    data.forEach(row => {
+      const store = normalize(row.store);
+      uniqueStores.add(store);
+      grouped[store] = grouped[store] || [];
+      grouped[store].push(row);
+    });
+
+    $('#storeCount').text(`Stores: ${uniqueStores.size}`);
+    let body = '';
+    Object.keys(grouped).sort().forEach(store => {
+      body += buildRow(store, grouped[store], tagMap[store]);
+    });
+    $('#metrics tbody').html(body);
+
+    // Clear all highlights first
+    $('#metrics tbody td').removeClass('alert-cell');
+
+    // Apply highlights based on specific thresholds
+    $('#metrics tbody tr').each(function() {
+      const $row = $(this);
+      
+      // Packet Loss
+      const minLoss = parseFloat($row.find('.loss-min').text());
+      const maxLoss = parseFloat($row.find('.loss-max').text());
+      const avgLoss = parseFloat($row.find('.loss-avg').text());
+      
+      if (minLoss > 3) $row.find('.loss-min').addClass('alert-cell');
+      if (maxLoss > 3) $row.find('.loss-max').addClass('alert-cell');
+      if (avgLoss > 3) $row.find('.loss-avg').addClass('alert-cell');
+      
+      // Latency
+      const minLatency = parseFloat($row.find('.latency-min').text());
+      const maxLatency = parseFloat($row.find('.latency-max').text());
+      const avgLatency = parseFloat($row.find('.latency-avg').text());
+      
+      if (minLatency > 120) $row.find('.latency-min').addClass('alert-cell');
+      if (maxLatency > 120) $row.find('.latency-max').addClass('alert-cell');
+      if (avgLatency > 120) $row.find('.latency-avg').addClass('alert-cell');
+      
+      // Jitter
+      const minJitter = parseFloat($row.find('.jitter-min').text());
+      const maxJitter = parseFloat($row.find('.jitter-max').text());
+      const avgJitter = parseFloat($row.find('.jitter-avg').text());
+      
+      if (minJitter > 20) $row.find('.jitter-min').addClass('alert-cell');
+      if (maxJitter > 20) $row.find('.jitter-max').addClass('alert-cell');
+      if (avgJitter > 20) $row.find('.jitter-avg').addClass('alert-cell');
+    });
+  }
+
+  function loadData(date) {
+    fetch(`/metrics?date=${date || ''}`)
+      .then(res => res.json())
+      .then(data => {
+        allData = data;
+        renderTable(data);
+      });
+  }
+
+  $('#refreshBtn').click(() => loadData(datePicker.input.value));
+
+  $('#searchBtn').click(() => {
+    const rawSearch = $('#circuitSearch').val();
+    const keywords = rawSearch.split('+').map(k => normalize(k)).filter(Boolean);
+
+    const filtered = allData.filter(row => {
+      const label = normalize(row.wanLabel || '');
+      const store = normalize(row.store || '');
+      return keywords.some(k =>
+        label.includes(k) || store.includes(k)
+      );
+    });
+
+    renderTable(filtered);
+  });
+
+  $('#clearBtn').click(() => {
+    $('#circuitSearch').val('');
+    $('#tagFilter').val('').trigger('change');
+    renderTable(allData);
+  });
+
+  $('.quick-search-btn').click(function () {
+    const searchTerm = $(this).data('search');
+    $('#circuitSearch').val(searchTerm);
+    $('#searchBtn').click();
+  });
+
+  $('#tagFilter').on('change', function () {
+    const tag = $(this).val();
+    if (!tag) return renderTable(allData);
+    const filtered = allData.filter(row => {
+      const store = normalize(row.store);
+      return tagMap[store]?.includes(tag);
+    });
+    renderTable(filtered);
+  });
+
+  $('#showIssuesBtn').click(() => {
+    const issues = allData.filter(row =>
+      row.max_loss > 3 || row.max_latency > 120 || row.max_jitter > 20
+    );
+
+    // Calculate variance for each row and sort data based on the highest variance
+    let allRowsWithVariance = [];
+    issues.forEach(row => {
+      const { lossVariance, latencyVariance, jitterVariance } = calculateVariance(row);
+      const totalVariance = lossVariance + latencyVariance + jitterVariance; // Sum of all variances
+      allRowsWithVariance.push({ row, totalVariance });
+    });
+
+    // Sort by total variance in descending order (largest variance first)
+    allRowsWithVariance.sort((a, b) => b.totalVariance - a.totalVariance);
+
+    let issueContent = `
+      <html>
+        <head><title>Store Issues</title></head>
+        <body>
+          <h2>Stores with Network Issues</h2>
+          <button onclick="window.location.reload()" class="btn btn-primary">Refresh Data</button>
+          <button onclick="filterCellStores()" class="btn btn-warning">Filter All Cell Stores</button>
+          <table border="1" id="metrics">
+            <thead>
+              <tr><th>Store</th><th>Uplink</th><th>WAN Label</th>
+              <th>Loss</th><th>Latency</th><th>Jitter</th></tr>
+            </thead>
+            <tbody>
+    `;
+    
+    allRowsWithVariance.forEach(item => {
+      const row = item.row;
+      const rowIssues = [];
+      
+      if (row.max_loss > 3) {
+        rowIssues.push(`<td>${row.max_loss}</td>`);
+      } else {
+        rowIssues.push('<td>Normal</td>');
+      }
+
+      if (row.max_latency > 120) {
+        rowIssues.push(`<td>${row.max_latency}</td>`);
+      } else {
+        rowIssues.push('<td>Normal</td>');
+      }
+
+      if (row.max_jitter > 20) {
+        rowIssues.push(`<td>${row.max_jitter}</td>`);
+      } else {
+        rowIssues.push('<td>Normal</td>');
+      }
+
+      issueContent += `
+        <tr class="store-row" data-wan-label="${row.wanLabel}">
+          <td>${row.store}</td>
+          <td>${row.uplink}</td>
+          <td>${row.wanLabel || ''}</td>
+          ${rowIssues.join('')}
+        </tr>`;
+    });
+
+    issueContent += `
+        </tbody>
+      </table>
+    </body>
+  </html>`;
+
+    const newTab = window.open();
+    newTab.document.write(issueContent);
+  });
+
+  // Filter out rows with WAN Labels of VZG or DIGI
+  window.filterCellStores = function() {
+    $('.store-row').each(function() {
+      const wanLabel = $(this).data('wan-label');
+      if (wanLabel === 'VZG' || wanLabel === 'DIGI') {
+        $(this).hide();
+      }
+    });
+  };
+
+  loadTags();
+  loadData();
+});
+</script>
+</body>
+</html>

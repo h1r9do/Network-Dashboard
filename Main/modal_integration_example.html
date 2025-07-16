@@ -1,0 +1,184 @@
+<!-- 
+Modal Integration Example for DSR Circuits
+This shows how to integrate provider mapping into the circuit confirmation modal
+-->
+
+<!-- Add this script include in your HTML head or before the modal code -->
+<script src="/static/provider_mapping.js"></script>
+
+<!-- Example of enhanced modal with provider matching -->
+<script>
+// Enhanced modal code with provider mapping integration
+function showCircuitConfirmationModal(site, siteData) {
+    const modal = document.getElementById('circuitConfirmationModal');
+    const modalContent = document.getElementById('modalCircuitContent');
+    
+    // Clear previous content
+    modalContent.innerHTML = '';
+    
+    // Get DSR circuits for this site
+    const dsrCircuits = siteData.dsrCircuits || [];
+    
+    // Create enhanced table with Site ID column
+    let tableHtml = `
+        <h4>DSR Circuits for ${site}</h4>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th>Site Name</th>
+                    <th>Site ID</th>
+                    <th>Provider</th>
+                    <th>Speed</th>
+                    <th>Cost</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+    `;
+    
+    dsrCircuits.forEach(circuit => {
+        // Determine if this circuit matches ARIN data
+        const matchResult = checkProviderMatch(circuit, siteData);
+        const rowClass = matchResult.match ? 'table-success' : '';
+        const matchIcon = matchResult.match ? '✓' : '';
+        
+        tableHtml += `
+            <tr class="${rowClass}" data-circuit-id="${circuit.id}">
+                <td>${circuit.site_name}</td>
+                <td>${circuit.site_id}</td>
+                <td>
+                    ${circuit.provider_name} ${matchIcon}
+                    ${matchResult.match ? `<small class="text-muted">(${matchResult.confidence}% match)</small>` : ''}
+                </td>
+                <td>${circuit.speed || 'N/A'}</td>
+                <td>${circuit.cost ? '$' + circuit.cost : 'N/A'}</td>
+                <td>
+                    <span class="badge ${circuit.status === 'Enabled' ? 'badge-success' : 'badge-secondary'}">
+                        ${circuit.status}
+                    </span>
+                </td>
+            </tr>
+        `;
+    });
+    
+    tableHtml += '</tbody></table>';
+    
+    // Add ARIN information
+    tableHtml += `
+        <h5 class="mt-3">ARIN Provider Information</h5>
+        <div class="arin-info">
+            <p><strong>WAN1:</strong> ${siteData.wan1_provider || 'Unknown'}</p>
+            <p><strong>WAN2:</strong> ${siteData.wan2_provider || 'Unknown'}</p>
+        </div>
+    `;
+    
+    // Add edit form with auto-population
+    tableHtml += `
+        <h5 class="mt-3">Update Circuit Information</h5>
+        <form id="circuitUpdateForm">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Speed</label>
+                    <input type="text" class="form-control" id="editSpeed" 
+                           value="${getMatchedSpeed(dsrCircuits, siteData)}" />
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Cost</label>
+                    <input type="text" class="form-control" id="editCost" 
+                           value="${getMatchedCost(dsrCircuits, siteData)}" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Notes</label>
+                <textarea class="form-control" id="editNotes" rows="2"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Circuit</button>
+        </form>
+    `;
+    
+    modalContent.innerHTML = tableHtml;
+    modal.style.display = 'block';
+}
+
+// Check if DSR provider matches ARIN provider
+function checkProviderMatch(circuit, siteData) {
+    const dsrProvider = circuit.provider_name;
+    const circuitPurpose = circuit.circuit_purpose || 'Primary';
+    
+    // Check against WAN1
+    if (siteData.wan1_provider) {
+        const result = ProviderMapping.matchProviders(
+            dsrProvider, 
+            siteData.wan1_provider, 
+            circuitPurpose
+        );
+        if (result.match) return result;
+    }
+    
+    // Check against WAN2
+    if (siteData.wan2_provider) {
+        const result = ProviderMapping.matchProviders(
+            dsrProvider, 
+            siteData.wan2_provider, 
+            circuitPurpose
+        );
+        if (result.match) return result;
+    }
+    
+    return { match: false, confidence: 0, reason: 'No match' };
+}
+
+// Get speed from matched circuit
+function getMatchedSpeed(dsrCircuits, siteData) {
+    for (const circuit of dsrCircuits) {
+        const matchResult = checkProviderMatch(circuit, siteData);
+        if (matchResult.match && circuit.speed) {
+            return circuit.speed;
+        }
+    }
+    return '';
+}
+
+// Get cost from matched circuit
+function getMatchedCost(dsrCircuits, siteData) {
+    for (const circuit of dsrCircuits) {
+        const matchResult = checkProviderMatch(circuit, siteData);
+        if (matchResult.match && circuit.cost) {
+            return circuit.cost;
+        }
+    }
+    return '';
+}
+
+// Initialize provider mappings on page load
+document.addEventListener('DOMContentLoaded', function() {
+    // Optionally load additional mappings from server
+    ProviderMapping.loadMappingsFromServer().then(() => {
+        console.log('Provider mappings loaded');
+    });
+});
+</script>
+
+<!-- CSS for enhanced modal styling -->
+<style>
+.table-success {
+    background-color: #d4edda !important;
+}
+
+.arin-info {
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+#circuitUpdateForm {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.text-muted {
+    font-size: 0.875em;
+}
+</style>

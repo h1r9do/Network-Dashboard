@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Starlink Project Stores</title>
+</head>
+<body>
+    <h1>Starlink Project Stores</h1>
+    <form action="/starlink_project_stores" method="POST">
+        <label for="stores">Paste the store list here:</label><br>
+        <textarea id="stores" name="stores" rows="10" cols="50"></textarea><br>
+        <input type="submit" value="Update Starlink Status">
+    </form>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+</body>
+</html>

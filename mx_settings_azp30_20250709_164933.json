@@ -1,0 +1,9 @@
+{
+  "clientTrackingMethod": "MAC address",
+  "deploymentMode": "routed",
+  "dynamicDns": {
+    "enabled": true,
+    "prefix": "azp-30",
+    "url": "azp-30-wqdtkgwmrp.dynamic-m.com"
+  }
+}

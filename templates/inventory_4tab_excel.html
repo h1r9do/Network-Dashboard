@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Network Inventory Summary - Discount Tire</title>
+    <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 20px; 
+            background-color: #f5f5f5; 
+        }
+        .header-container { 
+            background-color: #2c3e50; 
+            color: white; 
+            padding: 15px; 
+            border-radius: 5px 5px 0 0; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+            position: relative; 
+        }
+        .header-container h1 { 
+            margin: 0; 
+            font-size: 24px; 
+            display: inline-block; 
+        }
+        .row-count { 
+            position: absolute; 
+            top: 15px; 
+            right: 15px; 
+            font-size: 14px; 
+            color: #ecf0f1; 
+            font-weight: 400; 
+        }
+        
+        /* Home Button Styles */
+        .home-button-container {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .home-button {
+            background: #3498db; 
+            color: white; 
+            border: none; 
+            padding: 12px 24px; 
+            border-radius: 6px; 
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+        .home-button:hover {
+            background: #2980b9;
+            color: white;
+            text-decoration: none;
+        }
+        
+        /* Tab Styles */
+        .tab-container {
+            background-color: white;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .tab-nav {
+            display: flex;
+            border-bottom: 2px solid #ecf0f1;
+            background-color: #f8f9fa;
+        }
+        .tab-button {
+            flex: 1;
+            padding: 15px 20px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            color: #7f8c8d;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        .tab-button:hover {
+            color: #34495e;
+            background-color: #e9ecef;
+        }
+        .tab-button.active {
+            color: #2c3e50;
+            border-bottom-color: #3498db;
+            background-color: white;
+        }
+        .tab-button.corporate {
+            border-bottom-color: #e74c3c;
+        }
+        .tab-button.corporate.active {
+            color: #c0392b;
+            border-bottom-color: #e74c3c;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        
+        /* Original Meraki Styles - Copied Exactly */
+        .eol-summary-container {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .eol-summary-container h2 {
+            margin: 0 0 20px 0;
+            color: #2c3e50;
+            font-size: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        .overall-summary {
+            margin-bottom: 30px;
+        }
+        
+        .summary-stats {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-box {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            min-width: 120px;
+            flex: 1;
+        }
+        
+        .stat-box.stat-active {
+            border-color: #28a745;
+            background: #d4edda;
+        }
+        
+        .stat-box.stat-eos {
+            border-color: #ffc107;
+            background: #fff3cd;
+        }
+        
+        .stat-box.stat-eol {
+            border-color: #dc3545;
+            background: #f8d7da;
+        }
+        
+        .stat-number {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #6c757d;
+            margin-top: 5px;
+        }
+        
+        /* Original Inventory Table Styles */
+        .inventory-table-container { 
+            background-color: white; 
+            padding: 20px; 
+            border-radius: 0 0 5px 5px; 
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2); 
+        }
+        .inventory-table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            table-layout: fixed; 
+        }
+        .inventory-table thead th { 
+            padding: 12px 8px; 
+            text-align: center; 
+            font-weight: 600; 
+            background-color: #3498db; 
+            color: white; 
+            border: 1px solid #2980b9;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+        }
+        .inventory-table td { 
+            padding: 8px 6px; 
+            color: #333; 
+            text-align: center; 
+            font-size: 11px; 
+            border: 1px solid #e0e0e0;
+            white-space: nowrap;
+        }
+        .inventory-table tbody tr:nth-child(even) { 
+            background-color: #f8f9fa; 
+        }
+        .inventory-table tbody tr:hover { 
+            background-color: #f1f8ff; 
+        }
+        
+        /* Corporate Styles */
+        .corporate-table thead th {
+            background-color: #e74c3c;
+            border: 1px solid #c0392b;
+        }
+        
+        .corp-section {
+            margin-bottom: 30px;
+            background: #f8f9fa;
+            border-left: 4px solid #e74c3c;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .corp-section h3 {
+            margin: 0 0 15px 0;
+            color: #c0392b;
+            font-size: 18px;
+        }
+        
+        .location-summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .location-card {
+            background: white;
+            border: 1px solid #e74c3c;
+            border-radius: 5px;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .location-card h4 {
+            margin: 0 0 10px 0;
+            color: #c0392b;
+            font-size: 14px;
+        }
+        
+        .location-card .count {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .location-card .label {
+            font-size: 12px;
+            color: #6c757d;
+        }
+        
+        /* Export Buttons */
+        .export-buttons { 
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-buttons {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .export-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        .export-buttons button { 
+            background: #3498db; 
+            color: white; 
+            border: none; 
+            padding: 8px 15px; 
+            border-radius: 4px; 
+            margin-right: 8px; 
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .export-buttons button:hover { 
+            background: #2980b9; 
+        }
+        
+        /* Status Highlighting */
+        .highlight-red { 
+            background-color: #ffcdd2 !important; 
+            color: #c62828 !important; 
+        }
+        .highlight-yellow { 
+            background-color: #fff9c4 !important; 
+            color: #f57f17 !important; 
+        }
+        
+        /* Model column styling */
+        .model-column {
+            text-align: left !important;
+            font-weight: bold;
+        }
+    </style>
+    
+    <!-- Copy ALL original EOL summary styles from original template if needed -->
+    
+</head>
+<body>
+    <!-- Home Button Above Everything -->
+    <div class="home-button-container">
+        <a href="/home" class="home-button">🏠 Home</a>
+    </div>
+
+    <div class="header-container">
+        <h1>Network Inventory Summary</h1>
+        <div class="row-count" id="rowCount">
+            Meraki: {{ summary|length }} models ({{ total_meraki_devices }} devices) | 
+            Corporate: {{ corp_executive.overall.total_models }} models ({{ total_corp_devices }} devices)
+        </div>
+    </div>
+
+    <!-- Tab Navigation -->
+    <div class="tab-container">
+        <div class="tab-nav">
+            <button class="tab-button active" onclick="showTab('meraki-executive')">📊 Meraki Executive Summary</button>
+            <button class="tab-button corporate" onclick="showTab('corp-summary')">🏢 Corp Network Summary</button>
+            <button class="tab-button" onclick="showTab('meraki-inventory')">📋 Meraki Inventory Details</button>
+            <button class="tab-button corporate" onclick="showTab('corp-inventory')">🔧 Corp Network Inventory</button>
+        </div>
+        
+        <!-- Tab 1: Meraki Executive Summary (ORIGINAL) -->
+        <div id="meraki-executive-tab" class="tab-content active">
+            {% if eol_summary %}
+            <div class="eol-summary-container">
+                <h2>End-of-Life Summary</h2>
+                
+                <!-- Overall Summary -->
+                <div class="overall-summary">
+                    <h3>Network-Wide Status</h3>
+                    <div class="summary-stats">
+                        <div class="stat-box">
+                            <div class="stat-number">{{ eol_summary.overall.total_devices | default(0) }}</div>
+                            <div class="stat-label">Total Devices</div>
+                        </div>
+                        <div class="stat-box stat-active">
+                            <div class="stat-number">{{ eol_summary.overall.active | default(0) }}</div>
+                            <div class="stat-label">Active ({{ eol_summary.overall.active_percentage | default(0) }}%)</div>
+                        </div>
+                        <div class="stat-box stat-eos">
+                            <div class="stat-number">{{ eol_summary.overall.end_of_sale | default(0) }}</div>
+                            <div class="stat-label">End of Sale ({{ eol_summary.overall.eos_percentage | default(0) }}%)</div>
+                        </div>
+                        <div class="stat-box stat-eol">
+                            <div class="stat-number">{{ eol_summary.overall.end_of_life | default(0) }}</div>
+                            <div class="stat-label">End of Life ({{ eol_summary.overall.eol_percentage | default(0) }}%)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Add all other original EOL content here when needed -->
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Tab 2: Corp Network Summary (NEW - Excel Based Executive Summary) -->
+        <div id="corp-summary-tab" class="tab-content">
+            <div class="eol-summary-container">
+                <h2>Corporate Network End-of-Life Summary</h2>
+                
+                <!-- Overall Summary -->
+                <div class="overall-summary">
+                    <h3>Corporate Network-Wide Status</h3>
+                    <div class="summary-stats">
+                        <div class="stat-box">
+                            <div class="stat-number">{{ corp_executive.overall.total_devices }}</div>
+                            <div class="stat-label">Total Devices</div>
+                        </div>
+                        <div class="stat-box stat-active">
+                            <div class="stat-number">{{ corp_executive.overall.active }}</div>
+                            <div class="stat-label">Active ({{ corp_executive.overall.active_percentage }}%)</div>
+                        </div>
+                        <div class="stat-box stat-eos">
+                            <div class="stat-number">{{ corp_executive.overall.end_of_sale }}</div>
+                            <div class="stat-label">End of Sale ({{ corp_executive.overall.eos_percentage }}%)</div>
+                        </div>
+                        <div class="stat-box stat-eol">
+                            <div class="stat-number">{{ corp_executive.overall.end_of_life }}</div>
+                            <div class="stat-label">End of Life ({{ corp_executive.overall.eol_percentage }}%)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- By Device Type -->
+                {% if corp_executive.by_device_type %}
+                <div class="device-type-summary">
+                    <h3>Status by Device Type</h3>
+                    <table class="inventory-table corporate-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 25%;">Device Type</th>
+                                <th style="width: 12%;">Models</th>
+                                <th style="width: 15%;">Total Devices</th>
+                                <th style="width: 12%;">Active</th>
+                                <th style="width: 12%;">End of Sale</th>
+                                <th style="width: 12%;">End of Life</th>
+                                <th style="width: 12%;">Active %</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for device_type in corp_executive.by_device_type %}
+                            <tr>
+                                <td class="model-column">{{ device_type.device_type }}</td>
+                                <td>{{ device_type.model_count }}</td>
+                                <td>{{ device_type.total_devices }}</td>
+                                <td style="background-color: #e8f5e9; color: #2e7d32;">{{ device_type.active }}</td>
+                                <td class="{% if device_type.end_of_sale > 0 %}highlight-yellow{% endif %}">{{ device_type.end_of_sale if device_type.end_of_sale > 0 else '' }}</td>
+                                <td class="{% if device_type.end_of_life > 0 %}highlight-red{% endif %}">{{ device_type.end_of_life if device_type.end_of_life > 0 else '' }}</td>
+                                <td>{{ device_type.active_percentage }}%</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% endif %}
+                
+                <!-- EOL Timeline -->
+                {% if corp_executive.eol_timeline %}
+                <div class="eol-timeline-summary">
+                    <h3>End of Support Timeline by Year</h3>
+                    <table class="inventory-table corporate-table">
+                        <thead>
+                            <tr>
+                                <th style="width: 15%;">Year</th>
+                                <th style="width: 20%;">Total Devices</th>
+                                <th style="width: 65%;">Device Types Affected</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for year_data in corp_executive.eol_timeline %}
+                            <tr class="{% if year_data.is_past %}highlight-red{% elif year_data.is_current %}highlight-yellow{% endif %}">
+                                <td class="model-column">{{ year_data.year }}</td>
+                                <td>{{ year_data.total_devices }}</td>
+                                <td style="text-align: left;">
+                                    {% for device_type, count in year_data.by_device_type.items() %}
+                                        {{ device_type }}: {{ count }}{% if not loop.last %}, {% endif %}
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Tab 3: Meraki Inventory Details (ORIGINAL) -->
+        <div id="meraki-inventory-tab" class="tab-content">
+            <div class="export-buttons">
+                <div class="nav-buttons">
+                    <button onclick="window.location.href='/inventory-details'">📱 Detailed View</button>
+                    <button onclick="window.location.href='/eol-dashboard'">📅 EOL Dashboard</button>
+                </div>
+                <div class="export-actions">
+                    <button id="export-excel">📊 Export to Excel</button>
+                    <button onclick="window.print()">🖨️ Print</button>
+                </div>
+            </div>
+
+            <table id="inventoryTable" class="inventory-table display">
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Model</th>
+                        <th style="width: 8%;">Total</th>
+                        {% for org in org_names %}
+                            <th style="width: {{ (47 / org_names|length)|round }}%;">{{ org.replace('DTC-Store-Inventory-', '') }}</th>
+                        {% endfor %}
+                        <th style="width: 10%;">Announcement</th>
+                        <th style="width: 10%;">End of Sale</th>
+                        <th style="width: 10%;">End of Support</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in summary %}
+                    <tr class="{{ entry.highlight }}">
+                        <td class="model-column">{{ entry.model }}</td>
+                        <td>{{ entry.total }}</td>
+                        {% for org in org_names %}
+                            <td>{{ entry.org_counts.get(org, 0) if entry.org_counts.get(org, 0) > 0 else '' }}</td>
+                        {% endfor %}
+                        <td>{{ entry.announcement_date or '' }}</td>
+                        <td>{{ entry.end_of_sale or '' }}</td>
+                        <td>{{ entry.end_of_support or '' }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Tab 4: Corp Network Inventory (NEW - All Excel Sheets as Sections) -->
+        <div id="corp-inventory-tab" class="tab-content">
+            <div class="export-buttons">
+                <div class="export-actions">
+                    <button onclick="exportCorporateData()">📊 Export Corporate Inventory</button>
+                </div>
+            </div>
+
+            {% for location in corp_inventory.by_location %}
+            <div class="corp-section">
+                <h3>{{ location.sheet_name }}</h3>
+                
+                <div class="location-summary">
+                    <div class="location-card">
+                        <h4>Total Devices</h4>
+                        <div class="count">{{ location.total_devices }}</div>
+                        <div class="label">In this location</div>
+                    </div>
+                    <div class="location-card">
+                        <h4>Unique Models</h4>
+                        <div class="count">{{ location.unique_models }}</div>
+                        <div class="label">Different hardware models</div>
+                    </div>
+                    <div class="location-card">
+                        <h4>Sites</h4>
+                        <div class="count">{{ location.unique_sites }}</div>
+                        <div class="label">Physical locations</div>
+                    </div>
+                </div>
+                
+                {% if location.devices %}
+                <table class="inventory-table corporate-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 15%;">Site</th>
+                            <th style="width: 20%;">Hostname</th>
+                            <th style="width: 15%;">Device Type</th>
+                            <th style="width: 20%;">Model</th>
+                            <th style="width: 15%;">Vendor</th>
+                            <th style="width: 15%;">Serial Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for device in location.devices[:50] %}
+                        <tr>
+                            <td style="text-align: left;">{{ device.site or 'N/A' }}</td>
+                            <td style="text-align: left;">{{ device.hostname or 'N/A' }}</td>
+                            <td>{{ device.device_type or 'Unknown' }}</td>
+                            <td class="model-column">{{ device.model or 'N/A' }}</td>
+                            <td>{{ device.vendor or 'Unknown' }}</td>
+                            <td style="font-family: monospace; font-size: 10px;">{{ device.serial_number or 'N/A' }}</td>
+                        </tr>
+                        {% endfor %}
+                        {% if location.devices|length > 50 %}
+                        <tr>
+                            <td colspan="6" style="text-align: center; font-style: italic; color: #6c757d;">
+                                ... showing first 50 of {{ location.devices|length }} devices
+                            </td>
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+                {% else %}
+                <p style="color: #6c757d; font-style: italic;">No device data available for this location.</p>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    
+    <script>
+        $(document).ready(function() {
+            // Initialize DataTable for Meraki inventory
+            $('#inventoryTable').DataTable({
+                pageLength: 50,
+                dom: 'Bfrtip',
+                buttons: ['excelHtml5'],
+                order: [[1, 'desc']]
+            });
+        });
+
+        function showTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            
+            // Show selected tab
+            document.getElementById(tabName + '-tab').classList.add('active');
+            event.target.classList.add('active');
+        }
+
+        function exportCorporateData() {
+            // Export corporate inventory data to Excel
+            var wb = XLSX.utils.book_new();
+            
+            // Add each location as a separate sheet
+            {% for location in corp_inventory.by_location %}
+            {% if location.devices %}
+            var data_{{ loop.index }} = [
+                ['Site', 'Hostname', 'Device Type', 'Model', 'Vendor', 'Serial Number']
+            ];
+            
+            {% for device in location.devices %}
+            data_{{ loop.index0 + 1 }}.push([
+                '{{ device.site or "N/A" }}',
+                '{{ device.hostname or "N/A" }}', 
+                '{{ device.device_type or "Unknown" }}',
+                '{{ device.model or "N/A" }}',
+                '{{ device.vendor or "Unknown" }}',
+                '{{ device.serial_number or "N/A" }}'
+            ]);
+            {% endfor %}
+            
+            var ws_{{ loop.index }} = XLSX.utils.aoa_to_sheet(data_{{ loop.index }});
+            XLSX.utils.book_append_sheet(wb, ws_{{ loop.index }}, '{{ location.location_type[:25] }}');
+            {% endif %}
+            {% endfor %}
+            
+            XLSX.writeFile(wb, 'Corporate_Network_Inventory_Full.xlsx');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+2025-07-11 07:41:21,305 - INFO - ============================================================
+2025-07-11 07:41:21,306 - INFO - Starting Inventory Web Format Update - CSV Match Version
+2025-07-11 07:41:21,306 - INFO - Timestamp: 20250711_074121
+2025-07-11 07:41:21,306 - INFO - ============================================================
+2025-07-11 07:41:21,315 - ERROR - Error processing inventory: column "device_id" does not exist
+LINE 2:                 SELECT device_id, hostname, ip_address, devi...
+                               ^
+
+2025-07-11 07:41:21,315 - ERROR - Update failed

@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Full logging
+exec >> /var/log/git_autocommit.log 2>&1
+
+# Ensure cron-safe environment
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+export LANG=en_US.UTF-8
+export PYTHONPATH=/usr/local/lib/python3.12/site-packages
+
+echo "$(date '+%F %T') - Running git_autocommit"
+
+dirs=(
+  "/usr/local/bin"
+)
+
+for dir in "${dirs[@]}"; do
+    cd "$dir" || continue
+    if [[ -n $(git status --porcelain) ]]; then
+        echo "$(date '+%F %T') - Changes found in $dir"
+        git add .
+        git commit -m "Auto-commit on $(date '+%F %T')"
+        # Note: Commenting out push until Gitea is set up
+        git push origin master
+    else
+        echo "$(date '+%F %T') - No changes in $dir"
+    fi
+done

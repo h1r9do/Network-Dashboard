@@ -1,0 +1,4442 @@
+{
+  "extraction_date": "2025-07-09T17:01:25.820599",
+  "network_id": "L_650207196201635912",
+  "network_name": "AZP 30",
+  "network": {
+    "id": "L_650207196201635912",
+    "organizationId": "436883",
+    "productTypes": [
+      "appliance",
+      "switch"
+    ],
+    "url": "https://n734.meraki.com/-AZP-30-switch/n/tuLTXcBc/manage/usage/list",
+    "name": " AZP 30 ",
+    "timeZone": "America/Phoenix",
+    "enrollmentString": null,
+    "tags": [
+      "Discount",
+      "Discount-Tire"
+    ],
+    "notes": "SD-WAN location",
+    "isBoundToConfigTemplate": false,
+    "isVirtual": false
+  },
+  "devices": [
+    {
+      "lat": 33.33336,
+      "lng": -111.91075,
+      "address": "8835 S Mcclintock Dr\nTempe, AZ. 85284-2532",
+      "serial": "Q3DB-RNYT-SC2N",
+      "mac": "98:18:88:b8:db:ec",
+      "lanIp": "10.1.32.189",
+      "url": "https://n734.meraki.com/-AZP-30-switch/n/tuLTXcBc/manage/nodes/new_list/167231140453356",
+      "networkId": "L_650207196201635912",
+      "tags": [],
+      "name": "azp_30sw02",
+      "details": [],
+      "model": "MS125-24P",
+      "switchProfileId": null,
+      "firmware": "switch-17-1-4",
+      "floorPlanId": null
+    },
+    {
+      "lat": 33.33336,
+      "lng": -111.91075,
+      "address": "8835 S Mcclintock Dr\nTempe, AZ. 85284-2532",
+      "serial": "Q3DB-7H4V-YGPG",
+      "mac": "98:18:88:b8:cc:67",
+      "lanIp": "10.1.32.188",
+      "url": "https://n734.meraki.com/-AZP-30-switch/n/tuLTXcBc/manage/nodes/new_list/167231140449383",
+      "networkId": "L_650207196201635912",
+      "tags": [],
+      "name": "azp_30sw01",
+      "details": [],
+      "model": "MS125-24P",
+      "switchProfileId": null,
+      "firmware": "switch-17-1-4",
+      "floorPlanId": null
+    },
+    {
+      "lat": 33.33335,
+      "lng": -111.91058,
+      "address": "8835 S Mcclintock Dr\nTempe, AZ 85284",
+      "serial": "Q2QN-P7Y6-BB5M",
+      "mac": "e0:55:3d:73:ef:81",
+      "wan1Ip": "72.215.195.100",
+      "wan2Ip": "216.161.167.57",
+      "notes": "WAN 1\nCox Business BOI\n300.0M x 30.0M\nWAN 2\nEB2-Centurylink DSL\n100.0M x 10.0M",
+      "tags": [
+        "Discount",
+        "Discount-Tire"
+      ],
+      "url": "https://n734.meraki.com/-AZP-30-applianc/n/UkSn-bBc/manage/nodes/new_list/246656707850113",
+      "networkId": "L_650207196201635912",
+      "name": "AZP 30MX",
+      "details": [],
+      "model": "MX65",
+      "firmware": "wired-18-1-07",
+      "floorPlanId": null
+    }
+  ],
+  "devices_by_type": {
+    "mx": [
+      {
+        "lat": 33.33335,
+        "lng": -111.91058,
+        "address": "8835 S Mcclintock Dr\nTempe, AZ 85284",
+        "serial": "Q2QN-P7Y6-BB5M",
+        "mac": "e0:55:3d:73:ef:81",
+        "wan1Ip": "72.215.195.100",
+        "wan2Ip": "216.161.167.57",
+        "notes": "WAN 1\nCox Business BOI\n300.0M x 30.0M\nWAN 2\nEB2-Centurylink DSL\n100.0M x 10.0M",
+        "tags": [
+          "Discount",
+          "Discount-Tire"
+        ],
+        "url": "https://n734.meraki.com/-AZP-30-applianc/n/UkSn-bBc/manage/nodes/new_list/246656707850113",
+        "networkId": "L_650207196201635912",
+        "name": "AZP 30MX",
+        "details": [],
+        "model": "MX65",
+        "firmware": "wired-18-1-07",
+        "floorPlanId": null
+      }
+    ],
+    "ms": [
+      {
+        "lat": 33.33336,
+        "lng": -111.91075,
+        "address": "8835 S Mcclintock Dr\nTempe, AZ. 85284-2532",
+        "serial": "Q3DB-RNYT-SC2N",
+        "mac": "98:18:88:b8:db:ec",
+        "lanIp": "10.1.32.189",
+        "url": "https://n734.meraki.com/-AZP-30-switch/n/tuLTXcBc/manage/nodes/new_list/167231140453356",
+        "networkId": "L_650207196201635912",
+        "tags": [],
+        "name": "azp_30sw02",
+        "details": [],
+        "model": "MS125-24P",
+        "switchProfileId": null,
+        "firmware": "switch-17-1-4",
+        "floorPlanId": null
+      },
+      {
+        "lat": 33.33336,
+        "lng": -111.91075,
+        "address": "8835 S Mcclintock Dr\nTempe, AZ. 85284-2532",
+        "serial": "Q3DB-7H4V-YGPG",
+        "mac": "98:18:88:b8:cc:67",
+        "lanIp": "10.1.32.188",
+        "url": "https://n734.meraki.com/-AZP-30-switch/n/tuLTXcBc/manage/nodes/new_list/167231140449383",
+        "networkId": "L_650207196201635912",
+        "tags": [],
+        "name": "azp_30sw01",
+        "details": [],
+        "model": "MS125-24P",
+        "switchProfileId": null,
+        "firmware": "switch-17-1-4",
+        "floorPlanId": null
+      }
+    ],
+    "mr": []
+  },
+  "vlans": [
+    {
+      "id": 1,
+      "networkId": "L_650207196201635912",
+      "name": "Data",
+      "applianceIp": "10.1.32.1",
+      "subnet": "10.1.32.0/25",
+      "fixedIpAssignments": {},
+      "reservedIpRanges": [],
+      "dnsNameservers": "upstream_dns",
+      "dhcpHandling": "Relay DHCP to another server",
+      "dhcpRelayServerIps": [
+        "10.0.175.5",
+        "10.101.175.5"
+      ],
+      "interfaceId": "3790904986341367980",
+      "ipv6": {
+        "enabled": false
+      },
+      "mandatoryDhcp": {
+        "enabled": false
+      }
+    },
+    {
+      "id": 101,
+      "networkId": "L_650207196201635912",
+      "name": "Voice",
+      "applianceIp": "10.1.32.129",
+      "subnet": "10.1.32.128/27",
+      "fixedIpAssignments": {},
+      "reservedIpRanges": [],
+      "dnsNameservers": "10.0.175.27\n10.101.175.28",
+      "dhcpHandling": "Run a DHCP server",
+      "dhcpLeaseTime": "12 hours",
+      "dhcpBootOptionsEnabled": false,
+      "dhcpOptions": [
+        {
+          "code": "42",
+          "type": "ip",
+          "value": "10.0.130.102, 10.0.130.82, 10.101.130.228, 10.101.130.227"
+        },
+        {
+          "code": "66",
+          "type": "text",
+          "value": "https://159357:68473900@config.tetravx.com/provision/us3/app/"
+        },
+        {
+          "type": "ip",
+          "code": "150",
+          "value": "10.0.99.100, 10.101.99.102"
+        }
+      ],
+      "interfaceId": "3790904986341367979",
+      "ipv6": {
+        "enabled": false
+      },
+      "mandatoryDhcp": {
+        "enabled": false
+      }
+    },
+    {
+      "id": 201,
+      "networkId": "L_650207196201635912",
+      "name": "Ccard",
+      "applianceIp": "10.1.32.161",
+      "subnet": "10.1.32.160/28",
+      "fixedIpAssignments": {},
+      "reservedIpRanges": [],
+      "dnsNameservers": "upstream_dns",
+      "dhcpHandling": "Relay DHCP to another server",
+      "dhcpRelayServerIps": [
+        "10.0.175.5",
+        "10.101.175.5",
+        "10.0.130.30",
+        "10.101.130.30"
+      ],
+      "interfaceId": "3790904986341367976",
+      "ipv6": {
+        "enabled": false
+      },
+      "mandatoryDhcp": {
+        "enabled": false
+      }
+    },
+    {
+      "id": 300,
+      "networkId": "L_650207196201635912",
+      "name": "AP Mgmt",
+      "applianceIp": "10.1.32.177",
+      "subnet": "10.1.32.176/28",
+      "fixedIpAssignments": {
+        "00:18:0a:35:fe:2e": {
+          "ip": "10.1.32.180",
+          "name": "azp_30ap01"
+        },
+        "00:18:0a:81:04:4e": {
+          "ip": "10.1.32.181",
+          "name": "azp_30ap02"
+        },
+        "0c:8d:db:93:22:f6": {
+          "ip": "10.1.32.182",
+          "name": "azp_30ap03"
+        },
+        "98:18:88:b8:cc:67": {
+          "ip": "10.1.32.188",
+          "name": "azp_30sw01"
+        },
+        "98:18:88:b8:db:ec": {
+          "ip": "10.1.32.189",
+          "name": "azp_30sw02"
+        },
+        "e4:55:a8:16:00:29": {
+          "ip": "10.1.32.186",
+          "name": "azp_30ap11"
+        },
+        "e4:55:a8:16:00:6f": {
+          "ip": "10.1.32.187",
+          "name": "azp_30ap10"
+        }
+      },
+      "reservedIpRanges": [],
+      "dnsNameservers": "10.0.175.27\n10.101.175.28",
+      "dhcpHandling": "Run a DHCP server",
+      "dhcpLeaseTime": "1 day",
+      "dhcpBootOptionsEnabled": false,
+      "dhcpOptions": [],
+      "interfaceId": "3790904986341367977",
+      "ipv6": {
+        "enabled": false
+      },
+      "mandatoryDhcp": {
+        "enabled": false
+      }
+    },
+    {
+      "id": 301,
+      "networkId": "L_650207196201635912",
+      "name": "Scanner",
+      "applianceIp": "10.1.32.193",
+      "subnet": "10.1.32.192/28",
+      "fixedIpAssignments": {},
+      "reservedIpRanges": [],
+      "dnsNameservers": "10.0.175.27\n10.101.175.28",
+      "dhcpHandling": "Run a DHCP server",
+      "dhcpLeaseTime": "1 day",
+      "dhcpBootOptionsEnabled": false,
+      "dhcpOptions": [],
+      "interfaceId": "3790904986341367975",
+      "ipv6": {
+        "enabled": false
+      },
+      "mandatoryDhcp": {
+        "enabled": false
+      }
+    },
+    {
+      "id": 800,
+      "networkId": "L_650207196201635912",
+      "name": "Guest",
+      "applianceIp": "172.13.0.1",
+      "subnet": "172.13.0.0/30",
+      "groupPolicyId": "100",
+      "fixedIpAssignments": {},
+      "reservedIpRanges": [],
+      "dnsNameservers": "upstream_dns",
+      "dhcpHandling": "Run a DHCP server",
+      "dhcpLeaseTime": "1 day",
+      "dhcpBootOptionsEnabled": false,
+      "dhcpOptions": [],
+      "interfaceId": "3790904986341367970",
+      "ipv6": {
+        "enabled": false
+      },
+      "mandatoryDhcp": {
+        "enabled": false
+      }
+    },
+    {
+      "id": 801,
+      "networkId": "L_650207196201635912",
+      "name": "IOT",
+      "applianceIp": "172.14.0.1",
+      "subnet": "172.14.0.0/24",
+      "groupPolicyId": "100",
+      "fixedIpAssignments": {},
+      "reservedIpRanges": [],
+      "dnsNameservers": "upstream_dns",
+      "dhcpHandling": "Run a DHCP server",
+      "dhcpLeaseTime": "1 day",
+      "dhcpBootOptionsEnabled": false,
+      "dhcpOptions": [],
+      "interfaceId": "3790904986341367974",
+      "ipv6": {
+        "enabled": false
+      },
+      "mandatoryDhcp": {
+        "enabled": false
+      }
+    },
+    {
+      "id": 802,
+      "networkId": "L_650207196201635912",
+      "name": "IoT Network",
+      "applianceIp": "172.21.0.1",
+      "subnet": "172.21.0.0/24",
+      "fixedIpAssignments": {},
+      "reservedIpRanges": [],
+      "dnsNameservers": "upstream_dns",
+      "dhcpHandling": "Run a DHCP server",
+      "dhcpLeaseTime": "1 day",
+      "dhcpBootOptionsEnabled": false,
+      "dhcpOptions": [],
+      "interfaceId": "3790904986341367972",
+      "ipv6": {
+        "enabled": false
+      },
+      "mandatoryDhcp": {
+        "enabled": false
+      }
+    },
+    {
+      "id": 803,
+      "networkId": "L_650207196201635912",
+      "name": "IoT Wireless",
+      "applianceIp": "172.22.0.1",
+      "subnet": "172.22.0.0/24",
+      "groupPolicyId": "100",
+      "fixedIpAssignments": {},
+      "reservedIpRanges": [],
+      "dnsNameservers": "upstream_dns",
+      "dhcpHandling": "Run a DHCP server",
+      "dhcpLeaseTime": "1 day",
+      "dhcpBootOptionsEnabled": false,
+      "dhcpOptions": [],
+      "interfaceId": "3790904986341367973",
+      "ipv6": {
+        "enabled": false
+      },
+      "mandatoryDhcp": {
+        "enabled": false
+      }
+    },
+    {
+      "id": 900,
+      "networkId": "L_650207196201635912",
+      "name": "Mgmt",
+      "applianceIp": "10.1.32.253",
+      "subnet": "10.1.32.252/30",
+      "fixedIpAssignments": {},
+      "reservedIpRanges": [],
+      "dnsNameservers": "upstream_dns",
+      "dhcpHandling": "Run a DHCP server",
+      "dhcpLeaseTime": "1 day",
+      "dhcpBootOptionsEnabled": false,
+      "dhcpOptions": [],
+      "interfaceId": "3790904986341367978",
+      "ipv6": {
+        "enabled": false
+      },
+      "mandatoryDhcp": {
+        "enabled": false
+      }
+    }
+  ],
+  "firewall_rules": {
+    "rules": [
+      {
+        "comment": "Deny to scam website per infosec",
+        "policy": "deny",
+        "protocol": "any",
+        "srcPort": "Any",
+        "srcCidr": "Any",
+        "destPort": "Any",
+        "destCidr": "5.188.231.142/32,dtcphx.com",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Deny LAN to Guest",
+        "policy": "deny",
+        "protocol": "any",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(1).*,VLAN(101).*,VLAN(201).*,VLAN(301).*,VLAN(300).*",
+        "destPort": "Any",
+        "destCidr": "VLAN(800).*,VLAN(802).*,VLAN(801).*,VLAN(803).*",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Deny Guest to RFC1918",
+        "policy": "deny",
+        "protocol": "any",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(800).*,VLAN(802).*,VLAN(801).*,VLAN(803).*",
+        "destPort": "Any",
+        "destCidr": "10.0.0.0/8,192.168.0.0/16,172.12.0.0/12",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Venstar Cloud Communication - CHG0049198",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(802).*",
+        "destPort": "8883",
+        "destCidr": "iot.discounttire.surveyorcloud.com",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Allow Remote Desktop clients Azure",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(1).*",
+        "destPort": "443,80,1688",
+        "destCidr": "login.microsoftonline.com,*.wvd.microsoft.com,*.servicebus.windows.net,catalogartifact.azureedge.net,aka.ms,go.microsoft.com,query.prod.cms.rt.microsoft.com,learn.microsoft.com,privacy.microsoft.com,*.prod.warm.ingest.monitor.core.windows.net,gcs.prod.monitoring.core.windows.net,kms.core.windows.net,azkms.core.windows.net,mrsglobalsteus2prod.blob.core.windows.net,wvdportalstorageblob.blob.core.windows.net,169.254.169.254/32,oneocsp.microsoft.com,www.microsoft.com,login.windows.net,*.events.data.microsoft.com,www.msftconnecttest.com,*.prod.do.dsp.mp.microsoft.com,*.sfx.ms,*.digicert.com,*.azure-dns.com,*.azure-dns.net",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Allow ping",
+        "policy": "allow",
+        "protocol": "icmp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(1).*",
+        "destPort": "Any",
+        "destCidr": "Any",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "access to Card Readers",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(1).*",
+        "destPort": "5100,5015,5016",
+        "destCidr": "VLAN(201).*",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Data Vlan to Splunk Collectors ",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(1).*",
+        "destPort": "9997,8089",
+        "destCidr": "10.105.4.162/32,10.105.4.253/32,10.105.4.81/32,10.105.4.199/32,10.105.4.237/32,10.105.4.5/32",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "permit CCard PED to VANTIV - VHQ",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(201).*",
+        "destPort": "443",
+        "destCidr": "199.71.106.30/32,199.71.106.0/20,64.57.144.0/20",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Allow to data VLAN",
+        "policy": "allow",
+        "protocol": "any",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(201).*",
+        "destPort": "Any",
+        "destCidr": "VLAN(1).*",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Allow CC to TokenX",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(201).*",
+        "destPort": "443",
+        "destCidr": "discounttire.tokenex.com,api.tokenex.com",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Deny CC to any",
+        "policy": "deny",
+        "protocol": "any",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(201).*",
+        "destPort": "Any",
+        "destCidr": "Any",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Deny any to CC",
+        "policy": "deny",
+        "protocol": "any",
+        "srcPort": "Any",
+        "srcCidr": "Any",
+        "destPort": "Any",
+        "destCidr": "VLAN(201).*",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "SRS Server",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(301).*",
+        "destPort": "8000",
+        "destCidr": "10.0.175.198/32",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "NTP bonehead for Scanners",
+        "policy": "allow",
+        "protocol": "udp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(300).*,VLAN(301).*",
+        "destPort": "123",
+        "destCidr": "18.26.4.105/32",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Meraki access for SW",
+        "policy": "allow",
+        "protocol": "udp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(1).30,VLAN(1).29",
+        "destPort": "7351",
+        "destCidr": "199.231.78.0/24,108.161.147.0/24,64.62.142.12/32,54.193.207.248/32,209.206.48.0/20,158.115.147.160/32,158.115.128.0/19,216.157.128.0/20",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Backup configuration downloads, Splash pages",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(1).30,VLAN(1).29,VLAN(300).*",
+        "destPort": "80,443,7734,7752",
+        "destCidr": "64.62.142.2/32,108.161.147.0/24,199.231.78.0/24,209.206.48.0/20,158.115.147.160/32,158.115.128.0/19,216.157.128.0/20",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Backup Meraki cloud communication, Throughput tests live tool, Backup firmware downloads",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(1).30,VLAN(1).29",
+        "destPort": "80,7734,7752",
+        "destCidr": "54.193.207.248/32,108.161.147.0/24,199.231.78.0/24,209.206.48.0/20,158.115.128.0/19,216.157.128.0/20",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Access Meraki cloud communication",
+        "policy": "allow",
+        "protocol": "udp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(300).*",
+        "destPort": "7351,9350,9351",
+        "destCidr": "64.62.142.12/32,54.193.207.248/32,108.161.147.0/24,199.231.78.0/24,74.50.56.161/32,209.206.48.0/20,158.115.147.160/32,158.115.128.0/19,216.157.128.0/20",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Backup configuration downloads, Splash pages",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(300).*",
+        "destPort": "80,443,7734,7752",
+        "destCidr": "108.161.147.0/24,199.231.78.0/24,64.62.142.2/32,74.50.56.161/32,54.193.207.248/32,158.115.147.160/32",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Allow Scanners to inventory servers",
+        "policy": "allow",
+        "protocol": "any",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(301).*",
+        "destPort": "Any",
+        "destCidr": "205.139.50.92/32,205.139.50.93/32,205.139.50.181/32,205.139.51.22/32,205.139.51.0/32,205.139.51.166/32",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(301).*",
+        "destPort": "80,443",
+        "destCidr": "205.139.50.0/23,209.208.230.0/23,199.106.140.0/23,63.128.72.0/24,63.128.76.0/24,192.30.64.0/20,216.253.141.0/24,192.30.68.0/20,192.30.71.80/32,192.30.71.112/32",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "",
+        "policy": "allow",
+        "protocol": "udp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(301).*",
+        "destPort": "7351",
+        "destCidr": "64.62.142.12/32,54.193.207.248/32,108.161.147.0/24,199.231.87.0/24,74.50.56.161/32,209.206.48.0/20",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(301).*",
+        "destPort": "80",
+        "destCidr": "54.193.207.248/32",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(301).*",
+        "destPort": "80,443,7734,7732",
+        "destCidr": "108.161.147.0/24,199.231.78.0/24,64.62.142.2/32,74.50.56.161/32",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "NEW Airwatch to Scanner Vlan",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(301).*",
+        "destPort": "80,443",
+        "destCidr": "52.207.131.208/32,52.207.186.27/32,52.44.65.104/32,63.128.77.234/32,63.128.77.238/32,209.66.96.114/32,209.208.228.194/32,209.208.228.198/32,216.235.137.253/32,64.14.29.39/32",
+        "syslogEnabled": true
+      },
+      {
+        "comment": "Fiori",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "Any",
+        "destPort": "8050",
+        "destCidr": "10.103.80.174/32",
+        "syslogEnabled": true
+      },
+      {
+        "comment": "Deny RFC 1918",
+        "policy": "deny",
+        "protocol": "any",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(1).*",
+        "destPort": "Any",
+        "destCidr": "10.0.0.0/8,172.16.0.0/12,192.168.0.0/16",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Allow HTTP/HTTPS to WWW",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(1).*",
+        "destPort": "80,8080,443",
+        "destCidr": "Any",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Allow Flash",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(1).*",
+        "destPort": "1935",
+        "destCidr": "Any",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Scanner HTTPS",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "Any",
+        "destPort": "443",
+        "destCidr": "Any",
+        "syslogEnabled": true
+      },
+      {
+        "comment": "VTV App Prod APIs",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(301).*",
+        "destPort": "443",
+        "destCidr": "n1kht2wi17.execute-api.us-west-2.amazonaws.com,j059ljofa9.execute-api.us-west-2.amazonaws.com,eonj7rnj3i.execute-api.us-west-2.amazonaws.com,trhy03bcjl.execute-api.us-west-2.amazonaws.com,mbqged4sef.execute-api.us-west-2.amazonaws.com",
+        "syslogEnabled": true
+      },
+      {
+        "comment": "MFA for VTV",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(301).*",
+        "destPort": "80,443",
+        "destCidr": "okta-retail.discounttire.com,Discounttire-retail.okta.com,Discounttire-retail.customdomains.okta.com,ok7-custom-crtrs.okta.com,ok7static.oktacdn.com,login.okta.com,ajax.googleapis.com",
+        "syslogEnabled": true
+      },
+      {
+        "comment": "Logging APIs for VTV",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(301).*",
+        "destPort": "80,443",
+        "destCidr": "ssl.google-analytics.com,www.google-analytics.com,www.googletagmanager.com,tags.tiqcdn.com,bf62460umu.bf.dynatrace.com,in.appcenter.ms,as1380.awmdm.com,swlax93y53.execute-api.us-west-2.amazonaws.com,6hnslhw74m.execute-api.us-west-2.amazonaws.com,7ymfjkdbxg.execute-api.us-west-2.amazonaws.com,blnzcsd5jg.execute-api.us-west-2.amazonaws.com,bf62460umu.bf.dynatrace.com",
+        "syslogEnabled": true
+      },
+      {
+        "comment": "AirWatch Content Delivery",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(301).*",
+        "destPort": "443",
+        "destCidr": "awcm1380.awmdm.com,ds1380.awmdm.com,cdnus04.awmdm.com",
+        "syslogEnabled": true
+      },
+      {
+        "comment": "CHG0035073 - WaitList PROD/QA",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(301).*",
+        "destPort": "80,443",
+        "destCidr": "waitlist-management.qa.discounttire.com,waitlist-server.qa.discounttire.com,waitlist-mobile.discounttire.com,waitlist-management.discounttire.com,waitlist-display.discounttire.com,waitlist-server.discounttire.com",
+        "syslogEnabled": true
+      },
+      {
+        "comment": "PTT Pilot - CHG0039306 - Remove after 05/12/22",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(301).*",
+        "destPort": "4200",
+        "destCidr": "stage02.pttpro.zebra.com,stage02-b.pttpro.zebra.com",
+        "syslogEnabled": true
+      },
+      {
+        "comment": "PTT Pilot - CHG0039306 - Remove after 05/12/22",
+        "policy": "allow",
+        "protocol": "udp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(301).*",
+        "destPort": "4200-4224",
+        "destCidr": "stage02.pttpro.zebra.com,stage02-b.pttpro.zebra.com",
+        "syslogEnabled": true
+      },
+      {
+        "comment": "",
+        "policy": "deny",
+        "protocol": "any",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(301).*",
+        "destPort": "Any",
+        "destCidr": "Any",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Allow IMAP / Outlook Authentication",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(1).*",
+        "destPort": "80,143,443,993",
+        "destCidr": "13.107.6.152/31,13.107.18.10/31,13.107.128.0/22,23.103.160.0/20,40.96.0.0/13,40.104.0.0/15,52.96.0.0/14,131.253.33.215/32,132.245.0.0/16,150.171.32.0/22,191.234.140.0/22,204.79.197.215/32",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Allow MS Teams Authentication-TCP",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(1).*",
+        "destPort": "80,443",
+        "destCidr": "*.teams.microsoft.com,teams.microsoft.com,13.107.64.0/18,52.112.0.0/14,52.122.0.0/15,52.238.119.141/32,52.244.160.207/32",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Allow MS Teams Media",
+        "policy": "allow",
+        "protocol": "udp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(1).*",
+        "destPort": "3478-3481",
+        "destCidr": "GRP(3790904986339115076)",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "IOT Internet Access",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(801).*,VLAN(802).*,VLAN(803).*",
+        "destPort": "80,443",
+        "destCidr": "Any",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Allow NTP Access for IOT",
+        "policy": "allow",
+        "protocol": "udp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(801).*,VLAN(802).*,VLAN(803).*",
+        "destPort": "123",
+        "destCidr": "pool.ntp.org",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Polycom Windows NTP",
+        "policy": "allow",
+        "protocol": "udp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(101).*",
+        "destPort": "123",
+        "destCidr": "OBJ(3790904986339115074)",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Polycom SIP SSL/5061",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(101).*",
+        "destPort": "5061",
+        "destCidr": "GRP(3790904986339115076)",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Polycom TCP/49152",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(101).*",
+        "destPort": "49152",
+        "destCidr": "GRP(3790904986339115076)",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Polycom UDP/3478-3481",
+        "policy": "allow",
+        "protocol": "udp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(101).*",
+        "destPort": "3478-3481",
+        "destCidr": "GRP(3790904986339115076)",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Polycom RTP and RTCP",
+        "policy": "allow",
+        "protocol": "udp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(101).*",
+        "destPort": "49152-53247",
+        "destCidr": "GRP(3790904986339115076)",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Polycom Google Services",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(101).*",
+        "destPort": "5228",
+        "destCidr": "OBJ(3790904986339115064),OBJ(3790904986339115065),OBJ(3790904986339115066),OBJ(3790904986339115067)",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Polycom to nVX PBX TCP",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(101).*",
+        "destPort": "5061,9000",
+        "destCidr": "GRP(3790904986339115077)",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Polycom to nVX PBX UDP",
+        "policy": "allow",
+        "protocol": "udp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(101).*",
+        "destPort": "16384-32768",
+        "destCidr": "GRP(3790904986339115077)",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Polycom HTTP and HTTPS",
+        "policy": "allow",
+        "protocol": "tcp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(101).*",
+        "destPort": "80,443",
+        "destCidr": "Any",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Polycom Voice VLAN Deny All",
+        "policy": "deny",
+        "protocol": "any",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(101).*",
+        "destPort": "Any",
+        "destCidr": "Any",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "STUN/TURN Relay support for RDP Shortpath-1",
+        "policy": "allow",
+        "protocol": "udp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(1).*",
+        "destPort": "3478",
+        "destCidr": "GRP(3790904986339115118)",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "STUN/TURN Relay support for RDP Shortpath-2",
+        "policy": "allow",
+        "protocol": "udp",
+        "srcPort": "Any",
+        "srcCidr": "VLAN(1).*",
+        "destPort": "49152-65535",
+        "destCidr": "GRP(3790904986339115118)",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Deny all",
+        "policy": "deny",
+        "protocol": "any",
+        "srcPort": "Any",
+        "srcCidr": "Any",
+        "destPort": "Any",
+        "destCidr": "Any",
+        "syslogEnabled": false
+      },
+      {
+        "comment": "Default rule",
+        "policy": "allow",
+        "protocol": "Any",
+        "srcPort": "Any",
+        "srcCidr": "Any",
+        "destPort": "Any",
+        "destCidr": "Any",
+        "syslogEnabled": false
+      }
+    ]
+  },
+  "group_policies": [
+    {
+      "groupPolicyId": "102",
+      "name": "Ebay Access",
+      "scheduling": {
+        "enabled": false,
+        "monday": {
+          "active": true,
+          "from": "00:00",
+          "to": "24:00"
+        },
+        "tuesday": {
+          "active": true,
+          "from": "00:00",
+          "to": "24:00"
+        },
+        "wednesday": {
+          "active": true,
+          "from": "00:00",
+          "to": "24:00"
+        },
+        "thursday": {
+          "active": true,
+          "from": "00:00",
+          "to": "24:00"
+        },
+        "friday": {
+          "active": true,
+          "from": "00:00",
+          "to": "24:00"
+        },
+        "saturday": {
+          "active": true,
+          "from": "00:00",
+          "to": "24:00"
+        },
+        "sunday": {
+          "active": true,
+          "from": "00:00",
+          "to": "24:00"
+        }
+      },
+      "bandwidth": {
+        "settings": "network default",
+        "bandwidthLimits": {
+          "limitUp": null,
+          "limitDown": null
+        }
+      },
+      "firewallAndTrafficShaping": {
+        "settings": "network default",
+        "trafficShapingRules": [],
+        "l3FirewallRules": [],
+        "l7FirewallRules": []
+      },
+      "contentFiltering": {
+        "allowedUrlPatterns": {
+          "settings": "append",
+          "patterns": [
+            "https://www.ebay.com/",
+            "https://i.ebayimg.com",
+            "http://thumbs3.ebaystatic.com/",
+            "http://thumbs2.ebaystatic.com/",
+            "http://thumbs1.ebaystatic.com/",
+            "http://q.ebaystatic.com/",
+            "http://pics.ebaystatic.com/"
+          ]
+        },
+        "blockedUrlPatterns": {
+          "settings": "network default",
+          "patterns": []
+        },
+        "blockedUrlCategories": {
+          "settings": "network default",
+          "categories": []
+        }
+      }
+    },
+    {
+      "groupPolicyId": "101",
+      "name": "Indeed.com",
+      "scheduling": {
+        "enabled": false,
+        "monday": {
+          "active": true,
+          "from": "00:00",
+          "to": "24:00"
+        },
+        "tuesday": {
+          "active": true,
+          "from": "00:00",
+          "to": "24:00"
+        },
+        "wednesday": {
+          "active": true,
+          "from": "00:00",
+          "to": "24:00"
+        },
+        "thursday": {
+          "active": true,
+          "from": "00:00",
+          "to": "24:00"
+        },
+        "friday": {
+          "active": true,
+          "from": "00:00",
+          "to": "24:00"
+        },
+        "saturday": {
+          "active": true,
+          "from": "00:00",
+          "to": "24:00"
+        },
+        "sunday": {
+          "active": true,
+          "from": "00:00",
+          "to": "24:00"
+        }
+      },
+      "bandwidth": {
+        "settings": "network default",
+        "bandwidthLimits": {
+          "limitUp": null,
+          "limitDown": null
+        }
+      },
+      "firewallAndTrafficShaping": {
+        "settings": "network default",
+        "trafficShapingRules": [],
+        "l3FirewallRules": [],
+        "l7FirewallRules": []
+      },
+      "contentFiltering": {
+        "allowedUrlPatterns": {
+          "settings": "append",
+          "patterns": [
+            "indeed.com",
+            "https://indeed.com"
+          ]
+        },
+        "blockedUrlPatterns": {
+          "settings": "network default",
+          "patterns": []
+        },
+        "blockedUrlCategories": {
+          "settings": "network default",
+          "categories": []
+        }
+      }
+    },
+    {
+      "groupPolicyId": "100",
+      "name": "Guest Network",
+      "scheduling": {
+        "enabled": false,
+        "monday": {
+          "active": true,
+          "from": "07:00",
+          "to": "24:00"
+        },
+        "tuesday": {
+          "active": true,
+          "from": "00:00",
+          "to": "24:00"
+        },
+        "wednesday": {
+          "active": true,
+          "from": "00:00",
+          "to": "24:00"
+        },
+        "thursday": {
+          "active": true,
+          "from": "00:00",
+          "to": "24:00"
+        },
+        "friday": {
+          "active": true,
+          "from": "00:00",
+          "to": "24:00"
+        },
+        "saturday": {
+          "active": true,
+          "from": "00:00",
+          "to": "24:00"
+        },
+        "sunday": {
+          "active": true,
+          "from": "00:00",
+          "to": "24:00"
+        }
+      },
+      "bandwidth": {
+        "settings": "custom",
+        "bandwidthLimits": {
+          "limitUp": 5120,
+          "limitDown": 5120
+        }
+      },
+      "firewallAndTrafficShaping": {
+        "settings": "custom",
+        "trafficShapingRules": [],
+        "l3FirewallRules": [
+          {
+            "comment": "Deny guest to RFC 1918",
+            "policy": "deny",
+            "protocol": "any",
+            "destPort": "Any",
+            "destCidr": "10.0.0.0/8"
+          },
+          {
+            "comment": "Deny guest to RFC 1918",
+            "policy": "deny",
+            "protocol": "any",
+            "destPort": "Any",
+            "destCidr": "172.12.0.0/12"
+          },
+          {
+            "comment": "Deny guest to RFC 1918",
+            "policy": "deny",
+            "protocol": "any",
+            "destPort": "Any",
+            "destCidr": "192.168.0.0/16"
+          }
+        ],
+        "l7FirewallRules": [
+          {
+            "policy": "deny",
+            "type": "applicationCategory",
+            "value": {
+              "id": "meraki:layer7/category/8",
+              "name": "Peer-to-peer (P2P)"
+            }
+          },
+          {
+            "policy": "deny",
+            "type": "applicationCategory",
+            "value": {
+              "id": "meraki:layer7/category/17",
+              "name": "Web file sharing"
+            }
+          },
+          {
+            "policy": "deny",
+            "type": "application",
+            "value": {
+              "id": "meraki:layer7/application/173",
+              "name": "Steam"
+            }
+          }
+        ]
+      },
+      "contentFiltering": {
+        "allowedUrlPatterns": {
+          "settings": "override",
+          "patterns": []
+        },
+        "blockedUrlPatterns": {
+          "settings": "override",
+          "patterns": []
+        },
+        "blockedUrlCategories": {
+          "settings": "override",
+          "categories": [
+            "meraki:contentFiltering/category/C52",
+            "meraki:contentFiltering/category/C47",
+            "meraki:contentFiltering/category/C64",
+            "meraki:contentFiltering/category/C54",
+            "meraki:contentFiltering/category/C6",
+            "meraki:contentFiltering/category/C77",
+            "meraki:contentFiltering/category/C78",
+            "meraki:contentFiltering/category/T04",
+            "meraki:contentFiltering/category/C51",
+            "meraki:contentFiltering/category/T05",
+            "meraki:contentFiltering/category/C101",
+            "meraki:contentFiltering/category/C74",
+            "meraki:contentFiltering/category/C86",
+            "meraki:contentFiltering/category/C50",
+            "meraki:contentFiltering/category/C16",
+            "meraki:contentFiltering/category/C22",
+            "meraki:contentFiltering/category/C84",
+            "meraki:contentFiltering/category/C119",
+            "meraki:contentFiltering/category/T01",
+            "meraki:contentFiltering/category/C60",
+            "meraki:contentFiltering/category/T14",
+            "meraki:contentFiltering/category/C92",
+            "meraki:contentFiltering/category/T03",
+            "meraki:contentFiltering/category/C25",
+            "meraki:contentFiltering/category/C113",
+            "meraki:contentFiltering/category/T02",
+            "meraki:contentFiltering/category/C75"
+          ]
+        }
+      }
+    }
+  ],
+  "syslog": {
+    "servers": [
+      {
+        "host": "10.0.131.43",
+        "port": "514",
+        "transportProtocol": "UDP",
+        "encryption": {
+          "enabled": false,
+          "certificate": {
+            "id": ""
+          }
+        },
+        "roles": [
+          "Switch event log",
+          "Flows",
+          "URLs",
+          "Security events",
+          "Appliance event log"
+        ]
+      }
+    ]
+  },
+  "snmp": {
+    "access": "users",
+    "communityString": null,
+    "users": [
+      {
+        "username": "NNMIuser",
+        "passphrase": "m@k3!tS0nuMb341!"
+      },
+      {
+        "username": "Orion",
+        "passphrase": "m@k3!tS0nuMb852!"
+      }
+    ]
+  },
+  "mx_ports": [
+    {
+      "number": 3,
+      "enabled": true,
+      "type": "trunk",
+      "dropUntaggedTraffic": false,
+      "vlan": 1,
+      "allowedVlans": "1,101,201,300,301,900,803"
+    },
+    {
+      "number": 4,
+      "enabled": true,
+      "type": "trunk",
+      "dropUntaggedTraffic": false,
+      "vlan": 300,
+      "allowedVlans": "1,101,201,300,301,800,801,802,803"
+    },
+    {
+      "number": 5,
+      "enabled": true,
+      "type": "trunk",
+      "dropUntaggedTraffic": false,
+      "vlan": 300,
+      "allowedVlans": "1,101,201,300,301,800,801,802,803"
+    },
+    {
+      "number": 6,
+      "enabled": true,
+      "type": "trunk",
+      "dropUntaggedTraffic": false,
+      "vlan": 300,
+      "allowedVlans": "1,101,201,300,301,800,801,802,803"
+    },
+    {
+      "number": 7,
+      "enabled": false,
+      "dropUntaggedTraffic": true,
+      "type": "trunk",
+      "allowedVlans": "all"
+    },
+    {
+      "number": 8,
+      "enabled": true,
+      "type": "trunk",
+      "dropUntaggedTraffic": false,
+      "vlan": 802,
+      "allowedVlans": "802"
+    },
+    {
+      "number": 9,
+      "enabled": true,
+      "type": "access",
+      "dropUntaggedTraffic": false,
+      "vlan": 801,
+      "accessPolicy": "open"
+    },
+    {
+      "number": 10,
+      "enabled": true,
+      "type": "trunk",
+      "dropUntaggedTraffic": false,
+      "vlan": 1,
+      "allowedVlans": "1,101,201,300,301"
+    },
+    {
+      "number": 11,
+      "enabled": false,
+      "dropUntaggedTraffic": true,
+      "type": "trunk",
+      "allowedVlans": "all"
+    },
+    {
+      "number": 12,
+      "enabled": true,
+      "type": "trunk",
+      "dropUntaggedTraffic": false,
+      "vlan": 800,
+      "allowedVlans": "800,802"
+    }
+  ],
+  "dhcp_settings": {},
+  "switch_settings": {
+    "vlan": 300,
+    "useCombinedPower": false,
+    "powerExceptions": [],
+    "uplinkClientSampling": {
+      "enabled": false
+    },
+    "macBlocklist": {
+      "enabled": false
+    }
+  },
+  "switch_ports": {
+    "Q3DB-RNYT-SC2N": [
+      {
+        "portId": "1",
+        "name": "Workstation Data Legacy Vlan",
+        "tags": [
+          "Store_Workstation_Data_Legacy_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 1,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "2",
+        "name": "Workstation Data Legacy Vlan",
+        "tags": [
+          "Store_Workstation_Data_Legacy_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 1,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "3",
+        "name": "Workstation Data Legacy Vlan",
+        "tags": [
+          "Store_Workstation_Data_Legacy_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 1,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "4",
+        "name": "Algo Horn",
+        "tags": [
+          "Store_Workstation_Data_Legacy_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 1,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "5",
+        "name": "Printer Data Legacy Vlan",
+        "tags": [
+          "Store_Printer_Data_Legacy_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 1,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "6",
+        "name": "Printer Data Legacy Vlan",
+        "tags": [
+          "Store_Printer_Data_Legacy_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 1,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "7",
+        "name": "Printer Data Legacy Vlan",
+        "tags": [
+          "Store_Printer_Data_Legacy_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 1,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "8",
+        "name": "POS Vlan",
+        "tags": [
+          "Store_POS_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 201,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "9",
+        "name": "POS Vlan",
+        "tags": [
+          "Store_POS_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 201,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "10",
+        "name": "POS Vlan",
+        "tags": [
+          "Store_POS_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 201,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "11",
+        "name": "IOT Vlan",
+        "tags": [
+          "Store_IOT_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 801,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "12",
+        "name": "IOT Vlan",
+        "tags": [
+          "Store_IOT_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 801,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "13",
+        "name": "IOT Vlan",
+        "tags": [
+          "Store_IOT_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 801,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "14",
+        "name": "IOT Vlan",
+        "tags": [
+          "Store_IOT_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 801,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "15",
+        "name": "IOT Vlan",
+        "tags": [
+          "Store_IOT_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 801,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "16",
+        "name": "IOT Vlan",
+        "tags": [
+          "Store_IOT_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 801,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "17",
+        "name": "IOT Vlan",
+        "tags": [
+          "Store_IOT_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 801,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "18",
+        "name": "IOT Vlan",
+        "tags": [
+          "Store_IOT_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 801,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "19",
+        "name": "IOT Vlan",
+        "tags": [
+          "Store_IOT_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 801,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "20",
+        "name": "Workstation Data Legacy Vlan",
+        "tags": [
+          "Store_Workstation_Data_Legacy_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 1,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "21",
+        "name": "Wireless Vlans",
+        "tags": [
+          "Store_Wireless_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "trunk",
+        "vlan": 300,
+        "voiceVlan": null,
+        "allowedVlans": "1,100,201,300-301,800-803",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "22",
+        "name": "Wireless Vlans",
+        "tags": [
+          "Store_Wireless_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "trunk",
+        "vlan": 300,
+        "voiceVlan": null,
+        "allowedVlans": "1,100,201,300-301,800-803",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "23",
+        "name": "Wireless Vlans",
+        "tags": [
+          "Store_Wireless_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "trunk",
+        "vlan": 300,
+        "voiceVlan": null,
+        "allowedVlans": "1,100,201,300-301,800-803",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "24",
+        "name": "Uplink",
+        "tags": [
+          "Store_Uplink"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "trunk",
+        "vlan": 300,
+        "voiceVlan": null,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "loop guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "25",
+        "name": "SFP Unused",
+        "tags": [
+          "Store_SFP_Unused"
+        ],
+        "enabled": false,
+        "poeEnabled": false,
+        "type": "access",
+        "vlan": 999,
+        "voiceVlan": null,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "loop guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "26",
+        "name": "SFP Unused",
+        "tags": [
+          "Store_SFP_Unused"
+        ],
+        "enabled": false,
+        "poeEnabled": false,
+        "type": "access",
+        "vlan": 999,
+        "voiceVlan": null,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "loop guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "27",
+        "name": "SFP Unused",
+        "tags": [
+          "Store_SFP_Unused"
+        ],
+        "enabled": false,
+        "poeEnabled": false,
+        "type": "access",
+        "vlan": 999,
+        "voiceVlan": null,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "loop guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "28",
+        "name": "SFP Unused",
+        "tags": [
+          "Store_SFP_Unused"
+        ],
+        "enabled": false,
+        "poeEnabled": false,
+        "type": "access",
+        "vlan": 999,
+        "voiceVlan": null,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "loop guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      }
+    ],
+    "Q3DB-7H4V-YGPG": [
+      {
+        "portId": "1",
+        "name": "Workstation Data Legacy Vlan",
+        "tags": [
+          "Store_Workstation_Data_Legacy_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 1,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "2",
+        "name": "Workstation Data Legacy Vlan",
+        "tags": [
+          "Store_Workstation_Data_Legacy_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 1,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "3",
+        "name": "Workstation Data Legacy Vlan",
+        "tags": [
+          "Store_Workstation_Data_Legacy_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 1,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "4",
+        "name": "Workstation Data Legacy Vlan",
+        "tags": [
+          "Store_Workstation_Data_Legacy_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 1,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "5",
+        "name": "Printer Data Legacy Vlan",
+        "tags": [
+          "Store_Printer_Data_Legacy_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 1,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "6",
+        "name": "Printer Data Legacy Vlan",
+        "tags": [
+          "Store_Printer_Data_Legacy_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 1,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "7",
+        "name": "Printer Data Legacy Vlan",
+        "tags": [
+          "Store_Printer_Data_Legacy_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 1,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "8",
+        "name": "POS Vlan",
+        "tags": [
+          "Store_POS_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 201,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "9",
+        "name": "POS Vlan",
+        "tags": [
+          "Store_POS_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 201,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "10",
+        "name": "POS Vlan",
+        "tags": [
+          "Store_POS_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 201,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "11",
+        "name": "IOT Vlan",
+        "tags": [
+          "Store_IOT_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 801,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "12",
+        "name": "IOT Vlan",
+        "tags": [
+          "Store_IOT_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 801,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "13",
+        "name": "IOT Vlan",
+        "tags": [
+          "Store_IOT_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 801,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "14",
+        "name": "IOT Vlan",
+        "tags": [
+          "Store_IOT_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 801,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "15",
+        "name": "IOT Vlan",
+        "tags": [
+          "Store_IOT_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 801,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "16",
+        "name": "IOT Vlan",
+        "tags": [
+          "Store_IOT_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 801,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "17",
+        "name": "IOT Vlan",
+        "tags": [
+          "Store_IOT_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 801,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "18",
+        "name": "IOT Vlan",
+        "tags": [
+          "Store_IOT_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 801,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "19",
+        "name": "IOT Vlan",
+        "tags": [
+          "Store_IOT_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 801,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "20",
+        "name": "IOT Vlan",
+        "tags": [
+          "Store_IOT_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "access",
+        "vlan": 801,
+        "voiceVlan": 101,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "21",
+        "name": "Wireless Vlans",
+        "tags": [
+          "Store_Wireless_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "trunk",
+        "vlan": 300,
+        "voiceVlan": null,
+        "allowedVlans": "1,100,201,300-301,800-803",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "22",
+        "name": "Wireless Vlans",
+        "tags": [
+          "Store_Wireless_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "trunk",
+        "vlan": 300,
+        "voiceVlan": null,
+        "allowedVlans": "1,100,201,300-301,800-803",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "23",
+        "name": "Wireless Vlans",
+        "tags": [
+          "Store_Wireless_Vlan"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "trunk",
+        "vlan": 300,
+        "voiceVlan": null,
+        "allowedVlans": "1,100,201,300-301,800-803",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "bpdu guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "24",
+        "name": "Uplink",
+        "tags": [
+          "Store_Uplink"
+        ],
+        "enabled": true,
+        "poeEnabled": true,
+        "type": "trunk",
+        "vlan": 300,
+        "voiceVlan": null,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "loop guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)",
+          "100 Megabit (auto)",
+          "100 Megabit half duplex (forced)",
+          "100 Megabit full duplex (forced)",
+          "10 Megabit (auto)",
+          "10 Megabit half duplex (forced)",
+          "10 Megabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "25",
+        "name": "SFP Unused",
+        "tags": [
+          "Store_SFP_Unused"
+        ],
+        "enabled": false,
+        "poeEnabled": false,
+        "type": "access",
+        "vlan": 999,
+        "voiceVlan": null,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "loop guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "26",
+        "name": "SFP Unused",
+        "tags": [
+          "Store_SFP_Unused"
+        ],
+        "enabled": false,
+        "poeEnabled": false,
+        "type": "access",
+        "vlan": 999,
+        "voiceVlan": null,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "loop guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "27",
+        "name": "SFP Unused",
+        "tags": [
+          "Store_SFP_Unused"
+        ],
+        "enabled": false,
+        "poeEnabled": false,
+        "type": "access",
+        "vlan": 999,
+        "voiceVlan": null,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "loop guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      },
+      {
+        "portId": "28",
+        "name": "SFP Unused",
+        "tags": [
+          "Store_SFP_Unused"
+        ],
+        "enabled": false,
+        "poeEnabled": false,
+        "type": "access",
+        "vlan": 999,
+        "voiceVlan": null,
+        "allowedVlans": "all",
+        "isolationEnabled": false,
+        "rstpEnabled": true,
+        "stpGuard": "loop guard",
+        "linkNegotiation": "Auto negotiate",
+        "portScheduleId": null,
+        "schedule": null,
+        "udld": "Alert only",
+        "linkNegotiationCapabilities": [
+          "Auto negotiate",
+          "1 Gigabit full duplex (forced)"
+        ],
+        "accessPolicyType": "Open",
+        "daiTrusted": false,
+        "profile": {
+          "enabled": false,
+          "id": "",
+          "iname": null
+        },
+        "module": {
+          "model": null
+        },
+        "mirror": {
+          "mode": "Not mirroring traffic"
+        }
+      }
+    ]
+  },
+  "content_filtering": {
+    "blockedUrlCategories": [
+      {
+        "id": "meraki:contentFiltering/category/C37",
+        "name": "Web Hosting"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C107",
+        "name": "Animals and Pets"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C8",
+        "name": "Sports and Recreation"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C98",
+        "name": "Hunting"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C78",
+        "name": "Tobacco"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C77",
+        "name": "Alcohol"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C92",
+        "name": "Parked Domains"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C52",
+        "name": "Sex Education"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C40",
+        "name": "Chat and Instant Messaging"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C67",
+        "name": "Internet Telephony"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C64",
+        "name": "Child Abuse Content"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C119",
+        "name": "Terrorism and Violent Extremism"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C84",
+        "name": "Illegal Downloads"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C22",
+        "name": "Illegal Activities"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C6",
+        "name": "Adult"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C54",
+        "name": "Pornography"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C79",
+        "name": "Humor"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C60",
+        "name": "Non-sexual Nudity"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C113",
+        "name": "DoH and DoT"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C25",
+        "name": "Filter Avoidance"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C85",
+        "name": "Organizational Email"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C38",
+        "name": "Web-based Email"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C75",
+        "name": "Extreme"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C71",
+        "name": "File Transfer Services"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C115",
+        "name": "Online Document Sharing and Collaboration"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C66",
+        "name": "Online Storage and Backup"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C16",
+        "name": "Hate Speech"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C31",
+        "name": "Lingerie and Swimsuits"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C82",
+        "name": "Digital Postcards"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C36",
+        "name": "Weapons"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C83",
+        "name": "Politics"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C7",
+        "name": "Games"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C50",
+        "name": "Hacking"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C109",
+        "name": "Cannabis"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C56",
+        "name": "Peer File Transfer"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C68",
+        "name": "Freeware and Shareware"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C34",
+        "name": "Lotteries"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C49",
+        "name": "Gambling"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C24",
+        "name": "Online Communities"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C81",
+        "name": "Personal Sites"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C86",
+        "name": "Religion"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C74",
+        "name": "Astrology"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C101",
+        "name": "Paranormal"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C55",
+        "name": "Dating"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C28",
+        "name": "Online Trading"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C89",
+        "name": "Professional Networking"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C69",
+        "name": "Social Networking"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C47",
+        "name": "Illegal Drugs"
+      },
+      {
+        "id": "meraki:contentFiltering/category/C45",
+        "name": "Real Estate"
+      },
+      {
+        "id": "meraki:contentFiltering/category/T14",
+        "name": "Open HTTP Proxy"
+      },
+      {
+        "id": "meraki:contentFiltering/category/T05",
+        "name": "Spam"
+      },
+      {
+        "id": "meraki:contentFiltering/category/T04",
+        "name": "Botnets"
+      },
+      {
+        "id": "meraki:contentFiltering/category/T02",
+        "name": "Spyware and Adware"
+      },
+      {
+        "id": "meraki:contentFiltering/category/T03",
+        "name": "Phishing"
+      },
+      {
+        "id": "meraki:contentFiltering/category/T01",
+        "name": "Malware Sites"
+      }
+    ],
+    "blockedUrlPatterns": [
+      "777.com",
+      "mywheelfinder.com",
+      "suchertire.com",
+      "*.baidu.com",
+      "1688.com",
+      "aliapp.org",
+      "alibaba.com",
+      "alibabagroup.com",
+      "alicdn.com",
+      "aliexpress.com",
+      "alipay.com",
+      "aliyuncs.com",
+      "lazada.sg",
+      "mmstat.com",
+      "pinimg.com",
+      "taobao.com",
+      "qiyukf.com",
+      "baidustatic.com",
+      "cnzz.com"
+    ],
+    "allowedUrlPatterns": [
+      "vimeo.com/",
+      "chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji",
+      "clients2.googleusercontent.com",
+      "admittance.b2clogin.com",
+      "www.admittance.app",
+      "admittance.b2clogin.app",
+      "click.discounttire-email.com",
+      "demodawheels.com",
+      "dirtgriptires.com",
+      "discounttire.webex.com",
+      "discounttireco.com",
+      "discounttire-email.com",
+      "discounttirefamily.com/",
+      "Discoverybenfits.com",
+      "dtatprint.com",
+      "ebay.com/",
+      "ebayimg.com/",
+      "ebaystatic.com/",
+      "empowermyretirement.com/",
+      "empower-retirement.com",
+      "heavyhitterwheels.com/",
+      "http://ajax.googleapis.com",
+      "http://americantiredepot.com/select-location.html",
+      "http://americastire.shutterfly.com/",
+      "http://americastireca.shutterfly.com/",
+      "http://ayeconf.wikispaces.com/",
+      "http://b2b.pirelli.com/",
+      "http://bentire.tireweb.com",
+      "http://bradracing.com",
+      "http://career.uncc.edu",
+      "http://cdnapi.kaltura.com",
+      "http://cdnbakmi.kaltura.com",
+      "http://changeartistry2013.wikispaces.com/",
+      "http://clientmigration.trucomply.com",
+      "http://collegecentral.com/",
+      "http://content.screencast.com/media",
+      "http://content.screencast.com/users",
+      "http://crl.geotrust.com",
+      "http://dealerline.wheelpros.com/",
+      "http://discounttire.sharepoint.com/",
+      "http://discounttireaz.shutterfly.com",
+      "http://discounttirebenefits.com",
+      "http://discounttireil.shutterfly.com/",
+      "http://dtc200club.net",
+      "http://dtcads.com",
+      "http://dtdaccessories.com",
+      "http://etools.teamintraining.org",
+      "http://fkwheels.com",
+      "http://freeswitch.org",
+      "http://freevideocoding.com",
+      "http://iapplynow.com",
+      "http://idahostatesman.adperfect.com",
+      "http://image.discounttire-email.com",
+      "http://img.rewardpromo.com",
+      "http://kmtire.com/",
+      "http://kyokasuigetsu25.wordpress.com/2011/03/29/multiple-file-upload-using-jquery-and-php",
+      "http://landeskwdr01*",
+      "http://landeskwp01*",
+      "http://ldcore*",
+      "http://lowes.com/",
+      "http://mackin-ind.com",
+      "http://mcassessor.maricopa.gov",
+      "http://mitapplicant.merchantsinfo.com/",
+      "http://mtunnel.meraki.com/mtun-http/t1/r/x25FDN3Xnf6aLQ-G",
+      "http://news.citysuntimes.com",
+      "http://ocsp.verisign.com/",
+      "http://online.fliphtml5.com/tpdf/xuab/",
+      "http://order.ntw.com",
+      "http://player.kaltura.com",
+      "http://player.vimeo.com/video",
+      "http://plus.google.com",
+      "http://polyperformance.com/",
+      "http://pptac.http.internapcdn.net",
+      "http://rossmar.dnsalias.net",
+      "http://scribdassets.com",
+      "http://secure.adpay.com",
+      "http://sellmywheel.com",
+      "http://sellmywheel.com/",
+      "http://sendelwheel.com/",
+      "http://service.maxymiser.net/cdn/discounttire/js/mmcore_old.async.js",
+      "http://smith.chaosrxoptics.com",
+      "http://snooper.se",
+      "http://spreadsheets.google.com/pub?key=pwsvm3exypcwmqelky8_kpw",
+      "http://sstireonline.com/",
+      "http://stats.kaltura.com",
+      "http://streamhoster.com",
+      "http://tags.tiqcdn.com",
+      "http://tags.tiqcdn.com/utag/discounttire/main/prod/utag.js",
+      "http://twwedge.com/",
+      "http://verdewheels.com",
+      "http://vimeocdn.com",
+      "http://vipmodular.com",
+      "http://vjs.zencdn.net",
+      "http://vjs.zencdn.net/c/video.js",
+      "http://vjs.zencdn.net/c/video-js.css",
+      "http://vjs.zencdn.net/c/video-js.png",
+      "http://vod.ebay.com",
+      "http://wdatlanta.com",
+      "http://weblink2.kmtire.com",
+      "http://winstar.com",
+      "http://wisconsintechconnect.com",
+      "http://www.2cravealloys.com/",
+      "http://www.advancedfeedback.com/members/dtat/pac-west.html",
+      "http://www.anthemstuff.com",
+      "http://www.avid1wheels.com/",
+      "http://www.avmws.com",
+      "http://www.azcasinoknights.com",
+      "http://www.befirst2drive.com",
+      "http://www.brainshark.com/",
+      "http://www.bridgestoneretailerrewards.com/",
+      "http://www.carlislebradntires.com/",
+      "http://www.collegecentral.com/dctc",
+      "http://www.colorpaq.com",
+      "http://www.decdynamics.com",
+      "http://www.discounttire.com",
+      "http://www.discounttireaz.shutterfly.com/",
+      "http://www.discounttirein.shutterfly.com",
+      "http://www.dreamracing.com",
+      "http://www.dtcads.com",
+      "http://www.dtdaccessories.com",
+      "http://www.employflorida.com",
+      "http://www.founditlower.com",
+      "http://www.freevideocoding.com",
+      "http://www.global-rallycross.com",
+      "http://www.harriger.com/",
+      "http://www.iamenrolling.com",
+      "http://www.jk-experience.com/",
+      "http://www.jobfairgiant.com/",
+      "http://www.kaltura.com",
+      "http://www.kmtire.com/",
+      "http://www.lightthenight.org",
+      "http://www.longlovecars.com",
+      "http://www.metroplexmini.org",
+      "http://www.michelinlearninginstitute.net",
+      "http://www.momousa.com",
+      "http://www.nba.com/suns/discounttiretix",
+      "http://www.nba.com/suns/tickets",
+      "http://www.newliferecoveryaz.org",
+      "http://www.nicheroadwheels.com",
+      "http://www.penskeracing.com",
+      "http://www.phoenixcasinoevent.com",
+      "http://www.pick22towin.com",
+      "http://www.polyperformance.com/",
+      "http://www.screencast.com/crossdomain.xml",
+      "http://www.screencast.com/inc",
+      "http://www.screencast.com/users",
+      "http://www.scribd.com/doc",
+      "http://www.scribd.com/docs",
+      "http://www.scribd.com/embed",
+      "http://www.scribd.com/fullscreen",
+      "http://www.shutterfly.com/",
+      "http://www.siriusxm.com",
+      "http://www.siriusxm.com/care",
+      "http://www.sixtiresnoplan.com",
+      "http://www.sotaoffroad.com/",
+      "http://www.suns.com/discounttiretix",
+      "http://www.takeofftires.net/member/search.php",
+      "http://www.thesquealingtire.com",
+      "http://www.tirecenters.com",
+      "http://www.tourenwheels.com/",
+      "http://www.travispastrana.com",
+      "http://www.viddler.com",
+      "http://www.whitewaterconnection.com",
+      "http://www.xxrwheels.com",
+      "http://www.zndsk.com",
+      "https://ajax.googleapis.com",
+      "https://brmi.hipchat.com",
+      "https://builds.cdn.citrixonline.com",
+      "https://care.siriusxm.com",
+      "https://clientmigration.trucomply.com",
+      "https://discounttire.sharepoint.com/",
+      "https://discounttirebenefits.com",
+      "https://discounttire-my.sharepoint.com",
+      "https://discoverybenefits.com/",
+      "https://docs.google.com/present/view?id=d5fbb6t_0f79k83g2",
+      "https://goodyeartirerebates.com/",
+      "https://gwc.lphbs.com",
+      "https://iamenrolling.com/uploadgroup.aspx",
+      "https://idahostatesman.adperfect.com",
+      "https://jncwheels.com/",
+      "https://landeskwdr01*",
+      "https://landeskwp01*",
+      "https://ldcore*",
+      "https://oss.ticketmaster.com",
+      "https://participant.empower-retirement.com/",
+      "https://passportrewards.myguestaccount.com/login/verifycard.srv",
+      "https://plus.google.com",
+      "https://refserve2.com",
+      "https://sanjose.ebindr.com",
+      "https://secure.adpay.com",
+      "https://shopdt.tsw.com/",
+      "https://smith.chaosrxoptics.com",
+      "https://spreadsheets.google.com/pub?key=0armw_x1yq8vxdgjolxp0rdlcevrnyjl4bdaxts1umue&hl=en&output=html",
+      "https://spreadsheets.google.com/pub?key=pwsvm3exypcwmqelky8_kpw",
+      "https://spreadsheets.google.com/spreadsheet/pub?key=0ajqugxrwx1ajcfdtdm0zrxhzugn",
+      "https://ssl.avmws.com",
+      "https://stats.kaltura.com/",
+      "https://streamhoster.com",
+      "https://survey.alchemer.com",
+      "https://text.vzw.com/customer_site",
+      "https://text.vzw.com/servlet",
+      "https://treadmaxx.com/",
+      "https://tsportline.com/",
+      "https://vimeo.com/482770242",
+      "https://vimeo.com/smartvid/review/392095200/9e0be6cd9c",
+      "https://weblink2.kmtire.com/cgi-bin/login",
+      "https://www.carid.com/",
+      "https://www.carlislebrandtires.com/",
+      "https://www.centerstagelibrary.com",
+      "https://www.decdynamics.com",
+      "https://www.dtcads.com",
+      "https://www.dx4wheels.com/",
+      "https://www.employflorida.com",
+      "https://www.hipchat.com/",
+      "https://www.hondastore.com",
+      "https://www.iamenrolling.com",
+      "https://www.kornerstonefunerals.com/obituary/jerri-willis",
+      "https://www.level8wheels.com/",
+      "www.locktonsurvey.com",
+      "www.mywheelfinder.com/",
+      "www.ntb.com/",
+      "www.sirius.com",
+      "www.sotaoffroad.com/",
+      "www.tcitips.com",
+      "www.tirekingdom.com/",
+      "www.trwholesalesolutions.com",
+      "www.turn14.com/",
+      "www.yokohamatirerebates.com/",
+      "ldmg.discounttireco.com",
+      "meraki.com",
+      "outlook.com",
+      "outlook.office.com",
+      "outlook.live.com",
+      "pirellicompetizioni.com",
+      "pleasantholidays.com",
+      "portaldocs.dtcphx.com",
+      "powerlane.usautoforce.com",
+      "prestigeautotechcorp.com",
+      "procomptires.com",
+      "prodrive-usa.com",
+      "prodssl.protectedtransactions.com",
+      "progressauto.com",
+      "redbournewheels.com",
+      "renneninternational.com",
+      "retireonline.com/",
+      "ridetech.com",
+      "rimpro.com",
+      "rimslegend.com",
+      "rimstock.com",
+      "riskonnect.cloudforce.com",
+      "Riskonnect.com",
+      "roadamerica.com",
+      "russellkarting.com/dunlop.htm",
+      "saleen.com",
+      "samotorsportsinc.com",
+      "scca.com",
+      "security.voyaemployeebenefits.com/",
+      "sinisterwheel.com",
+      "spinweel.com",
+      "sporzawheels.com",
+      "squarespace.com/",
+      "squarespace-cdn.com/",
+      "startkaia.com/discounttire",
+      "strongwheels.com",
+      "str-racing.net",
+      "suburbantire.com",
+      "t.sellpoints.com",
+      "takeofftires.net",
+      "tenzoracingsports.com",
+      "thewheelsmith.net",
+      "timecentral.trtc.com",
+      "timecentral.trtc.com/wfc/login",
+      "timecentral.trtc.com/wfc/portal",
+      "tirecostore.com",
+      "tirekingdom.com/",
+      "tirerack.com",
+      "tires.com",
+      "tireswarehouse.com",
+      "titan-intl.com",
+      "topnotchcreations.smugmug.com",
+      "touringcarclub.com",
+      "trailertpms.com",
+      "transamericanwholesale.com",
+      "tripcheck.com",
+      "tristatetire.com",
+      "tsw.com",
+      "tyresinternational.com",
+      "ultrawheel.com",
+      "uniquewheel.com",
+      "ustcc.com",
+      "veloxwheels.com",
+      "viamichelin.com",
+      "victorequipmentwheels.com",
+      "visionwheel.com",
+      "voguetyre.com",
+      "vulcantire.com",
+      "Webex.com/",
+      "weblink.kmtire.com",
+      "wellsfargo.com",
+      "wenol.com",
+      "wesden.com",
+      "wheelspecialists.com",
+      "wheelwax.com",
+      "willmore.com",
+      "wired.meraki.com",
+      "worxalloy.com/",
+      "worxwheels.com/",
+      "wp.com",
+      "wp.me",
+      "www.americanoffroadwheels.com/",
+      "www.bthafgolf.net",
+      "www.dirtylifewheels.com",
+      "www.falkentire.com",
+      "www.greenball.com",
+      "www.HomeDepot.com",
+      "www.hostilewheels.com",
+      "www.kaltura.com",
+      "www.mkwalloy.com",
+      "www.motegiracing.com",
+      "www.ridlerwheel.com",
+      "www.showmethepartsdb3.com/",
+      "www.SimpleTire.com",
+      "www.TiresDirect.net",
+      "www.webex.com",
+      "www.wheelvintiques.com",
+      "www.xxrwheel.com",
+      "Yokohamatirerebate.com",
+      "zeforged.com",
+      "zenetti.com",
+      "http://call.lifesizecloud.com",
+      "https://call.lifesizecloud.com",
+      "lifesizecloud.com",
+      "lifesize.com",
+      "teams.microsoft.com",
+      "https://statics.teams.cdn.office.net",
+      "https://docs.google.com/forms",
+      "https://docs.google.com",
+      "https://docs.google.com/forms/d/e/1FAIpQLSc62K8LV18za_y_Ulmqow7xLXf4UXC-w4ylXkKXPZPI_3fgZQ/viewform",
+      "https://docs.google.com/forms/d/e/1FAIpQLSfMnYturq1nOyMRk0aCbJx2saRDiLWmpAyQaD0oY4T3oZJh1Q/viewform",
+      "hunter.com/",
+      "https://hunternet.okta.com/",
+      "dtcrxoptics.com/",
+      "app.smartsheet.com/",
+      "forms.smartsheet.com/",
+      "webappassets.smartsheet.com/",
+      "s.smartsheet.com/",
+      "smartsheet.com/",
+      "sixflags.com/",
+      "https://www.tomorrowsworldtoday.com/",
+      "https://na2.docusign.net/",
+      "https://docusign.net/",
+      "https://na.account.docusign.com/"
+    ]
+  },
+  "vpn_settings": {
+    "mode": "spoke",
+    "hubs": [
+      {
+        "hubId": "L_650207196201630546",
+        "useDefaultRoute": false
+      },
+      {
+        "hubId": "L_650207196201631502",
+        "useDefaultRoute": false
+      },
+      {
+        "hubId": "L_650207196201631505",
+        "useDefaultRoute": false
+      },
+      {
+        "hubId": "N_650207196201700339",
+        "useDefaultRoute": false
+      }
+    ],
+    "subnets": [
+      {
+        "localSubnet": "10.1.32.0/25",
+        "useVpn": true
+      },
+      {
+        "localSubnet": "10.1.32.128/27",
+        "useVpn": true
+      },
+      {
+        "localSubnet": "10.1.32.160/28",
+        "useVpn": true
+      },
+      {
+        "localSubnet": "10.1.32.176/28",
+        "useVpn": true
+      },
+      {
+        "localSubnet": "10.1.32.192/28",
+        "useVpn": true
+      },
+      {
+        "localSubnet": "172.13.0.0/30",
+        "useVpn": false
+      },
+      {
+        "localSubnet": "172.14.0.0/24",
+        "useVpn": false
+      },
+      {
+        "localSubnet": "172.21.0.0/24",
+        "useVpn": false
+      },
+      {
+        "localSubnet": "172.22.0.0/24",
+        "useVpn": false
+      },
+      {
+        "localSubnet": "10.1.32.252/30",
+        "useVpn": true
+      }
+    ]
+  }
+}

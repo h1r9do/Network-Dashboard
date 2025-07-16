@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meraki WAN Daily Summary</title>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css">
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+  <style>
+    .alert-cell {
+      background-color: rgba(255, 0, 0, 0.5) !important;
+      font-weight: bold !important;
+      color: #000 !important;
+    }
+    .highlight-circuit {
+      background-color: #fffde7 !important;
+    }
+    .highlight-store {
+      background-color: #ffd6d6 !important;
+    }
+    .date-picker-container {
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .search-container {
+      margin: 20px 0;
+      padding: 15px;
+      background: #f8f9fa;
+      border-radius: 5px;
+    }
+    #metrics {
+      border-collapse: collapse;
+      width: 100%;
+      border: 2px solid #333;
+    }
+    #metrics th, #metrics td {
+      border: 1px solid #333 !important;
+      padding: 8px;
+      text-align: center;
+    }
+    #metrics th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+      border-bottom: 2px solid #333 !important;
+    }
+    #metrics tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    #metrics tr:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+  <h2>Meraki WAN Daily Summary</h2>
+
+  <div class="search-container">
+    <input type="text" id="circuitSearch" class="form-control" placeholder="Search circuits...">
+    <button class="btn btn-primary" type="button" id="searchBtn">Search</button>
+    <button class="btn btn-secondary" type="button" id="clearBtn">Clear Filters</button>
+    <button class="btn btn-outline-secondary quick-search-btn" data-search="inseego">Inseego</button>
+    <button class="btn btn-outline-secondary quick-search-btn" data-search="starlink">Starlink</button>
+    <button class="btn btn-outline-secondary quick-search-btn" data-search="inseego+starlink">Inseego + Starlink</button>
+    <button class="btn btn-warning" type="button" id="showIssuesBtn">Show All with Issues</button>
+    <select id="tagFilter" style="width: 300px;"><option value="">-- Filter by Tag --</option></select>
+  </div>
+
+  <div class="date-picker-container">
+    <label for="datePicker">Select Date:</label>
+    <input type="text" id="datePicker" placeholder="Select date">
+    <button id="refreshBtn">Refresh Data</button>
+  </div>
+
+  <div style="text-align:right; margin-bottom: 5px;"><strong id="storeCount"></strong></div>
+  <table id="metrics" class="display">
+    <thead>
+      <tr>
+        <th>Store</th><th>Uplink</th><th>WAN Label</th>
+        <th>Loss Min</th><th>Loss Max</th><th>Loss Avg</th>
+        <th>Latency Min</th><th>Latency Max</th><th>Latency Avg</th>
+        <th>Jitter Min</th><th>Jitter Max</th><th>Jitter Avg</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+<script>
+$(document).ready(function () {
+  let allData = [];
+  let tagMap = {};
+
+  const table = $('#metrics').DataTable({
+    dom: 'rt',
+    pageLength: 50
+  });
+
+  const datePicker = flatpickr("#datePicker", {
+    dateFormat: "Ymd", defaultDate: new Date(), maxDate: new Date()
+  });
+
+  function normalize(str) {
+    return str ? str.trim().toUpperCase() : "";
+  }
+
+  function loadTags() {
+    fetch('/tags')
+      .then(res => res.json())
+      .then(data => {
+        tagMap = data;
+        const tags = new Set();
+        Object.values(data).forEach(list => list.forEach(tag => tags.add(tag)));
+        const $tagSelect = $('#tagFilter');
+        $tagSelect.empty().append('<option value="">-- Filter by Tag --</option>');
+        Array.from(tags).sort().forEach(tag => {
+          $tagSelect.append(`<option value="${tag}">${tag}</option>`);
+        });
+        $tagSelect.select2({ placeholder: "Filter by Tag", allowClear: true });
+      });
+  }
+
+  function buildRow(store, rows, tags) {
+    const tooltip = tags?.join(', ') || '';
+    const normalizedStore = normalize(store);
+    return rows.map((row, i) => {
+      return `<tr>${i === 0 ? `<td rowspan="${rows.length}" title="${tooltip}">${normalizedStore}</td>` : ''}
+        <td>${row.uplink}</td>
+        <td>${row.wanLabel || ''}</td>
+        <td>${row.min_loss}</td><td>${row.max_loss}</td><td>${row.avg_loss}</td>
+        <td>${row.min_latency}</td><td>${row.max_latency}</td><td>${row.avg_latency}</td>
+        <td>${row.min_jitter}</td><td>${row.max_jitter}</td><td>${row.avg_jitter}</td></tr>`;
+    }).join('');
+  }
+
+  function renderTable(data) {
+    const grouped = {};
+    const uniqueStores = new Set();
+    data.forEach(row => {
+      const store = normalize(row.store);
+      uniqueStores.add(store);
+      grouped[store] = grouped[store] || [];
+      grouped[store].push(row);
+    });
+
+    $('#storeCount').text(`Stores: ${uniqueStores.size}`);
+    let body = '';
+    Object.keys(grouped).sort().forEach(store => {
+      body += buildRow(store, grouped[store], tagMap[store]);
+    });
+    $('#metrics tbody').html(body);
+
+    $('#metrics tbody tr').each(function () {
+      $(this).find('td').each(function (i) {
+        const val = parseFloat($(this).text());
+        if ((i >= 3 && i <= 5 && val > 3) ||
+            (i >= 6 && i <= 8 && val > 120) ||
+            (i >= 9 && i <= 11 && val > 20)) {
+          $(this).addClass('alert-cell');
+        }
+      });
+    });
+  }
+
+  function loadData(date) {
+    fetch(`/metrics?date=${date || ''}`)
+      .then(res => res.json())
+      .then(data => {
+        allData = data;
+        renderTable(data);
+      });
+  }
+
+  $('#refreshBtn').click(() => loadData(datePicker.input.value));
+
+	$('#searchBtn').click(() => {
+	  const rawSearch = $('#circuitSearch').val();
+	  const keywords = rawSearch.split('+').map(k => normalize(k)).filter(Boolean);
+
+	  const filtered = allData.filter(row => {
+		const label = normalize(row.wanLabel || '');
+		const store = normalize(row.store || '');
+		return keywords.some(k =>
+		  label.includes(k) || store.includes(k)
+		);
+	  });
+
+	  renderTable(filtered);
+	});
+
+  $('#clearBtn').click(() => {
+    $('#circuitSearch').val('');
+    $('#tagFilter').val('').trigger('change');
+    renderTable(allData);
+  });
+
+  $('.quick-search-btn').click(function () {
+    const searchTerm = $(this).data('search');
+    $('#circuitSearch').val(searchTerm);
+    $('#searchBtn').click();
+  });
+
+  $('#tagFilter').on('change', function () {
+    const tag = $(this).val();
+    if (!tag) return renderTable(allData);
+    const filtered = allData.filter(row => {
+      const store = normalize(row.store);
+      return tagMap[store]?.includes(tag);
+    });
+    renderTable(filtered);
+  });
+
+  $('#showIssuesBtn').click(() => {
+    const filtered = allData.filter(row =>
+      row.max_loss > 3 || row.max_latency > 120 || row.max_jitter > 20
+    );
+    renderTable(filtered);
+  });
+
+  loadTags();
+  loadData();
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Inventory Test - Tab 4 Data</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #2c3e50; }
+        .status { background: #27ae60; color: white; padding: 10px; border-radius: 5px; margin: 10px 0; }
+        .error { background: #e74c3c; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #34495e; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .parent { background-color: #e8f4f8; font-weight: bold; }
+        .fex { background-color: #fff3cd; }
+    </style>
+</head>
+<body>
+    <h1>Inventory Test Page - Tab 4 Datacenter Inventory</h1>
+    <div id="status" class="status">Loading datacenter inventory data...</div>
+    <div id="summary"></div>
+    <div id="content"></div>
+
+    <script>
+    // Fetch the datacenter inventory data
+    fetch('/api/inventory-datacenter')
+        .then(response => response.json())
+        .then(data => {
+            const statusDiv = document.getElementById('status');
+            const summaryDiv = document.getElementById('summary');
+            const contentDiv = document.getElementById('content');
+            
+            if (data.inventory && data.inventory.length > 0) {
+                statusDiv.innerHTML = `✅ Successfully loaded ${data.inventory.length} inventory items`;
+                
+                // Create summary
+                let deviceCount = 0;
+                let fexCount = 0;
+                let moduleCount = 0;
+                let sfpCount = 0;
+                
+                data.inventory.forEach(item => {
+                    if (item.position === 'Parent Switch' || item.position === 'Standalone' || item.position === 'Master') {
+                        deviceCount++;
+                    } else if (item.position && item.position.includes('FEX')) {
+                        fexCount++;
+                    } else if (item.position === 'Module') {
+                        moduleCount++;
+                    } else if (item.position === 'SFP') {
+                        sfpCount++;
+                    }
+                });
+                
+                summaryDiv.innerHTML = `
+                    <h2>Summary</h2>
+                    <p>Total Items: ${data.inventory.length}</p>
+                    <p>Parent/Standalone Devices: ${deviceCount}</p>
+                    <p>FEX Devices: ${fexCount}</p>
+                    <p>Modules: ${moduleCount}</p>
+                    <p>SFPs: ${sfpCount}</p>
+                `;
+                
+                // Create table
+                let tableHtml = `
+                    <h2>Inventory Data (First 100 items)</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Hostname</th>
+                                <th>IP Address</th>
+                                <th>Position</th>
+                                <th>Model</th>
+                                <th>Serial Number</th>
+                                <th>Port Location</th>
+                                <th>Vendor</th>
+                                <th>End of Sale</th>
+                                <th>End of Support</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                `;
+                
+                // Show first 100 items
+                data.inventory.slice(0, 100).forEach(item => {
+                    let rowClass = '';
+                    if (item.position === 'Parent Switch') rowClass = 'parent';
+                    else if (item.position && item.position.includes('FEX')) rowClass = 'fex';
+                    
+                    tableHtml += `
+                        <tr class="${rowClass}">
+                            <td>${item.hostname || ''}</td>
+                            <td>${item.ip_address || ''}</td>
+                            <td>${item.position || ''}</td>
+                            <td>${item.model || ''}</td>
+                            <td>${item.serial_number || ''}</td>
+                            <td>${item.port_location || ''}</td>
+                            <td>${item.vendor || ''}</td>
+                            <td>${item.end_of_sale || ''}</td>
+                            <td>${item.end_of_support || ''}</td>
+                        </tr>
+                    `;
+                });
+                
+                tableHtml += '</tbody></table>';
+                contentDiv.innerHTML = tableHtml;
+                
+            } else {
+                statusDiv.className = 'status error';
+                statusDiv.innerHTML = '❌ No inventory data found';
+            }
+        })
+        .catch(error => {
+            const statusDiv = document.getElementById('status');
+            statusDiv.className = 'status error';
+            statusDiv.innerHTML = `❌ Error loading data: ${error}`;
+        });
+    </script>
+</body>
+</html>

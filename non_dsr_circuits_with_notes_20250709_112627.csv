@@ -1,0 +1,1502 @@
+site_name,circuit_purpose,provider_name,speed_original,speed_corrected,ip_address,arin_provider,wan_interface,source,status,last_updated,needs_speed_fix,billing_monthly_cost,contract_start_date,contract_term,early_termination_fee,raw_notes
+AZN 04,Primary,Frontier,20.0M x 20.0M,20.0M x 20.0M,12.39.141.194,AT&T,WAN1,Non-DSR,Enabled,2025-07-07 11:49:51.480822,False,0.0,,,,"WAN1 NOT DSR
+Frontier Dedicated Fiber 20M x 20M
+First IP 12.39.141.194
+Gateway 12.39.141.193
+Subnet 255.255.255.248
+WAN2  Digi"
+AZN 04,Secondary,Digi,Cell,Cell,166.128.29.96,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-07 11:49:51.480822,False,0.0,,,,"WAN1 NOT DSR
+Frontier Dedicated Fiber 20M x 20M
+First IP 12.39.141.194
+Gateway 12.39.141.193
+Subnet 255.255.255.248
+WAN2  Digi"
+AZP 41,Primary,AT&T,20.0M x 20.0M,20.0M x 20.0M,12.111.1.74,Unknown,WAN1,Non-DSR,Enabled,2025-07-09 06:49:23.953543,False,0.0,,,,"WAN1 NOT DSR AT&T ADI 20 MB x 20 MB
+First IP 12.111.1.74
+Gateway 12.111.1.73
+Subnet 255.255.255.248
+Wan 2: VZG"
+AZP 41,Secondary,Starlink,Satellite,Satellite,143.105.158.34,Unknown,WAN2,Non-DSR,Enabled,2025-07-09 06:49:23.953543,False,0.0,,,,"WAN1 NOT DSR AT&T ADI 20 MB x 20 MB
+First IP 12.111.1.74
+Gateway 12.111.1.73
+Subnet 255.255.255.248
+Wan 2: VZG"
+AZP 56,Primary,ComcastAgg,10.0M x 10.0M,10.0M x 10.0M,63.224.146.6,"CenturyLink Communications, LLC",WAN1,Non-DSR,Enabled,2025-07-09 06:49:41.369535,False,0.0,,,,"WAN1 (ComcastAgg) CenturyLink 10.0M x 768
+IP: 63.224.146.1 - .5
+Subnetmask: 255.255.255.248
+Gateway: 63.224.146.6
+7168 x 896
+
+WAN2 - Digi"
+AZP 56,Secondary,Digi,Cell,Cell,108.147.172.60,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-09 06:49:41.369535,False,0.0,,,,"WAN1 (ComcastAgg) CenturyLink 10.0M x 768
+IP: 63.224.146.1 - .5
+Subnetmask: 255.255.255.248
+Gateway: 63.224.146.6
+7168 x 896
+
+WAN2 - Digi"
+AZP 63,Primary,Starlink,Satellite,Satellite,143.105.158.128,"SpaceX Services, Inc.",WAN1,Non-DSR,Enabled,2025-07-09 08:44:56.798844,False,0.0,,,,
+AZP 63,Secondary,VZG Cell,Cell,Cell,174.218.25.166,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-09 08:44:56.798844,False,0.0,,,,
+AZP 64,Primary,Starlink,Satellite,Satellite,143.105.59.156,"SpaceX Services, Inc.",WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 AT&T, POE injector - Inseego Wavemaker FW2000e - supported through David Schulman
+
+WAN2 VZG
+IMEI: 356405432320357
+Loc: Mid pod between NS04 & NS05"
+AZP 64,Secondary,AT&T Cell,Cell,Cell,166.194.143.6,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 AT&T, POE injector - Inseego Wavemaker FW2000e - supported through David Schulman
+
+WAN2 VZG
+IMEI: 356405432320357
+Loc: Mid pod between NS04 & NS05"
+AZPB 20,Primary,Connected to Desert Ridge MX250,,,98.175.209.47,Cox Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"Location: Desert Ridge Test Lab
+
+WAN 1 
+Connected to Desert Ridge MX250
+
+WAN 2
+Digi AT&T LTE
+MAC: 00:27:04:33:F4:AC
+ICCID: 89014103271542245665
+
+
+"
+AZPB 20,Secondary,Digi,Cell,Cell,166.128.221.236,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"Location: Desert Ridge Test Lab
+
+WAN 1 
+Connected to Desert Ridge MX250
+
+WAN 2
+Digi AT&T LTE
+MAC: 00:27:04:33:F4:AC
+ICCID: 89014103271542245665
+
+
+"
+BSM Test Network,Primary,BSM Lab in the Test Lab area of Scottsdale HQ,,,166.184.132.8,"AT&T Enterprises, LLC",WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,BSM Lab in the Test Lab area of Scottsdale HQ
+CAL_00,Primary,Frontier Communications,500.0M x 500.0M,500.0M x 500.0M,47.180.93.139,Unknown,WAN1,Non-DSR,Enabled,2025-07-09 06:51:32.391970,False,0.0,,,,"WAN1 DSR Frontier 500.0M x 500.0M
+First IP 47.180.93.139
+Gateway IP 47.180.93.1
+Subnet 255.255.255.0
+WAN2 DSR - Spectrum | Extended Cable | 600.0M x 35.0M
+IP 98.152.193.10
+GW 98.152.193.9
+Subnet .252"
+CAL_00,Secondary,Charter Communications,600.0M x 35.0M,600.0M x 35.0M,98.152.193.10,Unknown,WAN2,Non-DSR,Enabled,2025-07-09 06:51:32.391970,False,0.0,,,,"WAN1 DSR Frontier 500.0M x 500.0M
+First IP 47.180.93.139
+Gateway IP 47.180.93.1
+Subnet 255.255.255.0
+WAN2 DSR - Spectrum | Extended Cable | 600.0M x 35.0M
+IP 98.152.193.10
+GW 98.152.193.9
+Subnet .252"
+CAL 17,Primary,Frontier Communications,500.0M x 500.0M,500.0M x 500.0M,47.176.201.18,Frontier Communications,WAN1,Non-DSR,Enabled,2025-07-09 06:50:17.970666,False,0.0,,,,"WAN1 NOT DSR Frontier Fiber 500.0M x 500.0M
+First IP 47.176.201.18
+Gateway 47.176.201.17
+Subnet 255.255.255.248
+EVC Circuit:45/CUXP/986199/   /FTNC/
+UNI Circuit:45/L1XN/986198/   /FTNC/
+WAN2 VZG IMEI: 356405432462415"
+CAL 17,Secondary,VZW Cell,Cell,Cell,166.180.159.133,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-09 06:50:17.970666,False,0.0,,,,"WAN1 NOT DSR Frontier Fiber 500.0M x 500.0M
+First IP 47.176.201.18
+Gateway 47.176.201.17
+Subnet 255.255.255.248
+EVC Circuit:45/CUXP/986199/   /FTNC/
+UNI Circuit:45/L1XN/986198/   /FTNC/
+WAN2 VZG IMEI: 356405432462415"
+CAL 20,Primary,Frontier Communications,500.0M x 500.0M,500.0M x 500.0M,47.179.15.126,Frontier Communications,WAN1,Non-DSR,Enabled,2025-07-09 06:50:41.633674,False,0.0,,,,"WAN1: 
+Frontier Dedicated Fiber | Uni Circuit | 500M x 500M
+UNI Circuit: 45/L1XN/989864/   /FTNC/
+Service/Speed: 500 Mbps
+IP: 47.179.15.122 
+GW: 47.179.15.121
+Sub: 255.255.255.248
+
+WAN2: VZN
+IMEI: 356405432273309"
+CAL 20,Secondary,VZW Cell,Cell,Cell,192.168.0.151,Private IP,WAN2,Non-DSR,Enabled,2025-07-09 06:50:41.633674,False,0.0,,,,"WAN1: 
+Frontier Dedicated Fiber | Uni Circuit | 500M x 500M
+UNI Circuit: 45/L1XN/989864/   /FTNC/
+Service/Speed: 500 Mbps
+IP: 47.179.15.122 
+GW: 47.179.15.121
+Sub: 255.255.255.248
+
+WAN2: VZN
+IMEI: 356405432273309"
+CAL 29,Primary,AT&T,,,12.3.118.66,AT&T,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (NOT DSR)
+AT&T ADI /MMEC/554463//ATI/
+GW: 12.3.118.65
+IP: 12.3.118.66
+Sub: 255.255.255.248
+Internet 1 going to Port 5 on AT&T Router
+
+WAN2: VZG
+IMEI: 356405430560863"
+CAL 29,Secondary,VZW Cell,Cell,Cell,166.154.40.59,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (NOT DSR)
+AT&T ADI /MMEC/554463//ATI/
+GW: 12.3.118.65
+IP: 12.3.118.66
+Sub: 255.255.255.248
+Internet 1 going to Port 5 on AT&T Router
+
+WAN2: VZG
+IMEI: 356405430560863"
+CAL W01,Primary,Frontier Fiber,1000.0M x 1000.0M,1000.0M x 1000.0M,47.178.4.124,Frontier Communications Corporation,WAN1,Non-DSR,Enabled,2025-07-09 06:51:11.440971,False,0.0,,,,"WAN1 DSR Frontier Fiber 1.0G x 1.0G
+First IP 47.178.4.124
+Gateway 47.178.4.1
+Subnet 255.255.255.0"
+CAL W01,Secondary,Digi,Cell,Cell,107.84.140.107,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-09 06:51:11.440971,False,0.0,,,,"WAN1 DSR Frontier Fiber 1.0G x 1.0G
+First IP 47.178.4.124
+Gateway 47.178.4.1
+Subnet 255.255.255.0"
+CAN_00,Primary,Comcast,300.0 M,300.0M x 30.0M,96.81.183.205,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"DSR
+Comcast Workplace | Extended Cable | 300.0M x 30.0M
+First IP In Block	96.81.183.205
+Last IP In Block	96.81.183.205
+Gateway IP	96.81.183.206
+Subnet Mask	255.255.255.252
+AT&T Broadband II | AT&T DSL | 300.0M x 300.0M 
+IP 108.86.147.217
+GW .222
+SN .248"
+CAN_00,Secondary,AT&T,300.0 M,300.0M x 300.0M,108.86.147.217,AT&T,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"DSR
+Comcast Workplace | Extended Cable | 300.0M x 30.0M
+First IP In Block	96.81.183.205
+Last IP In Block	96.81.183.205
+Gateway IP	96.81.183.206
+Subnet Mask	255.255.255.252
+AT&T Broadband II | AT&T DSL | 300.0M x 300.0M 
+IP 108.86.147.217
+GW .222
+SN .248"
+CAN 16,Primary,Frontier Communications,500.0 M,500.0M x 500.0M,47.176.225.2,Frontier Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 (DedicatedFiber)Frontier 500.0M x 500.0M
+IP Address 47.176.225.2 /30
+Gateway 47.176.225.1
+Subnet 255.255.255.252
+Nokia modem in storage closet 
+
+WAN2 DIGI"
+CAN 16,Secondary,Digi,Cell,Cell,166.184.156.31,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (DedicatedFiber)Frontier 500.0M x 500.0M
+IP Address 47.176.225.2 /30
+Gateway 47.176.225.1
+Subnet 255.255.255.252
+Nokia modem in storage closet 
+
+WAN2 DIGI"
+CAN 40,Primary,VZW Cell,Cell,Cell,166.253.101.36,Verizon Business,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"Wan1: VZG
+IMEI: 356405432591841
+
+Wan2: Digi AT&T LTE 
+"
+CAN 40,Secondary,Starlink,Satellite,Satellite,143.105.116.247,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"Wan1: VZG
+IMEI: 356405432591841
+
+Wan2: Digi AT&T LTE 
+"
+CAN W02,Primary,"AT&T Enterprises, LLC",,,107.84.138.33,"AT&T Enterprises, LLC",WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"Warehouse is running on Digi Cellular only.
+The order in DSR for CANW02 that is ready to enable is in CAN50 and is not being used."
+CAS_00,Primary,AT&T,300.0 M,300.0M x 300.0M,76.210.250.113,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 DSR AT&T Broadband II | AT&T ABF | 300.0M x 300.0M
+First IP In Block	76.210.250.113
+Gateway IP	76.210.250.118
+Subnet Mask	255.255.255.248
+
+WAN2 DSR Cox 300.0M x 30.0M
+First IP 98.178.226.110
+Gateway 98.178.226.97
+Subnet 255.255.255.240"
+CAS_00,Secondary,Cox Communications,300.0 M,300.0M x 30.0M,98.178.226.110,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 DSR AT&T Broadband II | AT&T ABF | 300.0M x 300.0M
+First IP In Block	76.210.250.113
+Gateway IP	76.210.250.118
+Subnet Mask	255.255.255.248
+
+WAN2 DSR Cox 300.0M x 30.0M
+First IP 98.178.226.110
+Gateway 98.178.226.97
+Subnet 255.255.255.240"
+CAS 35,Primary,Frontier Communications,500.0 M,500.0M x 500.0M,47.176.206.178,Frontier Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 Frontier | Frontier DIA  | 500 MB x 500 MB
+UNI - 45/L1XN/813565//FTNC
+EVC - 45/CUXP/813564//FTNC 
+First IP In Block 47.176.206.178
+Gateway IP	47.176.206.177
+Subnet Mask	255.255.255.248
+
+WAN2 VZG
+IMIE: 356405432321199"
+CAS 35,Secondary,VZW Cell,Cell,Cell,192.168.0.151,Private IP,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 Frontier | Frontier DIA  | 500 MB x 500 MB
+UNI - 45/L1XN/813565//FTNC
+EVC - 45/CUXP/813564//FTNC 
+First IP In Block 47.176.206.178
+Gateway IP	47.176.206.177
+Subnet Mask	255.255.255.248
+
+WAN2 VZG
+IMIE: 356405432321199"
+CAS 40,Primary,Frontier Communications,500.0 M,500.0M x 50.0M,47.179.21.123,Frontier Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 NOT DSR
+Frontier Fiber 500M x 50M
+Frontier NOC: 1-888-637-9620
+45/L1XN/007902//FTNC
+Usable IP: 47.179.21.123
+GW: 47.179.21.121
+SUB: 255.255.255.248
+More equipment in the mop closet.
+
+WAN2: 
+Digi
+Mac: 00270434D2FB"
+CAS 40,Secondary,Digi,Cell,Cell,107.84.138.73,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 NOT DSR
+Frontier Fiber 500M x 50M
+Frontier NOC: 1-888-637-9620
+45/L1XN/007902//FTNC
+Usable IP: 47.179.21.123
+GW: 47.179.21.121
+SUB: 255.255.255.248
+More equipment in the mop closet.
+
+WAN2: 
+Digi
+Mac: 00270434D2FB"
+CAS 41,Primary,Frontier Communications,500.0 M,500.0M x 500.0M,47.176.225.10,Frontier Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1: NOT DSR
+Frontier Dedicated Fiber 500m x 500m
+UNI - 45/L1XN/813569//FTNC
+EVC - 45/CUXP/813568//FTNC
+IP: 47.176.225.10
+GW: 47.176.225.9
+Sub: 255.255.255.248
+
+WAN2: VZG"
+CAS 41,Secondary,VZW Cell,Cell,Cell,166.248.9.55,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1: NOT DSR
+Frontier Dedicated Fiber 500m x 500m
+UNI - 45/L1XN/813569//FTNC
+EVC - 45/CUXP/813568//FTNC
+IP: 47.176.225.10
+GW: 47.176.225.9
+Sub: 255.255.255.248
+
+WAN2: VZG"
+CAS 42,Primary,Cox Communications,,,72.211.52.244,Cox Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1: 
+Cox Communications AGG 300 X 30
+IP: 72.211.52.244
+GW: 72.211.52.241
+Sub: 255.255.255.240
+
+WAN2: VZG"
+CAS 42,Secondary,VZW Cell,Cell,Cell,107.84.133.124,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1: 
+Cox Communications AGG 300 X 30
+IP: 72.211.52.244
+GW: 72.211.52.241
+Sub: 255.255.255.240
+
+WAN2: VZG"
+CAS 46,Primary,AT&T,20.0 M,20.0M x 20.0M,12.111.1.98,AT&T,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"NOT DSR
+WAN1 AT&T ADI 20 MB x 20 MB
+Gateway 12.111.1.97
+IP Address 12.111.1.98 - 12.111.1.102
+Subnet 255.255.255.248
+Circuit ID - MMEC788280 ATI 
+
+WAN2 VZG"
+CAS 46,Secondary,VZW Cell,Cell,Cell,166.248.10.66,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"NOT DSR
+WAN1 AT&T ADI 20 MB x 20 MB
+Gateway 12.111.1.97
+IP Address 12.111.1.98 - 12.111.1.102
+Subnet 255.255.255.248
+Circuit ID - MMEC788280 ATI 
+
+WAN2 VZG"
+Central Store Test,Primary,Unknown,,,162.223.245.93,zColo,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+COD_00,Primary,"Comcast Cable Communications, LLC",,,173.164.63.45,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 DSR Comcast 600.0M x 35.0M
+First IP 173.164.63.45
+Gateway 173.164.63.46
+Subnet 255.255.255.252
+
+WAN2 DIG"
+COD_00,Secondary,"AT&T Enterprises, LLC",,,166.195.38.181,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 DSR Comcast 600.0M x 35.0M
+First IP 173.164.63.45
+Gateway 173.164.63.46
+Subnet 255.255.255.252
+
+WAN2 DIG"
+COD 01,Primary,Comcast,300.0 M,300.0M x 35.0M,96.78.2.33,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0M x 35.0M
+First IP 96.78.2.33
+Gateway 96.78.2.34
+Subnet 255.255.255.252
+
+WAN2: VZG"
+COD 01,Secondary,Verizon Business,Cell,Cell,166.248.10.6,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0M x 35.0M
+First IP 96.78.2.33
+Gateway 96.78.2.34
+Subnet 255.255.255.252
+
+WAN2: VZG"
+COD 03,Primary,Comcast,300.0 M,300.0M x 35.0M,96.75.122.169,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0M x 35.0M
+First IP 96.75.122.169
+Gateway 96.75.122.170
+Subnet 255.255.255.252"
+COD 08,Primary,Comcast,300.0 M,300.0M x 35.0M,96.75.124.5,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0M x 35.0M
+First IP 96.75.124.5
+Gateway 96.75.124.6
+Subnet 255.255.255.252"
+COD 09,Primary,Comcast,300.0 M,300.0M x 30.0M,96.75.102.5,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"Comcast Agg | 300M x 30M
+IP: 96.75.102.5
+Subnetmask: 255.255.255.252
+Gateway: 96.75.102.6"
+COD 13,Primary,Comcast,300.0 M,300.0M x 35.0M,96.76.170.93,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1(ComcastAgg)Comcast 300.0M x 35.0M
+IP: 96.76.170.93
+Sub: 255.255.255.252
+GW: 96.76.170.94
+
+WAN2: VZG IMEI # 356405432151745"
+COD 13,Secondary,VZW Cell,Cell,Cell,166.248.10.163,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1(ComcastAgg)Comcast 300.0M x 35.0M
+IP: 96.76.170.93
+Sub: 255.255.255.252
+GW: 96.76.170.94
+
+WAN2: VZG IMEI # 356405432151745"
+COD 15,Primary,Comcast,,,96.90.174.117,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1: NOT DSR
+Comcast
+IP: 96.90.174.117
+Sub: 255.255.255.252
+GW: 96.90.174.118
+
+WAN2: VZG"
+COD 15,Secondary,Verizon Business,Cell,Cell,166.248.10.149,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1: NOT DSR
+Comcast
+IP: 96.90.174.117
+Sub: 255.255.255.252
+GW: 96.90.174.118
+
+WAN2: VZG"
+COD 17,Primary,Comcast,,,96.76.168.233,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 - Comcast
+IP: 96.76.168.233
+Subnet: 255.255.255.252
+Gateway: 96.76.168.234
+WAN 2 - VZN GW"
+COD 17,Secondary,VZW Cell,Cell,Cell,166.248.10.102,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 - Comcast
+IP: 96.76.168.233
+Subnet: 255.255.255.252
+Gateway: 96.76.168.234
+WAN 2 - VZN GW"
+COD 22,Primary,"Comcast Cable Communications, LLC",,,74.92.221.65,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0M x 35.0M
+First IP 74.92.221.65
+Gateway 74.92.221.66
+Subnet 255.255.255.252
+WAN2 VZG
+IMIE: 356405432272897"
+COD 22,Secondary,VZW Cell,Cell,Cell,166.246.91.127,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0M x 35.0M
+First IP 74.92.221.65
+Gateway 74.92.221.66
+Subnet 255.255.255.252
+WAN2 VZG
+IMIE: 356405432272897"
+COD 41,Primary,Lumen,300.0 M,300.0M x 300.0M,65.56.84.242,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"Wan 1 - Not in DSR
+Lumen 300 x 300
+Service ID 445443940
+Circuit ID 445443940
+IP: 65.56.84.242
+Sub: 255.255.255.252
+Gateway: 65.56.84.241
+
+Wan 2 - VZM 5G in the bay door 1 & 2, last bay. 
+
+
+Port 9 - Security system"
+COD 41,Secondary,Verizon Business,Cell,Cell,166.156.147.159,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"Wan 1 - Not in DSR
+Lumen 300 x 300
+Service ID 445443940
+Circuit ID 445443940
+IP: 65.56.84.242
+Sub: 255.255.255.252
+Gateway: 65.56.84.241
+
+Wan 2 - VZM 5G in the bay door 1 & 2, last bay. 
+
+
+Port 9 - Security system"
+Cog 02,Primary,Comcast,750.0 M,750.0M x 35.0M,50.198.210.201,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 - Comcast  600.0M x 35.0M
+First IP In Block	50.198.210.201
+Gateway	50.198.210.202
+Subnet	255.255.255.252
+
+WAN2 - Community  | 3rd party Fiber | 100.0M x 100.0M
+First IP In Block	74.114.7.176
+Gateway IP	74.114.7.129
+Subnet Mask	255.255.255.128"
+Cog 02,Secondary,Community Broadband Network,100.0 M,100.0 M,74.114.7.176,Glenwood Springs Community Broadband Network,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 - Comcast  600.0M x 35.0M
+First IP In Block	50.198.210.201
+Gateway	50.198.210.202
+Subnet	255.255.255.252
+
+WAN2 - Community  | 3rd party Fiber | 100.0M x 100.0M
+First IP In Block	74.114.7.176
+Gateway IP	74.114.7.129
+Subnet Mask	255.255.255.128"
+Corporate Store0,Primary,Corporate Store 0 Replica requested by Paul Higel Located in Endpoint Room Named MAR_01 in AD TEST STORE,,,184.183.25.158,Cox Communications Inc.,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"Corporate Store 0 Replica, requested by Paul Higel
+
+Located in Endpoint Room
+
+Named ""MAR_01"" in AD
+
+TEST STORE"
+Desert Ridge,Primary,Cox Network 500 Circuit ID 23.HMXX.126497 Acct 2318296-02 AT&T ADI,100.0 M,100.0 M,98.175.209.47,Cox Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"Cox Network 500/500 Circuit ID 23.HMXX.126497
+Acct# 2318296-02
+
+AT&T ADI 100M x 100M
+IUEC/995355//ATI"
+DR VTV Test Lab II,Primary,Unknown,,,98.175.209.47,Cox Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+East Store Test,Primary,Unknown,,,73.7.36.236,"Comcast IP Services, L.L.C.",WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+EQX-DataCenter-WA,Primary,Unknown,,,149.97.240.36,"Equinix, Inc.",WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+EQX-DataCenter-WA,Primary,Unknown,,,149.97.240.36,"Equinix, Inc.",WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+EQX-OOB-WA-02,Primary,Unknown,,,0.0.0.0,Private IP,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+Flight Department,Primary,Cox Communications Inc.,,,70.175.22.38,Cox Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 DSR (Konfara) Cox 500.0M x 50.0M
+First IP 70.175.22.38
+Gateway IP 70.175.22.33
+Subnet 255.255.255.240
+
+WAN2 VZG"
+Flight Department,Secondary,VZW Cell,Cell,Cell,166.246.93.56,Verizon,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 DSR (Konfara) Cox 500.0M x 50.0M
+First IP 70.175.22.38
+Gateway IP 70.175.22.33
+Subnet 255.255.255.240
+
+WAN2 VZG"
+Flight Department - Pilot,Primary,Cox Communications,,,68.227.44.114,Cox Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"Cox Communications:
+Bandwidth : 1 Gig
+WAN Network Address:  68.227.44.112/30
+Customer WAN Subnet mask: 255.255.255.252
+Customer WAN Gateway: 68.227.44.113
+Customer 1st usable : 68.227.44.114
+LAN Network address: 68.227.44.120/29"
+FP-DAL-OOBMGMT-01,Primary,Unknown,,,107.80.162.243,"AT&T Enterprises, LLC",WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+FP-DAL-OOBMGMT-02,Primary,Unknown,,,107.80.179.161,"AT&T Enterprises, LLC",WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+FP-iSeries-ATL,Primary,Unknown,,,209.51.139.244,zColo,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+FP-iSeries-DAL,Primary,Unknown,,,162.223.245.92,zColo,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+FP-iSeries-DAL,Primary,Unknown,,,162.223.245.92,zColo,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+GAACALLCNTR,Primary,AT&T,300.0 M,300.0M x 300.0M,104.184.151.49,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"Wan1 - AT&T Broadband II | AT&T DSL | 300.0M x 300.0M
+Wan2 -Spectrum | Extended Cable "
+GAACALLCNTR,Secondary,Charter Communications,100.0 M,100.0M x 30.0M,47.46.162.82,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"Wan1 - AT&T Broadband II | AT&T DSL | 300.0M x 300.0M
+Wan2 -Spectrum | Extended Cable "
+GAA W00,Primary,AT&T Broadband II,300.0 M,300.0M x 30.0M,45.22.51.193,AT&T,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,
+GAA W00,Secondary,Digi,Cell,Cell,107.85.128.174,AT&T,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+HPL_00,Primary,This is a one man office for Todd Richards.,,,24.43.139.54,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,This is a one man office for Todd Richards.
+Igor Lab,Primary,Unknown,,,107.127.197.67,"AT&T Enterprises, LLC",WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+ILC_00,Primary,Comcast,300.0 M,300.0M x 30.0M,96.74.249.185,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 DSR Comcast 300.0M x 30.0M
+First IP 96.74.249.185
+Gateway 96.74.249.186
+Subnet 255.255.255.252
+
+WAN2 DSR AT&T 300.0M x 300.0M
+First IP 107.209.6.145
+Gateway 107.209.6.150
+Subnet 255.255.255.248"
+ILC_00,Secondary,AT&T,300.0 M,300.0M x 300.0M,107.209.6.145,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 DSR Comcast 300.0M x 30.0M
+First IP 96.74.249.185
+Gateway 96.74.249.186
+Subnet 255.255.255.252
+
+WAN2 DSR AT&T 300.0M x 300.0M
+First IP 107.209.6.145
+Gateway 107.209.6.150
+Subnet 255.255.255.248"
+ILC 11,Primary,Comcast,300.0 M,300.0M x 35.0M,96.74.196.161,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0M x 35.0M
+First 96.74.196.161
+Gateway 96.74.196.162
+Subnet 255.255.255.252"
+ILC 12,Primary,Comcast,300.0 M,300.0M x 35.0M,96.68.37.73,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0M x 35.0M
+First IP 96.68.37.73
+Gateway 96.68.37.74
+Subnet 255.255.255.252
+WAN2 VZG
+IMEI: 356405432317437"
+ILC 12,Secondary,Verizon Business,Cell,Cell,166.246.93.70,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0M x 35.0M
+First IP 96.68.37.73
+Gateway 96.68.37.74
+Subnet 255.255.255.252
+WAN2 VZG
+IMEI: 356405432317437"
+ILC 41,Primary,"Comcast Cable Communications, LLC",,,162.17.62.145,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+ILC 41,Secondary,VZW Cell,Cell,Cell,166.169.67.209,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+ILC 42,Primary,Oswego Static /32,,,104.254.223.132,Metronet,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+ILC 42,Secondary,VZW Cell,Cell,Cell,166.168.180.169,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+ILC 43,Primary,"Comcast Cable Communications, LLC",,,50.77.166.229,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN2 VZG 
+IMEI: 356405432270818"
+ILC 43,Secondary,VZW Cell,Cell,Cell,166.168.184.46,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN2 VZG 
+IMEI: 356405432270818"
+ILC 44,Primary,Static pool - Cinergy MetroNet,,,217.180.239.153,Metronet,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+ILC 44,Secondary,VZW Cell,Cell,Cell,166.151.178.22,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+ILC 45,Primary,"Comcast Cable Communications, LLC",,,96.84.93.81,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+ILC 45,Secondary,VZW Cell,Cell,Cell,166.248.7.243,Verizon,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+ILC 46,Primary,"Comcast Cable Communications, LLC",,,96.70.60.26,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0 x 30.0
+First IP 96.70.60.26
+Gateway 96.70.60.25
+Subnet 255.255.255.252 
+
+WAN2 DIGI"
+ILC 46,Secondary,VZW Cell,Cell,Cell,166.253.101.118,Verizon,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0 x 30.0
+First IP 96.70.60.26
+Gateway 96.70.60.25
+Subnet 255.255.255.252 
+
+WAN2 DIGI"
+ILR 01,Primary,Comcast,600.0 M,600.0M x 35.0M,74.94.116.73,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 (ComcastAgg)Comcast 600.0M x 35.0M
+First IP 74.94.116.73
+Gateway 74.94.116.74
+Subnet 255.255.255.252"
+INI_00,Primary,DSR Cincinnati Bell ADSL,400.0 M,400.0M x 200.0M,66.42.186.206,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 DSR Cincinnati Bell ADSL 400.0M x 200.0M
+First IP 66.42.186.206
+Gateway 66.42.186.205
+Subnet 255.255.255.252
+Modem Location: Back wall
+
+WAN2 Spectrum ETE Cable 600.0M x 35.0M
+First IP In Block 71.66.89.90
+Gateway IP .89
+Subnet Mask 255.255.255.252"
+INI_00,Secondary,Charter Communications,600.0 M,600.0M x 35.0M,71.66.89.90,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 DSR Cincinnati Bell ADSL 400.0M x 200.0M
+First IP 66.42.186.206
+Gateway 66.42.186.205
+Subnet 255.255.255.252
+Modem Location: Back wall
+
+WAN2 Spectrum ETE Cable 600.0M x 35.0M
+First IP In Block 71.66.89.90
+Gateway IP .89
+Subnet Mask 255.255.255.252"
+INI W01,Primary,"Comcast Cable Communications, LLC",,,50.195.198.237,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 DSR Comcast Workplace Cable 300.0M x 30.0M
+First IP In Block 50.195.198.237
+Gateway IP 50.195.198.238
+Subnet Mask 255.255.255.252
+WAN2 
+DSR
+AT&T Broadband II | AT&T ABF | 300.0M x 300.0M
+First IP 99.33.34.9
+Last IP .13
+GW IP .14
+SN	.248"
+INI W01,Secondary,Private Customer - AT&T Internet Services,,,99.33.34.9,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 DSR Comcast Workplace Cable 300.0M x 30.0M
+First IP In Block 50.195.198.237
+Gateway IP 50.195.198.238
+Subnet Mask 255.255.255.252
+WAN2 
+DSR
+AT&T Broadband II | AT&T ABF | 300.0M x 300.0M
+First IP 99.33.34.9
+Last IP .13
+GW IP .14
+SN	.248"
+INW 02,Primary,Comcast,300.0 M,300.0M x 35.0M,96.72.115.9,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0M x 35.0M
+First IP 96.72.115.9
+Gateway 96.72.115.10
+Subnet 255.255.255.252
+
+WAN2 DIGI"
+INW 02,Secondary,Digi,Cell,Cell,107.85.135.19,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0M x 35.0M
+First IP 96.72.115.9
+Gateway 96.72.115.10
+Subnet 255.255.255.252
+
+WAN2 DIGI"
+KSK_00,Primary,Charter Communications,600.0 M,600.0M x 35.0M,150.220.245.70,Charter Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 DSR Spectrum 600.0M x 35.0M
+First IP 150.220.245.70
+Gateway 150.220.245.69
+Subnet 255.255.255.252
+
+WAN2 DSR AT&T 300.0M x 300.0M
+First IP 76.201.157.129
+Gateway 76.201.157.134
+Subnet 255.255.255.248"
+KSK_00,Secondary,AT&T,300.0 M,300.0M x 300.0M,76.201.157.129,AT&T,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 DSR Spectrum 600.0M x 35.0M
+First IP 150.220.245.70
+Gateway 150.220.245.69
+Subnet 255.255.255.252
+
+WAN2 DSR AT&T 300.0M x 300.0M
+First IP 76.201.157.129
+Gateway 76.201.157.134
+Subnet 255.255.255.248"
+MID W00,Primary,DSR - MIHW00,,,173.167.236.165,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,DSR - MIHW00
+MIF 05,Primary,Comcast,300.0 M,300.0M x 35.0M,96.76.231.33,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0M x 35.0M
+First IP 96.76.231.33
+Gateway 96.76.231.34
+Subnet 255.255.255.252
+WAN2 VZG"
+MIF 05,Secondary,VZW Cell,Cell,Cell,166.246.93.149,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0M x 35.0M
+First IP 96.76.231.33
+Gateway 96.76.231.34
+Subnet 255.255.255.252
+WAN2 VZG"
+MIG 25,Primary,Comcast,,,96.76.237.21,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1: 
+Comcast Agg
+IP: 96.76.237.21
+GW: 96.76.237.22
+Sub: 255.255.255.252
+
+WAN2: VZG
+IMEI: 356405432146646"
+MIG 25,Secondary,VZW Cell,Cell,Cell,166.163.165.215,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1: 
+Comcast Agg
+IP: 96.76.237.21
+GW: 96.76.237.22
+Sub: 255.255.255.252
+
+WAN2: VZG
+IMEI: 356405432146646"
+MNM 02,Primary,Comcast,300.0 M,300.0M x 30.0M,96.75.157.169,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1:
+Comcast Agg | Comcast Cable 300MB x 30MB
+IP: 96.75.157.169	
+GW: 96.75.157.170
+Sub: 255.255.255.252
+
+WAN2: VZG "
+MNM 02,Secondary,Starlink,Satellite,Satellite,143.105.57.230,"SpaceX Services, Inc.",WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1:
+Comcast Agg | Comcast Cable 300MB x 30MB
+IP: 96.75.157.169	
+GW: 96.75.157.170
+Sub: 255.255.255.252
+
+WAN2: VZG "
+MNM 03,Primary,Comcast,300.0 M,300.0M x 30.0M,96.75.153.5,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 Comcast Agg
+Comcast Cable 300Mb x 30Mb
+First IP 96.75.153.5
+Gateway 96.75.153.6
+Subnet 255.255.255.252
+
+WAN2 VZG
+IMEI 356405432272426"
+MNM 03,Secondary,VZW Cell,Cell,Cell,166.180.46.137,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 Comcast Agg
+Comcast Cable 300Mb x 30Mb
+First IP 96.75.153.5
+Gateway 96.75.153.6
+Subnet 255.255.255.252
+
+WAN2 VZG
+IMEI 356405432272426"
+MNM 09,Primary,DSR Comcast,750.0 M,750.0M x 35.0M,73.228.210.242,"Comcast IP Services, L.L.C.",WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1(ComcastAgg)Comcast 300.0M x 35.0M
+First IP 50.249.116.146
+Gateway 50.249.116.147
+Subnet 255.255.255.252
+
+WAN2 DIGI"
+MNM 09,Secondary,Digi,Cell,Cell,107.80.171.26,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1(ComcastAgg)Comcast 300.0M x 35.0M
+First IP 50.249.116.146
+Gateway 50.249.116.147
+Subnet 255.255.255.252
+
+WAN2 DIGI"
+MNM 11,Primary,Comcast,300.0 M,300.0M x 35.0M,96.75.149.153,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0M x 35.0M
+First IP 96.75.149.153
+Gateway 96.75.149.154
+Subnet 255.255.255.252
+
+WAN2 VZG
+IMEI 356405432451152"
+MNM 11,Secondary,VZW Cell,Cell,Cell,166.180.159.153,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0M x 35.0M
+First IP 96.75.149.153
+Gateway 96.75.149.154
+Subnet 255.255.255.252
+
+WAN2 VZG
+IMEI 356405432451152"
+MNM 24,Primary,Comcast,300.0 M,300.0M x 30.0M,96.72.38.153,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 (Comcat Agg) Comcast Cable 300 Mb x 30 Mb
+IP: 96.72.38.153
+GW: 96.72.38.154
+SUB: 255.255.255.252
+
+WAN2: VZG
+Port 8 - Video camera system"
+MNM 24,Secondary,Verizon Business,Cell,Cell,166.180.159.110,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (Comcat Agg) Comcast Cable 300 Mb x 30 Mb
+IP: 96.72.38.153
+GW: 96.72.38.154
+SUB: 255.255.255.252
+
+WAN2: VZG
+Port 8 - Video camera system"
+MNM 25,Primary,ComcastAgg,,,73.94.13.48,"Comcast IP Services, L.L.C.",WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (ComcastAgg)Comcast
+Primary IP - 50.244.202.109
+Gateway IP - 50.244.202.110
+Subnet - 255.255.255.252
+WAN2: VZG"
+MNM 25,Secondary,Verizon Business,Cell,Cell,166.246.93.76,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (ComcastAgg)Comcast
+Primary IP - 50.244.202.109
+Gateway IP - 50.244.202.110
+Subnet - 255.255.255.252
+WAN2: VZG"
+MNM 29,Primary,Comcast,300.0 M,300.0M x 30.0M,96.75.159.233,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1: 
+Comcast | Managed Broadband | 300.0M x 30.0M
+Circuit ID: 8772105770886477
+IP: 96.75.159.233
+GW: 96.75.159.234
+Sub: 255.255.255.252
+
+WAN2: VZG"
+MNM 29,Secondary,Verizon Business,Cell,Cell,166.246.93.68,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1: 
+Comcast | Managed Broadband | 300.0M x 30.0M
+Circuit ID: 8772105770886477
+IP: 96.75.159.233
+GW: 96.75.159.234
+Sub: 255.255.255.252
+
+WAN2: VZG"
+MNM W01,Primary,Comcast,,,50.211.20.237,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+MOO 01,Primary,ComcastAgg CableOne,300.0 M,300.0M x 35.0M,24.119.128.250,"CABLE ONE, INC.",WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1(ComcastAgg)CableOne 300.0M x 35.0M
+First IP 24.119.128.250
+Gateway 24.119.128.249
+Subnet 255.255.255.252
+
+WAN2 DIGI"
+MOO 01,Secondary,Digi,Cell,Cell,107.127.155.138,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1(ComcastAgg)CableOne 300.0M x 35.0M
+First IP 24.119.128.250
+Gateway 24.119.128.249
+Subnet 255.255.255.252
+
+WAN2 DIGI"
+MOO 04,Primary,Level 3,300.0 M,300.0M x 300.0M,4.35.182.162,Level 3,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 (Dave Schulman) BrightSpeed Dedicated Fiber 300 Mb x 300 Mb
+WAN2 Verizon 5G"
+MOO 04,Secondary,Verizon,Cell,Cell,63.43.232.131,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (Dave Schulman) BrightSpeed Dedicated Fiber 300 Mb x 300 Mb
+WAN2 Verizon 5G"
+MOSW 01,Primary,arco trucking08162011143812942,,,108.192.139.225,AT&T,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"ELLISVILLE Full-Service
+WAN1 DSR Spectrum 600.0M x 35.0M
+First IP 47.50.140.114
+Gateway 47.50.140.113
+Subnet 255.255.255.252
+WAN2 DIGI"
+MOSW 01,Secondary,Charter Communications LLC,,,47.50.140.114,Charter Communications,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"ELLISVILLE Full-Service
+WAN1 DSR Spectrum 600.0M x 35.0M
+First IP 47.50.140.114
+Gateway 47.50.140.113
+Subnet 255.255.255.252
+WAN2 DIGI"
+Mt. Prospect Voice,Primary,AT&T BVOIP Asset ID IZEC561522ATI,,,208.83.9.194,CenturyLink,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,AT&T BVOIP Asset ID: IZEC561522ATI
+NCC_00,Primary,Charter Communications,600.0 M,600.0M x 35.0M,66.57.166.218,Charter Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"Internet is under NCCW00
+WAN1 DSR Spectrum 600.0M x 35.0M
+First IP 66.57.166.218
+Gateway 66.57.166.217
+Subnet 255.255.255.252
+AT&T Broadband II | AT&T ABF | 300.0M x 300.0M
+First IP In Block	45.23.77.145
+Gateway IP	45.23.77.150
+Subnet Mask	255.255.255.248"
+NMA_00,Primary,Comcast,300.0 M,300.0M x 30.0M,96.64.151.241,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 DSR Comcast 300.0M x 30.0M
+IP Address 96.64.151.241
+Gateway 96.64.151.242
+Subnet 255.255.255.252
+WAN2 Centurylink 100.0M x 10.0M
+IP Address 168.103.98.138
+Gateway 168.103.98.137
+Subnet 255.255.255.252"
+NMA_00,Secondary,CenturyLink,100.0 M,100.0M x 10.0M,168.103.98.137,CenturyLink,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 DSR Comcast 300.0M x 30.0M
+IP Address 96.64.151.241
+Gateway 96.64.151.242
+Subnet 255.255.255.252
+WAN2 Centurylink 100.0M x 10.0M
+IP Address 168.103.98.138
+Gateway 168.103.98.137
+Subnet 255.255.255.252"
+NMA 10,Primary,Comcast,300.0 M,300.0M x 35.0M,96.77.22.185,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1:
+ComcastAgg 300.0M x 35.0M
+IP: 96.77.22.185
+GW: 96.77.22.186
+Sub: 255.255.255.252
+
+WAN2: VZG 
+IMEI: 356405432146125"
+NMA 10,Secondary,VZW Cell,Cell,Cell,166.248.7.28,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1:
+ComcastAgg 300.0M x 35.0M
+IP: 96.77.22.185
+GW: 96.77.22.186
+Sub: 255.255.255.252
+
+WAN2: VZG 
+IMEI: 356405432146125"
+NMACALLCNTR,Primary,"Comcast Cable Communications, LLC",,,74.92.206.225,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"Internet upgraded to 300 x 25
+Co-located with NMAW00 warehouse. "
+NVL_00,Primary,Cox Communications,,,24.234.187.243,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NVL_00,Secondary,Digi,Cell,Cell,107.84.130.99,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NVL 16,Primary,VZW Cell,Cell,Cell,174.205.97.122,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 = WIRELESS AT&T
+WAN2 DIGI"
+NVL 16,Secondary,Digi,Cell,Cell,166.184.129.138,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 = WIRELESS AT&T
+WAN2 DIGI"
+NVL W01,Primary,Cox Communications,,,24.120.171.73,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"ISP Cox
+IP: 24.120.171.73
+Subnet: 255.255.255.240
+Gateway: 24.120.171.65
+
+DNS 1: 208.67.222.222
+DNS 2: 208.67.220.220"
+NVRB04,Primary,TEST STORE NOT PRODUCTION,,,67.40.71.2,CenturyLink,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,TEST STORE NOT PRODUCTION
+NYB 01,Primary,DUNN TIRE,,,208.105.133.178,Charter Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1: 
+IP: 208.105.133.178
+GW: 208.105.133.177
+GW: 255.255.255.248
+
+WAN2: VZG
+IMEI: 356405431606517"
+NYB 01,Secondary,"AT&T Enterprises, LLC",,,107.127.197.80,AT&T,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1: 
+IP: 208.105.133.178
+GW: 208.105.133.177
+GW: 255.255.255.248
+
+WAN2: VZG
+IMEI: 356405431606517"
+NYB 02,Primary,DUNN TIRE,,,50.75.0.218,Charter Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYB 02,Secondary,VZW Cell,Cell,Cell,71.186.165.101,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYB 03,Primary,DUNN TIRE,,,50.75.1.218,Charter Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYB 03,Secondary,"AT&T Enterprises, LLC",,,107.127.197.93,AT&T,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYB 04,Primary,DUNN TIRE,,,50.75.1.162,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYB 04,Secondary,"AT&T Enterprises, LLC",,,107.127.197.81,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYB 05,Primary,DUNN TIRE,,,50.75.1.226,Charter Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1: 
+IP: 50.75.1.226
+GW: 50.75.1.225
+Sub: 255.255.255.248
+
+WAN2: VZG
+IMEI: 356405432148485"
+NYB 05,Secondary,"AT&T Enterprises, LLC",,,107.127.197.95,AT&T,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1: 
+IP: 50.75.1.226
+GW: 50.75.1.225
+Sub: 255.255.255.248
+
+WAN2: VZG
+IMEI: 356405432148485"
+NYB 06,Primary,DUNN TIRE,,,208.105.133.130,Charter Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN 1: Spectrum
+
+WAN 2: Digi"
+NYB 06,Secondary,"AT&T Enterprises, LLC",,,107.127.197.71,AT&T,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN 1: Spectrum
+
+WAN 2: Digi"
+NYB 07,Primary,DUNN TIRE,,,50.75.0.74,Charter Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYB 07,Secondary,"AT&T Enterprises, LLC",,,107.127.197.94,AT&T,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYB 08,Primary,DUNN TIRE,,,50.75.0.58,Charter Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYB 08,Secondary,"AT&T Enterprises, LLC",,,107.127.197.73,AT&T,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYF 01,Primary,DUNN TIRE,,,50.75.11.226,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYF 01,Secondary,"AT&T Enterprises, LLC",,,107.127.197.84,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYF 02,Primary,DUNN TIRE,,,50.75.7.226,Charter Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYF 02,Secondary,"AT&T Enterprises, LLC",,,107.127.197.74,AT&T,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYF 03,Primary,DUNN TIRE,,,50.75.0.66,Charter Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYF 03,Secondary,"AT&T Enterprises, LLC",,,107.127.197.88,AT&T,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYR 02,Primary,Charter Communications Inc,,,69.193.88.50,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYR 02,Secondary,"AT&T Enterprises, LLC",,,107.127.197.85,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYR 03,Primary,DUNN TIRE,,,50.75.0.50,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYR 03,Secondary,"AT&T Enterprises, LLC",,,107.127.197.90,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYR 04,Primary,DUNN TIRE,,,198.179.114.202,Charter Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN 1: SPECTRUM BUSINESS MODEM
+
+WAN 2: DIGI"
+NYR 04,Secondary,"AT&T Enterprises, LLC",,,107.127.197.86,AT&T,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN 1: SPECTRUM BUSINESS MODEM
+
+WAN 2: DIGI"
+NYR 05,Primary,DUNN TIRE,,,50.75.8.202,Charter Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYR 05,Secondary,"AT&T Enterprises, LLC",,,107.127.197.92,AT&T,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYR 06,Primary,DUNN TIRE,,,208.105.133.146,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYR 06,Secondary,"AT&T Enterprises, LLC",,,107.127.197.89,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYR 07,Primary,DUNN TIRE,,,50.75.0.42,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN 1: Spectrum Business (DMARC-1)
+
+WAN 2: DIGI"
+NYR 07,Secondary,"AT&T Enterprises, LLC",,,107.127.197.91,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN 1: Spectrum Business (DMARC-1)
+
+WAN 2: DIGI"
+NYS 01,Primary,DUNN TIRE,,,208.105.133.234,Charter Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYS 01,Secondary,"AT&T Enterprises, LLC",,,107.127.197.96,AT&T,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYS 02,Primary,DUNN TIRE,,,50.75.3.218,Charter Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYS 02,Secondary,VZW Cell,Cell,Cell,71.115.157.125,Verizon,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+NYS 03,Primary,DUNN TIRE,,,50.75.1.82,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 - Spectrum
+WAN2 - Accelerated"
+NYS 03,Secondary,VZW Cell,Cell,Cell,166.246.91.126,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 - Spectrum
+WAN2 - Accelerated"
+NYS 04,Primary,DUNN TIRE,,,24.97.155.210,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN 1
+Spectrum Support
+888-812-2591 
+Acct# 7758797-03
+
+WAN 2
+Verizon FIOS support - 1 (800) 837-4966
+Acct# 652-928-621-0001-84"
+NYS 04,Secondary,VZW Cell,Cell,Cell,96.238.150.152,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN 1
+Spectrum Support
+888-812-2591 
+Acct# 7758797-03
+
+WAN 2
+Verizon FIOS support - 1 (800) 837-4966
+Acct# 652-928-621-0001-84"
+ORP 01,Primary,Comcast,300.0 M,300.0M x 30.0M,96.95.155.237,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1: 
+Comcast Agg 300 MB x 30 MB
+IP: 96.95.155.237
+GW: 96.95.155.238
+Sub: 255.255.255.252
+
+WAN2: Digi"
+ORP 01,Secondary,Digi,Cell,Cell,166.184.132.163,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1: 
+Comcast Agg 300 MB x 30 MB
+IP: 96.95.155.237
+GW: 96.95.155.238
+Sub: 255.255.255.252
+
+WAN2: Digi"
+ORP 05,Primary,Comcast,300.0 M,300.0M x 30.0M,96.71.178.237,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 ComcastAgg Comcast Cable 300.0M x 30.0M
+First IP 96.71.178.237
+Gateway IP 96.71.178.238
+Subnet Mask 255.255.255.252
+WAN2: VZG
+IMEI:356405432601442"
+ORP 05,Secondary,VZW Cell,Cell,Cell,166.253.100.70,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 ComcastAgg Comcast Cable 300.0M x 30.0M
+First IP 96.71.178.237
+Gateway IP 96.71.178.238
+Subnet Mask 255.255.255.252
+WAN2: VZG
+IMEI:356405432601442"
+PAN 03,Primary,DUNN TIRE,,,162.155.223.226,Charter Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+PAN 03,Secondary,"AT&T Enterprises, LLC",,,107.127.197.87,AT&T,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+PAN 04,Primary,DUNN TIRE,,,198.24.105.90,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+PAN 04,Secondary,"AT&T Enterprises, LLC",,,107.127.197.77,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+PAN 05,Primary,DUNN TIRE,,,96.11.200.42,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+PAN 05,Secondary,"AT&T Enterprises, LLC",,,107.127.197.82,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+Strike Team Lab,Primary,Connected to 1B.4.4.10 Uplink to IDF1B-Core VLAN 200,,,184.183.25.158,Cox Communications Inc.,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"Connected to 1B.4.4.10
+Uplink to IDF1B-Core VLAN 200"
+TNM 01,Primary,Comcast,,,96.87.191.129,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1: 
+IP: 96.87.191.129
+GW: 96.87.191.130
+Sub: 255.255.255.252
+
+WAN2: VZG"
+TNM 01,Secondary,Verizon Business,Cell,Cell,166.168.231.131,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1: 
+IP: 96.87.191.129
+GW: 96.87.191.130
+Sub: 255.255.255.252
+
+WAN2: VZG"
+TNN_00,Primary,AT&T,300.0 M,300.0M x 300.0M,162.203.252.161,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1- DSR
+AT&T Broadband II | AT&T DSL | 300.0M x 300.0M
+First IP In Block 162.203.252.161
+Gateway IP	162.203.252.166
+Subnet Mask 255.255.255.248
+WAN2 DSR 
+Comcast Workplace | Extended Cable | 300.0M x 30.0M
+First IP	96.69.101.185
+GW .186
+Subnet .252"
+TNN_00,Secondary,Comcast,300.0 M,300.0M x 30.0M,96.69.101.185,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1- DSR
+AT&T Broadband II | AT&T DSL | 300.0M x 300.0M
+First IP In Block 162.203.252.161
+Gateway IP	162.203.252.166
+Subnet Mask 255.255.255.248
+WAN2 DSR 
+Comcast Workplace | Extended Cable | 300.0M x 30.0M
+First IP	96.69.101.185
+GW .186
+Subnet .252"
+TXH_00,Primary,AT&T,300.0 M,300.0M x 300.0M,162.201.19.73,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 DSR AT&T Broadband 300.0M x 300.0M
+IP: 162.201.19.73
+G: 162.201.19.78
+S: 55.255.255.248
+WAN2 DSR Comcast 300.0M x 30.0M
+First IP 96.85.28.9
+Gateway 96.85.28.10
+Subnet 255.255.255.252
+"
+TXH_00,Secondary,Comcast,300.0 M,300.0M x 30.0M,96.85.28.9,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 DSR AT&T Broadband 300.0M x 300.0M
+IP: 162.201.19.73
+G: 162.201.19.78
+S: 55.255.255.248
+WAN2 DSR Comcast 300.0M x 30.0M
+First IP 96.85.28.9
+Gateway 96.85.28.10
+Subnet 255.255.255.252
+"
+TXH 14,Primary,"Comcast Cable Communications, LLC",,,96.95.234.13,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1: Currently using Accelerated ---
+ComcastAgg 300.0M x 35.0M
+IP: 96.95.234.13
+GW: 96.95.234.14
+Sub: 255.255.255.252
+
+WAN2: VZG
+IMEI: 356405432461169"
+TXH 14,Secondary,VZW Cell,Cell,Cell,166.248.9.212,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1: Currently using Accelerated ---
+ComcastAgg 300.0M x 35.0M
+IP: 96.95.234.13
+GW: 96.95.234.14
+Sub: 255.255.255.252
+
+WAN2: VZG
+IMEI: 356405432461169"
+TXH 25,Primary,Comcast,300.0 M,300.0M x 35.0M,50.209.123.141,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1(ComcastAgg)Comcast 300.0M x 35.0M
+First IP 50.209.123.141
+Gateway 50.209.123.142
+Subnet 255.255.255.252
+
+WAN2 VZG"
+TXH 25,Secondary,VZW Cell,Cell,Cell,166.168.231.150,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1(ComcastAgg)Comcast 300.0M x 35.0M
+First IP 50.209.123.141
+Gateway 50.209.123.142
+Subnet 255.255.255.252
+
+WAN2 VZG"
+TXH 28,Primary,Comcast,300.0 M,300.0M x 35.0M,96.77.135.141,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0M x 35.0M
+First IP 96.77.135.141
+Gateway 96.77.135.142
+Subnet 255.255.255.252"
+TXH 44,Primary,Comcast,300.0 M,300.0M x 30.0M,50.194.161.17,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 (Comcast Agg)Comcast 300.0M x 30.0M
+First IP 50.194.161.17
+Gateway 50.194.161.18
+Subnet 255.255.255.252
+WAN2 VZG"
+TXH 44,Secondary,Verizon Business,Cell,Cell,166.168.184.33,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (Comcast Agg)Comcast 300.0M x 30.0M
+First IP 50.194.161.17
+Gateway 50.194.161.18
+Subnet 255.255.255.252
+WAN2 VZG"
+TXH 64,Primary,Comcast,300.0 M,300.0M x 35.0M,96.73.126.69,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0M x 35.0M
+First IP 96.73.126.69
+Gateway 96.73.126.70
+Subnet 255.255.255.252"
+TXH 70,Primary,Comcast,300.0 M,300.0M x 35.0M,96.91.38.197,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0M x 35.0M
+First IP 96.91.38.197
+Gateway 96.91.38.198
+Subnet 255.255.255.252
+
+WAN 2 -- Digi"
+TXH 70,Secondary,Digi,Cell,Cell,107.80.163.194,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0M x 35.0M
+First IP 96.91.38.197
+Gateway 96.91.38.198
+Subnet 255.255.255.252
+
+WAN 2 -- Digi"
+TXH 86,Primary,Comcast,300.0 M,300.0M x 25.0M,96.73.122.161,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1: 
+Comcast | 300.0M  x 25.0M
+IP: 96.73.122.161
+GW: 96.73.122.162
+Sub: 255.255.255.252
+
+WAN2: VZG"
+TXH 86,Secondary,Verizon Business,Cell,Cell,166.180.159.109,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1: 
+Comcast | 300.0M  x 25.0M
+IP: 96.73.122.161
+GW: 96.73.122.162
+Sub: 255.255.255.252
+
+WAN2: VZG"
+TXHT00,Primary,Comcast,300.0 M,300.0M x 30.0M,75.148.163.185,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"Comcast Workplace | Extended Cable | 300.0M x 30.0M
+
+Modem -TECHNICOLOR CGA4332COM
+Modem MAC 3C:82:C0:CF:E7:A2"
+TXH W00,Primary,"Comcast Cable Communications, LLC",,,50.210.214.114,"Comcast Cable Communications, LLC",WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"TXHW00 - Info
+WAN1 DSR Comcast 600.0M x 35.0M
+First IP 50.210.214.113
+Gateway 50.210.214.114
+Subnet 255.255.255.252
+
+WAN2 "
+TXH W00,Secondary,"AT&T Enterprises, LLC",,,76.200.214.154,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"TXHW00 - Info
+WAN1 DSR Comcast 600.0M x 35.0M
+First IP 50.210.214.113
+Gateway 50.210.214.114
+Subnet 255.255.255.252
+
+WAN2 "
+UTS 02,Primary,Comcast,300.0 M,300.0M x 30.0M,96.73.19.25,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0 x 30.0
+First IP 96.73.19.25
+Gateway 96.73.19.26
+Subnet 255.255.255.252 
+
+WAN2 Digi
+"
+UTS 02,Secondary,Digi,Cell,Cell,166.184.137.240,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0 x 30.0
+First IP 96.73.19.25
+Gateway 96.73.19.26
+Subnet 255.255.255.252 
+
+WAN2 Digi
+"
+UTS 13,Primary,Comcast,,,96.73.28.153,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0 x 30.0
+First IP 96.73.28.153
+Gateway 96.73.28.154
+Subnet 255.255.255.252
+
+WAN2 VZN"
+UTS 13,Secondary,VZW Cell,Cell,Cell,107.84.137.94,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0 x 30.0
+First IP 96.73.28.153
+Gateway 96.73.28.154
+Subnet 255.255.255.252
+
+WAN2 VZN"
+UTS 15,Primary,Comcast,600.0 M,600.0M x 35.0M,50.77.46.93,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN 1 -- DSR
+Comcast Workpace | 600.0M X 35.0M
+First IP In Block	50.77.46.93
+Last IP In Block	
+Gateway IP	50.77.46.94
+Subnet Mask	255.255.255.252
+
+WAN 2 -- VZG 
+"
+UTS 15,Secondary,VZW Cell,Cell,Cell,166.248.10.40,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN 1 -- DSR
+Comcast Workpace | 600.0M X 35.0M
+First IP In Block	50.77.46.93
+Last IP In Block	
+Gateway IP	50.77.46.94
+Subnet Mask	255.255.255.252
+
+WAN 2 -- VZG 
+"
+UTS 17,Primary,Comcast,300.0 M,300.0M x 30.0M,96.73.31.129,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1(ComcastAgg)Comcast 300.0M x 30.0M
+First IP 96.73.31.129
+Gateway 96.73.31.130
+Subnet 255.255.255.252
+WAN2 VZG"
+UTS 17,Secondary,Verizon Business,Cell,Cell,166.248.10.39,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1(ComcastAgg)Comcast 300.0M x 30.0M
+First IP 96.73.31.129
+Gateway 96.73.31.130
+Subnet 255.255.255.252
+WAN2 VZG"
+UTS 19,Primary,Comcast,300.0 M,300.0M x 30.0M,173.14.230.17,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0M x 30.0M
+First 173.14.230.17
+Gateway 173.14.230.18
+Subnet 255.255.255.252
+WAN2: VZG
+IMEI: 356405432599653"
+UTS 19,Secondary,VZW Cell,Cell,Cell,166.248.9.53,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0M x 30.0M
+First 173.14.230.17
+Gateway 173.14.230.18
+Subnet 255.255.255.252
+WAN2: VZG
+IMEI: 356405432599653"
+UTS W01,Primary,Comcast,600.0 M,600.0M x 35.0M,50.208.244.41,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"*** Building next door to UTS09 ***
+
+was a training facility
+WAN 1 -- DSR
+Comcast Workpace | 600.0M X 35.0M
+First IP In Block	50.208.244.41
+Last IP In Block	
+Gateway IP	50.208.244.42
+Subnet Mask	255.255.255.252
+
+WAN 2 -- Digi
+
+"
+UTS W01,Secondary,Digi,Cell,Cell,166.184.158.66,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"*** Building next door to UTS09 ***
+
+was a training facility
+WAN 1 -- DSR
+Comcast Workpace | 600.0M X 35.0M
+First IP In Block	50.208.244.41
+Last IP In Block	
+Gateway IP	50.208.244.42
+Subnet Mask	255.255.255.252
+
+WAN 2 -- Digi
+
+"
+UTS W02,Primary,DSR Comcast Cable,600.0 M,600.0M x 35.0M,50.215.217.150,"Comcast Cable Communications, LLC",WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"Under UTSW00 in DSR
+WAN1 DSR Comcast Cable 600.0M x 35.0M
+First IP In Block 50.215.217.149
+Gateway IP 50.215.217.150
+Subnet Mask 255.255.255.252
+WAN2: VZG IMEI: 356405432146877"
+UTS W02,Secondary,VZW Cell,Cell,Cell,166.168.231.163,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"Under UTSW00 in DSR
+WAN1 DSR Comcast Cable 600.0M x 35.0M
+First IP In Block 50.215.217.149
+Gateway IP 50.215.217.150
+Subnet Mask 255.255.255.252
+WAN2: VZG IMEI: 356405432146877"
+VAF 01 - appliance,Primary,Comcast,250.0 M,250.0M x 25.0M,50.211.60.57,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN 1 -- DSR
+Comcast | 250.0M X 25.0M
+First IP In Block	50.211.60.57
+Last IP In Block	
+Gateway IP	50.211.60.58
+Subnet Mask	255.255.255.252
+
+WAN 2 -- Digi
+"
+VAF 01 - appliance,Secondary,Digi,Cell,Cell,166.184.103.92,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN 1 -- DSR
+Comcast | 250.0M X 25.0M
+First IP In Block	50.211.60.57
+Last IP In Block	
+Gateway IP	50.211.60.58
+Subnet Mask	255.255.255.252
+
+WAN 2 -- Digi
+"
+VAR 01,Primary,Comcast,300.0 M,300.0M x 30.0M,75.150.59.61,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 (ComcastAgg)Comcast 300.0M X 30.0M
+First IP 75.150.59.61
+Gateway 75.150.59.62
+Subnet 255.255.255.252
+
+WAN 2 VZG
+"
+VAR 01,Secondary,VZW Cell,Cell,Cell,107.85.158.120,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (ComcastAgg)Comcast 300.0M X 30.0M
+First IP 75.150.59.61
+Gateway 75.150.59.62
+Subnet 255.255.255.252
+
+WAN 2 VZG
+"
+VAR 08,Primary,Verizon,Cell,Cell,74.110.158.210,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"Verizon
+Static:74.110.158.210
+GW:74.110.158.1
+Mask:255.255.255.0
+DNS1:71.252.0.12
+DNS2:68.238.112.12
+
+Comcast
+Static:50.217.201.18
+GW:50.217.201.17
+Mask: 255.255.255.248
+DNS1:75.75.75.75
+DNS2:75.75.76.76"
+VAR 08,Secondary,Comcast,,,50.217.201.18,Comcast,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"Verizon
+Static:74.110.158.210
+GW:74.110.158.1
+Mask:255.255.255.0
+DNS1:71.252.0.12
+DNS2:68.238.112.12
+
+Comcast
+Static:50.217.201.18
+GW:50.217.201.17
+Mask: 255.255.255.248
+DNS1:75.75.75.75
+DNS2:75.75.76.76"
+VISION_Store0,Primary,Cox Communications,,,174.79.27.198,Cox Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"https://discounttire.sharepoint.com/:b:/s/NOC/EbKyuqS4GbtBn8mjXALAPq0BK40D0Zfh2h0LRCft1AUWCA?e=jul7qK 
+
+Cox Static IP
+174.79.27.198
+Subnet mask
+255.255.255.252
+Gateway IP
+174.79.27.197
+Primary DNS
+68.105.28.16
+Secondary DNS
+68.105.29.16
+"
+VISION_Test_Lab_MinesW,Primary,SW03 relocated to the Vison test lab,,,98.186.252.234,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,SW03 relocated to the Vison test lab
+WAE 01,Primary,Comcast,300.0 M,300.0M x 30.0M,50.245.147.185,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN 1 -- DSR
+Comcast | 300.0M X 30.0M
+First IP In Block	50.245.147.185
+Last IP In Block	
+Gateway IP	50.245.147.186
+Subnet Mask	255.255.255.252
+
+WAN 2 -- VZG
+"
+WAE 01,Secondary,Verizon Business,Cell,Cell,166.248.7.34,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN 1 -- DSR
+Comcast | 300.0M X 30.0M
+First IP In Block	50.245.147.185
+Last IP In Block	
+Gateway IP	50.245.147.186
+Subnet Mask	255.255.255.252
+
+WAN 2 -- VZG
+"
+WAE 02,Primary,Comcast,300.0 M,300.0M x 300.0M,173.160.129.105,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0 x 30.0
+First IP 173.160.129.105
+Gateway 173.160.129.106
+Subnet 255.255.255.0 
+
+WAN2: VZG"
+WAE 02,Secondary,Verizon Business,Cell,Cell,166.248.10.12,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (ComcastAgg) Comcast 300.0 x 30.0
+First IP 173.160.129.105
+Gateway 173.160.129.106
+Subnet 255.255.255.0 
+
+WAN2: VZG"
+WAS_00,Primary,Ziply Fiber,,,50.34.4.82,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 DSR Ziply 1.0G x 1.0G
+First IP 50.34.4.82
+Gateway 50.34.4.81
+Subnet 255.255.255.252"
+WAS_00,Secondary,"AT&T Enterprises, LLC",,,107.84.139.175,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 DSR Ziply 1.0G x 1.0G
+First IP 50.34.4.82
+Gateway 50.34.4.81
+Subnet 255.255.255.252"
+WAS 03,Primary,Comcast,,,75.151.125.173,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 Comcast Agg Comcast 300 X 30 M
+First IP 75.151.125.173
+Subnet 255.255.255.252
+Gateway 75.151.125.174
+
+WAN2: VZG 
+IMEI: 356405432601731"
+WAS 03,Secondary,VZW Cell,Cell,Cell,166.248.9.44,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 Comcast Agg Comcast 300 X 30 M
+First IP 75.151.125.173
+Subnet 255.255.255.252
+Gateway 75.151.125.174
+
+WAN2: VZG 
+IMEI: 356405432601731"
+WAS 05,Primary,VZW Cell,Cell,Cell,98.97.97.110,"SpaceX Services, Inc.",WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 - VZN
+IMEI - 356405432604057
+WAN2 - Accelerated AT&T"
+WAS 05,Secondary,- Accelerated AT&T,,,166.180.159.131,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 - VZN
+IMEI - 356405432604057
+WAN2 - Accelerated AT&T"
+WAS 09,Primary,Comcast,300.0 M,300.0M x 30.0M,173.160.199.17,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN 1 (ComcastAgg)Comcast 300.0M X 30.0M
+First IP 173.160.199.17
+Gateway 173.160.199.18
+Subnet 255.255.255.252
+
+WAN 2 Digi
+"
+WAS 09,Secondary,Digi,Cell,Cell,166.184.138.128,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN 1 (ComcastAgg)Comcast 300.0M X 30.0M
+First IP 173.160.199.17
+Gateway 173.160.199.18
+Subnet 255.255.255.252
+
+WAN 2 Digi
+"
+WAS 11,Primary,Comcast,300.0 M,300.0M x 30.0M,96.74.20.73,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN 1 (ComcastAgg)Comcast 300.0M X 30.0M
+First IP 96.74.20.73
+Gateway 96.74.20.74
+Subnet 255.255.255.252
+
+WAN 2 Digi
+ 
+"
+WAS 11,Secondary,Digi,Cell,Cell,166.184.132.102,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN 1 (ComcastAgg)Comcast 300.0M X 30.0M
+First IP 96.74.20.73
+Gateway 96.74.20.74
+Subnet 255.255.255.252
+
+WAN 2 Digi
+ 
+"
+WAS 12,Primary,Starlink,Satellite,Satellite,98.97.101.40,"SpaceX Services, Inc.",WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"Wan 1 - 5G
+Wan 2 - Accelerated
+
+Port 3 on MX65 going to Ge0/1 on 2960"
+WAS 12,Secondary,Digi,Cell,Cell,0.0.0.0,Private IP,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"Wan 1 - 5G
+Wan 2 - Accelerated
+
+Port 3 on MX65 going to Ge0/1 on 2960"
+WAS 14,Primary,Comcast,300.0 M,300.0M x 30.0M,75.151.126.225,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 (Comcast Agg)Comcast 300.0M x 30.0M
+First IP 75.151.126.225
+Gateway 75.151.126.226
+Subnet 255.255.255.252
+WAN2 DIGI"
+WAS 14,Secondary,Digi,Cell,Cell,166.184.131.38,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (Comcast Agg)Comcast 300.0M x 30.0M
+First IP 75.151.126.225
+Gateway 75.151.126.226
+Subnet 255.255.255.252
+WAN2 DIGI"
+WAS 23,Primary,ComcastAgg CLink,10.0 M,10.0M x 1.0M,65.101.138.25,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1 (ComcastAgg) CLink 10m x 1m 
+First IP 65.101.138.25
+Gateway 65.101.138.30
+Subnet 255.255.255.248
+WAN 1: Third Party Century Link 
+WAN2 DIGI
+
+Per store manager, no cell service available at this location due to it being in remote location"
+WAS 23,Secondary,Digi,Cell,Cell,107.84.141.91,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (ComcastAgg) CLink 10m x 1m 
+First IP 65.101.138.25
+Gateway 65.101.138.30
+Subnet 255.255.255.248
+WAN 1: Third Party Century Link 
+WAN2 DIGI
+
+Per store manager, no cell service available at this location due to it being in remote location"
+WAS 24,Primary,Comcast,,,96.76.50.129,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1: DSR
+Comcast
+IP: 96.76.50.129
+Sub: 255.255.255.252
+GW: 96.76.50.130
+
+WAN2: VZG
+"
+WAS 24,Secondary,VZW Cell,Cell,Cell,166.248.9.37,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1: DSR
+Comcast
+IP: 96.76.50.129
+Sub: 255.255.255.252
+GW: 96.76.50.130
+
+WAN2: VZG
+"
+WAS W00,Primary,Comcast,200.0 M,200.0M x 200.0M,50.210.47.185,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"**LOCATION CLOSED - NOW WAX 01**
+
+WAN1 DSR Comcast 200.0M x 20.0M
+First IP 50.210.47.185
+Gateway 50.210.47.186
+Subnet 255.255.255.252
+WAN2 DIGI"
+WAS W00,Secondary,Digi Cell,Cell,Cell,166.184.139.176,Unknown,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"**LOCATION CLOSED - NOW WAX 01**
+
+WAN1 DSR Comcast 200.0M x 20.0M
+First IP 50.210.47.185
+Gateway 50.210.47.186
+Subnet 255.255.255.252
+WAN2 DIGI"
+WDCA 01,Primary,Frontier Communications Corporation,,,47.176.153.146,Frontier Communications,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"Internet 1
+Frontier 100 MB x 100 MB Fiber
+First Usable: 47.176.153.145
+Default Gateway: 47.176.153.145
+Subnet Mask: 255.255.255.248
+CKT:  45/CUXP/664197//FTNC
+Port2: Digi - located in the ceiling above the rack
+
+WAN2 DIGI"
+WDCA 01,Secondary,"AT&T Enterprises, LLC",,,107.84.137.79,AT&T,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"Internet 1
+Frontier 100 MB x 100 MB Fiber
+First Usable: 47.176.153.145
+Default Gateway: 47.176.153.145
+Subnet Mask: 255.255.255.248
+CKT:  45/CUXP/664197//FTNC
+Port2: Digi - located in the ceiling above the rack
+
+WAN2 DIGI"
+WDGA01,Primary,Private Customer - AT&T Internet Services,,,104.61.91.209,AT&T,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"Support moved to DHL
+WAN 1 -- DSR
+AT&T Broadband II | AT&T DSL | 300.0M X 300.0M
+First IP In Block	104.61.91.209
+Last IP In Block	104.61.91.213
+Gateway IP	104.61.91.214
+Subnet Mask	255.255.255.248
+
+WAN 2 -- DIGI
+
+"
+WDGA01,Secondary,"AT&T Enterprises, LLC",,,107.85.142.107,"AT&T Enterprises, LLC",WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"Support moved to DHL
+WAN 1 -- DSR
+AT&T Broadband II | AT&T DSL | 300.0M X 300.0M
+First IP In Block	104.61.91.209
+Last IP In Block	104.61.91.213
+Gateway IP	104.61.91.214
+Subnet Mask	255.255.255.248
+
+WAN 2 -- DIGI
+
+"
+WDIL 01,Primary,"Comcast Cable Communications, LLC",,,173.165.103.213,Comcast,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (ILX in DSR) Comcast 300.0M x 30.0M
+First IP 173.165.103.213
+Gateway 173.165.103.214
+Subnet 255.255.255.252
+
+WAN2 (WDIL in DSR) AT&T 1.0G x 1.0G
+First IP 104.185.193.161
+Gateway 104.185.193.166
+Subnet 255.255.255.248"
+WDIL 01,Secondary,Private Customer - AT&T Internet Services,,,104.185.193.161,AT&T,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,"WAN1 (ILX in DSR) Comcast 300.0M x 30.0M
+First IP 173.165.103.213
+Gateway 173.165.103.214
+Subnet 255.255.255.252
+
+WAN2 (WDIL in DSR) AT&T 1.0G x 1.0G
+First IP 104.185.193.161
+Gateway 104.185.193.166
+Subnet 255.255.255.248"
+WDTD 01,Primary,AT&T,1000.0 M,1000.0M x 1000.0M,107.132.157.73,AT&T,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1: DSR
+AT&T Broadband II 1.0G x 1.0G
+IP 107.132.157.73 - 77
+GW 107.132.157.78
+SN 255.255.255.248
+WAN2: BBEC.545448..ATI  circuit ID ATT
+IP Address 12.244.193.150
+GW 12.244.193.149
+SN 255.255.255.252
+
+INC2025020 - AT&T maintenance, 1/29 12am - 6am"
+WDTD 01,Secondary,ATT,100.0 M,100.0M x 10.0M,166.168.180.168,Verizon Business,WAN2,Non-DSR,Enabled,2025-07-07 11:46:47.102071,True,0.0,,,,"WAN1: DSR
+AT&T Broadband II 1.0G x 1.0G
+IP 107.132.157.73 - 77
+GW 107.132.157.78
+SN 255.255.255.248
+WAN2: BBEC.545448..ATI  circuit ID ATT
+IP Address 12.244.193.150
+GW 12.244.193.149
+SN 255.255.255.252
+
+INC2025020 - AT&T maintenance, 1/29 12am - 6am"
+West Store Test,Primary,Unknown,,,184.183.25.158,Cox Communications Inc.,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,
+Wyomissing Voice,Primary,AT&T BVOIP Asset ID IZEC561531ATI,,,208.75.157.194,Unknown,WAN1,Non-DSR,Enabled,2025-07-07 11:46:47.102071,False,0.0,,,,AT&T BVOIP Asset ID: IZEC561531ATI

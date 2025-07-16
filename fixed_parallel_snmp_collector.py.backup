@@ -1,0 +1,387 @@
+#\!/usr/bin/env python3
+"""
+Fixed Parallel SNMP Inventory Collection Script - IP Address Based
+High-performance parallel collection from all 383 network devices
+"""
+
+import json
+import subprocess
+import time
+import sys
+import os
+import multiprocessing as mp
+from datetime import datetime
+from typing import Dict, List, Tuple
+import signal
+
+# Color codes for terminal output
+class Colors:
+    RED = '\033[91m'
+    GREEN = '\033[92m'
+    YELLOW = '\033[93m'
+    BLUE = '\033[94m'
+    MAGENTA = '\033[95m'
+    CYAN = '\033[96m'
+    WHITE = '\033[97m'
+    BOLD = '\033[1m'
+    RESET = '\033[0m'
+
+# Configuration
+NUM_WORKERS = 5
+SNMP_TIMEOUT = 8
+INVENTORY_TIMEOUT = 15
+
+# SNMP v2 communities (in priority order)
+V2_COMMUNITIES = [
+    'DTC4nmgt',         # Primary working community
+    'DTC4nmgt98',       # Secondary community
+    'T1r3s4u',          # Alternative
+    'L1v3th3Dr3aM',     # Alternative
+    '3$laC0mm@ndM3'     # Alternative
+]
+
+# SNMP v3 credentials
+V3_CREDENTIALS = [
+    {
+        'user': 'NNMIuser',
+        'auth_pass': r'm@k3\!tS0nuMb341\!',
+        'auth_proto': 'SHA',
+        'priv_pass': r'm@k3\!tS0nuMb341\!',
+        'priv_proto': 'DES'
+    }
+]
+
+# Comprehensive OID collection
+INVENTORY_OIDS = {
+    'system': '1.3.6.1.2.1.1',                    # System info
+    'interfaces': '1.3.6.1.2.1.2.2.1',           # Interface table
+    'entity': '1.3.6.1.2.1.47.1.1.1',            # Physical entities
+    'cisco_inventory': '1.3.6.1.4.1.9.9.92.1.1.1', # Cisco inventory
+    'cisco_entity': '1.3.6.1.4.1.9.9.117.1.1.2',   # Cisco entity FRU
+    'cisco_envmon': '1.3.6.1.4.1.9.9.13.1',         # Environmental
+    'cisco_memory': '1.3.6.1.4.1.9.9.48.1.1.1',    # Memory
+    'cisco_cpu': '1.3.6.1.4.1.9.9.109.1.1.1'       # CPU
+}
+
+def log_message(worker_id: int, level: str, message: str, device_ip: str = None) -> None:
+    """Simple logging function"""
+    timestamp = datetime.now().strftime('%H:%M:%S')
+    color_map = {
+        'INFO': Colors.GREEN,
+        'WARN': Colors.YELLOW,
+        'ERROR': Colors.RED,
+        'SUCCESS': Colors.CYAN,
+        'PROGRESS': Colors.BLUE
+    }
+    color = color_map.get(level, Colors.WHITE)
+    worker_str = f"W{worker_id}" if worker_id else "MAIN"
+    device_str = f" [{device_ip}]" if device_ip else ""
+    print(f"{color}[{timestamp}] {worker_str}{device_str} {level}:{Colors.RESET} {message}")
+
+def test_snmp_v2(ip: str, community: str) -> Tuple[bool, str]:
+    """Test SNMP v2c access"""
+    cmd = ['snmpwalk', '-v', '2c', '-c', community, '-t', str(SNMP_TIMEOUT), ip, '1.3.6.1.2.1.1.1.0']
+    try:
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=SNMP_TIMEOUT+2)
+        if result.returncode == 0 and 'STRING:' in result.stdout:
+            return True, "Success"
+        return False, result.stderr.strip()[:50] if result.stderr else "No response"
+    except subprocess.TimeoutExpired:
+        return False, "Timeout"
+    except Exception as e:
+        return False, str(e)[:50]
+
+def test_snmp_v3(ip: str, cred: Dict) -> Tuple[bool, str]:
+    """Test SNMP v3 access"""
+    cmd = [
+        'snmpwalk', '-v', '3', '-l', 'authPriv',
+        '-u', cred['user'], '-a', cred['auth_proto'], '-A', cred['auth_pass'],
+        '-x', cred['priv_proto'], '-X', cred['priv_pass'],
+        '-t', str(SNMP_TIMEOUT), ip, '1.3.6.1.2.1.1.1.0'
+    ]
+    try:
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=SNMP_TIMEOUT+2)
+        if result.returncode == 0 and 'STRING:' in result.stdout:
+            return True, "Success"
+        return False, result.stderr.strip()[:50] if result.stderr else "No response"
+    except subprocess.TimeoutExpired:
+        return False, "Timeout"
+    except Exception as e:
+        return False, str(e)[:50]
+
+def collect_oid_data(ip: str, oid: str, version: str, credential) -> Dict:
+    """Collect data for a specific OID"""
+    if version == '2c':
+        cmd = ['snmpwalk', '-v', '2c', '-c', credential, '-t', str(INVENTORY_TIMEOUT), ip, oid]
+    else:
+        cmd = [
+            'snmpwalk', '-v', '3', '-l', 'authPriv',
+            '-u', credential['user'], '-a', credential['auth_proto'], '-A', credential['auth_pass'],
+            '-x', credential['priv_proto'], '-X', credential['priv_pass'],
+            '-t', str(INVENTORY_TIMEOUT), ip, oid
+        ]
+    
+    try:
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=INVENTORY_TIMEOUT+3)
+        if result.returncode == 0 and result.stdout.strip():
+            lines = result.stdout.strip().split('\n')
+            return {
+                'success': True,
+                'line_count': len(lines),
+                'data_size': len(result.stdout),
+                'data': result.stdout
+            }
+        else:
+            return {
+                'success': False,
+                'error': result.stderr.strip()[:100] if result.stderr else "No data",
+                'data': None
+            }
+    except subprocess.TimeoutExpired:
+        return {
+            'success': False,
+            'error': "Collection timeout",
+            'data': None
+        }
+    except Exception as e:
+        return {
+            'success': False,
+            'error': str(e)[:100],
+            'data': None
+        }
+
+def collect_device_inventory(ip: str, version: str, credential, worker_id: int) -> Dict:
+    """Collect comprehensive inventory for a single device"""
+    log_message(worker_id, 'PROGRESS', f"Collecting inventory...", ip)
+    
+    inventory = {}
+    total_lines = 0
+    successful_oids = 0
+    
+    for oid_name, oid in INVENTORY_OIDS.items():
+        result = collect_oid_data(ip, oid, version, credential)
+        inventory[oid_name] = result
+        
+        if result['success']:
+            successful_oids += 1
+            total_lines += result['line_count']
+        
+    log_message(worker_id, 'SUCCESS', f"Inventory: {successful_oids}/{len(INVENTORY_OIDS)} OIDs, {total_lines} lines", ip)
+    return inventory
+
+def worker_function(ip_list: List[str], worker_id: int, return_dict: Dict):
+    """Worker process function - processes assigned IP addresses"""
+    log_message(worker_id, 'INFO', f"Worker started with {len(ip_list)} devices")
+    
+    results = {}
+    
+    for i, ip in enumerate(ip_list, 1):
+        log_message(worker_id, 'INFO', f"Processing device {i}/{len(ip_list)}", ip)
+        
+        device_result = {
+            'ip': ip,
+            'worker_id': worker_id,
+            'snmp_working': False,
+            'snmp_version': None,
+            'working_credential': None,
+            'inventory': None,
+            'collection_timestamp': datetime.now().isoformat(),
+            'test_summary': {}
+        }
+        
+        # Test SNMP v2c first
+        for community in V2_COMMUNITIES:
+            success, message = test_snmp_v2(ip, community)
+            device_result['test_summary'][f'v2c_{community}'] = success
+            
+            if success:
+                log_message(worker_id, 'SUCCESS', f"v2c community '{community}' works", ip)
+                device_result['snmp_working'] = True
+                device_result['snmp_version'] = '2c'
+                device_result['working_credential'] = community
+                device_result['inventory'] = collect_device_inventory(ip, '2c', community, worker_id)
+                break
+            else:
+                log_message(worker_id, 'WARN', f"v2c '{community}': {message}", ip)
+        
+        # Try v3 if v2c failed
+        if not device_result['snmp_working']:
+            for cred in V3_CREDENTIALS:
+                success, message = test_snmp_v3(ip, cred)
+                device_result['test_summary'][f'v3_{cred["user"]}'] = success
+                
+                if success:
+                    log_message(worker_id, 'SUCCESS', f"v3 user '{cred['user']}' works", ip)
+                    device_result['snmp_working'] = True
+                    device_result['snmp_version'] = '3'
+                    device_result['working_credential'] = cred['user']
+                    device_result['inventory'] = collect_device_inventory(ip, '3', cred, worker_id)
+                    break
+                else:
+                    log_message(worker_id, 'WARN', f"v3 '{cred['user']}': {message}", ip)
+        
+        if device_result['snmp_working']:
+            log_message(worker_id, 'SUCCESS', f"Device complete: SNMP working", ip)
+        else:
+            log_message(worker_id, 'ERROR', f"Device complete: No SNMP access", ip)
+        
+        results[ip] = device_result
+    
+    return_dict[worker_id] = results
+    log_message(worker_id, 'INFO', f"Worker finished - processed {len(results)} devices")
+
+def load_all_ip_addresses() -> List[str]:
+    """Load all IP addresses from comprehensive inventory"""
+    source_file = '/var/www/html/meraki-data/comprehensive_network_inventory_updated.json'
+    
+    if not os.path.exists(source_file):
+        print(f"{Colors.RED}ERROR: {source_file} not found!{Colors.RESET}")
+        sys.exit(1)
+    
+    try:
+        print(f"{Colors.GREEN}Loading IP addresses from: {source_file}{Colors.RESET}")
+        with open(source_file, 'r') as f:
+            data = json.load(f)
+        
+        ip_addresses = []
+        for key, device_info in data.items():
+            if isinstance(device_info, dict):
+                ip = device_info.get('ip_address') or device_info.get('ip')
+                if not ip and '.' in key and key.replace('.', '').isdigit():
+                    ip = key
+                
+                if ip:
+                    ip_addresses.append(ip)
+        
+        print(f"{Colors.GREEN}✓ Loaded {len(ip_addresses)} IP addresses{Colors.RESET}")
+        return ip_addresses
+        
+    except Exception as e:
+        print(f"{Colors.RED}Failed to load {source_file}: {str(e)}{Colors.RESET}")
+        sys.exit(1)
+
+def main():
+    """Main execution function"""
+    start_time = datetime.now()
+    
+    # Print header
+    print(f"\n{Colors.CYAN}{Colors.BOLD}{'='*80}")
+    print("DSR CIRCUITS - FIXED PARALLEL SNMP INVENTORY COLLECTION")
+    print(f"Workers: {NUM_WORKERS}  < /dev/null |  Started: {start_time.strftime('%Y-%m-%d %H:%M:%S')}")
+    print("="*80 + Colors.RESET + "\n")
+    
+    # Load all IP addresses
+    all_ips = load_all_ip_addresses()
+    
+    print(f"{Colors.GREEN}Processing {len(all_ips)} IP addresses with {NUM_WORKERS} parallel workers{Colors.RESET}")
+    
+    # Distribute IPs across workers
+    ips_per_worker = len(all_ips) // NUM_WORKERS
+    ip_chunks = []
+    
+    for i in range(NUM_WORKERS):
+        start_idx = i * ips_per_worker
+        if i == NUM_WORKERS - 1:  # Last worker gets remaining IPs
+            end_idx = len(all_ips)
+        else:
+            end_idx = start_idx + ips_per_worker
+        
+        ip_chunks.append(all_ips[start_idx:end_idx])
+        print(f"{Colors.BLUE}Worker {i+1}: {len(ip_chunks[i])} IPs ({ip_chunks[i][0]} to {ip_chunks[i][-1]}){Colors.RESET}")
+    
+    print()
+    
+    # Start worker processes
+    manager = mp.Manager()
+    return_dict = manager.dict()
+    processes = []
+    
+    for i in range(NUM_WORKERS):
+        p = mp.Process(target=worker_function, args=(ip_chunks[i], i+1, return_dict))
+        p.start()
+        processes.append(p)
+    
+    # Wait for all workers to complete
+    for p in processes:
+        p.join()
+    
+    # Combine results
+    end_time = datetime.now()
+    duration = end_time - start_time
+    
+    all_results = {}
+    total_processed = 0
+    total_working = 0
+    total_v2c = 0
+    total_v3 = 0
+    total_inventory_lines = 0
+    
+    for worker_id, worker_results in return_dict.items():
+        for ip, device_result in worker_results.items():
+            all_results[ip] = device_result
+            total_processed += 1
+            
+            if device_result['snmp_working']:
+                total_working += 1
+                if device_result['snmp_version'] == '2c':
+                    total_v2c += 1
+                else:
+                    total_v3 += 1
+                
+                # Count inventory lines
+                if device_result['inventory']:
+                    for oid_data in device_result['inventory'].values():
+                        if oid_data.get('success'):
+                            total_inventory_lines += oid_data.get('line_count', 0)
+    
+    # Create final results structure
+    results = {
+        'collection_info': {
+            'start_time': start_time.isoformat(),
+            'end_time': end_time.isoformat(),
+            'duration_seconds': duration.total_seconds(),
+            'workers': NUM_WORKERS,
+            'total_ips_loaded': len(all_ips),
+            'communities_tested': V2_COMMUNITIES,
+            'v3_users_tested': [cred['user'] for cred in V3_CREDENTIALS]
+        },
+        'summary': {
+            'devices_processed': total_processed,
+            'snmp_working': total_working,
+            'snmp_failed': total_processed - total_working,
+            'v2c_success': total_v2c,
+            'v3_success': total_v3,
+            'total_inventory_lines': total_inventory_lines
+        },
+        'devices': all_results
+    }
+    
+    # Save results
+    output_file = '/var/www/html/meraki-data/fixed_parallel_snmp_results.json'
+    try:
+        with open(output_file, 'w') as f:
+            json.dump(results, f, indent=2)
+        print(f"{Colors.GREEN}✓ Results saved to: {output_file}{Colors.RESET}")
+    except Exception as e:
+        print(f"{Colors.RED}Failed to save results: {str(e)}{Colors.RESET}")
+    
+    # Print final summary
+    summary = results['summary']
+    print(f"\n{Colors.CYAN}{Colors.BOLD}{'='*80}")
+    print("COLLECTION COMPLETE")
+    print("="*80 + Colors.RESET)
+    print(f"{Colors.GREEN}✓ IP Addresses Loaded: {len(all_ips)}")
+    print(f"✓ Devices Processed: {summary['devices_processed']}")
+    print(f"✓ SNMP Working: {summary['snmp_working']} ({summary['snmp_working']/summary['devices_processed']*100:.1f}%)")
+    print(f"✓ v2c Success: {summary['v2c_success']}")
+    print(f"✓ v3 Success: {summary['v3_success']}")
+    print(f"✓ Total Inventory Lines: {summary['total_inventory_lines']:,}")
+    print(f"✗ SNMP Failed: {summary['snmp_failed']} ({summary['snmp_failed']/summary['devices_processed']*100:.1f}%)")
+    print(f"⏱ Duration: {duration}")
+    print(f"🚀 Parallel Workers: {NUM_WORKERS}")
+    print(f"💾 Results: {output_file}{Colors.RESET}\n")
+
+if __name__ == "__main__":
+    # Handle Ctrl+C gracefully
+    signal.signal(signal.SIGINT, lambda s, f: sys.exit(0))
+    main()

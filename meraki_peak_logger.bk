@@ -1,0 +1,123 @@
+#!/usr/bin/env python3
+
+import os
+import requests
+import time
+import datetime
+import json
+import pandas as pd
+
+API_KEY = "5174c907a7d57dea6a0788617287c985cc80b3c1"
+DEST_IP = "208.67.222.222"
+SERIAL_MAP = {
+    "AZP 41": "Q2QN-3S86-FTM7",
+    "AZP 64": "Q2KY-4NFZ-GR8K",
+    "AZP 05": "Q2KY-WSRF-D3KA"
+}
+WAN_LABELS = {
+    "AZP 05": {"wan1": "Cox 300M x 30M", "wan2": "Starlink"},
+    "AZP 64": {"wan1": "Inseego", "wan2": "VZG Cell"},
+    "AZP 41": {"wan1": "AT&T 20M x 20M", "wan2": "VZG Cell"},
+}
+UPLINKS = ["wan1", "wan2"]
+DATA_DIR = "/var/www/html/meraki-data"
+os.makedirs(DATA_DIR, exist_ok=True)
+
+def log_metrics():
+    print("📡 Meraki Loss/Latency Logger Started")
+
+    while True:
+        all_records = []
+
+        for store, serial in SERIAL_MAP.items():
+            for uplink in UPLINKS:
+                try:
+                    url = f"https://api.meraki.com/api/v1/devices/{serial}/lossAndLatencyHistory"
+                    params = {
+                        "uplink": uplink,
+                        "ip": DEST_IP,
+                        "timespan": 600,
+                        "resolution": 60
+                    }
+                    headers = {
+                        "X-Cisco-Meraki-API-Key": API_KEY,
+                        "Content-Type": "application/json"
+                    }
+
+                    resp = requests.get(url, headers=headers, params=params)
+                    data = resp.json()
+
+                            "store": store,
+                            "serial": serial,
+                            "uplink": uplink,
+                            "startTs": data[-1]["startTs"],
+                            "endTs": data[-1]["endTs"],
+                            "minJitter": round(min_jitter, 2),
+                            "maxJitter": round(max_jitter, 2),
+                            "avgJitter": round(avg_jitter, 2),
+                            "minLatency": round(min_latency, 2),
+                            "maxLatency": round(max_latency, 2),
+                            "avgLatency": round(avg_latency, 2),
+                            "minLoss": round(min_loss, 2),
+                            "maxLoss": round(max_loss, 2),
+                            "avgLoss": round(avg_loss, 2),
+                            "wanLabel": WAN_LABELS[store].get(uplink, ""),
+                            "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat()
+                        })
+                    else:
+                        print(f"⚠️ No recent data for {serial} {uplink} ({resp.status_code} {resp.reason})")
+
+                except Exception as e:
+                    print(f"❌ Error polling {store} {uplink}: {e}")
+
+        if all_records:
+            now = datetime.datetime.now(datetime.timezone.utc)
+            filename = os.path.join(DATA_DIR, f"wan_metrics_{now:%Y%m%d}.json")
+            with open(filename, "a") as f:
+                for record in all_records:
+                    f.write(json.dumps(record) + "\n")
+
+        time.sleep(60)
+
+if __name__ == "__main__":
+    log_metrics()
+    if isinstance(data, list) and len(data) > 0:
+        df = pd.DataFrame(data)
+        df = df.dropna(subset=["jitter", "latencyMs", "lossPercent"])
+        if not df.empty:
+            min_jitter = round(df["jitter"].min(), 2)
+            max_jitter = round(df["jitter"].max(), 2)
+            avg_jitter = round(df["jitter"].mean(), 2)
+
+            min_latency = round(df["latencyMs"].min(), 2)
+            max_latency = round(df["latencyMs"].max(), 2)
+            avg_latency = round(df["latencyMs"].mean(), 2)
+
+            min_loss = round(df["lossPercent"].min(), 2)
+            max_loss = round(df["lossPercent"].max(), 2)
+            avg_loss = round(df["lossPercent"].mean(), 2)
+
+            print(f"✅ {store} {uplink} | "
+                  f"{data[-1]['startTs']}–{data[-1]['endTs']} | "
+                  f"Loss: min {min_loss}%, max {max_loss}%, avg {avg_loss}%, "
+                  f"Latency: min {min_latency}ms, max {max_latency}ms, avg {avg_latency}ms, "
+                  f"Jitter: min {min_jitter}, max {max_jitter}, avg {avg_jitter}")
+
+            all_records.append({
+                "store": store,
+                "uplink": uplink,
+                "startTs": data[-1]["startTs"],
+                "endTs": data[-1]["endTs"],
+                "minLoss": min_loss,
+                "maxLoss": max_loss,
+                "avgLoss": avg_loss,
+                "minLatency": min_latency,
+                "maxLatency": max_latency,
+                "avgLatency": avg_latency,
+                "minJitter": min_jitter,
+                "maxJitter": max_jitter,
+                "avgJitter": avg_jitter,
+                "serial": serial,
+                "wanLabel": WAN_LABELS.get(store, {}).get(uplink, ""),
+                "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat()
+            })

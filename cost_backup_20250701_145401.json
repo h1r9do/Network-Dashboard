@@ -1,0 +1,7097 @@
+[
+  {
+    "network_name": "ALB 01",
+    "wan1_monthly_cost": "$105.00",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "ALB 03",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ALM 01",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "ALM 02",
+    "wan1_monthly_cost": "$207.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "ALM 03",
+    "wan1_monthly_cost": "$355.56",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "ALM 04",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "ALN 01",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ALN 02",
+    "wan1_monthly_cost": "$105.01",
+    "wan2_monthly_cost": "$186.18"
+  },
+  {
+    "network_name": "ALS 01",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$175.56"
+  },
+  {
+    "network_name": "ALS 02",
+    "wan1_monthly_cost": "$349.00",
+    "wan2_monthly_cost": "$995.00"
+  },
+  {
+    "network_name": "ARL 01",
+    "wan1_monthly_cost": "$75.00",
+    "wan2_monthly_cost": "$282.23"
+  },
+  {
+    "network_name": "ARL 02",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "ARL 03",
+    "wan1_monthly_cost": "$154.95",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "ARL 04",
+    "wan1_monthly_cost": "$151.12",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "ARL 05",
+    "wan1_monthly_cost": "$165.00",
+    "wan2_monthly_cost": "$194.99"
+  },
+  {
+    "network_name": "ARL 06",
+    "wan1_monthly_cost": "$151.12",
+    "wan2_monthly_cost": "$666.00"
+  },
+  {
+    "network_name": "ARO 01",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "ARO 02",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "ARO 03",
+    "wan1_monthly_cost": "$215.02",
+    "wan2_monthly_cost": "$266.67"
+  },
+  {
+    "network_name": "ARO 04",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "ARO 05",
+    "wan1_monthly_cost": "$225.00",
+    "wan2_monthly_cost": "$199.99"
+  },
+  {
+    "network_name": "ARO 06",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$266.67"
+  },
+  {
+    "network_name": "AZC 01",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZF 01",
+    "wan1_monthly_cost": "$529.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZF 02",
+    "wan1_monthly_cost": "$128.00",
+    "wan2_monthly_cost": "$435.00"
+  },
+  {
+    "network_name": "AZH 01",
+    "wan1_monthly_cost": "$212.77",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZK 01",
+    "wan1_monthly_cost": "$204.00",
+    "wan2_monthly_cost": "$204.00"
+  },
+  {
+    "network_name": "AZM 01",
+    "wan1_monthly_cost": "$199.95",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZN 02",
+    "wan1_monthly_cost": "$335.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZN 03",
+    "wan1_monthly_cost": "$248.75",
+    "wan2_monthly_cost": "$248.75"
+  },
+  {
+    "network_name": "AZN 03 ",
+    "wan1_monthly_cost": "$248.75",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZN 04",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZN 05",
+    "wan1_monthly_cost": "$300.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZN 06",
+    "wan1_monthly_cost": "$224.29",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP_00",
+    "wan1_monthly_cost": "$387.24",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 01",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 03",
+    "wan1_monthly_cost": "$225.00",
+    "wan2_monthly_cost": "$266.67"
+  },
+  {
+    "network_name": "AZP 05",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 07",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 08",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 09",
+    "wan1_monthly_cost": "$179.99",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "AZP 10",
+    "wan1_monthly_cost": "$121.28",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 11",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 13",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 14",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 16",
+    "wan1_monthly_cost": "$170.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 17",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 18",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "AZP 19",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 20",
+    "wan1_monthly_cost": "$618.75",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 21",
+    "wan1_monthly_cost": "$220.22",
+    "wan2_monthly_cost": "$209.99"
+  },
+  {
+    "network_name": "AZP 22",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "AZP 23",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 24",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "AZP 25",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 26",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "AZP 27",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$119.99"
+  },
+  {
+    "network_name": "AZP 28",
+    "wan1_monthly_cost": "$342.23",
+    "wan2_monthly_cost": "$189.99"
+  },
+  {
+    "network_name": "AZP 29",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$151.00"
+  },
+  {
+    "network_name": " AZP 30 ",
+    "wan1_monthly_cost": "$179.99",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "AZP 30",
+    "wan1_monthly_cost": "$179.99",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "AZP 31",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 32",
+    "wan1_monthly_cost": "$217.78",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 33",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 34",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 35",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 36",
+    "wan1_monthly_cost": "$750.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 37",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$189.99"
+  },
+  {
+    "network_name": "AZP 38",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 39",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 41",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 42",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 43",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$139.99"
+  },
+  {
+    "network_name": "AZP 44",
+    "wan1_monthly_cost": "$139.99",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "AZP 45",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 46",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$151.00"
+  },
+  {
+    "network_name": "AZP 46 ",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$151.00"
+  },
+  {
+    "network_name": "AZP 47",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 48",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 49",
+    "wan1_monthly_cost": "$89.99",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 49 ",
+    "wan1_monthly_cost": "$89.99",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 50",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 51",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 53",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 54",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$149.99"
+  },
+  {
+    "network_name": "AZP 55",
+    "wan1_monthly_cost": "$607.60",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 56",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 57",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 58",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 59",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 60",
+    "wan1_monthly_cost": "$353.34",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 61",
+    "wan1_monthly_cost": "$217.78",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 62",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 63",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZP 64",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZS 01",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZT 01",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZT 02",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "AZT 03",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZT 06",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZT 07",
+    "wan1_monthly_cost": "$435.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZT 09",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZT 10",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZT 11",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZT 12",
+    "wan1_monthly_cost": "$192.56",
+    "wan2_monthly_cost": "$139.99"
+  },
+  {
+    "network_name": "AZT 13",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$192.56"
+  },
+  {
+    "network_name": "AZT 14",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$450.00"
+  },
+  {
+    "network_name": "AZY 01",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "AZY 02",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$264.00"
+  },
+  {
+    "network_name": "CAL_00",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 01",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$245.00"
+  },
+  {
+    "network_name": "CAL 02",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$530.00"
+  },
+  {
+    "network_name": "CAL 03",
+    "wan1_monthly_cost": "$177.66",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 04",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "CAL 04 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": " CAL 05 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 05",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 06",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 07",
+    "wan1_monthly_cost": "$105.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 08",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAL 09",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$245.00"
+  },
+  {
+    "network_name": "CAL 10",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 11",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 12",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 13",
+    "wan1_monthly_cost": "$339.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 13 ",
+    "wan1_monthly_cost": "$339.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 14",
+    "wan1_monthly_cost": "$950.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 14 ",
+    "wan1_monthly_cost": "$950.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 15",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 17",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 18",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 18 ",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 19",
+    "wan1_monthly_cost": "$165.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 20",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 21",
+    "wan1_monthly_cost": "$85.50",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "CAL 22",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAL 23",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "CAL 23 ",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "CAL 24",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 26",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAL 28",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 29",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": " CAL 31 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 31",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 33",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 35",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAL 35 ",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": " CAL 37",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 37",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 38",
+    "wan1_monthly_cost": "$207.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 40",
+    "wan1_monthly_cost": "$165.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 41",
+    "wan1_monthly_cost": "$355.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAL 42",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 43",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAL 44",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAL 46",
+    "wan1_monthly_cost": "$245.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 47",
+    "wan1_monthly_cost": "$950.00",
+    "wan2_monthly_cost": "$245.00"
+  },
+  {
+    "network_name": "CAL 48",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAL 49",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "CAL 50",
+    "wan1_monthly_cost": "$245.00",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "CAL W01",
+    "wan1_monthly_cost": "$339.00",
+    "wan2_monthly_cost": "$245.00"
+  },
+  {
+    "network_name": "CAN_00",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAN 02",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 03",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "CAN 04",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 05",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAN 07",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 07 ",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 10",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAN 10 ",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAN 11",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 12",
+    "wan1_monthly_cost": "$250.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 13",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAN 13 ",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAN 14",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$165.00"
+  },
+  {
+    "network_name": "CAN 14 ",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$165.00"
+  },
+  {
+    "network_name": "CAN 15",
+    "wan1_monthly_cost": "$105.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 15 ",
+    "wan1_monthly_cost": "$105.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 16",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 17",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAN 18",
+    "wan1_monthly_cost": "$165.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 19",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAN 20",
+    "wan1_monthly_cost": "$459.99",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 21",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAN 22",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAN 23",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "CAN 24",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAN 25",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAN 26",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 28",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$245.00"
+  },
+  {
+    "network_name": "CAN 29",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 30",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 30 ",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 31",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "CAN 32",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 33",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAN 34",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 35",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "CAN 36",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 37",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$165.00"
+  },
+  {
+    "network_name": "CAN 38",
+    "wan1_monthly_cost": "$240.04",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 39",
+    "wan1_monthly_cost": "$200.00",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAN 40",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 41",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAN 42",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 43",
+    "wan1_monthly_cost": "$105.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": " CAN 44",
+    "wan1_monthly_cost": "$134.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 44",
+    "wan1_monthly_cost": "$134.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 45",
+    "wan1_monthly_cost": "$105.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 46",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 47",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAN 48",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAN 49",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 50",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 51",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAN 52",
+    "wan1_monthly_cost": "$479.99",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 53",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$550.00"
+  },
+  {
+    "network_name": "CAN 53 ",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$550.00"
+  },
+  {
+    "network_name": "CAN 54",
+    "wan1_monthly_cost": "$105.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 55",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$234.45"
+  },
+  {
+    "network_name": "CAN 56",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAN 57",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAN 58",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "CAN 60",
+    "wan1_monthly_cost": "$165.00",
+    "wan2_monthly_cost": "$175.56"
+  },
+  {
+    "network_name": "CAN 61",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$234.45"
+  },
+  {
+    "network_name": "CAN W02",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAO 01",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAO 03",
+    "wan1_monthly_cost": "$177.66",
+    "wan2_monthly_cost": "$245.00"
+  },
+  {
+    "network_name": "CAO 05",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAO 06",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "CAS_00",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAS 01",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 02",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 03",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAS 04",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAS 05",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$165.00"
+  },
+  {
+    "network_name": "CAS 06",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 07",
+    "wan1_monthly_cost": "$105.01",
+    "wan2_monthly_cost": "$266.67"
+  },
+  {
+    "network_name": "CAS 08",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "CAS 09",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 10",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$266.67"
+  },
+  {
+    "network_name": "CAS 11",
+    "wan1_monthly_cost": "$165.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 11 ",
+    "wan1_monthly_cost": "$165.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 12",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 13",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "CAS 14",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAS 15",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 16",
+    "wan1_monthly_cost": "$500.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 16 ",
+    "wan1_monthly_cost": "$500.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 17",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 18",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "CAS 19",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 20",
+    "wan1_monthly_cost": "$116.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 21",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 21 ",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 22",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAS 23",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAS 24",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAS 25",
+    "wan1_monthly_cost": "$355.56",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "CAS 27",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAS 28",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "CAS 31",
+    "wan1_monthly_cost": "$59.99",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "CAS 32",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 32 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 33",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 34",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "CAS 34 ",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "CAS 35",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 36",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 37",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 38",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "CAS 39",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAS 40",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 41",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 42",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 43",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAS 44",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "CAS 45",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "CAS 46",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 47",
+    "wan1_monthly_cost": "$165.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 48",
+    "wan1_monthly_cost": "$245.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 48 ",
+    "wan1_monthly_cost": "$245.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 49",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 49 ",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CAS 50",
+    "wan1_monthly_cost": "$177.66",
+    "wan2_monthly_cost": "$245.00"
+  },
+  {
+    "network_name": "CAS 51",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "CAS 53",
+    "wan1_monthly_cost": "$240.04",
+    "wan2_monthly_cost": "$266.67"
+  },
+  {
+    "network_name": "COB 01",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "COD_00",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$139.00"
+  },
+  {
+    "network_name": "COD 01",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 02",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 02 ",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 03",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 03 ",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 04",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 05",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$234.45"
+  },
+  {
+    "network_name": "COD 05 ",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 06",
+    "wan1_monthly_cost": "$139.99",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 06 ",
+    "wan1_monthly_cost": "$139.99",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 07",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 08",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 08 ",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 09",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 09 ",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 10",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$175.56"
+  },
+  {
+    "network_name": "COD 11",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 11 ",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": " COD 13 ",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 13",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 14",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 15",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 15 ",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 17",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 18",
+    "wan1_monthly_cost": "$282.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 18 ",
+    "wan1_monthly_cost": "$282.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 19",
+    "wan1_monthly_cost": "$199.95",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 20",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 21",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$99.99"
+  },
+  {
+    "network_name": "COD 22",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 22 ",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 23",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "COD 24",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 25",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$151.00"
+  },
+  {
+    "network_name": "COD 25 ",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$151.00"
+  },
+  {
+    "network_name": "COD 26",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "COD 26 ",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "COD 27",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 28",
+    "wan1_monthly_cost": "$282.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 29",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 30",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 31",
+    "wan1_monthly_cost": "$289.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 31 ",
+    "wan1_monthly_cost": "$289.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 32",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$169.99"
+  },
+  {
+    "network_name": "COD 32 ",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$169.99"
+  },
+  {
+    "network_name": "COD 34",
+    "wan1_monthly_cost": "$149.99",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 34 ",
+    "wan1_monthly_cost": "$149.99",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 35",
+    "wan1_monthly_cost": "$110.00",
+    "wan2_monthly_cost": "$175.56"
+  },
+  {
+    "network_name": "COD 36",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 37",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 38",
+    "wan1_monthly_cost": "$169.99",
+    "wan2_monthly_cost": "$169.99"
+  },
+  {
+    "network_name": "COD 39",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 40",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 41",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COD 42",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COG 01",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "Cog 02",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.00"
+  },
+  {
+    "network_name": "COG 03",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CON 02",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "CON 03",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$199.95"
+  },
+  {
+    "network_name": "COP 02",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COP 03",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "Corporate Store0",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COS 01",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COS 02",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COS 03",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "COS 04",
+    "wan1_monthly_cost": "$540.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COS 05",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$699.00"
+  },
+  {
+    "network_name": "COS 06",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COS 07",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COW 01",
+    "wan1_monthly_cost": "$355.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COW 02",
+    "wan1_monthly_cost": "$159.95",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "COX 01",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$234.45"
+  },
+  {
+    "network_name": "Desert Ridge",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "Desert Ridge Building I Security",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "EQX-DataCenter-WA",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "FLD 01",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "FLD 02",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "FLD 04",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "FLF 01",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "FLG 01",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "FLG 02",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$300.00"
+  },
+  {
+    "network_name": "FLG 03",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$175.56"
+  },
+  {
+    "network_name": "Flight Department",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "FLJ_00",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "FLJ 01",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "FLJ 02",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "FLJ 03",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "FLJ 03 ",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "FLJ 05",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "FLJ 06",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "FLJ 07",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "FLJ 07 ",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "FLJ 09",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "FLJ 10",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "FLJ 11",
+    "wan1_monthly_cost": "$215.02",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "FLJ 12",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$234.45"
+  },
+  {
+    "network_name": "FLM 01",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "FLM 02",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "FLO 01",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "FLO 01 ",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "FLO 02",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "FLO 03",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "FLO 04",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "FLO 05",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "FLO 06",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "FLO 07",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "FLO 08",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "FLO 09",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "FLO 09 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "FLO 10",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "FLO 11",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "FLO 12",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "FLO 13",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "FLO 14",
+    "wan1_monthly_cost": "$165.00",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "FLO 15",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "FLO 16",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "FLP 01",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "FLP 02",
+    "wan1_monthly_cost": "$100.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "FLP 03",
+    "wan1_monthly_cost": "$244.69",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "FLP 04",
+    "wan1_monthly_cost": "$100.00",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "FLS 01",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "FLS 02",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "FLS 02 ",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "FLS 03",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "FLS 04",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$175.56"
+  },
+  {
+    "network_name": "FLT 01",
+    "wan1_monthly_cost": "$129.95",
+    "wan2_monthly_cost": "$129.95"
+  },
+  {
+    "network_name": "FLT 01 ",
+    "wan1_monthly_cost": "$129.95",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "FLT 02",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$129.95"
+  },
+  {
+    "network_name": "FP-ATL-OOBMGMT-01",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "FP-DAL-OOBMGMT-01",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "FP-DAL-OOBMGMT-02",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "FP-iSeries-DAL",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "GAA_00",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$234.45"
+  },
+  {
+    "network_name": "GAA 01",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "GAA 03",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "GAA 05",
+    "wan1_monthly_cost": "$105.01",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "GAA 06",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "GAA 07",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "GAA 08",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "GAA 10",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "GAA 11",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "GAA 12",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "GAA 13",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "GAA 14",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "GAA 15",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "GAA 17",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "GAA 18",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "GAA 19",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "GAA 21",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "GAA 22",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "GAA 24",
+    "wan1_monthly_cost": "$85.50",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "GAA 25",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "GAA 26",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "GAA 27",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "GAA 28",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "GAA 29",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$175.56"
+  },
+  {
+    "network_name": "GAA 30",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "GAA 31",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "GAA 32",
+    "wan1_monthly_cost": "$100.00",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "GAA 33",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "GAA 34",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "GAA 35",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "GAA 36",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "GAA 37",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "GAA 38",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$248.00"
+  },
+  {
+    "network_name": "GAA 39",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "GAA 40",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "GAA 41",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "GAA 42",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "GAA 42 ",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "GAA 43",
+    "wan1_monthly_cost": "$207.45",
+    "wan2_monthly_cost": "$350.00"
+  },
+  {
+    "network_name": "GAA 44",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$209.00"
+  },
+  {
+    "network_name": "GAA 45",
+    "wan1_monthly_cost": "$244.69",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "GAA 46",
+    "wan1_monthly_cost": "$240.04",
+    "wan2_monthly_cost": "$353.34"
+  },
+  {
+    "network_name": "GAACALLCNTR",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "GAA W00",
+    "wan1_monthly_cost": "$165.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "GAE 01",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$248.00"
+  },
+  {
+    "network_name": "GAE 02",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "GAE 03",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "GAN 01",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "GAS 01",
+    "wan1_monthly_cost": "$353.34",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "HPL_00",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "IAC 01",
+    "wan1_monthly_cost": "$353.34",
+    "wan2_monthly_cost": "$151.00"
+  },
+  {
+    "network_name": "IAC 02",
+    "wan1_monthly_cost": "$353.34",
+    "wan2_monthly_cost": "$199.99"
+  },
+  {
+    "network_name": "IAD 01",
+    "wan1_monthly_cost": "$338.30",
+    "wan2_monthly_cost": "$139.95"
+  },
+  {
+    "network_name": "IAD 02",
+    "wan1_monthly_cost": "$255.56",
+    "wan2_monthly_cost": "$289.95"
+  },
+  {
+    "network_name": "IAD 03",
+    "wan1_monthly_cost": "$230.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "IAD 04",
+    "wan1_monthly_cost": "$353.34",
+    "wan2_monthly_cost": "$139.95"
+  },
+  {
+    "network_name": "IAD 05",
+    "wan1_monthly_cost": "$353.34",
+    "wan2_monthly_cost": "$149.95"
+  },
+  {
+    "network_name": "IAF 01",
+    "wan1_monthly_cost": "$244.69",
+    "wan2_monthly_cost": "$125.00"
+  },
+  {
+    "network_name": "IAI 01",
+    "wan1_monthly_cost": "$353.34",
+    "wan2_monthly_cost": "$149.95"
+  },
+  {
+    "network_name": "IAN 01",
+    "wan1_monthly_cost": "$353.34",
+    "wan2_monthly_cost": "$92.50"
+  },
+  {
+    "network_name": "IAN 02",
+    "wan1_monthly_cost": "$353.34",
+    "wan2_monthly_cost": "$189.99"
+  },
+  {
+    "network_name": "IAN 03",
+    "wan1_monthly_cost": "$353.34",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "IAQ 01",
+    "wan1_monthly_cost": "$255.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "IAQ 02",
+    "wan1_monthly_cost": "$353.34",
+    "wan2_monthly_cost": "$129.95"
+  },
+  {
+    "network_name": "IAS 01",
+    "wan1_monthly_cost": "$248.75",
+    "wan2_monthly_cost": "$269.95"
+  },
+  {
+    "network_name": "IDB 01",
+    "wan1_monthly_cost": "$229.99",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "IDB 03",
+    "wan1_monthly_cost": "$335.00",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "IDB 03 ",
+    "wan1_monthly_cost": "$335.00",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "IDB 04",
+    "wan1_monthly_cost": "$529.00",
+    "wan2_monthly_cost": "$335.00"
+  },
+  {
+    "network_name": "IDB 05",
+    "wan1_monthly_cost": "$335.00",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "IDB 06",
+    "wan1_monthly_cost": "$337.00",
+    "wan2_monthly_cost": "$184.95"
+  },
+  {
+    "network_name": "IDB 07",
+    "wan1_monthly_cost": "$335.00",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "IDN 01",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$168.00"
+  },
+  {
+    "network_name": "ILC_00",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "ILC 01",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "ILC 02",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$234.45"
+  },
+  {
+    "network_name": "ILC 03",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "ILC 04",
+    "wan1_monthly_cost": "$150.00",
+    "wan2_monthly_cost": "$150.00"
+  },
+  {
+    "network_name": "ILC 05",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "ILC 05 ",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "ILC 06",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "ILC 07",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$165.00"
+  },
+  {
+    "network_name": "ILC 08",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "ILC 08 ",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "ILC 09",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "ILC 11",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ILC 12",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ILC 12 ",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ILC 13",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ILC 14",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": " ILC 15",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "ILC 15",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "ILC 16",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ILC 16 ",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ILC 17",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": " ILC 18 ",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "ILC 18",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "ILC 19",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "ILC 21",
+    "wan1_monthly_cost": "$165.00",
+    "wan2_monthly_cost": "$175.56"
+  },
+  {
+    "network_name": "ILC 22",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "ILC 24",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "ILC 25",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "ILC 27",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "ILC 28",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ILC 29",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "ILC 30",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "ILC 31",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$234.45"
+  },
+  {
+    "network_name": "ILC 32",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "ILC 33",
+    "wan1_monthly_cost": "$165.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ILC 33 ",
+    "wan1_monthly_cost": "$165.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ILC 34",
+    "wan1_monthly_cost": "$105.01",
+    "wan2_monthly_cost": "$134.45"
+  },
+  {
+    "network_name": "ILC 35",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "ILC 36",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "ILC 37",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "ILC 41",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ILC 42",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ILC 43",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ILC 44",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ILC 45",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ILC 46",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ILP 01",
+    "wan1_monthly_cost": "$129.99",
+    "wan2_monthly_cost": "$129.99"
+  },
+  {
+    "network_name": "ILR 01",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ILR 02",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ILS 01",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "ILW 01",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "ILW 02",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "INC 01",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "INC 02",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "INC 03",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "INE 01",
+    "wan1_monthly_cost": "$89.95",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "INE 02",
+    "wan1_monthly_cost": "$105.01",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "INF 01",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "INF 02",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "INF 03",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$279.95"
+  },
+  {
+    "network_name": "INF 04",
+    "wan1_monthly_cost": "$177.66",
+    "wan2_monthly_cost": "$245.00"
+  },
+  {
+    "network_name": "INI_00",
+    "wan1_monthly_cost": "$142.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "INI 01",
+    "wan1_monthly_cost": "$100.00",
+    "wan2_monthly_cost": "$175.56"
+  },
+  {
+    "network_name": "INI 02",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "INI 03",
+    "wan1_monthly_cost": "$105.01",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "INI 05",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "INI 06",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "INI 07",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "INI 08",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "INI 09",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "INI 10",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "INI 12",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "INI 13",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "INI 14",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "INI 15",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "INI 16",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "INI W01",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "INJ 01",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "INL 01",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$269.95"
+  },
+  {
+    "network_name": "INN 01",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "INW 01",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "INW 02",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "INW 03",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "KSK_00",
+    "wan1_monthly_cost": "$244.69",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "KSK 01",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "KSK 02",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "KSK 03",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "KSK 04",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "KSK 05",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "KSK 06",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "KSL 01",
+    "wan1_monthly_cost": "$165.00",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "KSM 01",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "KSM 02",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "KST 01",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$266.67"
+  },
+  {
+    "network_name": "KSW 01",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "KSW 02",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "KSW 03",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "KYB 01",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "KYE 01",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$140.00"
+  },
+  {
+    "network_name": "KYL 01",
+    "wan1_monthly_cost": "$355.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "KYL 02",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "KYL 03",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "LAS 01",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "LAS 02",
+    "wan1_monthly_cost": "$222.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MIA 01",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MIA 04",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MIA 16",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MIA 17",
+    "wan1_monthly_cost": "$280.00",
+    "wan2_monthly_cost": "$280.00"
+  },
+  {
+    "network_name": "MIAC02",
+    "wan1_monthly_cost": "$165.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MIB 01",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$165.00"
+  },
+  {
+    "network_name": "MID 01",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MID 04",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "MID 05",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "MID 06",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MID 07",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "MID 09",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "MID 10",
+    "wan1_monthly_cost": "$355.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MID 11",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MID 12",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": " MID 13",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "MID 13",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "MID 14",
+    "wan1_monthly_cost": "$105.01",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MID 16",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "MID 17",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "MID 18",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MID 19",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "MID 20",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "MID 22",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "MID 23",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MID 24",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MID 25",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MID 26",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MID 27",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MID W00",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MIF 04",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "MIF 05",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MIF 25",
+    "wan1_monthly_cost": "$355.56",
+    "wan2_monthly_cost": "$175.56"
+  },
+  {
+    "network_name": "MIF 26",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "MIG 07",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "MIG 08",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MIG 09",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MIG 23",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$175.00"
+  },
+  {
+    "network_name": "MIG 24",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MIG 25",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MIG 29",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MIG 30",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MIH 27",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MIK 06",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MIK 06 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MIK 14",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MIK 30",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MIK 31",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MIL 00",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MIL 11",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MIL 15",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "MIL 28",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MIM 01",
+    "wan1_monthly_cost": "$355.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MIN 01",
+    "wan1_monthly_cost": "$207.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MIP 01",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$325.00"
+  },
+  {
+    "network_name": "MIS 12",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MIS 17",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MIS 20",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MIT 26",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "MIW 21",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MNM_00",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MNM 01",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MNM 01 ",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MNM 02",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MNM 03",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MNM 05",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "MNM 06",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MNM 07",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "MNM 08",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$151.00"
+  },
+  {
+    "network_name": "MNM 09",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MNM 10",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MNM 11",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MNM 12",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$289.95"
+  },
+  {
+    "network_name": "MNM 13",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "MNM 14",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MNM 15",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$199.95"
+  },
+  {
+    "network_name": "MNM 16",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MNM 17",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MNM 18",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MNM 19",
+    "wan1_monthly_cost": "$129.95",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MNM 20",
+    "wan1_monthly_cost": "$250.00",
+    "wan2_monthly_cost": "$855.00"
+  },
+  {
+    "network_name": "MNM 21",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MNM 21 ",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MNM 22",
+    "wan1_monthly_cost": "$355.56",
+    "wan2_monthly_cost": "$151.00"
+  },
+  {
+    "network_name": "MNM 23",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$151.00"
+  },
+  {
+    "network_name": "MNM 24",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MNM 25",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MNM 26",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MNM 27",
+    "wan1_monthly_cost": "$529.00",
+    "wan2_monthly_cost": "$275.00"
+  },
+  {
+    "network_name": "MNM 29",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MNM 31",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MNM W01",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MOK 01",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "MOK 02",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MOK 03",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MOK 05",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MOK 06",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MOK 07",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "MON 01",
+    "wan1_monthly_cost": "$212.77",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MOO 01",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MOO 02",
+    "wan1_monthly_cost": "$353.34",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MOO 03",
+    "wan1_monthly_cost": "$353.34",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MOO 04",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MOR 01",
+    "wan1_monthly_cost": "$185.00",
+    "wan2_monthly_cost": "$335.00"
+  },
+  {
+    "network_name": "MOS_00",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "MOS 01",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$165.00"
+  },
+  {
+    "network_name": "MOS 02",
+    "wan1_monthly_cost": "$105.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MOS 03",
+    "wan1_monthly_cost": "$207.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MOS 04",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MOS 05",
+    "wan1_monthly_cost": "$355.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MOS 06",
+    "wan1_monthly_cost": "$104.99",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "MOS 07",
+    "wan1_monthly_cost": "$165.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MOS 08",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$189.00"
+  },
+  {
+    "network_name": "MOS 09",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MOS 10",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MOS 12",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "MOSW 01",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MSG 01",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MSN 01",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "MSN 02",
+    "wan1_monthly_cost": "$470.00",
+    "wan2_monthly_cost": "$234.45"
+  },
+  {
+    "network_name": "MTB 01",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MTM 01",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "MTM 02",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NCC_00",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "NCC 01",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "NCC 02",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "NCC 03",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "NCC 04",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": " NCC 05",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "NCC 05",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "NCC 06",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "NCC 07",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "NCC 08",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "NCC 09",
+    "wan1_monthly_cost": "$355.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "NCC 10",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "NCC 10 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "NCC 11",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "NCC 13",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$120.00"
+  },
+  {
+    "network_name": "NCC 14",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NCC 15",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$378.00"
+  },
+  {
+    "network_name": "NCC 16",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "NCC 17",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "NCC 17 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "NCC 18",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NCC 19",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NCC 20",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.00"
+  },
+  {
+    "network_name": "NCC 20 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.00"
+  },
+  {
+    "network_name": "NCC 21",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NCC 23",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "NCC 24",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "NCC 25",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "NCC 26",
+    "wan1_monthly_cost": "$85.50",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "NCC 27",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NCC 28",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "NCC 30",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NCC 33",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "NCC 35",
+    "wan1_monthly_cost": "$212.77",
+    "wan2_monthly_cost": "$129.95"
+  },
+  {
+    "network_name": "NCC 36",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$109.95"
+  },
+  {
+    "network_name": "NCC 37",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$139.95"
+  },
+  {
+    "network_name": "NCC 38",
+    "wan1_monthly_cost": "$104.99",
+    "wan2_monthly_cost": "$249.95"
+  },
+  {
+    "network_name": "NCC 39",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "NCC 40",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$209.00"
+  },
+  {
+    "network_name": "NCC 41",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "NCC 42",
+    "wan1_monthly_cost": "$90.00",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "NCC 43",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$209.00"
+  },
+  {
+    "network_name": "NCC 44",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NCC 45",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$592.00"
+  },
+  {
+    "network_name": "NCC 46",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$550.00"
+  },
+  {
+    "network_name": "NCC 47",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$199.95"
+  },
+  {
+    "network_name": "NCC 48",
+    "wan1_monthly_cost": "$931.00",
+    "wan2_monthly_cost": "$931.00"
+  },
+  {
+    "network_name": "NCC 51",
+    "wan1_monthly_cost": "$106.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NCC 52",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$109.95"
+  },
+  {
+    "network_name": "NCN 01",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$189.99"
+  },
+  {
+    "network_name": "NDG 01",
+    "wan1_monthly_cost": "$165.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NEG 01",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$227.00"
+  },
+  {
+    "network_name": "NEL 01",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$223.00"
+  },
+  {
+    "network_name": "NEO 01",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$399.95"
+  },
+  {
+    "network_name": "NEO 03",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$399.95"
+  },
+  {
+    "network_name": "NEO 04",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$399.95"
+  },
+  {
+    "network_name": "NEO 05",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "NEO 06",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "NEO 07",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$199.95"
+  },
+  {
+    "network_name": "NMA_00",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "NMA 01",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NMA 02",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NMA 03",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NMA 03 ",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NMA 04",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$550.00"
+  },
+  {
+    "network_name": "NMA 05",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NMA 06",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NMA 07",
+    "wan1_monthly_cost": "$282.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NMA 08",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NMA 09",
+    "wan1_monthly_cost": "$224.99",
+    "wan2_monthly_cost": "$134.45"
+  },
+  {
+    "network_name": "NMA 09 ",
+    "wan1_monthly_cost": "$224.99",
+    "wan2_monthly_cost": "$134.45"
+  },
+  {
+    "network_name": "NMA 10",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NMA 11",
+    "wan1_monthly_cost": "$99.95",
+    "wan2_monthly_cost": "$169.99"
+  },
+  {
+    "network_name": "NMA 12",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NMA 13",
+    "wan1_monthly_cost": "$699.00",
+    "wan2_monthly_cost": "$699.00"
+  },
+  {
+    "network_name": "NMACALLCNTR",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NMAW00",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NMC 01",
+    "wan1_monthly_cost": "$151.12",
+    "wan2_monthly_cost": "$350.00"
+  },
+  {
+    "network_name": "NMF 01",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "NMH 01",
+    "wan1_monthly_cost": "$94.99",
+    "wan2_monthly_cost": "$216.00"
+  },
+  {
+    "network_name": "NML 01",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NMR 01",
+    "wan1_monthly_cost": "$248.75",
+    "wan2_monthly_cost": "$350.00"
+  },
+  {
+    "network_name": "NMS 02",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$149.99"
+  },
+  {
+    "network_name": "NMS 03",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$129.99"
+  },
+  {
+    "network_name": "NVL_00",
+    "wan1_monthly_cost": "$200.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NVL 03",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NVL 04",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NVL 05",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NVL 05 ",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NVL 06",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NVL 07",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$266.67"
+  },
+  {
+    "network_name": "NVL 08",
+    "wan1_monthly_cost": "$529.00",
+    "wan2_monthly_cost": "$266.67"
+  },
+  {
+    "network_name": "NVL 09",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NVL 11",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NVL 13",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NVL 14",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NVL 15",
+    "wan1_monthly_cost": "$169.99",
+    "wan2_monthly_cost": "$266.67"
+  },
+  {
+    "network_name": "NVL 16",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NVL 17",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NVL 22",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NVL 23",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NVL 24",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NVL 25",
+    "wan1_monthly_cost": "$509.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NVL 26",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NVL W01",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NVR 01",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "NVR 01 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "NVR 02",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "NVR 04",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "NVR 05",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "NYB 01",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NYB 02",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NYB 03",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NYB 04",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NYB 05",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NYB 06",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NYB 07",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NYB 08",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NYF 01",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NYF 02",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NYF 03",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NYR 01",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NYR 02",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NYR 03",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NYR 04",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NYR 05",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NYR 06",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NYR 07",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NYS 01",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NYS 02",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NYS 03",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "NYS 04",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "OHC 03",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "OHC 03 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "OHC 04",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "OHC 05",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "OHC 06",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "OHC 07",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "OHC 08",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "OHC 10",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "OHD 02",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "OHD 03",
+    "wan1_monthly_cost": "$355.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "OHD 04",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "OHL 01",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$299.95"
+  },
+  {
+    "network_name": "OHN 01",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$209.00"
+  },
+  {
+    "network_name": "OHN 02",
+    "wan1_monthly_cost": "$165.00",
+    "wan2_monthly_cost": "$266.67"
+  },
+  {
+    "network_name": "OHN 03",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "OHN 04",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "OHN 05",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "OHN 06",
+    "wan1_monthly_cost": "$134.95",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "OHS 01",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "OHS 02",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$64.99"
+  },
+  {
+    "network_name": "OHS 03",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$69.99"
+  },
+  {
+    "network_name": "OHS 04",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$69.99"
+  },
+  {
+    "network_name": "OHS 05",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$69.99"
+  },
+  {
+    "network_name": "OHT 01",
+    "wan1_monthly_cost": "$105.01",
+    "wan2_monthly_cost": "$157.99"
+  },
+  {
+    "network_name": "OHT 02",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "OKA 01",
+    "wan1_monthly_cost": "$224.99",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "OKE 01",
+    "wan1_monthly_cost": "$165.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "OKO_00",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$266.67"
+  },
+  {
+    "network_name": "OKO 02",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "OKO 03",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "OKO 04",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "OKO 05",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "OKO 06",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "OKO 07",
+    "wan1_monthly_cost": "$280.00",
+    "wan2_monthly_cost": "$266.67"
+  },
+  {
+    "network_name": "OKO 08",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "OKO 09",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "OKO 10",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "OKO 11",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$165.00"
+  },
+  {
+    "network_name": "OKO 12",
+    "wan1_monthly_cost": "$55.00",
+    "wan2_monthly_cost": "$100.00"
+  },
+  {
+    "network_name": "OKO 13",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "OKO 14",
+    "wan1_monthly_cost": "$199.95",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "OKO 15",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$266.67"
+  },
+  {
+    "network_name": "OKT 01",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$209.00"
+  },
+  {
+    "network_name": "OKT 02",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "OKT 03",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "OKT 05",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$134.10"
+  },
+  {
+    "network_name": "OKT 06",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$134.10"
+  },
+  {
+    "network_name": "OKT 07",
+    "wan1_monthly_cost": "$215.02",
+    "wan2_monthly_cost": "$165.00"
+  },
+  {
+    "network_name": "OKT 08",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$209.00"
+  },
+  {
+    "network_name": "ORM 01",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$250.00"
+  },
+  {
+    "network_name": "ORM 02",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$175.00"
+  },
+  {
+    "network_name": "ORP 01",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ORP 02",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ORP 03",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$168.00"
+  },
+  {
+    "network_name": "ORP 04",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ORP 05",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ORP 07",
+    "wan1_monthly_cost": "$229.99",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ORP 08",
+    "wan1_monthly_cost": "$169.95",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ORP 09",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ORP 10",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$75.00"
+  },
+  {
+    "network_name": "ORP 11",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "ORP 12",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "PAC 01",
+    "wan1_monthly_cost": "$169.99",
+    "wan2_monthly_cost": "$175.56"
+  },
+  {
+    "network_name": "PAN 01",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "PAN 02",
+    "wan1_monthly_cost": "$304.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "PAN 03",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "PAN 04",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "PAN 05",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "PAP 01",
+    "wan1_monthly_cost": "$360.00",
+    "wan2_monthly_cost": "$196.00"
+  },
+  {
+    "network_name": "PAP 02",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "PAW 01",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "PAW 02",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "SCA 01",
+    "wan1_monthly_cost": "$212.99",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "SCC 01",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "SCC 02",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "SCC 03",
+    "wan1_monthly_cost": "$600.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "SCC 04",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "SCC 05",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "SCC 06",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "SCC 07",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$189.99"
+  },
+  {
+    "network_name": "SCC 07 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$189.99"
+  },
+  {
+    "network_name": "SCC 08",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$209.00"
+  },
+  {
+    "network_name": "SCC 09",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$170.00"
+  },
+  {
+    "network_name": "SCC 10",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "SCC 11",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "SCC 12",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "SCC 13",
+    "wan1_monthly_cost": "$172.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "SCC 14",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "SCC 15",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$259.95"
+  },
+  {
+    "network_name": "SCC 16",
+    "wan1_monthly_cost": "$99.99",
+    "wan2_monthly_cost": "$115.56"
+  },
+  {
+    "network_name": "SCC 17",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$245.00"
+  },
+  {
+    "network_name": "SCC 18",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "SCC 19",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "SDR 01",
+    "wan1_monthly_cost": "$145.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "SDS 01",
+    "wan1_monthly_cost": "$200.00",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "Store in a box #2",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TNC 01",
+    "wan1_monthly_cost": "$175.00",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TNC 02",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TNC 03",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TNE 01",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$99.99"
+  },
+  {
+    "network_name": "TNE 02",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TNK 01",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TNK 02",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TNK 03",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TNM 01",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TNM 02",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TNM 03",
+    "wan1_monthly_cost": "$65.00",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TNM 04",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TNM 05",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TNN_00",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TNN 02",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TNN 03",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TNN 04",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TNN 04 ",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TNN 05",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TNN 06",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TNN 07",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TNN 08",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TNN 09",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TNN 10",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TNN 11",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TNN 12",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TNN 13",
+    "wan1_monthly_cost": "$105.01",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "TNN 14",
+    "wan1_monthly_cost": "$355.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TNN 15",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TNN 16",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXA 01",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXA 02",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXA 02 ",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXA 03",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "TXA 04",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXA 05",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXA 06",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXA 07",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$89.95"
+  },
+  {
+    "network_name": "TXA 07 ",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$89.95"
+  },
+  {
+    "network_name": "TXA 08",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$699.00"
+  },
+  {
+    "network_name": "TXA 08 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$699.00"
+  },
+  {
+    "network_name": "TXA 09",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXA 09 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXA 10",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXA 11",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXA 11 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXA 12",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXA 12 ",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXA 13",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXA 14",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXA 14 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXA 15",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXA 15 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXA 16",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$699.00"
+  },
+  {
+    "network_name": "TXA 17",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXA 17 ",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXA 18",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXA 19",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXA 19 ",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXA 20",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$165.90"
+  },
+  {
+    "network_name": "TXA 21",
+    "wan1_monthly_cost": "$212.77",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXA 22",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXA 23",
+    "wan1_monthly_cost": "$207.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXA 24",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "TXC 01",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXC 03",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXC 04",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXC 05",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXC 06",
+    "wan1_monthly_cost": "$212.77",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXC 07",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXC 08",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXC 09",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXC 10",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXC 11",
+    "wan1_monthly_cost": "$212.77",
+    "wan2_monthly_cost": "$207.00"
+  },
+  {
+    "network_name": "TXC 12",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "TXC 13",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXC 14",
+    "wan1_monthly_cost": "$355.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXC 15",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$335.00"
+  },
+  {
+    "network_name": "TXC 16",
+    "wan1_monthly_cost": "$212.77",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXC 17",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXC 18",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.00"
+  },
+  {
+    "network_name": "TXC 19",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$149.95"
+  },
+  {
+    "network_name": "TXC 20",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXC 21",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$173.95"
+  },
+  {
+    "network_name": "TXD_00",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "TXD 01",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 02",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 04",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 05",
+    "wan1_monthly_cost": "$121.28",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 06",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 08",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$245.00"
+  },
+  {
+    "network_name": "TXD 09",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 10",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 11",
+    "wan1_monthly_cost": "$355.56",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXD 12",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 13",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 15",
+    "wan1_monthly_cost": "$207.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 15 ",
+    "wan1_monthly_cost": "$207.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 17",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 18",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 19",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 20",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 22",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXD 23",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 25",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 26",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 28",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 29",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 30",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 30 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 31",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 32",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 33",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 34",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 35",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 36",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 37",
+    "wan1_monthly_cost": "$355.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 38",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXD 39",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 40",
+    "wan1_monthly_cost": "$355.56",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXD 41",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 42",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXD 43",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 44",
+    "wan1_monthly_cost": "$355.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 45",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 46",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "TXD 47",
+    "wan1_monthly_cost": "$99.95",
+    "wan2_monthly_cost": "$169.95"
+  },
+  {
+    "network_name": "TXD 48",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 50",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 50 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 51",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXD 52",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 54",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 55",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 56",
+    "wan1_monthly_cost": "$355.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 56 ",
+    "wan1_monthly_cost": "$355.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 57",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 57 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 58",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 58 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 59",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$245.00"
+  },
+  {
+    "network_name": "TXD 60",
+    "wan1_monthly_cost": "$1199.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 61",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXD 62",
+    "wan1_monthly_cost": "$229.99",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": " TXD 63",
+    "wan1_monthly_cost": "$229.99",
+    "wan2_monthly_cost": "$209.00"
+  },
+  {
+    "network_name": "TXD 63",
+    "wan1_monthly_cost": "$229.99",
+    "wan2_monthly_cost": "$209.00"
+  },
+  {
+    "network_name": "TXD 64",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 65",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 66",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 67",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXD 68",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 69",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 70",
+    "wan1_monthly_cost": "$355.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 71",
+    "wan1_monthly_cost": "$105.01",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 72",
+    "wan1_monthly_cost": "$215.02",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 73",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXD 74",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 75",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 76",
+    "wan1_monthly_cost": "$212.77",
+    "wan2_monthly_cost": "$212.77"
+  },
+  {
+    "network_name": "TXD 77",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$245.00"
+  },
+  {
+    "network_name": "TXD 78",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 79",
+    "wan1_monthly_cost": "$212.77",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 80",
+    "wan1_monthly_cost": "$165.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 81",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$245.00"
+  },
+  {
+    "network_name": "TXD 82",
+    "wan1_monthly_cost": "$165.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 83",
+    "wan1_monthly_cost": "$355.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 84",
+    "wan1_monthly_cost": "$199.95",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 85",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 86",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 87",
+    "wan1_monthly_cost": "$124.99",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 88",
+    "wan1_monthly_cost": "$212.77",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 89",
+    "wan1_monthly_cost": "$125.00",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "TXD 90",
+    "wan1_monthly_cost": "$300.00",
+    "wan2_monthly_cost": "$99.99"
+  },
+  {
+    "network_name": "TXD 90 ",
+    "wan1_monthly_cost": "$300.00",
+    "wan2_monthly_cost": "$99.99"
+  },
+  {
+    "network_name": "TXD 91",
+    "wan1_monthly_cost": "$79.99",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "TXD 91 ",
+    "wan1_monthly_cost": "$79.99",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "TXD 92",
+    "wan1_monthly_cost": "$85.50",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "TXD 93",
+    "wan1_monthly_cost": "$106.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 94",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXD 95",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXD 96",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "TXE 01",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXE 02",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXE 03",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXE 05",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$90.00"
+  },
+  {
+    "network_name": "TXE 06",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXE 07",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXG 01",
+    "wan1_monthly_cost": "$240.04",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXG 02",
+    "wan1_monthly_cost": "$469.00",
+    "wan2_monthly_cost": "$469.00"
+  },
+  {
+    "network_name": "TXG 03",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$234.45"
+  },
+  {
+    "network_name": "TXH_00",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 01",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$234.45"
+  },
+  {
+    "network_name": "TXH 01 ",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$234.45"
+  },
+  {
+    "network_name": "TXH 02",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 03",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 04",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXH 05",
+    "wan1_monthly_cost": "$105.01",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 10",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 11",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 12",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 12 ",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 14",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 15",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 16",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 17",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 17 ",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 18",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 20",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXH 21",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 21 ",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 22",
+    "wan1_monthly_cost": "$212.77",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 23",
+    "wan1_monthly_cost": "$222.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 24",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 25",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 26",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 27",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 27 ",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 28",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 29",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 30",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 31",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 33",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXH 33 ",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXH 34",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXH 37",
+    "wan1_monthly_cost": "$99.99",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 39",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXH 39 ",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXH 41",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXH 43",
+    "wan1_monthly_cost": "$222.23",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXH 43 ",
+    "wan1_monthly_cost": "$222.23",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXH 44",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 44 ",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 45",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 45 ",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 46",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 48",
+    "wan1_monthly_cost": "$212.77",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 49",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 50",
+    "wan1_monthly_cost": "$105.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 50 ",
+    "wan1_monthly_cost": "$105.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 51",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 52",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXH 53",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXH 54",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 54 ",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 55",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXH 56",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXH 57",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 57 ",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 58",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "TXH 59",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 60",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 61",
+    "wan1_monthly_cost": "$175.00",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 62",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXH 63",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 64",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 65",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXH 66",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXH 67",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 67 ",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 68",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 69",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXH 69 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXH 70",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 71",
+    "wan1_monthly_cost": "$225.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 72",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXH 73",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 74",
+    "wan1_monthly_cost": "$212.77",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 75",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 77",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXH 78",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 78 ",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 79",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 79 ",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 80",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 81",
+    "wan1_monthly_cost": "$149.95",
+    "wan2_monthly_cost": "$139.95"
+  },
+  {
+    "network_name": "TXH 82",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 83",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 84",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 85",
+    "wan1_monthly_cost": "$250.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 86",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 86 ",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 87",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXH 88",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 89",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 90",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXH 91",
+    "wan1_monthly_cost": "$150.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 91 ",
+    "wan1_monthly_cost": "$150.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 92",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$149.99"
+  },
+  {
+    "network_name": "TXH 93",
+    "wan1_monthly_cost": "$214.99",
+    "wan2_monthly_cost": "$175.56"
+  },
+  {
+    "network_name": "TXH 94",
+    "wan1_monthly_cost": "$230.25",
+    "wan2_monthly_cost": "$469.00"
+  },
+  {
+    "network_name": "TXH 95",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXH 95 ",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXH 96",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH 97",
+    "wan1_monthly_cost": "$165.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH SE Flex DTU",
+    "wan1_monthly_cost": "234.45",
+    "wan2_monthly_cost": ""
+  },
+  {
+    "network_name": "TXHT00",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXH W00",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXL 01",
+    "wan1_monthly_cost": "$222.23",
+    "wan2_monthly_cost": "$99.99"
+  },
+  {
+    "network_name": "TXL 02",
+    "wan1_monthly_cost": "$212.77",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXL 03",
+    "wan1_monthly_cost": "$212.77",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXL 03 ",
+    "wan1_monthly_cost": "$212.77",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXL 04",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$149.99"
+  },
+  {
+    "network_name": "TXL 05",
+    "wan1_monthly_cost": "$199.99",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXM 01",
+    "wan1_monthly_cost": "$143.75",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXM 02",
+    "wan1_monthly_cost": "$212.77",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXM 03",
+    "wan1_monthly_cost": "$170.22",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXN 01",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXO 01",
+    "wan1_monthly_cost": "$165.00",
+    "wan2_monthly_cost": "$335.00"
+  },
+  {
+    "network_name": "TXO 02",
+    "wan1_monthly_cost": "$229.99",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXS_00",
+    "wan1_monthly_cost": "$105.01",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXS 02",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXS 05",
+    "wan1_monthly_cost": "$207.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXS 06",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXS 07",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXS 08",
+    "wan1_monthly_cost": "$121.28",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXS 09",
+    "wan1_monthly_cost": "$240.04",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "TXS 11",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": " TXS 12",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$150.00"
+  },
+  {
+    "network_name": "TXS 12",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$150.00"
+  },
+  {
+    "network_name": "TXS 13",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXS 14",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXS 14 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXS 15",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXS 16",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXS 16 ",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXS 17",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXS 18",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$209.00"
+  },
+  {
+    "network_name": "TXS 18 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$209.00"
+  },
+  {
+    "network_name": "TXS 19",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXS 20",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXS 20 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXS 21",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXS 22",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXS 23",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$74.95"
+  },
+  {
+    "network_name": "TXS 23 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$74.95"
+  },
+  {
+    "network_name": "TXS 24",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$244.45"
+  },
+  {
+    "network_name": "TXS 25",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXS 25 ",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXS 26",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$249.95"
+  },
+  {
+    "network_name": "TXS 26 ",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$249.95"
+  },
+  {
+    "network_name": "TXS 27",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXS 28",
+    "wan1_monthly_cost": "$215.02",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "TXS 28 ",
+    "wan1_monthly_cost": "$215.02",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "TXS 29",
+    "wan1_monthly_cost": "$207.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXS 30",
+    "wan1_monthly_cost": "$207.45",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXS 31",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "TXW 01",
+    "wan1_monthly_cost": "$212.77",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXW 02",
+    "wan1_monthly_cost": "$212.77",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXW 03",
+    "wan1_monthly_cost": "$222.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXW 04",
+    "wan1_monthly_cost": "$212.77",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXW 05",
+    "wan1_monthly_cost": "$212.77",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXW 06",
+    "wan1_monthly_cost": "$222.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "TXW 07",
+    "wan1_monthly_cost": "$222.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "TXW 08",
+    "wan1_monthly_cost": "$89.95",
+    "wan2_monthly_cost": "$699.00"
+  },
+  {
+    "network_name": "TXW 09",
+    "wan1_monthly_cost": "$222.23",
+    "wan2_monthly_cost": "$99.95"
+  },
+  {
+    "network_name": "UTS_00",
+    "wan1_monthly_cost": "$495.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "UTS 01",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "UTS 02",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "UTS 03",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$151.00"
+  },
+  {
+    "network_name": "UTS 04",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "UTS 05",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$350.00"
+  },
+  {
+    "network_name": "UTS 06",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "UTS 07",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "UTS 09",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "UTS 09 ",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "UTS 11",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$370.00"
+  },
+  {
+    "network_name": "UTS 12",
+    "wan1_monthly_cost": "$209.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "UTS 13",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "UTS 14",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$350.00"
+  },
+  {
+    "network_name": "UTS 15",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "UTS 16",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "UTS 17",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "UTS 18",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "UTS 19",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "UTS 20",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$230.00"
+  },
+  {
+    "network_name": "UTS 21",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "UTS 22",
+    "wan1_monthly_cost": "$350.00",
+    "wan2_monthly_cost": "$189.99"
+  },
+  {
+    "network_name": "UTS 23",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "UTS 24",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$98.00"
+  },
+  {
+    "network_name": "UTS 25",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$250.00"
+  },
+  {
+    "network_name": "UTS 26",
+    "wan1_monthly_cost": "$150.00",
+    "wan2_monthly_cost": "$150.00"
+  },
+  {
+    "network_name": "UTS W01",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "UTS W02",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "VAB 01",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "VAB 02",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "VAB 03",
+    "wan1_monthly_cost": "$149.00",
+    "wan2_monthly_cost": "$266.67"
+  },
+  {
+    "network_name": "VAB 04",
+    "wan1_monthly_cost": "$149.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "VAB 05",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "VAB 06",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$175.00"
+  },
+  {
+    "network_name": "VAB 07",
+    "wan1_monthly_cost": "$149.00",
+    "wan2_monthly_cost": "$266.67"
+  },
+  {
+    "network_name": "VAB 08",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "VAB 09",
+    "wan1_monthly_cost": "$266.67",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "VAF 01 - appliance",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "VAF 02",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "VAR_00",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "VAR 01",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "VAR 02",
+    "wan1_monthly_cost": "$134.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "VAR 03",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$175.00"
+  },
+  {
+    "network_name": "VAR 04",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "VAR 05",
+    "wan1_monthly_cost": "$245.00",
+    "wan2_monthly_cost": "$175.56"
+  },
+  {
+    "network_name": "VAR 06",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "VAR 07",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "VAR 08",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "VAT 01",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$139.95"
+  },
+  {
+    "network_name": "VAW 01",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$120.00"
+  },
+  {
+    "network_name": "VAW 02",
+    "wan1_monthly_cost": "$483.34",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "VAW 03",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "VAW 04",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAE 01",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAE 02",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAE 03",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$144.95"
+  },
+  {
+    "network_name": "WAE 04",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$153.00"
+  },
+  {
+    "network_name": "WAS_00",
+    "wan1_monthly_cost": "$200.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAS 01",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$339.00"
+  },
+  {
+    "network_name": "WAS 02",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAS 03",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAS 03 ",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAS 04",
+    "wan1_monthly_cost": "$530.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAS 05",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAS 06",
+    "wan1_monthly_cost": "$529.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAS 08",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAS 09",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAS 11",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAS 12",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAS 13",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$522.00"
+  },
+  {
+    "network_name": "WAS 14",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAS 15",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAS 17",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$168.00"
+  },
+  {
+    "network_name": "WAS 18",
+    "wan1_monthly_cost": "$46.95",
+    "wan2_monthly_cost": "$73.95"
+  },
+  {
+    "network_name": "WAS 19",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$128.00"
+  },
+  {
+    "network_name": "WAS 20",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAS 21",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAS 22",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAS 23",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAS 24",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAS 25",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAS 26",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$168.00"
+  },
+  {
+    "network_name": "WAS 27",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$69.99"
+  },
+  {
+    "network_name": "WAS 28",
+    "wan1_monthly_cost": "$175.56",
+    "wan2_monthly_cost": "$522.00"
+  },
+  {
+    "network_name": "WAS 29",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAS W00",
+    "wan1_monthly_cost": "$139.95",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAV 01",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAV 02",
+    "wan1_monthly_cost": "$234.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAX 01",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WAY 01",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WDCA 01",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WDGA01",
+    "wan1_monthly_cost": "$165.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WDIL 01",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$175.56"
+  },
+  {
+    "network_name": "WDTD 01",
+    "wan1_monthly_cost": "$0.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WIA 01",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "WIA 02",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "WIC 01",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "WIE 01",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "WIE 02",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$172.23"
+  },
+  {
+    "network_name": "WIG 01",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WIL 01",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$199.95"
+  },
+  {
+    "network_name": "WIM 01",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WIM 02",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$105.01"
+  },
+  {
+    "network_name": "WIM 03",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WIM 04",
+    "wan1_monthly_cost": "$65.00",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WIM 05",
+    "wan1_monthly_cost": "$165.01",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WIM 06",
+    "wan1_monthly_cost": "$355.56",
+    "wan2_monthly_cost": "$165.00"
+  },
+  {
+    "network_name": "WIO 01",
+    "wan1_monthly_cost": "$355.56",
+    "wan2_monthly_cost": "$165.01"
+  },
+  {
+    "network_name": "WIW 01",
+    "wan1_monthly_cost": "$244.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WVE 01",
+    "wan1_monthly_cost": "$186.18",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WYO 01",
+    "wan1_monthly_cost": "$172.23",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WYO 02",
+    "wan1_monthly_cost": "$207.45",
+    "wan2_monthly_cost": "$0.00"
+  },
+  {
+    "network_name": "WYO 03",
+    "wan1_monthly_cost": "$350.00",
+    "wan2_monthly_cost": "$172.23"
+  }
+]

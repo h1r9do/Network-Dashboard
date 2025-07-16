@@ -1,0 +1,4 @@
+Backup created on Sun Jul 13 11:23:39 MST 2025
+ARIN refresh feature working correctly
+- CAN 24 returns AT&T (not Tonya Woody)
+- CAL 24 returns Frontier/Verizon

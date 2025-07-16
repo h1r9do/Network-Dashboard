@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Circuit Change Log - Discount Tire</title>
+    <link href="{{ url_for('static', filename='favicon.ico') }}" rel="icon">
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .header-container {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .header-container h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .circuit-table-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        /* Navigation buttons */
+        .nav-buttons {
+            margin-bottom: 20px;
+        }
+        .nav-buttons button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            margin-right: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .nav-buttons button:hover {
+            background: #2980b9;
+        }
+        
+        .period-selector {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .period-selector h3 {
+            margin-top: 0;
+            color: #495057;
+        }
+        .period-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .period-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+        .period-btn:hover {
+            background: #0056b3;
+        }
+        .period-btn.active {
+            background: #28a745;
+        }
+        .custom-range {
+            display: none;
+            margin-top: 15px;
+            gap: 10px;
+            align-items: center;
+        }
+        .custom-range.show {
+            display: flex;
+        }
+        .custom-range input {
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        .generate-btn {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+        .generate-btn:hover {
+            background: #218838;
+        }
+        .summary-stats {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .summary-stats h3 {
+            margin-top: 0;
+            color: #495057;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        .stat-item {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 5px;
+            border: 1px solid #e9ecef;
+        }
+        .stat-number {
+            font-size: 28px;
+            font-weight: bold;
+            color: #007bff;
+            margin-bottom: 5px;
+        }
+        .stat-label {
+            font-size: 12px;
+            color: #6c757d;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .period-info {
+            background: #e7f3ff;
+            border: 1px solid #b3d7ff;
+            border-radius: 4px;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 14px;
+            color: #0c5460;
+        }
+        
+        /* Table header with controls */
+        .table-header {
+            background: #f8f9fa;
+            padding: 20px;
+            border-bottom: 1px solid #dee2e6;
+            display: none;
+        }
+        
+        .table-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        /* UPDATED: Export buttons to match dsrcircuits.html styling */
+        .export-buttons {
+            display: flex;
+            gap: 8px;
+        }
+        
+        .export-buttons button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            margin-right: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .export-buttons button:hover {
+            background: #2980b9;
+        }
+        
+        .filter-controls {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .filter-control input, .filter-control select {
+            width: 100%;
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 13px;
+        }
+        .circuit-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .circuit-table thead th {
+            padding: 12px 8px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 0.5px;
+            background-color: #3498db;
+            color: white;
+            white-space: nowrap;
+        }
+        .circuit-table tbody tr {
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .circuit-table tbody tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        /* Change type styling */
+        .circuit-table tbody tr.new-site {
+            background-color: #d4edda !important;
+        }
+        .circuit-table tbody tr.removed-site {
+            background-color: #f8d7da !important;
+        }
+        .circuit-table tbody tr.circuit-enabled {
+            background-color: #d1ecf1 !important;
+        }
+        .circuit-table tbody tr.circuit-disabled {
+            background-color: #fff3cd !important;
+        }
+        .circuit-table tbody tr.provider-change {
+            background-color: #e2e3e5 !important;
+        }
+        .circuit-table tbody tr.speed-change {
+            background-color: #ffeeba !important;
+        }
+        .circuit-table tbody tr.cost-change {
+            background-color: #f0d0ff !important;
+        }
+        .circuit-table tbody tr:hover {
+            opacity: 0.8;
+        }
+        .circuit-table td {
+            padding: 8px;
+            color: #333;
+            font-size: 12px;
+            max-width: 200px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .change-badge {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 10px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .change-badge.new-site { background: #28a745; color: white; }
+        .change-badge.removed-site { background: #dc3545; color: white; }
+        .change-badge.circuit-enabled { background: #17a2b8; color: white; }
+        .change-badge.circuit-disabled { background: #ffc107; color: black; }
+        .change-badge.provider-change { background: #6c757d; color: white; }
+        .change-badge.speed-change { background: #fd7e14; color: white; }
+        .change-badge.cost-change { background: #6f42c1; color: white; }
+        .change-badge.status-change { background: #20c997; color: white; }
+        .change-badge.service-change { background: #17a2b8; color: white; }
+        .change-badge.other-change { background: #6c757d; color: white; }
+        
+        .value-change {
+            font-family: monospace;
+            font-size: 11px;
+        }
+        .before-value {
+            color: #dc3545;
+            text-decoration: line-through;
+        }
+        .after-value {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .arrow {
+            color: #6c757d;
+            margin: 0 5px;
+        }
+        #loading {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+        }
+        
+        /* Error and no data messages */
+        .error-message {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .no-data-message {
+            background: #fff3cd;
+            color: #856404;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #ffeaa7;
+            text-align: center;
+        }
+        
+        .info-message {
+            background: #d1ecf1;
+            color: #0c5460;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border: 1px solid #bee5eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <h1>Circuit Change Log</h1>
+    </div>
+
+    <div class="circuit-table-container">
+        <!-- Navigation -->
+        <div class="nav-buttons">
+            <button onclick="window.location.href='/home'">🏠 Home</button>
+        </div>
+        
+        <!-- Period Selector -->
+        <div class="period-selector">
+            <h3>Select Time Period</h3>
+            <div class="period-buttons">
+                <button class="period-btn" data-period="last_24_hours">Last 24 Hours</button>
+                <button class="period-btn active" data-period="last_week">Last Week</button>
+                <button class="period-btn" data-period="last_month">Last Month</button>
+                <button class="period-btn" data-period="last_quarter">Last Quarter</button>
+                <button class="period-btn" data-period="last_year">Last Year</button>
+                <button class="period-btn" data-period="custom">Custom Range</button>
+            </div>
+            
+            <div class="custom-range" id="customRange">
+                <label>From:</label>
+                <input type="date" id="customStart">
+                <label>To:</label>
+                <input type="date" id="customEnd">
+            </div>
+            
+            <button class="generate-btn" id="generateLog">Generate Change Log</button>
+        </div>
+
+        <!-- Period Info -->
+        <div id="periodInfo" class="period-info" style="display: none;"></div>
+
+        <!-- Summary Statistics -->
+        <div id="summaryStats" class="summary-stats">
+            <h3>Change Summary</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" id="totalChanges">0</div>
+                    <div class="stat-label">Total Changes</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="newSites">0</div>
+                    <div class="stat-label">New Sites</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="circuitsEnabled">0</div>
+                    <div class="stat-label">Circuits Enabled</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="providerChanges">0</div>
+                    <div class="stat-label">Provider Changes</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="costChanges">0</div>
+                    <div class="stat-label">Cost Changes</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="periodDays">0</div>
+                    <div class="stat-label">Days Analyzed</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading indicator -->
+        <div id="loading" style="display: none;">
+            <p>Generating change log...</p>
+        </div>
+
+        <!-- Table Controls -->
+        <div class="table-header" id="tableControls">
+            <div class="table-controls">
+                <div></div> <!-- Empty left side for balance -->
+                <div class="export-buttons">
+                    <button id="exportExcel">📊 Export to Excel</button>
+                    <button id="exportPDF">📄 Export to PDF</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="filter-controls" id="filterControls" style="display: none;">
+            <input type="text" id="siteFilter" placeholder="Filter Site Name...">
+            <select id="categoryFilter">
+                <option value="">All Categories</option>
+                <option value="Site Management">Site Management</option>
+                <option value="Circuit Status">Circuit Status</option>
+                <option value="Service Provider">Service Provider</option>
+                <option value="Technical">Technical</option>
+                <option value="Financial">Financial</option>
+                <option value="Order Management">Order Management</option>
+            </select>
+            <select id="changeTypeFilter">
+                <option value="">All Change Types</option>
+                <option value="NEW_SITE">New Sites</option>
+                <option value="CIRCUIT_ENABLED">Circuits Enabled</option>
+                <option value="CIRCUIT_DISABLED">Circuits Disabled</option>
+                <option value="PROVIDER_CHANGE">Provider Changes</option>
+                <option value="SPEED_CHANGE">Speed Changes</option>
+                <option value="COST_CHANGE">Cost Changes</option>
+                <option value="STATUS_CHANGE">Status Changes</option>
+            </select>
+            <input type="text" id="descriptionFilter" placeholder="Filter Description...">
+            <button id="clearFilters" style="padding: 6px 12px; background: #6c757d; color: white; border: none; border-radius: 3px;">Clear All Filters</button>
+        </div>
+
+        <!-- Change Log Table -->
+        <table id="changelogTable" class="circuit-table" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Site Name</th>
+                    <th>Category</th>
+                    <th>Change Type</th>
+                    <th>Description</th>
+                    <th>Field Changed</th>
+                    <th>Before → After</th>
+                    <th>Impact</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be loaded dynamically -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+
+    <script>
+    $(document).ready(function() {
+        var table = null;
+        var currentData = null;
+        var selectedPeriod = 'last_week';
+
+        // Period button handlers
+        $('.period-btn').on('click', function() {
+            $('.period-btn').removeClass('active');
+            $(this).addClass('active');
+            selectedPeriod = $(this).data('period');
+            
+            if (selectedPeriod === 'custom') {
+                $('#customRange').addClass('show');
+            } else {
+                $('#customRange').removeClass('show');
+            }
+        });
+
+        // Generate log button
+        $('#generateLog').on('click', function() {
+            generateChangeLog();
+        });
+
+        // Clear filters button
+        $('#clearFilters').on('click', function() {
+            $('#siteFilter').val('');
+            $('#categoryFilter').val('');
+            $('#changeTypeFilter').val('');
+            $('#descriptionFilter').val('');
+            if (table) {
+                table.search('').columns().search('').draw();
+            }
+        });
+
+        function generateChangeLog() {
+            $('#loading').show();
+            $('#summaryStats').hide();
+            $('#tableControls').hide();
+            $('#filterControls').hide();
+            $('#changelogTable').hide();
+            // Clear any previous error messages
+            $('.error-message, .no-data-message, .info-message').remove();
+
+            var formData = new FormData();
+            formData.append('timePeriod', selectedPeriod);
+            
+            if (selectedPeriod === 'custom') {
+                var startDate = $('#customStart').val();
+                var endDate = $('#customEnd').val();
+                
+                if (!startDate || !endDate) {
+                    $('#loading').hide();
+                    showMessage('Please select both start and end dates for custom range', 'error');
+                    return;
+                }
+                
+                formData.append('customStart', startDate);
+                formData.append('customEnd', endDate);
+            }
+
+            $.ajax({
+                url: '/api/circuit-changelog',
+                method: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    $('#loading').hide();
+                    
+                    if (response.error) {
+                        handleError(response.error, response);
+                        return;
+                    }
+
+                    if (!response.data || response.data.length === 0) {
+                        handleNoData(response);
+                        return;
+                    }
+
+                    displayChangeLog(response);
+                },
+                error: function(xhr, status, error) {
+                    $('#loading').hide();
+                    
+                    // Try to parse the response for more specific error info
+                    let errorMessage = 'Error generating change log: ' + error;
+                    try {
+                        const response = JSON.parse(xhr.responseText);
+                        if (response.error) {
+                            handleError(response.error, response);
+                            return;
+                        }
+                    } catch (e) {
+                        // If we can't parse the response, show generic error
+                    }
+                    
+                    showMessage(errorMessage, 'error');
+                }
+            });
+        }
+
+        function handleError(errorMessage, response) {
+            // Check for specific error types and provide better messages
+            if (response && response.detailed_error) {
+                // Use the detailed error from the server response
+                let detailedMessage = response.detailed_error;
+                
+                // Add helpful context if available
+                if (response.data_coverage_days) {
+                    detailedMessage += `\n\n📊 Data Coverage: ${response.data_coverage_days} days of tracking history available`;
+                }
+                
+                if (response.suggested_action) {
+                    detailedMessage += `\n\n💡 Suggestion: ${response.suggested_action}`;
+                }
+                
+                showMessage(detailedMessage, 'error');
+            } else if (errorMessage.includes('no data') || errorMessage.includes('No data')) {
+                handleNoData(response);
+            } else if (errorMessage.includes('date range') || errorMessage.includes('too far back')) {
+                showMessage('No data available for the selected date range. Please try a more recent time period.', 'info');
+            } else if (errorMessage.includes('BAD REQUEST')) {
+                showMessage('Invalid request. Please check your date selection and try again.', 'error');
+            } else {
+                showMessage('Error: ' + errorMessage, 'error');
+            }
+        }
+
+        function handleNoData(response) {
+            const period = response?.period;
+            let message = 'No changes found for the selected time period.';
+            
+            if (period && period.description) {
+                message = `No changes found for ${period.description}.`;
+            }
+            
+            message += ' This could mean either no changes occurred during this period, or no data is available for these dates.';
+            
+            showMessage(message, 'no-data');
+        }
+
+        function showMessage(message, type) {
+            let className = 'info-message';
+            if (type === 'error') className = 'error-message';
+            if (type === 'no-data') className = 'no-data-message';
+            
+            // Convert newlines to HTML breaks for better formatting
+            const formattedMessage = message.replace(/\n/g, '<br>');
+            
+            const messageDiv = `<div class="${className}">${formattedMessage}</div>`;
+            $('#periodInfo').after(messageDiv);
+        }
+
+        function displayChangeLog(response) {
+            var data = response.data || [];
+            var summary = response.summary || {};
+            var period = response.period || {};
+
+            // Store data globally for exports
+            currentData = data;
+
+            // Clear any error messages
+            $('.error-message, .no-data-message, .info-message').remove();
+
+            // Show period info
+            $('#periodInfo').html(`
+                <strong>Period:</strong> ${period.description || 'Unknown'} 
+                (${period.start} to ${period.end})
+            `).show();
+
+            // Update summary stats
+            updateSummaryStats(summary);
+
+            // Create/update table
+            createChangeLogTable(data);
+
+            // Show controls
+            $('#summaryStats').show();
+            $('#tableControls').show();
+            $('#filterControls').show();
+            $('#changelogTable').show();
+        }
+
+        function updateSummaryStats(summary) {
+            $('#totalChanges').text(summary.total_changes || 0);
+            $('#newSites').text(summary.changes_by_type?.NEW_SITE || 0);
+            $('#circuitsEnabled').text(summary.changes_by_type?.CIRCUIT_ENABLED || 0);
+            $('#providerChanges').text(summary.changes_by_type?.PROVIDER_CHANGE || 0);
+            $('#costChanges').text(summary.changes_by_type?.COST_CHANGE || 0);
+            $('#periodDays').text(summary.period_days || 0);
+        }
+
+        function createChangeLogTable(data) {
+            // Destroy existing table
+            if (table) {
+                table.destroy();
+                $('#changelogTable tbody').empty();
+            }
+
+            // Populate table
+            var tbody = $('#changelogTable tbody');
+            data.forEach(function(entry) {
+                var changeClass = entry.change_type.toLowerCase().replace('_', '-');
+                var changeBadge = `<span class="change-badge ${changeClass}">${entry.change_type.replace('_', ' ')}</span>`;
+                
+                var beforeAfter = '';
+                if (entry.before_value && entry.after_value) {
+                    beforeAfter = `<span class="value-change">
+                        <span class="before-value">${entry.before_value}</span>
+                        <span class="arrow">→</span>
+                        <span class="after-value">${entry.after_value}</span>
+                    </span>`;
+                } else if (entry.before_value) {
+                    beforeAfter = `<span class="before-value">${entry.before_value}</span> → <em>Removed</em>`;
+                } else if (entry.after_value) {
+                    beforeAfter = `<em>Added</em> → <span class="after-value">${entry.after_value}</span>`;
+                } else {
+                    // Handle missing before/after values with helpful context
+                    var fieldType = entry.field_changed || 'field';
+                    var changeDescription = '';
+                    
+                    if (entry.change_type) {
+                        var changeType = entry.change_type.toLowerCase();
+                        if (changeType.includes('enabled')) {
+                            changeDescription = '<em>Circuit activated</em>';
+                        } else if (changeType.includes('disabled')) {
+                            changeDescription = '<em>Circuit deactivated</em>';
+                        } else if (changeType.includes('provider')) {
+                            changeDescription = '<em>Provider updated</em>';
+                        } else if (changeType.includes('speed')) {
+                            changeDescription = '<em>Speed updated</em>';
+                        } else if (changeType.includes('cost')) {
+                            changeDescription = '<em>Cost updated</em>';
+                        } else if (changeType.includes('ready')) {
+                            changeDescription = '<em>Ready for activation</em>';
+                        } else if (changeType.includes('customer')) {
+                            changeDescription = '<em>Customer action required</em>';
+                        } else if (changeType.includes('approval')) {
+                            changeDescription = '<em>Approval required</em>';
+                        } else if (changeType.includes('new')) {
+                            changeDescription = '<em>New circuit added</em>';
+                        } else {
+                            changeDescription = `<em>${fieldType} changed</em>`;
+                        }
+                    } else {
+                        changeDescription = `<em>${fieldType} updated</em>`;
+                    }
+                    
+                    beforeAfter = `<span class="missing-values" style="color: #6c757d; font-style: italic;">${changeDescription}</span>`;
+                }
+
+                var row = `<tr class="${changeClass}">
+                    <td>${entry.change_time}</td>
+                    <td>${entry.site_name}</td>
+                    <td>${entry.change_category}</td>
+                    <td>${changeBadge}</td>
+                    <td>${entry.description}</td>
+                    <td>${entry.field_changed}</td>
+                    <td>${beforeAfter}</td>
+                    <td>${entry.impact}</td>
+                </tr>`;
+                
+                tbody.append(row);
+            });
+
+            // Initialize DataTable
+            table = $('#changelogTable').DataTable({
+                pageLength: 25,
+                order: [[0, 'desc']], // Sort by date descending
+                dom: 'frtip'  // Removed 'B' to hide buttons
+            });
+
+            // Setup filters
+            setupFilters();
+        }
+
+        function setupFilters() {
+            // Site filter
+            $('#siteFilter').on('keyup', function() {
+                table.column(1).search(this.value).draw();
+            });
+
+            // Category filter
+            $('#categoryFilter').on('change', function() {
+                table.column(2).search(this.value).draw();
+            });
+
+            // Change type filter
+            $('#changeTypeFilter').on('change', function() {
+                var val = this.value;
+                if (val) {
+                    table.column(3).search(val.replace('_', ' '), true, false).draw();
+                } else {
+                    table.column(3).search('').draw();
+                }
+            });
+
+            // Description filter
+            $('#descriptionFilter').on('keyup', function() {
+                table.column(4).search(this.value).draw();
+            });
+        }
+
+        // Export button handlers
+        $('#exportExcel').on('click', function() {
+            if (table && currentData) {
+                // Create CSV content
+                var csv = 'Date,Site Name,Site ID,Circuit Purpose,Change Type,Field Changed,Old Value,New Value,Provider,Speed,Cost,Source File\n';
+                currentData.forEach(function(row) {
+                    csv += `"${row.change_date}","${row.site_name}","${row.site_id}","${row.circuit_purpose}",`;
+                    csv += `"${row.change_type}","${row.field_changed}","${row.old_value || ''}","${row.new_value || ''}",`;
+                    csv += `"${row.provider_name}","${row.details_ordered_service_speed}","${row.billing_monthly_cost}","${row.csv_file_source}"\n`;
+                });
+                
+                // Download CSV
+                var blob = new Blob([csv], { type: 'text/csv' });
+                var url = window.URL.createObjectURL(blob);
+                var a = document.createElement('a');
+                a.href = url;
+                a.download = `circuit_changelog_${new Date().toISOString().split('T')[0]}.csv`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+            }
+        });
+
+        $('#exportPDF').on('click', function() {
+            if (currentData) {
+                // For PDF export, we'll print the page
+                window.print();
+            }
+        });
+    });
+    </script>
+</body>
+</html>

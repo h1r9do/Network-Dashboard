@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Meraki WAN Daily Summary</title>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+  <style>
+    .alert-cell {
+      background-color: rgba(255, 0, 0, 0.5) !important;
+      font-weight: bold !important;
+      color: #000 !important;
+    }
+    .date-picker-container {
+      margin: 20px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    #datePicker {
+      padding: 8px 12px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+    #metrics {
+      border-collapse: collapse;
+      width: 100%;
+      border: 2px solid #333;
+    }
+    #metrics th, #metrics td {
+      border: 1px solid #333 !important;
+      padding: 8px;
+      text-align: center;
+    }
+    #metrics th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+      border-bottom: 2px solid #333 !important;
+    }
+    #metrics tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    #metrics tr:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+  <h2>Meraki WAN Daily Summary</h2>
+  <div class="date-picker-container">
+    <label for="datePicker">Select Date:</label>
+    <input type="text" id="datePicker" placeholder="Select date">
+    <button id="refreshBtn">Refresh Data</button>
+  </div>
+  <table id="metrics" class="display">
+    <thead>
+      <tr>
+        <th>Store</th><th>Uplink</th><th>WAN Label</th>
+        <th>Loss Min</th><th>Loss Max</th><th>Loss Avg</th>
+        <th>Latency Min</th><th>Latency Max</th><th>Latency Avg</th>
+        <th>Jitter Min</th><th>Jitter Max</th><th>Jitter Avg</th>
+      </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+
+  <script>
+    $(document).ready(function () {
+      let table = $('#metrics').DataTable({
+        dom: 'lrtip',
+        pageLength: 50,
+        createdRow: function(row, data, dataIndex) {
+          // Check Loss columns (index 3-5)
+          for (let i = 3; i <= 5; i++) {
+            if (data[i] !== null && !isNaN(data[i]) && data[i] > 3) {
+              $(row).find('td:eq(' + i + ')').addClass('alert-cell');
+            }
+          }
+          // Check Latency columns (index 6-8)
+          for (let i = 6; i <= 8; i++) {
+            if (data[i] !== null && !isNaN(data[i]) && data[i] > 120) {
+              $(row).find('td:eq(' + i + ')').addClass('alert-cell');
+            }
+          }
+          // Check Jitter columns (index 9-11)
+          for (let i = 9; i <= 11; i++) {
+            if (data[i] !== null && !isNaN(data[i]) && data[i] > 20) {
+              $(row).find('td:eq(' + i + ')').addClass('alert-cell');
+            }
+          }
+        }
+      });
+
+      const datePicker = flatpickr("#datePicker", {
+        dateFormat: "Ymd",
+        defaultDate: new Date(),
+        maxDate: new Date()
+      });
+
+      function loadData(date) {
+        const dateStr = date ? date : '';
+        table.clear();
+        
+        fetch(`/metrics?date=${dateStr}`)
+          .then(res => res.json())
+          .then(data => {
+            data.forEach(row => {
+              table.row.add([
+                row.store,
+                row.uplink,
+                row.wanLabel || '',
+                row.minLoss,
+                row.maxLoss,
+                row.avgLoss,
+                row.minLatency,
+                row.maxLatency,
+                row.avgLatency,
+                row.minJitter,
+                row.maxJitter,
+                row.avgJitter
+              ]);
+            });
+            table.draw();
+          });
+      }
+
+      $('#refreshBtn').click(() => {
+        loadData(datePicker.input.value);
+      });
+
+      // Load today's data initially
+      loadData();
+    });
+  </script>
+</body>
+</html>

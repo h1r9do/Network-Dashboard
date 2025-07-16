@@ -1,0 +1,38 @@
+site_name,circuit_purpose,dsr_provider,current_match,arin_suggestion,reason,confidence,wan1_arin_provider,wan2_arin_provider,meraki_wan1_provider,meraki_wan2_provider
+ARO 06,Secondary,Cox Business/BOI,WAN2,WAN1,ARIN WAN1 (Cox Communications) matches DSR (Cox Business/BOI),High,Cox Communications,Private IP,AT&T Broadband II,Cox Business/BOI
+AZP 03,Secondary,Cox Business/BOI,No Match,WAN1,ARIN WAN1 (Cox Communications) matches DSR (Cox Business/BOI),High,Cox Communications,Private IP,Cox Business BOI,Digi
+AZP 44,Secondary,CenturyLink/Embarq,No Match,WAN1,ARIN WAN1 (CenturyLink) matches DSR (CenturyLink/Embarq),High,CenturyLink,Private IP,CenturyLink,Digi
+AZP 62,Primary,Cox Business/BOI ,No Match,WAN1,ARIN WAN1 (Cox Communications) matches DSR (Cox Business/BOI ),High,Cox Communications,Private IP,,Digi
+CAL 13,Primary,EB2-Frontier Fiber,No Match,WAN1,ARIN WAN1 (Frontier Communications) matches DSR (EB2-Frontier Fiber),High,Frontier Communications,Private IP,Frontier Communications,Digi
+CAN 23,Secondary,AT&T Broadband II,No Match,WAN1,ARIN WAN1 (AT&T) matches DSR (AT&T Broadband II),High,AT&T,Comcast,"AT&T Enterprises, LLC",Comcast Workplace
+CAN 58,Secondary,AT&T Broadband II,No Match,WAN1,ARIN WAN1 (AT&T) matches DSR (AT&T Broadband II),High,AT&T,Comcast,Private Customer - AT&T Internet Services,Comcast Workplace
+CAS 48,Primary,EB2-Frontier Fiber,No Match,WAN1,ARIN WAN1 (Frontier Communications) matches DSR (EB2-Frontier Fiber),High,Frontier Communications,Verizon,Frontier Communications,Verizon Business
+COD 38,Secondary,CenturyLink/Qwest,No Match,WAN1,ARIN WAN1 (CenturyLink) matches DSR (CenturyLink/Qwest),High,CenturyLink,Private IP,CenturyLink,Digi
+COG 02,Primary,Comcast Workplace,No Match,WAN1,ARIN WAN1 (Comcast) matches DSR (Comcast Workplace),High,Comcast,Glenwood Springs Community Broadband Network,Comcast,Community Broadband Network
+GAA 03,Secondary,AT&T Broadband II,No Match,WAN1,ARIN WAN1 (AT&T) matches DSR (AT&T Broadband II),High,AT&T,Private IP,Private Customer - AT&T Internet Services,"Comcast Cable Communications, LLC"
+INF 04,Secondary,EB2-Frontier Fiber,WAN2,WAN1,ARIN WAN1 (Frontier Communications) matches DSR (EB2-Frontier Fiber),High,Frontier Communications,Private IP,GTT Ethernet,EB2-Frontier Fiber
+INI 06,Primary,Comcast Workplace,WAN1,WAN2,ARIN WAN2 (Comcast) matches DSR (Comcast Workplace),High,AT&T,Comcast,Comcast Workplace,VZW Cell
+LAB 01,Primary,Cox Business/BOI,No Match,WAN1,ARIN WAN1 (Cox Communications) matches DSR (Cox Business/BOI),High,Cox Communications,IBM Cloud,: Cox Business/BOI,: REV Business
+LAB 02,Primary,Cox Business/BOI,No Match,WAN1,ARIN WAN1 (Cox Communications) matches DSR (Cox Business/BOI),High,Cox Communications,AT&T,: Cox Business/BOI,: AT&T Broadband II
+LAB 02,Secondary,AT&T Broadband II,No Match,WAN2,ARIN WAN2 (AT&T) matches DSR (AT&T Broadband II),High,Cox Communications,AT&T,: Cox Business/BOI,: AT&T Broadband II
+LAB 03,Primary,Cox Business/BOI,No Match,WAN2,ARIN WAN2 (Cox Communications) matches DSR (Cox Business/BOI),High,AT&T,Cox Communications,: AT&T Broadband II,: Cox Business/BOI
+LAB 03,Secondary,AT&T Broadband II,No Match,WAN1,ARIN WAN1 (AT&T) matches DSR (AT&T Broadband II),High,AT&T,Cox Communications,: AT&T Broadband II,: Cox Business/BOI
+LAB 04,Primary,AT&T Broadband II,No Match,WAN1,ARIN WAN1 (AT&T) matches DSR (AT&T Broadband II),High,AT&T,Private IP,: AT&T Broadband II,
+LAB 06,Primary,AT&T Broadband II,No Match,WAN1,ARIN WAN1 (AT&T) matches DSR (AT&T Broadband II),High,AT&T,Cox Communications,: AT&T Broadband II,: Cox Business/BOI
+LAB 06,Secondary,Cox Business/BOI,No Match,WAN2,ARIN WAN2 (Cox Communications) matches DSR (Cox Business/BOI),High,AT&T,Cox Communications,: AT&T Broadband II,: Cox Business/BOI
+MOK 07,Primary,Spectrum ,No Match,WAN2,ARIN WAN2 (Charter Communications) matches DSR (Spectrum ),High,AT&T,Charter Communications,AT&T Broadband II,Spectrum
+MOS 12,Secondary,AT&T Broadband II,No Match,WAN1,ARIN WAN1 (AT&T) matches DSR (AT&T Broadband II),High,AT&T,Charter Communications,Private Customer - AT&T Internet Services,Spectrum
+NMA 01,Primary,Comcast Workplace,No Match,WAN2,ARIN WAN2 (Comcast) matches DSR (Comcast Workplace),High,Unite Private Networks LLC.,Comcast,Unite Network,Comcast
+NMA 01,Secondary,Unite Private Networks,No Match,WAN1,ARIN WAN1 (Unite Private Networks LLC.) matches DSR (Unite Private Networks),High,Unite Private Networks LLC.,Comcast,Unite Network,Comcast
+NMA 05,Primary,Comcast Workplace,WAN1,WAN2,ARIN WAN2 (Comcast) matches DSR (Comcast Workplace),High,Unite Private Networks LLC.,Comcast,Comcast Workplace,Comcast Workplace
+NVL 13,Primary,Cox Business/BOI,No Match,WAN1,ARIN WAN1 (Cox Communications) matches DSR (Cox Business/BOI),High,Cox Communications,Private IP,,AT&T Cell
+OKA 01,Secondary,AT&T Broadband II,WAN1,WAN2,ARIN WAN2 (AT&T) matches DSR (AT&T Broadband II),High,"Cable One, Inc.",AT&T,AT&T Broadband II,AT&T Broadband II
+SCC 15,Secondary,Farmers Telephone Cooperative (FTC),No Match,WAN1,"ARIN WAN1 (Farmers Telephone Cooperative, Inc.) matches DSR (Farmers Telephone Cooperative (FTC))",High,"Farmers Telephone Cooperative, Inc.",Charter Communications,"Farmers Telephone Cooperative, Inc.",Spectrum
+TXD 28,Primary,Spectrum,WAN1,WAN2,ARIN WAN2 (Charter Communications) matches DSR (Spectrum),High,AT&T,Charter Communications,Spectrum,Spectrum
+TXD 28,Secondary,AT&T Broadband II,No Match,WAN1,ARIN WAN1 (AT&T) matches DSR (AT&T Broadband II),High,AT&T,Charter Communications,Spectrum,Spectrum
+TXD 50,Primary,Spectrum,No Match,WAN2,ARIN WAN2 (Charter Communications) matches DSR (Spectrum),High,AT&T,Charter Communications,Private Customer - AT&T Internet Services,Charter Communications Inc
+TXD 50,Secondary,AT&T Broadband II,No Match,WAN1,ARIN WAN1 (AT&T) matches DSR (AT&T Broadband II),High,AT&T,Charter Communications,Private Customer - AT&T Internet Services,Charter Communications Inc
+TXD 55,Primary,Spectrum,No Match,WAN1,ARIN WAN1 (Charter Communications) matches DSR (Spectrum),High,Charter Communications,Private IP,,VZW Cell
+TXD 94,Primary,Spectrum,WAN1,WAN2,ARIN WAN2 (Charter Communications) matches DSR (Spectrum),High,AT&T,Charter Communications,Spectrum,AT&T Broadband II
+TXD 94,Secondary,AT&T Broadband II,WAN2,WAN1,ARIN WAN1 (AT&T) matches DSR (AT&T Broadband II),High,AT&T,Charter Communications,Spectrum,AT&T Broadband II
+TXH 43,Secondary,AT&T Broadband II,No Match,WAN1,ARIN WAN1 (AT&T) matches DSR (AT&T Broadband II),High,AT&T,Optimum,"AT&T Enterprises, LLC",Optimum

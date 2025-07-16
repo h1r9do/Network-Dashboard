@@ -1,0 +1,184 @@
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://10.0.145.130:5050
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 236-480-931
+127.0.0.1 - - [29/Apr/2025 06:58:10] "[33mHEAD / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [29/Apr/2025 06:58:10] "[33mGET /api/devices HTTP/1.1[0m" 404 -
+127.0.0.1 - - [29/Apr/2025 06:58:10] "[33mGET /api/search?q=test HTTP/1.1[0m" 404 -
+127.0.0.1 - - [29/Apr/2025 06:58:10] "[33mGET /metrics HTTP/1.1[0m" 404 -
+127.0.0.1 - - [29/Apr/2025 06:58:10] "[33mGET /tags HTTP/1.1[0m" 404 -
+127.0.0.1 - - [29/Apr/2025 06:58:10] "[33mHEAD /issues.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [29/Apr/2025 06:58:10] "[33mHEAD /information.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [29/Apr/2025 06:58:10] "[33mGET /api/information/devices HTTP/1.1[0m" 404 -
+127.0.0.1 - - [29/Apr/2025 06:58:10] "[33mPOST /api/information/update_device HTTP/1.1[0m" 404 -
+127.0.0.1 - - [29/Apr/2025 06:58:10] "[33mHEAD /master.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [29/Apr/2025 06:58:10] "[33mHEAD /ready_matrix.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [29/Apr/2025 06:58:10] "[33mHEAD /new_circuit_contract.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [29/Apr/2025 06:58:10] "[33mPOST /new_circuit_contract.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [29/Apr/2025 06:58:10] "[33mHEAD /vision_live.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [29/Apr/2025 06:58:10] "[33mPOST /vision_live.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [29/Apr/2025 06:58:10] "[33mHEAD /vision_check.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [29/Apr/2025 06:58:10] "[33mPOST /vision_check.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [29/Apr/2025 06:58:10] "[33mHEAD /starlink_project_stores.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [29/Apr/2025 06:58:10] "[33mPOST /starlink_project_stores.html HTTP/1.1[0m" 404 -
+127.0.0.1 - - [29/Apr/2025 06:58:10] "[33mHEAD /circuitinfo/example.csv HTTP/1.1[0m" 404 -
+127.0.0.1 - - [29/Apr/2025 06:58:12] "HEAD /dsrcircuits HTTP/1.1" 200 -
+ * Serving Flask app 'meraki_web'
+ * Debug mode: on
+Address already in use
+Port 5050 is in use by another program. Either identify and stop that program, or start the server with a different port.
+ * Serving Flask app 'meraki_web'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://10.0.145.130:5050
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-230-856
+127.0.0.1 - - [29/Apr/2025 07:08:04] "[33mHEAD / HTTP/1.1[0m" 404 -
+127.0.0.1 - - [29/Apr/2025 07:08:04] "[33mGET / HTTP/1.1[0m" 404 -
+ * Serving Flask app 'meraki_web'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://10.0.145.130:5050
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-230-856
+127.0.0.1 - - [29/Apr/2025 07:10:08] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2025 07:10:08] "GET / HTTP/1.1" 200 -
+ * Serving Flask app 'meraki_web'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://10.0.145.130:5050
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-230-856
+127.0.0.1 - - [29/Apr/2025 07:11:18] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2025 07:11:18] "GET / HTTP/1.1" 200 -
+10.46.0.2 - - [29/Apr/2025 07:11:28] "GET / HTTP/1.1" 200 -
+10.46.0.2 - - [29/Apr/2025 07:11:28] "[33mGET /api/devices?_=1745935886727 HTTP/1.1[0m" 404 -
+10.46.0.2 - - [29/Apr/2025 07:11:54] "GET / HTTP/1.1" 200 -
+10.46.0.2 - - [29/Apr/2025 07:11:55] "[33mGET /tags HTTP/1.1[0m" 404 -
+10.46.0.2 - - [29/Apr/2025 07:11:55] "[33mGET /metrics?date= HTTP/1.1[0m" 404 -
+10.46.0.2 - - [29/Apr/2025 07:11:59] "[33mGET /metrics?date=20250425 HTTP/1.1[0m" 404 -
+10.46.0.2 - - [29/Apr/2025 07:12:01] "[33mGET /metrics?date=20250425 HTTP/1.1[0m" 404 -
+10.46.0.2 - - [29/Apr/2025 07:12:10] "[33mGET /metrics?date=20250424 HTTP/1.1[0m" 404 -
+10.46.0.2 - - [29/Apr/2025 07:12:12] "[33mGET /metrics?date=20250425 HTTP/1.1[0m" 404 -
+ * Serving Flask app 'meraki_web'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://10.0.145.130:5050
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-230-856
+127.0.0.1 - - [29/Apr/2025 07:15:34] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2025 07:15:34] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2025 07:15:34] "[33mHEAD /api/devices HTTP/1.1[0m" 404 -
+127.0.0.1 - - [29/Apr/2025 07:15:34] "[33mGET /api/devices HTTP/1.1[0m" 404 -
+ * Serving Flask app 'meraki_web'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://10.0.145.130:5050
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-230-856
+127.0.0.1 - - [29/Apr/2025 07:16:41] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2025 07:16:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2025 07:16:41] "HEAD /api/devices HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2025 07:16:42] "GET /api/devices HTTP/1.1" 200 -
+10.46.0.2 - - [29/Apr/2025 07:17:02] "GET / HTTP/1.1" 200 -
+10.46.0.2 - - [29/Apr/2025 07:17:03] "[33mGET /tags HTTP/1.1[0m" 404 -
+10.46.0.2 - - [29/Apr/2025 07:17:03] "[33mGET /metrics?date= HTTP/1.1[0m" 404 -
+10.46.0.2 - - [29/Apr/2025 07:17:06] "[33mGET /metrics?date=20250425 HTTP/1.1[0m" 404 -
+127.0.0.1 - - [29/Apr/2025 07:17:37] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2025 07:17:37] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2025 07:17:38] "HEAD /api/devices HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2025 07:17:39] "GET /api/devices HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2025 07:19:11] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2025 07:19:11] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2025 07:19:11] "HEAD /api/devices HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2025 07:19:12] "GET /api/devices HTTP/1.1" 200 -
+10.46.0.2 - - [29/Apr/2025 07:19:30] "GET / HTTP/1.1" 200 -
+10.46.0.2 - - [29/Apr/2025 07:19:30] "[33mGET /tags HTTP/1.1[0m" 404 -
+10.46.0.2 - - [29/Apr/2025 07:19:30] "[33mGET /metrics?date= HTTP/1.1[0m" 404 -
+10.46.0.2 - - [29/Apr/2025 07:19:31] "GET / HTTP/1.1" 200 -
+10.46.0.2 - - [29/Apr/2025 07:19:31] "[33mGET /tags HTTP/1.1[0m" 404 -
+10.46.0.2 - - [29/Apr/2025 07:19:31] "[33mGET /metrics?date= HTTP/1.1[0m" 404 -
+10.46.0.2 - - [29/Apr/2025 07:19:34] "GET / HTTP/1.1" 200 -
+10.46.0.2 - - [29/Apr/2025 07:19:35] "[33mGET /tags HTTP/1.1[0m" 404 -
+10.46.0.2 - - [29/Apr/2025 07:19:35] "[33mGET /metrics?date= HTTP/1.1[0m" 404 -
+10.46.0.2 - - [29/Apr/2025 07:20:52] "GET / HTTP/1.1" 200 -
+10.46.0.2 - - [29/Apr/2025 07:20:52] "[33mGET /tags HTTP/1.1[0m" 404 -
+10.46.0.2 - - [29/Apr/2025 07:20:52] "[33mGET /metrics?date= HTTP/1.1[0m" 404 -
+10.46.0.2 - - [29/Apr/2025 07:20:54] "[33mGET /metrics?date=20250429 HTTP/1.1[0m" 404 -
+10.46.0.2 - - [29/Apr/2025 07:20:58] "[33mGET /metrics?date=20250425 HTTP/1.1[0m" 404 -
+10.46.0.2 - - [29/Apr/2025 07:44:49] "GET / HTTP/1.1" 200 -
+10.46.0.2 - - [29/Apr/2025 07:44:49] "[33mGET /tags HTTP/1.1[0m" 404 -
+10.46.0.2 - - [29/Apr/2025 07:44:49] "[33mGET /metrics?date= HTTP/1.1[0m" 404 -
+10.46.0.2 - - [29/Apr/2025 07:44:53] "[33mGET /metrics?date=20250425 HTTP/1.1[0m" 404 -
+10.46.0.2 - - [29/Apr/2025 07:44:57] "[33mGET /dsrcircuits HTTP/1.1[0m" 404 -
+ * Serving Flask app 'meraki_web'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://10.0.145.130:5050
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-230-856
+127.0.0.1 - - [29/Apr/2025 07:45:16] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2025 07:45:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2025 07:45:17] "HEAD /api/devices HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2025 07:45:18] "GET /api/devices HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2025 07:45:18] "[33mHEAD /metrics HTTP/1.1[0m" 404 -
+127.0.0.1 - - [29/Apr/2025 07:45:18] "[33mGET /metrics?date=20250425 HTTP/1.1[0m" 404 -
+Template folder: /usr/local/bin/templates
+Attempting to render index.html
+Loading metrics from /var/www/html/meraki-data/wan_metrics_20250425.json
+Loaded 28681 records
+Template folder: /usr/local/bin/templates
+Attempting to render index.html
+Loading metrics from /var/www/html/meraki-data/wan_metrics_20250425.json
+Loaded 28681 records
+Accessing /api/devices
+Loading metrics from /var/www/html/meraki-data/wan_metrics_20250425.json
+Loaded 28681 records
+Accessing /api/devices
+Loading metrics from /var/www/html/meraki-data/wan_metrics_20250425.json
+Loaded 28681 records
+ * Serving Flask app 'meraki_web'
+ * Debug mode: on
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5050
+ * Running on http://10.0.145.130:5050
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 135-230-856
+127.0.0.1 - - [29/Apr/2025 11:06:10] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [29/Apr/2025 11:06:10] "GET / HTTP/1.1" 200 -
+10.46.0.2 - - [29/Apr/2025 11:06:21] "GET / HTTP/1.1" 200 -
+10.46.0.2 - - [29/Apr/2025 11:06:21] "[33mGET /tags HTTP/1.1[0m" 404 -
+10.46.0.2 - - [29/Apr/2025 11:06:21] "[33mGET /metrics?date= HTTP/1.1[0m" 404 -
+10.46.0.2 - - [29/Apr/2025 11:06:24] "[33mGET /metrics?date=20250425 HTTP/1.1[0m" 404 -
+10.46.0.2 - - [29/Apr/2025 11:07:16] "[33mGET /dsrcircuits HTTP/1.1[0m" 404 -

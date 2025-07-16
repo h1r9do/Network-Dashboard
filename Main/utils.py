@@ -1,0 +1,524 @@
+"""
+SHARED UTILITIES AND DATA PROCESSING
+===================================
+
+Purpose:
+    - Shared utility functions used across all modules
+    - Data processing and CSV handling functions
+    - Common configuration and constants
+    - Meraki integration functions (if available)
+
+Used By:
+    - dsrcircuits.py (CSV processing, Meraki functions)
+    - status.py (data filtering, categorization)
+    - historical.py (data comparison, change detection)
+    - inventory.py (data loading and processing)
+    - main.py (configuration constants)
+
+Key Functions:
+    - safe_str(): Safe string conversion handling NaN/None
+    - categorize_status(): Categorize circuit status into dashboard groups
+    - filter_by_date_age(): Filter records by age
+    - read_csv_safely(): Robust CSV reading with multiple fallbacks
+    - compare_dataframes_improved(): Compare circuit data between time periods
+    - detect_circuit_changes(): Detect specific changes between circuit states
+    - generate_summary(): Generate change summary statistics
+
+Constants:
+    - DATA_DIR: Main app data directory (JSON files)
+    - TRACKING_DATA_DIR: Historical tracking CSV files directory
+    - MERAKI_FUNCTIONS_AVAILABLE: Whether Meraki integration is available
+
+Dependencies:
+    - confirm_meraki_notes.py (optional - for Meraki integration)
+    - pandas, numpy for data processing
+    - datetime for date handling
+"""
+
+import pandas as pd
+import numpy as np
+import os
+import sys
+from datetime import datetime, timedelta
+
+# Flush stdout for better logging
+sys.stdout.flush()
+
+# Data directories
+DATA_DIR = "/var/www/html/meraki-data"           # For main app data (JSON files)
+TRACKING_DATA_DIR = "/var/www/html/circuitinfo"  # For historical tracking CSV files
+
+# Try to import Meraki functions - use fixed database version
+try:
+    from confirm_meraki_notes_db_enhanced import (
+        confirm_site,
+        reset_confirmation,
+        push_to_meraki,
+        load_pushed_log,
+        save_pushed_log,
+        remove_from_pushed_log
+    )
+    MERAKI_FUNCTIONS_AVAILABLE = True
+    print("✅ Meraki database functions loaded successfully")
+except ImportError:
+    print("⚠️  confirm_meraki_notes_db_fixed.py not found - Meraki functions disabled")
+    MERAKI_FUNCTIONS_AVAILABLE = False
+    
+    # Create dummy functions to prevent errors
+    def confirm_site(*args, **kwargs):
+        return {"error": "Meraki functions not available"}
+    
+    def reset_confirmation(*args, **kwargs):
+        return {"error": "Meraki functions not available"}
+    
+    def push_to_meraki(*args, **kwargs):
+        return {"error": "Meraki functions not available"}
+    
+    def load_pushed_log(*args, **kwargs):
+        return {}
+    
+    def save_pushed_log(*args, **kwargs):
+        return True
+    
+    def remove_from_pushed_log(*args, **kwargs):
+        return True
+except Exception as e:
+    print(f"⚠️  Error importing confirm_meraki_notes_db: {e}")
+    MERAKI_FUNCTIONS_AVAILABLE = False
+    
+    # Create dummy functions to prevent errors
+    def confirm_site(*args, **kwargs):
+        return {"error": "Meraki functions not available"}
+    
+    def reset_confirmation(*args, **kwargs):
+        return {"error": "Meraki functions not available"}
+    
+    def push_to_meraki(*args, **kwargs):
+        return {"error": "Meraki functions not available"}
+    
+    def load_pushed_log(*args, **kwargs):
+        return {}
+    
+    def save_pushed_log(*args, **kwargs):
+        return True
+    
+    def remove_from_pushed_log(*args, **kwargs):
+        return True
+
+def safe_str(value):
+    """
+    Convert value to string, handling NaN and None safely
+    
+    Args:
+        value: Any value that needs to be converted to string
+        
+    Returns:
+        str: Safe string representation, empty string for None/NaN
+    """
+    if pd.isna(value) or value is None:
+        return ""
+    return str(value).strip()
+
+def categorize_status(status):
+    """
+    Categorize status into dashboard groups based on actual data
+    
+    Args:
+        status (str): Circuit status string
+        
+    Returns:
+        str: Category ('enabled', 'ready', 'customer_action', etc.)
+    """
+    status_lower = safe_str(status).lower()
+    
+    # Based on actual status analysis - CORRECTED ready to only include "Ready for Enablement"
+    enabled_statuses = ['enabled', 'service activated', 'enabled using existing broadband', 'enabled/disconnected', 'enabled/disconnect pending']
+    ready_statuses = ['ready for enablement']  # ONLY "Ready for Enablement" should be considered ready for turnup
+    customer_action_statuses = ['customer action required']
+    sponsor_approval_statuses = ['information/approval needed from sponsor']
+    contact_required_statuses = ['provider contact required', 'end-user contact required']
+    construction_statuses = ['construction in progress', 'site survey in progress', 'installation failed', 'pending scheduled deployment', 'construction approved', 'rescheduled/waiting on new activation date']
+    canceled_statuses = ['order canceled', 'order cancellation pending']
+    
+    if any(s in status_lower for s in enabled_statuses):
+        return 'enabled'
+    elif any(s in status_lower for s in ready_statuses):
+        return 'ready'
+    elif any(s in status_lower for s in customer_action_statuses):
+        return 'customer_action'
+    elif any(s in status_lower for s in sponsor_approval_statuses):
+        return 'sponsor_approval'
+    elif any(s in status_lower for s in contact_required_statuses):
+        return 'contact_required'
+    elif any(s in status_lower for s in construction_statuses):
+        return 'construction'
+    elif any(s in status_lower for s in canceled_statuses):
+        return 'canceled'
+    else:
+        return 'other'
+
+def filter_by_date_age(df, days_limit=120):
+    """
+    Filter out records older than specified days based on date_record_updated
+    
+    Args:
+        df (DataFrame): Input dataframe
+        days_limit (int): Number of days to keep (default 120)
+        
+    Returns:
+        DataFrame: Filtered dataframe
+    """
+    if 'date_record_updated' not in df.columns:
+        return df
+    
+    cutoff_date = datetime.now() - timedelta(days=days_limit)
+    
+    # Convert date_record_updated to datetime
+    df_copy = df.copy()
+    df_copy['date_parsed'] = pd.to_datetime(df_copy['date_record_updated'], errors='coerce')
+    
+    # Filter out records older than cutoff_date
+    mask = (df_copy['date_parsed'].isna()) | (df_copy['date_parsed'] >= cutoff_date)
+    return df_copy[mask].drop('date_parsed', axis=1)
+
+def read_csv_safely(file_path):
+    """
+    Safely read CSV with multiple fallback options - handles files with multiple rows per site
+    
+    Args:
+        file_path (str): Path to CSV file
+        
+    Returns:
+        DataFrame or None: Loaded dataframe or None if all attempts failed
+    """
+    try:
+        # First attempt with standard options
+        return pd.read_csv(file_path, low_memory=False)
+    except Exception as e1:
+        print(f"⚠️  Standard CSV read failed: {e1}")
+        try:
+            # Second attempt with different delimiter and quoting
+            return pd.read_csv(file_path, low_memory=False, quoting=1, skipinitialspace=True)
+        except Exception as e2:
+            print(f"⚠️  Quoted CSV read failed: {e2}")
+            try:
+                # Third attempt with error handling
+                return pd.read_csv(file_path, low_memory=False, on_bad_lines='skip', engine='python')
+            except Exception as e3:
+                print(f"⚠️  Error-tolerant CSV read failed: {e3}")
+                try:
+                    # Fourth attempt with manual line inspection
+                    with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+                        lines = f.readlines()
+                    
+                    # Check first few lines to understand structure
+                    print(f"📄 File has {len(lines)} lines")
+                    if len(lines) > 0:
+                        print(f"📄 Header: {lines[0].strip()}")
+                    if len(lines) > 1:
+                        print(f"📄 First data line: {lines[1].strip()}")
+                    
+                    # Try to read with different separators
+                    for sep in [',', ';', '\t', '|']:
+                        try:
+                            df = pd.read_csv(file_path, low_memory=False, sep=sep, on_bad_lines='skip', engine='python')
+                            if len(df.columns) > 1:  # At least some structure
+                                print(f"✅ Successfully read with separator '{sep}'")
+                                return df
+                        except:
+                            continue
+                    
+                    print(f"❌ All CSV parsing attempts failed for {file_path}")
+                    return None
+                    
+                except Exception as e4:
+                    print(f"❌ Manual inspection failed: {e4}")
+                    return None
+
+def compare_dataframes_improved(df_prev, df_curr, change_date):
+    """
+    Improved comparison that focuses on key columns and avoids duplicate reporting
+    Uses the columns: Site Name, Site ID, Circuit Purpose, status, 
+    date_record_updated, provider_name, billing_monthly_cost, details_ordered_service_speed
+    
+    Args:
+        df_prev (DataFrame): Previous dataset
+        df_curr (DataFrame): Current dataset  
+        change_date (str): Date string for this comparison
+        
+    Returns:
+        list: List of change dictionaries
+    """
+    changes = []
+    
+    # Key columns to track for changes
+    key_columns = [
+        'Site Name', 'Site ID', 'Circuit Purpose', 'status', 
+        'date_record_updated', 'provider_name', 'billing_monthly_cost', 
+        'details_ordered_service_speed'
+    ]
+    
+    # Check which columns exist in both dataframes
+    prev_cols = set(df_prev.columns)
+    curr_cols = set(df_curr.columns)
+    common_cols = prev_cols & curr_cols
+    
+    # Filter to only use columns that exist in both datasets
+    available_key_columns = [col for col in key_columns if col in common_cols]
+    
+    print(f"📊 Previous DF: {len(df_prev)} rows, Current DF: {len(df_curr)} rows")
+    print(f"📊 Tracking columns: {available_key_columns}")
+    
+    if 'Site Name' not in available_key_columns:
+        print("❌ Site Name column not found - cannot proceed")
+        return changes
+    
+    # Create unique circuit identifiers using available columns
+    def create_circuit_fingerprint(row):
+        """Create a unique identifier for each circuit using stable identifiers only"""
+        site = safe_str(row.get('Site Name', 'unknown'))
+        site_id = safe_str(row.get('Site ID', ''))
+        purpose = safe_str(row.get('Circuit Purpose', ''))
+        
+        # FIXED: Only use stable identifiers for fingerprint, not changeable data like provider/speed
+        # This prevents mass "NEW/REMOVED" when provider names or speeds change
+        fingerprint = f"{site}|{site_id}|{purpose}"
+        return fingerprint
+    
+    # Create working copies and add fingerprints
+    df_prev_work = df_prev[available_key_columns].copy()
+    df_curr_work = df_curr[available_key_columns].copy()
+    
+    # Convert all values to safe strings to avoid NaN issues
+    for col in available_key_columns:
+        df_prev_work[col] = df_prev_work[col].apply(safe_str)
+        df_curr_work[col] = df_curr_work[col].apply(safe_str)
+    
+    df_prev_work['fingerprint'] = df_prev_work.apply(create_circuit_fingerprint, axis=1)
+    df_curr_work['fingerprint'] = df_curr_work.apply(create_circuit_fingerprint, axis=1)
+    
+    # Handle duplicate fingerprints by adding a unique suffix based on position in group
+    prev_dups = df_prev_work['fingerprint'].duplicated().sum()
+    curr_dups = df_curr_work['fingerprint'].duplicated().sum()
+    
+    if prev_dups > 0:
+        print(f"ℹ️  {prev_dups} duplicate circuits in previous data - adding position suffix")
+        # Instead of row index, use position within duplicate group for stability
+        df_prev_work['fingerprint'] = df_prev_work.groupby('fingerprint').cumcount().astype(str) + '_' + df_prev_work['fingerprint']
+        
+    if curr_dups > 0:
+        print(f"ℹ️  {curr_dups} duplicate circuits in current data - adding position suffix")
+        # Instead of row index, use position within duplicate group for stability
+        df_curr_work['fingerprint'] = df_curr_work.groupby('fingerprint').cumcount().astype(str) + '_' + df_curr_work['fingerprint']
+    
+    # Convert to dictionaries for comparison
+    try:
+        prev_circuits = df_prev_work.set_index('fingerprint').to_dict('index')
+        curr_circuits = df_curr_work.set_index('fingerprint').to_dict('index')
+    except Exception as e:
+        print(f"❌ Error creating circuit dictionaries: {e}")
+        return changes
+    
+    print(f"📊 Comparing {len(prev_circuits)} vs {len(curr_circuits)} unique circuit groups")
+    
+    all_fingerprints = set(prev_circuits.keys()) | set(curr_circuits.keys())
+    
+    new_circuits = 0
+    removed_circuits = 0
+    modified_circuits = 0
+    
+    for fingerprint in all_fingerprints:
+        prev_circuit = prev_circuits.get(fingerprint, {})
+        curr_circuit = curr_circuits.get(fingerprint, {})
+        
+        site_name = curr_circuit.get('Site Name') or prev_circuit.get('Site Name', 'Unknown Site')
+        
+        # NEW CIRCUIT
+        if fingerprint not in prev_circuits and fingerprint in curr_circuits:
+            new_circuits += 1
+            circuit_info = get_circuit_description(curr_circuit)
+            
+            changes.append({
+                "change_time": change_date,
+                "site_name": site_name,
+                "change_category": "Circuit Management",
+                "change_type": "NEW_CIRCUIT",
+                "description": f"New circuit added: {circuit_info}",
+                "field_changed": "Circuit Status",
+                "before_value": "",
+                "after_value": "Active",
+                "impact": "New circuit connection established"
+            })
+        
+        # REMOVED CIRCUIT
+        elif fingerprint in prev_circuits and fingerprint not in curr_circuits:
+            removed_circuits += 1
+            circuit_info = get_circuit_description(prev_circuit)
+            
+            changes.append({
+                "change_time": change_date,
+                "site_name": site_name,
+                "change_category": "Circuit Management", 
+                "change_type": "REMOVED_CIRCUIT",
+                "description": f"Circuit removed: {circuit_info}",
+                "field_changed": "Circuit Status",
+                "before_value": "Active",
+                "after_value": "",
+                "impact": "Circuit connection terminated"
+            })
+        
+        # MODIFIED CIRCUIT - Only report if there's an actual change
+        elif fingerprint in prev_circuits and fingerprint in curr_circuits:
+            circuit_changes = detect_circuit_changes(prev_circuit, curr_circuit, site_name, change_date)
+            if circuit_changes:
+                changes.extend(circuit_changes)
+                modified_circuits += 1
+    
+    print(f"📊 Changes: {new_circuits} new, {removed_circuits} removed, {modified_circuits} modified")
+    return changes
+
+def get_circuit_description(circuit_data):
+    """Generate a readable description of the circuit"""
+    purpose = circuit_data.get('Circuit Purpose', '')
+    provider = circuit_data.get('provider_name', '')
+    speed = circuit_data.get('details_ordered_service_speed', '')
+    
+    parts = []
+    if purpose:
+        parts.append(purpose)
+    if provider:
+        parts.append(provider)
+    if speed:
+        parts.append(speed)
+    
+    return ' | '.join(parts) if parts else 'Unknown Circuit'
+
+def detect_circuit_changes(prev_circuit, curr_circuit, site_name, change_date):
+    """Detect specific changes between two circuit states"""
+    changes = []
+    
+    # Only check for changes if date_record_updated has actually changed
+    prev_updated = safe_str(prev_circuit.get('date_record_updated', ''))
+    curr_updated = safe_str(curr_circuit.get('date_record_updated', ''))
+    
+    if prev_updated and curr_updated and prev_updated == curr_updated:
+        return changes
+    
+    circuit_info = get_circuit_description(curr_circuit)
+    
+    # STATUS CHANGES
+    prev_status = safe_str(prev_circuit.get('status', ''))
+    curr_status = safe_str(curr_circuit.get('status', ''))
+    
+    if prev_status != curr_status and (prev_status or curr_status):
+        curr_status_lower = curr_status.lower()
+        prev_status_lower = prev_status.lower()
+        
+        if curr_status_lower == 'enabled':
+            change_type = "CIRCUIT_ENABLED"
+            impact = "Circuit activated"
+        elif curr_status_lower in ['order canceled', 'enabled/disconnected']:
+            change_type = "CIRCUIT_DISABLED"
+            impact = "Circuit deactivated"
+        elif prev_status_lower in ['ready for enablement', 'pending scheduled deployment'] and curr_status_lower == 'enabled':
+            change_type = "CIRCUIT_ENABLED"
+            impact = "Circuit activated from ready state"
+        elif curr_status_lower == 'ready for enablement':
+            change_type = "READY_FOR_ENABLEMENT"
+            impact = "Circuit ready for activation"
+        elif 'customer action required' in curr_status_lower:
+            change_type = "CUSTOMER_ACTION_REQUIRED"
+            impact = "Customer action needed"
+        elif 'information/approval needed' in curr_status_lower:
+            change_type = "SPONSOR_APPROVAL_REQUIRED"
+            impact = "Sponsor approval needed"
+        elif curr_status_lower in ['provider contact required', 'end-user contact required']:
+            change_type = "CONTACT_REQUIRED"
+            impact = "Contact required"
+        else:
+            change_type = "STATUS_CHANGE"
+            impact = "Circuit status updated"
+        
+        changes.append({
+            "change_time": change_date,
+            "site_name": site_name,
+            "change_category": "Circuit Status",
+            "change_type": change_type,
+            "description": f"Status changed: {circuit_info} | {prev_status} → {curr_status}",
+            "field_changed": "status",
+            "before_value": prev_status,
+            "after_value": curr_status,
+            "impact": impact
+        })
+    
+    # PROVIDER CHANGES
+    prev_provider = safe_str(prev_circuit.get('provider_name', ''))
+    curr_provider = safe_str(curr_circuit.get('provider_name', ''))
+    
+    if prev_provider != curr_provider and (prev_provider or curr_provider):
+        changes.append({
+            "change_time": change_date,
+            "site_name": site_name,
+            "change_category": "Service Provider",
+            "change_type": "PROVIDER_CHANGE", 
+            "description": f"Provider changed: {circuit_info} | {prev_provider} → {curr_provider}",
+            "field_changed": "provider_name",
+            "before_value": prev_provider,
+            "after_value": curr_provider,
+            "impact": "Service provider updated"
+        })
+    
+    # SPEED CHANGES
+    prev_speed = safe_str(prev_circuit.get('details_ordered_service_speed', ''))
+    curr_speed = safe_str(curr_circuit.get('details_ordered_service_speed', ''))
+    
+    if prev_speed != curr_speed and (prev_speed or curr_speed):
+        changes.append({
+            "change_time": change_date,
+            "site_name": site_name,
+            "change_category": "Technical",
+            "change_type": "SPEED_CHANGE",
+            "description": f"Speed changed: {circuit_info} | {prev_speed} → {curr_speed}",
+            "field_changed": "details_ordered_service_speed",
+            "before_value": prev_speed,
+            "after_value": curr_speed,
+            "impact": "Bandwidth allocation updated"
+        })
+    
+    # COST CHANGES
+    prev_cost = safe_str(prev_circuit.get('billing_monthly_cost', ''))
+    curr_cost = safe_str(curr_circuit.get('billing_monthly_cost', ''))
+    
+    if prev_cost != curr_cost and (prev_cost or curr_cost):
+        changes.append({
+            "change_time": change_date,
+            "site_name": site_name,
+            "change_category": "Financial",
+            "change_type": "COST_CHANGE",
+            "description": f"Cost changed: {circuit_info} | {prev_cost} → {curr_cost}",
+            "field_changed": "billing_monthly_cost",
+            "before_value": prev_cost,
+            "after_value": curr_cost,
+            "impact": "Billing amount updated"
+        })
+    
+    return changes
+
+def generate_summary(changes, start_date, end_date):
+    """Generate summary statistics for changes"""
+    total_changes = len(changes)
+    changes_by_type = {}
+    
+    for change in changes:
+        change_type = change['change_type']
+        changes_by_type[change_type] = changes_by_type.get(change_type, 0) + 1
+    
+    period_days = (end_date - start_date).days
+    
+    return {
+        "total_changes": total_changes,
+        "changes_by_type": changes_by_type,
+        "period_days": period_days,
+        "changes_per_day": round(total_changes / max(period_days, 1), 2),
+        "most_common_change": max(changes_by_type.items(), key=lambda x: x[1])[0] if changes_by_type else "None"
+    }

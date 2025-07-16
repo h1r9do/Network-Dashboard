@@ -1,0 +1,131 @@
+
+Complete VLAN Migration Report
+==============================
+Network: TST 01 (L_3790904986339115852)
+Start Time: 2025-07-10 07:34:46
+Duration: 0:01:16.674918
+Mode: LIVE
+
+VLAN Mapping Applied:
+  VLAN 1 → VLAN 100
+  VLAN 101 → VLAN 200
+  VLAN 201 → VLAN 400
+  VLAN 301 → VLAN 410
+
+Log Entries:
+[07:34:47] INFO: Complete VLAN Migrator initialized for TST 01
+[07:34:47] INFO: Mode: LIVE
+[07:34:47] INFO: 
+============================================================
+[07:34:47] INFO: Taking complete configuration backup...
+[07:34:47] INFO: ============================================================
+[07:34:47] INFO: Backing up VLANs...
+[07:34:47] INFO:   ✓ Backed up 10 VLANs
+[07:34:47] INFO: Backing up firewall rules...
+[07:34:47] INFO:   ✓ Backed up 1 firewall rules
+[07:34:47] INFO: Backing up group policies...
+[07:34:48] INFO:   ✓ Backed up 3 group policies
+[07:34:48] INFO: Backing up switch configurations...
+[07:34:49] INFO:   ✓ Backed up 28 ports for TST_01SW01
+[07:34:50] INFO:   ✓ Backed up 28 ports for TST_01SW02
+[07:34:50] INFO: Backing up MX ports...
+[07:34:50] INFO:   ✓ Backed up 10 MX ports
+[07:34:50] INFO: Backing up syslog configuration...
+[07:34:51] INFO: 
+✓ Complete backup saved to complete_vlan_backup_L_3790904986339115852_20250710_073451.json
+[07:34:51] INFO: 
+============================================================
+[07:34:51] INFO: Clearing VLAN references...
+[07:34:51] INFO: ============================================================
+[07:34:51] INFO: 
+Step 1: Clearing firewall rules...
+[07:34:51] INFO:   ✓ Firewall rules cleared
+[07:34:51] INFO: 
+Step 2: Moving switch ports to temporary VLANs...
+[07:34:51] INFO:   Creating temporary VLAN 999...
+[07:34:52] INFO:   Creating temporary VLAN 998...
+[07:34:53] INFO:   Creating temporary VLAN 997...
+[07:34:53] INFO:   Creating temporary VLAN 996...
+[07:35:07] ERROR: API Error: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/devices/Q3DB-4X9P-QRW3/switch/ports/21
+[07:35:07] ERROR: Response: {"errors":["Allowed VLANs can only contain values between 1 and 4094","Combined count of Allowed VLANs and Native VLAN cannot exceed 4094 VLANs"]}
+[07:35:07] ERROR: API Error: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/devices/Q3DB-4X9P-QRW3/switch/ports/22
+[07:35:07] ERROR: Response: {"errors":["Allowed VLANs can only contain values between 1 and 4094","Combined count of Allowed VLANs and Native VLAN cannot exceed 4094 VLANs"]}
+[07:35:08] ERROR: API Error: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/devices/Q3DB-4X9P-QRW3/switch/ports/23
+[07:35:08] ERROR: Response: {"errors":["Allowed VLANs can only contain values between 1 and 4094","Combined count of Allowed VLANs and Native VLAN cannot exceed 4094 VLANs"]}
+[07:35:08] INFO:   ✓ Updated 20 ports on TST_01SW01
+[07:35:20] ERROR: API Error: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/devices/Q3DB-77XE-5BRN/switch/ports/21
+[07:35:20] ERROR: Response: {"errors":["Allowed VLANs can only contain values between 1 and 4094","Combined count of Allowed VLANs and Native VLAN cannot exceed 4094 VLANs"]}
+[07:35:21] ERROR: API Error: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/devices/Q3DB-77XE-5BRN/switch/ports/22
+[07:35:21] ERROR: Response: {"errors":["Allowed VLANs can only contain values between 1 and 4094","Combined count of Allowed VLANs and Native VLAN cannot exceed 4094 VLANs"]}
+[07:35:21] ERROR: API Error: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/devices/Q3DB-77XE-5BRN/switch/ports/23
+[07:35:21] ERROR: Response: {"errors":["Allowed VLANs can only contain values between 1 and 4094","Combined count of Allowed VLANs and Native VLAN cannot exceed 4094 VLANs"]}
+[07:35:21] INFO:   ✓ Updated 20 ports on TST_01SW02
+[07:35:21] INFO: 
+Step 3: Updating MX ports to temporary VLANs...
+[07:35:21] ERROR: API Error: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/3
+[07:35:21] ERROR: Response: {"errors":["Some of the allowed VLANs do not exist for the current network"]}
+[07:35:22] ERROR: API Error: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/4
+[07:35:22] ERROR: Response: {"errors":["Some of the allowed VLANs do not exist for the current network"]}
+[07:35:22] ERROR: API Error: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/5
+[07:35:22] ERROR: Response: {"errors":["Some of the allowed VLANs do not exist for the current network"]}
+[07:35:22] ERROR: API Error: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/6
+[07:35:22] ERROR: Response: {"errors":["Some of the allowed VLANs do not exist for the current network"]}
+[07:35:23] ERROR: API Error: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/10
+[07:35:23] ERROR: Response: {"errors":["Some of the allowed VLANs do not exist for the current network"]}
+[07:35:24] INFO:   ✓ Updated 2 MX ports
+[07:35:24] INFO: 
+============================================================
+[07:35:24] INFO: Migrating VLANs to new IDs...
+[07:35:24] INFO: ============================================================
+[07:35:24] INFO: 
+Migrating VLAN 1 → 100
+[07:35:24] INFO:   Deleting VLAN 1...
+[07:35:24] ERROR:   ✗ Failed to delete VLAN 1
+[07:35:24] INFO: 
+Migrating VLAN 101 → 200
+[07:35:24] INFO:   Deleting VLAN 101...
+[07:35:25] ERROR:   ✗ Failed to delete VLAN 101
+[07:35:25] INFO: 
+Migrating VLAN 201 → 400
+[07:35:25] INFO:   Deleting VLAN 201...
+[07:35:25] ERROR:   ✗ Failed to delete VLAN 201
+[07:35:25] INFO: 
+VLAN 300 - No change needed
+[07:35:25] INFO: 
+Migrating VLAN 301 → 410
+[07:35:25] INFO:   Deleting VLAN 301...
+[07:35:26] ERROR:   ✗ Failed to delete VLAN 301
+[07:35:26] INFO: 
+VLAN 800 - No change needed
+[07:35:26] INFO: 
+VLAN 801 - No change needed
+[07:35:26] INFO: 
+VLAN 802 - No change needed
+[07:35:26] INFO: 
+VLAN 803 - No change needed
+[07:35:26] INFO: 
+============================================================
+[07:35:26] INFO: Restoring configurations with new VLAN IDs...
+[07:35:26] INFO: ============================================================
+[07:35:26] INFO: 
+Step 1: Updating switch ports to new VLAN IDs...
+[07:35:40] INFO:   ✓ Updated 24 ports on TST_01SW01
+[07:35:53] INFO:   ✓ Updated 24 ports on TST_01SW02
+[07:35:53] INFO: 
+Step 2: Updating MX ports to new VLAN IDs...
+[07:35:53] ERROR: API Error: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/3
+[07:35:53] ERROR: Response: {"errors":["Some of the allowed VLANs do not exist for the current network"]}
+[07:35:54] ERROR: API Error: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/4
+[07:35:54] ERROR: Response: {"errors":["Some of the allowed VLANs do not exist for the current network"]}
+[07:35:54] ERROR: API Error: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/5
+[07:35:54] ERROR: Response: {"errors":["Some of the allowed VLANs do not exist for the current network"]}
+[07:35:54] ERROR: API Error: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/6
+[07:35:54] ERROR: Response: {"errors":["Some of the allowed VLANs do not exist for the current network"]}
+[07:35:56] ERROR: API Error: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/ports/10
+[07:35:56] ERROR: Response: {"errors":["Some of the allowed VLANs do not exist for the current network"]}
+[07:35:57] INFO:   ✓ Updated 3 MX ports
+[07:35:57] INFO: 
+Step 3: Applying firewall rules with new VLAN IDs...
+[07:35:57] INFO:   ✓ Applied 1 firewall rules
+[07:35:57] INFO: 
+Step 4: Cleaning up temporary VLANs...

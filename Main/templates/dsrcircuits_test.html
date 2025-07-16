@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSR Circuits Test - Provider Matching</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .match-success { background-color: #d4edda !important; }
+        .match-warning { background-color: #fff3cd !important; }
+        .match-danger { background-color: #f8d7da !important; }
+        .match-secondary { background-color: #e2e3e5 !important; }
+        
+        .test-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-header">
+        <div class="container">
+            <h1>🧪 DSR Circuits Test - Provider Matching</h1>
+            <p class="lead">Testing enhanced provider matching system</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Statistics Card -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>📊 Provider Matching Statistics</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row text-center">
+                            <div class="col-md-3">
+                                <h2 class="text-primary">{{ stats.total_circuits or 0 }}</h2>
+                                <p>Total Circuits</p>
+                            </div>
+                            <div class="col-md-3">
+                                <h2 class="text-success">{{ stats.matched_circuits or 0 }}</h2>
+                                <p>Matched Circuits</p>
+                            </div>
+                            <div class="col-md-3">
+                                <h2 class="text-info">{{ stats.match_rate or 0 }}%</h2>
+                                <p>Match Rate</p>
+                            </div>
+                            <div class="col-md-3">
+                                <h2 class="text-warning">{{ stats.avg_match_confidence or 0 }}%</h2>
+                                <p>Avg Confidence</p>
+                            </div>
+                        </div>
+                        
+                        <div class="row mt-3 text-center">
+                            <div class="col-md-3">
+                                <small class="text-muted">Excellent (90%+): {{ stats.excellent_matches or 0 }}</small>
+                            </div>
+                            <div class="col-md-3">
+                                <small class="text-muted">Good (70-89%): {{ stats.good_matches or 0 }}</small>
+                            </div>
+                            <div class="col-md-3">
+                                <small class="text-muted">Poor (<70%): {{ stats.poor_matches or 0 }}</small>
+                            </div>
+                            <div class="col-md-3">
+                                <small class="text-muted">No Match: {{ stats.no_match_circuits or 0 }}</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sample Results -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Sample Test Results</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Site</th>
+                                        <th>Circuit</th>
+                                        <th>DSR Provider</th>
+                                        <th>ARIN Provider</th>
+                                        <th>Match</th>
+                                        <th>Quality</th>
+                                        <th>Reason</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for circuit in sample_circuits %}
+                                    <tr class="match-{{ circuit.match_color }}">
+                                        <td>
+                                            <a href="/test-site/{{ circuit.site_name }}" class="btn btn-sm btn-outline-primary">
+                                                {{ circuit.site_name }}
+                                            </a>
+                                        </td>
+                                        <td>{{ circuit.circuit_purpose }}</td>
+                                        <td>{{ circuit.dsr_provider }}</td>
+                                        <td>{{ circuit.arin_provider or 'N/A' }}</td>
+                                        <td>
+                                            {{ circuit.match_icon }}
+                                            <span class="badge bg-{{ circuit.match_color }} ms-1">
+                                                {{ circuit.provider_match_confidence }}%
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <span class="badge bg-{{ circuit.match_color }}">
+                                                {{ circuit.match_quality }}
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <small class="text-muted">{{ circuit.match_reason }}</small>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Test Actions -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Test Actions</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="btn-group" role="group">
+                            <button class="btn btn-primary" onclick="refreshStats()">🔄 Refresh</button>
+                            <button class="btn btn-warning" onclick="viewNoMatches()">❌ No Matches</button>
+                            <button class="btn btn-info" onclick="testSpecificSite()">🔍 Test Site</button>
+                            <a href="/dsrcircuits" class="btn btn-secondary">← Production</a>
+                        </div>
+                        
+                        <div class="mt-3" id="testSiteForm" style="display: none;">
+                            <div class="input-group" style="max-width: 400px;">
+                                <input type="text" class="form-control" id="testSiteName" placeholder="Enter site name (e.g., ABC 01)">
+                                <button class="btn btn-outline-secondary" onclick="goToTestSite()">Test</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- No Matches Modal -->
+        <div class="modal fade" id="noMatchesModal" tabindex="-1">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Circuits with No Matches</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="noMatchesContent">Loading...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function refreshStats() {
+            location.reload();
+        }
+
+        function viewNoMatches() {
+            const modal = new bootstrap.Modal(document.getElementById('noMatchesModal'));
+            
+            fetch('/api/test-no-matches')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        let html = `<p><strong>${data.count} circuits with no matches:</strong></p>
+                                   <div class="table-responsive">
+                                   <table class="table table-sm">
+                                   <thead><tr><th>Site</th><th>Circuit</th><th>DSR Provider</th><th>ARIN Provider</th><th>Reason</th></tr></thead><tbody>`;
+                        
+                        data.no_matches.forEach(circuit => {
+                            html += `<tr>
+                                <td>${circuit.site_name}</td>
+                                <td>${circuit.circuit_purpose}</td>
+                                <td>${circuit.dsr_provider}</td>
+                                <td>${circuit.arin_provider || 'N/A'}</td>
+                                <td><small>${circuit.match_reason}</small></td>
+                            </tr>`;
+                        });
+                        
+                        html += '</tbody></table></div>';
+                        document.getElementById('noMatchesContent').innerHTML = html;
+                    } else {
+                        document.getElementById('noMatchesContent').innerHTML = `<p class="text-danger">Error: ${data.error}</p>`;
+                    }
+                    modal.show();
+                })
+                .catch(error => {
+                    document.getElementById('noMatchesContent').innerHTML = `<p class="text-danger">Error: ${error}</p>`;
+                    modal.show();
+                });
+        }
+
+        function testSpecificSite() {
+            const form = document.getElementById('testSiteForm');
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function goToTestSite() {
+            const siteName = document.getElementById('testSiteName').value.trim();
+            if (siteName) {
+                window.location.href = `/test-site/${encodeURIComponent(siteName)}`;
+            }
+        }
+    </script>
+</body>
+</html>

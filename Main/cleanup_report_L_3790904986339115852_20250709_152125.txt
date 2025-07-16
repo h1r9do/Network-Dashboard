@@ -1,0 +1,59 @@
+
+Network Cleanup Report
+======================
+Timestamp: 2025-07-09 15:21:25
+Network ID: L_3790904986339115852
+Organization: 3790904986339115010
+
+Cleanup Log:
+[15:20:51] INFO: Network Cleaner initialized for L_3790904986339115852
+[15:20:51] INFO: Organization: 3790904986339115010
+[15:20:51] INFO: 
+Step 1: Clearing firewall rules...
+[15:20:52] INFO:   Found 56 existing firewall rules
+[15:20:54] INFO:   ✓ Firewall rules cleared (set to default allow)
+[15:20:54] INFO: 
+Step 2: Clearing syslog configuration...
+[15:20:54] INFO:   Found 1 syslog server(s)
+[15:20:55] INFO:   ✓ Syslog configuration cleared
+[15:20:55] INFO: 
+Step 3: Deleting VLANs...
+[15:20:56] INFO:   Found 9 VLANs
+[15:20:56] INFO:   Deleting VLAN 900 (Mgmt)...
+[15:20:58] INFO:     ✓ Deleted VLAN 900
+[15:20:59] INFO:   Deleting VLAN 803 (IoT Wireless)...
+[15:21:00] INFO:     ✓ Deleted VLAN 803
+[15:21:01] INFO:   Deleting VLAN 800 (Guest)...
+[15:21:02] INFO:     ✓ Deleted VLAN 800
+[15:21:03] INFO:   Deleting VLAN 410 (Ccard)...
+[15:21:04] INFO:     ✓ Deleted VLAN 410
+[15:21:05] INFO:   Deleting VLAN 400 (IoT)...
+[15:21:06] INFO:     ✓ Deleted VLAN 400
+[15:21:07] INFO:   Deleting VLAN 301 (Scanner)...
+[15:21:08] INFO:     ✓ Deleted VLAN 301
+[15:21:09] INFO:   Deleting VLAN 300 (Net Mgmt)...
+[15:21:10] INFO:     ✓ Deleted VLAN 300
+[15:21:11] INFO:   Deleting VLAN 200 (Voice)...
+[15:21:12] INFO:     ✓ Deleted VLAN 200
+[15:21:13] INFO:   Keeping VLAN 100 (Default) - required minimum
+[15:21:14] INFO:     ✓ Reset VLAN 100 to default configuration
+[15:21:14] INFO:   Deleted 8 VLANs, kept 1 minimum required
+[15:21:14] INFO: 
+Step 4: Deleting group policies...
+[15:21:15] INFO:   Found 3 group policies
+[15:21:15] INFO:   Deleting group policy: Guest Network (ID: 102)
+[15:21:16] INFO:     ✓ Deleted group policy 102
+[15:21:17] INFO:   Deleting group policy: Indeed.com (ID: 101)
+[15:21:18] INFO:     ✓ Deleted group policy 101
+[15:21:19] INFO:   Deleting group policy: Ebay Access (ID: 100)
+[15:21:20] INFO:     ✓ Deleted group policy 100
+[15:21:21] INFO:   Deleted 3 group policies
+[15:21:21] INFO: 
+Step 5: Skipping policy objects deletion (use --include-policy-objects to delete)
+[15:21:21] INFO: 
+Step 6: Verifying cleanup...
+[15:21:22] INFO:   Remaining VLANs: 1
+[15:21:23] INFO:   Remaining group policies: 0
+[15:21:24] INFO:   Firewall rules: 2 (should be 1 default)
+[15:21:25] INFO:   Syslog servers: 0 (should be 0)
+[15:21:25] WARNING:   ⚠️  Some items may not have been cleaned up

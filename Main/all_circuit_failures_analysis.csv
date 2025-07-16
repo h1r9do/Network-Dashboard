@@ -1,0 +1,12 @@
+Site,WAN,Device Provider,ARIN Provider,Speed,Fuzzy Match,Score,Impact
+"CAL_00","WAN1","Frontier Communications","","500.0M x 500.0M","Frontier",100,1
+"CAL_00","WAN2","Charter Communications","","600.0M x 35.0M","Charter Communications",100,2
+"MOS_00","WAN1","Charter Communications","","750.0M x 35.0M","Charter Communications",100,2
+"Desert Ridge","WAN1","Cox Network 500 Circuit ID 23.HMXX.126497 Acct 2318296-02 AT&T ADI","","100.0 M","AT&T",100,1
+"FLJ_00","WAN1","Comcast","","300.0M x 30.0M","Comcast",100,2
+"GAA_00","WAN2","Comcast","","750.0 M","Comcast",100,2
+"FLJ_00","WAN2","AT&T","","300.0M x 300.0M","AT&T",100,3
+"GAA_00","WAN1","AT&T","","1000.0 M","AT&T",100,3
+"MOS_00","WAN2","AT&T","","1000.0M x 1000.0M","AT&T",100,3
+"OKO_00","WAN2","Cox Communications","","300.0 M","Cox Communications",100,1
+"TXD_00","WAN1","DSR Road Runner BOC ||","","600.0M x 35.0M","DSR Comcast",67,1

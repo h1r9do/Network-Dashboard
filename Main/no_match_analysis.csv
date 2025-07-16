@@ -1,0 +1,127 @@
+AZP 00,AZP000,Primary,Cox Business/BOI,,,No Match,0,,No match found,500.0M x 35.0M,$387.24
+CAL000,CAL000,Primary,Frontier FIOS,,,No Match,0,,No match found,500.0M x 500.0M,$59.99
+CAL000,CAL000 -B,Secondary,Spectrum,,,No Match,0,,No match found,750.0M x 35.0M,$172.23
+CALW01,CALW01,Primary,EB2-Frontier Fiber,,,No Match,0,,No match found,1000.0M x 1000.0M,$339.00
+CAN00,CAN00,Primary,Comcast Workplace,,,No Match,0,,No match found,300.0M x 30.0M,$186.18
+CAN00,CAN00 -B,Secondary,AT&T Broadband II,,,No Match,0,,No match found,300.0M x 300.0M,$105.01
+CAN 22,CAN 22,Primary,Vista Broadband,,,No Match,0,,No match found,15.0M x 15.0M,$250.00
+CAN 35,CAN 35- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+CAS00,CAS00,Primary,Cox Business/BOI,,,No Match,0,,No match found,300.0M x 30.0M,$266.67
+CAS00,CAS00 -B,Secondary,AT&T Broadband II,,,No Match,0,,No match found,300.0M x 300.0M,$105.01
+CAS 13,CAS 13,Primary,Cox Business/BOI,,,No Match,0,,No match found,300.0M x 30.0M,$266.67
+CAS 13,CAS 13 -B,Secondary,AT&T Broadband II,,,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+COD00,COD00,Primary,Comcast Workplace,,,No Match,0,,No match found,600.0M x 35.0M,$234.45
+COG 02,COG 02,Primary,Comcast Workplace,,,No Match,0,,No match found,750.0M x 35.0M,$234.45
+COG 02,COG 02- B,Secondary,Community Broadband Network,,,No Match,0,,No match found,100.0M x 100.0M,$105.00
+FLJ 00,FLJ 00,Primary,Comcast Workplace,,,No Match,0,,No match found,300.0M x 30.0M,$175.56
+FLJ 00,FLJ 00 -B,Secondary,AT&T Broadband II,,,No Match,0,,No match found,300.0M x 300.0M,$105.01
+FLO 01,FLO 01,Primary,Spectrum,"Charter Communications, Inc",,No Match,0,,No match found,750.0M x 35.0M,$172.23
+FLP 03,FLP 03,Primary,Mediacom/BOI,,,No Match,0,,No match found,300.0M x 20.0M,$244.69
+GAA 00,GAA 00,Primary,AT&T Broadband II,,,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+GAA 00,GAA 00 -B,Secondary,Comcast Workplace,,,No Match,0,,No match found,750.0M x 35.0M,$234.45
+GAA 10,GAA 10- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+GAA 12,GAA 12- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+GAA 13,GAA 13- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+GAA 15,GAA 15- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+GAA 18,GAA 18- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+GAA 21,GAA 21- B,Secondary,"Comcast Cable Communications, LLC",AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+GAA 27,GAA 27- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+GAA 30,GAA 30- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+GAACALLCTR,GAACALLCTR,Primary,Spectrum,,,No Match,0,,No match found,750.0M x 35.0M,$244.45
+GAACALLCTR,GAACALLCTR -B,Secondary,AT&T Broadband II,,,No Match,0,,No match found,300.0M x 300.0M,$105.01
+ILC00,ILC00,Primary,Comcast Workplace,,,No Match,0,,No match found,300.0M x 30.0M,$175.56
+ILC00,ILC00 -B,Secondary,AT&T Broadband II,,,No Match,0,,No match found,300.0M x 300.0M,$105.01
+ILC 01,ILC 01- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+ILC 06,ILC 06- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+ILC 15,ILC 15- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+ILC 18,ILC 18- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+ILC 19,ILC 19- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+ILC 29,ILC 29- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+ILR01,ILR01,Primary,Comcast Workplace,,,No Match,0,,No match found,750.0M x 35.0M,$234.45
+ILX 01,ILX 01,Primary,Comcast Workplace,,,No Match,0,,No match found,300.0M x 30.0M,$186.18
+INIW00,INIW00,Primary,Comcast Workplace,,,No Match,0,,No match found,300.0M x 30.0M,$186.18
+INIW00,INIW00 -B,Secondary,AT&T Broadband II,,,No Match,0,,No match found,300.0M x 300.0M,$105.01
+INW 01,INW 01- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+KONFARA,KONFARA,Primary,Cox Business/BOI,,,No Match,0,,No match found,500.0M x 35.0M,$342.23
+KSK00N,KSK00N,Primary,Spectrum,,,No Match,0,,No match found,750.0M x 35.0M,$207.45
+KSK00N,KSK00N -B,Secondary,AT&T Broadband II,,,No Match,0,,No match found,300.0M x 300.0M,$105.01
+KSK 01,KSK 01- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+KYN 00,KYN 00,Primary,Cincinnati Bell,,,No Match,0,,No match found,400.0M x 200.0M,$84.99
+KYN 00,KYN 00 -B,Secondary,Spectrum,,,No Match,0,,No match found,750.0M x 35.0M,$172.23
+MIA00,MIA00,Primary,Comcast Workplace,,,No Match,0,,No match found,750.0M x 35.0M,$234.45
+MIA 17,MIA 17- B,Secondary,Comcast,"D&P Communications, Inc.",D & P Communications,No Match,0,,No match found,1000.0M x 500.0M,$280.00
+MID 05,MID 05- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+MID 07,MID 07- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+MID 09,MID 09- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+MID 14,MID 14- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,300.0M x 300.0M,$105.01
+MID 16,MID 16- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+MID 17,MID 17- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+MID 19,MID 19- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+MIF 04,MIF 04- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+MIHW00,MIHW00,Primary,Comcast Workplace,,,No Match,0,,No match found,300.0M x 30.0M,$186.18
+MIL 15,MIL 15- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+MNM 00,MNM 00 New,Primary,Comcast Workplace,,,No Match,0,,No match found,750.0M x 35.0M,$234.45
+MNM 09 -B,MNM 09 -B,Secondary,Comcast Workplace,,,No Match,0,,No match found,750.0M x 35.0M,$234.45
+MNMW01,MNMW01,Primary,Comcast Workplace,,,No Match,0,,No match found,750.0M x 35.0M,$234.45
+MOO 04,,Primary,Brightspeed,,,No Match,0,,No match found,300.0M x 300.0M,$1009.00
+MOS 00,MOS 00,Primary,Spectrum,,,No Match,0,,No match found,750.0M x 35.0M,$172.23
+MOS 00,MOS 00-B,Secondary,AT&T Broadband II,,,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+MOS XX,MOS XX,Primary,Spectrum,,,No Match,0,,No match found,750.0M x 35.0M,$172.23
+MOS XX,MOS XX -B,Secondary,AT&T Broadband II,,,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+NCC00,NCC00 -B,Secondary,AT&T Broadband II,,,No Match,0,,No match found,300.0M x 300.0M,$105.01
+NCC 30,NCC 30,Primary,Spectrum,CARDINAL INNOVATIONS HEALTHCARE SOLUTIONS,,No Match,0,,No match found,750.0M x 35.0M,$172.23
+NCC 38,NCC 38- B,Secondary,VZW Cell,Metronet,MetroNet,No Match,0,,No match found,1000.0M x 1000.0M,$249.95
+NCC 45,NCC 45- B,Secondary,Brightspeed,,,No Match,0,,No match found,100.0M x 100.0M,$592.00
+NCC 48,NCC 48 -B,Secondary,VZW Cell,Level 3,Brightspeed,No Match,0,,No match found,300.0M x 300.0M,$931.00
+NCC W00,NCC W00,Primary,Spectrum,,,No Match,0,,No match found,750.0M x 35.0M,$244.45
+NMA00,NMA00,Primary,Comcast Workplace,,,No Match,0,,No match found,300.0M x 30.0M,$175.56
+NMA00,NMA00- B,Secondary,EB2-Centurylink DSL,,,No Match,0,,No match found,100.0M x 10.0M,$128.00
+NMA 13,NMA 13- B,Secondary,VZW Cell,Unite Private Networks LLC.,Unite Private Networks,No Match,0,,No match found,300.0M x 300.0M,$699.00
+NMA Call Center,NMA Call Center,Primary,Comcast Workplace,,,No Match,0,,No match found,750.0M x 35.0M,$234.45
+NNM 09,NNM 09,Primary,Comcast Workplace,,,No Match,0,,No match found,600.0M x 35.0M,$234.45
+NVL000,NVL000,Primary,Cox Business/BOI,,,No Match,0,,No match found,300.0M x 30.0M,$266.67
+NVL 07,NVL 07- B,Secondary,Verizon Business,Cox Communications,Cox Communications,No Match,0,,No match found,300.0M x 50.0M,$266.67
+NVL 15,NVL 15 -B,Secondary,CenturyLink,Cox Communications,Cox Business BOI,No Match,0,,No match found,300.0M x 30.0M,$266.67
+NVL 25,NVL 25,Primary,CenturyLink Fiber Plus,DISCOUNT TIRE NVL 25,,No Match,0,,No match found,500.0M x 500.0M,$509.00
+NVLW 01,NVLW 01,Primary,Cox Business/BOI,,,No Match,0,,No match found,300.0M x 30.0M,$266.67
+OHD 04,OHD 04,Primary,Spectrum,,,No Match,0,,No match found,750.0M x 35.0M,$172.23
+OKO00,OKO00,Primary,Cox Business/BOI,,,No Match,0,,No match found,300.0M x 50.0M,$266.67
+TNN00,TNN00,Primary,Comcast Workplace,,,No Match,0,,No match found,300.0M x 30.0M,$175.56
+TNN00,TNN00 -B,Secondary,AT&T Broadband II,,,No Match,0,,No match found,300.0M x 300.0M,$105.01
+TNN 06,TNN 06- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+TXA 20,TXA 20,Primary,Spectrum,,,No Match,0,,No match found,600.0M x 35.0M,$172.23
+TXA 20,TXA 20- B,Secondary,Vyve,,,No Match,0,,No match found,250.0M x 25.0M,$165.90
+TXA 24,TXA 24 -B,Secondary,"AT&T Enterprises, LLC",Charter Communications,Spectrum,No Match,0,,No match found,750.0M x 35.0M,$172.23
+TXD 00,TXD 00,Primary,Spectrum,,,No Match,0,,No match found,750.0M x 35.0M,$244.45
+TXD00,TXD00,Primary,Spectrum,,,No Match,0,,No match found,750.0M x 35.0M,$172.23
+TXD 33,TXD 33 -B,Secondary,AT&T Broadband II,,,No Match,0,,No match found,300.0M x 300.0M,$105.01
+TXD 71,TXD 71 -B,Secondary,VZW Cell,AT&T,AT&T Broadband II,No Match,0,,No match found,300.0M x 300.0M,$105.01
+TXG 02,TXG 02- B,Secondary,VZW Cell,"Consolidated Communications, Inc.",Consolidated Communications,No Match,0,,No match found,300.0M x 300.0M,$469.00
+TXH00,TXH00,Primary,Comcast Workplace,,,No Match,0,,No match found,300.0M x 30.0M,$175.56
+TXH00,TXH00 -B,Secondary,AT&T Broadband II,,,No Match,0,,No match found,300.0M x 300.0M,$105.01
+TXH 04,TXH 04- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+TXH 05,TXH 05- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,300.0M x 300.0M,$105.01
+TXH 41,TXH 41- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+TXH 48,TXH 48,Primary,Altice,Optimum,Optimum,No Match,0,,No match found,500.0M x 50.0M,$212.77
+TXH 52,TXH 52- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+TXH 55,TXH 55- B,Secondary,"Comcast Cable Communications, LLC",AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+TXH 56,TXH 56- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+TXH 65,TXH 65- B,Secondary,Comcast,AT&T,AT&T Broadband II,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+TXH 74,TXH 74,Primary,Altice,,,No Match,0,,No match found,500.0M x 50.0M,$212.77
+TXH 92,TXH 92- B,Secondary,Brightspeed,,,No Match,0,,No match found,80.0M x 10.0M,$149.99
+TXH SE Flex DTU,TXH SE Flex DTU,Primary,Comcast Workplace,,,No Match,0,,No match found,750.0M x 35.0M,$234.45
+TXH Training,TXH Training,Primary,Comcast Workplace,,,No Match,0,,No match found,300.0M x 30.0M,$175.56
+TXHW00,TXHW00,Primary,Comcast Workplace,,,No Match,0,,No match found,750.0M x 35.0M,$234.45
+TXHW00,TXHW00 -B,Secondary,AT&T Broadband II,,,No Match,0,,No match found,300.0M x 300.0M,$105.01
+TXS 00,TXS 00 -B,Secondary,AT&T Broadband II,,,No Match,0,,No match found,300.0M x 300.0M,$105.01
+TXS000,TXS 00,Primary,Spectrum,,,No Match,0,,No match found,750.0M x 35.0M,$244.45
+UTS 00,UTS 00,Primary,Zayo Communications,,,No Match,0,,No match found,100.0M x 100.0M,$495.00
+UTS 26,UTS 26- B,Secondary,VZW Cell,InfoWest,Infowest Inc,No Match,0,,No match found,250.0M x 250.0M,$150.00
+UTSW01,UTSW01,Primary,Comcast Workplace,,,No Match,0,,No match found,750.0M x 35.0M,$234.45
+UTSW02,UTSW02,Primary,Comcast Workplace,,,No Match,0,,No match found,750.0M x 35.0M,$234.45
+VAF 01,VAF 01,Primary,Comcast Workplace,,,No Match,0,,No match found,300.0M x 25.0M,$186.18
+VAR 00,VAR 00,Primary,Comcast Workplace,,,No Match,0,,No match found,750.0M x 35.0M,$234.45
+WAS00,WAS00,Primary,Ziply Fiber,,,No Match,0,,No match found,1000.0M x 1000.0M,$200.00
+WDGA01_01,WDGA01_01 -B,Secondary,AT&T Broadband II,,,No Match,0,,No match found,300.0M x 300.0M,$105.01
+WDIL01,WDIL01,Primary,AT&T Broadband II,,,No Match,0,,No match found,1000.0M x 1000.0M,$165.01
+WDTD01,WDTD01,Primary,AT&T Broadband II,,,No Match,0,,No match found,1000.0M x 1000.0M,$165.00

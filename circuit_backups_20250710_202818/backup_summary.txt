@@ -1,0 +1,14 @@
+Circuit Tables Backup Summary
+==================================================
+Backup Date: 2025-07-10 20:28:18.721237
+Backup Location: /usr/local/bin/circuit_backups_20250710_202818
+Database: dsrcircuits
+Host: localhost
+
+Tables Backed Up:
+- enriched_circuits (full backup)
+- circuits (full backup)
+
+Restore Instructions:
+1. Run: /usr/local/bin/circuit_backups_20250710_202818/restore_circuit_tables_20250710_202818.sh
+2. Or manually restore using psql with the .sql files

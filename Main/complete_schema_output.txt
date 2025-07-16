@@ -1,0 +1,1382 @@
+Total tables: 68
+Total views: 12
+
+=== PRIORITY TABLES (with significant data) ===
+
+--- comprehensive_device_inventory (169 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('comprehensive_device_inventory_id_seq'::regclass)
+  hostname: VARCHAR(255) NOT NULL
+  ip_address: INET NOT NULL
+  collection_timestamp: TIMESTAMP WITHOUT TIME ZONE NOT NULL
+  system_info: JSONB NULL
+  physical_components: JSONB NULL
+  interfaces: JSONB NULL
+  environmental_data: JSONB NULL
+  cisco_specific: JSONB NULL
+  stack_info: JSONB NULL
+  summary: JSONB NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+
+--- corporate_eol (32 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('corporate_eol_id_seq'::regclass)
+  model: VARCHAR(100) NOT NULL
+  vendor: VARCHAR(50) NULL
+  device_type: VARCHAR(50) NULL
+  category: VARCHAR(100) NULL
+  total_devices: INTEGER NULL DEFAULT 0
+  announcement_date: DATE NULL
+  end_of_sale_date: DATE NULL
+  end_of_support_date: DATE NULL
+  source: VARCHAR(50) NULL DEFAULT 'excel_import'::character varying
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+
+--- datacenter_inventory (225 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('datacenter_inventory_id_seq'::regclass)
+  site: VARCHAR(100) NULL
+  hostname: VARCHAR(100) NULL
+  vendor: VARCHAR(50) NULL
+  mgmt_ip: VARCHAR(45) NULL
+  device_type: VARCHAR(50) NULL
+  model: VARCHAR(100) NULL
+  software_version: VARCHAR(200) NULL
+  serial_number: VARCHAR(100) NULL
+  announcement_date: DATE NULL
+  end_of_sale_date: DATE NULL
+  end_of_support_date: DATE NULL
+  source: VARCHAR(50) NULL DEFAULT 'excel_import'::character varying
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+
+--- device_access (168 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('device_access_id_seq'::regclass)
+  hostname: VARCHAR(255) NOT NULL
+  mgmt_ip: VARCHAR(50) NOT NULL
+  access_method: VARCHAR(20) NOT NULL
+  username: VARCHAR(100) NULL
+  password: VARCHAR(255) NULL
+  snmp_community: VARCHAR(100) NULL
+  snmp_version: VARCHAR(10) NULL
+  ssh_port: INTEGER NULL DEFAULT 22
+  enable_password: VARCHAR(255) NULL
+  last_successful_access: TIMESTAMP WITHOUT TIME ZONE NULL
+  last_failed_access: TIMESTAMP WITHOUT TIME ZONE NULL
+  failure_count: INTEGER NULL DEFAULT 0
+  notes: TEXT NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+
+--- device_components (22973 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('device_components_id_seq'::regclass)
+  hostname: VARCHAR(255) NOT NULL
+  ip_address: INET NOT NULL
+  component_index: VARCHAR(50) NOT NULL
+  component_class: VARCHAR(50) NULL
+  description: TEXT NULL
+  serial_number: VARCHAR(255) NULL
+  model_name: VARCHAR(255) NULL
+  manufacturer: VARCHAR(255) NULL
+  hardware_revision: VARCHAR(100) NULL
+  firmware_revision: VARCHAR(100) NULL
+  software_revision: VARCHAR(100) NULL
+  physical_name: VARCHAR(255) NULL
+  asset_id: VARCHAR(100) NULL
+  is_fru: BOOLEAN NULL
+  collection_timestamp: TIMESTAMP WITHOUT TIME ZONE NOT NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+
+--- ip_assignment_history (3912 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('ip_assignment_history_id_seq'::regclass)
+  site_name: VARCHAR(100) NOT NULL
+  wan1_ip: VARCHAR(45) NULL
+  wan2_ip: VARCHAR(45) NULL
+  snapshot_date: TIMESTAMP WITHOUT TIME ZONE NOT NULL
+  ip_flip_detected: BOOLEAN NULL DEFAULT false
+  flip_handled: BOOLEAN NULL DEFAULT false
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+
+=== COLLECTED_* TABLES ===
+
+--- collected_chassis (1312 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('collected_chassis_id_seq'::regclass)
+  collection_id: INTEGER NULL
+  hostname: VARCHAR(255) NOT NULL
+  name: VARCHAR(255) NULL
+  description: TEXT NULL
+  pid: VARCHAR(100) NULL
+  vid: VARCHAR(50) NULL
+  serial_number: VARCHAR(100) NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+Foreign Keys:
+  collected_chassis_collection_id_fkey: collection_id -> inventory_collections(id)
+
+--- collected_fans (0 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('collected_fans_id_seq'::regclass)
+  collection_id: INTEGER NULL
+  hostname: VARCHAR(255) NOT NULL
+  name: VARCHAR(255) NULL
+  description: TEXT NULL
+  pid: VARCHAR(100) NULL
+  serial_number: VARCHAR(100) NULL
+  status: VARCHAR(50) NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+Foreign Keys:
+  collected_fans_collection_id_fkey: collection_id -> inventory_collections(id)
+
+--- collected_fex_modules (12 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('collected_fex_modules_id_seq'::regclass)
+  collection_id: INTEGER NULL
+  parent_hostname: VARCHAR(255) NOT NULL
+  fex_number: VARCHAR(10) NULL
+  fex_hostname: VARCHAR(255) NULL
+  description: TEXT NULL
+  model: VARCHAR(100) NULL
+  serial_number: VARCHAR(100) NULL
+  extender_serial: VARCHAR(100) NULL
+  state: VARCHAR(50) NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+Foreign Keys:
+  collected_fex_modules_collection_id_fkey: collection_id -> inventory_collections(id)
+
+--- collected_modules (1501 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('collected_modules_id_seq'::regclass)
+  collection_id: INTEGER NULL
+  hostname: VARCHAR(255) NOT NULL
+  module_number: VARCHAR(50) NULL
+  module_name: VARCHAR(255) NULL
+  module_type: VARCHAR(100) NULL
+  model: VARCHAR(100) NULL
+  serial_number: VARCHAR(100) NULL
+  status: VARCHAR(50) NULL
+  ports: INTEGER NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+Foreign Keys:
+  collected_modules_collection_id_fkey: collection_id -> inventory_collections(id)
+
+--- collected_power_supplies (0 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('collected_power_supplies_id_seq'::regclass)
+  collection_id: INTEGER NULL
+  hostname: VARCHAR(255) NOT NULL
+  name: VARCHAR(255) NULL
+  description: TEXT NULL
+  pid: VARCHAR(100) NULL
+  serial_number: VARCHAR(100) NULL
+  status: VARCHAR(50) NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+Foreign Keys:
+  collected_power_supplies_collection_id_fkey: collection_id -> inventory_collections(id)
+
+--- collected_raw_inventory (3 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('collected_raw_inventory_id_seq'::regclass)
+  collection_id: INTEGER NULL
+  hostname: VARCHAR(255) NOT NULL
+  command: VARCHAR(255) NULL
+  output: TEXT NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+Foreign Keys:
+  collected_raw_inventory_collection_id_fkey: collection_id -> inventory_collections(id)
+
+--- collected_sfps (1643 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('collected_sfps_id_seq'::regclass)
+  collection_id: INTEGER NULL
+  hostname: VARCHAR(255) NOT NULL
+  interface: VARCHAR(100) NULL
+  sfp_type: VARCHAR(100) NULL
+  vendor: VARCHAR(100) NULL
+  part_number: VARCHAR(100) NULL
+  serial_number: VARCHAR(100) NULL
+  wavelength: VARCHAR(50) NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+Foreign Keys:
+  collected_sfps_collection_id_fkey: collection_id -> inventory_collections(id)
+
+=== DEVICE_* TABLES ===
+
+--- device_inventory (0 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('device_inventory_id_seq'::regclass)
+  organization_name: VARCHAR(200) NULL
+  device_serial: VARCHAR(50) NOT NULL
+  model: VARCHAR(50) NULL
+  network_id: VARCHAR(100) NULL
+  eol_announced: DATE NULL
+  end_of_sale: DATE NULL
+  end_of_support: DATE NULL
+  last_seen: TIMESTAMP WITHOUT TIME ZONE NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT now()
+Primary Key: id
+
+--- device_notes_backup (1047 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('device_notes_backup_id_seq'::regclass)
+  device_serial: VARCHAR(50) NOT NULL
+  network_name: VARCHAR(100) NULL
+  backup_timestamp: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  original_notes: TEXT NULL
+  fixed_notes: TEXT NULL
+  backup_reason: VARCHAR(100) NULL DEFAULT 'Test fix 5 devices'::character varying
+  restored: BOOLEAN NULL DEFAULT false
+Primary Key: id
+
+--- device_snmp_credentials (68 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('device_snmp_credentials_id_seq'::regclass)
+  hostname: VARCHAR(255) NOT NULL
+  ip_address: VARCHAR(50) NOT NULL
+  snmp_version: VARCHAR(10) NOT NULL
+  snmp_community: VARCHAR(255) NULL
+  snmp_v3_username: VARCHAR(255) NULL
+  snmp_v3_auth_protocol: VARCHAR(50) NULL
+  snmp_v3_auth_password: VARCHAR(255) NULL
+  snmp_v3_priv_protocol: VARCHAR(50) NULL
+  snmp_v3_priv_password: VARCHAR(255) NULL
+  snmp_v3_security_level: VARCHAR(50) NULL
+  snmp_port: INTEGER NULL DEFAULT 161
+  snmp_timeout: INTEGER NULL DEFAULT 10
+  snmp_retries: INTEGER NULL DEFAULT 3
+  working: BOOLEAN NULL DEFAULT false
+  last_tested: TIMESTAMP WITHOUT TIME ZONE NULL
+  last_success: TIMESTAMP WITHOUT TIME ZONE NULL
+  system_description: TEXT NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+
+=== NETWORK_* TABLES ===
+
+--- network_devices (84 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('network_devices_id_seq'::regclass)
+  ip_address: VARCHAR(45) NOT NULL
+  hostname: VARCHAR(100) NULL
+  collection_timestamp: TIMESTAMP WITHOUT TIME ZONE NULL
+  data_source: VARCHAR(50) NULL DEFAULT 'ssh_inventory'::character varying
+  device_type: VARCHAR(50) NULL
+  interfaces_count: INTEGER NULL DEFAULT 0
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+
+--- network_dhcp_options (0 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('network_dhcp_options_id_seq'::regclass)
+  network_id: VARCHAR(50) NOT NULL
+  vlan_id: INTEGER NOT NULL
+  code: INTEGER NOT NULL
+  type: VARCHAR(50) NULL
+  value: TEXT NULL
+Primary Key: id
+Foreign Keys:
+  network_dhcp_options_network_id_fkey: network_id -> network_vlans(network_id)
+  network_dhcp_options_network_id_fkey: network_id -> network_vlans(vlan_id)
+  network_dhcp_options_network_id_fkey: vlan_id -> network_vlans(network_id)
+  network_dhcp_options_network_id_fkey: vlan_id -> network_vlans(vlan_id)
+
+--- network_vlans (4863 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('network_vlans_id_seq'::regclass)
+  network_id: VARCHAR(50) NOT NULL
+  network_name: VARCHAR(100) NULL
+  vlan_id: INTEGER NOT NULL
+  name: VARCHAR(100) NULL
+  appliance_ip: VARCHAR(50) NULL
+  subnet: VARCHAR(50) NULL
+  subnet_mask: VARCHAR(50) NULL
+  dhcp_handling: VARCHAR(50) NULL
+  dhcp_lease_time: VARCHAR(20) NULL
+  dhcp_boot_options_enabled: BOOLEAN NULL DEFAULT false
+  dhcp_boot_next_server: VARCHAR(50) NULL
+  dhcp_boot_filename: VARCHAR(255) NULL
+  dhcp_relay_server_ips: TEXT NULL
+  dns_nameservers: TEXT NULL
+  reserved_ip_ranges: TEXT NULL
+  fixed_ip_assignments: TEXT NULL
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  parent_network: CIDR NULL
+Primary Key: id
+
+--- network_wan_ports (0 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('network_wan_ports_id_seq'::regclass)
+  network_id: VARCHAR(50) NOT NULL
+  network_name: VARCHAR(100) NULL
+  port_number: INTEGER NOT NULL
+  enabled: BOOLEAN NULL DEFAULT true
+  wan_enabled: BOOLEAN NULL DEFAULT true
+  access_policy: VARCHAR(50) NULL
+  vlan: INTEGER NULL
+  allowed_vlans: TEXT NULL
+  udld: VARCHAR(50) NULL
+  link_negotiation: VARCHAR(50) NULL
+  poe_enabled: BOOLEAN NULL DEFAULT false
+  peer_sgt_capable: BOOLEAN NULL DEFAULT false
+  flexible_stacking_enabled: BOOLEAN NULL DEFAULT false
+  dai_trusted: BOOLEAN NULL DEFAULT false
+  profile: TEXT NULL
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+
+=== SNMP_* TABLES ===
+
+--- snmp_credentials (6 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('snmp_credentials_id_seq'::regclass)
+  credential_name: VARCHAR(50) NOT NULL
+  credential_type: VARCHAR(10) NOT NULL
+  community_encrypted: BYTEA NULL
+  username_encrypted: BYTEA NULL
+  auth_protocol: VARCHAR(10) NULL
+  auth_password_encrypted: BYTEA NULL
+  priv_protocol: VARCHAR(10) NULL
+  priv_password_encrypted: BYTEA NULL
+  description: TEXT NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  is_active: BOOLEAN NULL DEFAULT true
+Primary Key: id
+
+--- snmp_test_results (0 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('snmp_test_results_id_seq'::regclass)
+  hostname: VARCHAR(255) NOT NULL
+  ip_address: VARCHAR(50) NOT NULL
+  snmp_version: VARCHAR(10) NOT NULL
+  snmp_community: VARCHAR(255) NULL
+  snmp_v3_username: VARCHAR(255) NULL
+  test_timestamp: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  success: BOOLEAN NOT NULL
+  response_time_ms: DOUBLE PRECISION NULL
+  error_message: TEXT NULL
+  system_description: TEXT NULL
+  system_uptime: BIGINT NULL
+  system_name: VARCHAR(255) NULL
+  system_location: VARCHAR(255) NULL
+  system_contact: VARCHAR(255) NULL
+  entity_count: INTEGER NULL
+Primary Key: id
+
+=== OTHER TABLES ===
+
+--- api_performance (0 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('api_performance_id_seq'::regclass)
+  endpoint: VARCHAR(255) NOT NULL
+  method: VARCHAR(10) NOT NULL
+  category: VARCHAR(50) NULL
+  response_time: DOUBLE PRECISION NULL
+  status_code: INTEGER NULL
+  response_size: INTEGER NULL
+  success: BOOLEAN NULL
+  error_message: TEXT NULL
+  timestamp: TIMESTAMP WITHOUT TIME ZONE NULL
+Primary Key: id
+
+--- cellular_carrier_detection (0 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('cellular_carrier_detection_id_seq'::regclass)
+  network_name: VARCHAR(255) NOT NULL
+  device_serial: VARCHAR(255) NOT NULL
+  wan_interface: VARCHAR(10) NOT NULL
+  private_ip: VARCHAR(45) NOT NULL
+  public_ip: VARCHAR(45) NULL
+  detected_carrier: VARCHAR(255) NULL
+  detection_method: VARCHAR(255) NULL
+  confidence_score: INTEGER NULL
+  traceroute_hops: JSONB NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+
+--- chassis_blades (149 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('chassis_blades_id_seq'::regclass)
+  device_id: INTEGER NULL
+  module_number: VARCHAR(10) NULL
+  ports: VARCHAR(10) NULL
+  card_type: VARCHAR(255) NULL
+  model: VARCHAR(100) NULL
+  serial_number: VARCHAR(50) NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+Foreign Keys:
+  chassis_blades_device_id_fkey: device_id -> network_devices(id)
+
+--- circuit_assignments (8 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('circuit_assignments_id_seq'::regclass)
+  site_name: VARCHAR(100) NOT NULL
+  sctask: VARCHAR(50) NULL
+  assigned_to: VARCHAR(100) NULL
+  assignment_date: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  status: VARCHAR(50) NULL DEFAULT 'active'::character varying
+  notes: TEXT NULL
+  created_by: VARCHAR(100) NULL
+  site_id: VARCHAR(100) NULL
+  circuit_purpose: VARCHAR(100) NULL
+  sctask_number: VARCHAR(50) NULL
+  sctask_sys_id: VARCHAR(100) NULL
+  updated_by: VARCHAR(100) NULL DEFAULT 'system'::character varying
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+
+--- circuit_enablements (723 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('circuit_enablements_id_seq'::regclass)
+  site_name: VARCHAR(200) NULL
+  circuit_purpose: VARCHAR(100) NULL
+  provider_name: VARCHAR(100) NULL
+  enablement_date: DATE NULL
+  previous_status: VARCHAR(100) NULL
+  current_status: VARCHAR(100) NULL
+  service_speed: VARCHAR(50) NULL
+  monthly_cost: NUMERIC(10,2) NULL
+  detected_at: TIMESTAMP WITHOUT TIME ZONE NULL
+Primary Key: id
+
+--- circuit_history (692 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('circuit_history_id_seq'::regclass)
+  circuit_id: INTEGER NULL
+  change_date: DATE NOT NULL
+  change_type: VARCHAR(50) NULL
+  field_changed: VARCHAR(100) NULL
+  old_value: TEXT NULL
+  new_value: TEXT NULL
+  csv_file_source: VARCHAR(100) NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+Foreign Keys:
+  circuit_history_circuit_id_fkey: circuit_id -> circuits(id)
+
+--- circuits (2697 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('circuits_id_seq'::regclass)
+  record_number: VARCHAR(50) NULL
+  site_name: VARCHAR(100) NOT NULL
+  site_id: VARCHAR(50) NULL
+  circuit_purpose: VARCHAR(50) NULL
+  status: VARCHAR(100) NULL
+  substatus: VARCHAR(100) NULL
+  provider_name: VARCHAR(100) NULL
+  details_service_speed: VARCHAR(100) NULL
+  details_ordered_service_speed: VARCHAR(100) NULL
+  billing_monthly_cost: NUMERIC(10,2) NULL
+  ip_address_start: VARCHAR(45) NULL
+  date_record_updated: TIMESTAMP WITHOUT TIME ZONE NULL
+  milestone_service_activated: TIMESTAMP WITHOUT TIME ZONE NULL
+  assigned_to: VARCHAR(100) NULL
+  sctask: VARCHAR(50) NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  data_source: VARCHAR(50) NULL DEFAULT 'csv_import'::character varying
+  address_1: VARCHAR(200) NULL
+  city: VARCHAR(100) NULL
+  state: VARCHAR(10) NULL
+  zipcode: VARCHAR(20) NULL
+  primary_contact_name: VARCHAR(100) NULL
+  primary_contact_email: VARCHAR(100) NULL
+  billing_install_cost: NUMERIC(10,2) NULL
+  milestone_enabled: TIMESTAMP WITHOUT TIME ZONE NULL
+  target_enablement_date: DATE NULL
+  details_provider: VARCHAR(100) NULL
+  details_provider_phone: VARCHAR(50) NULL
+  billing_account: VARCHAR(100) NULL
+  fingerprint: VARCHAR(255) NULL
+  last_csv_file: VARCHAR(100) NULL
+  target_service_activation_date: DATE NULL
+  order_status: VARCHAR(100) NULL
+  jeopardy: VARCHAR(50) NULL
+  attention_required: VARCHAR(10) NULL
+  project_type: VARCHAR(100) NULL
+  circuit_type: VARCHAR(100) NULL
+  phase: VARCHAR(50) NULL
+  order_number_provider: VARCHAR(100) NULL
+  manual_override: BOOLEAN NULL DEFAULT false
+  manual_override_date: TIMESTAMP WITHOUT TIME ZONE NULL
+  manual_override_by: VARCHAR(100) NULL
+  notes: TEXT NULL
+Primary Key: id
+
+--- daily_enablements (41 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('daily_enablements_id_seq'::regclass)
+  date: DATE NULL
+  site_name: VARCHAR(200) NULL
+  circuit_purpose: VARCHAR(100) NULL
+  provider_name: VARCHAR(100) NULL
+  service_speed: VARCHAR(50) NULL
+  monthly_cost: NUMERIC(10,2) NULL
+  previous_status: VARCHAR(100) NULL
+  current_status: VARCHAR(100) NULL
+  assigned_to: VARCHAR(100) NULL
+  sctask: VARCHAR(50) NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT now()
+  record_number: VARCHAR(50) NULL
+  site_id: VARCHAR(50) NULL
+Primary Key: id
+
+--- daily_summaries (865 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('daily_summaries_id_seq'::regclass)
+  summary_date: DATE NOT NULL
+  total_circuits: INTEGER NULL
+  enabled_count: INTEGER NULL
+  ready_count: INTEGER NULL
+  customer_action_count: INTEGER NULL
+  construction_count: INTEGER NULL
+  planning_count: INTEGER NULL
+  csv_file_processed: VARCHAR(100) NULL
+  processing_time_seconds: NUMERIC(10,3) NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+
+--- enablement_summary (53 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('enablement_summary_id_seq'::regclass)
+  summary_date: DATE NULL
+  daily_count: INTEGER NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT now()
+Primary Key: id
+
+--- enablement_trends (14 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('enablement_trends_id_seq'::regclass)
+  period_type: VARCHAR(20) NULL
+  period_start: DATE NULL
+  period_end: DATE NULL
+  enablement_count: INTEGER NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT now()
+Primary Key: id
+
+--- enriched_circuits (1323 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('enriched_circuits_id_seq'::regclass)
+  network_name: VARCHAR(255) NOT NULL
+  device_tags: ARRAY NULL
+  wan1_provider: VARCHAR(255) NULL
+  wan1_speed: VARCHAR(100) NULL
+  wan1_circuit_role: VARCHAR(50) NULL DEFAULT 'Primary'::character varying
+  wan1_confirmed: BOOLEAN NULL DEFAULT false
+  wan2_provider: VARCHAR(255) NULL
+  wan2_speed: VARCHAR(100) NULL
+  wan2_circuit_role: VARCHAR(50) NULL DEFAULT 'Secondary'::character varying
+  wan2_confirmed: BOOLEAN NULL DEFAULT false
+  last_updated: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  pushed_to_meraki: BOOLEAN NULL DEFAULT false
+  pushed_date: TIMESTAMP WITHOUT TIME ZONE NULL
+  wan1_ip: VARCHAR(45) NULL
+  wan2_ip: VARCHAR(45) NULL
+  wan1_arin_org: VARCHAR(200) NULL
+  wan2_arin_org: VARCHAR(200) NULL
+Primary Key: id
+
+--- enriched_circuits_backup_20250627 (1294 rows) ---
+Columns:
+  id: INTEGER NULL
+  network_name: VARCHAR(255) NULL
+  device_tags: ARRAY NULL
+  wan1_provider: VARCHAR(255) NULL
+  wan1_speed: VARCHAR(100) NULL
+  wan1_monthly_cost: VARCHAR(20) NULL
+  wan1_circuit_role: VARCHAR(50) NULL
+  wan1_confirmed: BOOLEAN NULL
+  wan2_provider: VARCHAR(255) NULL
+  wan2_speed: VARCHAR(100) NULL
+  wan2_monthly_cost: VARCHAR(20) NULL
+  wan2_circuit_role: VARCHAR(50) NULL
+  wan2_confirmed: BOOLEAN NULL
+  last_updated: TIMESTAMP WITHOUT TIME ZONE NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL
+  pushed_to_meraki: BOOLEAN NULL
+  pushed_date: TIMESTAMP WITHOUT TIME ZONE NULL
+
+--- enriched_circuits_backup_20250627_v2 (1384 rows) ---
+Columns:
+  id: INTEGER NULL
+  network_name: VARCHAR(255) NULL
+  device_tags: ARRAY NULL
+  wan1_provider: VARCHAR(255) NULL
+  wan1_speed: VARCHAR(100) NULL
+  wan1_monthly_cost: VARCHAR(20) NULL
+  wan1_circuit_role: VARCHAR(50) NULL
+  wan1_confirmed: BOOLEAN NULL
+  wan2_provider: VARCHAR(255) NULL
+  wan2_speed: VARCHAR(100) NULL
+  wan2_monthly_cost: VARCHAR(20) NULL
+  wan2_circuit_role: VARCHAR(50) NULL
+  wan2_confirmed: BOOLEAN NULL
+  last_updated: TIMESTAMP WITHOUT TIME ZONE NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL
+  pushed_to_meraki: BOOLEAN NULL
+  pushed_date: TIMESTAMP WITHOUT TIME ZONE NULL
+
+--- enriched_circuits_test (1304 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('enriched_circuits_test_id_seq'::regclass)
+  network_name: VARCHAR(255) NOT NULL
+  device_tags: ARRAY NULL
+  wan1_provider: VARCHAR(255) NULL
+  wan1_speed: VARCHAR(100) NULL
+  wan1_confirmed: BOOLEAN NULL DEFAULT false
+  wan2_provider: VARCHAR(255) NULL
+  wan2_speed: VARCHAR(100) NULL
+  wan2_confirmed: BOOLEAN NULL DEFAULT false
+  pushed_to_meraki: BOOLEAN NULL DEFAULT false
+  pushed_date: TIMESTAMP WITHOUT TIME ZONE NULL
+  last_updated: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+
+--- enriched_networks (1239 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('enriched_networks_id_seq'::regclass)
+  device_serial: VARCHAR(50) NOT NULL
+  network_name: VARCHAR(100) NULL
+  site_name: VARCHAR(100) NULL
+  status: VARCHAR(100) NULL
+  provider_name: VARCHAR(100) NULL
+  circuit_purpose: VARCHAR(100) NULL
+  service_speed: VARCHAR(50) NULL
+  monthly_cost: NUMERIC(10,2) NULL
+  date_record_updated: VARCHAR(50) NULL
+  ip_address_start: VARCHAR(45) NULL
+  last_enriched: TIMESTAMP WITHOUT TIME ZONE NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT now()
+Primary Key: id
+
+--- enrichment_change_log (2 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('enrichment_change_log_id_seq'::regclass)
+  site_name: VARCHAR(100) NOT NULL
+  change_type: VARCHAR(50) NULL
+  wan_affected: VARCHAR(10) NULL
+  field_changed: VARCHAR(100) NULL
+  old_value: TEXT NULL
+  new_value: TEXT NULL
+  change_reason: TEXT NULL
+  change_date: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+
+--- enrichment_change_tracking (1322 rows) ---
+Columns:
+  network_name: VARCHAR(255) NOT NULL
+  last_device_notes_hash: VARCHAR(64) NULL
+  last_wan1_ip: VARCHAR(45) NULL
+  last_wan2_ip: VARCHAR(45) NULL
+  last_enrichment_run: TIMESTAMP WITHOUT TIME ZONE NULL
+  dsr_circuits_hash: VARCHAR(64) NULL
+Primary Key: network_name
+
+--- eol_tracker_state (4 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('eol_tracker_state_id_seq'::regclass)
+  last_page_hash: VARCHAR(64) NULL
+  last_csv_hash: VARCHAR(64) NULL
+  last_check_time: TIMESTAMP WITHOUT TIME ZONE NULL
+  pdf_inventory: JSONB NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT now()
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT now()
+Primary Key: id
+
+--- firewall_deployment_log (0 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('firewall_deployment_log_id_seq'::regclass)
+  template_network_id: VARCHAR(100) NOT NULL
+  template_network_name: VARCHAR(100) NOT NULL
+  target_network_id: VARCHAR(100) NOT NULL
+  target_network_name: VARCHAR(100) NOT NULL
+  deployment_type: VARCHAR(50) NOT NULL
+  rules_deployed: INTEGER NULL
+  deployment_status: VARCHAR(20) NOT NULL
+  error_message: TEXT NULL
+  deployed_by: VARCHAR(100) NULL
+  deployment_time: TIMESTAMP WITHOUT TIME ZONE NULL
+Primary Key: id
+
+--- firewall_rule_revisions (0 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('firewall_rule_revisions_id_seq'::regclass)
+  template_source: VARCHAR(50) NOT NULL
+  rule_id: INTEGER NULL
+  revision_number: INTEGER NOT NULL
+  action: VARCHAR(20) NOT NULL
+  rule_order: INTEGER NULL
+  comment: TEXT NULL
+  policy: VARCHAR(10) NULL
+  protocol: VARCHAR(20) NULL
+  src_port: VARCHAR(100) NULL
+  src_cidr: TEXT NULL
+  dest_port: VARCHAR(100) NULL
+  dest_cidr: TEXT NULL
+  syslog_enabled: BOOLEAN NULL
+  changed_by: VARCHAR(100) NULL
+  changed_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT now()
+  change_description: TEXT NULL
+Primary Key: id
+
+--- firewall_rules (75355 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('firewall_rules_id_seq'::regclass)
+  network_id: VARCHAR(100) NOT NULL
+  network_name: VARCHAR(100) NOT NULL
+  rule_order: INTEGER NOT NULL
+  comment: VARCHAR(500) NULL
+  policy: VARCHAR(20) NOT NULL
+  protocol: VARCHAR(20) NOT NULL
+  src_port: VARCHAR(100) NULL
+  src_cidr: TEXT NULL
+  dest_port: VARCHAR(100) NULL
+  dest_cidr: TEXT NULL
+  syslog_enabled: BOOLEAN NULL
+  rule_type: VARCHAR(20) NULL
+  is_template: BOOLEAN NULL
+  template_source: VARCHAR(100) NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL
+  last_synced: TIMESTAMP WITHOUT TIME ZONE NULL
+  revision_number: INTEGER NULL DEFAULT 1
+  last_modified_by: VARCHAR(100) NULL
+  last_modified_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT now()
+Primary Key: id
+
+--- hardware_components (2 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('hardware_components_id_seq'::regclass)
+  device_id: INTEGER NULL
+  name: VARCHAR(100) NULL
+  description: VARCHAR(255) NULL
+  pid: VARCHAR(50) NULL
+  vid: VARCHAR(50) NULL
+  serial_number: VARCHAR(50) NULL
+  component_type: VARCHAR(50) NULL DEFAULT 'SFP'::character varying
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+Foreign Keys:
+  hardware_components_device_id_fkey: device_id -> network_devices(id)
+
+--- inventory_collection_history (2 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('inventory_collection_history_id_seq'::regclass)
+  device_id: INTEGER NULL
+  hostname: VARCHAR(255) NULL
+  collection_time: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  access_method: VARCHAR(20) NULL
+  status: VARCHAR(20) NULL
+  items_collected: INTEGER NULL
+  error_message: TEXT NULL
+  collection_data: JSONB NULL
+Primary Key: id
+
+--- inventory_collections (9 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('inventory_collections_id_seq'::regclass)
+  collection_date: TIMESTAMP WITHOUT TIME ZONE NOT NULL DEFAULT CURRENT_TIMESTAMP
+  total_devices: INTEGER NOT NULL
+  successful_devices: INTEGER NOT NULL
+  collection_type: VARCHAR(50) NULL
+  notes: TEXT NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+
+--- inventory_devices (13092 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('inventory_devices_id_seq'::regclass)
+  serial: VARCHAR(50) NOT NULL
+  model: VARCHAR(50) NOT NULL
+  organization: VARCHAR(100) NOT NULL
+  network_id: VARCHAR(50) NULL
+  network_name: VARCHAR(100) NULL
+  name: VARCHAR(100) NULL
+  mac: VARCHAR(20) NULL
+  lan_ip: VARCHAR(45) NULL
+  firmware: VARCHAR(50) NULL
+  product_type: VARCHAR(50) NULL
+  tags: TEXT NULL
+  notes: TEXT NULL
+  details: TEXT NULL
+Primary Key: id
+
+--- inventory_summary (65 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('inventory_summary_id_seq'::regclass)
+  model: VARCHAR(50) NOT NULL
+  total_count: INTEGER NULL DEFAULT 0
+  org_counts: TEXT NULL
+  announcement_date: VARCHAR(20) NULL
+  end_of_sale: VARCHAR(20) NULL
+  end_of_support: VARCHAR(20) NULL
+  highlight: VARCHAR(20) NULL
+Primary Key: id
+
+--- l7_firewall_rules (0 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('l7_firewall_rules_id_seq'::regclass)
+  network_id: VARCHAR(100) NOT NULL
+  network_name: VARCHAR(100) NOT NULL
+  rule_order: INTEGER NOT NULL
+  policy: VARCHAR(20) NOT NULL
+  rule_type: VARCHAR(50) NULL
+  value: TEXT NULL
+  is_template: BOOLEAN NULL
+  template_source: VARCHAR(100) NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL
+  last_synced: TIMESTAMP WITHOUT TIME ZONE NULL
+Primary Key: id
+
+--- meraki_eol (0 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('meraki_eol_id_seq'::regclass)
+  model: VARCHAR(100) NOT NULL
+  announcement_date: DATE NULL
+  end_of_sale: DATE NULL
+  end_of_support: DATE NULL
+  source: VARCHAR(50) NULL
+  pdf_url: VARCHAR(500) NULL
+  pdf_name: VARCHAR(200) NULL
+  confidence: VARCHAR(20) NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT now()
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT now()
+Primary Key: id
+
+--- meraki_eol_enhanced (424 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('meraki_eol_enhanced_id_seq'::regclass)
+  model: VARCHAR(50) NOT NULL
+  announcement_date: DATE NULL
+  end_of_sale: DATE NULL
+  end_of_support: DATE NULL
+  source: VARCHAR(100) NULL
+  method: VARCHAR(50) NULL
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  confidence: VARCHAR(20) NULL DEFAULT 'high'::character varying
+Primary Key: id
+
+--- meraki_eol_pdf (650 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('meraki_eol_pdf_id_seq'::regclass)
+  model: VARCHAR(100) NOT NULL
+  model_family: VARCHAR(100) NULL
+  announcement_date: DATE NULL
+  end_of_sale: DATE NULL
+  end_of_support: DATE NULL
+  source_pdf: VARCHAR(200) NULL
+  pdf_url: VARCHAR(500) NULL
+  pdf_hash: VARCHAR(64) NULL
+  extracted_text: TEXT NULL
+  confidence: VARCHAR(20) NULL DEFAULT 'high'::character varying
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT now()
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT now()
+Primary Key: id
+
+--- meraki_inventory (1330 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('meraki_inventory_id_seq'::regclass)
+  organization_name: VARCHAR(255) NULL
+  network_id: VARCHAR(100) NULL
+  network_name: VARCHAR(255) NULL
+  device_serial: VARCHAR(100) NULL
+  device_model: VARCHAR(100) NULL
+  device_name: VARCHAR(255) NULL
+  device_tags: ARRAY NULL
+  last_updated: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  wan1_ip: VARCHAR(45) NULL
+  wan2_ip: VARCHAR(45) NULL
+  wan1_assignment: VARCHAR(20) NULL
+  wan2_assignment: VARCHAR(20) NULL
+  wan1_arin_provider: VARCHAR(100) NULL
+  wan2_arin_provider: VARCHAR(100) NULL
+  wan1_provider_comparison: VARCHAR(20) NULL
+  wan2_provider_comparison: VARCHAR(20) NULL
+  wan1_provider_label: VARCHAR(255) NULL
+  wan1_speed_label: VARCHAR(100) NULL
+  wan2_provider_label: VARCHAR(255) NULL
+  wan2_speed_label: VARCHAR(100) NULL
+  device_notes: TEXT NULL
+Primary Key: id
+
+--- meraki_live_data (60 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('meraki_live_data_id_seq'::regclass)
+  network_name: VARCHAR(255) NOT NULL
+  network_id: VARCHAR(100) NULL
+  device_serial: VARCHAR(100) NULL
+  device_model: VARCHAR(50) NULL
+  device_name: VARCHAR(255) NULL
+  device_tags: TEXT NULL
+  wan1_provider_label: VARCHAR(255) NULL
+  wan1_speed: VARCHAR(100) NULL
+  wan1_ip: VARCHAR(45) NULL
+  wan1_provider: VARCHAR(255) NULL
+  wan1_provider_comparison: VARCHAR(50) NULL
+  wan2_provider_label: VARCHAR(255) NULL
+  wan2_speed: VARCHAR(100) NULL
+  wan2_ip: VARCHAR(45) NULL
+  wan2_provider: VARCHAR(255) NULL
+  wan2_provider_comparison: VARCHAR(50) NULL
+  raw_notes: TEXT NULL
+  last_updated: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+
+--- netdisco_eol_mapping (102 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('netdisco_eol_mapping_id_seq'::regclass)
+  vendor: VARCHAR(100) NULL
+  model: VARCHAR(200) NOT NULL
+  normalized_model: VARCHAR(200) NULL
+  device_type: VARCHAR(50) NULL
+  announcement_date: DATE NULL
+  end_of_sale: DATE NULL
+  end_of_support: DATE NULL
+  source: VARCHAR(50) NULL
+  last_updated: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  notes: TEXT NULL
+Primary Key: id
+
+--- netdisco_inventory_summary (29 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('netdisco_inventory_summary_id_seq'::regclass)
+  vendor: VARCHAR(100) NULL
+  model: VARCHAR(200) NULL
+  device_type: VARCHAR(50) NULL
+  logical_devices: INTEGER NULL DEFAULT 0
+  physical_devices: INTEGER NULL DEFAULT 0
+  announcement_date: DATE NULL
+  end_of_sale: DATE NULL
+  end_of_support: DATE NULL
+  last_updated: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+
+--- new_stores (133 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('new_stores_id_seq'::regclass)
+  site_name: VARCHAR(100) NOT NULL
+  added_date: TIMESTAMP WITHOUT TIME ZONE NULL
+  added_by: VARCHAR(100) NULL
+  notes: TEXT NULL
+  is_active: BOOLEAN NULL
+  meraki_network_found: BOOLEAN NULL
+  meraki_found_date: TIMESTAMP WITHOUT TIME ZONE NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL
+  target_opening_date: DATE NULL
+  target_opening_date_text: VARCHAR(50) NULL
+  region: VARCHAR(100) NULL
+  city: VARCHAR(100) NULL
+  state: VARCHAR(10) NULL
+  project_status: VARCHAR(100) NULL
+Primary Key: id
+
+--- nexus_fex_relationships (2 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('nexus_fex_relationships_id_seq'::regclass)
+  parent_hostname: VARCHAR(255) NOT NULL
+  parent_ip: VARCHAR(50) NULL
+  fex_number: INTEGER NOT NULL
+  fex_description: VARCHAR(255) NULL
+  fex_model: VARCHAR(100) NULL
+  fex_serial: VARCHAR(100) NULL
+  fex_state: VARCHAR(50) NULL
+  ports: INTEGER NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+
+--- nexus_vdc_mapping (16 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('nexus_vdc_mapping_id_seq'::regclass)
+  physical_hostname: VARCHAR(255) NOT NULL
+  vdc_hostname: VARCHAR(255) NOT NULL
+  vdc_context: VARCHAR(50) NULL
+  mgmt_ip: VARCHAR(50) NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+
+--- one_to_one_nat_rules (0 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('one_to_one_nat_rules_id_seq'::regclass)
+  network_id: VARCHAR(100) NOT NULL
+  network_name: VARCHAR(100) NOT NULL
+  rule_order: INTEGER NOT NULL
+  name: VARCHAR(100) NULL
+  public_ip: VARCHAR(45) NULL
+  lan_ip: VARCHAR(45) NULL
+  uplink: VARCHAR(20) NULL
+  allowed_inbound: ARRAY NULL
+  is_template: BOOLEAN NULL
+  template_source: VARCHAR(100) NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL
+  last_synced: TIMESTAMP WITHOUT TIME ZONE NULL
+Primary Key: id
+
+--- performance_metrics (2352 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('performance_metrics_id_seq'::regclass)
+  endpoint_name: VARCHAR(255) NOT NULL
+  endpoint_method: VARCHAR(10) NULL
+  endpoint_params: TEXT NULL
+  query_execution_time_ms: INTEGER NOT NULL
+  data_size_bytes: INTEGER NULL
+  data_rows_returned: INTEGER NULL
+  response_status: INTEGER NOT NULL
+  error_message: TEXT NULL
+  timestamp: TIMESTAMP WITHOUT TIME ZONE NULL
+  module_category: VARCHAR(100) NULL
+  db_query_count: INTEGER NULL
+  cache_hit: BOOLEAN NULL
+  user_agent: VARCHAR(255) NULL
+  is_monitoring: BOOLEAN NULL
+Primary Key: id
+
+--- port_forwarding_rules (0 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('port_forwarding_rules_id_seq'::regclass)
+  network_id: VARCHAR(100) NOT NULL
+  network_name: VARCHAR(100) NOT NULL
+  rule_order: INTEGER NOT NULL
+  name: VARCHAR(100) NULL
+  protocol: VARCHAR(20) NOT NULL
+  public_port: VARCHAR(50) NULL
+  local_ip: VARCHAR(45) NULL
+  local_port: VARCHAR(50) NULL
+  allowed_ips: ARRAY NULL
+  uplink: VARCHAR(20) NULL
+  is_template: BOOLEAN NULL
+  template_source: VARCHAR(100) NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL
+  last_synced: TIMESTAMP WITHOUT TIME ZONE NULL
+Primary Key: id
+
+--- provider_mappings (10 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('provider_mappings_id_seq'::regclass)
+  original_name: VARCHAR(200) NULL
+  canonical_name: VARCHAR(100) NULL
+  mapping_type: VARCHAR(50) NULL
+  confidence_score: NUMERIC(3,2) NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  network_id: VARCHAR(100) NULL
+  providers_flipped: BOOLEAN NULL
+Primary Key: id
+
+--- rdap_cache (2378 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('rdap_cache_id_seq'::regclass)
+  ip_address: VARCHAR(45) NOT NULL
+  provider_name: VARCHAR(200) NULL
+  rdap_response: JSONB NULL
+  last_queried: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT now()
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT now()
+Primary Key: id
+
+--- ready_queue_daily (53 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('ready_queue_daily_id_seq'::regclass)
+  summary_date: DATE NULL
+  ready_count: INTEGER NULL DEFAULT 0
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT now()
+Primary Key: id
+
+--- sfp_modules (89 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('sfp_modules_id_seq'::regclass)
+  device_id: INTEGER NULL
+  interface: VARCHAR(100) NULL
+  module_type: VARCHAR(255) NULL
+  status: VARCHAR(50) NULL
+  product_id: VARCHAR(100) NULL
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+Foreign Keys:
+  sfp_modules_device_id_fkey: device_id -> network_devices(id)
+
+--- switch_port_clients (74350 rows) ---
+Columns:
+  id: INTEGER NOT NULL DEFAULT nextval('switch_port_clients_id_seq'::regclass)
+  store_name: VARCHAR(100) NULL
+  switch_name: VARCHAR(100) NULL
+  switch_serial: VARCHAR(50) NULL
+  port_id: VARCHAR(20) NULL
+  hostname: VARCHAR(200) NULL
+  ip_address: VARCHAR(45) NULL
+  mac_address: VARCHAR(17) NULL
+  vlan: INTEGER NULL
+  manufacturer: VARCHAR(100) NULL
+  description: TEXT NULL
+  last_seen: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  created_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+  updated_at: TIMESTAMP WITHOUT TIME ZONE NULL DEFAULT CURRENT_TIMESTAMP
+Primary Key: id
+
+=== VIEWS ===
+
+--- VIEW: device_inventory_summary ---
+Definition:
+ SELECT COALESCE(cm.hostname, cs.hostname, cf.parent_hostname) AS hostname,
+    count(DISTINCT cm.id) AS module_count,
+    count(DISTINCT cs.id) AS sfp_count,
+    count(DISTINCT cf.id) AS fex_count,
+    max(ic.collection_date) AS last_collected
+   FROM inventory_collections ic
+     LEFT JOIN collected_modules cm ON ic.id = cm.collection_id
+     LEFT JOIN collected_sfps cs ON ic.id = cs.collection_id
+     LEFT JOIN collected_fex_modules cf ON ic.id = cf.collection_id
+  WHERE cm.hostname IS NOT NULL OR cs.hostname IS NOT NULL OR cf.parent_hostname IS NOT NULL
+  GROUP BY (COALESCE(cm.hostname, cs.hostname, cf.parent_hostname));
+
+--- VIEW: dhcp_relay_servers ---
+Definition:
+ SELECT DISTINCT network_vlans.network_id,
+    network_vlans.network_name,
+    network_vlans.vlan_id,
+    network_vlans.name AS vlan_name,
+    unnest(string_to_array(network_vlans.dhcp_relay_server_ips, ','::text)) AS relay_server_ip
+   FROM network_vlans
+  WHERE network_vlans.dhcp_handling::text = 'Relay DHCP to another server'::text AND network_vlans.dhcp_relay_server_ips IS NOT NULL;
+
+--- VIEW: latest_inventory ---
+Definition:
+ SELECT cc.id,
+    cc.collection_id,
+    cc.hostname,
+    cc.name,
+    cc.description,
+    cc.pid,
+    cc.vid,
+    cc.serial_number,
+    cc.created_at,
+    ic.collection_date
+   FROM collected_chassis cc
+     JOIN inventory_collections ic ON cc.collection_id = ic.id
+  WHERE ic.id = (( SELECT max(inventory_collections.id) AS max
+           FROM inventory_collections
+          WHERE inventory_collections.successful_devices > 0));
+
+--- VIEW: latest_working_snmp_credentials ---
+Definition:
+ SELECT DISTINCT ON (device_snmp_credentials.hostname, device_snmp_credentials.ip_address) device_snmp_credentials.hostname,
+    device_snmp_credentials.ip_address,
+    device_snmp_credentials.snmp_version,
+    device_snmp_credentials.snmp_community,
+    device_snmp_credentials.snmp_v3_username,
+    device_snmp_credentials.snmp_v3_auth_protocol,
+    device_snmp_credentials.snmp_v3_auth_password,
+    device_snmp_credentials.snmp_v3_priv_protocol,
+    device_snmp_credentials.snmp_v3_priv_password,
+    device_snmp_credentials.snmp_v3_security_level,
+    device_snmp_credentials.snmp_port,
+    device_snmp_credentials.snmp_timeout,
+    device_snmp_credentials.snmp_retries,
+    device_snmp_credentials.system_description,
+    device_snmp_credentials.last_success
+   FROM device_snmp_credentials
+  WHERE device_snmp_credentials.working = true
+  ORDER BY device_snmp_credentials.hostname, device_snmp_credentials.ip_address, device_snmp_credentials.last_success DESC;
+
+--- VIEW: network_grouping_by_subnet ---
+Definition:
+ WITH site_network_mapping AS (
+         SELECT network_vlans.parent_network,
+            network_vlans.network_name,
+            (network_vlans.network_name::text || ' '::text) || network_vlans.parent_network::text AS site_with_network
+           FROM network_vlans
+          WHERE network_vlans.parent_network IS NOT NULL AND (network_vlans.vlan_id = ANY (ARRAY[1, 100])) AND network_vlans.subnet::text ~~ '10.%'::text AND NOT network_vlans.network_name::text ~~* '%hub%'::text AND NOT network_vlans.network_name::text ~~* '%voice%'::text AND NOT network_vlans.network_name::text ~~* '%lab%'::text
+        )
+ SELECT site_network_mapping.parent_network,
+    count(DISTINCT site_network_mapping.network_name) AS network_count,
+    string_agg(DISTINCT site_network_mapping.site_with_network, ', '::text ORDER BY site_network_mapping.site_with_network) AS networks,
+    count(*) AS total_vlans
+   FROM site_network_mapping
+  GROUP BY site_network_mapping.parent_network
+ HAVING count(DISTINCT site_network_mapping.network_name) > 1
+  ORDER BY (count(DISTINCT site_network_mapping.network_name)) DESC, site_network_mapping.parent_network;
+
+--- VIEW: network_parent_mapping ---
+Definition:
+ SELECT network_vlans.network_name,
+    network_vlans.parent_network,
+    count(*) AS vlan_count,
+    string_agg(((network_vlans.vlan_id::text || ' ('::text) || network_vlans.subnet::text) || ')'::text, ', '::text ORDER BY network_vlans.vlan_id) AS vlan_details
+   FROM network_vlans
+  WHERE network_vlans.subnet IS NOT NULL AND network_vlans.network_name::text !~~* '%hub%'::text AND network_vlans.network_name::text !~~* '%voice%'::text AND network_vlans.network_name::text !~~* '%lab%'::text
+  GROUP BY network_vlans.network_name, network_vlans.parent_network
+  ORDER BY network_vlans.parent_network, network_vlans.network_name;
+
+--- VIEW: network_pattern_analysis ---
+Definition:
+ WITH site_network_mapping AS (
+         SELECT network_vlans.parent_network,
+            network_vlans.network_name,
+            (network_vlans.network_name::text || ' '::text) || network_vlans.parent_network::text AS site_with_network
+           FROM network_vlans
+          WHERE network_vlans.parent_network IS NOT NULL AND (network_vlans.vlan_id = ANY (ARRAY[1, 100])) AND network_vlans.subnet::text ~~ '10.%'::text AND NOT network_vlans.network_name::text ~~* '%hub%'::text AND NOT network_vlans.network_name::text ~~* '%voice%'::text AND NOT network_vlans.network_name::text ~~* '%lab%'::text
+        )
+ SELECT site_network_mapping.parent_network,
+    count(DISTINCT site_network_mapping.network_name) AS sites_using_network,
+    string_agg(DISTINCT site_network_mapping.site_with_network, ', '::text ORDER BY site_network_mapping.site_with_network) AS site_list,
+        CASE
+            WHEN site_network_mapping.parent_network::text ~~ '10.%'::text THEN 'Standard'::text
+            ELSE 'Special'::text
+        END AS network_type
+   FROM site_network_mapping
+  GROUP BY site_network_mapping.parent_network
+  ORDER BY (count(DISTINCT site_network_mapping.network_name)) DESC, site_network_mapping.parent_network;
+
+--- VIEW: sites_by_16_network ---
+Definition:
+ WITH network_16_grouping AS (
+         SELECT network_vlans.network_name,
+            network_vlans.parent_network,
+            (((split_part(network_vlans.parent_network::text, '.'::text, 1) || '.'::text) || split_part(network_vlans.parent_network::text, '.'::text, 2)) || '.0.0/16'::text)::cidr AS parent_16_network
+           FROM network_vlans
+          WHERE network_vlans.parent_network IS NOT NULL AND (network_vlans.vlan_id = ANY (ARRAY[1, 100])) AND network_vlans.subnet::text ~~ '10.%'::text AND NOT network_vlans.network_name::text ~~* '%hub%'::text AND NOT network_vlans.network_name::text ~~* '%voice%'::text AND NOT network_vlans.network_name::text ~~* '%lab%'::text
+        ), site_network_mapping AS (
+         SELECT network_16_grouping.parent_16_network,
+            network_16_grouping.network_name,
+            network_16_grouping.parent_network,
+            (network_16_grouping.network_name::text || ' '::text) || network_16_grouping.parent_network::text AS site_with_network
+           FROM network_16_grouping
+        )
+ SELECT site_network_mapping.parent_16_network,
+    count(DISTINCT site_network_mapping.network_name) AS site_count,
+    string_agg(DISTINCT site_network_mapping.site_with_network, ', '::text ORDER BY site_network_mapping.site_with_network) AS sites,
+    count(DISTINCT site_network_mapping.parent_network) AS unique_24_networks,
+    string_agg(DISTINCT site_network_mapping.parent_network::text, ', '::text ORDER BY (site_network_mapping.parent_network::text)) AS all_24_networks
+   FROM site_network_mapping
+  GROUP BY site_network_mapping.parent_16_network
+ HAVING count(DISTINCT site_network_mapping.network_name) > 1
+  ORDER BY (count(DISTINCT site_network_mapping.network_name)) DESC, site_network_mapping.parent_16_network;
+
+--- VIEW: snmp_credentials_list ---
+Definition:
+ SELECT snmp_credentials.id,
+    snmp_credentials.credential_name,
+    snmp_credentials.credential_type,
+    snmp_credentials.description,
+    snmp_credentials.created_at,
+    snmp_credentials.updated_at,
+    snmp_credentials.is_active
+   FROM snmp_credentials
+  ORDER BY snmp_credentials.credential_name;
+
+--- VIEW: v_circuit_summary ---
+Definition:
+ SELECT ec.network_name,
+    ec.device_tags,
+    ec.wan1_provider,
+    ec.wan1_speed,
+    ec.wan1_circuit_role,
+    ec.wan1_confirmed,
+    ec.wan2_provider,
+    ec.wan2_speed,
+    ec.wan2_circuit_role,
+    ec.wan2_confirmed,
+        CASE
+            WHEN ec.wan1_circuit_role::text = 'Primary'::text THEN COALESCE(c1.billing_monthly_cost, 0::numeric)
+            WHEN ec.wan1_circuit_role::text = 'Secondary'::text THEN COALESCE(c2.billing_monthly_cost, 0::numeric)
+            ELSE 0::numeric
+        END AS wan1_cost,
+        CASE
+            WHEN ec.wan2_circuit_role::text = 'Primary'::text THEN COALESCE(c1.billing_monthly_cost, 0::numeric)
+            WHEN ec.wan2_circuit_role::text = 'Secondary'::text THEN COALESCE(c2.billing_monthly_cost, 0::numeric)
+            ELSE 0::numeric
+        END AS wan2_cost
+   FROM enriched_circuits ec
+     LEFT JOIN circuits c1 ON lower(c1.site_name::text) = lower(ec.network_name::text) AND c1.status::text = 'Enabled'::text AND c1.circuit_purpose::text = 'Primary'::text
+     LEFT JOIN circuits c2 ON lower(c2.site_name::text) = lower(ec.network_name::text) AND c2.status::text = 'Enabled'::text AND c2.circuit_purpose::text = 'Secondary'::text
+  WHERE NOT ec.network_name::text ~* '^(AL-HUB < /dev/null | HQ-HUB|LAB\s+\d+|.*hub|.*lab|.*voice|datacenter|test|store.*box|sib)'::text;
+
+--- VIEW: v_enriched_circuits_complete_test ---
+Definition:
+ WITH circuit_costs AS (
+         SELECT DISTINCT ON (circuits.site_name, circuits.ip_address_start) circuits.site_name,
+            circuits.ip_address_start,
+            circuits.billing_monthly_cost AS monthly_cost,
+            circuits.circuit_purpose,
+            circuits.provider_name AS dsr_provider,
+            circuits.details_service_speed AS dsr_speed
+           FROM circuits
+          WHERE circuits.status::text = 'Enabled'::text AND circuits.ip_address_start IS NOT NULL
+          ORDER BY circuits.site_name, circuits.ip_address_start, circuits.date_record_updated DESC
+        )
+ SELECT e.id,
+    e.network_name,
+    e.device_tags,
+    e.wan1_provider,
+    e.wan1_speed,
+    e.wan1_confirmed,
+    e.wan2_provider,
+    e.wan2_speed,
+    e.wan2_confirmed,
+    COALESCE(c1.monthly_cost, 0::numeric) AS wan1_cost,
+    c1.circuit_purpose AS wan1_role,
+    COALESCE(c2.monthly_cost, 0::numeric) AS wan2_cost,
+    c2.circuit_purpose AS wan2_role,
+    COALESCE(c1.monthly_cost, 0::numeric) + COALESCE(c2.monthly_cost, 0::numeric) AS total_cost,
+    e.pushed_to_meraki,
+    e.pushed_date,
+    e.last_updated
+   FROM enriched_circuits_test e
+     LEFT JOIN meraki_inventory m ON e.network_name::text = m.network_name::text
+     LEFT JOIN circuit_costs c1 ON e.network_name::text = c1.site_name::text AND m.wan1_ip::text = c1.ip_address_start::text
+     LEFT JOIN circuit_costs c2 ON e.network_name::text = c2.site_name::text AND m.wan2_ip::text = c2.ip_address_start::text;
+
+--- VIEW: vlan_dhcp_summary ---
+Definition:
+ SELECT nv.network_id,
+    nv.network_name,
+    count(DISTINCT nv.vlan_id) AS vlan_count,
+    count(DISTINCT
+        CASE
+            WHEN nv.dhcp_handling::text = 'Run a DHCP server'::text THEN nv.vlan_id
+            ELSE NULL::integer
+        END) AS dhcp_server_count,
+    count(DISTINCT
+        CASE
+            WHEN nv.dhcp_handling::text = 'Relay DHCP to another server'::text THEN nv.vlan_id
+            ELSE NULL::integer
+        END) AS dhcp_relay_count,
+    count(DISTINCT
+        CASE
+            WHEN nv.dhcp_handling::text = 'Do not respond to DHCP requests'::text THEN nv.vlan_id
+            ELSE NULL::integer
+        END) AS dhcp_disabled_count,
+    count(DISTINCT ndo.id) AS dhcp_options_count,
+    max(nv.updated_at) AS last_updated
+   FROM network_vlans nv
+     LEFT JOIN network_dhcp_options ndo ON nv.network_id::text = ndo.network_id::text AND nv.vlan_id = ndo.vlan_id
+  GROUP BY nv.network_id, nv.network_name;

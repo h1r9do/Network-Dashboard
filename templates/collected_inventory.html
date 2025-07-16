@@ -1,0 +1,529 @@
+<\!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collected Device Inventory - DSR Circuits</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='libs/jquery-ui-1.11.4/themes/smoothness/jquery-ui.css') }}">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #27ae60, #2ecc71);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 2.2em;
+            font-weight: 300;
+        }
+        
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+        
+        .collection-info {
+            background: rgba(255, 255, 255, 0.1);
+            margin: 15px 0 0 0;
+            padding: 10px 15px;
+            border-radius: 5px;
+            border-left: 4px solid #fff;
+        }
+        
+        .controls {
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid #dee2e6;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .control-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .control-group label {
+            font-weight: 500;
+            color: #495057;
+            white-space: nowrap;
+        }
+        
+        .control-group input, .control-group select {
+            padding: 8px 12px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: background-color 0.2s;
+        }
+        
+        .btn-primary {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        
+        .btn-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #545b62;
+        }
+        
+        .summary-stats {
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .stat-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            border-left: 4px solid #28a745;
+        }
+        
+        .stat-card h3 {
+            margin: 0 0 5px 0;
+            color: #28a745;
+            font-size: 1.8em;
+        }
+        
+        .stat-card p {
+            margin: 0;
+            color: #6c757d;
+            font-weight: 500;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+        }
+        
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            margin: 20px;
+            border-radius: 4px;
+            border: 1px solid #f5c6cb;
+        }
+        
+        .inventory-table {
+            margin: 20px;
+            overflow-x: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
+        
+        th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .device-row {
+            background-color: #e3f2fd \!important;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        .device-row:hover {
+            background-color: #bbdefb \!important;
+        }
+        
+        .component-row {
+            background-color: #fafafa;
+        }
+        
+        .component-type {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+        
+        .type-chassis { background-color: #e3f2fd; color: #1976d2; }
+        .type-module { background-color: #f3e5f5; color: #7b1fa2; }
+        .type-sfp { background-color: #e8f5e8; color: #388e3c; }
+        .type-fex { background-color: #fff3e0; color: #f57c00; }
+        .type-power { background-color: #ffebee; color: #d32f2f; }
+        .type-fan { background-color: #e0f2f1; color: #00796b; }
+        
+        .collapsible {
+            display: none;
+        }
+        
+        .device-row.expanded + .collapsible {
+            display: table-row;
+        }
+        
+        .expand-icon {
+            margin-right: 8px;
+            transition: transform 0.2s;
+        }
+        
+        .device-row.expanded .expand-icon {
+            transform: rotate(90deg);
+        }
+        
+        .no-data {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+            font-style: italic;
+        }
+        
+        .component-count {
+            background-color: #17a2b8;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-size: 12px;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔧 Collected Device Inventory</h1>
+            <p>SSH-collected hardware components from network devices</p>
+            <div class="collection-info" id="collectionInfo">
+                <strong>Collection Status:</strong> Loading...
+            </div>
+        </div>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label for="deviceFilter">Device Filter:</label>
+                <input type="text" id="deviceFilter" placeholder="Hostname or IP address...">
+            </div>
+            
+            <div class="control-group">
+                <label for="componentType">Component Type:</label>
+                <select id="componentType">
+                    <option value="all">All Components</option>
+                    <option value="chassis">Chassis</option>
+                    <option value="module">Modules</option>
+                    <option value="sfp">SFP Transceivers</option>
+                    <option value="fex">FEX Modules</option>
+                    <option value="power supply">Power Supplies</option>
+                    <option value="fan">Fans</option>
+                </select>
+            </div>
+            
+            <button class="btn btn-primary" onclick="loadInventory()">🔍 Search</button>
+            <button class="btn btn-secondary" onclick="clearFilters()">🗑️ Clear</button>
+            <button class="btn btn-secondary" onclick="exportData()">📊 Export</button>
+        </div>
+        
+        <div class="summary-stats" id="summaryStats" style="display: none;">
+            <\!-- Stats will be populated by JavaScript -->
+        </div>
+        
+        <div class="loading" id="loading">
+            🔄 Loading collected inventory data...
+        </div>
+        
+        <div class="error" id="error" style="display: none;">
+            <\!-- Error messages will appear here -->
+        </div>
+        
+        <div class="inventory-table" id="inventoryTable" style="display: none;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Device / Component</th>
+                        <th>IP Address</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>PID</th>
+                        <th>Serial Number</th>
+                        <th>Additional Info</th>
+                    </tr>
+                </thead>
+                <tbody id="inventoryBody">
+                    <\!-- Inventory data will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="no-data" id="noData" style="display: none;">
+            📋 No inventory data found. Try adjusting your filters or check if collection has been run.
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='libs/jquery-3.6.0.min.js') }}"></script>
+    <script>
+        let currentData = null;
+        
+        $(document).ready(function() {
+            loadInventory();
+            
+            // Auto-search on filter changes
+            $('#deviceFilter').on('input', debounce(loadInventory, 500));
+            $('#componentType').on('change', loadInventory);
+            
+            // Enter key in search box
+            $('#deviceFilter').on('keypress', function(e) {
+                if (e.which === 13) {
+                    loadInventory();
+                }
+            });
+        });
+        
+        function loadInventory() {
+            const deviceFilter = $('#deviceFilter').val();
+            const componentType = $('#componentType').val();
+            
+            // Show loading state
+            $('#loading').show();
+            $('#error').hide();
+            $('#inventoryTable').hide();
+            $('#summaryStats').hide();
+            $('#noData').hide();
+            
+            // Build query parameters
+            const params = new URLSearchParams();
+            if (deviceFilter) params.append('device_filter', deviceFilter);
+            if (componentType && componentType \!== 'all') params.append('component_type', componentType);
+            
+            // Make API call
+            fetch(`/api/collected-inventory?${params.toString()}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        throw new Error(data.error);
+                    }
+                    currentData = data;
+                    displayInventory(data);
+                })
+                .catch(error => {
+                    console.error('Error loading inventory:', error);
+                    $('#loading').hide();
+                    $('#error').html(`❌ Error loading inventory: ${error.message}`).show();
+                });
+        }
+        
+        function displayInventory(data) {
+            $('#loading').hide();
+            
+            // Update collection info
+            const summary = data.summary || {};
+            const collectionInfo = `
+                Collection ID: ${summary.collection_id || 'N/A'}  < /dev/null |  
+                Time: ${summary.collection_time || 'N/A'} | 
+                Devices: ${summary.devices_successful || 0}/${summary.devices_attempted || 0} successful
+            `;
+            $('#collectionInfo').html(`<strong>Collection Status:</strong> ${collectionInfo}`);
+            
+            // Update summary stats
+            updateSummaryStats(data);
+            
+            // Check if we have data
+            if (\!data.devices || data.devices.length === 0) {
+                $('#noData').show();
+                return;
+            }
+            
+            // Build table
+            const tbody = $('#inventoryBody');
+            tbody.empty();
+            
+            data.devices.forEach((device, deviceIndex) => {
+                // Add device header row
+                const componentCounts = Object.entries(device.component_counts || {})
+                    .map(([type, count]) => `${type}: ${count}`)
+                    .join(' | ');
+                
+                const deviceRow = `
+                    <tr class="device-row" onclick="toggleDevice(${deviceIndex})">
+                        <td>
+                            <span class="expand-icon">▶</span>
+                            <strong>${device.hostname}</strong>
+                            <span class="component-count">${device.components.length}</span>
+                        </td>
+                        <td>${device.ip}</td>
+                        <td><span class="component-type">DEVICE</span></td>
+                        <td>${componentCounts}</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>Click to expand components</td>
+                    </tr>
+                `;
+                tbody.append(deviceRow);
+                
+                // Add component rows (initially hidden)
+                device.components.forEach(component => {
+                    const typeClass = `type-${component.component_type.toLowerCase().replace(' ', '')}`;
+                    const componentRow = `
+                        <tr class="collapsible component-row" data-device="${deviceIndex}">
+                            <td style="padding-left: 40px;">└ ${component.name}</td>
+                            <td>${component.ip}</td>
+                            <td><span class="component-type ${typeClass}">${component.component_type}</span></td>
+                            <td>${component.description || '-'}</td>
+                            <td>${component.pid || '-'}</td>
+                            <td>${component.serial || '-'}</td>
+                            <td>${component.status || component.vid || component.interface || '-'}</td>
+                        </tr>
+                    `;
+                    tbody.append(componentRow);
+                });
+            });
+            
+            $('#inventoryTable').show();
+        }
+        
+        function updateSummaryStats(data) {
+            const summary = data.summary || {};
+            const componentCounts = summary.component_counts || {};
+            
+            let statsHtml = `
+                <div class="stat-card">
+                    <h3>${data.total_devices || 0}</h3>
+                    <p>Devices</p>
+                </div>
+                <div class="stat-card">
+                    <h3>${data.total_components || 0}</h3>
+                    <p>Total Components</p>
+                </div>
+            `;
+            
+            // Add component type counts
+            Object.entries(componentCounts).forEach(([type, count]) => {
+                statsHtml += `
+                    <div class="stat-card">
+                        <h3>${count}</h3>
+                        <p>${type}</p>
+                    </div>
+                `;
+            });
+            
+            $('#summaryStats').html(statsHtml).show();
+        }
+        
+        function toggleDevice(deviceIndex) {
+            const deviceRow = $(`.device-row:eq(${deviceIndex})`);
+            const componentRows = $(`.collapsible[data-device="${deviceIndex}"]`);
+            
+            deviceRow.toggleClass('expanded');
+            componentRows.toggle();
+        }
+        
+        function clearFilters() {
+            $('#deviceFilter').val('');
+            $('#componentType').val('all');
+            loadInventory();
+        }
+        
+        function exportData() {
+            if (\!currentData || \!currentData.devices) {
+                alert('No data to export');
+                return;
+            }
+            
+            // Create CSV data
+            let csv = 'Device,IP Address,Component Type,Component Name,Description,PID,Serial Number,Additional Info\n';
+            
+            currentData.devices.forEach(device => {
+                device.components.forEach(component => {
+                    const row = [
+                        device.hostname,
+                        device.ip,
+                        component.component_type,
+                        component.name,
+                        component.description || '',
+                        component.pid || '',
+                        component.serial || '',
+                        component.status || component.vid || component.interface || ''
+                    ].map(field => `"${(field || '').replace(/"/g, '""')}"`).join(',');
+                    csv += row + '\n';
+                });
+            });
+            
+            // Download CSV
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `collected_inventory_${new Date().toISOString().split('T')[0]}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+        
+        // Debounce function for search input
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,1948 @@
+site_name,record_number,circuit_purpose,provider_name,details_service_speed,status,manual_override,data_source
+ALB 01,DISCOUNTALB2057614668_BR,Primary,AT&T Broadband II,200.0M x 200.0M,Enabled,False,csv_import
+ALB 01,DISCOUNTALB4387863656_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+ALB 03,DISCOUNTALB4806066000_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+ALM 01,DISCOUNTALM3346945886_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+ALM 01,DISCOUNTALM4848869343_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+ALM 02,DISCOUNTALM3362914962_BR,Primary,Spectrum,300.0M x 20.0M,Enabled,False,csv_import
+ALM 02,DISCOUNTALM9756799552_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+ALM 03,DISCOUNTALM3346044139_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+ALM 03,DISCOUNTALM3504687429_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+ALM 04,DISCOUNTALM6431850252_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+ALM 04,DISCOUNTALM7309852628_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+ALN 01,DISCOUNTALN7945643150_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+ALN 02,DISCOUNTALN9092359133_BR,Primary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+ALN 02,DISCOUNTALN9386667955_BR,Secondary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+ALS 01,DISCOUNTALS3345476535_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+ALS 01,DISCOUNTALS8345160257_BR,Secondary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+ALS 02,DISCOUNTALS4733314672_BR,Primary,C Spire,1000.0M x 1000.0M,Enabled,False,csv_import
+ALS 02,DISCOUNTALS2874182895_BR,Secondary,Brightspeed,300.0M x 300.0M,Enabled,False,csv_import
+ARL 01,DISCOUNTARL2643644904_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+ARL 01,DISCOUNTARL4826965296_BR,Secondary,Comcast Workplace,1000.0M x 35.0M,Enabled,False,csv_import
+ARL 02,DISCOUNTARL5014066970_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+ARL 02,DISCOUNTARL8017270517_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+ARL 03,DISCOUNTARL5015856214_BR,Primary,Conway Corporation,500.0M x 50.0M,Enabled,False,csv_import
+ARL 03,DISCOUNTARL7988185804_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+ARL 04,DISCOUNTARL8702037118_BR,Primary,Altice West,300.0M x 30.0M,Enabled,False,csv_import
+ARL 04,DISCOUNTARL2891660133_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+ARL 05,DISCOUNTARL4806066000_BR,Primary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+ARL 05,DISCOUNTARL9729752318_BR,Secondary,Ritter Communications,250.0M x 250.0M,Enabled,False,csv_import
+ARL 06,DISCOUNTARL2182922886_BR,Primary,Altice West,300.0M x 30.0M,Enabled,False,csv_import
+ARL 06,DISCOUNTARL8203839073_BR,Secondary,Brightspeed,100.0M x 100.0M,Enabled,False,csv_import
+ARO 01,DISCOUNTARO8837608756_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+ARO 01,DISCOUNTARO2938999897_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+ARO 02,DISCOUNTARO9777173509_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+ARO 02,DISCOUNTARO8507157491_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+ARO 03,DISCOUNTARO4792027876_BR,Primary,AT&T Broadband II,500.0M x 100.0M,Enabled,False,csv_import
+ARO 03,DISCOUNTARO4963542361_BR,Secondary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+ARO 04,DISCOUNTARO4806066000_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+ARO 04,DISCOUNTARO7402518160_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+ARO 05,DISCOUNTARO4806066347_BR,Primary,Yelcot Communications,300.0M x 30.0M,Enabled,False,csv_import
+ARO 05,DISCOUNTARO2931521670_BR,Secondary,Ritter Communications,250.0M x 250.0M,Enabled,False,csv_import
+ARO 06,DISCOUNTARO8438778648_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+ARO 06,DISCOUNTARO2517458359_BR,Secondary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZC 01,DISCOUNTAZC1793985313_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZF 01,DISCOUNTAZF6320412213_BR,Primary,CenturyLink Fiber Plus ,500.0M x 500.0M,Enabled,False,csv_import
+AZF 02,DISCOUNTAZF4871699316_BR-I3,Primary,Altice West,500.0M x 50.0M,Enabled,False,csv_import
+AZF 02,DISCOUNTAZF4764265990_BR,Secondary,Lightpath ,300.0M x 300.0M,Enabled,False,csv_import
+AZH 01,DISCOUNTAZH6545349670_BR,Primary,Altice West,500.0M x 50.0M,Enabled,False,csv_import
+AZK 01,,Primary,Frontier,,Enabled,False,Non-DSR
+AZK 01,DISCOUNTAZK6338967260_BR,Secondary,Allo Communications,500.0M x 500.0M,Enabled,False,csv_import
+AZM 01,DISCOUNTAZM4806066000_BR,Primary,Orbitel Communications,300.0M x 20.0M,Enabled,False,csv_import
+AZN 02,DISCOUNTAZN3482125851_BR,Primary,EB2-CableOne Cable,300.0M x 30.0M,Enabled,False,csv_import
+AZN 03,DISCOUNTAZN6950356611_BR,Primary,Sparklight,300.0M x 30.0M,Enabled,False,csv_import
+AZN 04,,Primary,AT&T,,Enabled,False,Non-DSR
+AZN 05,DISCOUNTAZN5419375378_BR,Primary,TransWorld,500.0M x 500.0M,Enabled,False,csv_import
+AZN 06,DISCOUNTAZN4806066000_BR,Primary,Sparklight,300.0M x 30.0M,Enabled,False,csv_import
+AZP 00,DISCOUNTAZP3557861276_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 01,DISCOUNTAZP3992662287_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 03,DISCOUNTAZP7869100964_BR,Secondary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 05,DISCOUNTAZP9784450642_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 07,DISCOUNTAZP9909596498_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 08,DISCOUNTAZP9645676475_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 09,DISCOUNTAZP7794721720_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 09,DISCOUNTAZP1640212229_BR,Secondary,EB2-Lumen DSL,100.0M x 10.0M,Enabled,False,csv_import
+AZP 10,DISCOUNTAZP8153772911_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 11,DISCOUNTAZP1554496279_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 13,DISCOUNTAZP3233428839_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 14,DISCOUNTAZP9977362892_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 16,DISCOUNTAZP8863312448_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 17,DISCOUNTAZP6425290522_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 18,DISCOUNTAZP7667290467_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 18,DISCOUNTAZP2785496507_BR,Secondary,EB2-CenturyLink DSL,80.0M x 10.0M,Enabled,False,csv_import
+AZP 19,DISCOUNTAZP1519369507_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 20,DISCOUNTAZP1905575187_BR,Primary,Saddleback Communications,300.0M x 80.0M,Enabled,False,csv_import
+AZP 21,DISCOUNTAZP4809263815_BR,Primary,Cox Business/BOI,100.0M x 20.0M,Enabled,False,csv_import
+AZP 21,DISCOUNTAZP4809263815_BR-I2,Secondary,CenturyLink/Embarq,80.0M x 10.0M,Enabled,False,csv_import
+AZP 22,DISCOUNTAZP4808995983_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 22,DISCOUNTAZP7237573209_BR,Secondary,EB2-Centurylink DSL,100.0M x 10.0M,Enabled,False,csv_import
+AZP 23,DISCOUNTAZP3655668170_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 24,DISCOUNTAZP5533252648_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 24,DISCOUNTAZP4059238289_BR,Secondary,EB2-Centurylink DSL,100.0M x 10.0M,Enabled,False,csv_import
+AZP 25,DISCOUNTAZP7373231999_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 26,DISCOUNTAZP3793910721_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 26,DISCOUNTAZP9003477183_BR,Secondary,EB2-Centurylink DSL,100.0M x 10.0M,Enabled,False,csv_import
+AZP 27,DISCOUNTAZP5131496844_BR-I4,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 27,DISCOUNTAZP5131496844_BR,Secondary,CenturyLink/Qwest,40.0M x 20.0M,Enabled,False,csv_import
+AZP 28,DISCOUNTAZP5436661169_BR,Primary,Cox Business/BOI,500.0M x 50.0M,Enabled,False,csv_import
+AZP 28,DISCOUNTAZP5436661168_BR,Secondary,CenturyLink/Qwest,140.0M x 20.0M,Enabled,False,csv_import
+AZP 29,DISCOUNTAZP1000726493_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 29,DISCOUNTAZP5102110238_BR,Secondary,EB2-Lumen DSL,140.0M x 20.0M,Enabled,False,csv_import
+AZP 30,DISCOUNTAZP9119781890_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 30,DISCOUNTAZP7926728340_BR,Secondary,EB2-Centurylink DSL,100.0M x 10.0M,Enabled,False,csv_import
+AZP 31,DISCOUNTAZP5621591385_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 32,DISCOUNTAZP6708507623_BR,Primary,Cox Business/BOI,200.0M x 20.0M,Enabled,False,csv_import
+AZP 33,DISCOUNTAZP1923935835_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 34,DISCOUNTAZP2197922641_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 35,DISCOUNTAZP1916104318_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 36,DISCOUNTAZP9245588223_BR-I4,Primary,Wyyerd Fiber,2000.0M x 2000.0M,Enabled,False,csv_import
+AZP 37,DISCOUNTAZP9314891532_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 37,DISCOUNTAZP9314891531_BR,Secondary,CenturyLink/Qwest ,60.0M x 5.0M,Enabled,False,csv_import
+AZP 38,DISCOUNTAZP5002387395_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 39,DISCOUNTAZP8801406713_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 41,,Primary,AT&T,,Enabled,False,Non-DSR
+AZP 42,DISCOUNTAZP5007454773_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 43,DISCOUNTAZP6122973741_BR-I6,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 43,DISCOUNTAZP6122973741_BR,Secondary,CenturyLink ,80.0M x 10.0M,Enabled,False,csv_import
+AZP 44,DISCOUNTAZP8405509472_BR,Secondary,CenturyLink/Embarq,100.0M x 10.0M,Enabled,False,csv_import
+AZP 45,DISCOUNTAZP7249344698_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 46,DISCOUNTAZP3803533721_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 46,DISCOUNTAZP1951234154_BR,Secondary,EB2-Centurylink DSL,140.0M x 20.0M,Enabled,False,csv_import
+AZP 47,DISCOUNTAZP7408075517_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 48,DISCOUNTAZP7332786306_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 49,DISCOUNTAZP5750492111_BR-I1,Primary,CenturyLink/Qwest,12.0M x 2.0M,Enabled,False,csv_import
+AZP 50,DISCOUNTAZP8792883997_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 51,DISCOUNTAZP8025585990_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 53,DISCOUNTAZP3103851659_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 54,DISCOUNTAZP1075947301_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 54,DISCOUNTAZP1075947300_BR,Secondary,CenturyLink/Qwest,100.0M x 10.0M,Enabled,False,csv_import
+AZP 55,DISCOUNTAZP2031038625_BR,Primary,CenturyLink Fiber Plus,500.0M x 500.0M,Enabled,False,csv_import
+AZP 57,DISCOUNTAZP8052603522_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 58,DISCOUNTAZP9150786695_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 59,DISCOUNTAZP4805092144_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZP 60,DISCOUNTAZP8193977474_BR,Primary,Mediacom/BOI,1000.0M x 30.0M,Enabled,False,csv_import
+AZP 61,DISCOUNTAZP4808241057_BR,Primary,Cox Business/BOI,200.0M x 20.0M,Enabled,False,csv_import
+AZP 62,DISCOUNTAZP4803089894_BR,Primary,Cox Business/BOI ,300.0M x 30.0M,Enabled,False,csv_import
+AZS 01,DISCOUNTAZS9908115131_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZT 01,DISCOUNTAZT3806404812_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZT 02,DISCOUNTAZT9289141943_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZT 02,DISCOUNTAZT7567987649_BR,Secondary,EB2-Centurylink DSL,100.0M x 10.0M,Enabled,False,csv_import
+AZT 03,DISCOUNTAZT9282421854_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZT 06,DISCOUNTAZT2388433588_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+AZT 07,DISCOUNTAZT6153158558_BR,Primary,Cox Business,200.0M x 200.0M,Enabled,False,csv_import
+AZT 09,DISCOUNTAZT6937934678_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+AZT 10,DISCOUNTAZT8550471161_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZT 11,DISCOUNTAZT8765915973_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+AZT 12,DISCOUNTAZT1295625481_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZT 12,DISCOUNTAZT1295625480_BR,Secondary,Lumen Qwest,100.0M x 10.0M,Enabled,False,csv_import
+AZT 13,DISCOUNTAZT1649520102_BR-I3,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZT 13,DISCOUNTAZT1649520102_BR,Secondary,GTT/ESA2 ADSL,12.0M x 1.0M,Enabled,False,csv_import
+AZT 14,DISCOUNTAZT5298279545_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+AZT 14,DISCOUNTAZT1559757518_BR,Secondary,Login,100.0M x 20.0M,Enabled,False,csv_import
+AZY 01,DISCOUNTAZY5559910462_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+AZY 02,DISCOUNTAZY4755045195_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+AZY 02,DISCOUNTAZY7580450337_BR,Secondary,Allo Communications,1000.0M x 1000.0M,Enabled,False,csv_import
+CAL000,DISCOUNTCAL5554655119_BR,Primary,Frontier FIOS,500.0M x 500.0M,Enabled,False,csv_import
+CAL000,DISCOUNTCAL8350521797_BR-I1,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAL 01,DISCOUNTCAL6248537396_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAL 01,DISCOUNTCAL8343857667_BR,Secondary,EB2-Frontier Fiber,500.0M x 500.0M,Enabled,False,csv_import
+CAL 02,DISCOUNTCAL6937813442_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAL 02,DISCOUNTCAL8319720801_BR,Secondary,Frontier MetroFiber,100.0M x 100.0M,Enabled,False,csv_import
+CAL 03,DISCOUNTCAL6256454620_BR,Primary,GTT Ethernet,50.0M x 10.0M,Enabled,False,csv_import
+CAL 04,DISCOUNTCAL3949321288_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAL 04,DISCOUNTCAL6392905652_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAL 05,DISCOUNTCAL4103904918_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAL 06,DISCOUNTCAL9209835406_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAL 07,DISCOUNTCAL8391248264_BR,Primary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAL 08,DISCOUNTCAL1733466762_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAL 08,DISCOUNTCAL6841614725_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAL 09,DISCOUNTCAL8901803514_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAL 09,DISCOUNTCAL4668890272_BR,Secondary,EB2-Frontier Fiber,500.0M x 500.0M,Enabled,False,csv_import
+CAL 10,DISCOUNTCAL2658589107_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAL 11,DISCOUNTCAL5607577212_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+CAL 12,DISCOUNTCAL7129272469_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAL 13,DISCOUNTCAL9603829763_BR,Primary,EB2-Frontier Fiber,1000.0M x 1000.0M,Enabled,False,csv_import
+CAL 14,DISCOUNTCAL4981267666_BR,Primary,One Ring Networks,300.0M x 30.0M,Enabled,False,csv_import
+CAL 15,DISCOUNTCAL9362557283_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAL 17,,Primary,Frontier,,Enabled,False,Non-DSR
+CAL 18,DISCOUNTCAL4700178330_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAL 19,DISCOUNTCAL7115232675_BR,Primary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+CAL 20,,Primary,Frontier,,Enabled,False,Non-DSR
+CAL 21,DISCOUNTCAL3241439253_BR,Primary,AT&T Broadband,45.0M x 6.0M,Enabled,False,csv_import
+CAL 21,DISCOUNTCAL3036811507_BR-I1,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAL 22,DISCOUNTCAL2857281139_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAL 22,DISCOUNTCAL6612495121_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAL 23,DISCOUNTCAL2331364742_BR-I3,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAL 23,DISCOUNTCAL3869862912_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAL 24,,Primary,Frontier,,Enabled,False,Non-DSR
+CAL 24,,Primary,Frontier Fios,,Enabled,False,csv_import
+CAL 26,DISCOUNTAME9589837963_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAL 26,DISCOUNTCAL7179469868_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAL 28,DISCOUNTCAL8156909426_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAL 29,,Primary,Frontier,,Enabled,False,Non-DSR
+CAL 31,DISCOUNTCAL2959974847_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAL 33,DISCOUNTCAL1020362676_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+CAL 35,DISCOUNTCAL8263813242_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAL 35,DISCOUNTCAL4336235973_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAL 37,DISCOUNTCAL4400665104_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAL 38,DISCOUNTCAL8189439450_BR,Primary,Spectrum,300.0M x 20.0M,Enabled,False,csv_import
+CAL 40,DISCOUNTCAL1288167252_BR,Primary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+CAL 41,DISCOUNTCAL3023353692_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+CAL 41,DISCOUNTCAL5545427189_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAL 42,DISCOUNTCAL3338492125_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAL 43,DISCOUNTCAL8225948935_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAL 43,DISCOUNTCAL4885274459_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAL 44,DISCOUNTCAL9835329253_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAL 44,DISCOUNTCAL9746892828_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAL 46,DISCOUNTCAL4980789730_BR,Primary,EB2-Frontier Fiber,500.0M x 500.0M,Enabled,False,csv_import
+CAL 47,DISCOUNTCAL6636593646_BR,Primary,One Ring Networks ,300.0M x 30.0M,Enabled,False,csv_import
+CAL 47,DISCOUNTCAL8432355904_BR-I4,Secondary,EB2-Frontier Fiber,500.0M x 500.0M,Enabled,False,csv_import
+CAL 48,DISCOUNTCAL5193413904_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+CAL 49,DISCOUNTCAL4806066000_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAL 49,DISCOUNTCAL5305346199_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAL 50,DISCOUNTCAL4806066347_BR,Primary,EB2-Frontier Fiber,500.0M x 500.0M,Enabled,False,csv_import
+CAL 50,DISCOUNTCAL8619679334_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CALW01,DISCOUNTCAL9452950252_BR,Primary,EB2-Frontier Fiber,1000.0M x 1000.0M,Enabled,False,csv_import
+CAN_00,,Primary,Comcast,,Enabled,False,Non-DSR
+CAN_00,,Secondary,AT&T,,Enabled,False,Non-DSR
+CAN00,DISCOUNTCAN5552146788_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+CAN00,DISCOUNTCAN4393169814_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAN 02,DISCOUNTCAN6108502902_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAN 03,DISCOUNTCAN9807727342_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+CAN 03,DISCOUNTCAN5008599607_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAN 04,DISCOUNTCAN2342860607_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+CAN 05,DISCOUNTCAN8902821394_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+CAN 05,DISCOUNTCAN8113962673_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAN 07,DISCOUNTCAN7794324963_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+CAN 10,DISCOUNTCAN5487292310_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+CAN 10,DISCOUNTCAN5448856149_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAN 11,DISCOUNTCAN6503664003_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+CAN 12,DISCOUNTCAN1308143138_BR,Primary,Etheric Networks,10.0M x 10.0M,Enabled,False,csv_import
+CAN 13,DISCOUNTCAN6701568607_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+CAN 13,DISCOUNTCAN9851983497_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAN 14,DISCOUNTCAN6777933396_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+CAN 14,DISCOUNTCAN7831701965_BR,Secondary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+CAN 15,DISCOUNTCAN2094778110_BR,Primary,AT&T Broadband II,300.0M x 75.0M,Enabled,False,csv_import
+CAN 16,,Primary,Frontier,,Enabled,False,Non-DSR
+CAN 17,DISCOUNTCAN8760990272_BR-I3,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+CAN 17,DISCOUNTCAN8760990272_BR,Secondary,AT&T Broadband,45.0M x 6.0M,Enabled,False,csv_import
+CAN 18,DISCOUNTCAN6509889611_BR,Primary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+CAN 19,DISCOUNTCAN8493922476_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAN 19,DISCOUNTCAN5296677537_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAN 20,DISCOUNTCAN2034317343_BR,Primary,Consolidated Communications,300.0M x 300.0M,Enabled,False,csv_import
+CAN 21,DISCOUNTCAN8517427870_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+CAN 21,DISCOUNTCAN1324762199_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAN 22,DISCOUNTCAN2853642749_BR,Primary,Vista Broadband,15.0M x 15.0M,Enabled,False,csv_import
+CAN 22,DISCOUNTCAN1821413485_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAN 23,DISCOUNTCAN2640564583_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+CAN 23,DISCOUNTCAN5607573541_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAN 24,DISCOUNTCAN1160524202_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+CAN 24,DISCOUNTCAN4780163634_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAN 25,DISCOUNTCAN7100322622_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAN 26,DISCOUNTCAN1852921991_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+CAN 28,DISCOUNTCAN6279952653_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+CAN 28,DISCOUNTCAN8508831319_BR,Secondary,EB2-Frontier Fiber,500.0M x 500.0M,Enabled,False,csv_import
+CAN 29,DISCOUNTCAN1530245310_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAN 30,DISCOUNTCAN8773695764_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAN 31,DISCOUNTCAN1697228574_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+CAN 31,DISCOUNTCAN5539274329_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAN 32,DISCOUNTCAN8045319746_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAN 33,DISCOUNTCAN6563627329_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+CAN 33,DISCOUNTCAN3918967613_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAN 34,DISCOUNTCAN1731446677_BR-I3,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+CAN 35,DISCOUNTCAN4972539829_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAN 36,DISCOUNTCAN3717504432_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAN 37,DISCOUNTCAN5576375482_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+CAN 37,DISCOUNTCAN6474633270_BR,Secondary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+CAN 38,DISCOUNTCAN3868238732_BR,Primary,AT&T Broadband II,2000.0M x 2000.0M,Enabled,False,csv_import
+CAN 39,DISCOUNTCAN2896219459_BR,Primary,Astound,1000.0M x 20.0M,Enabled,False,csv_import
+CAN 39,DISCOUNTCAN2323193647_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAN 41,DISCOUNTCAN9255525860_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+CAN 41,DISCOUNTCAN3848398527_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAN 42,DISCOUNTCAN1099753900_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+CAN 43,DISCOUNTCAN2123238722_BR,Primary,AT&T Broadband II,300.0M x 75.0M,Enabled,False,csv_import
+CAN 44,DISCOUNTCAN7026900919_BR,Primary,Comcast Workplace,200.0M x 20.0M,Enabled,False,csv_import
+CAN 45,DISCOUNTCAN5842310795_BR-I2,Primary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAN 46,DISCOUNTCAN9989860749_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAN 47,DISCOUNTCAN1396229436_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+CAN 47,DISCOUNTCAN3885482793_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAN 48,DISCOUNTCAN5267807369_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAN 48,DISCOUNTCAN7970129426_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAN 49,DISCOUNTCAN1912104526_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAN 50,DISCOUNTCAN9168975098_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+CAN 51,DISCOUNTCAN2097026185_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAN 51,DISCOUNTCAN5522908235_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAN 52,DISCOUNTCAN9165600436_BR,Primary,Consolidated Communications,300.0M x 300.0M,Enabled,False,csv_import
+CAN 53,DISCOUNTCAN5598350244_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+CAN 53,DISCOUNTCAN7648261700_BR,Secondary,Vast Networks,300.0M x 300.0M,Enabled,False,csv_import
+CAN 54,DISCOUNTCAN4089615112_BR,Primary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAN 55,DISCOUNTCAN5306456342_BR-I3,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+CAN 55,DISCOUNTCAN5306456342_BR,Secondary,Succeed-net,100.0M x 7.0M,Enabled,False,csv_import
+CAN 56,DISCOUNTCAN9256359087_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+CAN 56,DISCOUNTCAN8312401113_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAN 57,DISCOUNTCAN2099905152_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAN 58,DISCOUNTCAN4806066000_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+CAN 58,DISCOUNTCAN4535983402_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAN 60,DISCOUNTCAN3296424980_BR,Primary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+CAN 60,DISCOUNTCAN6459372784_BR,Secondary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+CAN 61,DISCOUNTCAN2528590923_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAN 61,DISCOUNTCAN6761290024_BR,Secondary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+CAO 01,,Primary,AT&T,,Enabled,False,csv_import
+CAO 01,,Primary,AT&T,,Enabled,False,Non-DSR
+CAO 03,DISCOUNTCAO8233812498_BR-I1,Primary,GTT Ethernet,50.0M x 10.0M,Enabled,False,csv_import
+CAO 03,DISCOUNTCAO7658137590_BR,Secondary,EB2-Frontier Fiber,500.0M x 500.0M,Enabled,False,csv_import
+CAO 05,DISCOUNTCAO9549497355_BR-I9,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAO 06,DISCOUNTCAO4806066000_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+CAO 06,DISCOUNTCAO9432689174_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAS_00,,Primary,AT&T,,Enabled,False,Non-DSR
+CAS_00,,Secondary,Cox Communications,,Enabled,False,Non-DSR
+CAS00,DISCOUNTCAS5554101379_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+CAS00,DISCOUNTCAS3333328935_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAS 01,DISCOUNTCAS1280222193_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+CAS 03,DISCOUNTCAS2627908927_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+CAS 03,DISCOUNTCAS6065709599_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAS 04,DISCOUNTCAS2753410140_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+CAS 04,DISCOUNTCAS7015540901_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAS 05,DISCOUNTCAS1998429625_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+CAS 05,DISCOUNTCAS7155199787_BR,Secondary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+CAS 06,DISCOUNTCAS2935611377_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAS 07,DISCOUNTCAS7607419805_BR,Primary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAS 07,DISCOUNTCAS6335751771_BR-I2,Secondary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+CAS 08,DISCOUNTCAS5649232198_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+CAS 08,DISCOUNTCAS1277538212_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAS 09,DISCOUNTCAS2255115246_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+CAS 10,DISCOUNTCAS4328111740_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAS 10,DISCOUNTCAS3886818184_BR,Secondary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+CAS 11,DISCOUNTCAS9651717972_BR,Primary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+CAS 12,DISCOUNTCAS8396467404_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAS 13,DISCOUNTCAS7440539340_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+CAS 13,DISCOUNTCAS9411187524_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAS 14,DISCOUNTCAS2751220201_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+CAS 14,DISCOUNTCAS5405788965_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAS 15,DISCOUNTCAS2652676194_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAS 16,DISCOUNTCAS7402157081_BR,Primary,Cox Business,1000.0M x 35.0M,Enabled,False,csv_import
+CAS 17,DISCOUNTCAS7145776728_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+CAS 18,DISCOUNTCAS7048198484_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+CAS 18,DISCOUNTCAS9004687716_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAS 19,DISCOUNTCAS4104236453_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+CAS 20,DISCOUNTCAS1397239716_BR-I3,Primary,Spectrum,200.0M x 10.0M,Enabled,False,csv_import
+CAS 21,DISCOUNTCAS7165441970_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAS 22,DISCOUNTCAS9438163867_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+CAS 22,DISCOUNTCAS1570557457_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAS 23,DISCOUNTCAS6760353986_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAS 23,DISCOUNTCAS3074890469_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAS 24,DISCOUNTCAS8337326108_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAS 24,DISCOUNTCAS9475722424_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAS 25,DISCOUNTCAS4953705261_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+CAS 25,DISCOUNTCAS3772629905_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAS 27,DISCOUNTCAS1353785339_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+CAS 27,DISCOUNTCAS1924570992_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAS 28,DISCOUNTCAS3549825469_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+CAS 28,DISCOUNTCAS6172111781_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAS 31,DISCOUNTCAS4087675463_BR,Primary,Frontier Fios,500.0M x 500.0M,Enabled,False,csv_import
+CAS 31,DISCOUNTCAS5827452286_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAS 32,DISCOUNTCAS8169048002_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAS 33,DISCOUNTCAS3757965814_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAS 34,DISCOUNTCAS2038894768_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+CAS 34,DISCOUNTCAS2647482319_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAS 35,,Primary,Frontier,,Enabled,False,Non-DSR
+CAS 36,DISCOUNTCAS6918352277_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAS 37,DISCOUNTCAS2559719810_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+CAS 38,DISCOUNTCAS2522975416_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+CAS 38,DISCOUNTCAS4928690383_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAS 39,DISCOUNTCAS4926140130_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAS 39,DISCOUNTCAS8626638106_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAS 40,,Primary,Frontier,,Enabled,False,Non-DSR
+CAS 41,,Primary,Frontier,,Enabled,False,Non-DSR
+CAS 43,DISCOUNTCAS9618175989_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAS 43,DISCOUNTCAS2873915635_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAS 44,DISCOUNTCAS7375805731_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAS 44,DISCOUNTCAS1929108206_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+CAS 45,DISCOUNTCAS1859625217_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAS 46,,Primary,AT&T,,Enabled,False,Non-DSR
+CAS 47,DISCOUNTCAS2109965907_BR-I4,Primary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+CAS 48,DISCOUNTCAS7121407943_BR-I1,Primary,EB2-Frontier Fiber,500.0M x 500.0M,Enabled,False,csv_import
+CAS 49,DISCOUNTCAS3577197206_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CAS 50,DISCOUNTCAS4806066347_BR,Primary,GTT Ethernet,50.0M x 10.0M,Enabled,False,csv_import
+CAS 50,DISCOUNTCAS6856920534_BR,Secondary,EB2-Frontier Fiber,500.0M x 500.0M,Enabled,False,csv_import
+CAS 51,DISCOUNTCAS6192051652_BR,Primary,Cox Business/BOI ,300.0M x 30.0M,Enabled,False,csv_import
+CAS 51,DISCOUNTCAS9050801861_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+CAS 53,DISCOUNTCAS3464112352_BR,Primary,AT&T Broadband II,2000.0M x 2000.0M,Enabled,False,csv_import
+CAS 53,DISCOUNTCAS8402836344_BR,Secondary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+COB 01,DISCOUNTCOB3504195686_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+COB 01,DISCOUNTCOB7942770257_BR,Secondary,EB2-Centurylink DSL,100.0M x 10.0M,Enabled,False,csv_import
+COD00,DISCOUNTCOD1112223333_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+COD 01,,Primary,Comcast,,Enabled,False,Non-DSR
+COD 02,DISCOUNTCOD1308964767_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+COD 03,,Primary,Comcast,,Enabled,False,Non-DSR
+COD 04,DISCOUNTCOD3037611442_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+COD 05,DISCOUNTCOD7799726597_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+COD 06,DISCOUNTCOD7455852612_BR-I4,Primary,Lumen,100.0M x 10.0M,Enabled,False,csv_import
+COD 07,DISCOUNTCOD9706695579_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+COD 08,,Primary,Comcast,,Enabled,False,Non-DSR
+COD 09,,Primary,Comcast,,Enabled,False,Non-DSR
+COD 10,DISCOUNTCOD2549242630_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+COD 11,DISCOUNTCOD2868234371_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+COD 13,,Primary,Comcast,,Enabled,False,Non-DSR
+COD 14,DISCOUNTCOD2588409491_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+COD 18,DISCOUNTCOD3039723876_BR-I3,Primary,Comcast Workplace,1000.0M x 35.0M,Enabled,False,csv_import
+COD 19,DISCOUNTCOD3691683954_BR,Primary,CenturyLink Fiber Plus,500.0M x 500.0M,Enabled,False,csv_import
+COD 20,DISCOUNTCOD9866512895_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+COD 21,DISCOUNTCOD9547841616_BR-I3,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+COD 21,DISCOUNTCOD9547841616_BR,Secondary,CenturyLink/Qwest,40.0M x 5.0M,Enabled,False,csv_import
+COD 23,DISCOUNTCOD8843597883_BR,Secondary,EB2-Lumen DSL,100.0M x 10.0M,Enabled,False,csv_import
+COD 24,DISCOUNTCOD3603124268_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+COD 25,DISCOUNTCOD4478646375_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+COD 25,DISCOUNTCOD8080710346_BR,Secondary,EB2-Centurylink DSL,140.0M x 20.0M,Enabled,False,csv_import
+COD 26,DISCOUNTCOD9893968331_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+COD 26,DISCOUNTCOD7498368928_BR,Secondary,EB2-Centurylink DSL,80.0M x 10.0M,Enabled,False,csv_import
+COD 27,DISCOUNTCOD2485161270_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+COD 28,DISCOUNTCOD8567644584_BR,Primary,Comcast Workplace,1000.0M x 35.0M,Enabled,False,csv_import
+COD 29,DISCOUNTCOD8788316890_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+COD 30,DISCOUNTCOD7724388155_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+COD 31,DISCOUNTCOD1182311907_BR,Primary,MallCom Networks,300.0M x 30.0M,Enabled,False,csv_import
+COD 32,DISCOUNTCOD6716757357_BR-I3,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+COD 32,DISCOUNTCOD6716757357_BR,Secondary,CenturyLink/Qwest,100.0M x 10.0M,Enabled,False,csv_import
+COD 34,DISCOUNTCOD9495119292_BR,Primary,Lumen/Qwest,100.0M x 10.0M,Enabled,False,csv_import
+COD 35,DISCOUNTCOD4928869496_BR,Primary,LiveWire Net,75.0M x 15.0M,Enabled,False,csv_import
+COD 35,DISCOUNTCOD1062165807_BR,Secondary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+COD 36,DISCOUNTCOD1349681458_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+COD 37,DISCOUNTCOD6895954695_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+COD 38,DISCOUNTCOD6928701234_BR-I2,Secondary,CenturyLink/Qwest,100.0M x 10.0M,Enabled,False,csv_import
+COD 39,DISCOUNTCOD9703242165_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+COD 40,DISCOUNTCOD7205726924_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+COD 41,,Primary,Lumen,,Enabled,False,Non-DSR
+COD 42,DISCOUNTCOD5600444666_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+COG 01,DISCOUNTCOG6237379652_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+COG 01,DISCOUNTCOG9393117379_BR,Secondary,EB2-Centurylink DSL,80.0M x 10.0M,Enabled,False,csv_import
+Cog 02,,Primary,Comcast,,Enabled,False,Non-DSR
+COG 02,DISCOUNTCOG1790287782_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+COG 02,DISCOUNTCOG5348435561_BR,Secondary,Community Broadband Network,100.0M x 100.0M,Enabled,False,csv_import
+COG 03,DISCOUNTCOG8432679370_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+CON 02,DISCOUNTCON9702679150_BR-I1,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+CON 03,DISCOUNTCON5119549646_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+CON 03,DISCOUNTCON5754865305_BR,Secondary,FORT COLLINS CONNEXION,500.0M x 500.0M,Enabled,False,csv_import
+COP 02,DISCOUNTCOP2018548574_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+COP 03,DISCOUNTCOP7196966328_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+COP 03,DISCOUNTCOP5957381111_BR,Secondary,EB2-Centurylink DSL,100.0M x 10.0M,Enabled,False,csv_import
+COS 01,DISCOUNTCOS1831934195_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+COS 02,DISCOUNTCOS5529626447_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+COS 03,DISCOUNTCOS4212683958_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+COS 03,DISCOUNTCOS7602523848_BR,Secondary,EB2-Centurylink DSL,100.0M x 10.0M,Enabled,False,csv_import
+COS 04,DISCOUNTCOS7305588523_BR,Primary,CenturyLink Fiber Plus,500.0M x 500.0M,Enabled,False,csv_import
+COS 05,DISCOUNTCOS7204949692_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+COS 05,DISCOUNTCOS3855664679_BR,Secondary,Unite Private Networks,300.0M x 300.0M,Enabled,False,csv_import
+COS 06,DISCOUNTCOS8477724904_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+COS 07,DISCOUNTCOS4806066347_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+COW 01,DISCOUNTCOW4282793923_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+COW 02,DISCOUNTCOW9706156104_BR,Primary,Elevate Internet,1000.0M x 1000.0M,Enabled,False,csv_import
+COX 01,DISCOUNTWDW7383335250_BR-I1,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+FLD 01,DISCOUNTFLD3591541254_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+FLD 01,DISCOUNTFLD5822661765_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+FLD 02,DISCOUNTFLD9790804796_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+FLD 04,DISCOUNTFLD3866277108_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+FLD 04,DISCOUNTFLD5464445516_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+FLF 01,DISCOUNTFLF4941136265_BR-I1,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+FLG 01,DISCOUNTFLG1425333361_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+FLG 02,DISCOUNTFLG4806066451_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+FLG 02,DISCOUNTFLG9684195399_BR,Secondary,Ocala Fiber Network,300.0M x 300.0M,Enabled,False,csv_import
+FLG 03,DISCOUNTFLG2232243530_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+FLG 03,DISCOUNTFLG2003149779_BR,Secondary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+FLJ 00,DISCOUNTFLJ1663848782_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+FLJ 00,DISCOUNTFLJ9878155844_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+FLJ 01,DISCOUNTFLJ9042762013_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+FLJ 01,DISCOUNTFLJ7956596815_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+FLJ 02,DISCOUNTFLJ6360904517_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+FLJ 02,DISCOUNTFLJ4046898626_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+FLJ 03,DISCOUNTFLJ5303590947_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+FLJ 03,DISCOUNTFLJ7496544670_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+FLJ 05,DISCOUNTFLJ1605168830_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+FLJ 05,DISCOUNTFLJ4235127331_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+FLJ 06,DISCOUNTFLJ3745236827_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+FLJ 06,DISCOUNTFLJ7960590337_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+FLJ 07,DISCOUNTFLJ9047576760_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+FLJ 07,DISCOUNTFLJ1889183517_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+FLJ 09,DISCOUNTFLJ3183336430_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+FLJ 09,DISCOUNTFLJ2332630862_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+FLJ 10,DISCOUNTFLJ2260285937_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+FLJ 10,DISCOUNTFLJ6493574573_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+FLJ 11,DISCOUNTFLJ9045066079_BR,Primary,AT&T Broadband II,500.0M x 100.0M,Enabled,False,csv_import
+FLJ 12,DISCOUNTFLJ4524894327_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+FLJ 12,DISCOUNTFLJ8202159865_BR,Secondary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+FLM 01,DISCOUNTFLM2151434628_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+FLM 01,DISCOUNTFLM9228643718_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+FLM 02,DISCOUNTFLM3136745765_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+FLM 02,DISCOUNTFLM7022631773_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+FLO 01,DISCOUNTFLO2979211823_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+FLO 02,DISCOUNTFLO1217234123_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+FLO 03,DISCOUNTFLO9522379030_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+FLO 03,DISCOUNTFLO8891481713_BR-I2,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+FLO 04,DISCOUNTFLO6459394237_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+FLO 04,DISCOUNTFLO5597804740_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+FLO 05,DISCOUNTFLO1375655261_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+FLO 06,DISCOUNTFLO1833155859_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+FLO 06,DISCOUNTFLO3087126454_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+FLO 07,DISCOUNTFLO6676784904_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+FLO 07,DISCOUNTFLO1710676929_BR-I2,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+FLO 08,DISCOUNTFLO3846501345_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+FLO 09,DISCOUNTFLO3554810920_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+FLO 10,DISCOUNTFLO7189244418_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+FLO 11,DISCOUNTFLO3527298141_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+FLO 12,DISCOUNTFLO3216036530_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+FLO 12,DISCOUNTFLO3136222115_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+FLO 13,DISCOUNTFLO3451703173_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+FLO 14,DISCOUNTFLO2951788329_BR,Primary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+FLO 14,DISCOUNTFLO7953352086_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+FLO 15,DISCOUNTFLO7845261282_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+FLO 15,DISCOUNTFLO4099402208_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+FLO 16,DISCOUNTFLO6477349451_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+FLP 01,DISCOUNTFLP7994448203_BR-I1,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+FLP 01,DISCOUNTFLP8104349616_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+FLP 02,DISCOUNTFLP8506914490_BR,Primary,AT&T Broadband II,200.0M x 200.0M,Enabled,False,csv_import
+FLP 03,DISCOUNTFLP8504639247_BR,Primary,Mediacom/BOI,300.0M x 20.0M,Enabled,False,csv_import
+FLP 03,DISCOUNTFLP7056371973_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+FLP 04,DISCOUNTFLP8503163795_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+FLP 04,DISCOUNTFLP9757634705_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+FLS 01,DISCOUNTFLS5615306227_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+FLS 01,DISCOUNTFLS2442523186_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+FLS 02,DISCOUNTFLS5615305191_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+FLS 03,DISCOUNTFLS9543311994_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+FLS 03,DISCOUNTFLS8577983891_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+FLS 04,DISCOUNTFLS4806066000_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+FLS 04,DISCOUNTFLS5983775785_BR,Secondary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+FLT 01,DISCOUNTFLT3929223709_BR,Primary,MetroNet,300.0M x 300.0M,Enabled,False,csv_import
+FLT 02,DISCOUNTFLT5528303887_BR,Secondary,MetroNet,300.0M x 300.0M,Enabled,False,csv_import
+GAA 00,DISCOUNTGAA6782977778_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+GAA 00,DISCOUNTGAA4226983812_BR,Secondary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+GAA 01,DISCOUNTGAA3205422405_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+GAA 03,DISCOUNTGAA3057644230_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+GAA 03,DISCOUNTGAA7769154488_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+GAA 05,DISCOUNTGAA2876611847_BR,Primary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+GAA 06,DISCOUNTGAA5375501774_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+GAA 06,DISCOUNTGAA7059699688_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+GAA 07,DISCOUNTGAA1224344454_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+GAA 08,DISCOUNTGAA3929427388_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+GAA 08,DISCOUNTGAA1936845635_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+GAA 10,DISCOUNTGAA5452230182_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+GAA 11,DISCOUNTGAA9326424366_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+GAA 11,DISCOUNTGAA7406550907_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+GAA 12,DISCOUNTGAA3533792540_BR-I1,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+GAA 13,DISCOUNTGAA4373624469_BR-I1,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+GAA 14,DISCOUNTGAA1285103842_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+GAA 15,DISCOUNTGAA7597892612_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+GAA 17,DISCOUNTGAA1310513101_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+GAA 17,DISCOUNTGAA7145526541_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+GAA 18,DISCOUNTGAA9517330639_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+GAA 19,DISCOUNTGAA1026604614_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+GAA 19,DISCOUNTGAA4202671965_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+GAA 21,DISCOUNTGAA7052839350_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+GAA 22,DISCOUNTGAA4902321448_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+GAA 24,DISCOUNTGAA6636499901_BR-I3,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+GAA 24,DISCOUNTGAA3989127724_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+GAA 25,DISCOUNTGAA5816905474_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+GAA 26,DISCOUNTGAA2513356257_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+GAA 26,DISCOUNTGAA1843449708_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+GAA 27,DISCOUNTGAA4121134433_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+GAA 28,DISCOUNTGAA8122110112_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+GAA 29,DISCOUNTGAA2767937606_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+GAA 29,DISCOUNTGAA7923747743_BR,Secondary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+GAA 30,DISCOUNTGAA1232392544_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+GAA 31,DISCOUNTGAA4887880915_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+GAA 32,DISCOUNTGAA3105290885_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+GAA 32,DISCOUNTGAA3854832462_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+GAA 33,DISCOUNTGAA2752800272_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+GAA 33,DISCOUNTGAA9738910376_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+GAA 34,DISCOUNTGAA7705101999_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+GAA 34,DISCOUNTGAA7845104221_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+GAA 35,DISCOUNTGAA1903216393_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+GAA 35,DISCOUNTGAA4200745672_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+GAA 36,DISCOUNTGAA8366611503_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+GAA 36,DISCOUNTGAA7075469906_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+GAA 37,DISCOUNTGAA3598331452_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+GAA 37,DISCOUNTGAA7692779770_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+GAA 38,DISCOUNTGAA6785355366_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+GAA 38,DISCOUNTGAA7349286299_BR,Secondary,EB2-Hargray Cable,300.0M x 30.0M,Enabled,False,csv_import
+GAA 39,DISCOUNTGAA4706896985_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+GAA 39,DISCOUNTGAA6840585326_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+GAA 40,DISCOUNTGAA4706153030_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+GAA 40,DISCOUNTGAA4082670675_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+GAA 41,DISCOUNTGAA7705763138_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+GAA 42,DISCOUNTGAA7065289401_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+GAA 43,,Primary,AT&T,,Enabled,False,Non-DSR
+GAA 43,DISCOUNTGAA4806066000_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+GAA 44,DISCOUNTGAA7065256085_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+GAA 44,DISCOUNTGAA5182610550_BR,Secondary,EB2-Windstream Fiber,500.0M x 500.0M,Enabled,False,csv_import
+GAA 45,DISCOUNTGAA7063580202_BR,Primary,Mediacom/BOI,300.0M x 20.0M,Enabled,False,csv_import
+GAA 45,DISCOUNTGAA6396931295_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+GAA 46,DISCOUNTGAA6316829305_BR,Primary,AT&T Broadband II,2000.0M x 2000.0M,Enabled,False,csv_import
+GAA 46,DISCOUNTGAA8544549428_BR,Secondary,Mediacom/BOI,1000.0M x 30.0M,Enabled,False,csv_import
+GAACALLCNTR,,Primary,AT&T,,Enabled,False,Non-DSR
+GAACALLCNTR,,Secondary,Charter Communications,,Enabled,False,Non-DSR
+GAACALLCTR,DISCOUNTGAA4043743352_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+GAACALLCTR,DISCOUNTGAA1814662621_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+GAA W00,,Primary,AT&T Broadband II,,Enabled,False,Non-DSR
+GAE 01,DISCOUNTGAE9122556127_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+GAE 01,DISCOUNTGAE3804346207_BR,Secondary,EB2-Hargray Cable,300.0M x 30.0M,Enabled,False,csv_import
+GAE 02,DISCOUNTGAE9125080298_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+GAE 02,DISCOUNTGAE6066654778_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+GAE 03,DISCOUNTGAE9123486846_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+GAE 03,DISCOUNTGAE2825671345_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+GAN 01,DISCOUNTGAN3616888135_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+GAN 01,DISCOUNTGAN9852450197_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+GAS 01,DISCOUNTGAS2295587664_BR,Primary,Mediacom/BOI,1000.0M x 30.0M,Enabled,False,csv_import
+GAS 01,DISCOUNTGAS6205592924_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+IAC 01,DISCOUNTIAC5998350467_BR,Primary,Mediacom/BOI,1000.0M x 30.0M,Enabled,False,csv_import
+IAC 01,DISCOUNTIAC3095244703_BR,Secondary,EB2-Lumen DSL,140.0M x 20.0M,Enabled,False,csv_import
+IAC 02,DISCOUNTIAC5993223701_BR,Primary,Mediacom/BOI,1000.0M x 30.0M,Enabled,False,csv_import
+IAC 02,DISCOUNTIAC1584478820_BR,Secondary,ImOn Communications,100.0M x 100.0M,Enabled,False,csv_import
+IAD 01,DISCOUNTIAD6385783821_BR,Primary,Mediacom/BOI,1000.0M x 30.0M,Enabled,False,csv_import
+IAD 01,DISCOUNTIAD9426894876_BR,Secondary,Metronet,300.0M x 300.0M,Enabled,False,csv_import
+IAD 02,DISCOUNTIAD5156356085_BR,Primary,Mediacom/BOI,300.0M x 20.0M,Enabled,False,csv_import
+IAD 02,DISCOUNTIAD6759553525_BR,Secondary,MetroNet,1000.0M x 1000.0M,Enabled,False,csv_import
+IAD 03,DISCOUNTIAD5503001109_BR,Primary,EB2-Centurylink Fiber,500.0M x 100.0M,Enabled,False,csv_import
+IAD 04,DISCOUNTIAD9224110507_BR,Primary,Mediacom/BOI,1000.0M x 30.0M,Enabled,False,csv_import
+IAD 04,DISCOUNTIAD1825947634_BR,Secondary,Metronet,300.0M x 300.0M,Enabled,False,csv_import
+IAD 05,DISCOUNTIAD5634031831_BR,Primary,Mediacom/BOI,1000.0M x 30.0M,Enabled,False,csv_import
+IAD 05,DISCOUNTIAD4676273552_BR,Secondary,Metronet,300.0M x 300.0M,Enabled,False,csv_import
+IAF 01,DISCOUNTIAF5153027061_BR,Primary,Mediacom/BOI,300.0M x 20.0M,Enabled,False,csv_import
+IAF 01,DISCOUNTIAF4298184794_BR,Secondary,Fort Dodge Fiber,250.0M x 250.0M,Enabled,False,csv_import
+IAI 01,DISCOUNTIAI9854531312_BR,Primary,Mediacom/BOI,1000.0M x 30.0M,Enabled,False,csv_import
+IAI 01,DISCOUNTIAI8026355214_BR,Secondary,Metronet,300.0M x 300.0M,Enabled,False,csv_import
+IAN 01,DISCOUNTIAN8924203970_BR,Primary,Mediacom/BOI,1000.0M x 30.0M,Enabled,False,csv_import
+IAN 01,DISCOUNTIAN4245635461_BR,Secondary,Cedar Falls Utilities,1000.0M x 1000.0M,Enabled,False,csv_import
+IAN 02,DISCOUNTIAN6823636691_BR-I2,Primary,Mediacom/BOI,1000.0M x 30.0M,Enabled,False,csv_import
+IAN 02,DISCOUNTIAN6823636691_BR,Secondary,Century Link/Qwest,100.0M x 10.0M,Enabled,False,csv_import
+IAN 03,DISCOUNTIAN6412436030_BR,Primary,Mediacom/BOI,1000.0M x 30.0M,Enabled,False,csv_import
+IAQ 01,DISCOUNTIAQ2125242484_BR,Primary,Mediacom/BOI,300.0M x 20.0M,Enabled,False,csv_import
+IAQ 02,DISCOUNTIAQ4019229897_BR,Primary,Mediacom/BOI,1000.0M x 30.0M,Enabled,False,csv_import
+IAQ 02,DISCOUNTIAQ5323242116_BR,Secondary,MetroNet,300.0M x 300.0M,Enabled,False,csv_import
+IAS 01,DISCOUNTIAS9525606588_BR,Primary,Sparklight,300.0M x 30.0M,Enabled,False,csv_import
+IAS 01,DISCOUNTIAS7473489999_BR,Secondary,MetroNet,1000.0M x 1000.0M,Enabled,False,csv_import
+IDB 01,DISCOUNTIDB4034439277_BR,Primary,Cable One ,300.0M x 50.0M,Enabled,False,csv_import
+IDB 01,DISCOUNTIDB9276698243_BR,Secondary,EB2-Centurylink DSL,100.0M x 10.0M,Enabled,False,csv_import
+IDB 03,DISCOUNTIDB7800252883_BR-I4,Primary,EB2-CableOne Cable,300.0M x 30.0M,Enabled,False,csv_import
+IDB 03,DISCOUNTIDB1589801615_BR,Secondary,EB2-Centurylink DSL,100.0M x 10.0M,Enabled,False,csv_import
+IDB 04,DISCOUNTIDB9175289538_BR,Primary,CenturyLink Fiber Plus,500.0M x 500.0M,Enabled,False,csv_import
+IDB 04,DISCOUNTIDB3104425687_BR,Secondary,EB2-CableOne Cable,300.0M x 30.0M,Enabled,False,csv_import
+IDB 05,DISCOUNTIDB1793495183_BR-I3,Primary,EB2-CableOne Cable,300.0M x 30.0M,Enabled,False,csv_import
+IDB 05,DISCOUNTIDB6315757622_BR,Secondary,EB2-Centurylink DSL,100.0M x 10.0M,Enabled,False,csv_import
+IDB 06,DISCOUNTIDB3940649128_BR-I4,Primary,EB2-CableOne Cable,300.0M x 50.0M,Enabled,False,csv_import
+IDB 06,DISCOUNTIDB5557410138_BR-I1,Secondary,Direct Communications,500.0M x 500.0M,Enabled,False,csv_import
+IDB 07,DISCOUNTIDB2970377958_BR,Primary,EB2-CableOne Cable,300.0M x 30.0M,Enabled,False,csv_import
+IDB 07,DISCOUNTIDB4521699516_BR,Secondary,EB2-Centurylink DSL,80.0M x 10.0M,Enabled,False,csv_import
+IDN 01,DISCOUNTIDN2502595839_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+IDN 01,DISCOUNTIDN6535930631_BR,Secondary,EB2-Ziply Fiber,500.0M x 500.0M,Enabled,False,csv_import
+ILC_00,,Primary,Comcast,,Enabled,False,Non-DSR
+ILC_00,,Secondary,AT&T,,Enabled,False,Non-DSR
+ILC00,DISCOUNTILC5557178230_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+ILC00,DISCOUNTILC2310905536_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+ILC 01,DISCOUNTILC4382934163_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+ILC 02,DISCOUNTILC4583205456_BR,Secondary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+ILC 03,DISCOUNTILC4679256275_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+ILC 03,DISCOUNTILC6964626155_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+ILC 04,DISCOUNTILC8004644626_BR-I1,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+ILC 05,DISCOUNTILC3586846230_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+ILC 05,DISCOUNTILC5776997642_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+ILC 06,DISCOUNTILC3674918666_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+ILC 07,DISCOUNTILC9534930432_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+ILC 07,DISCOUNTILC3304956240_BR,Secondary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+ILC 08,DISCOUNTILC7655859474_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+ILC 08,DISCOUNTILC1128614292_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+ILC 09,DISCOUNTILC1288408759_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+ILC 11,,Primary,Comcast,,Enabled,False,Non-DSR
+ILC 12,,Primary,Comcast,,Enabled,False,Non-DSR
+ILC 13,DISCOUNTILC8427892881_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+ILC 14,DISCOUNTILC4261581448_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+ILC 14,DISCOUNTILC1035794329_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+ILC 15,DISCOUNTILC5259253999_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+ILC 16,DISCOUNTILC3771681777_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+ILC 17,DISCOUNTILC9023386875_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+ILC 17,DISCOUNTILC6705921220_BR-I2,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+ILC 18,DISCOUNTILC3032905759_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+ILC 19,DISCOUNTILC4137795250_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+ILC 21,DISCOUNTILC4279109241_BR,Primary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+ILC 21,DISCOUNTILC9054114026_BR,Secondary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+ILC 22,DISCOUNTILC7089787795_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+ILC 22,DISCOUNTILC1319454363_BR-I2,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+ILC 24,DISCOUNTILC1935503811_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+ILC 25,DISCOUNTILC6302419322_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+ILC 25,DISCOUNTILC1483664688_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+ILC 27,DISCOUNTILC3864830929_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+ILC 27,DISCOUNTILC7359220998_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+ILC 29,DISCOUNTILC8485214986_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+ILC 30,DISCOUNTILC9129595607_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+ILC 30,DISCOUNTILC7742773929_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+ILC 31,DISCOUNTILC5553425332_BR,Secondary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+ILC 32,DISCOUNTILC5630436217_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+ILC 32,DISCOUNTILC4053351926_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+ILC 33,DISCOUNTILC3095933584_BR,Primary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+ILC 34,DISCOUNTILC6463711274_BR,Primary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+ILC 34,DISCOUNTILC2403743868_BR-I2,Secondary,Comcast Workplace,200.0M x 20.0M,Enabled,False,csv_import
+ILC 35,DISCOUNTILC8155289192_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+ILC 35,DISCOUNTILC2959747662_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+ILC 36,DISCOUNTILC7085383916_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+ILC 36,DISCOUNTILC5254302260_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+ILC 37,DISCOUNTILC4806066347_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+ILC 37,DISCOUNTILC1103873181_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+ILP 01,DISCOUNTILP7232642402_BR,Secondary,i3 Broadband,250.0M x 250.0M,Enabled,False,csv_import
+ILR 01,,Primary,Comcast,,Enabled,False,Non-DSR
+ILR01,DISCOUNTILR8893631909_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+ILR 02,DISCOUNTILR9839955829_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+ILS 01,DISCOUNTILS8368830431_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+ILS 01,DISCOUNTILS1824689321_BR-I2,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+ILW 01,DISCOUNTILW4806066000_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+ILW 01,DISCOUNTILW1808463994_BR-I3,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+ILW 02,DISCOUNTILW9485327963_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+ILW 02,DISCOUNTILW8311178259_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+ILX 01,DISCOUNTILX5999389663_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+INC 01,DISCOUNTINC1430479450_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+INC 02,DISCOUNTINC4046411775_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+INC 02,DISCOUNTINC9367716610_BR-I2,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+INC 03,DISCOUNTINC4380348257_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+INE 01,DISCOUNTINE7623298810_BR,Primary,Astound,500.0M x 20.0M,Enabled,False,csv_import
+INE 01,DISCOUNTINE4778857354_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+INE 02,DISCOUNTINE5769550943_BR,Primary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+INE 02,DISCOUNTINE3459153101_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+INF 03,DISCOUNTINF7249833936_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+INF 03,DISCOUNTINF9891979513_BR,Secondary,MetroNet,1000.0M x 1000.0M,Enabled,False,csv_import
+INF 04,DISCOUNTINF2607024414_BR,Primary,GTT Ethernet,50.0M x 10.0M,Enabled,False,csv_import
+INF 04,DISCOUNTINF9088578304_BR,Secondary,EB2-Frontier Fiber,500.0M x 500.0M,Enabled,False,csv_import
+INI_00,,Primary,DSR Cincinnati Bell ADSL,,Enabled,False,Non-DSR
+INI_00,,Secondary,Charter Communications,,Enabled,False,Non-DSR
+INI 01,DISCOUNTINI6710563131_BR-I3,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+INI 01,DISCOUNTINI1688588177_BR,Secondary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+INI 02,DISCOUNTINI8286245667_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+INI 02,DISCOUNTINI2507719983_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+INI 03,DISCOUNTINI8500758143_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+INI 05,DISCOUNTINI3162988314_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+INI 06,DISCOUNTINI6970842656_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+INI 07,DISCOUNTINI3717617437_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+INI 08,DISCOUNTINI7253796586_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+INI 08,DISCOUNTINI1086377990_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+INI 09,DISCOUNTINI4142890159_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+INI 10,DISCOUNTINI2744924919_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+INI 12,DISCOUNTINI1581561445_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+INI 12,DISCOUNTINI3501324476_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+INI 13,DISCOUNTINI3398433287_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+INI 13,DISCOUNTINI8610702333_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+INI 14,DISCOUNTINI5328270232_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+INI 15,DISCOUNTINI2369324700_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+INI 15,DISCOUNTINI2167856864_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+INI 16,DISCOUNTINI8124187310_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+INI 16,DISCOUNTINI4209925453_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+INIW00,DISCOUNTINI3178961504_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+INIW00,DISCOUNTINI4985176173_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+INJ 01,DISCOUNTINJ8128506985_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+INJ 01,DISCOUNTINJ4815763287_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+INL 01,DISCOUNTINL9395592704_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+INL 01,DISCOUNTINL2331611270_BR,Secondary,MetroNet,1000.0M x 1000.0M,Enabled,False,csv_import
+INN 01,DISCOUNTINN7266737137_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+INN 01,DISCOUNTINN4183550483_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+INW 01,DISCOUNTINW9697832879_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+INW 02,,Primary,Comcast,,Enabled,False,Non-DSR
+INW 03,DISCOUNTINW5742770871_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+INW 03,DISCOUNTINW9447559761_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+KONFARA,DISCOUNTKON2513197392_BR,Primary,Cox Business/BOI,500.0M x 50.0M,Enabled,False,csv_import
+KSK_00,,Primary,Charter Communications,,Enabled,False,Non-DSR
+KSK_00,,Secondary,AT&T,,Enabled,False,Non-DSR
+KSK00N,DISCOUNTKSK9136933001_BR,Primary,Spectrum,300.0M x 20.0M,Enabled,False,csv_import
+KSK00N,DISCOUNTKSK5558327705_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+KSK 01,DISCOUNTKSK2021692262_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+KSK 02,DISCOUNTKSK6477075410_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+KSK 02,DISCOUNTKSK9350563148_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+KSK 03,DISCOUNTKSK9134010273_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+KSK 03,DISCOUNTKSK6946813372_BR-I2,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+KSK 04,DISCOUNTKSK2160909680_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+KSK 04,DISCOUNTKSK1709674974_BR-I2,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+KSK 05,DISCOUNTKSK9138155565_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+KSK 05,DISCOUNTKSK4044789922_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+KSK 06,DISCOUNTKSK9132183982_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+KSL 01,DISCOUNTKSL7070545429_BR,Primary,Midcontinent,500.0M x 50.0M,Enabled,False,csv_import
+KSL 01,DISCOUNTKSL9095726782_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+KSM 01,DISCOUNTKSM7852707469_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+KSM 01,DISCOUNTKSM9830207545_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+KSM 02,DISCOUNTKSM1363601112_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+KSM 02,DISCOUNTKSM2706525996_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+KST 01,DISCOUNTKST1337973244_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+KST 01,DISCOUNTKST6546470555_BR,Secondary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+KSW 01,DISCOUNTKSW3288733569_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+KSW 01,DISCOUNTKSW4158405118_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+KSW 02,DISCOUNTKSW1310430411_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+KSW 02,DISCOUNTKSW4645100832_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+KSW 03,DISCOUNTKSW3163586199_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+KSW 03,DISCOUNTKSW7374171506_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+KYB 01,DISCOUNTKYB4459776948_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+KYB 01,DISCOUNTKYB7123475296_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+KYE 01,DISCOUNTKYE2707405056_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+KYE 01,DISCOUNTKYE6353166202_BR,Secondary,EB2-Windstream Fiber,200.0M x 200.0M,Enabled,False,csv_import
+KYL 01,DISCOUNTKYL5027154620_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+KYL 01,DISCOUNTKYL4151622430_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+KYL 02,DISCOUNTKYL7962181360_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+KYL 02,DISCOUNTKYL1206531156_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+KYL 03,DISCOUNTKYL5713752823_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+KYL 03,DISCOUNTKYL8027515263_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+KYN 00,DISCOUNTKYN3178670125_BR,Primary,Cincinnati Bell,400.0M x 200.0M,Enabled,False,csv_import
+KYN 00,DISCOUNTKYN3481685689_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+LAB 01,DISCOUNTLAB6026581968_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+LAB 01,DISCOUNTLAB3444340160_BR,Secondary,REV Business,100.0M x 100.0M,Enabled,False,csv_import
+LAB 02,DISCOUNTLAB2254186057_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+LAB 02,DISCOUNTLAB8002656466_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+LAB 03,DISCOUNTLAB2253696478_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+LAB 03,DISCOUNTLAB2721292414_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+LAB 04,DISCOUNTLAB3857523452_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+LAB 06,DISCOUNTLAB6157872502_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+LAB 06,DISCOUNTLAB4566438162_BR,Secondary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+LAS 01,DISCOUNTLAS3185073792_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+LAS 01,DISCOUNTLAS8192120466_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+LAS 02,DISCOUNTLAS3186066235_BR,Primary,Altice West,500.0M x 50.0M,Enabled,False,csv_import
+LAS 02,DISCOUNTLAS6514758537_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+LAS 03,DISCOUNTLAS5286153751_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+MIA00,DISCOUNTMID5553199533_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MIA 01,DISCOUNTMIA1452833880_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+MIA 01,DISCOUNTMIA1580470913_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MIA 04,DISCOUNTMIA7344770082_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+MIA 04,DISCOUNTMIA3543105980_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MIA 16,DISCOUNTMIA1516484190_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+MIA 16,DISCOUNTMIA3753249546_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MIA 17,DISCOUNTMIA8301216130_BR,Secondary,D & P Communications,1000.0M x 500.0M,Enabled,False,csv_import
+MIAC02,DISCOUNTMIA7347076059_BR,Primary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+MIB 01,DISCOUNTMIB1951705186_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+MIB 01,DISCOUNTMIB4571420602_BR,Secondary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+MID 01,DISCOUNTMID8437877205_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MID 04,DISCOUNTMID4977691526_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+MID 04,DISCOUNTMID1073492235_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MID 05,DISCOUNTMID8422793382_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+MID 06,DISCOUNTMID1892232915_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MID 06,DISCOUNTMID6970736475_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MID 07,DISCOUNTMID4532769969_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+MID 09,DISCOUNTMID3091416620_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+MID 10,DISCOUNTMID1917847558_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+MID 10,DISCOUNTMID7575537131_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MID 11,DISCOUNTMID2485885100_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MID 11,DISCOUNTMID2236356152_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MID 12,DISCOUNTMID1101851160_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MID 12,DISCOUNTMID5901907810_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MID 13,DISCOUNTMID9734425543_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+MID 14,DISCOUNTMID9522201698_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MID 16,DISCOUNTMID9748838720_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+MID 17,DISCOUNTMID9079278474_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+MID 18,DISCOUNTMID1952911750_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MID 19,DISCOUNTMID6720216881_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+MID 20,DISCOUNTMID4220751749_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+MID 20,DISCOUNTMID5898469525_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+MID 22,DISCOUNTMID7496214237_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MID 22,DISCOUNTMID1279965281_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+MID 23,DISCOUNTMID9894145836_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MID 24,DISCOUNTMID3620969191_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MID 25,DISCOUNTMID9863566639_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+MID 25,DISCOUNTMID9414320286_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MID 26,DISCOUNTMID9203684583_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MID 26,DISCOUNTMID9215677607_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MID 27,DISCOUNTMID9873154861_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MID 27,DISCOUNTMID5240464949_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MIF 04,DISCOUNTMIF4715158270_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+MIF 05,,Primary,Comcast,,Enabled,False,Non-DSR
+MIF 25,DISCOUNTMIF9480512993_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+MIF 25,DISCOUNTMIF5584308193_BR,Secondary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+MIF 26,DISCOUNTMIF9909288603_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MIF 26,DISCOUNTMIF9909288604_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+MIG 07,DISCOUNTMIG8541948174_BR-I2,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+MIG 08,DISCOUNTMIG6163633047_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+MIG 08,DISCOUNTMIG2431912323_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MIG 09,DISCOUNTMIG8338423157_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MIG 09,DISCOUNTMIG6185670760_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MIG 23,DISCOUNTMIG4203481619_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MIG 23,DISCOUNTMIG4355219898_BR,Secondary,EB2-Frontier Fiber,300.0M x 300.0M,Enabled,False,csv_import
+MIG 24,DISCOUNTMIG7259655205_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+MIG 24,DISCOUNTMIG7025383924_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MIG 29,DISCOUNTMIG4287882573_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MIG 29,DISCOUNTMIG5131411890_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MIG 30,DISCOUNTMIG4093345197_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MIG 30,DISCOUNTMIG6942353210_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MIH 27,DISCOUNTMIH7658914789_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MIH 27,DISCOUNTMIH8811274787_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MIHW00,DISCOUNTMIH6210999464_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+MIK 06,DISCOUNTMIK8986243523_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MIK 06,DISCOUNTMIK4384257460_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MIK 14,DISCOUNTMIK2693724266_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MIK 14,DISCOUNTMIK5322265676_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MIK 30,DISCOUNTMIK4086563324_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+MIK 30,DISCOUNTMIK1184408588_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MIK 31,DISCOUNTMIK3355703435_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MIK 31,DISCOUNTMIK3414926258_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MIL 00,DISCOUNTMIL5176556444_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+MIL 00,DISCOUNTMIL1015577952_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MIL 11,DISCOUNTMIL2237771839_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+MIL 15,DISCOUNTMIL1574383248_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+MIL 28,,Primary,Comcast Direct,,Enabled,False,latest_csv_import
+MIM 01,DISCOUNTMIM9066626292_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+MIM 01,DISCOUNTMIM9422692648_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MIN 01,DISCOUNTMIN9897486174_BR,Primary,Spectrum,300.0M x 20.0M,Enabled,False,csv_import
+MIP 01,DISCOUNTMIP5139578509_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MIP 01,DISCOUNTMIP3319573974_BR,Secondary,Winn Telecom,1000.0M x 100.0M,Enabled,False,csv_import
+MIS 12,DISCOUNTMIS3538726106_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MIS 12,DISCOUNTMIS8324386901_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MIS 17,DISCOUNTMIS4680589300_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MIS 17,DISCOUNTMIS9428268176_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MIS 20,DISCOUNTMIS7285518339_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MIS 20,DISCOUNTMIS7305657774_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MIT 26,DISCOUNTMIT8714693650_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MIT 26,DISCOUNTMIT8829995932_BR-I2,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+MIW 21,DISCOUNTMIW3744915674_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MNM 00,DISCOUNTMNM4371420383_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MNM 01,DISCOUNTMNM4166385382_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MNM 02,,Primary,Comcast,,Enabled,False,Non-DSR
+MNM 03,,Primary,Comcast,,Enabled,False,Non-DSR
+MNM 05,DISCOUNTMNM5431550150_BR,Secondary,EB2-Lumen DSL,100.0M x 10.0M,Enabled,False,csv_import
+MNM 06,DISCOUNTMNM1670639602_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MNM 07,DISCOUNTMNM5267156055_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MNM 07,DISCOUNTMNM6677527771_BR,Secondary,EB2-Centurylink DSL,100.0M x 10.0M,Enabled,False,csv_import
+MNM 08,DISCOUNTMNM6517840031_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+MNM 08,DISCOUNTMNM9938517823_BR,Secondary,EB2-Centurylink DSL,140.0M x 20.0M,Enabled,False,csv_import
+MNM 09,,Primary,DSR Comcast,,Enabled,False,Non-DSR
+MNM 09 -B,DISCOUNTMNM6346171937_BR,Secondary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MNM 10,DISCOUNTMNM9524963868_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+MNM 11,,Primary,Comcast,,Enabled,False,Non-DSR
+MNM 12,DISCOUNTMNM6769857135_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MNM 12,DISCOUNTMNM3435527197_BR,Secondary,Metronet,1000.0M x 1000.0M,Enabled,False,csv_import
+MNM 13,DISCOUNTMNM5002459616_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MNM 13,DISCOUNTMNM3228639414_BR,Secondary,EB2-Lumen DSL,100.0M x 10.0M,Enabled,False,csv_import
+MNM 14,DISCOUNTMNM4690630617_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MNM 15,DISCOUNTMNM4305867104_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MNM 15,DISCOUNTMNM9195546505_BR-I1,Secondary,Metronet,500.0M x 500.0M,Enabled,False,csv_import
+MNM 17,DISCOUNTMNM8868807315_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MNM 18,DISCOUNTMNM4920772257_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MNM 19,DISCOUNTMNM7264586406_BR,Primary,MetroNet,300.0M x 300.0M,Enabled,False,csv_import
+MNM 20,DISCOUNTMNM6433760207_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MNM 20,DISCOUNTMNM5191758722_BR,Secondary,MetroNet,500.0M x 500.0M,Enabled,False,csv_import
+MNM 21,DISCOUNTMNM6741475433_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+MNM 22,DISCOUNTMNM1060200266_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+MNM 22,DISCOUNTMNM1082468302_BR,Secondary,EB2-Centurylink DSL,140.0M x 20.0M,Enabled,False,csv_import
+MNM 23,DISCOUNTMNM9122527876_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MNM 23,DISCOUNTMNM7802462719_BR,Secondary,EB2-Centurylink DSL,140.0M x 20.0M,Enabled,False,csv_import
+MNM 24,,Primary,Comcast,,Enabled,False,Non-DSR
+MNM 26,DISCOUNTMNM4311526060_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MNM 27,DISCOUNTMNM9768756213_BR,Primary,CenturyLink Fiber Plus,500.0M x 500.0M,Enabled,False,csv_import
+MNM 27,DISCOUNTMNM5080787432_BR,Secondary,CTC,250.0M x 250.0M,Enabled,False,csv_import
+MNM 29,,Primary,Comcast,,Enabled,False,Non-DSR
+MNM 31,DISCOUNTMNM8438342285_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+MNMW01,DISCOUNTMNM6513062018_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MOK 01,DISCOUNTMOK3046961121_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MOK 01,DISCOUNTMOK6667789909_BR-I3,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+MOK 02,DISCOUNTMOK9427440600_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MOK 02,DISCOUNTMOK6190807189_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MOK 03,DISCOUNTMOK8237727935_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MOK 03,DISCOUNTMOK8553749782_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MOK 05,DISCOUNTMOK6136626179_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MOK 05,DISCOUNTMOK5034582169_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MOK 06,DISCOUNTMOK1375994668_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MOK 06,DISCOUNTMOK4048524337_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MOK 07,DISCOUNTMOK9134447360_BR,Primary,Spectrum ,600.0M x 35.0M,Enabled,False,csv_import
+MOK 07,DISCOUNTMOK1001251627_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+MON 01,DISCOUNTMON3383411954_BR,Primary,Altice West,500.0M x 50.0M,Enabled,False,csv_import
+MON 01,DISCOUNTMON4809255894_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MOO 01,,Primary,ComcastAgg CableOne,,Enabled,False,Non-DSR
+MOO 02,DISCOUNTMOO6208988811_BR,Primary,Mediacom/BOI,1000.0M x 30.0M,Enabled,False,csv_import
+MOO 02,DISCOUNTMOO2559138890_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MOO 03,DISCOUNTMOO4379180925_BR,Primary,Mediacom/BOI,1000.0M x 30.0M,Enabled,False,csv_import
+MOO 03,DISCOUNTMOO1882381417_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MOO 04,,Primary,Brightspeed,,Enabled,False,Non-DSR
+MOR 01,DISCOUNTMOR4806066347_BR,Primary,Fidelity Communications,350.0M x 20.0M,Enabled,False,csv_import
+MOR 01,DISCOUNTMOR6916709651_BR,Secondary,EB2-Sparklight Cable,300.0M x 30.0M,Enabled,False,csv_import
+MOS 00,DISCOUNTMOS9362638008_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MOS 00,DISCOUNTMOS9362638009_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+MOS 01,DISCOUNTMOS4806066000_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MOS 01,DISCOUNTMOS5703830474_BR,Secondary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+MOS 02,DISCOUNTMOS6366857612_BR,Primary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MOS 02,,Primary,AT&T,,Enabled,False,Non-DSR
+MOS 03,DISCOUNTMOS3148661186_BR,Primary,Spectrum,300.0M x 20.0M,Enabled,False,csv_import
+MOS 03,DISCOUNTMOS9343895248_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MOS 04,DISCOUNTMOS3149490553_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MOS 04,DISCOUNTMOS1238750897_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MOS 05,DISCOUNTMOS5377057286_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+MOS 05,DISCOUNTMOS8061254479_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MOS 06,DISCOUNTMOS8913959764_BR,Primary,AT&T Broadband II,200.0M x 40.0M,Enabled,False,csv_import
+MOS 06,DISCOUNTMOS8754558904_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MOS 07,DISCOUNTMOS3783449782_BR,Primary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+MOS 08,DISCOUNTMOS6366971146_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MOS 08,DISCOUNTMOS9291451656_BR,Secondary,Brightspeed,100.0M x 100.0M,Enabled,False,csv_import
+MOS 09,DISCOUNTMOS6366989761_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MOS 10,DISCOUNTMOS2944416206_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MOS 12,DISCOUNTMOS5979273953_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MOS 12,DISCOUNTMOS1074195198_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+MOS XX,DISCOUNTMOS8610555663_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MOS XX,DISCOUNTMOS6364052622_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+MSN 01,DISCOUNTMSN6077281837_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MSN 01,DISCOUNTMSN8976284480_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+MSN 02,DISCOUNTMSN7603316113_BR,Primary,C Spire,300.0M x 300.0M,Enabled,False,csv_import
+MSN 02,DISCOUNTMSN1727492557_BR,Secondary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+MTB 01,DISCOUNTMTB4062006677_BR,Primary,Spectrum ,600.0M x 35.0M,Enabled,False,csv_import
+MTM 01,DISCOUNTMTM2297147146_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+MTM 02,DISCOUNTMTM1046909691_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC_00,,Primary,Charter Communications,,Enabled,False,Non-DSR
+NCC00,DISCOUNTNCC4700881245_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+NCC 01,DISCOUNTNCC6134910703_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 01,DISCOUNTNCC3155469681_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+NCC 02,DISCOUNTNCC4533556414_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 02,DISCOUNTNCC1796161391_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+NCC 03,DISCOUNTNCC9516692305_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 03,DISCOUNTNCC7315185667_BR-I2,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+NCC 04,DISCOUNTNCC8062194461_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 04,DISCOUNTNCC1725120563_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+NCC 05,DISCOUNTNCC1075315585_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 05,DISCOUNTNCC3209144313_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+NCC 06,DISCOUNTNCC6597337720_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 06,DISCOUNTNCC2188850467_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+NCC 07,DISCOUNTNCC5087849116_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 07,DISCOUNTNCC5987725926_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+NCC 08,DISCOUNTNCC6833421775_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+NCC 08,DISCOUNTNCC5035838866_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 09,DISCOUNTNCC6339481744_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+NCC 09,DISCOUNTNCC5637846962_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+NCC 10,DISCOUNTNCC6558488271_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 10,DISCOUNTNCC6623743246_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+NCC 11,DISCOUNTNCC5425811997_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 11,DISCOUNTNCC1429959616_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+NCC 13,DISCOUNTNCC8907309689_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 13,DISCOUNTNCC8277803217_BR,Secondary,Lumos Networks,500.0M x 500.0M,Enabled,False,csv_import
+NCC 14,DISCOUNTNCC4173937207_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 15,DISCOUNTNCC6570809800_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 15,DISCOUNTNCC7249138677_BR,Secondary,EB2-Windstream Fiber,1000.0M x 1000.0M,Enabled,False,csv_import
+NCC 16,DISCOUNTNCC5593239894_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 16,DISCOUNTNCC1164770763_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+NCC 17,DISCOUNTNCC2721857801_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 17,DISCOUNTNCC6841843784_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+NCC 18,DISCOUNTNCC5473670831_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 19,DISCOUNTNCC3071721327_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 20,DISCOUNTNCC1182229939_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 20,DISCOUNTNCC7811833651_BR,Secondary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+NCC 21,DISCOUNTNCC1836642247_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 23,DISCOUNTNCC1005594839_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 23,DISCOUNTNCC8287781404_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+NCC 24,DISCOUNTNCC2517514708_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 24,DISCOUNTNCC7554285242_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+NCC 25,DISCOUNTNCC7896744609_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 25,DISCOUNTNCC6220748988_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+NCC 26,DISCOUNTNCC9515324636_BR-I3,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+NCC 27,DISCOUNTNCC3576603841_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 28,DISCOUNTNCC8331650218_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 28,DISCOUNTNCC7309454691_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+NCC 30,DISCOUNTNCC3062601155_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 33,DISCOUNTNCC7049161427_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 33,DISCOUNTNCC9251195501_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+NCC 35,DISCOUNTNCC6515267788_BR,Primary,Altice,500.0M x 50.0M,Enabled,False,csv_import
+NCC 35,DISCOUNTNCC6890779344_BR,Secondary,Metronet,300.0M x 300.0M,Enabled,False,csv_import
+NCC 36,DISCOUNTNCC9633821198_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 36,DISCOUNTNCC7835333833_BR,Secondary,GreenLight,1000.0M x 1000.0M,Enabled,False,csv_import
+NCC 37,DISCOUNTNCC9104670374_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 37,DISCOUNTNCC4730926407_BR,Secondary,MetroNet,300.0M x 300.0M,Enabled,False,csv_import
+NCC 38,DISCOUNTNCC4404740704_BR,Secondary,MetroNet,1000.0M x 1000.0M,Enabled,False,csv_import
+NCC 39,DISCOUNTNCC9107466178_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 39,DISCOUNTNCC3012387590_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+NCC 40,DISCOUNTNCC9802626514_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 40,DISCOUNTNCC8796216372_BR,Secondary,EB2-Windstream Fiber,500.0M x 500.0M,Enabled,False,csv_import
+NCC 41,DISCOUNTNCC9199886847_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 41,DISCOUNTNCC2838871557_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+NCC 42,DISCOUNTNCC3362914962_BR,Primary,AT&T Broadband II,100.0M x 20.0M,Enabled,False,csv_import
+NCC 42,DISCOUNTNCC4265493306_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 43,DISCOUNTNCC1976525537_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 43,DISCOUNTNCC4153978617_BR,Secondary,EB2-Windstream Fiber,500.0M x 500.0M,Enabled,False,csv_import
+NCC 44,DISCOUNTNCC1831784180_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 45,DISCOUNTNCC3088960363_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 45,DISCOUNTNCC1399243912_BR,Secondary,Brightspeed,100.0M x 100.0M,Enabled,False,csv_import
+NCC 46,DISCOUNTNCC5579150368_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 46,DISCOUNTNCC3306857338_BR,Secondary,Windstream,100.0M x 100.0M,Enabled,False,csv_import
+NCC 47,DISCOUNTNCC7039890376_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 47,DISCOUNTNCC1746160814_BR,Secondary,MetroNet,500.0M x 500.0M,Enabled,False,csv_import
+NCC 48,DISCOUNTNCC1477709971_BR,Secondary,Brightspeed,300.0M x 300.0M,Enabled,False,csv_import
+NCC 51,DISCOUNTNCC7553826213_BR-I1,Primary,Altice West,100.0M x 10.0M,Enabled,False,csv_import
+NCC 52,DISCOUNTNCC6803339762_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCC 52,DISCOUNTNCC4845011622_BR,Secondary,Metronet,100.0M x 100.0M,Enabled,False,csv_import
+NCC W00,DISCOUNTNCC8476323778_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCN 01,DISCOUNTNCN2526216003_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NCN 01,DISCOUNTNCN7554870215_BR,Secondary,Brightspeed,100.0M x 100.0M,Enabled,False,csv_import
+NDG 01,DISCOUNTNDG7016206051_BR,Primary,Midcontinent,500.0M x 50.0M,Enabled,False,csv_import
+NEG 01,DISCOUNTNEG1011463672_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NEG 01,DISCOUNTNEG4552883834_BR,Secondary,Allo Communications,1000.0M x 1000.0M,Enabled,False,csv_import
+NEL 01,DISCOUNTNEL8187370490_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NEL 01,DISCOUNTNEL8628928315_BR,Secondary,Allo Communications,1000.0M x 1000.0M,Enabled,False,csv_import
+NEO 01,DISCOUNTNEO6448196212_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+NEO 01,DISCOUNTNEO8710570925_BR,Secondary,Great Plains Communications,1000.0M x 300.0M,Enabled,False,csv_import
+NEO 03,DISCOUNTNEO6659920840_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+NEO 03,DISCOUNTNEO2150943852_BR,Secondary,Great Plains Communications,1000.0M x 300.0M,Enabled,False,csv_import
+NEO 04,DISCOUNTNEO9088286558_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+NEO 04,DISCOUNTNEO5230245239_BR,Secondary,Great Plains Communications,1000.0M x 300.0M,Enabled,False,csv_import
+NEO 05,DISCOUNTNEO6017533466_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+NEO 05,DISCOUNTNEO4016710638_BR,Secondary,EB2-Centurylink DSL,100.0M x 10.0M,Enabled,False,csv_import
+NEO 06,DISCOUNTNEO6810571461_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+NEO 06,DISCOUNTNEO5194665750_BR,Secondary,EB2-Centurylink DSL,100.0M x 10.0M,Enabled,False,csv_import
+NEO 07,DISCOUNTNEO6958660475_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+NEO 07,DISCOUNTNEO7722921660_BR,Secondary,Great Plains Communications,100.0M x 100.0M,Enabled,False,csv_import
+NMA_00,,Primary,Comcast,,Enabled,False,Non-DSR
+NMA_00,,Secondary,CenturyLink,,Enabled,False,Non-DSR
+NMA00,DISCOUNTNMA8309950852_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+NMA00,DISCOUNTNMA2270402501_BR,Secondary,EB2-Centurylink DSL,100.0M x 10.0M,Enabled,False,csv_import
+NMA 01,DISCOUNTNMA7916261393_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+NMA 01,DISCOUNTNMA1314385584_BR,Secondary,Unite Private Networks,300.0M x 300.0M,Enabled,False,csv_import
+NMA 02,DISCOUNTNMA9995554444_BR-I1,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+NMA 03,DISCOUNTNMA6502508506_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+NMA 04,DISCOUNTNMA5310906292_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+NMA 04,DISCOUNTNMA5651259955_BR,Secondary,Unite Private Networks,100.0M x 100.0M,Enabled,False,csv_import
+NMA 05,DISCOUNTNMA8452286491_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+NMA 06,DISCOUNTNMA8548177452_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+NMA 07,DISCOUNTNMA2735614692_BR,Primary,Comcast Workplace,1000.0M x 35.0M,Enabled,False,csv_import
+NMA 08,DISCOUNTNMA8481300223_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+NMA 09,DISCOUNTNMA6876554850_BR,Primary,SparkLight,300.0M x 30.0M,Enabled,False,csv_import
+NMA 09,DISCOUNTNMA1137124356_BR,Secondary,Comcast Workplace,200.0M x 20.0M,Enabled,False,csv_import
+NMA 10,,Primary,Comcast,,Enabled,False,Non-DSR
+NMA 11,DISCOUNTNMA3335942575_BR,Primary,TDS Cable,300.0M x 30.0M,Enabled,False,csv_import
+NMA 11,DISCOUNTNMA7532581225_BR,Secondary,Tularosa Basin Telephone Company,100.0M x 100.0M,Enabled,False,csv_import
+NMA 12,DISCOUNTNMA5056004039_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+NMA 13,DISCOUNTNMA9262404844_BR,Secondary,Unite Private Networks,300.0M x 300.0M,Enabled,False,csv_import
+NMA Call Center,DISCOUNTNMA5053422146_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+NMAW00,DISCOUNTNEW1112223333_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+NMC 01,DISCOUNTNMC9180690786_BR,Primary,Altice West,300.0M x 30.0M,Enabled,False,csv_import
+NMC 01,DISCOUNTNMC4615865853_BR,Secondary,Plateau Telecommunications,500.0M x 500.0M,Enabled,False,csv_import
+NMF 01,DISCOUNTNMF3498809772_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+NMF 01,DISCOUNTNMF7795947329_BR,Secondary,EB2-Centurylink DSL,100.0M x 10.0M,Enabled,False,csv_import
+NMH 01,DISCOUNTNMH8068373443_BR,Primary,Windstream,500.0M x 500.0M,Enabled,False,csv_import
+NMH 01,DISCOUNTNMH5019513488_BR,Secondary,EB2-TDS Cable,300.0M x 30.0M,Enabled,False,csv_import
+NML 01,DISCOUNTNML8114916203_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+NMR 01,DISCOUNTNMR9182892758_BR,Primary,Sparklight,300.0M x 30.0M,Enabled,False,csv_import
+NMR 01,DISCOUNTNMR1543814343_BR,Secondary,Plateau Telecommunications,500.0M x 500.0M,Enabled,False,csv_import
+NMS 02,DISCOUNTNMS5575762242_BR-I3,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+NMS 02,DISCOUNTNMS5575762242_BR,Secondary,CenturyLink,60.0M x 5.0M,Enabled,False,csv_import
+NMS 03,DISCOUNTNMS5054284514_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+NMS 03,DISCOUNTNMS8635686950_BR,Secondary,"NMSurf, Inc.",300.0M x 300.0M,Enabled,False,csv_import
+NNM 09,DISCOUNTNNM8909863829_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+NVL000,DISCOUNTNVL2255583767_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+NVL 03,DISCOUNTNVL6944621489_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+NVL 04,DISCOUNTNVL1159986248_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+NVL 05,DISCOUNTNVL2970295865_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+NVL 06,DISCOUNTNVL2873258106_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+NVL 07,DISCOUNTNVL8716933548_BR,Secondary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+NVL 08,DISCOUNTNVL3866171706_BR,Primary,CenturyLink Fiber Plus,500.0M x 500.0M,Enabled,False,csv_import
+NVL 08,DISCOUNTNVL8433635622_BR,Secondary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+NVL 09,DISCOUNTNVL6304302966_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+NVL 11,DISCOUNTNVL7973244407_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+NVL 13,DISCOUNTNVL5983953642_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+NVL 14,DISCOUNTNVL7492598738_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+NVL 15,DISCOUNTNVL1494950600_BR,Secondary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+NVL 17,DISCOUNTNVL7025766192_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+NVL 22,DISCOUNTNVL1694447663_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+NVL 23,DISCOUNTNVL4441833594_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+NVL 24,DISCOUNTNVL3383852723_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+NVL 25,DISCOUNTNVL7025579065_BR,Primary,CenturyLink Fiber Plus,500.0M x 500.0M,Enabled,False,csv_import
+NVL 26,DISCOUNTNVL7252208993_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+NVLW 01,DISCOUNTNVL1224898259_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+NVR 01,DISCOUNTNVR6112563478_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NVR 01,DISCOUNTNVR6380737266_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+NVR 02,DISCOUNTNVR7688540235_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NVR 02,DISCOUNTNVR6884207148_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+NVR 04,DISCOUNTNVR2777706801_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NVR 04,DISCOUNTNVR8341978619_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+NVR 05,DISCOUNTNVR6300555102_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+NVR 05,DISCOUNTNVR6989799891_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+OHC 03,DISCOUNTOHC5309697473_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+OHC 03,DISCOUNTOHC7594194563_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+OHC 04,DISCOUNTOHC3034901803_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+OHC 05,DISCOUNTOHC9640917790_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+OHC 06,DISCOUNTOHC2129204948_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+OHC 06,DISCOUNTOHC7513630733_BR-I1,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+OHC 07,DISCOUNTOHC2192193896_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+OHC 07,DISCOUNTOHC1076916942_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+OHC 08,DISCOUNTOHC2876387525_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+OHC 08,DISCOUNTOHC3773801465_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+OHC 10,DISCOUNTOHC2851278734_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+OHC 10,DISCOUNTOHC2359760577_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+OHD 02,DISCOUNTOHD2815928800_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+OHD 02,DISCOUNTOHD3588476526_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+OHD 03,DISCOUNTOHD9589830186_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+OHD 04,DISCOUNTOHD4333719826_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+OHD 04,DISCOUNTOHD4214106232_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+OHL 01,DISCOUNTOHL7580860490_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+OHL 01,DISCOUNTOHL3190938173_BR,Secondary,Telephone Service Company (TSC),200.0M x 50.0M,Enabled,False,csv_import
+OHN 01,DISCOUNTOHN9814252481_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+OHN 01,DISCOUNTOHN7356702372_BR,Secondary,EB2-Windstream Fiber,500.0M x 500.0M,Enabled,False,csv_import
+OHN 02,DISCOUNTOHN8347216916_BR,Primary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+OHN 02,DISCOUNTOHN7841536351_BR,Secondary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+OHN 03,DISCOUNTOHN8697692850_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+OHN 04,DISCOUNTOHN3309545218_BR,Primary,Windstream,400.0M x 400.0M,Enabled,False,csv_import
+OHN 04,DISCOUNTOHN8670807962_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+OHN 05,DISCOUNTOHN4407017183_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+OHN 05,DISCOUNTOHN5757559592_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+OHN 06,DISCOUNTOHN3306616441_BR,Primary,Armstrong Cable,300.0M x 300.0M,Enabled,False,csv_import
+OHS 01,DISCOUNTOHS8818346330_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+OHS 02,DISCOUNTOHS9192530113_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+OHS 02,DISCOUNTOHS8521114367_BR,Secondary,Altafiber,600.0M x 300.0M,Enabled,False,csv_import
+OHS 03,DISCOUNTOHS5119441448_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+OHS 03,DISCOUNTOHS2516702269_BR,Secondary,Altafiber,400.0M x 200.0M,Enabled,False,csv_import
+OHS 04,DISCOUNTOHS8925986675_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+OHS 04,DISCOUNTOHS7292460979_BR,Secondary,Altafiber,400.0M x 200.0M,Enabled,False,csv_import
+OHS 05,DISCOUNTOHS8302296866_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+OHS 05,DISCOUNTOHS2573719455_BR,Secondary,Altafiber,400.0M x 200.0M,Enabled,False,csv_import
+OHT 01,DISCOUNTOHT7540242556_BR,Primary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+OHT 01,DISCOUNTOHT5479690142_BR,Secondary,Buckeye Broadband Business,400.0M x 400.0M,Enabled,False,csv_import
+OHT 02,DISCOUNTOHT2504303613_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+OHT 02,DISCOUNTOHT6838288469_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+OKA 01,DISCOUNTOKA5807686222_BR,Primary,SparkLight,300.0M x 30.0M,Enabled,False,csv_import
+OKA 01,DISCOUNTOKA8481924172_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+OKE 01,DISCOUNTOKE5805596484_BR,Primary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+OKO00,DISCOUNTOKO5554489071_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+OKO 02,DISCOUNTOKO8091905379_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+OKO 02,DISCOUNTOKO4715112805_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+OKO 03,DISCOUNTOKO3433309151_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+OKO 03,DISCOUNTOKO8167879613_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+OKO 04,DISCOUNTOKO6041837178_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+OKO 04,DISCOUNTOKO7790455172_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+OKO 05,DISCOUNTOKO9014975726_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+OKO 05,DISCOUNTOKO3720664639_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+OKO 06,DISCOUNTOKO9934134374_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+OKO 06,DISCOUNTOKO7817816342_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+OKO 07,DISCOUNTOKO5651506423_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+OKO 07,DISCOUNTOKO6640761796_BR,Secondary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+OKO 08,DISCOUNTOKO8127823389_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+OKO 08,DISCOUNTOKO9309702423_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+OKO 09,DISCOUNTOKO9385709325_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+OKO 09,DISCOUNTOKO3865386611_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+OKO 10,DISCOUNTOKO7424673242_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+OKO 10,DISCOUNTOKO7565234536_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+OKO 11,DISCOUNTOKO5326786347_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+OKO 11,DISCOUNTOKO7839702685_BR,Secondary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+OKO 12,DISCOUNTOKO4421310514_BR,Primary,AT&T Broadband II,300.0M x 75.0M,Enabled,False,csv_import
+OKO 12,DISCOUNTOKO8292355244_BR,Secondary,BluePeak Communications ,1000.0M x 1000.0M,Enabled,False,csv_import
+OKO 13,DISCOUNTOKO7155472667_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+OKO 13,DISCOUNTOKO4389726256_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+OKO 14,DISCOUNTOKO5507745618_BR,Primary,Vyve,500.0M x 50.0M,Enabled,False,csv_import
+OKO 14,DISCOUNTOKO2449543136_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+OKO 15,DISCOUNTOKO4806066347_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+OKO 15,DISCOUNTOKO7587322491_BR,Secondary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+OKT 01,DISCOUNTOKT6229883570_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+OKT 01,DISCOUNTOKT8316594155_BR,Secondary,EB2-Windstream Fiber,500.0M x 500.0M,Enabled,False,csv_import
+OKT 02,DISCOUNTOKT4814905441_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+OKT 02,DISCOUNTOKT4713376871_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+OKT 03,DISCOUNTOKT8587664576_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+OKT 03,DISCOUNTOKT7136327417_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+OKT 05,DISCOUNTOKT7101907548_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+OKT 05,DISCOUNTOKT4397996426_BR,Secondary,BTC Broadband,300.0M x 50.0M,Enabled,False,csv_import
+OKT 06,DISCOUNTOKT5038951629_BR,Primary,Cox Business/BOI ,300.0M x 30.0M,Enabled,False,csv_import
+OKT 06,DISCOUNTOKT8171187652_BR,Secondary,BTC Broadband,300.0M x 50.0M,Enabled,False,csv_import
+OKT 07,DISCOUNTOKT9188866750_BR,Primary,AT&T Broadband II,500.0M x 100.0M,Enabled,False,csv_import
+OKT 08,DISCOUNTOKT9185056441_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+OKT 08,DISCOUNTOKT7400545406_BR,Secondary,EB2-Windstream Fiber,500.0M x 500.0M,Enabled,False,csv_import
+ORM 01,DISCOUNTORM3783775133_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+ORM 01,DISCOUNTORM4742786451_BR,Secondary,Hunter Communications,300.0M x 100.0M,Enabled,False,csv_import
+ORM 02,DISCOUNTORM5633407890_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+ORM 02,DISCOUNTORM3652808967_BR,Secondary,Hunter Communications,300.0M x 100.0M,Enabled,False,csv_import
+ORP 01,,Primary,Comcast,,Enabled,False,Non-DSR
+ORP 02,DISCOUNTORP5413457961_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+ORP 03,DISCOUNTORP6148426623_BR,Secondary,EB2-Ziply Fiber,500.0M x 500.0M,Enabled,False,csv_import
+ORP 04,DISCOUNTORP2288287474_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+ORP 05,,Primary,Comcast,,Enabled,False,Non-DSR
+ORP 07,DISCOUNTORP5262206562_BR,Primary,Ziply Fiber,1000.0M x 1000.0M,Enabled,False,csv_import
+ORP 08,DISCOUNTORP9375511302_BR,Primary,TDS Telecom,300.0M x 30.0M,Enabled,False,csv_import
+ORP 09,DISCOUNTORP5777437677_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+ORP 10,DISCOUNTORP2612221547_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+ORP 10,DISCOUNTORP1551996156_BR,Secondary,HiLight Internet,500.0M x 500.0M,Enabled,False,csv_import
+ORP 11,DISCOUNTORP5034512711_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+ORP 12,DISCOUNTORP5412230530_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+PAC 01,DISCOUNTPAC1621602316_BR,Primary,Breezeline,300.0M x 30.0M,Enabled,False,csv_import
+PAC 01,DISCOUNTPAC9327470522_BR,Secondary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+PAN 01,DISCOUNTPAN2486824249_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+PAN 02,DISCOUNTPAN4079091463_BR,Primary,EB2-Penteledata Cable,300.0M x 30.0M,Enabled,False,csv_import
+PAP 01,DISCOUNTPAP6443466537_BR,Primary,EB2-RCN Cable,250.0M x 15.0M,Enabled,False,csv_import
+PAP 01,DISCOUNTPAP7969328359_BR,Secondary,EB2-Penteledata Cable,200.0M x 25.0M,Enabled,False,csv_import
+PAP 02,DISCOUNTPAP8849147796_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+PAW 01,DISCOUNTPAW4123186276_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+PAW 02,DISCOUNTPAW4127140088_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+SCA 01,DISCOUNTSCA8876562784_BR,Primary,Breezeline (Formerly Atlantic Broadband),500.0M x 40.0M,Enabled,False,csv_import
+SCA 01,DISCOUNTSCA2258373289_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+SCC 01,DISCOUNTSCC7639385546_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+SCC 01,DISCOUNTSCC6171205783_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+SCC 02,DISCOUNTSCC8642868200_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+SCC 02,DISCOUNTSCC6728576159_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+SCC 03,DISCOUNTSCC2769958873_BR,Primary,Comporium Com DDSL,1000.0M x 35.0M,Enabled,False,csv_import
+SCC 04,DISCOUNTSCC1413657164_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+SCC 04,DISCOUNTSCC5447290387_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+SCC 05,DISCOUNTSCC6396824661_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+SCC 05,DISCOUNTSCC8618607546_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+SCC 06,DISCOUNTSCC8032504890_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+SCC 06,DISCOUNTSCC8816347991_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+SCC 07,DISCOUNTSCC1911247583_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+SCC 07,DISCOUNTSCC1304454794_BR,Secondary,Comporium Com DIA,400.0M x 400.0M,Enabled,False,csv_import
+SCC 08,DISCOUNTSCC7819459202_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+SCC 08,DISCOUNTSCC2880599293_BR,Secondary,EB2-Windstream Fiber,500.0M x 500.0M,Enabled,False,csv_import
+SCC 09,DISCOUNTSCC8071449835_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+SCC 09,DISCOUNTSCC4821720602_BR,Secondary,Comporium Com,400.0M x 10.0M,Enabled,False,csv_import
+SCC 10,DISCOUNTSCC4706148558_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+SCC 10,DISCOUNTSCC7291387324_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+SCC 11,DISCOUNTSCC1087210387_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+SCC 11,DISCOUNTSCC5253319694_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+SCC 12,DISCOUNTSCC1097543745_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+SCC 12,DISCOUNTSCC9483409309_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+SCC 13,DISCOUNTSCC8434893146_BR,Primary,Hargray Telephone Co.,300.0M x 30.0M,Enabled,False,csv_import
+SCC 14,DISCOUNTSCC8436687053_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+SCC 15,DISCOUNTSCC6762941961_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+SCC 15,DISCOUNTSCC8875725265_BR,Secondary,Farmers Telephone Cooperative (FTC),1000.0M x 1000.0M,Enabled,False,csv_import
+SCC 16,DISCOUNTSCC3157576570_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+SCC 16,DISCOUNTSCC9473270455_BR,Secondary,WideOpenWest,600.0M x 50.0M,Enabled,False,csv_import
+SCC 17,DISCOUNTSCC8434917005_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+SCC 17,DISCOUNTSCC3351132963_BR,Secondary,EB2-Frontier Fiber,500.0M x 500.0M,Enabled,False,csv_import
+SCC 18,DISCOUNTSCC8545294141_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+SCC 18,DISCOUNTSCC7815913310_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+SCC 19,DISCOUNTSCC8662465225_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+SCC 19,DISCOUNTSCC7732201809_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+SDR 01,DISCOUNTSDR4806066347_BR,Primary,Midcontinent,500.0M x 500.0M,Enabled,False,csv_import
+SDS 01,DISCOUNTSDS1147861923_BR,Primary,Midcontinent,1000.0M x 60.0M,Enabled,False,csv_import
+SDS 01,DISCOUNTSDS2198208992_BR,Secondary,EB2-Centurylink DSL,100.0M x 10.0M,Enabled,False,csv_import
+TNC 01,DISCOUNTTNC7175468891_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TNC 01,DISCOUNTTNC9667830196_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TNC 02,DISCOUNTTNC2813824673_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TNC 02,DISCOUNTTNC2913356416_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TNC 03,DISCOUNTTNC4499896543_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TNC 03,DISCOUNTTNC8859304726_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TNE 01,DISCOUNTTNE6361331165_BR,Secondary,BrightRidge Broadband,300.0M x 30.0M,Enabled,False,csv_import
+TNE 02,DISCOUNTTNE4234086928_BR,Primary,Spectrum ,600.0M x 35.0M,Enabled,False,csv_import
+TNK 01,DISCOUNTTNK5587641505_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TNK 02,DISCOUNTTNK8658249421_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+TNK 02,DISCOUNTTNK3674211939_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TNK 03,DISCOUNTTNK4806066000_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+TNM 02,DISCOUNTTNM5210392829_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+TNM 02,DISCOUNTTNM5328158210_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TNM 03,DISCOUNTTNM3169855103_BR-I3,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+TNM 03,DISCOUNTTNM8886393242_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TNM 04,DISCOUNTTNM9210867618_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TNM 04,DISCOUNTTNM8517175155_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TNM 05,DISCOUNTTNM7315742306_BR,Primary,Spectrum ,600.0M x 35.0M,Enabled,False,csv_import
+TNM 05,DISCOUNTTNM1622848257_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TNN_00,,Primary,AT&T,,Enabled,False,Non-DSR
+TNN_00,,Secondary,Comcast,,Enabled,False,Non-DSR
+TNN00,DISCOUNTTNN5554669555_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+TNN00,DISCOUNTTNN8813110200_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TNN 02,DISCOUNTTNN9249267847_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TNN 03,DISCOUNTTNN1974613964_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TNN 03,DISCOUNTTNN8718815988_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TNN 04,DISCOUNTTNN4787264345_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TNN 04,DISCOUNTTNN9686106344_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TNN 05,DISCOUNTTNN6157589559_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TNN 06,DISCOUNTTNN3911275290_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TNN 07,DISCOUNTTNN3158673195_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TNN 07,DISCOUNTTNN1115987669_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TNN 08,DISCOUNTTNN6152301699_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+TNN 08,DISCOUNTTNN2732666892_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TNN 09,DISCOUNTTNN5213552674_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TNN 09,DISCOUNTTNN4875934103_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TNN 10,DISCOUNTTNN2514875448_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TNN 10,DISCOUNTTNN4273466161_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TNN 11,DISCOUNTTNN4683665535_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TNN 12,DISCOUNTTNN7136310722_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TNN 13,DISCOUNTTNN7467294347_BR,Primary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TNN 13,DISCOUNTTNN6794207530_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TNN 14,DISCOUNTTNN8250462721_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+TNN 14,DISCOUNTTNN7353269378_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TNN 15,DISCOUNTTNN3324307577_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TNN 15,DISCOUNTTNN4444715324_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TNN 16,DISCOUNTTNN9770259802_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TNN 16,DISCOUNTTNN8928141194_BR,Secondary,AT&T Broadband II ,300.0M x 300.0M,Enabled,False,csv_import
+TXA 01,DISCOUNTTXA2571543339_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXA 02,DISCOUNTTXA6137992453_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXA 03,DISCOUNTTXA5122584466_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXA 04,DISCOUNTTXA8894727134_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXA 04,DISCOUNTTXA3446580647_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXA 05,DISCOUNTTXA9968750840_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXA 05,DISCOUNTTXA2371967581_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXA 06,DISCOUNTTXA1525541102_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXA 06,DISCOUNTTXA2406395948_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXA 07,DISCOUNTTXA4458953847_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXA 07,DISCOUNTTXA3025832304_BR,Secondary,Astound,500.0M x 20.0M,Enabled,False,csv_import
+TXA 08,DISCOUNTTXA2369208940_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXA 08,DISCOUNTTXA9753139363_BR,Secondary,Unite Private Networks,300.0M x 300.0M,Enabled,False,csv_import
+TXA 09,DISCOUNTTXA5579649664_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXA 09,DISCOUNTTXA6580512411_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXA 10,DISCOUNTTXA2322759996_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXA 10,DISCOUNTTXA1885247581_BR-I1,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXA 11,DISCOUNTTXA5781487716_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXA 12,,Primary,Frontier,,Enabled,False,Non-DSR
+TXA 13,DISCOUNTTXA6112616903_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXA 13,DISCOUNTTXA1404936331_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXA 14,DISCOUNTTXA3448963151_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXA 14,DISCOUNTTXA5614921632_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXA 15,DISCOUNTTXA9856193341_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXA 15,DISCOUNTTXA6619147928_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXA 16,DISCOUNTTXA1602241234_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXA 16,DISCOUNTTXA6329167934_BR,Secondary,Unite Private Networks,300.0M x 300.0M,Enabled,False,csv_import
+TXA 17,DISCOUNTTXA5859426412_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXA 18,DISCOUNTTXA6633284488_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXA 19,DISCOUNTTXA3207300907_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXA 19,DISCOUNTTXA6548723335_BR-I1,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXA 20,DISCOUNTTXA8930281160_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXA 20,DISCOUNTTXA4445799138_BR,Secondary,Vyve,250.0M x 25.0M,Enabled,False,csv_import
+TXA 21,DISCOUNTTXA6154154555_BR,Primary,Altice,500.0M x 50.0M,Enabled,False,csv_import
+TXA 21,DISCOUNTTXA6355968816_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXA 22,DISCOUNTTXA5129546369_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXA 23,DISCOUNTTXA5125413163_BR,Primary,Spectrum,300.0M x 20.0M,Enabled,False,csv_import
+TXA 24,DISCOUNTTXA7126548912_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXC 01,DISCOUNTTXC8047075353_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXC 01,DISCOUNTTXC9166206424_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXC 03,DISCOUNTTXC7266682722_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXC 03,DISCOUNTTXC3281295571_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXC 04,DISCOUNTTXC2466655537_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXC 05,DISCOUNTTXC3743963520_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXC 06,DISCOUNTTXC3215665118_BR,Primary,Altice,500.0M x 50.0M,Enabled,False,csv_import
+TXC 06,DISCOUNTTXC1250747806_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXC 07,DISCOUNTTXC7052753150_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXC 07,DISCOUNTTXC4320224534_BR-I2,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXC 08,DISCOUNTTXC4769973963_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXC 08,DISCOUNTTXC9649786582_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXC 09,DISCOUNTTXC6699274603_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXC 09,DISCOUNTTXC8934440305_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXC 10,DISCOUNTTXC5521580172_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXC 11,DISCOUNTTXC7003434558_BR,Primary,Altice,500.0M x 50.0M,Enabled,False,csv_import
+TXC 11,DISCOUNTTXC7573191521_BR,Secondary,EB2-CableOne Cable,150.0M x 15.0M,Enabled,False,csv_import
+TXC 12,DISCOUNTTXC8309388146_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXC 12,DISCOUNTTXC9451259379_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXC 13,DISCOUNTTXC2219230507_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXC 13,DISCOUNTTXC7291923625_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXC 14,DISCOUNTTXC5873203829_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+TXC 14,DISCOUNTTXC8085636174_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXC 15,DISCOUNTTXC1696493638_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXC 15,DISCOUNTTXC7206552281_BR,Secondary,EB2-CableOne Cable,300.0M x 30.0M,Enabled,False,csv_import
+TXC 16,DISCOUNTTXC3442921797_BR,Primary,Altice,500.0M x 50.0M,Enabled,False,csv_import
+TXC 16,DISCOUNTTXC1450781476_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXC 17,DISCOUNTTXC7369506609_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXC 17,DISCOUNTTXC6169590139_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXC 18,DISCOUNTTXC6282264349_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXC 18,DISCOUNTTXC2293922263_BR,Secondary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+TXC 19,DISCOUNTTXC7257269259_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXC 19,DISCOUNTTXC6636887949_BR,Secondary,Vexus,300.0M x 300.0M,Enabled,False,csv_import
+TXC 20,DISCOUNTTXC4170820426_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXC 20,DISCOUNTTXC2458780390_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXC 21,DISCOUNTTXC8303086082_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXC 21,DISCOUNTTXC4516909366_BR,Secondary,Big Bend Telephone,1000.0M x 1000.0M,Enabled,False,csv_import
+TXD 00,DISCOUNTTXD9729438800_BR-I1,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD00,DISCOUNTTXD5544668490_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 01,DISCOUNTTXD8806093649_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 01,DISCOUNTTXD9054584449_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 02,DISCOUNTTXD4611227257_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 02,DISCOUNTTXD5311392986_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 04,DISCOUNTTXD2730412169_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 04,DISCOUNTTXD6056113539_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 05,DISCOUNTTXD5922810525_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+TXD 06,DISCOUNTTXD6268947633_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 06,DISCOUNTTXD2633675810_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 08,DISCOUNTTXD5673525121_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 08,DISCOUNTTXD3024804732_BR,Secondary,EB2-Frontier Fiber,500.0M x 500.0M,Enabled,False,csv_import
+TXD 09,DISCOUNTTXD5153486149_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 09,DISCOUNTTXD4658468620_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 10,DISCOUNTTXD3019280698_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 10,DISCOUNTTXD4153614401_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 11,DISCOUNTTXD1821442682_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+TXD 11,DISCOUNTTXD9813166560_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXD 12,DISCOUNTTXD2833137637_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 12,DISCOUNTTXD7057965310_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 13,DISCOUNTTXD1868122730_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 13,DISCOUNTTXD9727591166_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 15,DISCOUNTTXD8359316805_BR,Primary,Spectrum,300.0M x 20.0M,Enabled,False,csv_import
+TXD 17,DISCOUNTTXD3042625652_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 17,DISCOUNTTXD4990497650_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 18,DISCOUNTTXD1513686793_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 18,DISCOUNTTXD8489928942_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 19,DISCOUNTTXD2858272219_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 19,DISCOUNTTXD8351534956_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 20,DISCOUNTTXD4282686915_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 22,DISCOUNTTXD5983492419_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 22,DISCOUNTTXD6840524462_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXD 23,DISCOUNTTXD5063385601_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 25,DISCOUNTTXD7579873463_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 26,DISCOUNTTXD8167832571_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 26,DISCOUNTTXD5943484690_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 28,DISCOUNTTXD3538537324_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 28,DISCOUNTTXD4047686494_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 29,DISCOUNTTXD5667660565_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 29,DISCOUNTTXD1375152863_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 30,DISCOUNTTXD1662559114_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 30,DISCOUNTTXD6577467477_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 31,DISCOUNTTXD4045207499_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 32,DISCOUNTTXD9868137539_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 32,DISCOUNTTXD9588173443_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 33,DISCOUNTTXD8061620389_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 33,DISCOUNTTXD2698146935_BR-I1,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 34,DISCOUNTTXD9601150422_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 35,DISCOUNTTXD9501259669_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 35,DISCOUNTTXD3358545432_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 36,DISCOUNTTXD9076452420_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 37,DISCOUNTTXD6073250844_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+TXD 37,DISCOUNTTXD8861394360_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 38,DISCOUNTTXD7053944230_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 38,DISCOUNTTXD1960817244_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXD 39,DISCOUNTTXD6094904987_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 39,DISCOUNTTXD8291229794_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 40,DISCOUNTTXD1664508824_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+TXD 40,DISCOUNTTXD9022574335_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXD 41,DISCOUNTTXD4746601262_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 41,DISCOUNTTXD7855503115_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 42,DISCOUNTTXD4572620797_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 42,DISCOUNTTXD8002998499_BR-I2,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXD 43,DISCOUNTTXD2304571178_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 44,DISCOUNTTXD8172387999_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+TXD 44,DISCOUNTTXD4903402186_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 45,DISCOUNTTXD2874854041_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 45,DISCOUNTTXD8852440239_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 46,DISCOUNTTXD2451501858_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXD 46,DISCOUNTTXD7485998606_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 47,DISCOUNTTXD8332159533_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXD 47,DISCOUNTTXD2260957680_BR,Secondary,Longview Cable,500.0M x 30.0M,Enabled,False,csv_import
+TXD 48,DISCOUNTTXD7644138604_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 48,DISCOUNTTXD5695226726_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 50,DISCOUNTTXD5198360523_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 50,DISCOUNTTXD5047462272_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 51,DISCOUNTTXD2179901325_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 51,DISCOUNTTXD8372348566_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXD 52,DISCOUNTTXD6143822977_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 52,DISCOUNTTXD1980178695_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 54,DISCOUNTTXD9698313836_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 54,DISCOUNTTXD8929863199_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 55,DISCOUNTTXD3781063806_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 56,DISCOUNTTXD9965185885_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+TXD 56,DISCOUNTTXD4086154500_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 57,DISCOUNTTXD7855321641_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 57,DISCOUNTTXD4952939840_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 58,DISCOUNTTXD4227408664_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 58,DISCOUNTTXD6342687838_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 59,DISCOUNTTXD2209776901_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 59,DISCOUNTTXD2411813795_BR,Secondary,EB2-Frontier Fiber,500.0M x 500.0M,Enabled,False,csv_import
+TXD 60,DISCOUNTTXD7181317645_BR,Primary,Spectrum Business,500.0M x 500.0M,Enabled,False,csv_import
+TXD 61,DISCOUNTTXD1536737350_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 61,DISCOUNTTXD8216383922_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXD 62,DISCOUNTTXD9695553182_BR,Primary,Cable One,300.0M x 50.0M,Enabled,False,csv_import
+TXD 63,DISCOUNTTXD5410807620_BR,Primary,Cable One,300.0M x 50.0M,Enabled,False,csv_import
+TXD 63,DISCOUNTTXD7203625634_BR,Secondary,EB2-Windstream Fiber,500.0M x 500.0M,Enabled,False,csv_import
+TXD 64,DISCOUNTTXD7656212728_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 64,DISCOUNTTXD2866723712_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 65,DISCOUNTTXD1126335542_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXD 66,DISCOUNTTXD5180871927_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 66,DISCOUNTTXD8823616575_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 67,DISCOUNTTXD5183486418_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 67,DISCOUNTTXD9817525239_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXD 68,DISCOUNTTXD2647119180_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 69,DISCOUNTTXD6328916186_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 69,DISCOUNTTXD1791833293_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 70,DISCOUNTTXD7142805749_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+TXD 71,DISCOUNTTXD5793329233_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 72,DISCOUNTTXD2263693711_BR,Primary,AT&T Broadband II,500.0M x 100.0M,Enabled,False,csv_import
+TXD 73,DISCOUNTTXD5850725125_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 73,DISCOUNTTXD7395733147_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXD 74,DISCOUNTTXD7160855596_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 74,DISCOUNTTXD2586104634_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 75,DISCOUNTTXD8499996542_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 75,DISCOUNTTXD9544826918_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 76,DISCOUNTTXD8669213100_BR,Primary,Altice,500.0M x 50.0M,Enabled,False,csv_import
+TXD 77,DISCOUNTTXD3131126603_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 77,DISCOUNTTXD8770374706_BR,Secondary,EB2-Frontier Fiber,500.0M x 500.0M,Enabled,False,csv_import
+TXD 78,DISCOUNTTXD7946620635_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 79,DISCOUNTTXD3990405857_BR,Primary,Altice,500.0M x 50.0M,Enabled,False,csv_import
+TXD 79,DISCOUNTTXD2623994331_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 80,DISCOUNTTXD5889283493_BR,Primary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+TXD 81,DISCOUNTTXD2056578286_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 81,DISCOUNTTXD5087163571_BR,Secondary,EB2-Frontier Fiber,500.0M x 500.0M,Enabled,False,csv_import
+TXD 82,DISCOUNTTXD2598493808_BR,Primary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+TXD 83,DISCOUNTTXD5154300861_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+TXD 83,DISCOUNTTXD2239224830_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 84,DISCOUNTTXD9404728265_BR,Primary,VyVe,500.0M x 50.0M,Enabled,False,csv_import
+TXD 85,DISCOUNTTXD4693663500_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 86,DISCOUNTTXD9403266034_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 87,DISCOUNTTXD9407834109_BR,Primary,Frontier FIOS,500.0M x 500.0M,Enabled,False,csv_import
+TXD 88,DISCOUNTTXD1144910863_BR,Primary,Altice West,500.0M x 50.0M,Enabled,False,csv_import
+TXD 88,DISCOUNTTXD5506123923_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 89,DISCOUNTTXD8178931697_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXD 89,DISCOUNTTXD3715282927_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 90,DISCOUNTTXD9033736027_BR-I4,Primary,East Texas Broadband,300.0M x 300.0M,Enabled,False,csv_import
+TXD 90,DISCOUNTTXD9033736027_BR-I2,Secondary,CenturyLink/Embarq,40.0M x 5.0M,Enabled,False,csv_import
+TXD 91,DISCOUNTTXD9482876104_BR,Primary,Frontier FIOS,200.0M x 200.0M,Enabled,False,csv_import
+TXD 91,DISCOUNTTXD9064237754_BR-I1,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 92,DISCOUNTTXD4696728030_BR,Primary,AT&T Broadband II,200.0M x 200.0M,Enabled,False,csv_import
+TXD 92,DISCOUNTTXD8247114128_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 93,DISCOUNTTXD5313276123_BR-I1,Primary,Altice West,100.0M x 10.0M,Enabled,False,csv_import
+TXD 94,DISCOUNTTXD6828046377_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 94,DISCOUNTTXD7632973304_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXD 95,DISCOUNTTXD8177526060_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXD 96,DISCOUNTTXD1896230397_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXD 96,DISCOUNTTXD7363384758_BR-I1,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXE 01,DISCOUNTTXE8653178289_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXE 01,DISCOUNTTXE2877590539_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXE 02,DISCOUNTTXE2430169491_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXE 02,DISCOUNTTXE1186907243_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXE 03,DISCOUNTTXE3596810765_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXE 03,DISCOUNTTXE1786458266_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXE 05,DISCOUNTTXE3467876274_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXE 05,DISCOUNTTXE1020730449_BR,Secondary,AT&T Broadband II,100.0M x 100.0M,Enabled,False,csv_import
+TXE 06,DISCOUNTTXE6585363461_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXE 06,DISCOUNTTXE9299636586_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXE 07,DISCOUNTTXE2369861327_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXE 07,DISCOUNTTXE6839461600_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXG 01,DISCOUNTTXG7742697759_BR,Primary,AT&T Broadband II,2000.0M x 2000.0M,Enabled,False,csv_import
+TXG 02,DISCOUNTTXG3368624103_BR,Secondary,Consolidated Communications,300.0M x 300.0M,Enabled,False,csv_import
+TXG 03,DISCOUNTTXG6607828561_BR,Secondary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH_00,,Primary,AT&T,,Enabled,False,Non-DSR
+TXH_00,,Secondary,Comcast,,Enabled,False,Non-DSR
+TXH00,DISCOUNTTXH5555787585_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+TXH00,DISCOUNTTXH4009424513_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 01,DISCOUNTTXH3333750108_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXH 01,DISCOUNTTXH7136979319_BR,Secondary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 02,DISCOUNTTXH6045781903_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 02,DISCOUNTTXH7358655750_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 03,DISCOUNTTXH8056531356_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 03,DISCOUNTTXH9406374232_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 04,DISCOUNTTXH4284367909_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXH 05,DISCOUNTTXH1516558267_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 10,DISCOUNTTXH1455596386_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 10,DISCOUNTTXH3093565598_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 11,DISCOUNTTXH9382273404_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 12,DISCOUNTTXH8547751456_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 12,DISCOUNTTXH6236752188_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 15,DISCOUNTTXH5584958376_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 15,DISCOUNTTXH1626771996_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 16,DISCOUNTTXH2871223396_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 17,DISCOUNTTXH7758695299_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 18,DISCOUNTTXH9489353832_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+TXH 18,DISCOUNTTXH3056850455_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 20,DISCOUNTTXH7138619747_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+TXH 20,DISCOUNTTXH4726852185_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXH 21,DISCOUNTTXH3935424877_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 21,DISCOUNTTXH8222782721_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 22,DISCOUNTTXH2277456806_BR,Primary,Altice,500.0M x 50.0M,Enabled,False,csv_import
+TXH 23,DISCOUNTTXH7779862854_BR,Primary,Altice West,500.0M x 50.0M,Enabled,False,csv_import
+TXH 24,DISCOUNTTXH1176364613_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 25,,Primary,Comcast,,Enabled,False,Non-DSR
+TXH 26,DISCOUNTTXH8903218497_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXH 27,DISCOUNTTXH5256517802_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 27,DISCOUNTTXH9099178975_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 28,,Primary,Comcast,,Enabled,False,Non-DSR
+TXH 29,DISCOUNTTXH3828458531_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 29,DISCOUNTTXH6874814631_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 30,DISCOUNTTXH5488963313_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 30,DISCOUNTTXH4379755906_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 31,DISCOUNTTXH4518817964_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+TXH 31,DISCOUNTTXH5703964471_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 33,DISCOUNTTXH3366953713_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+TXH 33,DISCOUNTTXH1691588224_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXH 34,DISCOUNTTXH5103545272_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXH 37,DISCOUNTTXH6188967328_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 37,DISCOUNTTXH2580650896_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 39,DISCOUNTTXH2299824561_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 39,DISCOUNTTXH4037366214_BR-I1,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXH 41,DISCOUNTTXH6261472507_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXH 43,DISCOUNTTXH5355731613_BR,Primary,Altice West,500.0M x 50.0M,Enabled,False,csv_import
+TXH 43,DISCOUNTTXH2549856746_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXH 44,,Primary,Comcast,,Enabled,False,Non-DSR
+TXH 45,DISCOUNTTXH8086755257_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 46,DISCOUNTTXH9730313215_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 48,DISCOUNTTXH3496500338_BR,Primary,Altice,500.0M x 50.0M,Enabled,False,csv_import
+TXH 49,DISCOUNTTXH6460769946_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 50,DISCOUNTTXH1709121675_BR,Primary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 51,DISCOUNTTXH6675162371_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 52,DISCOUNTTXH2858866373_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXH 53,DISCOUNTTXH1545225546_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 53,DISCOUNTTXH2814126070_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXH 54,DISCOUNTTXH2967643742_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 55,DISCOUNTTXH1022301941_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXH 56,DISCOUNTTXH3557290159_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXH 57,DISCOUNTTXH2815743878_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+TXH 58,DISCOUNTTXH5446952490_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 58,DISCOUNTTXH9143866360_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXH 59,DISCOUNTTXH5118983506_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXH 59,DISCOUNTTXH3858935848_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 60,DISCOUNTTXH9417478908_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 60,DISCOUNTTXH5102193499_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 61,DISCOUNTTXH4910975460_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+TXH 61,DISCOUNTTXH4063348355_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 62,DISCOUNTTXH1977368240_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXH 62,DISCOUNTTXH1527858584_BR-I2,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXH 63,DISCOUNTTXH2812567250_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 64,,Primary,Comcast,,Enabled,False,Non-DSR
+TXH 65,DISCOUNTTXH9311480256_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXH 66,DISCOUNTTXH7445761366_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 66,DISCOUNTTXH9326872996_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXH 67,DISCOUNTTXH2756310329_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 67,DISCOUNTTXH6800373367_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 68,DISCOUNTTXH4887661147_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 69,DISCOUNTTXH4533470802_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXH 69,DISCOUNTTXH8467338483_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXH 70,,Primary,Comcast,,Enabled,False,Non-DSR
+TXH 71,DISCOUNTTXH2493401615_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXH 72,DISCOUNTTXH6107443116_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 72,DISCOUNTTXH3095186629_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXH 73,DISCOUNTTXH3239864233_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+TXH 74,DISCOUNTTXH6886339856_BR,Primary,Altice,500.0M x 50.0M,Enabled,False,csv_import
+TXH 75,DISCOUNTTXH6133361665_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 77,DISCOUNTTXH7264693517_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 77,DISCOUNTTXH4316512724_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXH 78,DISCOUNTTXH9652339286_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+TXH 78,DISCOUNTTXH9496774764_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 79,DISCOUNTTXH9121906348_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 80,DISCOUNTTXH9360194725_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 81,DISCOUNTTXH4692315501_BR-I2,Primary,Rise Broadband,15.0M x 3.0M,Enabled,False,csv_import
+TXH 81,DISCOUNTTXH4692315501_BR,Secondary,Metronet,300.0M x 300.0M,Enabled,False,csv_import
+TXH 82,DISCOUNTTXH2191532698_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 83,DISCOUNTTXH2817785366_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+TXH 84,DISCOUNTTXH2834451301_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 84,DISCOUNTTXH6905497973_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 85,DISCOUNTTXH3704328736_BR-I6,Primary,Altice West,500.0M x 50.0M,Enabled,False,csv_import
+TXH 86,,Primary,Comcast,,Enabled,False,Non-DSR
+TXH 87,DISCOUNTTXH6735393680_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 87,DISCOUNTTXH9157544731_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXH 88,DISCOUNTTXH5959471273_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+TXH 88,DISCOUNTTXH5367886403_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 89,DISCOUNTTXH2719301469_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+TXH 89,DISCOUNTTXH9240588361_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 90,DISCOUNTTXH1388917841_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXH 90,DISCOUNTTXH3466139730_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXH 91,DISCOUNTTXH7064804404_BR,Primary,Livcom,200.0M x 200.0M,Enabled,False,csv_import
+TXH 92,DISCOUNTTXH6765332399_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+TXH 92,DISCOUNTTXH9768302107_BR,Secondary,Brightspeed,80.0M x 10.0M,Enabled,False,csv_import
+TXH 93,DISCOUNT9303462467077_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXH 93,DISCOUNTTXH7626988505_BR,Secondary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+TXH 94,DISCOUNTTXH3493078701_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+TXH 94,DISCOUNTTXH2822505524_BR-I1,Secondary,Consolidated Communications,300.0M x 300.0M,Enabled,False,csv_import
+TXH 95,DISCOUNTTXH2819686341_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+TXH 95,DISCOUNTTXH9433112825_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXH 96,DISCOUNTTXH9367031055_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+TXH 97,DISCOUNTTXH2815063801_BR,Primary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+TXH SE Flex DTU,DISCOUNTTXH2284121490_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXHT00,,Primary,Comcast,,Enabled,False,Non-DSR
+TXH Training,DISCOUNTTXH9995554444_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+TXHW00,DISCOUNTTXH7519843350_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+TXHW00,DISCOUNTTXH3740340957_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXL 01,DISCOUNTTXL6993835801_BR,Primary,Altice West,500.0M x 50.0M,Enabled,False,csv_import
+TXL 01,DISCOUNTTXL8067443233_BR,Secondary,Vexus,250.0M x 250.0M,Enabled,False,csv_import
+TXL 02,DISCOUNTTXL1508231575_BR,Primary,Altice,500.0M x 50.0M,Enabled,False,csv_import
+TXL 02,DISCOUNTTXL1051777844_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXL 03,DISCOUNTTXL8067486161_BR,Primary,Altice,500.0M x 50.0M,Enabled,False,csv_import
+TXL 03,DISCOUNTTXL4086701433_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXL 04,DISCOUNTTXL5816137441_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXL 04,DISCOUNTTXL5816137441_BR-I6,Secondary,Vexus Fiber,350.0M x 350.0M,Enabled,False,csv_import
+TXL 05,DISCOUNTTXL8064018844_BR,Primary,Vexus,550.0M x 275.0M,Enabled,False,csv_import
+TXL 05,DISCOUNTTXL4009710461_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXM 01,DISCOUNTTXM8134746223_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXM 02,DISCOUNTTXM9564981572_BR,Primary,Altice,500.0M x 50.0M,Enabled,False,csv_import
+TXM 02,DISCOUNTTXM1388287639_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXM 03,DISCOUNTTXM4232539993_BR,Primary,Altice,300.0M x 30.0M,Enabled,False,csv_import
+TXM 03,DISCOUNTTXM7506415950_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXN 01,DISCOUNTTXN9819772270_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXN 01,DISCOUNTTXN7743493684_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXO 01,DISCOUNTTXO1461251435_BR,Primary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+TXO 01,DISCOUNTTXO7898794109_BR,Secondary,EB2-CableOne Cable,300.0M x 30.0M,Enabled,False,csv_import
+TXO 02,DISCOUNTTXO2316613337_BR,Primary,Cable One ,300.0M x 50.0M,Enabled,False,csv_import
+TXO 02,DISCOUNTTXO3033168349_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXS 00,DISCOUNTTXS2611173126_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXS000,DISCOUNTTXS6359106009_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXS 02,DISCOUNTTXS8481313651_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXS 02,DISCOUNTTXS1055481727_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXS 05,DISCOUNTTXS9295541936_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+TXS 05,DISCOUNTTXS4387152675_BR-I1,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXS 06,DISCOUNTTXS7038772997_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXS 06,DISCOUNTTXS8112453385_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXS 07,DISCOUNTTXS1776702313_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXS 07,DISCOUNTTXS2726259523_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXS 08,DISCOUNTTXS2249155684_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+TXS 09,DISCOUNTTXS9274666128_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXS 09,DISCOUNTTXS4680948126_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXS 11,DISCOUNTTXS3736229618_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXS 11,DISCOUNTTXS6149307679_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXS 12,DISCOUNTTXS9437392721_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXS 13,DISCOUNTTXS3917467108_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXS 13,DISCOUNTTXS1031513313_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXS 14,DISCOUNTTXS9954010822_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXS 14,DISCOUNTTXS7622154918_BR-I2,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXS 15,DISCOUNTTXS1710744440_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXS 15,DISCOUNTTXS1121716381_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXS 16,DISCOUNTTXS1484957467_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXS 16,DISCOUNTTXS3615877454_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXS 17,DISCOUNTTXS4987241966_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXS 17,DISCOUNTTXS3880883836_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXS 18,DISCOUNTTXS4608357960_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXS 18,DISCOUNTTXS1157322888_BR,Secondary,EB2-Windstream Fiber,500.0M x 500.0M,Enabled,False,csv_import
+TXS 19,DISCOUNTTXS6519822545_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXS 19,DISCOUNTTXS6912133342_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXS 20,DISCOUNTTXS3068255876_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXS 20,DISCOUNTTXS9771305501_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXS 21,DISCOUNTTXS3445633950_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXS 21,DISCOUNTTXS5004134699_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXS 22,DISCOUNTTXS6469270867_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXS 22,DISCOUNTTXS2112502648_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXS 23,DISCOUNTTXS2318202520_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXS 23,DISCOUNTTXS2459364105_BR,Secondary,GVTC Communications,250.0M x 250.0M,Enabled,False,csv_import
+TXS 24,DISCOUNTTXS4527538122_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXS 25,DISCOUNTTXS1698398946_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXS 26,DISCOUNTTXS4907986228_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXS 26,DISCOUNTTXS9347587936_BR,Secondary,GVTC Communications,500.0M x 250.0M,Enabled,False,csv_import
+TXS 27,DISCOUNTTXS2105808340_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXS 27,DISCOUNTTXS2374820372_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXS 28,DISCOUNTTXS2103387210_BR,Primary,AT&T Broadband II,500.0M x 100.0M,Enabled,False,csv_import
+TXS 28,DISCOUNTTXS6566823785_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXS 29,DISCOUNTTXS7262228096_BR,Primary,Spectrum,300.0M x 20.0M,Enabled,False,csv_import
+TXS 29,DISCOUNTTXS4147918955_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXS 30,DISCOUNTTXS7262228113_BR,Primary,Spectrum,300.0M x 20.0M,Enabled,False,csv_import
+TXS 30,DISCOUNTTXS4225200461_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXS 31,DISCOUNTTXS8581476749_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+TXS 31,DISCOUNTTXS8700836501_BR,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+TXW 01,DISCOUNTTXW8956453319_BR,Primary,Altice,500.0M x 50.0M,Enabled,False,csv_import
+TXW 01,DISCOUNTTXW2514197379_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXW 02,DISCOUNTTXW8064632574_BR,Primary,Altice,500.0M x 50.0M,Enabled,False,csv_import
+TXW 02,DISCOUNTTXW6060485262_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXW 03,DISCOUNTTXW6257330876_BR,Primary,Altice West,500.0M x 50.0M,Enabled,False,csv_import
+TXW 04,DISCOUNTTXW5615219772_BR,Primary,Altice,500.0M x 50.0M,Enabled,False,csv_import
+TXW 04,DISCOUNTTXW4425501484_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXW 05,DISCOUNTTXW3380256339_BR,Primary,Altice,500.0M x 50.0M,Enabled,False,csv_import
+TXW 05,DISCOUNTTXW3314192517_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXW 06,DISCOUNTTXW8416480809_BR,Primary,Altice West,500.0M x 50.0M,Enabled,False,csv_import
+TXW 07,DISCOUNTTXW1973127612_BR-I7,Primary,Altice West,500.0M x 50.0M,Enabled,False,csv_import
+TXW 07,DISCOUNTTXW5737170723_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+TXW 08,DISCOUNTTXW4323526519_BR,Primary,Harris Broadband,500.0M x 20.0M,Enabled,False,csv_import
+TXW 08,DISCOUNTTXW4323526520_BR,Secondary,Unite Private Networks,300.0M x 300.0M,Enabled,False,csv_import
+TXW 09,DISCOUNTTXW1747676820_BR,Primary,Altice,500.0M x 50.0M,Enabled,False,csv_import
+TXW 09,DISCOUNTTXW6754681260_BR,Secondary,Vexus,100.0M x 100.0M,Enabled,False,csv_import
+UTS 00,DISCOUNTUTS5254660923_BR,Primary,Zayo Communications,100.0M x 100.0M,Enabled,False,csv_import
+UTS 01,DISCOUNTUTS7774608650_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+UTS 02,,Primary,Comcast,,Enabled,False,Non-DSR
+UTS 03,DISCOUNTUTS6703168126_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+UTS 03,DISCOUNTUTS1611265375_BR,Secondary,EB2-Lumen DSL,140.0M x 20.0M,Enabled,False,csv_import
+UTS 04,DISCOUNTUTS5032580109_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+UTS 04,DISCOUNTUTS7407927430_BR,Secondary,EB2-Lumen DSL,100.0M x 10.0M,Enabled,False,csv_import
+UTS 05,DISCOUNTUTS4728123218_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+UTS 05,DISCOUNTUTS6592173694_BR,Secondary,Centracom,500.0M x 500.0M,Enabled,False,csv_import
+UTS 06,DISCOUNTUTS9093268349_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+UTS 06,DISCOUNTUTS6644849389_BR,Secondary,EB2-Centurylink DSL,80.0M x 10.0M,Enabled,False,csv_import
+UTS 07,DISCOUNTUTS6998704761_BR,Secondary,EB2-Lumen DSL,80.0M x 10.0M,Enabled,False,csv_import
+UTS 09,DISCOUNTUTS8019740641_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+UTS 09,DISCOUNTUTS1010634512_BR,Secondary,EB2-Centurylink DSL,100.0M x 10.0M,Enabled,False,csv_import
+UTS 11,DISCOUNTUTS8957202966_BR,Secondary,Centracom,300.0M x 30.0M,Enabled,False,csv_import
+UTS 12,DISCOUNTUTS4356270263_BR,Primary,TDS Cable,500.0M x 100.0M,Enabled,False,csv_import
+UTS 14,DISCOUNTUTS6904289181_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+UTS 14,DISCOUNTUTS8348664249_BR,Secondary,First Digital,300.0M x 30.0M,Enabled,False,csv_import
+UTS 15,,Primary,Comcast,,Enabled,False,Non-DSR
+UTS 16,DISCOUNTUTS5459262505_BR,Secondary,EB2-Lumen DSL,100.0M x 10.0M,Enabled,False,csv_import
+UTS 17,,Primary,Comcast,,Enabled,False,Non-DSR
+UTS 18,DISCOUNTUTS7706534566_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+UTS 18,DISCOUNTUTS7904986350_BR,Secondary,EB2-Centurylink DSL,100.0M x 10.0M,Enabled,False,csv_import
+UTS 19,,Primary,Comcast,,Enabled,False,Non-DSR
+UTS 20,DISCOUNTUTS7654845582_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+UTS 20,DISCOUNTUTS2519833394_BR-I1,Secondary,First Digital,500.0M x 35.0M,Enabled,False,csv_import
+UTS 21,DISCOUNTUTS9843659622_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+UTS 22,DISCOUNTUTS1756768144_BR,Primary,Centracom,500.0M x 500.0M,Enabled,False,csv_import
+UTS 22,DISCOUNTUTS1756768144_BR-I1,Secondary,CenturyLink/Qwest,60.0M x 5.0M,Enabled,False,csv_import
+UTS 23,DISCOUNTUTS1651896713_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+UTS 24,DISCOUNTUTS6135490594_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+UTS 24,DISCOUNTUTS5964475805_BR,Secondary,Spanish Fork Community Network,1000.0M x 1000.0M,Enabled,False,csv_import
+UTS 25,DISCOUNTUTS8019999701_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+UTS 25,DISCOUNTUTS6280859587_BR,Secondary,Centracom,100.0M x 40.0M,Enabled,False,csv_import
+UTS 26,DISCOUNTUTS7741746134_BR,Secondary,Infowest Inc,250.0M x 250.0M,Enabled,False,csv_import
+UTS W01,,Primary,Comcast,,Enabled,False,Non-DSR
+UTSW01,DISCOUNTUTS6735908742_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+UTS W02,,Primary,DSR Comcast Cable,,Enabled,False,Non-DSR
+UTSW02,DISCOUNTUTS1869627420_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+VAB 01,DISCOUNTVAB3602607712_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+VAB 02,DISCOUNTVAB1638303983_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+VAB 03,DISCOUNTVAB6686586288_BR,Primary,Verizon FIOS,500.0M x 500.0M,Enabled,False,csv_import
+VAB 03,DISCOUNTVAB1629103224_BR,Secondary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+VAB 04,DISCOUNTVAB1678831247_BR,Primary,Verizon FIOS,500.0M x 500.0M,Enabled,False,csv_import
+VAB 05,DISCOUNTVAB4176557417_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+VAB 06,DISCOUNTVAB7801671254_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+VAB 06,DISCOUNTVAB7102677719_BR,Secondary,EB2-Verizon Fiber,300.0M x 300.0M,Enabled,False,csv_import
+VAB 07,DISCOUNTVAB4806066347_BR,Primary,Verizon FIOS  ,500.0M x 500.0M,Enabled,False,csv_import
+VAB 07,DISCOUNTVAB2281250789_BR,Secondary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+VAB 08,DISCOUNTVAB7579016900_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+VAB 09,DISCOUNTVAB7573646596_BR,Primary,Cox Business/BOI,300.0M x 30.0M,Enabled,False,csv_import
+VAF 01,DISCOUNTVAF5407366034_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+VAF 01 - appliance,,Primary,Comcast,,Enabled,False,Non-DSR
+VAF 02,DISCOUNTVAF6418963188_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+VAR 00,DISCOUNTVAR8045396775_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+VAR 01,,Primary,Comcast,,Enabled,False,Non-DSR
+VAR 02,DISCOUNTVAR5770874237_BR,Primary,Comcast Workplace,200.0M x 20.0M,Enabled,False,csv_import
+VAR 03,DISCOUNTVAR1892476489_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+VAR 03,DISCOUNTVAR8519226359_BR,Secondary,EB2-Verizon Fiber,300.0M x 300.0M,Enabled,False,csv_import
+VAR 04,DISCOUNTVAR6405852695_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+VAR 05,DISCOUNTVAR8044649011_BR,Primary,EB2-Verizon Fiber,500.0M x 500.0M,Enabled,False,csv_import
+VAR 05,DISCOUNTVAR7702126760_BR,Secondary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+VAR 06,DISCOUNTVAR8043129046_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+VAR 07,DISCOUNTVAR8047896057_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+VAT 01,DISCOUNTVAT6301723697_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+VAT 01,DISCOUNTVAT7512622236_BR,Secondary,Point Broadband,300.0M x 300.0M,Enabled,False,csv_import
+VAW 01,DISCOUNTVAW9512816352_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+VAW 01,DISCOUNTVAW5240185453_BR,Secondary,Lumos Networks,500.0M x 500.0M,Enabled,False,csv_import
+VAW 02,DISCOUNTVAW5407956378_BR,Primary,Cox Business/BOI,1000.0M x 50.0M,Enabled,False,csv_import
+VAW 03,DISCOUNTVAW1139819903_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+WAE 01,,Primary,Comcast,,Enabled,False,Non-DSR
+WAE 02,,Primary,Comcast,,Enabled,False,Non-DSR
+WAE 03,DISCOUNTWAE8832870145_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+WAE 03,DISCOUNTWAE2839359453_BR,Secondary,Pocketinet Communications,100.0M x 100.0M,Enabled,False,csv_import
+WAE 04,DISCOUNTWAE3563225276_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+WAE 04,DISCOUNTWAE6079682244_BR,Secondary,EB2-Ziply Fiber,500.0M x 500.0M,Enabled,False,csv_import
+WAS00,DISCOUNTWAS3324868261_BR,Primary,Ziply Fiber,1000.0M x 1000.0M,Enabled,False,csv_import
+WAS 01,DISCOUNTWAS6967530581_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+WAS 01,DISCOUNTWAS1975687879_BR,Secondary,EB2-Ziply Fiber,1000.0M x 1000.0M,Enabled,False,csv_import
+WAS 02,DISCOUNTWAS2128351836_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+WAS 04,DISCOUNTWAS1788558992_BR,Primary,Centurylink Fiber-Plus,500.0M x 500.0M,Enabled,False,csv_import
+WAS 06,DISCOUNTWAS9026189510_BR,Primary,CenturyLink Fiber Plus,500.0M x 500.0M,Enabled,False,csv_import
+WAS 08,DISCOUNTWAS6755759579_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+WAS 09,,Primary,Comcast,,Enabled,False,Non-DSR
+WAS 11,,Primary,Comcast,,Enabled,False,Non-DSR
+WAS 13,DISCOUNTWAS4182891839_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+WAS 13,DISCOUNTWAS9956666283_BR,Secondary,Astound,300.0M x 300.0M,Enabled,False,csv_import
+WAS 14,,Primary,Comcast,,Enabled,False,Non-DSR
+WAS 15,DISCOUNTWAS7119172328_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+WAS 17,DISCOUNTWAS3791538109_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+WAS 17,DISCOUNTWAS2965946111_BR,Secondary,EB2-Ziply Fiber,500.0M x 500.0M,Enabled,False,csv_import
+WAS 18,DISCOUNTWAS9814594491_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+WAS 18,DISCOUNTWAS1623322654_BR,Secondary,LocalTel,1000.0M x 1000.0M,Enabled,False,csv_import
+WAS 19,DISCOUNTWAS6324414932_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+WAS 19,DISCOUNTWAS6355399178_BR,Secondary,EB2-Centurylink DSL,100.0M x 10.0M,Enabled,False,csv_import
+WAS 20,DISCOUNTWAS9615837173_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+WAS 21,DISCOUNTWAS2470434462_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+WAS 22,DISCOUNTWAS6666496984_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+WAS 23,,Primary,ComcastAgg CLink,,Enabled,False,Non-DSR
+WAS 26,DISCOUNTWAS4664531489_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+WAS 26,DISCOUNTWAS4554188877_BR,Secondary,EB2-Ziply Fiber,500.0M x 500.0M,Enabled,False,csv_import
+WAS 27,DISCOUNTWAS4830865719_BR-I3,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+WAS 27,DISCOUNTWAS4830865719_BR,Secondary,CenturyLink/Qwest,10.0M x 2.0M,Enabled,False,csv_import
+WAS 28,DISCOUNTWAS3603922091_BR,Primary,Comcast Workplace,300.0M x 30.0M,Enabled,False,csv_import
+WAS 28,DISCOUNTWAS5671637540_BR,Secondary,Astound,300.0M x 300.0M,Enabled,False,csv_import
+WAS 29,DISCOUNTWAS6775957953_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+WAS W00,,Primary,Comcast,,Enabled,False,Non-DSR
+WAV 01,DISCOUNTWAV9793308998_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+WAV 02,DISCOUNTWAV6300427455_BR,Primary,Comcast Workplace,600.0M x 35.0M,Enabled,False,csv_import
+WAY 01,DISCOUNTWAY6841476757_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+WDGA01_01,DISCOUNTWDG6989391145_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+WDIL01,DISCOUNTWDI2730940494_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+WDTD 01,,Primary,AT&T,,Enabled,False,Non-DSR
+WDTD 01,,Secondary,ATT,,Enabled,False,Non-DSR
+WDTD01,DISCOUNTWDT1034258730_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+WIA 01,DISCOUNTWIA3035258671_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+WIA 01,DISCOUNTWIA7830917250_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+WIA 02,DISCOUNTWIA4806066000_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+WIA 02,DISCOUNTWIA9095373339_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+WIC 01,DISCOUNTWIC6926181685_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+WIC 01,DISCOUNTWIC4464737643_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+WIE 01,DISCOUNTWIE1722306535_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+WIE 01,DISCOUNTWIE7870611389_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+WIE 02,DISCOUNTWIE7284861611_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+WIE 02,DISCOUNTWIE8621110171_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+WIG 01,DISCOUNTWIG2973316637_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+WIL 01,DISCOUNTWIL2944882959_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+WIL 01,DISCOUNTWIL8229684350_BR,Secondary,MetroNet,500.0M x 500.0M,Enabled,False,csv_import
+WIM 01,DISCOUNTWIM6559884946_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+WIM 02,DISCOUNTWIM6468033935_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+WIM 02,DISCOUNTWIM6409178926_BR,Secondary,AT&T Broadband II,300.0M x 300.0M,Enabled,False,csv_import
+WIM 03,DISCOUNTWIM9037979716_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+WIM 04,DISCOUNTWIM6083540078_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+WIM 05,DISCOUNTWIM2625047049_BR,Primary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+WIM 06,DISCOUNTWIM6084054013_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+WIM 06,DISCOUNTWIM2656765286_BR,Secondary,AT&T Broadband II,1000.0M x 200.0M,Enabled,False,csv_import
+WIO 01,DISCOUNTWIO9208917209_BR,Primary,Spectrum,940.0M x 35.0M,Enabled,False,csv_import
+WIO 01,DISCOUNTWIO8206477319_BR-I3,Secondary,AT&T Broadband II,1000.0M x 1000.0M,Enabled,False,csv_import
+WIW 01,DISCOUNTWIW7156795698_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+WVE 01,DISCOUNTWVE4806066000_BR,Primary,Comcast Workplace,250.0M x 25.0M,Enabled,False,csv_import
+WYO 01,DISCOUNTWYO1583356939_BR,Primary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import
+WYO 02,DISCOUNTWYO4806066000_BR,Primary,Spectrum,300.0M x 20.0M,Enabled,False,csv_import
+WYO 03,DISCOUNTWYO1224111903_BR,Primary,Mountain West Technologies,500.0M x 500.0M,Enabled,False,csv_import
+WYO 03,DISCOUNTWYO2588257317_BR,Secondary,Spectrum,600.0M x 35.0M,Enabled,False,csv_import

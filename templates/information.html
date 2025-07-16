@@ -1,0 +1,330 @@
+[file name]: templates/information.html
+[file content]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meraki MX Device Information Editor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <style>
+        .device-card { margin-bottom: 20px; }
+        .wan-label { font-weight: bold; }
+        .notes-text { white-space: pre-wrap; }
+        .last-updated { font-size: 0.8rem; color: #6c757d; }
+        .search-box { margin-bottom: 20px; }
+        .csv-template { margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Meraki MX Device Information Editor</h1>
+        <p class="last-updated">Last updated: {% if last_update %}{{ last_update }}{% else %}Not available{% endif %}</p>
+        
+        <div class="card search-box">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" id="searchInput" placeholder="Search devices...">
+                            <button class="btn btn-outline-secondary" type="button" id="searchButton">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-end">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#csvModal">
+                            <i class="bi bi-upload"></i> Upload CSV
+                        </button>
+                        <a href="#" class="btn btn-secondary" id="downloadTemplate">
+                            <i class="bi bi-download"></i> CSV Template
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="deviceList">
+            {% for device in devices %}
+            <div class="card device-card" data-serial="{{ device.device_serial }}" data-name="{{ device.device_name }}">
+                <div class="card-header">
+                    <h5>{{ device.device_name or 'Unnamed Device' }} ({{ device.device_model }})</h5>
+                    <small class="text-muted">{{ device.network_name }} - {{ device.device_serial }}</small>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <p class="wan-label">WAN1: <span>{{ device.wan1_label or 'Not specified' }}</span></p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="wan-label">WAN2: <span>{{ device.wan2_label or 'Not specified' }}</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Tags</label>
+                        <input type="text" class="form-control tags-input" 
+                               value="{{ device.network_tags|join(', ') if device.network_tags else '' }}"
+                               data-original="{{ device.network_tags|join(', ') if device.network_tags else '' }}">
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">Notes</label>
+                        <textarea class="form-control notes-textarea" rows="4"
+                                  data-original="{{ device.raw_notes or '' }}">{{ device.raw_notes or '' }}</textarea>
+                    </div>
+                    
+                    <div class="text-end">
+                        <button class="btn btn-sm btn-outline-secondary cancel-btn" style="display: none;">
+                            Cancel
+                        </button>
+                        <button class="btn btn-sm btn-primary save-btn" style="display: none;">
+                            Save Changes
+                        </button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- CSV Upload Modal -->
+    <div class="modal fade" id="csvModal" tabindex="-1" aria-labelledby="csvModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="csvModalLabel">Upload CSV for Bulk Updates</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Upload a CSV file to update multiple devices at once. The CSV should have these columns:</p>
+                    <ul>
+                        <li><strong>serial</strong> - Device serial number</li>
+                        <li><strong>notes</strong> - New notes content</li>
+                        <li><strong>tags</strong> - Comma-separated list of tags</li>
+                    </ul>
+                    <div class="mb-3">
+                        <input class="form-control" type="file" id="csvFile" accept=".csv">
+                    </div>
+                    <div id="uploadResults" class="mt-3"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="uploadCsv">Upload</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set up download template button
+            document.getElementById('downloadTemplate').addEventListener('click', function(e) {
+                e.preventDefault();
+                const csvContent = "serial,notes,tags\nQ2KY-7ZZT-A4Q3,\"DSR WAN1: AT&T 2.0G x 2.0G IP: 108.213.50.113 GW: 108.213.50.118 Sub: 255.255.255.248 WAN2 Spectrum 600.0M x 35.0M IP: 97.105.40.142 GW: 97.105.40.141 Sub: 255.255.255.252\",\"tag1,tag2\"";
+                const blob = new Blob([csvContent], { type: 'text/csv' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.setAttribute('hidden', '');
+                a.setAttribute('href', url);
+                a.setAttribute('download', 'meraki_device_updates_template.csv');
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            });
+
+            // Set up input change detection for each device
+            document.querySelectorAll('.tags-input, .notes-textarea').forEach(input => {
+                input.addEventListener('input', function() {
+                    const card = this.closest('.device-card');
+                    const originalTags = card.querySelector('.tags-input').dataset.original;
+                    const currentTags = card.querySelector('.tags-input').value;
+                    const originalNotes = card.querySelector('.notes-textarea').dataset.original;
+                    const currentNotes = card.querySelector('.notes-textarea').value;
+                    
+                    const tagsChanged = originalTags !== currentTags;
+                    const notesChanged = originalNotes !== currentNotes;
+                    
+                    card.querySelector('.cancel-btn').style.display = 
+                        card.querySelector('.save-btn').style.display = 
+                        (tagsChanged || notesChanged) ? 'inline-block' : 'none';
+                });
+            });
+
+            // Set up save buttons
+            document.querySelectorAll('.save-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const card = this.closest('.device-card');
+                    const serial = card.dataset.serial;
+                    const tags = card.querySelector('.tags-input').value.split(',').map(t => t.trim()).filter(t => t);
+                    const notes = card.querySelector('.notes-textarea').value;
+                    
+                    saveDeviceChanges(serial, tags, notes, card);
+                });
+            });
+
+            // Set up cancel buttons
+            document.querySelectorAll('.cancel-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const card = this.closest('.device-card');
+                    card.querySelector('.tags-input').value = card.querySelector('.tags-input').dataset.original;
+                    card.querySelector('.notes-textarea').value = card.querySelector('.notes-textarea').dataset.original;
+                    card.querySelector('.cancel-btn').style.display = 'none';
+                    card.querySelector('.save-btn').style.display = 'none';
+                });
+            });
+
+            // Set up CSV upload
+            document.getElementById('uploadCsv').addEventListener('click', function() {
+                const fileInput = document.getElementById('csvFile');
+                if (!fileInput.files.length) {
+                    alert('Please select a CSV file first');
+                    return;
+                }
+
+                const formData = new FormData();
+                formData.append('file', fileInput.files[0]);
+
+                document.getElementById('uploadResults').innerHTML = `
+                    <div class="text-center">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Processing...</span>
+                        </div>
+                        <p>Processing CSV file...</p>
+                    </div>
+                `;
+
+                fetch('/api/information/upload_csv', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    let resultsHtml;
+                    if (data.error) {
+                        resultsHtml = `<div class="alert alert-danger">${data.error}</div>`;
+                    } else {
+                        const successCount = data.results.filter(r => r.status === 'success').length;
+                        const errorCount = data.results.filter(r => r.status === 'error').length;
+                        const skippedCount = data.results.filter(r => r.status === 'skipped').length;
+
+                        resultsHtml = `
+                            <div class="alert alert-success">
+                                Processed ${data.results.length} devices:
+                                ${successCount} updated, ${errorCount} errors, ${skippedCount} skipped
+                            </div>
+                            <div class="table-responsive">
+                                <table class="table table-sm">
+                                    <thead>
+                                        <tr>
+                                            <th>Serial</th>
+                                            <th>Status</th>
+                                            <th>Message</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        ${data.results.map(r => `
+                                            <tr class="${r.status === 'success' ? 'table-success' : 
+                                                         r.status === 'error' ? 'table-danger' : 'table-warning'}">
+                                                <td>${r.serial}</td>
+                                                <td>${r.status}</td>
+                                                <td>${r.message}</td>
+                                            </tr>
+                                        `).join('')}
+                                    </tbody>
+                                </table>
+                            </div>
+                        `;
+                    }
+                    document.getElementById('uploadResults').innerHTML = resultsHtml;
+                })
+                .catch(error => {
+                    document.getElementById('uploadResults').innerHTML = `
+                        <div class="alert alert-danger">
+                            Error processing CSV: ${error.message}
+                        </div>
+                    `;
+                });
+            });
+
+            // Search functionality
+            document.getElementById('searchButton').addEventListener('click', searchDevices);
+            document.getElementById('searchInput').addEventListener('keyup', function(e) {
+                if (e.key === 'Enter') searchDevices();
+            });
+        });
+
+        function searchDevices() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            if (!searchTerm) {
+                document.querySelectorAll('.device-card').forEach(card => {
+                    card.style.display = '';
+                });
+                return;
+            }
+
+            document.querySelectorAll('.device-card').forEach(card => {
+                const serial = card.dataset.serial.toLowerCase();
+                const name = card.dataset.name ? card.dataset.name.toLowerCase() : '';
+                const matches = serial.includes(searchTerm) || name.includes(searchTerm);
+                card.style.display = matches ? '' : 'none';
+            });
+        }
+
+        function saveDeviceChanges(serial, tags, notes, cardElement) {
+            const saveBtn = cardElement.querySelector('.save-btn');
+            const originalText = saveBtn.textContent;
+            saveBtn.disabled = true;
+            saveBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Saving...';
+
+            fetch('/api/information/update_device', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    serial: serial,
+                    tags: tags,
+                    notes: notes
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert(`Error: ${data.error}`);
+                } else {
+                    // Update original values to new values
+                    cardElement.querySelector('.tags-input').dataset.original = tags.join(', ');
+                    cardElement.querySelector('.notes-textarea').dataset.original = notes;
+                    cardElement.querySelector('.cancel-btn').style.display = 'none';
+                    cardElement.querySelector('.save-btn').style.display = 'none';
+                    
+                    // Show success message
+                    const alert = document.createElement('div');
+                    alert.className = 'alert alert-success alert-dismissible fade show';
+                    alert.innerHTML = `
+                        Device updated successfully!
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    `;
+                    cardElement.querySelector('.card-body').prepend(alert);
+                    
+                    // Auto-hide after 3 seconds
+                    setTimeout(() => {
+                        alert.classList.remove('show');
+                        setTimeout(() => alert.remove(), 150);
+                    }, 3000);
+                }
+            })
+            .catch(error => {
+                alert(`Error saving changes: ${error.message}`);
+            })
+            .finally(() => {
+                saveBtn.disabled = false;
+                saveBtn.textContent = originalText;
+            });
+        }
+    </script>
+</body>
+</html>

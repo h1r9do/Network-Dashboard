@@ -1,0 +1,236 @@
+{
+  "migration_overview": {
+    "title": "Meraki MX VLAN Migration with Firewall Rules and Policy Objects",
+    "version": "1.0",
+    "description": "Complete migration process for Discount Tire store networks",
+    "use_cases": [
+      "New store deployment from template",
+      "Existing store VLAN renumbering",
+      "Test environment setup",
+      "Production configuration standardization"
+    ]
+  },
+  "prerequisites": {
+    "environment": {
+      "meraki_api_key": "Required in /usr/local/bin/meraki.env",
+      "python_packages": ["requests", "python-dotenv", "ipaddress"],
+      "api_access": "Read/write permissions to target organization"
+    },
+    "source_files": {
+      "source_config": "JSON export of source network configuration (e.g., azp_30_config.json)",
+      "firewall_template": "Firewall rules template (e.g., firewall_rules_template.json)",
+      "policy_objects": "Policy objects from production organization (auto-discovered)"
+    },
+    "target_network": {
+      "network_id": "Target Meraki network ID (L_xxxxxxxxxxxxx)",
+      "organization_access": "Must have admin access to target organization",
+      "existing_config": "Warning: All existing VLANs will be replaced"
+    }
+  },
+  "migration_steps": {
+    "step_1": {
+      "name": "Pre-Migration Validation",
+      "description": "Validate environment and access",
+      "actions": [
+        "Verify API key and permissions",
+        "Check target network accessibility",
+        "Validate source configuration files",
+        "Confirm organization IDs"
+      ],
+      "estimated_time": "2-3 minutes"
+    },
+    "step_2": {
+      "name": "Policy Object Migration",
+      "description": "Migrate required policy objects between organizations",
+      "actions": [
+        "Discover referenced policy objects in firewall rules",
+        "Check if objects exist in target organization",
+        "Create missing network objects (FQDN, CIDR, IP)",
+        "Create missing object groups",
+        "Map old IDs to new IDs for firewall rules"
+      ],
+      "objects_migrated": {
+        "network_objects": [
+          "Google services (AndroidClients, ClientServices, Firebase, MTalk)",
+          "Windows NTP servers",
+          "EPX payment system endpoints"
+        ],
+        "object_groups": [
+          "Outbound EPX group",
+          "MS Teams Media IPs group", 
+          "Netrix nVX PBX IPs group"
+        ]
+      },
+      "estimated_time": "3-5 minutes"
+    },
+    "step_3": {
+      "name": "Group Policy Creation",
+      "description": "Create bandwidth and access control policies",
+      "actions": [
+        "Create Guest Network policy (bandwidth limiting)",
+        "Create web filtering policies (Indeed.com, Ebay Access)",
+        "Map old policy IDs to new IDs for VLAN assignment"
+      ],
+      "estimated_time": "1-2 minutes"
+    },
+    "step_4": {
+      "name": "VLAN Cleanup",
+      "description": "Remove existing VLANs (except last required)",
+      "actions": [
+        "Get current VLAN configuration",
+        "Delete all VLANs except default (maintain minimum of 1)",
+        "Handle 'At least one VLAN must be configured' constraint"
+      ],
+      "estimated_time": "2-3 minutes"
+    },
+    "step_5": {
+      "name": "VLAN Migration",
+      "description": "Create new VLANs with migrated configuration",
+      "vlan_mapping": {
+        "1": "100 (Data)",
+        "101": "200 (Voice)",
+        "201": "410 (Ccard)",
+        "300": "300 (Net Mgmt - name change)",
+        "301": "301 (Scanner)",
+        "800": "800 (Guest)",
+        "801": "400 (IoT)", 
+        "802": "Remove (deprecated)",
+        "803": "803 (IoT Wireless)",
+        "900": "900 (Mgmt)"
+      },
+      "ip_handling": {
+        "test_mode": "Changes IPs to 10.255.255.x and 172.16.x.x ranges",
+        "production_mode": "Preserves original IP addresses"
+      },
+      "dhcp_preservation": [
+        "DHCP handling (server vs relay)",
+        "DNS nameservers",
+        "DHCP options (Option 43, etc.)",
+        "Reserved IP ranges",
+        "Fixed IP assignments",
+        "Lease times"
+      ],
+      "actions": [
+        "Process default VLAN 1 → 100 migration",
+        "Create remaining VLANs with new IDs",
+        "Apply group policies to appropriate VLANs",
+        "Update DHCP settings for test/production mode",
+        "Verify all VLANs created successfully"
+      ],
+      "estimated_time": "5-8 minutes"
+    },
+    "step_6": {
+      "name": "Syslog Configuration",
+      "description": "Configure syslog server for firewall rule logging",
+      "actions": [
+        "Configure syslog server (default: 10.0.175.30:514)",
+        "Enable logging roles: Flows, URLs, Security events, Appliance event log",
+        "Update syslog IP for test mode if applicable"
+      ],
+      "estimated_time": "1 minute"
+    },
+    "step_7": {
+      "name": "Firewall Rules Deployment", 
+      "description": "Apply complete firewall ruleset with policy object references",
+      "actions": [
+        "Load firewall rules template",
+        "Update object/group references with new IDs",
+        "Apply all rules via single API call",
+        "Verify rules applied successfully"
+      ],
+      "rules_applied": {
+        "total_rules": "55+ rules from NEO 07 template",
+        "vlan_rules": "Rules for VLANs 100, 200, 300, 301, 400, 410, 800",
+        "object_references": "Rules referencing policy objects (NTP, Google services)",
+        "group_references": "Rules referencing policy groups (EPX, Teams, PBX)"
+      },
+      "estimated_time": "2-3 minutes"
+    },
+    "step_8": {
+      "name": "Validation and Reporting",
+      "description": "Verify complete deployment and generate report",
+      "actions": [
+        "Verify all VLANs created with correct subnets",
+        "Confirm group policies applied",
+        "Validate firewall rules count and references",
+        "Check syslog server configuration",
+        "Generate deployment report"
+      ],
+      "estimated_time": "1-2 minutes"
+    }
+  },
+  "error_handling": {
+    "common_issues": {
+      "api_rate_limits": {
+        "issue": "429 Too Many Requests",
+        "solution": "Script includes automatic retry with 60-second delay"
+      },
+      "vlan_conflicts": {
+        "issue": "VLAN ID already exists",
+        "solution": "Script handles existing VLANs and provides clean error messages"
+      },
+      "policy_object_missing": {
+        "issue": "Referenced objects don't exist in target org",
+        "solution": "Auto-migration from source organization with ID mapping"
+      },
+      "group_policy_conflicts": {
+        "issue": "Group policy name already exists",
+        "solution": "Script skips existing policies and maps to existing IDs"
+      },
+      "syslog_requirements": {
+        "issue": "Firewall rules require syslog server",
+        "solution": "Script configures syslog before applying rules"
+      }
+    },
+    "rollback_procedure": {
+      "description": "How to revert changes if migration fails",
+      "steps": [
+        "Run reset script to delete all VLANs except default",
+        "Remove created group policies",
+        "Clear firewall rules",
+        "Remove syslog configuration",
+        "Restore from backup if available"
+      ]
+    }
+  },
+  "deployment_modes": {
+    "test_mode": {
+      "description": "For testing and validation environments",
+      "ip_changes": {
+        "10.x.x.x_networks": "Changed to 10.255.255.x",
+        "guest_iot_networks": "Changed to 172.16.x.x ranges",
+        "syslog_server": "Updated to test IP range"
+      },
+      "use_cases": ["TST 01 testing", "Staging environments", "Development"]
+    },
+    "production_mode": {
+      "description": "For live store deployments",
+      "ip_preservation": "All original IP addresses maintained",
+      "use_cases": ["New store deployment", "Existing store migration", "VLAN renumbering"]
+    }
+  },
+  "estimated_total_time": "15-25 minutes",
+  "success_criteria": {
+    "vlans": "All VLANs created with correct IDs and subnets",
+    "group_policies": "3 policies created and applied to appropriate VLANs",
+    "policy_objects": "All referenced objects migrated and functional",
+    "firewall_rules": "55+ rules applied with object/group references working",
+    "syslog": "Server configured for security event logging",
+    "dhcp": "All DHCP settings preserved and functional"
+  },
+  "post_migration": {
+    "verification_steps": [
+      "Test VLAN connectivity",
+      "Verify DHCP functionality", 
+      "Confirm firewall rule enforcement",
+      "Check syslog event collection",
+      "Validate group policy application"
+    ],
+    "documentation": [
+      "Migration report with timing and results",
+      "Object ID mapping file for reference",
+      "Backup of original configuration",
+      "Deployment summary with all configurations"
+    ]
+  }
+}

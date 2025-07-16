@@ -1,0 +1,83 @@
+{
+  "name": "DSR Circuits Settings",
+  "description": "Claude Code settings with full permissions for DSR Circuits project",
+  "claude": {
+    "permissions": {
+      "file_operations": {
+        "read": true,
+        "write": true,
+        "create": true,
+        "delete": true,
+        "rename": true
+      },
+      "directory_operations": {
+        "list": true,
+        "create": true,
+        "delete": true,
+        "rename": true
+      },
+      "bash_commands": {
+        "execute": true,
+        "timeout": 600000,
+        "allowed_commands": ["*"]
+      },
+      "network_operations": {
+        "web_fetch": true,
+        "web_search": true
+      },
+      "database_operations": {
+        "read": true,
+        "write": true,
+        "execute": true
+      },
+      "git_operations": {
+        "status": true,
+        "diff": true,
+        "add": true,
+        "commit": true,
+        "push": true,
+        "pull": true,
+        "branch": true,
+        "checkout": true
+      },
+      "system_operations": {
+        "process_management": true,
+        "service_control": true,
+        "environment_variables": true
+      }
+    },
+    "tools": {
+      "bash": {
+        "enabled": true,
+        "max_timeout": 600000
+      },
+      "file_operations": {
+        "enabled": true,
+        "max_file_size": "100MB"
+      },
+      "web_operations": {
+        "enabled": true
+      },
+      "todo_management": {
+        "enabled": true
+      }
+    },
+    "features": {
+      "auto_complete": true,
+      "syntax_highlighting": true,
+      "error_detection": true,
+      "code_formatting": true,
+      "multi_file_editing": true,
+      "notebook_support": true
+    }
+  },
+  "project": {
+    "root": "/usr/local/bin/Main",
+    "type": "flask-postgresql",
+    "python_version": "3.x",
+    "database": {
+      "type": "postgresql",
+      "connection": "via config.py"
+    }
+  }
+}

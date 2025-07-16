@@ -1,0 +1,183 @@
+{
+  "timestamp": "2025-07-15T08:21:28.502909",
+  "summary": {
+    "total_sites": 19,
+    "broken_format": 5,
+    "correct_format": 14,
+    "errors": 0,
+    "no_mx_device": 0
+  },
+  "sites": [
+    {
+      "site": "ALB 01",
+      "serial": "Q2QN-84BN-W54P",
+      "model": "MX65",
+      "notes": "WAN 1\nAT&T Broadband II\n200M x 200M\nWAN 2\nSpectrum\n750M x 35M",
+      "has_broken_format": false,
+      "notes_preview": "WAN 1\nAT&T Broadband II\n200M x 200M\nWAN 2\nSpectrum\n750M x 35M",
+      "error": null
+    },
+    {
+      "site": "AZK 01",
+      "serial": "Q2QN-LEGN-ZUN6",
+      "model": "MX65",
+      "notes": "WAN 1\nFrontier Communications\n1000.0M x 1000.0M\nWAN 2\nAllo Communications\n500.0M x 500.0M",
+      "has_broken_format": false,
+      "notes_preview": "WAN 1\nFrontier Communications\n1000.0M x 1000.0M\nWAN 2\nAllo Communications\n500.0M x 500.0M",
+      "error": null
+    },
+    {
+      "site": "AZN 06",
+      "serial": "Q2QN-3CRT-WF2V",
+      "model": "MX65",
+      "notes": "WAN 1\nSparklight\n300.0M x 30.0M\nWAN 2\nVerizon Business",
+      "has_broken_format": false,
+      "notes_preview": "WAN 1\nSparklight\n300.0M x 30.0M\nWAN 2\nVerizon Business",
+      "error": null
+    },
+    {
+      "site": "AZP_00",
+      "serial": "Q2QN-LB6S-CYET",
+      "model": "MX65",
+      "notes": "WAN1: Cox Communications 300.0M x 30.0M\\nWAN2: AT&T Cell",
+      "has_broken_format": true,
+      "notes_preview": "WAN1: Cox Communications 300.0M x 30.0M | WAN2: AT&T Cell",
+      "error": null
+    },
+    {
+      "site": "AZP 05",
+      "serial": "Q2KY-WSRF-D3KA",
+      "model": "MX68",
+      "notes": "WAN 1\nCox Business/BOI\n300.0M x 30.0M\nWAN 2\nStarlink\nSatellite",
+      "has_broken_format": false,
+      "notes_preview": "WAN 1\nCox Business/BOI\n300.0M x 30.0M\nWAN 2\nStarlink\nSatellite",
+      "error": null
+    },
+    {
+      "site": "AZP 44",
+      "serial": "Q2QN-BD8J-XECP",
+      "model": "MX65",
+      "notes": "WAN1: CenturyLink 100.0M x 10.0M\\nWAN2: AT&T Cell",
+      "has_broken_format": true,
+      "notes_preview": "WAN1: CenturyLink 100.0M x 10.0M | WAN2: AT&T Cell",
+      "error": null
+    },
+    {
+      "site": "AZP 63",
+      "serial": "Q2KY-XL64-F85Y",
+      "model": "MX68",
+      "notes": "WAN 1\nStarlink\nSatellite\nWAN 2\nVZG Cell\nCell",
+      "has_broken_format": false,
+      "notes_preview": "WAN 1\nStarlink\nSatellite\nWAN 2\nVZG Cell\nCell",
+      "error": null
+    },
+    {
+      "site": "CAL 29",
+      "serial": "Q2QN-F3EK-T2SB",
+      "model": "MX65",
+      "notes": "WAN 1\nFrontier\n500.0M x 500.0M\nWAN 2\nVZW Cell\nCell",
+      "has_broken_format": false,
+      "notes_preview": "WAN 1\nFrontier\n500.0M x 500.0M\nWAN 2\nVZW Cell\nCell",
+      "error": null
+    },
+    {
+      "site": "CAN 22",
+      "serial": "Q2QN-LTVN-PNW4",
+      "model": "MX65",
+      "notes": "WAN 1\nComcast\n300.0M x 30.0M\nWAN 2\nAT&T\n300.0M x 300.0M",
+      "has_broken_format": false,
+      "notes_preview": "WAN 1\nComcast\n300.0M x 30.0M\nWAN 2\nAT&T\n300.0M x 300.0M",
+      "error": null
+    },
+    {
+      "site": "COD 22",
+      "serial": "Q2KY-VF36-99ZZ",
+      "model": "MX68",
+      "notes": "WAN1: Comcast 300.0M x 30.0M\\nWAN2: Verizon Cell",
+      "has_broken_format": true,
+      "notes_preview": "WAN1: Comcast 300.0M x 30.0M | WAN2: Verizon Cell",
+      "error": null
+    },
+    {
+      "site": "COD 28",
+      "serial": "Q2QN-3G8M-76RF",
+      "model": "MX65",
+      "notes": "WAN 1\nComcast Workplace\n1000.0M x 35.0M\nWAN 2\nAT&T\n20.0M x 20.0M",
+      "has_broken_format": false,
+      "notes_preview": "WAN 1\nComcast Workplace\n1000.0M x 35.0M\nWAN 2\nAT&T\n20.0M x 20.0M",
+      "error": null
+    },
+    {
+      "site": "FLT 01",
+      "serial": "Q2QN-NVA5-DYBY",
+      "model": "MX65",
+      "notes": "WAN 1\nComcast\n300.0M x 30.0M\nWAN 2\nMetroNet\n300.0M x 300.0M",
+      "has_broken_format": false,
+      "notes_preview": "WAN 1\nComcast\n300.0M x 30.0M\nWAN 2\nMetroNet\n300.0M x 300.0M",
+      "error": null
+    },
+    {
+      "site": "ILC 31",
+      "serial": "Q2QN-3ZNS-B9EN",
+      "model": "MX65",
+      "notes": "WAN1: Comcast 600.0M x 35.0M\\nWAN2: Starlink Satellite",
+      "has_broken_format": true,
+      "notes_preview": "WAN1: Comcast 600.0M x 35.0M | WAN2: Starlink Satellite",
+      "error": null
+    },
+    {
+      "site": "ILP 01",
+      "serial": "Q2KY-X8MY-JE3Q",
+      "model": "MX68",
+      "notes": "WAN 1\ni3 Broadband\n250.0M x 250.0M\nWAN 2\nStarlink\nSatellite",
+      "has_broken_format": false,
+      "notes_preview": "WAN 1\ni3 Broadband\n250.0M x 250.0M\nWAN 2\nStarlink\nSatellite",
+      "error": null
+    },
+    {
+      "site": "MNM 01",
+      "serial": "Q2QN-WXHV-DZ27",
+      "model": "MX65",
+      "notes": "WAN1: Comcast 750.0M x 35.0M\\nWAN2: AT&T Cell",
+      "has_broken_format": true,
+      "notes_preview": "WAN1: Comcast 750.0M x 35.0M | WAN2: AT&T Cell",
+      "error": null
+    },
+    {
+      "site": "MNM 31",
+      "serial": "Q2KY-W36T-CV3F",
+      "model": "MX68",
+      "notes": "WAN 1\nComcast Workplace\n500.0M x 30.0M",
+      "has_broken_format": false,
+      "notes_preview": "WAN 1\nComcast Workplace\n500.0M x 30.0M",
+      "error": null
+    },
+    {
+      "site": "NMA 05",
+      "serial": "Q2QN-86F8-JM27",
+      "model": "MX65",
+      "notes": "WAN2 DSR Unite Private 300.0M x 300.0M\nFirst IP 209.71.136.126\nGateway 209.71.136.125\nSubnet 255.255.255.252\n\nWAN2 DSR Comcast 600.0M x 35.0M\nIP: 173.163.241.109\nGW: 173.163.241.110\nSub: 255.255.255.252",
+      "has_broken_format": false,
+      "notes_preview": "WAN2 DSR Unite Private 300.0M x 300.0M\nFirst IP 209.71.136.126\nGateway 209.71.136.125\nSubnet 255.255.255.252\n\nWAN2 DSR Comcast 600.0M x 35.0M\nIP: 173.163.241.109\nGW: 173.163.241.110\nSub: 255.255.255.252",
+      "error": null
+    },
+    {
+      "site": "PAP 02",
+      "serial": "Q2KY-X8QX-SEH9",
+      "model": "MX68",
+      "notes": "WAN 1\nComcast Workplace\n750.0M x 35.0M",
+      "has_broken_format": false,
+      "notes_preview": "WAN 1\nComcast Workplace\n750.0M x 35.0M",
+      "error": null
+    },
+    {
+      "site": "WYO 03",
+      "serial": "Q2KY-825C-UWJH",
+      "model": "MX68",
+      "notes": "WAN 1\nMountain West Technologies\n500.0M x 500.0M\nWAN 2\nSpectrum\n600.0M x 35.0M",
+      "has_broken_format": false,
+      "notes_preview": "WAN 1\nMountain West Technologies\n500.0M x 500.0M\nWAN 2\nSpectrum\n600.0M x 35.0M",
+      "error": null
+    }
+  ]
+}

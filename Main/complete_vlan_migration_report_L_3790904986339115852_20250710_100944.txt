@@ -1,0 +1,92 @@
+
+Complete VLAN Migration Report
+==============================
+Network: TST 01 (L_3790904986339115852)
+Start Time: 2025-07-10 10:09:18
+Duration: 0:00:26.152029
+Mode: LIVE
+
+VLAN Mapping Applied:
+  VLAN 1 → VLAN 100
+  VLAN 101 → VLAN 200
+  VLAN 801 → VLAN 400
+  VLAN 201 → VLAN 410
+
+Log Entries:
+[10:09:18] INFO: Complete VLAN Migrator initialized for TST 01
+[10:09:18] INFO: Mode: LIVE
+[10:09:18] INFO: 
+============================================================
+[10:09:18] INFO: Taking complete configuration backup...
+[10:09:18] INFO: ============================================================
+[10:09:18] INFO: Backing up VLANs...
+[10:09:19] INFO:   ✓ Backed up 10 VLANs
+[10:09:19] INFO: Backing up firewall rules...
+[10:09:19] INFO:   ✓ Backed up 1 firewall rules
+[10:09:19] INFO: Backing up group policies...
+[10:09:19] INFO:   ✓ Backed up 3 group policies
+[10:09:19] INFO: Backing up switch configurations...
+[10:09:20] INFO:   ✓ Backed up 28 ports for TST_01SW01
+[10:09:21] INFO:   ✓ Backed up 28 ports for TST_01SW02
+[10:09:21] INFO: Backing up MX ports...
+[10:09:21] INFO:   ✓ Backed up 10 MX ports
+[10:09:21] INFO: Backing up syslog configuration...
+[10:09:22] INFO: 
+✓ Complete backup saved to complete_vlan_backup_L_3790904986339115852_20250710_100922.json
+[10:09:22] INFO: 
+============================================================
+[10:09:22] INFO: Clearing VLAN references...
+[10:09:22] INFO: ============================================================
+[10:09:22] INFO: 
+Step 1: Clearing firewall rules...
+[10:09:22] INFO:   ✓ Firewall rules cleared
+[10:09:22] INFO: 
+Step 2: Moving switch ports to temporary VLANs...
+[10:09:24] INFO:   ✓ Updated 3 ports on TST_01SW01
+[10:09:25] INFO:   ✓ Updated 3 ports on TST_01SW02
+[10:09:25] INFO: 
+Step 3: Updating MX ports to temporary VLANs...
+[10:09:29] INFO:   ✓ Updated 7 MX ports
+[10:09:29] INFO: 
+============================================================
+[10:09:29] INFO: Migrating VLANs to new IDs...
+[10:09:29] INFO: ============================================================
+[10:09:29] INFO: 
+VLAN 300 - No change needed
+[10:09:29] INFO: 
+VLAN 301 - No change needed
+[10:09:29] INFO: 
+VLAN 800 - Updating IP configuration...
+[10:09:29] INFO:   ✓ Updated VLAN 800 IP configuration
+[10:09:30] INFO: 
+VLAN 803 - No change needed
+[10:09:30] INFO: 
+VLAN 900 - No change needed
+[10:09:30] INFO: 
+============================================================
+[10:09:30] INFO: Restoring configurations with new VLAN IDs...
+[10:09:30] INFO: ============================================================
+[10:09:30] INFO: 
+Step 1: Updating switch ports to new VLAN IDs...
+[10:09:33] INFO:   ✓ Updated 4 ports on TST_01SW01
+[10:09:35] INFO:   ✓ Updated 4 ports on TST_01SW02
+[10:09:35] INFO: 
+Step 2: Updating MX ports to new VLAN IDs...
+[10:09:37] INFO:   ✓ Updated 4 MX ports
+[10:09:37] INFO: 
+Step 3: Applying NEO 07 firewall template...
+[10:09:37] INFO:   Downloading current NEO 07 firewall rules...
+[10:09:37] INFO:   Downloaded current NEO 07 rules: 55 rules
+[10:09:37] INFO:     Skipping rule with unresolved policy objects: Outbound EPX
+[10:09:37] INFO:   Skipped 1 rules with unresolved policy objects
+[10:09:39] INFO:   ✓ Applied 54 NEO 07 firewall template rules
+[10:09:39] INFO: 
+Step 4: Cleaning up temporary VLANs...
+[10:09:39] ERROR: API Error: 404 Client Error: Not Found for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans/999
+[10:09:39] ERROR: Response: 
+[10:09:41] ERROR: API Error: 404 Client Error: Not Found for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans/998
+[10:09:41] ERROR: Response: 
+[10:09:42] ERROR: API Error: 404 Client Error: Not Found for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans/997
+[10:09:42] ERROR: Response: 
+[10:09:43] ERROR: API Error: 404 Client Error: Not Found for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans/996
+[10:09:43] ERROR: Response: 

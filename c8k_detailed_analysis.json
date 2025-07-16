@@ -1,0 +1,3132 @@
+[
+  {
+    "hostname": "aladasa06a",
+    "ip": "10.101.255.35",
+    "chassis_model": "DCS-7050SX3-48YC8",
+    "chassis_serial": "JPA2314P1UM",
+    "chassis_description": "48x25GbE SFP + 8x100GbE QSFP Switch",
+    "module_count": 0,
+    "transceiver_count": 0,
+    "modules": [],
+    "transceivers": []
+  },
+  {
+    "hostname": "aladasa06b",
+    "ip": "10.101.255.36",
+    "chassis_model": "DCS-7050SX3-48YC8",
+    "chassis_serial": "JPA2313P3HE",
+    "chassis_description": "48x25GbE SFP + 8x100GbE QSFP Switch",
+    "module_count": 0,
+    "transceiver_count": 0,
+    "modules": [],
+    "transceivers": []
+  },
+  {
+    "hostname": "aladasa08a",
+    "ip": "10.101.255.37",
+    "chassis_model": "DCS-7050SX3-48YC8",
+    "chassis_serial": "JPA2314P1V5",
+    "chassis_description": "48x25GbE SFP + 8x100GbE QSFP Switch",
+    "module_count": 0,
+    "transceiver_count": 0,
+    "modules": [],
+    "transceivers": []
+  },
+  {
+    "hostname": "cordaso12a",
+    "ip": "10.0.255.115",
+    "chassis_model": "DCS-7050SX3-48YC8",
+    "chassis_serial": "JPA2314P1VK",
+    "chassis_description": "48x25GbE SFP + 8x100GbE QSFP Switch",
+    "module_count": 0,
+    "transceiver_count": 0,
+    "modules": [],
+    "transceivers": []
+  },
+  {
+    "hostname": "aladasa08b",
+    "ip": "10.101.255.38",
+    "chassis_model": "DCS-7050SX3-48YC8",
+    "chassis_serial": "JPA2314P1V7",
+    "chassis_description": "48x25GbE SFP + 8x100GbE QSFP Switch",
+    "module_count": 0,
+    "transceiver_count": 0,
+    "modules": [],
+    "transceivers": []
+  },
+  {
+    "hostname": "cordaso12b",
+    "ip": "10.0.255.116",
+    "chassis_model": "DCS-7050SX3-48YC8",
+    "chassis_serial": "JPA2314P1SG",
+    "chassis_description": "48x25GbE SFP + 8x100GbE QSFP Switch",
+    "module_count": 0,
+    "transceiver_count": 0,
+    "modules": [],
+    "transceivers": []
+  },
+  {
+    "hostname": "cordasq12a",
+    "ip": "10.0.255.117",
+    "chassis_model": "DCS-7050SX3-48YC8",
+    "chassis_serial": "JPA2314P1S8",
+    "chassis_description": "48x25GbE SFP + 8x100GbE QSFP Switch",
+    "module_count": 0,
+    "transceiver_count": 0,
+    "modules": [],
+    "transceivers": []
+  },
+  {
+    "hostname": "cordasq12b",
+    "ip": "10.0.255.118",
+    "chassis_model": "DCS-7050SX3-48YC8",
+    "chassis_serial": "JMX2319A6E6",
+    "chassis_description": "48x25GbE SFP + 8x100GbE QSFP Switch",
+    "module_count": 0,
+    "transceiver_count": 0,
+    "modules": [],
+    "transceivers": []
+  },
+  {
+    "hostname": "AL-MPLS-R1.dtc_phx.com",
+    "ip": "10.101.255.248",
+    "chassis_model": "C8300-1N1S-4T2X",
+    "chassis_serial": "FLM274610LV",
+    "chassis_description": "Cisco C8300-1N1S-4T2X Chassis",
+    "module_count": 7,
+    "transceiver_count": 18,
+    "modules": [
+      {
+        "description": "Cisco C8300-1N1S-4T2X Built-In NIM controller",
+        "model": "C8300-1N1S-4T2X",
+        "name": "module 0",
+        "serial": "\"\""
+      },
+      {
+        "description": "Front Panel 6 ports Ten/Gigabitethernet Module",
+        "model": "4x1G-2xSFP+",
+        "name": "NIM subslot 0/0",
+        "serial": "\"\""
+      },
+      {
+        "description": "GE LX",
+        "model": "SFP-GE-L            ",
+        "name": "subslot 0/0 transceiver 4",
+        "serial": "FNS140708XX     "
+      },
+      {
+        "description": "GE SX",
+        "model": "SFP-GE-S            ",
+        "name": "subslot 0/0 transceiver 5",
+        "serial": "FNS132701M6     "
+      },
+      {
+        "description": "Cisco C8300-1N1S-4T2X Built-In SM controller",
+        "model": "C8300-1N1S-4T2X",
+        "name": "module 1",
+        "serial": "\"\""
+      },
+      {
+        "description": "Cisco C8300-1N1S-4T2X Route Processor",
+        "model": "C8300-1N1S-4T2X",
+        "name": "module R0",
+        "serial": "FDO27410DQF"
+      },
+      {
+        "description": "Cisco C8300-1N1S-4T2X Forwarding Processor",
+        "model": "C8300-1N1S-4T2X",
+        "name": "module F0",
+        "serial": "\"\""
+      }
+    ],
+    "transceivers": [
+      {
+        "entity_id": "1090 ",
+        "description": "subslot 0/0 transceiver container 0",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 0",
+        "class": "5"
+      },
+      {
+        "entity_id": "1100 ",
+        "description": "subslot 0/0 transceiver container 1",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 1",
+        "class": "5"
+      },
+      {
+        "entity_id": "1110 ",
+        "description": "subslot 0/0 transceiver container 2",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 2",
+        "class": "5"
+      },
+      {
+        "entity_id": "1120 ",
+        "description": "subslot 0/0 transceiver container 3",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 3",
+        "class": "5"
+      },
+      {
+        "entity_id": "1130 ",
+        "description": "subslot 0/0 transceiver container 4",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 4",
+        "class": "5"
+      },
+      {
+        "entity_id": "1131 ",
+        "description": "GE LX",
+        "model": "SFP-GE-L            ",
+        "name": "subslot 0/0 transceiver 4",
+        "class": "9"
+      },
+      {
+        "entity_id": "1134 ",
+        "description": "subslot 0/0 transceiver 4 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1135 ",
+        "description": "subslot 0/0 transceiver 4 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1136 ",
+        "description": "subslot 0/0 transceiver 4 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1137 ",
+        "description": "subslot 0/0 transceiver 4 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1138 ",
+        "description": "subslot 0/0 transceiver 4 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1140 ",
+        "description": "subslot 0/0 transceiver container 5",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 5",
+        "class": "5"
+      },
+      {
+        "entity_id": "1141 ",
+        "description": "GE SX",
+        "model": "SFP-GE-S            ",
+        "name": "subslot 0/0 transceiver 5",
+        "class": "9"
+      },
+      {
+        "entity_id": "1144 ",
+        "description": "subslot 0/0 transceiver 5 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1145 ",
+        "description": "subslot 0/0 transceiver 5 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1146 ",
+        "description": "subslot 0/0 transceiver 5 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1147 ",
+        "description": "subslot 0/0 transceiver 5 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1148 ",
+        "description": "subslot 0/0 transceiver 5 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Rx Power Sensor",
+        "class": "8"
+      }
+    ]
+  },
+  {
+    "hostname": "HQ-MPLS-R1.dtc_phx.com",
+    "ip": "10.0.255.248",
+    "chassis_model": "C8300-1N1S-4T2X",
+    "chassis_serial": "FLM274610LT",
+    "chassis_description": "Cisco C8300-1N1S-4T2X Chassis",
+    "module_count": 7,
+    "transceiver_count": 18,
+    "modules": [
+      {
+        "description": "Cisco C8300-1N1S-4T2X Built-In NIM controller",
+        "model": "C8300-1N1S-4T2X",
+        "name": "module 0",
+        "serial": "\"\""
+      },
+      {
+        "description": "Front Panel 6 ports Ten/Gigabitethernet Module",
+        "model": "4x1G-2xSFP+",
+        "name": "NIM subslot 0/0",
+        "serial": "\"\""
+      },
+      {
+        "description": "GE LX",
+        "model": "SFP-GE-L            ",
+        "name": "subslot 0/0 transceiver 4",
+        "serial": "FNS13290RA9     "
+      },
+      {
+        "description": "GE SX",
+        "model": "GLC-SX-MMD          ",
+        "name": "subslot 0/0 transceiver 5",
+        "serial": "AGA1747RGCF     "
+      },
+      {
+        "description": "Cisco C8300-1N1S-4T2X Built-In SM controller",
+        "model": "C8300-1N1S-4T2X",
+        "name": "module 1",
+        "serial": "\"\""
+      },
+      {
+        "description": "Cisco C8300-1N1S-4T2X Route Processor",
+        "model": "C8300-1N1S-4T2X",
+        "name": "module R0",
+        "serial": "FDO27410DPX"
+      },
+      {
+        "description": "Cisco C8300-1N1S-4T2X Forwarding Processor",
+        "model": "C8300-1N1S-4T2X",
+        "name": "module F0",
+        "serial": "\"\""
+      }
+    ],
+    "transceivers": [
+      {
+        "entity_id": "1090 ",
+        "description": "subslot 0/0 transceiver container 0",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 0",
+        "class": "5"
+      },
+      {
+        "entity_id": "1100 ",
+        "description": "subslot 0/0 transceiver container 1",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 1",
+        "class": "5"
+      },
+      {
+        "entity_id": "1110 ",
+        "description": "subslot 0/0 transceiver container 2",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 2",
+        "class": "5"
+      },
+      {
+        "entity_id": "1120 ",
+        "description": "subslot 0/0 transceiver container 3",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 3",
+        "class": "5"
+      },
+      {
+        "entity_id": "1130 ",
+        "description": "subslot 0/0 transceiver container 4",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 4",
+        "class": "5"
+      },
+      {
+        "entity_id": "1131 ",
+        "description": "GE LX",
+        "model": "SFP-GE-L            ",
+        "name": "subslot 0/0 transceiver 4",
+        "class": "9"
+      },
+      {
+        "entity_id": "1134 ",
+        "description": "subslot 0/0 transceiver 4 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1135 ",
+        "description": "subslot 0/0 transceiver 4 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1136 ",
+        "description": "subslot 0/0 transceiver 4 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1137 ",
+        "description": "subslot 0/0 transceiver 4 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1138 ",
+        "description": "subslot 0/0 transceiver 4 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1140 ",
+        "description": "subslot 0/0 transceiver container 5",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 5",
+        "class": "5"
+      },
+      {
+        "entity_id": "1141 ",
+        "description": "GE SX",
+        "model": "GLC-SX-MMD          ",
+        "name": "subslot 0/0 transceiver 5",
+        "class": "9"
+      },
+      {
+        "entity_id": "1144 ",
+        "description": "subslot 0/0 transceiver 5 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1145 ",
+        "description": "subslot 0/0 transceiver 5 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1146 ",
+        "description": "subslot 0/0 transceiver 5 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1147 ",
+        "description": "subslot 0/0 transceiver 5 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1148 ",
+        "description": "subslot 0/0 transceiver 5 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Rx Power Sensor",
+        "class": "8"
+      }
+    ]
+  },
+  {
+    "hostname": "HQ-MPLS-R1.dtc_phx.com",
+    "ip": "10.0.100.106",
+    "chassis_model": "C8300-1N1S-4T2X",
+    "chassis_serial": "FLM274610LT",
+    "chassis_description": "Cisco C8300-1N1S-4T2X Chassis",
+    "module_count": 7,
+    "transceiver_count": 18,
+    "modules": [
+      {
+        "description": "Cisco C8300-1N1S-4T2X Built-In NIM controller",
+        "model": "C8300-1N1S-4T2X",
+        "name": "module 0",
+        "serial": "\"\""
+      },
+      {
+        "description": "Front Panel 6 ports Ten/Gigabitethernet Module",
+        "model": "4x1G-2xSFP+",
+        "name": "NIM subslot 0/0",
+        "serial": "\"\""
+      },
+      {
+        "description": "GE LX",
+        "model": "SFP-GE-L            ",
+        "name": "subslot 0/0 transceiver 4",
+        "serial": "FNS13290RA9     "
+      },
+      {
+        "description": "GE SX",
+        "model": "GLC-SX-MMD          ",
+        "name": "subslot 0/0 transceiver 5",
+        "serial": "AGA1747RGCF     "
+      },
+      {
+        "description": "Cisco C8300-1N1S-4T2X Built-In SM controller",
+        "model": "C8300-1N1S-4T2X",
+        "name": "module 1",
+        "serial": "\"\""
+      },
+      {
+        "description": "Cisco C8300-1N1S-4T2X Route Processor",
+        "model": "C8300-1N1S-4T2X",
+        "name": "module R0",
+        "serial": "FDO27410DPX"
+      },
+      {
+        "description": "Cisco C8300-1N1S-4T2X Forwarding Processor",
+        "model": "C8300-1N1S-4T2X",
+        "name": "module F0",
+        "serial": "\"\""
+      }
+    ],
+    "transceivers": [
+      {
+        "entity_id": "1090 ",
+        "description": "subslot 0/0 transceiver container 0",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 0",
+        "class": "5"
+      },
+      {
+        "entity_id": "1100 ",
+        "description": "subslot 0/0 transceiver container 1",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 1",
+        "class": "5"
+      },
+      {
+        "entity_id": "1110 ",
+        "description": "subslot 0/0 transceiver container 2",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 2",
+        "class": "5"
+      },
+      {
+        "entity_id": "1120 ",
+        "description": "subslot 0/0 transceiver container 3",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 3",
+        "class": "5"
+      },
+      {
+        "entity_id": "1130 ",
+        "description": "subslot 0/0 transceiver container 4",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 4",
+        "class": "5"
+      },
+      {
+        "entity_id": "1131 ",
+        "description": "GE LX",
+        "model": "SFP-GE-L            ",
+        "name": "subslot 0/0 transceiver 4",
+        "class": "9"
+      },
+      {
+        "entity_id": "1134 ",
+        "description": "subslot 0/0 transceiver 4 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1135 ",
+        "description": "subslot 0/0 transceiver 4 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1136 ",
+        "description": "subslot 0/0 transceiver 4 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1137 ",
+        "description": "subslot 0/0 transceiver 4 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1138 ",
+        "description": "subslot 0/0 transceiver 4 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1140 ",
+        "description": "subslot 0/0 transceiver container 5",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 5",
+        "class": "5"
+      },
+      {
+        "entity_id": "1141 ",
+        "description": "GE SX",
+        "model": "GLC-SX-MMD          ",
+        "name": "subslot 0/0 transceiver 5",
+        "class": "9"
+      },
+      {
+        "entity_id": "1144 ",
+        "description": "subslot 0/0 transceiver 5 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1145 ",
+        "description": "subslot 0/0 transceiver 5 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1146 ",
+        "description": "subslot 0/0 transceiver 5 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1147 ",
+        "description": "subslot 0/0 transceiver 5 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1148 ",
+        "description": "subslot 0/0 transceiver 5 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Rx Power Sensor",
+        "class": "8"
+      }
+    ]
+  },
+  {
+    "hostname": "AL-MPLS-R1.dtc_phx.com",
+    "ip": "10.101.100.106",
+    "chassis_model": "C8300-1N1S-4T2X",
+    "chassis_serial": "FLM274610LV",
+    "chassis_description": "Cisco C8300-1N1S-4T2X Chassis",
+    "module_count": 7,
+    "transceiver_count": 18,
+    "modules": [
+      {
+        "description": "Cisco C8300-1N1S-4T2X Built-In NIM controller",
+        "model": "C8300-1N1S-4T2X",
+        "name": "module 0",
+        "serial": "\"\""
+      },
+      {
+        "description": "Front Panel 6 ports Ten/Gigabitethernet Module",
+        "model": "4x1G-2xSFP+",
+        "name": "NIM subslot 0/0",
+        "serial": "\"\""
+      },
+      {
+        "description": "GE LX",
+        "model": "SFP-GE-L            ",
+        "name": "subslot 0/0 transceiver 4",
+        "serial": "FNS140708XX     "
+      },
+      {
+        "description": "GE SX",
+        "model": "SFP-GE-S            ",
+        "name": "subslot 0/0 transceiver 5",
+        "serial": "FNS132701M6     "
+      },
+      {
+        "description": "Cisco C8300-1N1S-4T2X Built-In SM controller",
+        "model": "C8300-1N1S-4T2X",
+        "name": "module 1",
+        "serial": "\"\""
+      },
+      {
+        "description": "Cisco C8300-1N1S-4T2X Route Processor",
+        "model": "C8300-1N1S-4T2X",
+        "name": "module R0",
+        "serial": "FDO27410DQF"
+      },
+      {
+        "description": "Cisco C8300-1N1S-4T2X Forwarding Processor",
+        "model": "C8300-1N1S-4T2X",
+        "name": "module F0",
+        "serial": "\"\""
+      }
+    ],
+    "transceivers": [
+      {
+        "entity_id": "1090 ",
+        "description": "subslot 0/0 transceiver container 0",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 0",
+        "class": "5"
+      },
+      {
+        "entity_id": "1100 ",
+        "description": "subslot 0/0 transceiver container 1",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 1",
+        "class": "5"
+      },
+      {
+        "entity_id": "1110 ",
+        "description": "subslot 0/0 transceiver container 2",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 2",
+        "class": "5"
+      },
+      {
+        "entity_id": "1120 ",
+        "description": "subslot 0/0 transceiver container 3",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 3",
+        "class": "5"
+      },
+      {
+        "entity_id": "1130 ",
+        "description": "subslot 0/0 transceiver container 4",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 4",
+        "class": "5"
+      },
+      {
+        "entity_id": "1131 ",
+        "description": "GE LX",
+        "model": "SFP-GE-L            ",
+        "name": "subslot 0/0 transceiver 4",
+        "class": "9"
+      },
+      {
+        "entity_id": "1134 ",
+        "description": "subslot 0/0 transceiver 4 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1135 ",
+        "description": "subslot 0/0 transceiver 4 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1136 ",
+        "description": "subslot 0/0 transceiver 4 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1137 ",
+        "description": "subslot 0/0 transceiver 4 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1138 ",
+        "description": "subslot 0/0 transceiver 4 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1140 ",
+        "description": "subslot 0/0 transceiver container 5",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 5",
+        "class": "5"
+      },
+      {
+        "entity_id": "1141 ",
+        "description": "GE SX",
+        "model": "SFP-GE-S            ",
+        "name": "subslot 0/0 transceiver 5",
+        "class": "9"
+      },
+      {
+        "entity_id": "1144 ",
+        "description": "subslot 0/0 transceiver 5 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1145 ",
+        "description": "subslot 0/0 transceiver 5 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1146 ",
+        "description": "subslot 0/0 transceiver 5 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1147 ",
+        "description": "subslot 0/0 transceiver 5 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1148 ",
+        "description": "subslot 0/0 transceiver 5 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Rx Power Sensor",
+        "class": "8"
+      }
+    ]
+  },
+  {
+    "hostname": "EQX-CldTrst-8500-01",
+    "ip": "10.44.158.41",
+    "chassis_model": "C8500-12X",
+    "chassis_serial": "TTM251909CU",
+    "chassis_description": "Cisco C8500-12X  Chassis",
+    "module_count": 10,
+    "transceiver_count": 48,
+    "modules": [
+      {
+        "description": "Cisco C8500-12X Modular Interface Processor",
+        "model": "C8500-12X",
+        "name": "module 0",
+        "serial": "\"\""
+      },
+      {
+        "description": "12-port 10 Gigabit SFP+ Ethernet Port Adapter",
+        "model": "12xSFP+",
+        "name": "SPA subslot 0/0",
+        "serial": "JAE12345678"
+      },
+      {
+        "description": "10GE SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 0",
+        "serial": "ECL133102SU     "
+      },
+      {
+        "description": "10GE SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 1",
+        "serial": "ECL133101VH     "
+      },
+      {
+        "description": "10GE SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 2",
+        "serial": "ECL141104EJ     "
+      },
+      {
+        "description": "10GE SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 3",
+        "serial": "ECL1412010X     "
+      },
+      {
+        "description": "10GE LR",
+        "model": "SFP-10G-LR          ",
+        "name": "subslot 0/0 transceiver 10",
+        "serial": "FNS16260CQA     "
+      },
+      {
+        "description": "10GE LR",
+        "model": "SFP-10G-LR          ",
+        "name": "subslot 0/0 transceiver 11",
+        "serial": "FNS161209Z0     "
+      },
+      {
+        "description": "Cisco C8500-12X Route Processor",
+        "model": "C8500-12X",
+        "name": "module R0",
+        "serial": "JAE25230UM7"
+      },
+      {
+        "description": "Cisco C8500-12X Embedded Services Processor",
+        "model": "C8500-12X",
+        "name": "module F0",
+        "serial": "\"\""
+      }
+    ],
+    "transceivers": [
+      {
+        "entity_id": "1091 ",
+        "description": "subslot 0/0 transceiver container 0",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 0",
+        "class": "5"
+      },
+      {
+        "entity_id": "1092 ",
+        "description": "10GE SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 0",
+        "class": "9"
+      },
+      {
+        "entity_id": "1095 ",
+        "description": "subslot 0/0 transceiver 0 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 0 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1096 ",
+        "description": "subslot 0/0 transceiver 0 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 0 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1097 ",
+        "description": "subslot 0/0 transceiver 0 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 0 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1098 ",
+        "description": "subslot 0/0 transceiver 0 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 0 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1099 ",
+        "description": "subslot 0/0 transceiver 0 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 0 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1103 ",
+        "description": "subslot 0/0 transceiver container 1",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 1",
+        "class": "5"
+      },
+      {
+        "entity_id": "1104 ",
+        "description": "10GE SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 1",
+        "class": "9"
+      },
+      {
+        "entity_id": "1107 ",
+        "description": "subslot 0/0 transceiver 1 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 1 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1108 ",
+        "description": "subslot 0/0 transceiver 1 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 1 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1109 ",
+        "description": "subslot 0/0 transceiver 1 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 1 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1110 ",
+        "description": "subslot 0/0 transceiver 1 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 1 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1111 ",
+        "description": "subslot 0/0 transceiver 1 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 1 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1115 ",
+        "description": "subslot 0/0 transceiver container 2",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 2",
+        "class": "5"
+      },
+      {
+        "entity_id": "1116 ",
+        "description": "10GE SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 2",
+        "class": "9"
+      },
+      {
+        "entity_id": "1119 ",
+        "description": "subslot 0/0 transceiver 2 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 2 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1120 ",
+        "description": "subslot 0/0 transceiver 2 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 2 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1121 ",
+        "description": "subslot 0/0 transceiver 2 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 2 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1122 ",
+        "description": "subslot 0/0 transceiver 2 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 2 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1123 ",
+        "description": "subslot 0/0 transceiver 2 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 2 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1127 ",
+        "description": "subslot 0/0 transceiver container 3",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 3",
+        "class": "5"
+      },
+      {
+        "entity_id": "1128 ",
+        "description": "10GE SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 3",
+        "class": "9"
+      },
+      {
+        "entity_id": "1131 ",
+        "description": "subslot 0/0 transceiver 3 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 3 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1132 ",
+        "description": "subslot 0/0 transceiver 3 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 3 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1133 ",
+        "description": "subslot 0/0 transceiver 3 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 3 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1134 ",
+        "description": "subslot 0/0 transceiver 3 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 3 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1135 ",
+        "description": "subslot 0/0 transceiver 3 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 3 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1139 ",
+        "description": "subslot 0/0 transceiver container 4",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 4",
+        "class": "5"
+      },
+      {
+        "entity_id": "1151 ",
+        "description": "subslot 0/0 transceiver container 5",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 5",
+        "class": "5"
+      },
+      {
+        "entity_id": "1163 ",
+        "description": "subslot 0/0 transceiver container 6",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 6",
+        "class": "5"
+      },
+      {
+        "entity_id": "1175 ",
+        "description": "subslot 0/0 transceiver container 7",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 7",
+        "class": "5"
+      },
+      {
+        "entity_id": "1187 ",
+        "description": "subslot 0/0 transceiver container 8",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 8",
+        "class": "5"
+      },
+      {
+        "entity_id": "1199 ",
+        "description": "subslot 0/0 transceiver container 9",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 9",
+        "class": "5"
+      },
+      {
+        "entity_id": "1211 ",
+        "description": "subslot 0/0 transceiver container 10",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 10",
+        "class": "5"
+      },
+      {
+        "entity_id": "1212 ",
+        "description": "10GE LR",
+        "model": "SFP-10G-LR          ",
+        "name": "subslot 0/0 transceiver 10",
+        "class": "9"
+      },
+      {
+        "entity_id": "1215 ",
+        "description": "subslot 0/0 transceiver 10 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 10 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1216 ",
+        "description": "subslot 0/0 transceiver 10 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 10 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1217 ",
+        "description": "subslot 0/0 transceiver 10 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 10 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1218 ",
+        "description": "subslot 0/0 transceiver 10 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 10 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1219 ",
+        "description": "subslot 0/0 transceiver 10 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 10 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1223 ",
+        "description": "subslot 0/0 transceiver container 11",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 11",
+        "class": "5"
+      },
+      {
+        "entity_id": "1224 ",
+        "description": "10GE LR",
+        "model": "SFP-10G-LR          ",
+        "name": "subslot 0/0 transceiver 11",
+        "class": "9"
+      },
+      {
+        "entity_id": "1227 ",
+        "description": "subslot 0/0 transceiver 11 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 11 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1228 ",
+        "description": "subslot 0/0 transceiver 11 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 11 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1229 ",
+        "description": "subslot 0/0 transceiver 11 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 11 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1230 ",
+        "description": "subslot 0/0 transceiver 11 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 11 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1231 ",
+        "description": "subslot 0/0 transceiver 11 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 11 Rx Power Sensor",
+        "class": "8"
+      }
+    ]
+  },
+  {
+    "hostname": "EQX-CldTrst-8500-02",
+    "ip": "10.44.158.42",
+    "chassis_model": "C8500-12X",
+    "chassis_serial": "TTM251909E9",
+    "chassis_description": "Cisco C8500-12X  Chassis",
+    "module_count": 10,
+    "transceiver_count": 48,
+    "modules": [
+      {
+        "description": "Cisco C8500-12X Modular Interface Processor",
+        "model": "C8500-12X",
+        "name": "module 0",
+        "serial": "\"\""
+      },
+      {
+        "description": "12-port 10 Gigabit SFP+ Ethernet Port Adapter",
+        "model": "12xSFP+",
+        "name": "SPA subslot 0/0",
+        "serial": "JAE12345678"
+      },
+      {
+        "description": "10GE SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 0",
+        "serial": "ECL133102LL     "
+      },
+      {
+        "description": "10GE SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 1",
+        "serial": "AGD133430T4     "
+      },
+      {
+        "description": "10GE SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 2",
+        "serial": "ECL133102LP     "
+      },
+      {
+        "description": "10GE SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 3",
+        "serial": "ECL133102LV     "
+      },
+      {
+        "description": "10GE LR",
+        "model": "SFP-10G-LR          ",
+        "name": "subslot 0/0 transceiver 10",
+        "serial": "FNS23090Z73     "
+      },
+      {
+        "description": "10GE LR",
+        "model": "SFP-10G-LR          ",
+        "name": "subslot 0/0 transceiver 11",
+        "serial": "FNS1610116S     "
+      },
+      {
+        "description": "Cisco C8500-12X Route Processor",
+        "model": "C8500-12X",
+        "name": "module R0",
+        "serial": "JAE25230UM5"
+      },
+      {
+        "description": "Cisco C8500-12X Embedded Services Processor",
+        "model": "C8500-12X",
+        "name": "module F0",
+        "serial": "\"\""
+      }
+    ],
+    "transceivers": [
+      {
+        "entity_id": "1091 ",
+        "description": "subslot 0/0 transceiver container 0",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 0",
+        "class": "5"
+      },
+      {
+        "entity_id": "1092 ",
+        "description": "10GE SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 0",
+        "class": "9"
+      },
+      {
+        "entity_id": "1095 ",
+        "description": "subslot 0/0 transceiver 0 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 0 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1096 ",
+        "description": "subslot 0/0 transceiver 0 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 0 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1097 ",
+        "description": "subslot 0/0 transceiver 0 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 0 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1098 ",
+        "description": "subslot 0/0 transceiver 0 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 0 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1099 ",
+        "description": "subslot 0/0 transceiver 0 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 0 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1103 ",
+        "description": "subslot 0/0 transceiver container 1",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 1",
+        "class": "5"
+      },
+      {
+        "entity_id": "1104 ",
+        "description": "10GE SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 1",
+        "class": "9"
+      },
+      {
+        "entity_id": "1107 ",
+        "description": "subslot 0/0 transceiver 1 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 1 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1108 ",
+        "description": "subslot 0/0 transceiver 1 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 1 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1109 ",
+        "description": "subslot 0/0 transceiver 1 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 1 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1110 ",
+        "description": "subslot 0/0 transceiver 1 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 1 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1111 ",
+        "description": "subslot 0/0 transceiver 1 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 1 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1115 ",
+        "description": "subslot 0/0 transceiver container 2",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 2",
+        "class": "5"
+      },
+      {
+        "entity_id": "1116 ",
+        "description": "10GE SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 2",
+        "class": "9"
+      },
+      {
+        "entity_id": "1119 ",
+        "description": "subslot 0/0 transceiver 2 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 2 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1120 ",
+        "description": "subslot 0/0 transceiver 2 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 2 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1121 ",
+        "description": "subslot 0/0 transceiver 2 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 2 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1122 ",
+        "description": "subslot 0/0 transceiver 2 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 2 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1123 ",
+        "description": "subslot 0/0 transceiver 2 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 2 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1127 ",
+        "description": "subslot 0/0 transceiver container 3",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 3",
+        "class": "5"
+      },
+      {
+        "entity_id": "1128 ",
+        "description": "10GE SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 3",
+        "class": "9"
+      },
+      {
+        "entity_id": "1131 ",
+        "description": "subslot 0/0 transceiver 3 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 3 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1132 ",
+        "description": "subslot 0/0 transceiver 3 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 3 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1133 ",
+        "description": "subslot 0/0 transceiver 3 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 3 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1134 ",
+        "description": "subslot 0/0 transceiver 3 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 3 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1135 ",
+        "description": "subslot 0/0 transceiver 3 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 3 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1139 ",
+        "description": "subslot 0/0 transceiver container 4",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 4",
+        "class": "5"
+      },
+      {
+        "entity_id": "1151 ",
+        "description": "subslot 0/0 transceiver container 5",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 5",
+        "class": "5"
+      },
+      {
+        "entity_id": "1163 ",
+        "description": "subslot 0/0 transceiver container 6",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 6",
+        "class": "5"
+      },
+      {
+        "entity_id": "1175 ",
+        "description": "subslot 0/0 transceiver container 7",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 7",
+        "class": "5"
+      },
+      {
+        "entity_id": "1187 ",
+        "description": "subslot 0/0 transceiver container 8",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 8",
+        "class": "5"
+      },
+      {
+        "entity_id": "1199 ",
+        "description": "subslot 0/0 transceiver container 9",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 9",
+        "class": "5"
+      },
+      {
+        "entity_id": "1211 ",
+        "description": "subslot 0/0 transceiver container 10",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 10",
+        "class": "5"
+      },
+      {
+        "entity_id": "1212 ",
+        "description": "10GE LR",
+        "model": "SFP-10G-LR          ",
+        "name": "subslot 0/0 transceiver 10",
+        "class": "9"
+      },
+      {
+        "entity_id": "1215 ",
+        "description": "subslot 0/0 transceiver 10 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 10 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1216 ",
+        "description": "subslot 0/0 transceiver 10 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 10 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1217 ",
+        "description": "subslot 0/0 transceiver 10 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 10 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1218 ",
+        "description": "subslot 0/0 transceiver 10 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 10 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1219 ",
+        "description": "subslot 0/0 transceiver 10 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 10 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1223 ",
+        "description": "subslot 0/0 transceiver container 11",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 11",
+        "class": "5"
+      },
+      {
+        "entity_id": "1224 ",
+        "description": "10GE LR",
+        "model": "SFP-10G-LR          ",
+        "name": "subslot 0/0 transceiver 11",
+        "class": "9"
+      },
+      {
+        "entity_id": "1227 ",
+        "description": "subslot 0/0 transceiver 11 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 11 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1228 ",
+        "description": "subslot 0/0 transceiver 11 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 11 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1229 ",
+        "description": "subslot 0/0 transceiver 11 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 11 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1230 ",
+        "description": "subslot 0/0 transceiver 11 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 11 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1231 ",
+        "description": "subslot 0/0 transceiver 11 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 11 Rx Power Sensor",
+        "class": "8"
+      }
+    ]
+  },
+  {
+    "hostname": "EQX-EdgeDIA-8300-01",
+    "ip": "10.44.158.51",
+    "chassis_model": "C8300-2N2S-4T2X",
+    "chassis_serial": "FLM2528110Y",
+    "chassis_description": "Cisco C8300-2N2S-4T2X Chassis",
+    "module_count": 10,
+    "transceiver_count": 25,
+    "modules": [
+      {
+        "description": "Cisco C8300-2N2S-4T2X Built-In NIM controller",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module 0",
+        "serial": "\"\""
+      },
+      {
+        "description": "Front Panel 6 ports Ten/Gigabitethernet Module",
+        "model": "4x1G-2xSFP+",
+        "name": "NIM subslot 0/0",
+        "serial": "\"\""
+      },
+      {
+        "description": "SFP+ 10GBASE-SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 4",
+        "serial": "ECL1330037X     "
+      },
+      {
+        "description": "SFP+ 10GBASE-SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 5",
+        "serial": "FNS25080DNP     "
+      },
+      {
+        "description": "NIM Ten Gigabitethernet Module",
+        "model": "C-NIM-1X",
+        "name": "NIM subslot 0/1",
+        "serial": "FDO2523055D"
+      },
+      {
+        "description": "SFP+ 10GBASE-LR",
+        "model": "SFP-10G-LR          ",
+        "name": "subslot 0/1 transceiver 0",
+        "serial": "FNS161209BC     "
+      },
+      {
+        "description": "Cisco C8300-2N2S-4T2X Built-In SM controller",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module 1",
+        "serial": "\"\""
+      },
+      {
+        "description": "Cisco C8300-2N2S-4T2X Built-In SM controller",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module 2",
+        "serial": "\"\""
+      },
+      {
+        "description": "Cisco C8300-2N2S-4T2X Route Processor",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module R0",
+        "serial": "FDO25250DEH"
+      },
+      {
+        "description": "Cisco C8300-2N2S-4T2X Forwarding Processor",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module F0",
+        "serial": "\"\""
+      }
+    ],
+    "transceivers": [
+      {
+        "entity_id": "1090 ",
+        "description": "subslot 0/0 transceiver container 0",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 0",
+        "class": "5"
+      },
+      {
+        "entity_id": "1100 ",
+        "description": "subslot 0/0 transceiver container 1",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 1",
+        "class": "5"
+      },
+      {
+        "entity_id": "1110 ",
+        "description": "subslot 0/0 transceiver container 2",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 2",
+        "class": "5"
+      },
+      {
+        "entity_id": "1120 ",
+        "description": "subslot 0/0 transceiver container 3",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 3",
+        "class": "5"
+      },
+      {
+        "entity_id": "1130 ",
+        "description": "subslot 0/0 transceiver container 4",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 4",
+        "class": "5"
+      },
+      {
+        "entity_id": "1131 ",
+        "description": "SFP+ 10GBASE-SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 4",
+        "class": "9"
+      },
+      {
+        "entity_id": "1134 ",
+        "description": "subslot 0/0 transceiver 4 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1135 ",
+        "description": "subslot 0/0 transceiver 4 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1136 ",
+        "description": "subslot 0/0 transceiver 4 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1137 ",
+        "description": "subslot 0/0 transceiver 4 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1138 ",
+        "description": "subslot 0/0 transceiver 4 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1140 ",
+        "description": "subslot 0/0 transceiver container 5",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 5",
+        "class": "5"
+      },
+      {
+        "entity_id": "1141 ",
+        "description": "SFP+ 10GBASE-SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 5",
+        "class": "9"
+      },
+      {
+        "entity_id": "1144 ",
+        "description": "subslot 0/0 transceiver 5 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1145 ",
+        "description": "subslot 0/0 transceiver 5 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1146 ",
+        "description": "subslot 0/0 transceiver 5 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1147 ",
+        "description": "subslot 0/0 transceiver 5 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1148 ",
+        "description": "subslot 0/0 transceiver 5 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1320 ",
+        "description": "subslot 0/1 transceiver container 0",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver container 0",
+        "class": "5"
+      },
+      {
+        "entity_id": "1321 ",
+        "description": "SFP+ 10GBASE-LR",
+        "model": "SFP-10G-LR          ",
+        "name": "subslot 0/1 transceiver 0",
+        "class": "9"
+      },
+      {
+        "entity_id": "1324 ",
+        "description": "subslot 0/1 transceiver 0 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1325 ",
+        "description": "subslot 0/1 transceiver 0 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1326 ",
+        "description": "subslot 0/1 transceiver 0 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1327 ",
+        "description": "subslot 0/1 transceiver 0 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1328 ",
+        "description": "subslot 0/1 transceiver 0 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Rx Power Sensor",
+        "class": "8"
+      }
+    ]
+  },
+  {
+    "hostname": "EQX-EdgeDIA-8300-02",
+    "ip": "10.44.158.52",
+    "chassis_model": "C8300-2N2S-4T2X",
+    "chassis_serial": "FLM252911Q5",
+    "chassis_description": "Cisco C8300-2N2S-4T2X Chassis",
+    "module_count": 10,
+    "transceiver_count": 25,
+    "modules": [
+      {
+        "description": "Cisco C8300-2N2S-4T2X Built-In NIM controller",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module 0",
+        "serial": "\"\""
+      },
+      {
+        "description": "Front Panel 6 ports Ten/Gigabitethernet Module",
+        "model": "4x1G-2xSFP+",
+        "name": "NIM subslot 0/0",
+        "serial": "\"\""
+      },
+      {
+        "description": "SFP+ 10GBASE-SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 4",
+        "serial": "ECL133102S6     "
+      },
+      {
+        "description": "SFP+ 10GBASE-SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 5",
+        "serial": "ECL133100KB     "
+      },
+      {
+        "description": "NIM Ten Gigabitethernet Module",
+        "model": "C-NIM-1X",
+        "name": "NIM subslot 0/1",
+        "serial": "FDO25280CUV"
+      },
+      {
+        "description": "SFP+ 10GBASE-LR",
+        "model": "SFP-10G-LR          ",
+        "name": "subslot 0/1 transceiver 0",
+        "serial": "FNS161209U2     "
+      },
+      {
+        "description": "Cisco C8300-2N2S-4T2X Built-In SM controller",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module 1",
+        "serial": "\"\""
+      },
+      {
+        "description": "Cisco C8300-2N2S-4T2X Built-In SM controller",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module 2",
+        "serial": "\"\""
+      },
+      {
+        "description": "Cisco C8300-2N2S-4T2X Route Processor",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module R0",
+        "serial": "FDO2522110J"
+      },
+      {
+        "description": "Cisco C8300-2N2S-4T2X Forwarding Processor",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module F0",
+        "serial": "\"\""
+      }
+    ],
+    "transceivers": [
+      {
+        "entity_id": "1090 ",
+        "description": "subslot 0/0 transceiver container 0",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 0",
+        "class": "5"
+      },
+      {
+        "entity_id": "1100 ",
+        "description": "subslot 0/0 transceiver container 1",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 1",
+        "class": "5"
+      },
+      {
+        "entity_id": "1110 ",
+        "description": "subslot 0/0 transceiver container 2",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 2",
+        "class": "5"
+      },
+      {
+        "entity_id": "1120 ",
+        "description": "subslot 0/0 transceiver container 3",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 3",
+        "class": "5"
+      },
+      {
+        "entity_id": "1130 ",
+        "description": "subslot 0/0 transceiver container 4",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 4",
+        "class": "5"
+      },
+      {
+        "entity_id": "1131 ",
+        "description": "SFP+ 10GBASE-SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 4",
+        "class": "9"
+      },
+      {
+        "entity_id": "1134 ",
+        "description": "subslot 0/0 transceiver 4 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1135 ",
+        "description": "subslot 0/0 transceiver 4 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1136 ",
+        "description": "subslot 0/0 transceiver 4 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1137 ",
+        "description": "subslot 0/0 transceiver 4 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1138 ",
+        "description": "subslot 0/0 transceiver 4 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1140 ",
+        "description": "subslot 0/0 transceiver container 5",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 5",
+        "class": "5"
+      },
+      {
+        "entity_id": "1141 ",
+        "description": "SFP+ 10GBASE-SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 5",
+        "class": "9"
+      },
+      {
+        "entity_id": "1144 ",
+        "description": "subslot 0/0 transceiver 5 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1145 ",
+        "description": "subslot 0/0 transceiver 5 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1146 ",
+        "description": "subslot 0/0 transceiver 5 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1147 ",
+        "description": "subslot 0/0 transceiver 5 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1148 ",
+        "description": "subslot 0/0 transceiver 5 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1320 ",
+        "description": "subslot 0/1 transceiver container 0",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver container 0",
+        "class": "5"
+      },
+      {
+        "entity_id": "1321 ",
+        "description": "SFP+ 10GBASE-LR",
+        "model": "SFP-10G-LR          ",
+        "name": "subslot 0/1 transceiver 0",
+        "class": "9"
+      },
+      {
+        "entity_id": "1324 ",
+        "description": "subslot 0/1 transceiver 0 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1325 ",
+        "description": "subslot 0/1 transceiver 0 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1326 ",
+        "description": "subslot 0/1 transceiver 0 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1327 ",
+        "description": "subslot 0/1 transceiver 0 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1328 ",
+        "description": "subslot 0/1 transceiver 0 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Rx Power Sensor",
+        "class": "8"
+      }
+    ]
+  },
+  {
+    "hostname": "EQX-MPLS-8300-01",
+    "ip": "10.44.158.61",
+    "chassis_model": "C8300-2N2S-4T2X",
+    "chassis_serial": "FLM2528110Z",
+    "chassis_description": "Cisco C8300-2N2S-4T2X Chassis",
+    "module_count": 11,
+    "transceiver_count": 25,
+    "modules": [
+      {
+        "description": "Cisco C8300-2N2S-4T2X Built-In NIM controller",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module 0",
+        "serial": "\"\""
+      },
+      {
+        "description": "Front Panel 6 ports Ten/Gigabitethernet Module",
+        "model": "4x1G-2xSFP+",
+        "name": "NIM subslot 0/0",
+        "serial": "\"\""
+      },
+      {
+        "description": "SFP+ 10GBASE-SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 4",
+        "serial": "ECL133101NZ     "
+      },
+      {
+        "description": "SFP+ 10GBASE-SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 5",
+        "serial": "ECL133101UP     "
+      },
+      {
+        "description": "NIM Ten Gigabitethernet Module",
+        "model": "C-NIM-1X",
+        "name": "NIM subslot 0/1",
+        "serial": "FDO2523054G"
+      },
+      {
+        "description": "GE LX",
+        "model": "SFP-GE-L            ",
+        "name": "subslot 0/1 transceiver 0",
+        "serial": "FNS140804XN     "
+      },
+      {
+        "description": "NIM-1MFT-T1/E1 - T1/E1 Serial Module",
+        "model": "NIM-1MFT-T1/E1",
+        "name": "NIM subslot 0/2",
+        "serial": "FOC19416A4L"
+      },
+      {
+        "description": "Cisco C8300-2N2S-4T2X Built-In SM controller",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module 1",
+        "serial": "\"\""
+      },
+      {
+        "description": "Cisco C8300-2N2S-4T2X Built-In SM controller",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module 2",
+        "serial": "\"\""
+      },
+      {
+        "description": "Cisco C8300-2N2S-4T2X Route Processor",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module R0",
+        "serial": "FDO25250DD8"
+      },
+      {
+        "description": "Cisco C8300-2N2S-4T2X Forwarding Processor",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module F0",
+        "serial": "\"\""
+      }
+    ],
+    "transceivers": [
+      {
+        "entity_id": "1090 ",
+        "description": "subslot 0/0 transceiver container 0",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 0",
+        "class": "5"
+      },
+      {
+        "entity_id": "1100 ",
+        "description": "subslot 0/0 transceiver container 1",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 1",
+        "class": "5"
+      },
+      {
+        "entity_id": "1110 ",
+        "description": "subslot 0/0 transceiver container 2",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 2",
+        "class": "5"
+      },
+      {
+        "entity_id": "1120 ",
+        "description": "subslot 0/0 transceiver container 3",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 3",
+        "class": "5"
+      },
+      {
+        "entity_id": "1130 ",
+        "description": "subslot 0/0 transceiver container 4",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 4",
+        "class": "5"
+      },
+      {
+        "entity_id": "1131 ",
+        "description": "SFP+ 10GBASE-SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 4",
+        "class": "9"
+      },
+      {
+        "entity_id": "1134 ",
+        "description": "subslot 0/0 transceiver 4 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1135 ",
+        "description": "subslot 0/0 transceiver 4 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1136 ",
+        "description": "subslot 0/0 transceiver 4 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1137 ",
+        "description": "subslot 0/0 transceiver 4 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1138 ",
+        "description": "subslot 0/0 transceiver 4 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1140 ",
+        "description": "subslot 0/0 transceiver container 5",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 5",
+        "class": "5"
+      },
+      {
+        "entity_id": "1141 ",
+        "description": "SFP+ 10GBASE-SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 5",
+        "class": "9"
+      },
+      {
+        "entity_id": "1144 ",
+        "description": "subslot 0/0 transceiver 5 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1145 ",
+        "description": "subslot 0/0 transceiver 5 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1146 ",
+        "description": "subslot 0/0 transceiver 5 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1147 ",
+        "description": "subslot 0/0 transceiver 5 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1148 ",
+        "description": "subslot 0/0 transceiver 5 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1320 ",
+        "description": "subslot 0/1 transceiver container 0",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver container 0",
+        "class": "5"
+      },
+      {
+        "entity_id": "1321 ",
+        "description": "GE LX",
+        "model": "SFP-GE-L            ",
+        "name": "subslot 0/1 transceiver 0",
+        "class": "9"
+      },
+      {
+        "entity_id": "1324 ",
+        "description": "subslot 0/1 transceiver 0 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1325 ",
+        "description": "subslot 0/1 transceiver 0 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1326 ",
+        "description": "subslot 0/1 transceiver 0 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1327 ",
+        "description": "subslot 0/1 transceiver 0 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1328 ",
+        "description": "subslot 0/1 transceiver 0 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Rx Power Sensor",
+        "class": "8"
+      }
+    ]
+  },
+  {
+    "hostname": "EQX-MPLS-8300-02",
+    "ip": "10.44.158.62",
+    "chassis_model": "C8300-2N2S-4T2X",
+    "chassis_serial": "FLM2528110X",
+    "chassis_description": "Cisco C8300-2N2S-4T2X Chassis",
+    "module_count": 11,
+    "transceiver_count": 25,
+    "modules": [
+      {
+        "description": "Cisco C8300-2N2S-4T2X Built-In NIM controller",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module 0",
+        "serial": "\"\""
+      },
+      {
+        "description": "Front Panel 6 ports Ten/Gigabitethernet Module",
+        "model": "4x1G-2xSFP+",
+        "name": "NIM subslot 0/0",
+        "serial": "\"\""
+      },
+      {
+        "description": "SFP+ 10GBASE-SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 4",
+        "serial": "ECL133102N6     "
+      },
+      {
+        "description": "SFP+ 10GBASE-SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 5",
+        "serial": "ECL133101VJ     "
+      },
+      {
+        "description": "NIM Ten Gigabitethernet Module",
+        "model": "C-NIM-1X",
+        "name": "NIM subslot 0/1",
+        "serial": "FDO25280CUL"
+      },
+      {
+        "description": "GE LX",
+        "model": "SFP-GE-L            ",
+        "name": "subslot 0/1 transceiver 0",
+        "serial": "FNS13290R87     "
+      },
+      {
+        "description": "NIM-1MFT-T1/E1 - T1/E1 Serial Module",
+        "model": "NIM-1MFT-T1/E1",
+        "name": "NIM subslot 0/2",
+        "serial": "FOC19431F3G"
+      },
+      {
+        "description": "Cisco C8300-2N2S-4T2X Built-In SM controller",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module 1",
+        "serial": "\"\""
+      },
+      {
+        "description": "Cisco C8300-2N2S-4T2X Built-In SM controller",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module 2",
+        "serial": "\"\""
+      },
+      {
+        "description": "Cisco C8300-2N2S-4T2X Route Processor",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module R0",
+        "serial": "FDO25250DDX"
+      },
+      {
+        "description": "Cisco C8300-2N2S-4T2X Forwarding Processor",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module F0",
+        "serial": "\"\""
+      }
+    ],
+    "transceivers": [
+      {
+        "entity_id": "1090 ",
+        "description": "subslot 0/0 transceiver container 0",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 0",
+        "class": "5"
+      },
+      {
+        "entity_id": "1100 ",
+        "description": "subslot 0/0 transceiver container 1",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 1",
+        "class": "5"
+      },
+      {
+        "entity_id": "1110 ",
+        "description": "subslot 0/0 transceiver container 2",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 2",
+        "class": "5"
+      },
+      {
+        "entity_id": "1120 ",
+        "description": "subslot 0/0 transceiver container 3",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 3",
+        "class": "5"
+      },
+      {
+        "entity_id": "1130 ",
+        "description": "subslot 0/0 transceiver container 4",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 4",
+        "class": "5"
+      },
+      {
+        "entity_id": "1131 ",
+        "description": "SFP+ 10GBASE-SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 4",
+        "class": "9"
+      },
+      {
+        "entity_id": "1134 ",
+        "description": "subslot 0/0 transceiver 4 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1135 ",
+        "description": "subslot 0/0 transceiver 4 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1136 ",
+        "description": "subslot 0/0 transceiver 4 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1137 ",
+        "description": "subslot 0/0 transceiver 4 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1138 ",
+        "description": "subslot 0/0 transceiver 4 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1140 ",
+        "description": "subslot 0/0 transceiver container 5",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 5",
+        "class": "5"
+      },
+      {
+        "entity_id": "1141 ",
+        "description": "SFP+ 10GBASE-SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 5",
+        "class": "9"
+      },
+      {
+        "entity_id": "1144 ",
+        "description": "subslot 0/0 transceiver 5 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1145 ",
+        "description": "subslot 0/0 transceiver 5 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1146 ",
+        "description": "subslot 0/0 transceiver 5 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1147 ",
+        "description": "subslot 0/0 transceiver 5 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1148 ",
+        "description": "subslot 0/0 transceiver 5 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1320 ",
+        "description": "subslot 0/1 transceiver container 0",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver container 0",
+        "class": "5"
+      },
+      {
+        "entity_id": "1321 ",
+        "description": "GE LX",
+        "model": "SFP-GE-L            ",
+        "name": "subslot 0/1 transceiver 0",
+        "class": "9"
+      },
+      {
+        "entity_id": "1324 ",
+        "description": "subslot 0/1 transceiver 0 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1325 ",
+        "description": "subslot 0/1 transceiver 0 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1326 ",
+        "description": "subslot 0/1 transceiver 0 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1327 ",
+        "description": "subslot 0/1 transceiver 0 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1328 ",
+        "description": "subslot 0/1 transceiver 0 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Rx Power Sensor",
+        "class": "8"
+      }
+    ]
+  },
+  {
+    "hostname": "HQ-LUMEN-DIA",
+    "ip": "192.168.255.14",
+    "chassis_model": "C8300-2N2S-4T2X",
+    "chassis_serial": "FLM28291036",
+    "chassis_description": "Cisco C8300-2N2S-4T2X Chassis",
+    "module_count": 10,
+    "transceiver_count": 25,
+    "modules": [
+      {
+        "description": "Cisco C8300-2N2S-4T2X Built-In NIM controller",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module 0",
+        "serial": "\"\""
+      },
+      {
+        "description": "Front Panel 6 ports Ten/Gigabitethernet Module",
+        "model": "4x1G-2xSFP+",
+        "name": "NIM subslot 0/0",
+        "serial": "\"\""
+      },
+      {
+        "description": "SFP+ 10GBASE-SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 4",
+        "serial": "ECL133203K5     "
+      },
+      {
+        "description": "SFP+ 10GBASE-LR",
+        "model": "SFP-10G-LR          ",
+        "name": "subslot 0/0 transceiver 5",
+        "serial": "ACP26310KFB     "
+      },
+      {
+        "description": "NIM Ten Gigabitethernet Module",
+        "model": "C-NIM-1X",
+        "name": "NIM subslot 0/1",
+        "serial": "FDO28240955"
+      },
+      {
+        "description": "SFP+ 10GBASE-SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/1 transceiver 0",
+        "serial": "ACP271604E0     "
+      },
+      {
+        "description": "Cisco C8300-2N2S-4T2X Built-In SM controller",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module 1",
+        "serial": "\"\""
+      },
+      {
+        "description": "Cisco C8300-2N2S-4T2X Built-In SM controller",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module 2",
+        "serial": "\"\""
+      },
+      {
+        "description": "Cisco C8300-2N2S-4T2X Route Processor",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module R0",
+        "serial": "FDO281618B0"
+      },
+      {
+        "description": "Cisco C8300-2N2S-4T2X Forwarding Processor",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module F0",
+        "serial": "\"\""
+      }
+    ],
+    "transceivers": [
+      {
+        "entity_id": "1090 ",
+        "description": "subslot 0/0 transceiver container 0",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 0",
+        "class": "5"
+      },
+      {
+        "entity_id": "1100 ",
+        "description": "subslot 0/0 transceiver container 1",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 1",
+        "class": "5"
+      },
+      {
+        "entity_id": "1110 ",
+        "description": "subslot 0/0 transceiver container 2",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 2",
+        "class": "5"
+      },
+      {
+        "entity_id": "1120 ",
+        "description": "subslot 0/0 transceiver container 3",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 3",
+        "class": "5"
+      },
+      {
+        "entity_id": "1130 ",
+        "description": "subslot 0/0 transceiver container 4",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 4",
+        "class": "5"
+      },
+      {
+        "entity_id": "1131 ",
+        "description": "SFP+ 10GBASE-SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 4",
+        "class": "9"
+      },
+      {
+        "entity_id": "1134 ",
+        "description": "subslot 0/0 transceiver 4 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1135 ",
+        "description": "subslot 0/0 transceiver 4 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1136 ",
+        "description": "subslot 0/0 transceiver 4 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1137 ",
+        "description": "subslot 0/0 transceiver 4 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1138 ",
+        "description": "subslot 0/0 transceiver 4 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1140 ",
+        "description": "subslot 0/0 transceiver container 5",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 5",
+        "class": "5"
+      },
+      {
+        "entity_id": "1141 ",
+        "description": "SFP+ 10GBASE-LR",
+        "model": "SFP-10G-LR          ",
+        "name": "subslot 0/0 transceiver 5",
+        "class": "9"
+      },
+      {
+        "entity_id": "1144 ",
+        "description": "subslot 0/0 transceiver 5 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1145 ",
+        "description": "subslot 0/0 transceiver 5 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1146 ",
+        "description": "subslot 0/0 transceiver 5 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1147 ",
+        "description": "subslot 0/0 transceiver 5 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1148 ",
+        "description": "subslot 0/0 transceiver 5 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1320 ",
+        "description": "subslot 0/1 transceiver container 0",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver container 0",
+        "class": "5"
+      },
+      {
+        "entity_id": "1321 ",
+        "description": "SFP+ 10GBASE-SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/1 transceiver 0",
+        "class": "9"
+      },
+      {
+        "entity_id": "1324 ",
+        "description": "subslot 0/1 transceiver 0 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1325 ",
+        "description": "subslot 0/1 transceiver 0 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1326 ",
+        "description": "subslot 0/1 transceiver 0 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1327 ",
+        "description": "subslot 0/1 transceiver 0 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1328 ",
+        "description": "subslot 0/1 transceiver 0 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Rx Power Sensor",
+        "class": "8"
+      }
+    ]
+  },
+  {
+    "hostname": "HQ-ATT-DIA",
+    "ip": "192.168.255.15",
+    "chassis_model": "C8300-2N2S-4T2X",
+    "chassis_serial": "FLM28291037",
+    "chassis_description": "Cisco C8300-2N2S-4T2X Chassis",
+    "module_count": 10,
+    "transceiver_count": 25,
+    "modules": [
+      {
+        "description": "Cisco C8300-2N2S-4T2X Built-In NIM controller",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module 0",
+        "serial": "\"\""
+      },
+      {
+        "description": "Front Panel 6 ports Ten/Gigabitethernet Module",
+        "model": "4x1G-2xSFP+",
+        "name": "NIM subslot 0/0",
+        "serial": "\"\""
+      },
+      {
+        "description": "SFP+ 10GBASE-SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 4",
+        "serial": "ACP280204LU     "
+      },
+      {
+        "description": "GE LX",
+        "model": "SFP-GE-L            ",
+        "name": "subslot 0/0 transceiver 5",
+        "serial": "FNS13280YEX     "
+      },
+      {
+        "description": "NIM Ten Gigabitethernet Module",
+        "model": "C-NIM-1X",
+        "name": "NIM subslot 0/1",
+        "serial": "FDO2824095D"
+      },
+      {
+        "description": "SFP+ 10GBASE-SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/1 transceiver 0",
+        "serial": "ACP2802091C     "
+      },
+      {
+        "description": "Cisco C8300-2N2S-4T2X Built-In SM controller",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module 1",
+        "serial": "\"\""
+      },
+      {
+        "description": "Cisco C8300-2N2S-4T2X Built-In SM controller",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module 2",
+        "serial": "\"\""
+      },
+      {
+        "description": "Cisco C8300-2N2S-4T2X Route Processor",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module R0",
+        "serial": "FDO282409X2"
+      },
+      {
+        "description": "Cisco C8300-2N2S-4T2X Forwarding Processor",
+        "model": "C8300-2N2S-4T2X",
+        "name": "module F0",
+        "serial": "\"\""
+      }
+    ],
+    "transceivers": [
+      {
+        "entity_id": "1090 ",
+        "description": "subslot 0/0 transceiver container 0",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 0",
+        "class": "5"
+      },
+      {
+        "entity_id": "1100 ",
+        "description": "subslot 0/0 transceiver container 1",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 1",
+        "class": "5"
+      },
+      {
+        "entity_id": "1110 ",
+        "description": "subslot 0/0 transceiver container 2",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 2",
+        "class": "5"
+      },
+      {
+        "entity_id": "1120 ",
+        "description": "subslot 0/0 transceiver container 3",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 3",
+        "class": "5"
+      },
+      {
+        "entity_id": "1130 ",
+        "description": "subslot 0/0 transceiver container 4",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 4",
+        "class": "5"
+      },
+      {
+        "entity_id": "1131 ",
+        "description": "SFP+ 10GBASE-SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/0 transceiver 4",
+        "class": "9"
+      },
+      {
+        "entity_id": "1134 ",
+        "description": "subslot 0/0 transceiver 4 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1135 ",
+        "description": "subslot 0/0 transceiver 4 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1136 ",
+        "description": "subslot 0/0 transceiver 4 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1137 ",
+        "description": "subslot 0/0 transceiver 4 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1138 ",
+        "description": "subslot 0/0 transceiver 4 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 4 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1140 ",
+        "description": "subslot 0/0 transceiver container 5",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver container 5",
+        "class": "5"
+      },
+      {
+        "entity_id": "1141 ",
+        "description": "GE LX",
+        "model": "SFP-GE-L            ",
+        "name": "subslot 0/0 transceiver 5",
+        "class": "9"
+      },
+      {
+        "entity_id": "1144 ",
+        "description": "subslot 0/0 transceiver 5 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1145 ",
+        "description": "subslot 0/0 transceiver 5 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1146 ",
+        "description": "subslot 0/0 transceiver 5 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1147 ",
+        "description": "subslot 0/0 transceiver 5 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1148 ",
+        "description": "subslot 0/0 transceiver 5 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/0 transceiver 5 Rx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1320 ",
+        "description": "subslot 0/1 transceiver container 0",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver container 0",
+        "class": "5"
+      },
+      {
+        "entity_id": "1321 ",
+        "description": "SFP+ 10GBASE-SR",
+        "model": "SFP-10G-SR          ",
+        "name": "subslot 0/1 transceiver 0",
+        "class": "9"
+      },
+      {
+        "entity_id": "1324 ",
+        "description": "subslot 0/1 transceiver 0 Temperature Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Temperature Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1325 ",
+        "description": "subslot 0/1 transceiver 0 Supply Voltage Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Supply Voltage Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1326 ",
+        "description": "subslot 0/1 transceiver 0 Bias Current Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Bias Current Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1327 ",
+        "description": "subslot 0/1 transceiver 0 Tx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Tx Power Sensor",
+        "class": "8"
+      },
+      {
+        "entity_id": "1328 ",
+        "description": "subslot 0/1 transceiver 0 Rx Power Sensor",
+        "model": "\"\"",
+        "name": "subslot 0/1 transceiver 0 Rx Power Sensor",
+        "class": "8"
+      }
+    ]
+  }
+]

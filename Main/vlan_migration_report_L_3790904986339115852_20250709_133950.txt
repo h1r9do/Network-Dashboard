@@ -1,0 +1,109 @@
+
+VLAN Migration Report v3
+========================
+Network ID: L_3790904986339115852
+Mode: TEST
+Duration: 0:00:30.226669
+
+Group Policy Mappings:
+  Policy 102 → 100
+  Policy 101 → 101
+  Policy 100 → 102
+
+Migration Log:
+[13:39:20] INFO: VLAN Migrator v3 initialized in TEST mode
+[13:39:20] INFO: Starting VLAN migration v3...
+[13:39:20] INFO: Mode: TEST
+[13:39:20] INFO: 
+Creating group policies...
+[13:39:20] INFO:   Creating group policy: Ebay Access (ID: 102)
+[13:39:21] INFO:     ✓ Created policy with new ID: 100
+[13:39:22] INFO:   Creating group policy: Indeed.com (ID: 101)
+[13:39:23] INFO:     ✓ Created policy with new ID: 101
+[13:39:24] INFO:   Creating group policy: Guest Network (ID: 100)
+[13:39:25] INFO:     ✓ Created policy with new ID: 102
+[13:39:26] INFO: 
+Step 1: Cleaning up existing VLANs...
+[13:39:26] INFO: Fetching current VLAN configuration...
+[13:39:27] INFO: 
+Step 2: Migrating default VLAN...
+[13:39:27] INFO: Fetching current VLAN configuration...
+[13:39:28] INFO:   TEST MODE: Changing IP from 10.1.32.0/25 to 10.255.255.0/25
+[13:39:28] INFO:     Updated DHCP relay servers: ['10.255.255.5', '10.255.255.5']
+[13:39:28] INFO:     DHCP settings: handling=Relay DHCP to another server, DNS=upstream_dns
+[13:39:28] INFO:   Creating VLAN 100 (Data) with subnet 10.255.255.0/25
+[13:39:29] INFO:     ✓ Created VLAN 100
+[13:39:31] INFO: 
+Step 3: Creating remaining VLANs...
+[13:39:31] INFO: 
+  Creating VLAN 200 (was 101)
+[13:39:31] INFO:   TEST MODE: Changing IP from 10.1.32.128/27 to 10.255.255.128/27
+[13:39:31] INFO:     Preserving 3 DHCP options
+[13:39:31] INFO:     DHCP settings: handling=Run a DHCP server, lease=12 hours, DNS=10.0.175.27
+10.101.175.28
+[13:39:32] INFO:     ✓ Created VLAN 200 - Voice (10.255.255.128/27)
+[13:39:33] INFO: 
+  Creating VLAN 410 (was 201)
+[13:39:33] INFO:   TEST MODE: Changing IP from 10.1.32.160/28 to 10.255.255.160/28
+[13:39:33] INFO:     Updated DHCP relay servers: ['10.255.255.5', '10.255.255.5', '10.255.255.30', '10.255.255.30']
+[13:39:33] INFO:     DHCP settings: handling=Relay DHCP to another server, DNS=upstream_dns
+[13:39:34] INFO:     ✓ Created VLAN 410 - Ccard (10.255.255.160/28)
+[13:39:35] INFO: 
+  Creating VLAN 300 (was 300)
+[13:39:35] INFO:   TEST MODE: Changing IP from 10.1.32.176/28 to 10.255.255.176/28
+[13:39:35] INFO:     DHCP settings: handling=Run a DHCP server, lease=1 day, DNS=10.0.175.27
+10.101.175.28
+[13:39:36] INFO:     ✓ Created VLAN 300 - Net Mgmt (10.255.255.176/28)
+[13:39:37] INFO: 
+  Creating VLAN 301 (was 301)
+[13:39:37] INFO:   TEST MODE: Changing IP from 10.1.32.192/28 to 10.255.255.192/28
+[13:39:37] INFO:     DHCP settings: handling=Run a DHCP server, lease=1 day, DNS=10.0.175.27
+10.101.175.28
+[13:39:39] INFO:     ✓ Created VLAN 301 - Scanner (10.255.255.192/28)
+[13:39:40] INFO: 
+  Creating VLAN 800 (was 800)
+[13:39:40] INFO:   TEST MODE: Changing IP from 172.13.0.0/30 to 172.16.80.0/24
+[13:39:40] INFO:   Updated group policy ID: 100 → 102
+[13:39:40] INFO:     DHCP settings: handling=Run a DHCP server, lease=1 day, DNS=upstream_dns
+[13:39:41] INFO:     ✓ Created VLAN 800 - Guest (172.16.80.0/24)
+[13:39:42] INFO: 
+  Creating VLAN 400 (was 801)
+[13:39:42] INFO:   TEST MODE: Changing IP from 172.14.0.0/24 to 172.16.40.0/24
+[13:39:42] INFO:   Updated group policy ID: 100 → 102
+[13:39:42] INFO:     DHCP settings: handling=Run a DHCP server, lease=1 day, DNS=upstream_dns
+[13:39:43] INFO:     ✓ Created VLAN 400 - IoT (172.16.40.0/24)
+[13:39:44] INFO:   Skipping VLAN 802 (will be removed)
+[13:39:44] INFO: 
+  Creating VLAN 803 (was 803)
+[13:39:44] INFO:   Updated group policy ID: 100 → 102
+[13:39:44] INFO:     DHCP settings: handling=Run a DHCP server, lease=1 day, DNS=upstream_dns
+[13:39:45] INFO:     ✓ Created VLAN 803 - IoT Wireless (172.22.0.0/24)
+[13:39:46] INFO: 
+  Creating VLAN 900 (was 900)
+[13:39:46] INFO:   TEST MODE: Changing IP from 10.1.32.252/30 to 10.255.255.252/30
+[13:39:46] INFO:     DHCP settings: handling=Run a DHCP server, lease=1 day, DNS=upstream_dns
+[13:39:47] ERROR: Error POST https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/vlans
+[13:39:47] ERROR: Response: {"errors":["Vlan has already been taken"]}
+[13:39:47] ERROR:     ✗ Failed to create VLAN 900
+[13:39:48] INFO: 
+Step 4: No temporary VLANs to clean up
+[13:39:48] INFO: 
+Step 5: Verifying migration...
+[13:39:48] INFO: Fetching current VLAN configuration...
+[13:39:49] INFO: 
+Migration complete! Created 9 VLANs:
+[13:39:49] INFO:   VLAN 100: Data            - 10.255.255.0/25
+[13:39:49] INFO:   VLAN 200: Voice           - 10.255.255.128/27
+[13:39:49] INFO:   VLAN 300: Net Mgmt        - 10.255.255.176/28
+[13:39:49] INFO:   VLAN 301: Scanner         - 10.255.255.192/28
+[13:39:49] INFO:   VLAN 400: IoT             - 172.16.40.0/24
+[13:39:49] INFO:   VLAN 410: Ccard           - 10.255.255.160/28
+[13:39:49] INFO:   VLAN 800: Guest           - 172.16.80.0/24
+[13:39:49] INFO:   VLAN 803: IoT Wireless    - 172.22.0.0/24
+[13:39:49] INFO:   VLAN 900: Mgmt            - 10.255.255.252/30
+[13:39:49] INFO: 
+Step 6: Applying firewall rules...
+[13:39:49] INFO: Applying 55 firewall rules from template...
+[13:39:50] ERROR: Error PUT https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/firewall/l3FirewallRules: 400 Client Error: Bad Request for url: https://api.meraki.com/api/v1/networks/L_3790904986339115852/appliance/firewall/l3FirewallRules
+[13:39:50] ERROR: Response: {"errors":["Cannot enable syslog on rules - a syslog server must be configured"]}
+[13:39:50] ERROR:   ✗ Failed to apply firewall rules

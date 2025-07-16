@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master List - Data Table</title>
+    
+    <!-- Include DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+
+    <!-- Optional: Add custom styles to replicate Excel-like look -->
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Master List - Stores</h1>
+    <p>List of all stores and their current status.</p>
+
+    <!-- Table to display the stores data -->
+    <table id="masterTable" class="display">
+        <thead>
+            <tr>
+                <th>Store</th>
+                <th>Vision Status</th>
+                <th>Store Type</th>
+                <th>Region</th>
+                <th>Contract Signed</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for store in stores %}
+            <tr>
+                <td>{{ store['store'] }}</td>
+                <td>{{ store['vision_status'] }}</td>
+                <td>{{ store['store_type'] }}</td>
+                <td>{{ store['region'] }}</td>
+                <td>{{ store['contract_signed'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    
+    <!-- Include DataTables.js -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        // Initialize DataTables for the table
+        $(document).ready(function() {
+            $('#masterTable').DataTable({
+                "paging": true,       // Enable pagination
+                "searching": true,    // Enable searching
+                "ordering": true,     // Enable sorting
+                "info": true,         // Show table info (number of records)
+                "lengthChange": true  // Allow the number of rows to be changed
+            });
+        });
+    </script>
+</body>
+</html>

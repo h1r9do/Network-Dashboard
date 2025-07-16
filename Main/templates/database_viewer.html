@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Viewer - DSR Circuits</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .main-content {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .sidebar {
+            width: 300px;
+            flex-shrink: 0;
+        }
+        
+        .content {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .panel {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .table-list {
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        
+        .table-item {
+            padding: 10px;
+            border: 1px solid #eee;
+            margin-bottom: 5px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .table-item:hover {
+            background: #f5f5f5;
+        }
+        
+        .table-item.active {
+            background: #e3f2fd;
+            border-color: #2196f3;
+        }
+        
+        .table-name {
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .table-meta {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .search-box {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        
+        .data-table th {
+            background: #f5f5f5;
+            padding: 10px;
+            text-align: left;
+            border-bottom: 2px solid #ddd;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .data-table td {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .data-table tr:hover {
+            background: #f9f9f9;
+        }
+        
+        .schema-table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        .schema-table th {
+            background: #e8e8e8;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        .schema-table td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .tab-nav {
+            display: flex;
+            border-bottom: 2px solid #ddd;
+            margin-bottom: 20px;
+        }
+        
+        .tab-nav button {
+            padding: 10px 20px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+        
+        .tab-nav button.active {
+            border-bottom: 2px solid #2196f3;
+            color: #2196f3;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .pagination button {
+            padding: 5px 10px;
+            border: 1px solid #ddd;
+            background: white;
+            cursor: pointer;
+            border-radius: 3px;
+        }
+        
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .export-buttons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+        
+        .btn-primary {
+            background: #2196f3;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #1976d2;
+        }
+        
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+        
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+        
+        .query-editor {
+            width: 100%;
+            min-height: 100px;
+            font-family: monospace;
+            font-size: 14px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        
+        .error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        
+        .success {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        
+        .column-type {
+            color: #666;
+            font-size: 12px;
+        }
+        
+        .primary-key {
+            color: #ff9800;
+            font-weight: bold;
+        }
+        
+        .foreign-key {
+            color: #2196f3;
+        }
+        
+        .data-container {
+            overflow-x: auto;
+            max-height: 600px;
+            position: relative;
+        }
+        
+        #tableSearch {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Database Viewer</h1>
+            <div>
+                <a href="/home" class="btn btn-secondary">Back to Home</a>
+            </div>
+        </div>
+        
+        <div class="main-content">
+            <!-- Sidebar with table list -->
+            <div class="sidebar">
+                <div class="panel">
+                    <h3>Tables (<span id="tableCount">0</span>)</h3>
+                    <input type="text" id="tableSearch" class="search-box" placeholder="Search tables...">
+                    <div class="table-list" id="tableList">
+                        <div class="loading">Loading tables...</div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Main content area -->
+            <div class="content">
+                <div id="welcomePanel" class="panel">
+                    <h2>Welcome to Database Viewer</h2>
+                    <p>Select a table from the left sidebar to view its data and schema.</p>
+                    <p>You can:</p>
+                    <ul>
+                        <li>Browse all 76 database tables</li>
+                        <li>View table schemas and relationships</li>
+                        <li>Search and filter data</li>
+                        <li>Export data in CSV or JSON format</li>
+                        <li>Execute custom SELECT queries</li>
+                    </ul>
+                </div>
+                
+                <div id="tablePanel" class="panel" style="display: none;">
+                    <h2 id="tableName"></h2>
+                    
+                    <div class="tab-nav">
+                        <button class="active" onclick="showTab('data')">Data</button>
+                        <button onclick="showTab('schema')">Schema</button>
+                        <button onclick="showTab('query')">Query</button>
+                    </div>
+                    
+                    <!-- Data Tab -->
+                    <div id="dataTab" class="tab-content active">
+                        <div class="export-buttons">
+                            <input type="text" id="dataSearch" class="search-box" placeholder="Search in table..." style="flex: 1;">
+                            <button class="btn btn-primary" onclick="searchData()">Search</button>
+                            <button class="btn btn-secondary" onclick="exportData('csv')">Export CSV</button>
+                            <button class="btn btn-secondary" onclick="exportData('json')">Export JSON</button>
+                        </div>
+                        
+                        <div class="data-container">
+                            <table class="data-table" id="dataTable">
+                                <thead id="dataTableHead"></thead>
+                                <tbody id="dataTableBody"></tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="pagination" id="pagination"></div>
+                    </div>
+                    
+                    <!-- Schema Tab -->
+                    <div id="schemaTab" class="tab-content">
+                        <h3>Columns</h3>
+                        <table class="schema-table">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Type</th>
+                                    <th>Nullable</th>
+                                    <th>Default</th>
+                                    <th>Key</th>
+                                </tr>
+                            </thead>
+                            <tbody id="schemaTableBody"></tbody>
+                        </table>
+                        
+                        <div id="foreignKeys" style="display: none;">
+                            <h3>Foreign Keys</h3>
+                            <table class="schema-table">
+                                <thead>
+                                    <tr>
+                                        <th>Column(s)</th>
+                                        <th>References</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="foreignKeysBody"></tbody>
+                            </table>
+                        </div>
+                        
+                        <div id="indexes" style="display: none;">
+                            <h3>Indexes</h3>
+                            <table class="schema-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Columns</th>
+                                        <th>Unique</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="indexesBody"></tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Query Tab -->
+                    <div id="queryTab" class="tab-content">
+                        <p>Execute custom SELECT queries on the current table:</p>
+                        <textarea id="queryEditor" class="query-editor" placeholder="SELECT * FROM table_name WHERE ..."></textarea>
+                        <div style="margin-top: 10px;">
+                            <button class="btn btn-primary" onclick="executeQuery()">Execute Query</button>
+                        </div>
+                        <div id="queryResults" style="margin-top: 20px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentTable = null;
+        let currentPage = 1;
+        let tablesData = [];
+
+        // Load tables on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTables();
+        });
+
+        function loadTables() {
+            fetch('/api/database/tables')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        tablesData = data.tables;
+                        displayTables(data.tables);
+                        document.getElementById('tableCount').textContent = data.total_tables;
+                    } else {
+                        showError('Failed to load tables: ' + data.error);
+                    }
+                })
+                .catch(error => {
+                    showError('Error loading tables: ' + error);
+                });
+        }
+
+        function displayTables(tables) {
+            const tableList = document.getElementById('tableList');
+            tableList.innerHTML = '';
+            
+            tables.forEach(table => {
+                const div = document.createElement('div');
+                div.className = 'table-item';
+                div.onclick = () => selectTable(table.name);
+                
+                div.innerHTML = `
+                    <div class="table-name">${table.name}</div>
+                    <div class="table-meta">
+                        ${table.row_count.toLocaleString()} rows " ${table.column_count} columns
+                        ${table.primary_key.length > 0 ? ' " PK: ' + table.primary_key.join(', ') : ''}
+                    </div>
+                `;
+                
+                tableList.appendChild(div);
+            });
+        }
+
+        // Table search
+        document.getElementById('tableSearch').addEventListener('input', function(e) {
+            const search = e.target.value.toLowerCase();
+            const filtered = tablesData.filter(table => 
+                table.name.toLowerCase().includes(search)
+            );
+            displayTables(filtered);
+        });
+
+        function selectTable(tableName) {
+            currentTable = tableName;
+            currentPage = 1;
+            
+            // Update UI
+            document.getElementById('welcomePanel').style.display = 'none';
+            document.getElementById('tablePanel').style.display = 'block';
+            document.getElementById('tableName').textContent = tableName;
+            
+            // Update active table
+            document.querySelectorAll('.table-item').forEach(item => {
+                if (item.querySelector('.table-name').textContent === tableName) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+            
+            // Update query editor placeholder
+            document.getElementById('queryEditor').placeholder = `SELECT * FROM ${tableName} WHERE ...`;
+            
+            // Load data and schema
+            loadTableData();
+            loadTableSchema();
+        }
+
+        function loadTableData(search = '') {
+            const params = new URLSearchParams({
+                page: currentPage,
+                per_page: 50,
+                search: search
+            });
+            
+            fetch(`/api/database/table/${currentTable}/data?${params}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        displayTableData(data);
+                    } else {
+                        showError('Failed to load table data: ' + data.error);
+                    }
+                })
+                .catch(error => {
+                    showError('Error loading table data: ' + error);
+                });
+        }
+
+        function displayTableData(data) {
+            // Display headers
+            const thead = document.getElementById('dataTableHead');
+            thead.innerHTML = '<tr>' + 
+                data.columns.map(col => `<th>${col}</th>`).join('') +
+                '</tr>';
+            
+            // Display data
+            const tbody = document.getElementById('dataTableBody');
+            tbody.innerHTML = '';
+            
+            data.data.forEach(row => {
+                const tr = document.createElement('tr');
+                data.columns.forEach(col => {
+                    const td = document.createElement('td');
+                    let value = row[col];
+                    
+                    // Handle null values
+                    if (value === null) {
+                        td.innerHTML = '<em style="color: #999;">NULL</em>';
+                    } else if (typeof value === 'string' && value.length > 100) {
+                        // Truncate long strings
+                        td.textContent = value.substring(0, 100) + '...';
+                        td.title = value;
+                    } else {
+                        td.textContent = value;
+                    }
+                    
+                    tr.appendChild(td);
+                });
+                tbody.appendChild(tr);
+            });
+            
+            // Update pagination
+            updatePagination(data);
+        }
+
+        function updatePagination(data) {
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+            
+            // Previous button
+            const prevBtn = document.createElement('button');
+            prevBtn.textContent = 'Previous';
+            prevBtn.disabled = data.page === 1;
+            prevBtn.onclick = () => {
+                currentPage--;
+                loadTableData(document.getElementById('dataSearch').value);
+            };
+            pagination.appendChild(prevBtn);
+            
+            // Page info
+            const pageInfo = document.createElement('span');
+            pageInfo.textContent = `Page ${data.page} of ${data.total_pages} (${data.total.toLocaleString()} total rows)`;
+            pagination.appendChild(pageInfo);
+            
+            // Next button
+            const nextBtn = document.createElement('button');
+            nextBtn.textContent = 'Next';
+            nextBtn.disabled = data.page === data.total_pages;
+            nextBtn.onclick = () => {
+                currentPage++;
+                loadTableData(document.getElementById('dataSearch').value);
+            };
+            pagination.appendChild(nextBtn);
+        }
+
+        function loadTableSchema() {
+            fetch(`/api/database/table/${currentTable}/schema`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        displayTableSchema(data);
+                    } else {
+                        showError('Failed to load table schema: ' + data.error);
+                    }
+                })
+                .catch(error => {
+                    showError('Error loading table schema: ' + error);
+                });
+        }
+
+        function displayTableSchema(data) {
+            // Display columns
+            const tbody = document.getElementById('schemaTableBody');
+            tbody.innerHTML = '';
+            
+            data.columns.forEach(col => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${col.name}</td>
+                    <td><span class="column-type">${col.type}</span></td>
+                    <td>${col.nullable ? 'Yes' : 'No'}</td>
+                    <td>${col.default || '-'}</td>
+                    <td>
+                        ${col.primary_key ? '<span class="primary-key">PK</span>' : ''}
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+            
+            // Display foreign keys
+            if (data.foreign_keys && data.foreign_keys.length > 0) {
+                document.getElementById('foreignKeys').style.display = 'block';
+                const fkBody = document.getElementById('foreignKeysBody');
+                fkBody.innerHTML = '';
+                
+                data.foreign_keys.forEach(fk => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${fk.columns.join(', ')}</td>
+                        <td>${fk.referred_table}(${fk.referred_columns.join(', ')})</td>
+                    `;
+                    fkBody.appendChild(tr);
+                });
+            } else {
+                document.getElementById('foreignKeys').style.display = 'none';
+            }
+            
+            // Display indexes
+            if (data.indexes && data.indexes.length > 0) {
+                document.getElementById('indexes').style.display = 'block';
+                const idxBody = document.getElementById('indexesBody');
+                idxBody.innerHTML = '';
+                
+                data.indexes.forEach(idx => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `
+                        <td>${idx.name}</td>
+                        <td>${idx.columns.join(', ')}</td>
+                        <td>${idx.unique ? 'Yes' : 'No'}</td>
+                    `;
+                    idxBody.appendChild(tr);
+                });
+            } else {
+                document.getElementById('indexes').style.display = 'none';
+            }
+        }
+
+        function showTab(tabName) {
+            // Update tab buttons
+            document.querySelectorAll('.tab-nav button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Update tab content
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            document.getElementById(tabName + 'Tab').classList.add('active');
+        }
+
+        function searchData() {
+            currentPage = 1;
+            const search = document.getElementById('dataSearch').value;
+            loadTableData(search);
+        }
+
+        function exportData(format) {
+            window.location.href = `/api/database/table/${currentTable}/export/${format}`;
+        }
+
+        function executeQuery() {
+            const query = document.getElementById('queryEditor').value.trim();
+            
+            if (!query) {
+                showError('Please enter a query');
+                return;
+            }
+            
+            const resultsDiv = document.getElementById('queryResults');
+            resultsDiv.innerHTML = '<div class="loading">Executing query...</div>';
+            
+            fetch('/api/database/query', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ query: query })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    displayQueryResults(data);
+                } else {
+                    resultsDiv.innerHTML = `<div class="error">Query error: ${data.error}</div>`;
+                }
+            })
+            .catch(error => {
+                resultsDiv.innerHTML = `<div class="error">Error executing query: ${error}</div>`;
+            });
+        }
+
+        function displayQueryResults(data) {
+            const resultsDiv = document.getElementById('queryResults');
+            
+            if (data.data.length === 0) {
+                resultsDiv.innerHTML = '<div class="success">Query executed successfully. No results returned.</div>';
+                return;
+            }
+            
+            let html = `<div class="success">Query executed successfully. ${data.row_count} rows returned.</div>`;
+            html += '<div class="data-container"><table class="data-table"><thead><tr>';
+            
+            // Headers
+            data.columns.forEach(col => {
+                html += `<th>${col}</th>`;
+            });
+            html += '</tr></thead><tbody>';
+            
+            // Data
+            data.data.forEach(row => {
+                html += '<tr>';
+                data.columns.forEach(col => {
+                    let value = row[col];
+                    if (value === null) {
+                        html += '<td><em style="color: #999;">NULL</em></td>';
+                    } else {
+                        html += `<td>${value}</td>`;
+                    }
+                });
+                html += '</tr>';
+            });
+            
+            html += '</tbody></table></div>';
+            resultsDiv.innerHTML = html;
+        }
+
+        function showError(message) {
+            console.error(message);
+            // You could show this in a toast or modal
+        }
+
+        // Enter key to search
+        document.getElementById('dataSearch').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchData();
+            }
+        });
+    </script>
+</body>
+</html>

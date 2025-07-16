@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Firewall Configuration - Meraki Dashboard</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 20px;
+            font-size: 14px;
+        }
+        
+        .header-container {
+            background-color: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px 5px 0 0;
+            margin-bottom: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        .header-container h1 {
+            margin: 0;
+            font-size: 24px;
+            display: inline-block;
+        }
+        .row-count {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 14px;
+            color: #ecf0f1;
+            font-weight: 400;
+        }
+        
+        .location-tabs {
+            margin-bottom: 20px;
+        }
+        
+        .location-tab {
+            background: none;
+            border: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+            font-weight: 500;
+            color: #6c757d;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .location-tab:hover {
+            color: #495057;
+        }
+        
+        .location-tab.active {
+            color: #007bff;
+            border-bottom: 3px solid #007bff;
+        }
+        
+        .tab-badge {
+            background-color: #6c757d;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 11px;
+            margin-left: 8px;
+        }
+        
+        .location-tab.active .tab-badge {
+            background-color: #007bff;
+        }
+        
+        .export-buttons {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .export-buttons button {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .export-buttons button:hover {
+            background: #2980b9;
+        }
+        .push-meraki-button {
+            background: #2ecc71 !important;
+        }
+        .push-meraki-button:hover {
+            background: #27ae60 !important;
+        }
+        
+        .page-header {
+            background-color: white;
+            padding: 24px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .page-title {
+            font-size: 24px;
+            font-weight: 400;
+            color: #212529;
+            margin: 0;
+        }
+        
+        .content-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 0 0 5px 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        
+        .section-title {
+            font-size: 18px;
+            font-weight: 500;
+            color: #212529;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-icon {
+            width: 20px;
+            height: 20px;
+            background-color: #6f42c1;
+            border-radius: 50%;
+            margin-right: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .section-icon i {
+            color: white;
+            font-size: 12px;
+        }
+        
+        .rules-section {
+            margin-bottom: 40px;
+        }
+        
+        .search-filter-container {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        
+        .filter-btn {
+            background-color: white;
+            border: 1px solid #dee2e6;
+            padding: 6px 12px;
+            margin-right: 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #6c757d;
+        }
+        
+        .search-input {
+            flex: 1;
+            max-width: 200px;
+            border: 1px solid #dee2e6;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        
+        .rules-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 12px;
+        }
+        
+        .table-container {
+            max-height: 600px;
+            overflow-y: auto;
+            border: 1px solid #dee2e6;
+        }
+        
+        .rules-table th {
+            background-color: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 8px 12px;
+            text-align: left;
+            font-weight: 500;
+            color: #6c757d;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+        
+        .rules-table td {
+            border: 1px solid #dee2e6;
+            padding: 8px 12px;
+            vertical-align: middle;
+        }
+        
+        .rules-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .rules-table tr[onclick]:hover {
+            background-color: #e3f2fd !important;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.2s ease;
+        }
+        
+        .policy-allow {
+            color: #28a745;
+        }
+        
+        .policy-deny {
+            color: #dc3545;
+        }
+        
+        .policy-icon {
+            margin-right: 4px;
+        }
+        
+        .tag-badge {
+            background-color: #007bff;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 12px;
+            font-size: 10px;
+            margin-right: 4px;
+        }
+        
+        .rule-number {
+            color: #6c757d;
+            font-weight: 500;
+        }
+        
+        .default-rule {
+            background-color: #f8f9fa;
+            color: #6c757d;
+        }
+        
+        .no-rules-message {
+            text-align: center;
+            color: #6c757d;
+            font-style: italic;
+            padding: 20px;
+        }
+        
+        .checkbox-col {
+            width: 40px;
+            text-align: center;
+        }
+        
+        .rule-num-col {
+            width: 40px;
+        }
+        
+        .policy-col {
+            width: 80px;
+        }
+        
+        .protocol-col {
+            width: 80px;
+        }
+        
+        .source-col {
+            width: 200px;
+        }
+        
+        .src-port-col {
+            width: 80px;
+        }
+        
+        .dest-col {
+            width: 200px;
+        }
+        
+        .dest-port-col {
+            width: 80px;
+        }
+        
+        .description-col {
+            min-width: 150px;
+        }
+        
+        .long-ip-list {
+            max-width: 300px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: #6c757d;
+            font-size: 11px;
+        }
+        
+        .network-selector {
+            background-color: white;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .btn-meraki {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: white;
+            font-size: 12px;
+            padding: 6px 12px;
+        }
+        
+        .btn-meraki:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Header Container -->
+    <div class="header-container">
+        <h1>Meraki MX Firewall Rules Management</h1>
+        <div class="row-count" id="currentTemplate">Discount-Tire Template (110 rules)</div>
+    </div>
+
+    <div class="content-container">
+        <!-- Export Buttons (matching dsrcircuits style) -->
+        <div class="export-buttons">
+            <!-- Left side buttons -->
+            <div style="display: flex; gap: 8px; align-items: center;">
+                <button onclick="window.location.href='/home'">🏠 Home</button>
+                <button class="btn-meraki" onclick="addRule()">➕ Add Rule</button>
+                <button class="push-meraki-button" onclick="saveRules()">💾 Save Changes</button>
+                <button onclick="deployRules()">🚀 Deploy to Sites</button>
+                <button onclick="showRevisionHistory()">📋 Revision History</button>
+                <button onclick="showCompareModal()" style="background: #f39c12 !important;">🔍 Compare with Network</button>
+            </div>
+            
+            <!-- Right side export buttons -->
+            <div style="display: flex; gap: 8px; margin-left: auto;">
+                <button onclick="exportToExcel()">📊 Export to Excel</button>
+                <button onclick="exportToPDF()">📄 Export to PDF</button>
+            </div>
+        </div>
+
+        <!-- Location Type Tabs -->
+        <div class="location-tabs" style="border-bottom: 2px solid #dee2e6; margin-bottom: 20px;">
+            <button class="location-tab active" data-location="discount-tire" onclick="switchLocationTab(this)">
+                Discount Tire <span class="tab-badge" id="discount-tire-count">110</span>
+            </button>
+            <button class="location-tab" data-location="full-service" onclick="switchLocationTab(this)">
+                Full Service <span class="tab-badge" id="full-service-count">54</span>
+            </button>
+            <button class="location-tab" data-location="warehouse" onclick="switchLocationTab(this)">
+                Warehouse <span class="tab-badge" id="warehouse-count">36</span>
+            </button>
+            <button class="location-tab" data-location="mdc" onclick="switchLocationTab(this)">
+                MDC <span class="tab-badge" id="mdc-count">32</span>
+            </button>
+            <button class="location-tab" data-location="call-center" onclick="switchLocationTab(this)">
+                Call Center <span class="tab-badge" id="call-center-count">16</span>
+            </button>
+        </div>
+        
+        <!-- Layer 3 Section -->
+        <div class="rules-section">
+            <div class="section-title">
+                <div class="section-icon">
+                    <i class="bi bi-shield"></i>
+                </div>
+                Layer 3
+            </div>
+            
+            <!-- Inbound Rules -->
+            <div class="mb-4">
+                <h6 style="margin-bottom: 12px; color: #6c757d; font-weight: 500;">Inbound rules</h6>
+                
+                <div class="search-filter-container">
+                    <button class="filter-btn">
+                        <i class="bi bi-funnel"></i>
+                    </button>
+                    <input type="text" class="search-input" placeholder="Search..." id="inboundSearch">
+                </div>
+                
+                <div class="table-container">
+                    <table class="rules-table" id="inboundRulesTable">
+                        <thead>
+                            <tr>
+                                <th class="checkbox-col"><input type="checkbox" id="selectAllInbound"></th>
+                                <th class="rule-num-col">#</th>
+                                <th class="policy-col">Policy</th>
+                                <th class="description-col">Rule description</th>
+                                <th class="protocol-col">Protocol</th>
+                                <th class="source-col">Source</th>
+                                <th class="src-port-col">Src port</th>
+                                <th class="dest-col">Destination</th>
+                                <th class="dest-port-col">Dest port</th>
+                            </tr>
+                        </thead>
+                        <tbody id="inboundRulesBody">
+                            <tr>
+                                <td colspan="9" class="no-rules-message">No custom rules defined</td>
+                            </tr>
+                            <tr class="default-rule">
+                                <td><i class="bi bi-x-circle text-danger"></i></td>
+                                <td></td>
+                                <td class="policy-deny"><i class="bi bi-x-circle policy-icon"></i>Deny</td>
+                                <td>Default rule</td>
+                                <td>Any</td>
+                                <td>Any</td>
+                                <td>Any</td>
+                                <td>Any</td>
+                                <td>Any</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Outbound Rules -->
+            <div>
+                <h6 style="margin-bottom: 12px; color: #6c757d; font-weight: 500;">Outbound rules</h6>
+                
+                <div class="search-filter-container">
+                    <button class="filter-btn">
+                        <i class="bi bi-funnel"></i>
+                    </button>
+                    <input type="text" class="search-input" placeholder="Search rules..." id="rulesSearch" onkeyup="searchRules()">
+                </div>
+                
+                <div class="table-container">
+                    <table class="rules-table" id="outboundRulesTable">
+                        <thead>
+                            <tr>
+                                <th class="checkbox-col"><input type="checkbox" id="selectAllOutbound"></th>
+                                <th class="rule-num-col">#</th>
+                                <th class="policy-col">Policy</th>
+                                <th class="description-col">Rule description</th>
+                                <th class="protocol-col">Protocol</th>
+                                <th class="source-col">Source</th>
+                                <th class="src-port-col">Src port</th>
+                                <th class="dest-col">Destination</th>
+                                <th class="dest-port-col">Dest port</th>
+                                <th style="width: 60px;">Syslog</th>
+                                <th style="width: 100px;">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="outboundRulesBody">
+                            <tr>
+                                <td colspan="11" class="text-center text-muted">Loading template rules...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Edit Rule Modal -->
+    <div class="modal fade" id="editRuleModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Firewall Rule</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="editRuleForm">
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Policy</label>
+                                <select class="form-select" name="policy">
+                                    <option value="allow">Allow</option>
+                                    <option value="deny">Deny</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Protocol</label>
+                                <select class="form-select" name="protocol">
+                                    <option value="any">Any</option>
+                                    <option value="tcp">TCP</option>
+                                    <option value="udp">UDP</option>
+                                    <option value="icmp">ICMP</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Source</label>
+                                <input type="text" class="form-control" name="source" placeholder="Any, IP, CIDR, or VLAN">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Source Port</label>
+                                <input type="text" class="form-control" name="srcPort" placeholder="Any, port, or range">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Destination</label>
+                                <input type="text" class="form-control" name="destination" placeholder="Any, IP, CIDR, or hostname">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Destination Port</label>
+                                <input type="text" class="form-control" name="destPort" placeholder="Any, port, or range">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Rule Description</label>
+                            <input type="text" class="form-control" name="description" placeholder="Optional description">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" onclick="saveRule()">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script>
+        let currentLocation = 'discount-tire';
+        let currentRules = [];
+        let allRules = [];
+        
+        $(document).ready(function() {
+            loadRules('discount-tire'); // Load default template
+        });
+        
+        function switchLocationTab(tab) {
+            // Remove active class from all tabs
+            $('.location-tab').removeClass('active');
+            // Add active class to clicked tab
+            $(tab).addClass('active');
+            
+            // Get location type
+            currentLocation = $(tab).data('location');
+            
+            // Load rules for this location type
+            loadRules(currentLocation);
+        }
+        
+        function loadRules(locationType) {
+            $('#outboundRulesBody').html(`
+                <tr>
+                    <td colspan="11" class="text-center">
+                        <div class="spinner-border spinner-border-sm" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        Loading rules...
+                    </td>
+                </tr>
+            `);
+            
+            // Map location types to database template names
+            const locationMapping = {
+                'discount-tire': 'Discount-Tire',
+                'full-service': 'Full-Service',
+                'warehouse': 'Warehouse', 
+                'mdc': 'MDC',
+                'call-center': 'Call-Center'
+            };
+            
+            const templateName = locationMapping[locationType] || 'Discount-Tire';
+            
+            // Load rules for the specific location type from database
+            $.ajax({
+                url: `/api/firewall/template/${templateName}`,
+                method: 'GET',
+                success: function(response) {
+                    if (response.success) {
+                        currentRules = response.rules;
+                        allRules = response.rules;
+                        populateRulesTables(currentRules);
+                        
+                        // Update page title to show current template
+                        $('#currentTemplate').text(`${templateName} Template (${currentRules.length} rules)`);
+                    } else {
+                        $('#outboundRulesBody').html(`
+                            <tr>
+                                <td colspan="11" class="text-center text-danger">
+                                    Error loading rules: ${response.error}
+                                </td>
+                            </tr>
+                        `);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    $('#outboundRulesBody').html(`
+                        <tr>
+                            <td colspan="11" class="text-center text-danger">
+                                Failed to load rules: ${error}
+                            </td>
+                        </tr>
+                    `);
+                }
+            });
+        }
+        
+        function loadNetworks() {
+            $.get('/api/networks')
+                .done(function(response) {
+                    if (response.success) {
+                        const select = $('#networkSelect');
+                        select.empty().append('<option value="">Select a network...</option>');
+                        
+                        response.networks.forEach(function(network) {
+                            select.append(`<option value="${network.name}">${network.name}</option>`);
+                        });
+                    }
+                });
+        }
+        
+        function loadNetworkRules() {
+            currentNetworkName = $('#networkSelect').val();
+            if (!currentNetworkName) {
+                clearRulesTables();
+                return;
+            }
+            
+            console.log('Loading rules for network:', currentNetworkName);
+            
+            // Show loading message
+            $('#outboundRulesBody').html(`
+                <tr>
+                    <td colspan="9" class="text-center">
+                        <div class="spinner-border spinner-border-sm" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        Loading rules for ${currentNetworkName}...
+                    </td>
+                </tr>
+            `);
+            
+            $.get(`/api/firewall/rules/${currentNetworkName}`)
+                .done(function(response) {
+                    console.log('API response:', response);
+                    if (response.success) {
+                        allRules = response.rules;
+                        console.log('Loaded', response.rules.length, 'rules for', currentNetworkName);
+                        populateRulesTables(response.rules);
+                    } else {
+                        $('#outboundRulesBody').html(`
+                            <tr>
+                                <td colspan="9" class="text-center text-danger">
+                                    Error loading rules: ${response.error}
+                                </td>
+                            </tr>
+                        `);
+                    }
+                })
+                .fail(function(xhr, status, error) {
+                    console.error('Failed to load rules:', error);
+                    $('#outboundRulesBody').html(`
+                        <tr>
+                            <td colspan="9" class="text-center text-danger">
+                                Failed to load rules: ${error}
+                            </td>
+                        </tr>
+                    `);
+                });
+        }
+        
+        function clearRulesTables() {
+            $('#inboundRulesBody').html(`
+                <tr>
+                    <td colspan="9" class="no-rules-message">No custom rules defined</td>
+                </tr>
+                <tr class="default-rule">
+                    <td><i class="bi bi-x-circle text-danger"></i></td>
+                    <td></td>
+                    <td class="policy-deny"><i class="bi bi-x-circle policy-icon"></i>Deny</td>
+                    <td>Default rule</td>
+                    <td>Any</td>
+                    <td>Any</td>
+                    <td>Any</td>
+                    <td>Any</td>
+                    <td>Any</td>
+                </tr>
+            `);
+            
+            $('#outboundRulesBody').empty();
+        }
+        
+        function populateRulesTables(rules) {
+            const inboundBody = $('#inboundRulesBody');
+            const outboundBody = $('#outboundRulesBody');
+            
+            // Clear existing content
+            inboundBody.empty();
+            outboundBody.empty();
+            
+            console.log('Populating rules:', rules.length, 'rules received');
+            
+            if (rules.length === 0) {
+                inboundBody.html(`
+                    <tr>
+                        <td colspan="9" class="no-rules-message">No custom rules defined</td>
+                    </tr>
+                    <tr class="default-rule">
+                        <td><i class="bi bi-x-circle text-danger"></i></td>
+                        <td></td>
+                        <td class="policy-deny"><i class="bi bi-x-circle policy-icon"></i>Deny</td>
+                        <td>Default rule</td>
+                        <td>Any</td>
+                        <td>Any</td>
+                        <td>Any</td>
+                        <td>Any</td>
+                        <td>Any</td>
+                    </tr>
+                `);
+                return;
+            }
+            
+            // Separate inbound and outbound rules based on rule analysis
+            let inboundRules = [];
+            let outboundRules = [];
+            
+            rules.forEach(function(rule) {
+                // Analyze rule to determine if it's inbound or outbound
+                // For now, most Meraki L3 rules are outbound (egress filtering)
+                // Inbound rules typically have specific destination to internal networks
+                if (isInboundRule(rule)) {
+                    inboundRules.push(rule);
+                } else {
+                    outboundRules.push(rule);
+                }
+            });
+            
+            console.log('Inbound rules:', inboundRules.length, 'Outbound rules:', outboundRules.length);
+            
+            // Populate inbound rules
+            if (inboundRules.length === 0) {
+                inboundBody.html(`
+                    <tr>
+                        <td colspan="9" class="no-rules-message">No custom rules defined</td>
+                    </tr>
+                `);
+            } else {
+                inboundRules.forEach(function(rule) {
+                    const row = createRuleRow(rule);
+                    inboundBody.append(row);
+                });
+            }
+            
+            // Always add default deny rule to inbound
+            inboundBody.append(`
+                <tr class="default-rule">
+                    <td><i class="bi bi-x-circle text-danger"></i></td>
+                    <td></td>
+                    <td class="policy-deny"><i class="bi bi-x-circle policy-icon"></i>Deny</td>
+                    <td>Default rule</td>
+                    <td>Any</td>
+                    <td>Any</td>
+                    <td>Any</td>
+                    <td>Any</td>
+                    <td>Any</td>
+                </tr>
+            `);
+            
+            // Populate outbound rules
+            outboundRules.forEach(function(rule) {
+                const row = createRuleRow(rule);
+                outboundBody.append(row);
+            });
+        }
+        
+        function isInboundRule(rule) {
+            // Simple heuristic to determine if rule is inbound
+            // Most L3 firewall rules in Meraki are outbound (egress filtering)
+            // Inbound rules typically protect internal networks from external access
+            const destCidr = rule.destCidr || '';
+            const srcCidr = rule.srcCidr || '';
+            
+            // If destination is internal VLAN and source is external, it's likely inbound
+            if (destCidr.includes('VLAN(') && (srcCidr === 'Any' || !srcCidr.includes('VLAN('))) {
+                return true;
+            }
+            
+            // Most rules are outbound by default in Meraki MX
+            return false;
+        }
+        
+        function createRuleRow(rule) {
+            const policyClass = rule.policy === 'allow' ? 'policy-allow' : 'policy-deny';
+            const policyIcon = rule.policy === 'allow' ? 'bi-check-circle' : 'bi-x-circle';
+            const syslogIcon = rule.syslogEnabled ? 'check' : '-';
+            
+            // Create source and destination display
+            const sourceDisplay = formatAddressDisplay(rule.srcCidr);
+            const destDisplay = formatAddressDisplay(rule.destCidr);
+            
+            return `
+                <tr data-rule-id="${rule.id}" onclick="editRule(${rule.id})" style="cursor: pointer;" title="Click to edit rule">
+                    <td onclick="event.stopPropagation();"><input type="checkbox"></td>
+                    <td class="rule-number">${rule.order}</td>
+                    <td class="${policyClass}"><i class="bi ${policyIcon} policy-icon"></i>${rule.policy.charAt(0).toUpperCase() + rule.policy.slice(1)}</td>
+                    <td>${rule.comment || ''}</td>
+                    <td>${rule.protocol.toUpperCase()}</td>
+                    <td>${sourceDisplay}</td>
+                    <td>${rule.srcPort}</td>
+                    <td>${destDisplay}</td>
+                    <td>${rule.destPort || ''}</td>
+                    <td class="text-center">${syslogIcon}</td>
+                    <td onclick="event.stopPropagation();">
+                        <div class="rule-actions" style="display: flex; gap: 5px;">
+                            <button class="btn btn-primary btn-xs" onclick="editRule(${rule.id})" style="padding: 2px 6px; font-size: 11px;">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                            <button class="btn btn-danger btn-xs" onclick="deleteRule(${rule.id})" style="padding: 2px 6px; font-size: 11px;">
+                                <i class="bi bi-trash"></i>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            `;
+        }
+        
+        function formatAddressDisplay(address) {
+            if (!address || address === 'Any') return 'Any';
+            
+            // Check if it's a VLAN tag format (handle multiple VLANs)
+            if (address.includes('VLAN(')) {
+                const tagNames = {
+                    '100': 'Data',
+                    '200': 'Voice', 
+                    '300': 'Access',
+                    '301': 'Scanner',
+                    '400': 'IOT',
+                    '410': 'CC',
+                    '800': 'Guest'
+                };
+                
+                // Handle multiple VLANs separated by commas
+                if (address.includes(',')) {
+                    const vlans = address.split(',');
+                    let result = '';
+                    vlans.forEach(function(vlan, index) {
+                        const vlanMatch = vlan.trim().match(/VLAN\((\d+)\)/);
+                        if (vlanMatch) {
+                            const vlanNumber = vlanMatch[1];
+                            const tagName = tagNames[vlanNumber] || `VLAN${vlanNumber}`;
+                            if (index > 0) result += ' ';
+                            result += `<span class="tag-badge">${tagName}</span>`;
+                        }
+                    });
+                    return result || address;
+                } else {
+                    const vlanMatch = address.match(/VLAN\((\d+)\)/);
+                    if (vlanMatch) {
+                        const vlanNumber = vlanMatch[1];
+                        const tagName = tagNames[vlanNumber] || `VLAN${vlanNumber}`;
+                        return `<span class="tag-badge">${tagName}</span>`;
+                    }
+                }
+            }
+            
+            // Check if it's a Meraki group reference
+            if (address.includes('GRP(')) {
+                return `<span class="tag-badge" style="background-color: #6c757d;">Group</span>`;
+            }
+            
+            // Check if it's a Meraki object reference
+            if (address.includes('OBJ(')) {
+                return `<span class="tag-badge" style="background-color: #6c757d;">Object</span>`;
+            }
+            
+            // Check if it's a long IP/hostname list
+            if (address.length > 50) {
+                // Truncate and show tooltip
+                const truncated = address.substring(0, 50) + '...';
+                return `<span class="long-ip-list" title="${address}">${truncated}</span>`;
+            }
+            
+            // Check if it's a domain name
+            if (address.includes('.com') || address.includes('.org') || address.includes('.net')) {
+                return `<span style="color: #007bff;">${address}</span>`;
+            }
+            
+            return address;
+        }
+        
+        function editRuleDialog(ruleId) {
+            // Find the rule data
+            const rule = allRules.find(r => r.id === ruleId);
+            if (!rule) return;
+            
+            // Populate the form
+            const form = $('#editRuleForm');
+            form.find('[name="policy"]').val(rule.policy);
+            form.find('[name="protocol"]').val(rule.protocol);
+            form.find('[name="source"]').val(rule.srcCidr);
+            form.find('[name="srcPort"]').val(rule.srcPort);
+            form.find('[name="destination"]').val(rule.destCidr);
+            form.find('[name="destPort"]').val(rule.destPort);
+            form.find('[name="description"]').val(rule.comment);
+            
+            $('#editRuleModal').modal('show');
+        }
+        
+        function saveRule() {
+            // Implement save functionality
+            alert('Save functionality - would update the rule in database');
+            $('#editRuleModal').modal('hide');
+        }
+        
+        function addRule() {
+            showRuleModal(null);
+        }
+        
+        function saveRules() {
+            alert('Template rules are automatically saved when you edit them.');
+        }
+        
+        function deployRules() {
+            alert('Deploy rules functionality coming soon - will show site selection dialog');
+        }
+        
+        function showRevisionHistory() {
+            const locationMapping = {
+                'discount-tire': 'Discount-Tire',
+                'full-service': 'Full-Service',
+                'warehouse': 'Warehouse', 
+                'mdc': 'MDC',
+                'call-center': 'Call-Center'
+            };
+            
+            const templateName = locationMapping[currentLocation] || 'Discount-Tire';
+            
+            $.ajax({
+                url: `/api/firewall/template/${templateName}/revisions`,
+                method: 'GET',
+                success: function(response) {
+                    if (response.success) {
+                        showRevisionModal(response.revisions, templateName);
+                    } else {
+                        alert('Error loading revision history: ' + response.error);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    alert('Error loading revision history: ' + error);
+                }
+            });
+        }
+        
+        function editRule(ruleId) {
+            const rule = currentRules.find(r => r.id === ruleId);
+            if (rule) {
+                showRuleModal(rule);
+            }
+        }
+        
+        function deleteRule(ruleId) {
+            if (confirm('Are you sure you want to delete this rule? This action cannot be undone.')) {
+                const locationMapping = {
+                    'discount-tire': 'Discount-Tire',
+                    'full-service': 'Full-Service',
+                    'warehouse': 'Warehouse', 
+                    'mdc': 'MDC',
+                    'call-center': 'Call-Center'
+                };
+                
+                const templateName = locationMapping[currentLocation] || 'Discount-Tire';
+                
+                $.ajax({
+                    url: `/api/firewall/template/${templateName}/delete/${ruleId}`,
+                    method: 'DELETE',
+                    success: function(response) {
+                        if (response.success) {
+                            showSuccess(response.message);
+                            loadRules(currentLocation); // Reload rules
+                        } else {
+                            alert('Failed to delete rule: ' + response.error);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert('Failed to delete rule: ' + error);
+                    }
+                });
+            }
+        }
+        
+        function showRuleModal(rule) {
+            let modalHtml = `
+                <div class="modal fade" id="ruleModal" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">${rule ? 'Edit' : 'Add'} Firewall Rule</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="ruleForm">
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <label for="rulePolicy" class="form-label">Policy</label>
+                                            <select class="form-select" id="rulePolicy" required>
+                                                <option value="allow" ${rule && rule.policy === 'allow' ? 'selected' : ''}>Allow</option>
+                                                <option value="deny" ${rule && rule.policy === 'deny' ? 'selected' : ''}>Deny</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="ruleProtocol" class="form-label">Protocol</label>
+                                            <select class="form-select" id="ruleProtocol" required>
+                                                <option value="any" ${rule && rule.protocol === 'any' ? 'selected' : ''}>Any</option>
+                                                <option value="tcp" ${rule && rule.protocol === 'tcp' ? 'selected' : ''}>TCP</option>
+                                                <option value="udp" ${rule && rule.protocol === 'udp' ? 'selected' : ''}>UDP</option>
+                                                <option value="icmp" ${rule && rule.protocol === 'icmp' ? 'selected' : ''}>ICMP</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <label for="ruleSrcCidr" class="form-label">Source CIDR</label>
+                                            <input type="text" class="form-control" id="ruleSrcCidr" 
+                                                   value="${rule ? rule.srcCidr : 'Any'}" 
+                                                   placeholder="Any, 192.168.1.0/24, etc.">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="ruleSrcPort" class="form-label">Source Port</label>
+                                            <input type="text" class="form-control" id="ruleSrcPort" 
+                                                   value="${rule ? rule.srcPort : 'Any'}" 
+                                                   placeholder="Any, 80, 80-90, etc.">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-md-6">
+                                            <label for="ruleDestCidr" class="form-label">Destination CIDR</label>
+                                            <input type="text" class="form-control" id="ruleDestCidr" 
+                                                   value="${rule ? rule.destCidr : 'Any'}" 
+                                                   placeholder="Any, 10.0.0.0/8, etc.">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="ruleDestPort" class="form-label">Destination Port</label>
+                                            <input type="text" class="form-control" id="ruleDestPort" 
+                                                   value="${rule ? rule.destPort : 'Any'}" 
+                                                   placeholder="Any, 443, 80,443, etc.">
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="ruleComment" class="form-label">Comment</label>
+                                        <input type="text" class="form-control" id="ruleComment" 
+                                               value="${rule ? rule.comment : ''}" 
+                                               placeholder="Description of this rule">
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="ruleSyslog" 
+                                                   ${rule && rule.syslogEnabled ? 'checked' : ''}>
+                                            <label class="form-check-label" for="ruleSyslog">
+                                                Enable Syslog
+                                            </label>
+                                        </div>
+                                    </div>
+                                    ${rule ? `<input type="hidden" id="ruleId" value="${rule.id}">` : ''}
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-primary" onclick="saveRule()">${rule ? 'Update' : 'Add'} Rule</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Remove existing modal if any
+            $('#ruleModal').remove();
+            
+            // Add modal to page and show
+            $('body').append(modalHtml);
+            $('#ruleModal').modal('show');
+        }
+        
+        function saveRule() {
+            const ruleId = $('#ruleId').val();
+            const isEdit = !!ruleId;
+            
+            const ruleData = {
+                policy: $('#rulePolicy').val(),
+                protocol: $('#ruleProtocol').val(),
+                srcCidr: $('#ruleSrcCidr').val() || 'Any',
+                srcPort: $('#ruleSrcPort').val() || 'Any',
+                destCidr: $('#ruleDestCidr').val() || 'Any',
+                destPort: $('#ruleDestPort').val() || 'Any',
+                comment: $('#ruleComment').val(),
+                syslogEnabled: $('#ruleSyslog').is(':checked')
+            };
+            
+            if (isEdit) {
+                ruleData.id = parseInt(ruleId);
+            }
+            
+            const locationMapping = {
+                'discount-tire': 'Discount-Tire',
+                'full-service': 'Full-Service',
+                'warehouse': 'Warehouse', 
+                'mdc': 'MDC',
+                'call-center': 'Call-Center'
+            };
+            
+            const templateName = locationMapping[currentLocation] || 'Discount-Tire';
+            const url = isEdit 
+                ? `/api/firewall/template/${templateName}/update`
+                : `/api/firewall/template/${templateName}/add`;
+            
+            $.ajax({
+                url: url,
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                data: JSON.stringify(ruleData),
+                success: function(response) {
+                    if (response.success) {
+                        $('#ruleModal').modal('hide');
+                        showSuccess(response.message);
+                        loadRules(currentLocation); // Reload rules
+                    } else {
+                        alert('Error saving rule: ' + response.error);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    alert('Error saving rule: ' + error);
+                }
+            });
+        }
+        
+        function showSuccess(message) {
+            // Show success message in a temporary alert
+            const alertHtml = `
+                <div class="alert alert-success alert-dismissible fade show" role="alert" style="position: fixed; top: 20px; right: 20px; z-index: 9999;">
+                    <i class="bi bi-check-circle"></i> ${message}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            `;
+            $('body').append(alertHtml);
+            
+            // Auto-remove after 3 seconds
+            setTimeout(() => {
+                $('.alert-success').alert('close');
+            }, 3000);
+        }
+        
+        function showRevisionModal(revisions, templateName) {
+            // Implementation would go here - for now just show count
+            alert(`${templateName} has ${revisions.length} revision history entries`);
+        }
+        
+        function showCompareModal() {
+            const modalHtml = `
+                <div class="modal fade" id="compareModal" tabindex="-1">
+                    <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Compare Template with Live Network</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="mb-3">
+                                    <label for="compareNetworkSelect" class="form-label">Select Network to Compare:</label>
+                                    <select class="form-select" id="compareNetworkSelect">
+                                        <option value="">Loading networks...</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <p><strong>Current Template:</strong> <span id="compareCurrentTemplate">${getCurrentTemplateName()}</span></p>
+                                    <p><strong>Template Rules:</strong> <span id="compareTemplateCount">${currentRules.length}</span></p>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-primary" onclick="performComparison()">Compare Rules</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Remove existing modal if any
+            $('#compareModal').remove();
+            
+            // Add modal to page and show
+            $('body').append(modalHtml);
+            $('#compareModal').modal('show');
+            
+            // Load networks for comparison
+            loadNetworksForComparison();
+        }
+        
+        function getCurrentTemplateName() {
+            const locationMapping = {
+                'discount-tire': 'Discount-Tire',
+                'full-service': 'Full-Service',
+                'warehouse': 'Warehouse', 
+                'mdc': 'MDC',
+                'call-center': 'Call-Center'
+            };
+            return locationMapping[currentLocation] || 'Discount-Tire';
+        }
+        
+        function loadNetworksForComparison() {
+            $.get('/api/networks')
+                .done(function(response) {
+                    if (response.success) {
+                        const select = $('#compareNetworkSelect');
+                        select.empty().append('<option value="">Select a network...</option>');
+                        
+                        response.networks.forEach(function(network) {
+                            select.append(`<option value="${network.id}">${network.name} (${network.device_count} devices)</option>`);
+                        });
+                    } else {
+                        $('#compareNetworkSelect').html('<option value="">Error loading networks</option>');
+                    }
+                })
+                .fail(function() {
+                    $('#compareNetworkSelect').html('<option value="">Error loading networks</option>');
+                });
+        }
+        
+        function performComparison() {
+            const selectedNetworkId = $('#compareNetworkSelect').val();
+            const selectedNetworkName = $('#compareNetworkSelect option:selected').text();
+            
+            if (!selectedNetworkId) {
+                alert('Please select a network to compare with.');
+                return;
+            }
+            
+            // Show loading with more detailed message
+            const modalBody = $('.modal-body');
+            $('#comparisonLoading').remove(); // Remove any existing loading indicator
+            modalBody.append(`
+                <div id="comparisonLoading" class="text-center mt-3 p-3 border rounded" style="background-color: #f8f9fa;">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <h6 class="mt-2 mb-1">Downloading Firewall Rules</h6>
+                    <p class="mb-0 text-muted">Fetching live rules from <strong>${selectedNetworkName}</strong> via Meraki API...</p>
+                    <small class="text-muted">This may take a few seconds</small>
+                </div>
+            `);
+            
+            // Disable the compare button
+            $('button[onclick="performComparison()"]').prop('disabled', true).text('Downloading...');
+            
+            // Fetch live network rules from Meraki API
+            $.ajax({
+                url: `/api/firewall/live-rules/${selectedNetworkId}`,
+                method: 'GET',
+                timeout: 30000 // 30 second timeout
+            })
+            .done(function(response) {
+                console.log('API Response:', response);
+                $('#comparisonLoading').remove();
+                $('button[onclick="performComparison()"]').prop('disabled', false).text('Compare Rules');
+                
+                if (response && response.success) {
+                    showComparisonResults(selectedNetworkName, response.rules, response.source);
+                } else {
+                    alert('Error downloading live network rules: ' + (response ? response.error : 'Unknown error'));
+                }
+            })
+            .fail(function(xhr, status, error) {
+                console.log('API Error:', {xhr: xhr, status: status, error: error, responseText: xhr.responseText});
+                $('#comparisonLoading').remove();
+                $('button[onclick="performComparison()"]').prop('disabled', false).text('Compare Rules');
+                
+                let errorMessage = 'Failed to load network rules';
+                if (xhr.responseJSON && xhr.responseJSON.error) {
+                    errorMessage += ': ' + xhr.responseJSON.error;
+                } else if (xhr.responseText) {
+                    try {
+                        const errorData = JSON.parse(xhr.responseText);
+                        errorMessage += ': ' + (errorData.error || errorData.message || 'Unknown error');
+                    } catch (e) {
+                        errorMessage += ': ' + error;
+                    }
+                } else {
+                    errorMessage += ': ' + error;
+                }
+                
+                alert(errorMessage);
+            });
+        }
+        
+        function showComparisonResults(networkName, networkRules, source = 'database') {
+            // Close the selection modal
+            $('#compareModal').modal('hide');
+            
+            // Create comparison results modal with live data indicator
+            const sourceLabel = source === 'meraki_api' ? 'Live from Meraki API' : 'Database';
+            const sourceIcon = source === 'meraki_api' ? '🌐' : '💾';
+            
+            const comparisonHtml = `
+                <div class="modal fade" id="comparisonResultsModal" tabindex="-1">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Firewall Rules Comparison</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <div class="alert alert-info mb-3">
+                                    <h6 class="mb-1">📊 Comparison Summary</h6>
+                                    <p class="mb-0"><strong>Template:</strong> ${getCurrentTemplateName()} (${currentRules.length} rules)</p>
+                                    <p class="mb-0"><strong>Network:</strong> ${networkName} (${networkRules.length} rules) ${sourceIcon} <em>${sourceLabel}</em></p>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6><strong>Template: ${getCurrentTemplateName()}</strong> (${currentRules.length} rules)</h6>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6><strong>Live Network: ${networkName}</strong> (${networkRules.length} rules)</h6>
+                                    </div>
+                                </div>
+                                <div id="comparisonContent">
+                                    ${generateComparisonTable(currentRules, networkRules)}
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-success" onclick="syncNetworkToTemplate('${networkName}')">Sync Network to Template</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Remove existing modal if any
+            $('#comparisonResultsModal').remove();
+            
+            // Add modal to page and show
+            $('body').append(comparisonHtml);
+            $('#comparisonResultsModal').modal('show');
+        }
+        
+        function generateComparisonTable(templateRules, networkRules) {
+            let html = `
+                <div class="comparison-legend mb-3">
+                    <span class="badge" style="background-color: #dc3545; margin-right: 10px;">Missing from Network</span>
+                    <span class="badge" style="background-color: #ffc107; color: black; margin-right: 10px;">Different</span>
+                    <span class="badge" style="background-color: #28a745; margin-right: 10px;">Match</span>
+                    <span class="badge" style="background-color: #6c757d;">Extra in Network</span>
+                </div>
+                <div style="max-height: 500px; overflow-y: auto;">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Status</th>
+                                <th>#</th>
+                                <th>Policy</th>
+                                <th>Protocol</th>
+                                <th>Source</th>
+                                <th>Destination</th>
+                                <th>Comment</th>
+                                <th>Source</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+            `;
+            
+            // Compare rules
+            const comparison = compareRules(templateRules, networkRules);
+            
+            comparison.forEach(item => {
+                const statusBadge = getStatusBadge(item.status);
+                const templateRule = item.templateRule;
+                const networkRule = item.networkRule;
+                
+                html += `
+                    <tr>
+                        <td>${statusBadge}</td>
+                        <td>${templateRule ? templateRule.order : (networkRule ? networkRule.order : '-')}</td>
+                        <td>${templateRule ? templateRule.policy : (networkRule ? networkRule.policy : '-')}</td>
+                        <td>${templateRule ? templateRule.protocol : (networkRule ? networkRule.protocol : '-')}</td>
+                        <td>${templateRule ? (templateRule.srcCidr || 'Any') : (networkRule ? (networkRule.srcCidr || 'Any') : '-')}</td>
+                        <td>${templateRule ? (templateRule.destCidr || 'Any') : (networkRule ? (networkRule.destCidr || 'Any') : '-')}</td>
+                        <td>${templateRule ? (templateRule.comment || '') : (networkRule ? (networkRule.comment || '') : '-')}</td>
+                        <td><small>${templateRule ? 'Template' : 'Network'}</small></td>
+                    </tr>
+                `;
+            });
+            
+            html += '</tbody></table></div>';
+            return html;
+        }
+        
+        function compareRules(templateRules, networkRules) {
+            const comparison = [];
+            const usedNetworkRules = new Set();
+            
+            // Check template rules against network rules
+            templateRules.forEach(templateRule => {
+                const matchingNetworkRule = findMatchingRule(templateRule, networkRules);
+                if (matchingNetworkRule) {
+                    usedNetworkRules.add(matchingNetworkRule.order);
+                    if (rulesAreIdentical(templateRule, matchingNetworkRule)) {
+                        comparison.push({
+                            status: 'match',
+                            templateRule: templateRule,
+                            networkRule: matchingNetworkRule
+                        });
+                    } else {
+                        comparison.push({
+                            status: 'different',
+                            templateRule: templateRule,
+                            networkRule: matchingNetworkRule
+                        });
+                    }
+                } else {
+                    comparison.push({
+                        status: 'missing',
+                        templateRule: templateRule,
+                        networkRule: null
+                    });
+                }
+            });
+            
+            // Check for extra rules in network
+            networkRules.forEach(networkRule => {
+                if (!usedNetworkRules.has(networkRule.order)) {
+                    comparison.push({
+                        status: 'extra',
+                        templateRule: null,
+                        networkRule: networkRule
+                    });
+                }
+            });
+            
+            return comparison;
+        }
+        
+        function findMatchingRule(templateRule, networkRules) {
+            return networkRules.find(networkRule => 
+                networkRule.policy === templateRule.policy &&
+                networkRule.protocol === templateRule.protocol &&
+                (networkRule.srcCidr || 'Any') === (templateRule.srcCidr || 'Any') &&
+                (networkRule.destCidr || 'Any') === (templateRule.destCidr || 'Any') &&
+                (networkRule.srcPort || 'Any') === (templateRule.srcPort || 'Any') &&
+                (networkRule.destPort || 'Any') === (templateRule.destPort || 'Any')
+            );
+        }
+        
+        function rulesAreIdentical(templateRule, networkRule) {
+            return templateRule.policy === networkRule.policy &&
+                   templateRule.protocol === networkRule.protocol &&
+                   (templateRule.srcCidr || 'Any') === (networkRule.srcCidr || 'Any') &&
+                   (templateRule.destCidr || 'Any') === (networkRule.destCidr || 'Any') &&
+                   (templateRule.srcPort || 'Any') === (networkRule.srcPort || 'Any') &&
+                   (templateRule.destPort || 'Any') === (networkRule.destPort || 'Any') &&
+                   (templateRule.comment || '') === (networkRule.comment || '') &&
+                   !!templateRule.syslogEnabled === !!networkRule.syslogEnabled;
+        }
+        
+        function getStatusBadge(status) {
+            switch (status) {
+                case 'match':
+                    return '<span class="badge bg-success">Match</span>';
+                case 'different':
+                    return '<span class="badge bg-warning text-dark">Different</span>';
+                case 'missing':
+                    return '<span class="badge bg-danger">Missing</span>';
+                case 'extra':
+                    return '<span class="badge bg-secondary">Extra</span>';
+                default:
+                    return '<span class="badge bg-light text-dark">Unknown</span>';
+            }
+        }
+        
+        function syncNetworkToTemplate(networkName) {
+            alert('🚧 Sync Network to Template\n\nThis functionality is planned for future implementation.\n\nThis would allow you to push template rules to the live network via Meraki API, but is currently disabled for safety.');
+        }
+        
+        function searchRules() {
+            const searchTerm = $('#rulesSearch').val().toLowerCase();
+            
+            $('#outboundRulesTable tbody tr').each(function() {
+                const text = $(this).text().toLowerCase();
+                $(this).toggle(text.includes(searchTerm));
+            });
+        }
+        
+        function exportToExcel() {
+            // Create CSV content from visible firewall rules
+            const template = currentLocation;
+            const templateName = template.charAt(0).toUpperCase() + template.slice(1).replace('-', ' ');
+            
+            let csvContent = `"Template","Rule #","Policy","Protocol","Source CIDR","Source Port","Destination CIDR","Destination Port","Comment","Syslog Enabled"\n`;
+            
+            // Add current rules to CSV
+            currentRules.forEach(rule => {
+                const row = [
+                    `"${templateName}"`,
+                    `"${rule.order}"`,
+                    `"${rule.policy}"`,
+                    `"${rule.protocol}"`,
+                    `"${rule.srcCidr || 'Any'}"`,
+                    `"${rule.srcPort || 'Any'}"`,
+                    `"${rule.destCidr || 'Any'}"`,
+                    `"${rule.destPort || 'Any'}"`,
+                    `"${rule.comment || ''}"`,
+                    `"${rule.syslogEnabled ? 'Yes' : 'No'}"`
+                ].join(',');
+                csvContent += row + '\n';
+            });
+            
+            // Download CSV
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = `firewall_rules_${template.replace('-', '_')}.csv`;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+        }
+        
+        function exportToPDF() {
+            window.print();
+        }
+        
+        
+        // Search functionality
+        $('#inboundSearch, #outboundSearch').on('input', function() {
+            const searchTerm = $(this).val().toLowerCase();
+            const tableId = $(this).attr('id').includes('inbound') ? 'inboundRulesTable' : 'outboundRulesTable';
+            
+            $(`#${tableId} tbody tr`).each(function() {
+                const text = $(this).text().toLowerCase();
+                $(this).toggle(text.includes(searchTerm));
+            });
+        });
+    </script>
+</body>
+</html>

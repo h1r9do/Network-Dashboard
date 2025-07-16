@@ -1,0 +1,64 @@
+--- Add debugging to tag save functionality
+--- This patch adds console logging to help diagnose tag save issues
+
+@@ In the saveTagsBtn click handler, add debugging:
+        // Save tags button
+        $(document).on("click", "#saveTagsBtn", function() {
++           console.log("Save Tags button clicked");
+            var deviceSerial = $("#confirmModal").data("deviceSerial");
++           console.log("Device Serial from modal data:", deviceSerial);
++           console.log("Current tags to save:", currentTags);
+            
+            if (!deviceSerial) {
+                alert("Device serial not found");
++               console.error("Device serial is empty or undefined");
+                return;
+            }
+            
++           console.log("Making API request to:", "/api/update-device-tags/" + deviceSerial);
+            $.ajax({
+                url: "/api/update-device-tags/" + deviceSerial,
+                method: "POST",
+                contentType: "application/json",
+                data: JSON.stringify({
+                    action: "replace",
+                    tags: currentTags
+                }),
+                success: function(response) {
++                   console.log("API Response:", response);
+                    if (response.success) {
+                        alert("Tags updated successfully!");
+                        $("#tagEditSection").hide();
+                        $("#editTagsBtn").show();
+                        populateCurrentTags(currentTags);
+                        $("#confirmModal").data("originalTags", currentTags.slice());
+                        
+                        // Update remodel button if needed
+                        if (currentTags.includes("Remodeling")) {
+                            $("#remodelingBtn").hide();
+                            $("#remodelingDoneBtn").show();
+                        } else {
+                            $("#remodelingBtn").show();
+                            $("#remodelingDoneBtn").hide();
+                        }
+                    } else {
+                        alert("Failed to update tags: " + (response.error || "Unknown error"));
++                       console.error("API returned error:", response);
+                    }
+                },
+                error: function(xhr) {
++                   console.error("AJAX Error:", xhr);
++                   console.error("Status:", xhr.status);
++                   console.error("Response Text:", xhr.responseText);
+                    alert("Failed to update tags: " + (xhr.responseJSON ? xhr.responseJSON.error : "Unknown error"));
+                }
+            });
+        });
+
+@@ Also add debugging when modal opens:
+                    $('#confirmModal').show();
+                    $('#confirmModal').data('site', siteName);
+                    $('#confirmModal').data('deviceSerial', response.device_serial);
++                   console.log("Modal opened for site:", siteName);
++                   console.log("Device serial set to:", response.device_serial);
++                   console.log("Device tags from response:", response.device_tags);

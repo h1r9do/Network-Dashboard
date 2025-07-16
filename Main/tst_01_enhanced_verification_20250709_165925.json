@@ -1,0 +1,70 @@
+{
+  "timestamp": "2025-07-09T16:59:25.678910",
+  "network_id": "L_3790904986339115852",
+  "results": {
+    "vlan_migration_complete": false,
+    "vlans_created": true,
+    "old_vlans_removed": false,
+    "group_policies": true,
+    "firewall_rules": true,
+    "firewall_vlan_refs": false,
+    "syslog": true,
+    "switch_ports_updated": false
+  },
+  "vlan_analysis": {
+    "current_vlans": [
+      {
+        "id": 1,
+        "name": "Data"
+      },
+      {
+        "id": 101,
+        "name": "Voice"
+      },
+      {
+        "id": 201,
+        "name": "Ccard"
+      },
+      {
+        "id": 300,
+        "name": "AP Mgmt"
+      },
+      {
+        "id": 301,
+        "name": "Scanner"
+      },
+      {
+        "id": 800,
+        "name": "Guest"
+      },
+      {
+        "id": 801,
+        "name": "IOT"
+      },
+      {
+        "id": 802,
+        "name": "IoT Network"
+      },
+      {
+        "id": 803,
+        "name": "IoT Wireless"
+      },
+      {
+        "id": 900,
+        "name": "Mgmt"
+      }
+    ],
+    "expected_vlans": {
+      "100": "Data",
+      "200": "Voice",
+      "300": "Net Mgmt",
+      "301": "Scanner",
+      "400": "IoT",
+      "410": "Ccard",
+      "800": "Guest",
+      "803": "IoT Wireless",
+      "900": "Mgmt"
+    },
+    "migration_complete": false
+  }
+}

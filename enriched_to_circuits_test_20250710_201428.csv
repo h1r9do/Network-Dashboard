@@ -1,0 +1,84 @@
+Site Name,Record Number,Circuit Purpose,Current Provider,New Provider,Provider Match,Current Speed,New Speed,Speed Match,Is Confirmed,Would Update,Reason
+AZP 03,DISCOUNTAZP7869100964_BR,Secondary,Cox Business/BOI,Digi,False,300.0M x 30.0M,Cell,False,True,True,Needs update
+AZP 44,DISCOUNTAZP8405509472_BR,Secondary,CenturyLink/Embarq,Digi,False,100.0M x 10.0M,Cell,False,True,True,Needs update
+CAN 25,DISCOUNTCAN7100322622_BR,Secondary,AT&T Broadband II,AT&T Broadband II,True,300.0M x 300.0M,300.0M x 300.0M,True,True,False,Already matches
+CAN 35,DISCOUNTCAN4972539829_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,300.0M x 35.0M,False,True,True,Needs update
+CAS 45,DISCOUNTCAS1859625217_BR,Secondary,AT&T Broadband II,Digi,False,1000.0M x 1000.0M,Cell,False,True,True,Needs update
+COD 23,DISCOUNTCOD8843597883_BR,Secondary,EB2-Lumen DSL,EB2-Lumen DSL,True,100.0M x 10.0M,100.0M x 10.0M,True,True,False,Already matches
+COD 38,DISCOUNTCOD6928701234_BR-I2,Secondary,CenturyLink/Qwest,Digi,False,100.0M x 10.0M,Cell,False,True,True,Needs update
+FLT 02,DISCOUNTFLT5528303887_BR,Secondary,MetroNet,MetroNet,True,300.0M x 300.0M,300.0M x 300.0M,True,True,False,Already matches
+GAA 01,DISCOUNTGAA3205422405_BR,Secondary,AT&T Broadband II,AT&T Broadband II,True,300.0M x 300.0M,300.0M x 300.0M,True,True,False,Already matches
+GAA 10,DISCOUNTGAA5452230182_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+GAA 12,DISCOUNTGAA3533792540_BR-I1,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+GAA 13,DISCOUNTGAA4373624469_BR-I1,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+GAA 14,DISCOUNTGAA1285103842_BR,Secondary,AT&T Broadband II,AT&T Broadband II,True,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,False,Already matches
+GAA 15,DISCOUNTGAA7597892612_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+GAA 18,DISCOUNTGAA9517330639_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+GAA 21,DISCOUNTGAA7052839350_BR,Secondary,AT&T Broadband II,"Comcast Cable Communications, LLC",False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+GAA 25,DISCOUNTGAA5816905474_BR,Secondary,AT&T Broadband II,AT&T Broadband II,True,1000.0M x 1000.0M,1000.0M x 1000.0M,True,False,False,Not confirmed in enriched
+GAA 27,DISCOUNTGAA4121134433_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+GAA 28,DISCOUNTGAA8122110112_BR,Secondary,AT&T Broadband II,AT&T Broadband II,True,300.0M x 300.0M,300.0M x 300.0M,True,True,False,Already matches
+GAA 30,DISCOUNTGAA1232392544_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+ILC 01,DISCOUNTILC4382934163_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,300.0M x 35.0M,False,True,True,Needs update
+ILC 02,DISCOUNTILC4583205456_BR,Secondary,Comcast Workplace,Comcast Workplace,True,600.0M x 35.0M,600.0M x 35.0M,True,True,False,Already matches
+ILC 04,DISCOUNTILC8004644626_BR-I1,Secondary,AT&T Broadband II,Digi,False,1000.0M x 1000.0M,Cell,False,True,True,Needs update
+ILC 06,DISCOUNTILC3674918666_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+ILC 09,DISCOUNTILC1288408759_BR,Secondary,AT&T Broadband II,AT&T Broadband II,True,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,False,Already matches
+ILC 15,DISCOUNTILC5259253999_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+ILC 18,DISCOUNTILC3032905759_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+ILC 19,DISCOUNTILC4137795250_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+ILC 24,DISCOUNTILC1935503811_BR,Secondary,AT&T Broadband II,AT&T Broadband II,True,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,False,Already matches
+ILC 29,DISCOUNTILC8485214986_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,300.0M x 35.0M,False,True,True,Needs update
+ILC 31,DISCOUNTILC5553425332_BR,Secondary,Comcast Workplace,Starlink,False,600.0M x 35.0M,Satellite,False,True,True,Needs update
+ILP 01,DISCOUNTILP7232642402_BR,Secondary,i3 Broadband,Starlink,False,250.0M x 250.0M,Satellite,False,True,True,Needs update
+INI 03,DISCOUNTINI8500758143_BR,Secondary,AT&T Broadband II,Digi,False,300.0M x 300.0M,Cell,False,True,True,Needs update
+INI 05,DISCOUNTINI3162988314_BR,Secondary,AT&T Broadband II,AT&T Broadband II,True,300.0M x 300.0M,300.0M x 300.0M,True,True,False,Already matches
+INI 09,DISCOUNTINI4142890159_BR,Secondary,AT&T Broadband II,AT&T Broadband II,True,300.0M x 300.0M,300.0M x 300.0M,True,True,False,Already matches
+INW 01,DISCOUNTINW9697832879_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+KSK 01,DISCOUNTKSK2021692262_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+MIA 17,DISCOUNTMIA8301216130_BR,Secondary,D & P Communications,Comcast,False,1000.0M x 500.0M,1000.0M x 500.0M,True,True,True,Needs update
+MID 05,DISCOUNTMID8422793382_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+MID 07,DISCOUNTMID4532769969_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+MID 09,DISCOUNTMID3091416620_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+MID 13,DISCOUNTMID9734425543_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+MID 14,DISCOUNTMID9522201698_BR,Secondary,AT&T Broadband II,Comcast,False,300.0M x 300.0M,300.0M x 300.0M,True,True,True,Needs update
+MID 16,DISCOUNTMID9748838720_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+MID 17,DISCOUNTMID9079278474_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+MID 18,DISCOUNTMID1952911750_BR,Secondary,AT&T Broadband II,AT&T Broadband II,True,300.0M x 300.0M,300.0M x 300.0M,True,True,False,Already matches
+MID 19,DISCOUNTMID6720216881_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+MID 24,DISCOUNTMID3620969191_BR,Secondary,AT&T Broadband II,AT&T Broadband II,True,300.0M x 300.0M,300.0M x 300.0M,True,True,False,Already matches
+MIF 04,DISCOUNTMIF4715158270_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+MIG 07,DISCOUNTMIG8541948174_BR-I2,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+MIL 15,DISCOUNTMIL1574383248_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+MIW 21,DISCOUNTMIW3744915674_BR,Secondary,AT&T Broadband II,AT&T Broadband II,True,300.0M x 300.0M,300.0M x 300.0M,True,True,False,Already matches
+MNM 05,DISCOUNTMNM5431550150_BR,Secondary,EB2-Lumen DSL,DSR Lumen DSL,True,100.0M x 10.0M,100.0M x 10.0M,True,True,False,Already matches
+NCC 38,DISCOUNTNCC4404740704_BR,Secondary,MetroNet,VZW Cell,False,1000.0M x 1000.0M,Cell,False,True,True,Needs update
+NCC 48,DISCOUNTNCC1477709971_BR,Secondary,Brightspeed,VZW Cell,False,300.0M x 300.0M,Cell,False,True,True,Needs update
+NMA 13,DISCOUNTNMA9262404844_BR,Secondary,Unite Private Networks,VZW Cell,False,300.0M x 300.0M,Cell,False,True,True,Needs update
+NVL 07,DISCOUNTNVL8716933548_BR,Secondary,Cox Business/BOI,Verizon Business,False,300.0M x 30.0M,300.0M x 30.0M,True,True,True,Needs update
+NVL 15,DISCOUNTNVL1494950600_BR,Secondary,Cox Business/BOI,CenturyLink,False,300.0M x 30.0M,300.0M x 30.0M,True,True,True,Needs update
+ORP 03,DISCOUNTORP6148426623_BR,Secondary,EB2-Ziply Fiber,Ziply Fiber,False,500.0M x 500.0M,500.0M x 500.0M,True,True,True,Needs update
+TNE 01,DISCOUNTTNE6361331165_BR,Secondary,BrightRidge Broadband,BrightRidge,True,300.0M x 30.0M,300.0M x 30.0M,True,True,False,Already matches
+TNN 02,DISCOUNTTNN9249267847_BR,Secondary,AT&T Broadband II,AT&T Broadband II,True,1000.0M x 1000.0M,1000.0M x 1000.0M,True,False,False,Not confirmed in enriched
+TNN 06,DISCOUNTTNN3911275290_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+TNN 11,DISCOUNTTNN4683665535_BR,Secondary,AT&T Broadband II,AT&T Broadband II,True,300.0M x 300.0M,300.0M x 300.0M,True,True,False,Already matches
+TXA 24,DISCOUNTTXA7126548912_BR,Secondary,Spectrum,"AT&T Enterprises, LLC",False,600.0M x 35.0M,600.0M x 35.0M,True,True,True,Needs update
+TXD 71,DISCOUNTTXD5793329233_BR,Secondary,AT&T Broadband II,VZW Cell,False,300.0M x 300.0M,Cell,False,True,True,Needs update
+TXG 02,DISCOUNTTXG3368624103_BR,Secondary,Consolidated Communications,VZW Cell,False,300.0M x 300.0M,Cell,False,True,True,Needs update
+TXG 03,DISCOUNTTXG6607828561_BR,Secondary,Comcast Workplace,Starlink,False,600.0M x 35.0M,Satellite,False,True,True,Needs update
+TXH 04,DISCOUNTTXH4284367909_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+TXH 05,DISCOUNTTXH1516558267_BR,Secondary,AT&T Broadband II,Comcast,False,300.0M x 300.0M,300.0M x 300.0M,True,True,True,Needs update
+TXH 11,DISCOUNTTXH9382273404_BR,Secondary,AT&T Broadband II,AT&T Broadband II,True,300.0M x 300.0M,300.0M x 300.0M,True,True,False,Already matches
+TXH 17,DISCOUNTTXH7758695299_BR,Secondary,AT&T Broadband II,AT&T Broadband II,True,300.0M x 300.0M,300.0M x 300.0M,True,True,False,Already matches
+TXH 24,DISCOUNTTXH1176364613_BR,Secondary,AT&T Broadband II,AT&T Broadband II,True,300.0M x 300.0M,300.0M x 300.0M,True,True,False,Already matches
+TXH 34,DISCOUNTTXH5103545272_BR,Secondary,AT&T Broadband II,Starlink,False,1000.0M x 1000.0M,Satellite,False,True,True,Needs update
+TXH 41,DISCOUNTTXH6261472507_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+TXH 52,DISCOUNTTXH2858866373_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+TXH 55,DISCOUNTTXH1022301941_BR,Secondary,AT&T Broadband II,"Comcast Cable Communications, LLC",False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+TXH 56,DISCOUNTTXH3557290159_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+TXH 65,DISCOUNTTXH9311480256_BR,Secondary,AT&T Broadband II,Comcast,False,1000.0M x 1000.0M,1000.0M x 1000.0M,True,True,True,Needs update
+TXH 82,DISCOUNTTXH2191532698_BR,Secondary,AT&T Broadband II,AT&T Broadband II,True,300.0M x 300.0M,300.0M x 300.0M,True,True,False,Already matches
+UTS 07,DISCOUNTUTS6998704761_BR,Secondary,EB2-Lumen DSL,DSR Lumen DSL,True,80.0M x 10.0M,80.0M x 10.0M,True,True,False,Already matches
+UTS 11,DISCOUNTUTS8957202966_BR,Secondary,Centracom,Centracom,True,300.0M x 30.0M,300.0M x 30.0M,True,True,False,Already matches
+UTS 16,DISCOUNTUTS5459262505_BR,Secondary,EB2-Lumen DSL,EB2-Lumen DSL,True,100.0M x 10.0M,100.0M x 10.0M,True,True,False,Already matches
+UTS 26,DISCOUNTUTS7741746134_BR,Secondary,Infowest Inc,VZW Cell,False,250.0M x 250.0M,Cell,False,True,True,Needs update

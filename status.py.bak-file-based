@@ -1,0 +1,591 @@
+"""
+STATUS DASHBOARD AND CIRCUIT ORDERS
+===================================
+
+Purpose:
+    - Circuit status dashboard with categorized views
+    - In-flight circuit orders management
+    - Real-time status monitoring and filtering
+    - Action-oriented dashboard for circuit management
+    - SCTASK and assignment management (NEW)
+
+Pages Served:
+    - /dsrdashboard (main status dashboard)
+    - /circuit-orders (circuit orders management dashboard)
+
+Templates Used:
+    - dsrdashboard.html (main status dashboard with action panels)
+    - circuit_orders.html (in-flight orders dashboard)
+
+API Endpoints:
+    - /api/dashboard-data (GET) - Main dashboard data with status categorization
+    - /api/inflight-data (GET) - In-flight circuit orders data with workflow states
+    - /api/save-assignment (POST) - Save SCTASK number and assigned personnel (NEW)
+    - /api/get-assignments (GET) - Retrieve all circuit assignments (NEW)
+
+Key Functions:
+    - Status categorization and filtering
+    - Action-required item identification
+    - In-flight order tracking and prioritization
+    - Real-time status updates
+    - Workflow-based circuit management
+    - Assignment data persistence and management (NEW)
+
+Dependencies:
+    - utils.py (data processing, categorization functions)
+    - TRACKING_DATA_DIR for latest circuit status data
+    - DATA_DIR for assignment data storage (NEW)
+    - CSV tracking files with circuit status history
+
+Data Processing:
+    - Status categorization (enabled, ready, customer_action, etc.)
+    - Date-based filtering for stale records
+    - In-flight status classification
+    - Action priority assignment
+    - Assignment data correlation (NEW)
+
+Features:
+    - Interactive status filtering
+    - Action-required highlighting
+    - Priority-based sorting
+    - Export capabilities
+    - Real-time status monitoring
+    - Editable SCTASK and assignment fields (NEW)
+    - ServiceNow integration with clickable links (NEW)
+"""
+
+from flask import Blueprint, render_template, jsonify, request
+import glob
+import os
+import re
+import json
+import pandas as pd
+from datetime import datetime, timedelta
+from utils import (
+    TRACKING_DATA_DIR, DATA_DIR, safe_str, categorize_status, 
+    filter_by_date_age, read_csv_safely
+)
+
+# Create Blueprint
+status_bp = Blueprint('status', __name__)
+
+@status_bp.route('/dsrdashboard')
+def dashboard():
+    """
+    Main status dashboard page
+    
+    Displays circuit status overview with action-required items,
+    status categorization, and interactive filtering capabilities.
+    
+    Returns:
+        Rendered dsrdashboard.html template
+    """
+    print("📊 Loading status dashboard")
+    return render_template('dsrdashboard.html')
+
+@status_bp.route('/circuit-orders')
+def circuit_orders():
+    """
+    Circuit Orders Dashboard page
+    
+    Displays in-flight circuit orders with workflow states,
+    priority indicators, and action tracking.
+    
+    Returns:
+        Rendered circuit_orders.html template
+    """
+    print("🚀 Loading circuit orders dashboard")
+    return render_template('circuit_orders.html')
+
+@status_bp.route('/api/dashboard-data', methods=['GET'])
+def dashboard_data():
+    """
+    API endpoint to get dashboard data - uses ONLY the latest tracking file
+    
+    Processes the latest circuit tracking data and provides:
+    - Status category counts (enabled, ready, customer_action, etc.)
+    - Detailed status breakdowns
+    - Sub-status information
+    - New sites identification
+    - Action-required item highlighting
+    - Assignment data integration (NEW)
+    
+    Returns:
+        JSON response with dashboard statistics and data
+    """
+    try:
+        # Get the latest tracking file
+        tracking_pattern = os.path.join(TRACKING_DATA_DIR, "tracking_data_*.csv")
+        all_files = glob.glob(tracking_pattern)
+        valid_pattern = re.compile(r'tracking_data_\d{4}-\d{2}-\d{2}\.csv$')
+        
+        exact_files = []
+        for file_path in all_files:
+            filename = os.path.basename(file_path)
+            if valid_pattern.match(filename):
+                try:
+                    date_str = filename.replace('tracking_data_', '').replace('.csv', '')
+                    file_date = datetime.strptime(date_str, '%Y-%m-%d')
+                    exact_files.append((file_path, file_date))
+                except ValueError:
+                    continue
+        
+        if not exact_files:
+            return jsonify({"error": "No tracking files found"}), 400
+        
+        # Get ONLY the latest file
+        exact_files.sort(key=lambda x: x[1])
+        latest_file, latest_date = exact_files[-1]
+        
+        print(f"📊 Dashboard loading latest file: {os.path.basename(latest_file)} ({latest_date.strftime('%Y-%m-%d')})")
+        
+        # Read the data
+        df = pd.read_csv(latest_file, low_memory=False)
+        
+        # Required columns - ADD substatus
+        required_cols = ['Site Name', 'Site ID', 'Circuit Purpose', 'status', 'substatus', 'provider_name', 'details_ordered_service_speed', 'billing_monthly_cost', 'date_record_updated']
+        existing_cols = [col for col in required_cols if col in df.columns]
+        
+        # Filter to only required columns
+        df_filtered = df[existing_cols].copy()
+        
+        # Convert all to safe strings
+        for col in df_filtered.columns:
+            df_filtered[col] = df_filtered[col].apply(safe_str)
+        
+        # Categorize statuses
+        df_filtered['status_category'] = df_filtered['status'].apply(categorize_status)
+        
+        # Load and merge assignment data
+        assignments_file = os.path.join(DATA_DIR, 'circuit_assignments.json')
+        assignments = {}
+        
+        if os.path.exists(assignments_file):
+            try:
+                with open(assignments_file, 'r') as f:
+                    assignments = json.load(f)
+                print(f"📊 Loaded {len(assignments)} circuit assignments")
+            except Exception as e:
+                print(f"Warning: Could not load assignments file: {e}")
+        
+        # Add SCTASK and assigned_to columns to dataframe
+        df_filtered['sctask_number'] = ''
+        df_filtered['sctask_sys_id'] = ''
+        df_filtered['assigned_to'] = ''
+        
+        # Match assignments to circuits
+        for index, row in df_filtered.iterrows():
+            site_name = safe_str(row.get('Site Name', ''))
+            site_id = safe_str(row.get('Site ID', ''))
+            circuit_purpose = safe_str(row.get('Circuit Purpose', ''))
+            
+            # Try different key combinations to find matches
+            possible_keys = [
+                f"{site_name}|{site_id}|{circuit_purpose}",
+                f"{site_name}||{circuit_purpose}",
+                f"{site_name}|{site_id}|",
+                f"{site_name}||"
+            ]
+            
+            for key in possible_keys:
+                if key in assignments:
+                    assignment = assignments[key]
+                    df_filtered.at[index, 'sctask_number'] = assignment.get('sctask_number', '')
+                    df_filtered.at[index, 'sctask_sys_id'] = assignment.get('sctask_sys_id', '')
+                    df_filtered.at[index, 'assigned_to'] = assignment.get('assigned_to', '')
+                    break
+        
+        # Filter customer action categories by 120 days
+        customer_categories = ['customer_action', 'sponsor_approval', 'contact_required']
+        customer_mask = df_filtered['status_category'].isin(customer_categories)
+        customer_data = df_filtered[customer_mask]
+        other_data = df_filtered[~customer_mask]
+        
+        # Apply date filter to customer action data
+        if len(customer_data) > 0:
+            customer_data_filtered = filter_by_date_age(customer_data, days_limit=120)
+        else:
+            customer_data_filtered = customer_data
+        
+        # Combine back together
+        df_final = pd.concat([other_data, customer_data_filtered], ignore_index=True)
+        
+        # Calculate category counts
+        category_counts = df_final['status_category'].value_counts().to_dict()
+        
+        # Get detailed status breakdown for each category WITH sub-statuses
+        status_breakdown = {}
+        substatus_breakdown = {}
+        all_categories = ['enabled', 'ready', 'customer_action', 'sponsor_approval', 'contact_required', 'construction', 'canceled', 'other']
+        
+        for category in all_categories:
+            category_data = df_final[df_final['status_category'] == category]
+            if len(category_data) > 0:
+                # Main status counts
+                status_counts = category_data['status'].value_counts().to_dict()
+                status_breakdown[category] = status_counts
+                
+                # Sub-status counts (if substatus column exists)
+                if 'substatus' in category_data.columns:
+                    substatus_counts = category_data['substatus'].value_counts().to_dict()
+                    # Remove empty/NaN substatuses
+                    substatus_counts = {k: v for k, v in substatus_counts.items() if k and str(k).strip() and str(k).lower() != 'nan'}
+                    substatus_breakdown[category] = substatus_counts
+                else:
+                    substatus_breakdown[category] = {}
+            else:
+                status_breakdown[category] = {}
+                substatus_breakdown[category] = {}
+        
+        # Get new sites (compare with file from 30 days ago)
+        new_sites_count = 0
+        new_sites_list = []
+        if len(exact_files) > 1:
+            try:
+                # Find a file from ~30 days ago
+                target_date = latest_date - timedelta(days=30)
+                older_files = [(f, d) for f, d in exact_files if d <= target_date]
+                
+                if older_files:
+                    older_file, _ = max(older_files, key=lambda x: x[1])
+                    df_old = pd.read_csv(older_file, low_memory=False)
+                    
+                    if 'Site Name' in df_old.columns:
+                        old_sites = set(df_old['Site Name'].dropna().astype(str).str.strip())
+                        new_sites = set(df_final['Site Name'].dropna().astype(str).str.strip())
+                        new_sites_set = new_sites - old_sites
+                        new_sites_count = len(new_sites_set)
+                        new_sites_list = list(new_sites_set)
+            except Exception as e:
+                print(f"Error calculating new sites: {e}")
+        
+        # Prepare dashboard response
+        dashboard_stats = {
+            "new_sites": new_sites_count,
+            "enabled": category_counts.get('enabled', 0),
+            "ready": category_counts.get('ready', 0),
+            "customer_action": category_counts.get('customer_action', 0),
+            "sponsor_approval": category_counts.get('sponsor_approval', 0),
+            "contact_required": category_counts.get('contact_required', 0),
+            "construction": category_counts.get('construction', 0),
+            "canceled": category_counts.get('canceled', 0),
+            "other": category_counts.get('other', 0),
+            "total": len(df_final)
+        }
+        
+        # Convert DataFrame to records for the table
+        table_data = df_final.to_dict('records')
+        
+        print(f"📊 Dashboard stats: {dashboard_stats}")
+        
+        return jsonify({
+            "stats": dashboard_stats,
+            "status_breakdown": status_breakdown,
+            "substatus_breakdown": substatus_breakdown,
+            "data": table_data,
+            "new_sites_list": new_sites_list,
+            "last_updated": latest_date.strftime('%Y-%m-%d')
+        })
+        
+    except Exception as e:
+        print(f"Error generating dashboard data: {e}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+
+@status_bp.route('/api/inflight-data', methods=['GET'])
+def inflight_data():
+    """
+    API endpoint to get in-flight circuits data - CORRECTED categorization
+    
+    Processes circuit data to identify in-flight orders and categorizes them
+    by workflow state for priority management.
+    
+    Returns:
+        JSON response with in-flight circuit data:
+        - Total in-flight circuits
+        - Category breakdowns (priority, customer_action, ready, construction, planning)
+        - Status breakdown
+        - Stale circuit identification
+        - Detailed circuit data
+    """
+    try:
+        # Get the latest tracking file (same logic as dashboard)
+        tracking_pattern = os.path.join(TRACKING_DATA_DIR, "tracking_data_*.csv")
+        all_files = glob.glob(tracking_pattern)
+        valid_pattern = re.compile(r'tracking_data_\d{4}-\d{2}-\d{2}\.csv$')
+        
+        exact_files = []
+        for file_path in all_files:
+            filename = os.path.basename(file_path)
+            if valid_pattern.match(filename):
+                try:
+                    date_str = filename.replace('tracking_data_', '').replace('.csv', '')
+                    file_date = datetime.strptime(date_str, '%Y-%m-%d')
+                    exact_files.append((file_path, file_date))
+                except ValueError:
+                    continue
+        
+        if not exact_files:
+            return jsonify({"error": "No tracking files found"}), 400
+        
+        # Get the latest file
+        exact_files.sort(key=lambda x: x[1])
+        latest_file, latest_date = exact_files[-1]
+        
+        print(f"📊 Loading in-flight data from: {os.path.basename(latest_file)}")
+        
+        # Read the data
+        df = read_csv_safely(latest_file)
+        if df is None:
+            return jsonify({"error": "Could not read the tracking file"}), 500
+        
+        # Define in-flight statuses (excludes 'Service Activated' as these are completed)
+        inflight_statuses = [
+            'Information/Approval Needed From Sponsor',
+            'Customer Action Required', 
+            'Pending Scheduled Deployment',
+            'Construction In Progress',
+            'Ready for Enablement',
+            'Construction Approved',
+            'Order Placed',
+            'Order Ready To Be Placed',
+            'Prequal Required',
+            'Jeopardy',
+            'Customer Contacted With Activation Date',
+            'Site Survey In Progress',
+            'Installation Failed',
+            'Waiting On Service Activation Date',
+            'Rescheduled/Waiting On New Activation Date',
+            'End-User Contact Required',
+            'Provider Contact Required'  # ADDED: Missing from original list
+        ]
+        
+        # Filter to in-flight circuits
+        inflight_mask = df['status'].isin(inflight_statuses)
+        inflight_df = df[inflight_mask].copy()
+        
+        # Convert to safe strings
+        for col in inflight_df.columns:
+            inflight_df[col] = inflight_df[col].apply(safe_str)
+        
+        # Get status breakdown
+        status_counts = inflight_df['status'].value_counts().to_dict()
+        
+        # CORRECTED CATEGORIZATION - Match the action panel logic exactly
+        customer_action_statuses = [
+            'Information/Approval Needed From Sponsor',
+            'Customer Action Required',
+            'End-User Contact Required',
+            'Provider Contact Required'
+        ]
+        
+        construction_statuses = [
+            'Construction In Progress',
+            'Construction Approved', 
+            'Site Survey In Progress',
+            'Installation Failed',
+            'Pending Scheduled Deployment',  # MOVED from ready to construction
+            'Customer Contacted With Activation Date',  # MOVED from ready to construction
+            'Waiting On Service Activation Date'  # MOVED from ready to construction
+        ]
+        
+        # FIXED: Only include actual "Ready for Enablement" status
+        ready_statuses = [
+            'Ready for Enablement'
+        ]
+        
+        planning_statuses = [
+            'Order Placed',
+            'Order Ready To Be Placed',
+            'Prequal Required'
+        ]
+        
+        priority_statuses = [
+            'Jeopardy',
+            'Rescheduled/Waiting On New Activation Date'
+        ]
+        
+        # Calculate category totals using corrected logic
+        customer_action_total = sum(status_counts.get(status, 0) for status in customer_action_statuses)
+        construction_total = sum(status_counts.get(status, 0) for status in construction_statuses)
+        ready_total = sum(status_counts.get(status, 0) for status in ready_statuses)
+        planning_total = sum(status_counts.get(status, 0) for status in planning_statuses)
+        priority_total = sum(status_counts.get(status, 0) for status in priority_statuses)
+        
+        # Get aging data (circuits updated more than 30 days ago)
+        stale_count = 0
+        if 'date_record_updated' in inflight_df.columns:
+            try:
+                cutoff_date = datetime.now() - timedelta(days=30)
+                
+                for _, row in inflight_df.iterrows():
+                    date_str = safe_str(row.get('date_record_updated', ''))
+                    if date_str and len(date_str) >= 10:
+                        try:
+                            row_date = datetime.strptime(date_str[:10], '%Y-%m-%d')
+                            if row_date < cutoff_date:
+                                stale_count += 1
+                        except ValueError:
+                            continue
+                            
+            except Exception as e:
+                print(f"Warning: Could not calculate stale circuits: {e}")
+                stale_count = 0
+        
+        # Convert to records for table display
+        table_data = inflight_df.to_dict('records')
+        
+        # Sort by priority
+        def sort_priority(row):
+            status = row.get('status', '')
+            if 'jeopardy' in status.lower():
+                return 0
+            elif any(word in status.lower() for word in ['customer action', 'approval needed', 'contact required']):
+                return 1
+            elif 'ready for enablement' in status.lower():
+                return 2
+            else:
+                return 3
+        
+        table_data.sort(key=sort_priority)
+        
+        print(f"📊 CORRECTED In-flight data: {len(inflight_df)} total circuits")
+        print(f"📊 Customer Action: {customer_action_total}, Construction: {construction_total}, Ready: {ready_total}")
+        print(f"📊 Planning: {planning_total}, Priority: {priority_total}, Stale: {stale_count}")
+        print(f"📊 Ready total should now match action panel")
+        
+        return jsonify({
+            "total_inflight": len(inflight_df),
+            "customer_action": customer_action_total,
+            "construction": construction_total, 
+            "ready": ready_total,
+            "planning": planning_total,
+            "priority": priority_total,
+            "stale_circuits": stale_count,
+            "status_breakdown": status_counts,
+            "data": table_data,
+            "last_updated": latest_date.strftime('%Y-%m-%d'),
+            "categories": {
+                "customer_action": customer_action_statuses,
+                "construction": construction_statuses,
+                "ready": ready_statuses,
+                "planning": planning_statuses,
+                "priority": priority_statuses
+            }
+        })
+        
+    except Exception as e:
+        print(f"❌ Error generating in-flight data: {e}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+
+@status_bp.route('/api/save-assignment', methods=['POST'])
+def save_assignment():
+    """
+    Save SCTASK number and assigned person for a circuit
+    
+    Request Body:
+        JSON with assignment data:
+        - site_name: Name of the site
+        - site_id: ID of the site (optional, for better matching)
+        - circuit_purpose: Circuit purpose (optional, for better matching)
+        - sctask_number: SCTASK number
+        - sctask_sys_id: ServiceNow sys_id (optional)
+        - assigned_to: Person assigned to the task
+        
+    Returns:
+        JSON response indicating success or error
+    """
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "No data provided"}), 400
+        
+        site_name = data.get('site_name')
+        sctask_number = data.get('sctask_number')
+        assigned_to = data.get('assigned_to')
+        
+        if not site_name:
+            return jsonify({"error": "Site name is required"}), 400
+        
+        # Load existing assignments
+        assignments_file = os.path.join(DATA_DIR, 'circuit_assignments.json')
+        assignments = {}
+        
+        if os.path.exists(assignments_file):
+            try:
+                with open(assignments_file, 'r') as f:
+                    assignments = json.load(f)
+            except Exception as e:
+                print(f"Warning: Could not load assignments file: {e}")
+                assignments = {}
+        
+        # Create a unique key for the circuit
+        circuit_key = f"{site_name}|{data.get('site_id', '')}|{data.get('circuit_purpose', '')}"
+        
+        # Update assignment
+        assignments[circuit_key] = {
+            'site_name': site_name,
+            'site_id': data.get('site_id', ''),
+            'circuit_purpose': data.get('circuit_purpose', ''),
+            'sctask_number': sctask_number,
+            'sctask_sys_id': data.get('sctask_sys_id', ''),
+            'assigned_to': assigned_to,
+            'updated_at': datetime.now().isoformat(),
+            'updated_by': 'dashboard_user'  # Could be enhanced with actual user tracking
+        }
+        
+        # Save assignments back to file
+        try:
+            os.makedirs(DATA_DIR, exist_ok=True)
+            with open(assignments_file, 'w') as f:
+                json.dump(assignments, f, indent=2)
+            
+            print(f"✅ Saved assignment for {site_name}: SCTASK={sctask_number}, Assigned={assigned_to}")
+            
+            return jsonify({
+                "success": True,
+                "message": f"Assignment saved for {site_name}",
+                "data": assignments[circuit_key]
+            })
+            
+        except Exception as e:
+            print(f"❌ Error saving assignments file: {e}")
+            return jsonify({"error": f"Failed to save assignment: {str(e)}"}), 500
+        
+    except Exception as e:
+        print(f"❌ Error saving assignment: {e}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+
+@status_bp.route('/api/get-assignments', methods=['GET'])
+def get_assignments():
+    """
+    Get all circuit assignments (SCTASK and assigned personnel)
+    
+    Returns:
+        JSON response with all assignment data
+    """
+    try:
+        assignments_file = os.path.join(DATA_DIR, 'circuit_assignments.json')
+        
+        if not os.path.exists(assignments_file):
+            return jsonify({"assignments": {}})
+        
+        try:
+            with open(assignments_file, 'r') as f:
+                assignments = json.load(f)
+            
+            print(f"📊 Retrieved {len(assignments)} circuit assignments")
+            return jsonify({"assignments": assignments})
+            
+        except Exception as e:
+            print(f"❌ Error reading assignments file: {e}")
+            return jsonify({"assignments": {}})
+        
+    except Exception as e:
+        print(f"❌ Error getting assignments: {e}")
+        return jsonify({"error": str(e)}), 500

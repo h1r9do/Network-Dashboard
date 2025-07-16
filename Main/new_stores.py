@@ -1,0 +1,925 @@
+"""
+NEW STORES MANAGEMENT MODULE - DATABASE VERSION
+===============================================
+
+Purpose:
+    - New store tracking and management functionality
+    - Target Opening Date (TOD) management
+    - Excel file upload and processing
+    - New store circuit monitoring
+    - Integration with Meraki inventory for go-live detection
+
+Pages Served:
+    - /new-stores (main new stores management interface)
+
+Templates Used:
+    - new_stores_tabbed.html (tabbed interface for new store management)
+
+API Endpoints:
+    - /api/new-stores (GET) - Get all active new stores
+    - /api/new-stores (POST) - Add new stores from comma-separated list
+    - /api/new-stores/<id> (PUT) - Update store details
+    - /api/new-stores/<id> (DELETE) - Remove/deactivate store
+    - /api/new-store-circuits-with-tod (GET) - Get circuits for new stores with TOD data
+    - /api/new-stores/excel-upload (POST) - Upload Excel file with store data
+
+Key Functions:
+    - New store creation and management
+    - Target Opening Date (TOD) tracking
+    - Excel file processing for bulk imports
+    - Circuit status monitoring for new stores
+    - Automatic removal when stores go live in Meraki
+    - Integration with circuit management system
+
+Dependencies:
+    - models.py (NewStore, Circuit database models)
+    - SQLAlchemy for database operations
+    - pandas for Excel file processing
+    - utils.py for safe string handling
+
+Data Processing:
+    - Excel file parsing for TOD data
+    - Site name normalization and validation
+    - Circuit-to-store association
+    - Status categorization for new stores
+    - Go-live detection via Meraki integration
+
+Features:
+    - Multi-tab interface (Pipeline, Scheduled, Completed)
+    - Bulk store addition via comma-separated input
+    - Excel upload with validation
+    - In-line editing for store details
+    - Circuit filtering by new store sites
+    - Automatic lifecycle management
+"""
+
+from flask import Blueprint, render_template, jsonify, request
+from models import db, NewStore, Circuit
+from sqlalchemy import func, and_, or_, desc
+from datetime import datetime, timedelta, date
+from utils import safe_str
+import pandas as pd
+import io
+import traceback
+import logging
+import random
+import string
+
+# Set up logging
+logger = logging.getLogger(__name__)
+
+# Create Blueprint
+new_stores_bp = Blueprint('new_stores', __name__)
+
+def generate_record_number(site_name, circuit_purpose):
+    """
+    Generate a unique record number for manually created circuits
+    Format: DISCOUNT{SITE}{RANDOM_NUMBER}_BR[-I1 for Secondary]
+    
+    Args:
+        site_name: Name of the site
+        circuit_purpose: Purpose of the circuit (Primary, Secondary, etc.)
+        
+    Returns:
+        str: Generated record number
+    """
+    try:
+        # Clean site name - remove spaces and special characters
+        clean_site = ''.join(c for c in site_name.upper() if c.isalnum())[:10]
+        
+        # Generate random number (8-10 digits like real record numbers)
+        random_num = ''.join([str(random.randint(0, 9)) for _ in range(random.randint(8, 10))])
+        
+        # Base record number
+        record_number = f"DISCOUNT{clean_site}{random_num}_BR"
+        
+        # Add suffix for non-primary circuits
+        if circuit_purpose.lower() != 'primary':
+            record_number += "-I1"
+        
+        # Ensure uniqueness by checking database
+        existing = Circuit.query.filter_by(record_number=record_number).first()
+        if existing:
+            # If collision (rare), try again with different random number
+            random_num = ''.join([str(random.randint(0, 9)) for _ in range(10)])
+            record_number = f"DISCOUNT{clean_site}{random_num}_BR"
+            if circuit_purpose.lower() != 'primary':
+                record_number += "-I1"
+        
+        return record_number
+        
+    except Exception as e:
+        logger.error(f"Error generating record number: {e}")
+        # Fallback to basic format
+        return f"DISCOUNTMANUAL{random.randint(1000000, 9999999)}_BR"
+
+@new_stores_bp.route('/new-stores')
+def new_stores():
+    """
+    New Store Constructions Circuit List page
+    
+    Displays interface for managing new stores being built,
+    including Excel upload, manual entry, and TOD tracking.
+    
+    Returns:
+        Rendered new_stores_tabbed.html template
+    """
+    print("🏗️ Loading New Store Constructions Circuit List page")
+    return render_template('new_stores_tabbed.html')
+
+@new_stores_bp.route('/api/new-stores', methods=['GET'])
+def get_new_stores():
+    """
+    Get all active new stores being built
+    
+    Returns:
+        JSON response with list of new stores and their details
+    """
+    try:
+        new_stores = NewStore.query.filter_by(is_active=True).order_by(NewStore.site_name).all()
+        
+        result = {
+            'stores': [store.to_dict() for store in new_stores],
+            'total': len(new_stores)
+        }
+        
+        print(f"📊 Retrieved {len(new_stores)} active new stores from database")
+        return jsonify(result)
+        
+    except Exception as e:
+        print(f"❌ Error getting new stores: {e}")
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+
+
+@new_stores_bp.route('/api/new-stores', methods=['POST'])
+def add_new_stores():
+    """
+    Add new stores from comma-separated list
+    
+    Request Body:
+        JSON with:
+        - site_names: Comma-separated list of site names
+        - notes: Optional notes about the stores
+        - added_by: User adding the stores (optional)
+        
+    Returns:
+        JSON response with success status and added stores
+    """
+    try:
+        data = request.get_json()
+        if not data or 'site_names' not in data:
+            return jsonify({"error": "site_names field is required"}), 400
+        
+        # Parse comma-separated site names
+        site_names_raw = data.get('site_names', '')
+        notes = data.get('notes', '')
+        
+        # Split and clean site names
+        site_names = [name.strip().upper() for name in site_names_raw.split(',') if name.strip()]
+        
+        if not site_names:
+            return jsonify({"error": "No valid site names provided"}), 400
+        
+        added_stores = []
+        skipped_stores = []
+        
+        for site_name in site_names:
+            # Check if store already exists
+            existing = NewStore.query.filter_by(site_name=site_name).first()
+            
+            if existing:
+                if not existing.is_active:
+                    # Reactivate if it was deactivated
+                    existing.is_active = True
+                    existing.meraki_network_found = False
+                    existing.meraki_found_date = None
+                    existing.updated_at = datetime.utcnow()
+                    added_stores.append(site_name)
+                else:
+                    skipped_stores.append(site_name)
+            else:
+                # Create new store entry
+                new_store = NewStore(
+                    site_name=site_name,
+                    notes=notes,
+                    added_by=data.get('added_by', 'dashboard_user')
+                )
+                db.session.add(new_store)
+                added_stores.append(site_name)
+        
+        db.session.commit()
+        
+        print(f"✅ Added/reactivated {len(added_stores)} new stores, skipped {len(skipped_stores)} existing")
+        
+        return jsonify({
+            "success": True,
+            "added": added_stores,
+            "skipped": skipped_stores,
+            "total_added": len(added_stores),
+            "total_skipped": len(skipped_stores)
+        })
+        
+    except Exception as e:
+        db.session.rollback()
+        print(f"❌ Error adding new stores: {e}")
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+
+
+@new_stores_bp.route('/api/new-stores/<int:store_id>', methods=['PUT'])
+def update_new_store(store_id):
+    """
+    Update a new store's details
+    
+    Args:
+        store_id: ID of the store to update
+        
+    Request Body:
+        JSON with fields to update:
+        - project_status: Current project status
+        - target_opening_date: Target opening date (YYYY-MM-DD or "TBD")
+        - region: Store region
+        - city: Store city
+        - state: Store state
+        - notes: Additional notes
+        
+    Returns:
+        JSON response with success status and updated store data
+    """
+    try:
+        store = NewStore.query.get(store_id)
+        if not store:
+            return jsonify({"error": "Store not found"}), 404
+        
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "No data provided"}), 400
+        
+        # Update fields if provided
+        if 'project_status' in data:
+            store.project_status = data['project_status']
+        
+        if 'target_opening_date' in data:
+            tod_value = data['target_opening_date']
+            if tod_value and tod_value.upper() == 'TBD':
+                store.target_opening_date = None
+                store.target_opening_date_text = 'TBD'
+            elif tod_value:
+                try:
+                    store.target_opening_date = datetime.strptime(tod_value, '%Y-%m-%d').date()
+                    store.target_opening_date_text = None
+                except:
+                    store.target_opening_date = None
+                    store.target_opening_date_text = tod_value
+            else:
+                store.target_opening_date = None
+                store.target_opening_date_text = None
+        
+        if 'region' in data:
+            store.region = data['region']
+        
+        if 'city' in data:
+            store.city = data['city']
+            
+        if 'state' in data:
+            store.state = data['state']
+            
+        if 'notes' in data:
+            store.notes = data['notes']
+        
+        store.updated_at = datetime.utcnow()
+        db.session.commit()
+        
+        print(f"✅ Updated store: {store.site_name}")
+        
+        return jsonify({
+            "success": True,
+            "message": f"Store {store.site_name} updated successfully",
+            "store": store.to_dict()
+        })
+        
+    except Exception as e:
+        db.session.rollback()
+        print(f"❌ Error updating store: {e}")
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+
+
+@new_stores_bp.route('/api/new-stores/<int:store_id>', methods=['DELETE'])
+def remove_new_store(store_id):
+    """
+    Remove a new store from tracking (deactivate)
+    
+    Args:
+        store_id: ID of the store to remove
+        
+    Returns:
+        JSON response with success status
+    """
+    try:
+        store = NewStore.query.get(store_id)
+        if not store:
+            return jsonify({"error": "Store not found"}), 404
+        
+        # Mark as inactive instead of deleting
+        store.is_active = False
+        store.updated_at = datetime.utcnow()
+        db.session.commit()
+        
+        print(f"✅ Deactivated new store: {store.site_name}")
+        
+        return jsonify({
+            "success": True,
+            "message": f"Store {store.site_name} removed from tracking"
+        })
+        
+    except Exception as e:
+        db.session.rollback()
+        print(f"❌ Error removing new store: {e}")
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+
+
+@new_stores_bp.route('/api/circuits/update-notes', methods=['POST'])
+def update_circuit_notes():
+    """
+    Update notes for a specific circuit
+    
+    Request Body:
+        circuit_id (int): Circuit ID
+        site_name (str): Site name as fallback
+        notes (str): Notes text
+    
+    Returns:
+        JSON response with success status
+    """
+    try:
+        data = request.get_json()
+        circuit_id = data.get('circuit_id')
+        site_name = data.get('site_name')
+        notes = data.get('notes', '')
+        
+        # Find the circuit
+        circuit = None
+        if circuit_id:
+            circuit = Circuit.query.get(circuit_id)
+        elif site_name:
+            circuit = Circuit.query.filter_by(site_name=site_name).first()
+        
+        if not circuit:
+            return jsonify({
+                'success': False,
+                'message': 'Circuit not found'
+            }), 404
+        
+        # Update notes
+        circuit.notes = notes
+        db.session.commit()
+        
+        logger.info(f"Updated notes for circuit {circuit.site_name}: {notes}")
+        
+        return jsonify({
+            'success': True,
+            'message': 'Notes updated successfully'
+        })
+        
+    except Exception as e:
+        logger.error(f"Error updating circuit notes: {e}")
+        db.session.rollback()
+        return jsonify({
+            'success': False,
+            'message': f'Error updating notes: {str(e)}'
+        }), 500
+
+@new_stores_bp.route('/api/new-store-circuits-with-tod', methods=['GET'])
+def get_new_store_circuits_with_tod():
+    """
+    Get all circuits for active new stores with TOD information included
+    
+    Returns:
+        JSON response with circuits and their TOD data
+    """
+    try:
+        # Get all active new stores
+        new_stores = NewStore.query.filter_by(is_active=True).all()
+        
+        # Create a map of site_name to TOD data
+        tod_map = {}
+        for store in new_stores:
+            tod_data = {
+                'target_opening_date': store.target_opening_date.isoformat() if store.target_opening_date else None,
+                'target_opening_date_text': store.target_opening_date_text,
+                'project_status': store.project_status,
+                'region': store.region,
+                'city': store.city,
+                'state': store.state,
+                'notes': store.notes
+            }
+            tod_map[store.site_name] = tod_data
+        
+        new_store_names = list(tod_map.keys())
+        
+        if not new_store_names:
+            return jsonify({
+                "circuits": [],
+                "total_circuits": 0,
+                "total_stores": 0
+            })
+        
+        # Get all circuits for these stores
+        circuits = Circuit.query.filter(
+            Circuit.site_name.in_(new_store_names)
+        ).all()
+        
+        # Convert to dictionaries and add TOD info
+        circuit_list = []
+        for circuit in circuits:
+            # Get TOD data for this store
+            tod_data = tod_map.get(circuit.site_name, {})
+            
+            circuit_dict = {
+                'circuit_id': circuit.id,  # Include circuit ID for updates
+                'Site Name': safe_str(circuit.site_name or ''),
+                'Site ID': safe_str(circuit.site_id or ''),
+                'Circuit Purpose': safe_str(circuit.circuit_purpose or ''),
+                'Status': safe_str(circuit.status or ''),
+                'Provider': safe_str(circuit.provider_name or ''),
+                'Service Speed': safe_str(circuit.details_ordered_service_speed or ''),
+                'Monthly Cost': safe_str(circuit.billing_monthly_cost or ''),
+                'IP Address': safe_str(circuit.ip_address_start or ''),
+                'Date Updated': circuit.date_record_updated.strftime('%Y-%m-%d') if circuit.date_record_updated else '',
+                'Target Opening Date': (
+                    # Skip target_opening_date_text if it's the same as site name
+                    tod_data.get('target_opening_date_text') if tod_data.get('target_opening_date_text') and tod_data.get('target_opening_date_text') != circuit.site_name else None
+                ) or (
+                    # Use the actual date if available
+                    tod_data.get('target_opening_date') if tod_data.get('target_opening_date') else 'TBD'
+                ),
+                'Project Status': tod_data.get('project_status', ''),
+                'Region': tod_data.get('region', ''),
+                'City': tod_data.get('city', ''),
+                'State': tod_data.get('state', ''),
+                'notes': safe_str(circuit.notes or ''),  # Circuit-specific notes
+                'Record Number': safe_str(circuit.record_number or ''),
+                'Assigned To': safe_str(circuit.assigned_to or ''),
+                'SCTASK': safe_str(circuit.sctask or ''),
+                'manual_override': circuit.manual_override if hasattr(circuit, 'manual_override') else False,
+                'manual_override_date': circuit.manual_override_date.strftime('%Y-%m-%d %H:%M') if hasattr(circuit, 'manual_override_date') and circuit.manual_override_date else None,
+                'manual_override_by': circuit.manual_override_by if hasattr(circuit, 'manual_override_by') else None
+            }
+            circuit_list.append(circuit_dict)
+        
+        print(f"📊 Retrieved {len(circuit_list)} circuits for {len(new_store_names)} new stores")
+        
+        return jsonify({
+            "circuits": circuit_list,
+            "total_circuits": len(circuit_list),
+            "total_stores": len(new_store_names)
+        })
+        
+    except Exception as e:
+        print(f"❌ Error getting new store circuits with TOD: {e}")
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+
+
+@new_stores_bp.route('/api/new-stores/excel-upload', methods=['POST'])
+def upload_excel_file():
+    """
+    Upload and process Excel file with new store data
+    
+    Expected Excel format:
+    - Store # column (required)
+    - SAP # column (optional)
+    - DBA column (optional)
+    - Region column (optional)
+    - Address column (optional)
+    - City column (optional)
+    - State column (optional)
+    - Zip column (optional)
+    - Project Status column (optional)
+    - TOD (Target Opening Date) column (optional)
+    - Store Concept column (optional)
+    - Unit Capacity column (optional)
+    
+    Returns:
+        JSON response with processing results
+    """
+    try:
+        if 'file' not in request.files:
+            return jsonify({"error": "No file uploaded"}), 400
+        
+        file = request.files['file']
+        if file.filename == '':
+            return jsonify({"error": "No file selected"}), 400
+        
+        if not file.filename.lower().endswith(('.xlsx', '.xls')):
+            return jsonify({"error": "File must be an Excel file (.xlsx or .xls)"}), 400
+        
+        # Read Excel file - check if headers are in row 4 like the TOD file
+        try:
+            file_content = file.read()
+            # First try reading normally
+            df = pd.read_excel(io.BytesIO(file_content))
+            
+            # Check if first row looks like headers (contains "Store #" or similar)
+            first_row_str = ' '.join(str(val) for val in df.iloc[0].values if pd.notna(val))
+            if 'Store #' not in first_row_str and 'store' not in first_row_str.lower():
+                # Try reading with skiprows=3 (headers in row 4)
+                df = pd.read_excel(io.BytesIO(file_content), skiprows=3)
+                # If first row contains headers, set them properly
+                if any('store' in str(val).lower() for val in df.iloc[0].values if pd.notna(val)):
+                    df.columns = df.iloc[0]
+                    df = df.drop(0).reset_index(drop=True)
+        except Exception as e:
+            return jsonify({"error": f"Error reading Excel file: {str(e)}"}), 400
+        
+        if df.empty:
+            return jsonify({"error": "Excel file is empty"}), 400
+        
+        # Try to find store name column - look for "Store #" first, then fallback to flexible matching
+        store_name_col = None
+        for col in df.columns:
+            if col == 'Store #' or col.strip() == 'Store #':
+                store_name_col = col
+                break
+        
+        # If not found, try flexible matching
+        if store_name_col is None:
+            for col in df.columns:
+                if any(keyword in str(col).lower() for keyword in ['store', 'site', 'name']):
+                    store_name_col = col
+                    break
+        
+        if store_name_col is None:
+            return jsonify({"error": "Could not find store name column. Please ensure there's a column with 'Store #', 'store', 'site', or 'name' in the header."}), 400
+        
+        # Process rows
+        added_stores = []
+        skipped_stores = []
+        error_rows = []
+        
+        for index, row in df.iterrows():
+            try:
+                site_name = str(row[store_name_col]).strip().upper()
+                if not site_name or site_name.lower() in ['nan', 'none', '']:
+                    continue
+                
+                # Extract other fields if available
+                target_opening_date = None
+                target_opening_date_text = None
+                region = None
+                city = None
+                state = None
+                project_status = None
+                sap_number = None
+                dba = None
+                address = None
+                zip_code = None
+                store_concept = None
+                unit_capacity = None
+                
+                # Try to find and extract other fields
+                for col in df.columns:
+                    col_str = str(col).strip()
+                    col_lower = col_str.lower()
+                    value = str(row[col]).strip() if pd.notna(row[col]) else ''
+                    
+                    # Check exact matches first
+                    if col_str == 'TOD' or ('target' in col_lower and 'date' in col_lower):
+                        if value and value.lower() not in ['nan', 'none', '']:
+                            if value.upper() == 'TBD':
+                                target_opening_date_text = 'TBD'
+                            else:
+                                try:
+                                    target_opening_date = pd.to_datetime(value).date()
+                                except:
+                                    target_opening_date_text = value
+                    elif col_str == 'SAP #' or 'sap' in col_lower:
+                        sap_number = value if value and value.lower() not in ['nan', 'none', ''] else None
+                    elif col_str == 'DBA' or 'dba' in col_lower:
+                        dba = value if value and value.lower() not in ['nan', 'none', ''] else None
+                    elif col_str == 'Address' or 'address' in col_lower:
+                        address = value if value and value.lower() not in ['nan', 'none', ''] else None
+                    elif col_str == 'City' or 'city' in col_lower:
+                        city = value if value and value.lower() not in ['nan', 'none', ''] else None
+                    elif col_str == 'State' or 'state' in col_lower:
+                        state = value if value and value.lower() not in ['nan', 'none', ''] else None
+                    elif col_str == 'Zip' or 'zip' in col_lower:
+                        zip_code = value if value and value.lower() not in ['nan', 'none', ''] else None
+                    elif col_str == 'Region' or 'region' in col_lower:
+                        region = value if value and value.lower() not in ['nan', 'none', ''] else None
+                    elif col_str == 'Project Status' or ('status' in col_lower or 'project' in col_lower):
+                        project_status = value if value and value.lower() not in ['nan', 'none', ''] else None
+                    elif col_str == 'Store Concept' or 'concept' in col_lower:
+                        store_concept = value if value and value.lower() not in ['nan', 'none', ''] else None
+                    elif col_str == 'Unit Capacity' or 'capacity' in col_lower:
+                        unit_capacity = value if value and value.lower() not in ['nan', 'none', ''] else None
+                
+                # Check if store already exists
+                existing = NewStore.query.filter_by(site_name=site_name).first()
+                
+                if existing:
+                    # Always update existing stores with new data
+                    existing.is_active = True
+                    if target_opening_date is not None:
+                        existing.target_opening_date = target_opening_date
+                    if target_opening_date_text is not None:
+                        existing.target_opening_date_text = target_opening_date_text
+                    if region is not None:
+                        existing.region = region
+                    if city is not None:
+                        existing.city = city
+                    if state is not None:
+                        existing.state = state
+                    if project_status is not None:
+                        existing.project_status = project_status
+                    if sap_number is not None:
+                        existing.sap_number = sap_number
+                    if dba is not None:
+                        existing.dba = dba
+                    if address is not None:
+                        existing.address = address
+                    if zip_code is not None:
+                        existing.zip = zip_code
+                    if store_concept is not None:
+                        existing.store_concept = store_concept
+                    if unit_capacity is not None:
+                        existing.unit_capacity = unit_capacity
+                    existing.updated_at = datetime.utcnow()
+                    added_stores.append(f"{site_name} (updated)")
+                else:
+                    # Create new store entry
+                    new_store = NewStore(
+                        site_name=site_name,
+                        target_opening_date=target_opening_date,
+                        target_opening_date_text=target_opening_date_text,
+                        region=region,
+                        city=city,
+                        state=state,
+                        project_status=project_status,
+                        sap_number=sap_number,
+                        dba=dba,
+                        address=address,
+                        zip=zip_code,
+                        store_concept=store_concept,
+                        unit_capacity=unit_capacity,
+                        added_by='excel_upload'
+                    )
+                    db.session.add(new_store)
+                    added_stores.append(site_name)
+                    
+            except Exception as e:
+                error_rows.append(f"Row {index + 2}: {str(e)}")
+        
+        db.session.commit()
+        
+        # Count updates vs new additions
+        updates = [s for s in added_stores if s.endswith(' (updated)')]
+        new_additions = [s for s in added_stores if not s.endswith(' (updated)')]
+        
+        print(f"✅ Excel upload processed: {len(new_additions)} new, {len(updates)} updated, {len(error_rows)} errors")
+        
+        return jsonify({
+            "success": True,
+            "added": added_stores,
+            "new": new_additions,
+            "updated": updates,
+            "errors": error_rows,
+            "total_added": len(new_additions),
+            "total_updated": len(updates),
+            "total_errors": len(error_rows)
+        })
+        
+    except Exception as e:
+        db.session.rollback()
+        print(f"❌ Error processing Excel upload: {e}")
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+
+
+def mark_store_as_live(site_name):
+    """
+    Mark a store as live (found in Meraki) and remove from new stores list
+    
+    This function is called from the nightly Meraki script when a site
+    is found in the Meraki inventory, indicating it has gone live.
+    
+    Args:
+        site_name: Name of the site found in Meraki
+        
+    Returns:
+        bool: True if store was marked as live, False if not found
+    """
+    try:
+        store = NewStore.query.filter_by(site_name=site_name, is_active=True).first()
+        if store:
+            store.meraki_network_found = True
+            store.meraki_found_date = datetime.utcnow()
+            store.is_active = False  # Remove from active new stores list
+            store.updated_at = datetime.utcnow()
+            db.session.commit()
+            
+            print(f"🚀 Store {site_name} marked as live and removed from new stores list")
+            return True
+        
+        return False
+        
+    except Exception as e:
+        db.session.rollback()
+        print(f"❌ Error marking store as live: {e}")
+        return False
+
+
+@new_stores_bp.route('/api/new-circuits', methods=['POST'])
+def create_new_circuit():
+    """
+    Create a new circuit for a new store construction
+    
+    Request Body:
+        JSON with circuit data:
+        - site_name: Name of the site (required)
+        - provider_name: Circuit provider (required)
+        - details_ordered_service_speed: Service speed
+        - billing_monthly_cost: Monthly cost
+        - circuit_purpose: Purpose (Primary, Backup, etc.)
+        - status: Initial circuit status
+        - city: Store city
+        - state: Store state
+        - region: Store region
+        
+    Returns:
+        JSON response with success status and circuit data
+    """
+    try:
+        data = request.get_json()
+        if not data:
+            return jsonify({"error": "No data provided"}), 400
+        
+        site_name = data.get('site_name')
+        provider_name = data.get('provider_name')
+        
+        if not site_name or not provider_name:
+            return jsonify({"error": "Site name and provider are required"}), 400
+        
+        # Verify this is an active new store
+        new_store = NewStore.query.filter_by(site_name=site_name, is_active=True).first()
+        if not new_store:
+            return jsonify({"error": f"'{site_name}' is not an active new store"}), 400
+        
+        # Always create a new manual circuit - don't check for existing ones
+        # This preserves DSR tracking data and adds manual circuits as additional records
+        circuit_purpose = data.get('circuit_purpose', 'Primary')
+        
+        # Generate unique record number for the new manual circuit
+        record_number = generate_record_number(site_name, circuit_purpose)
+        
+        # Create new manual circuit (always creates new record)
+        new_circuit = Circuit(
+            record_number=record_number,
+            site_name=site_name,
+            provider_name=provider_name,
+            details_ordered_service_speed=data.get('details_ordered_service_speed'),
+            billing_monthly_cost=data.get('billing_monthly_cost'),
+            circuit_purpose=circuit_purpose,
+            status=data.get('status', 'Order Ready To Be Placed'),
+            city=data.get('city'),
+            state=data.get('state'),
+            date_record_updated=datetime.utcnow(),
+            created_at=datetime.utcnow(),
+            updated_at=datetime.utcnow(),
+            manual_override=True,
+            manual_override_date=datetime.utcnow(),
+            manual_override_by='new_stores_interface',
+            data_source='new_stores_manual'
+        )
+        
+        db.session.add(new_circuit)
+        db.session.commit()
+        
+        print(f"✅ Created new manual circuit for {site_name}: {provider_name} {circuit_purpose}")
+        
+        return jsonify({
+            "success": True,
+            "message": f"Manual circuit created successfully for {site_name}",
+            "action": "created",
+            "circuit": {
+                "id": new_circuit.id,
+                "record_number": new_circuit.record_number,
+                "site_name": new_circuit.site_name,
+                "provider_name": new_circuit.provider_name,
+                "circuit_purpose": new_circuit.circuit_purpose,
+                "status": new_circuit.status,
+                "manual_override": True
+            }
+        })
+        
+    except Exception as e:
+        db.session.rollback()
+        print(f"❌ Error creating new manual circuit: {e}")
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+
+
+@new_stores_bp.route('/api/circuits/<int:circuit_id>/status', methods=['PUT'])
+def update_circuit_status(circuit_id):
+    """
+    Update circuit status for manually overridden circuits
+    
+    Args:
+        circuit_id: ID of the circuit to update
+        
+    Request Body:
+        JSON with new status:
+        - status: New status value
+        
+    Returns:
+        JSON response with success status
+    """
+    try:
+        data = request.get_json()
+        if not data or 'status' not in data:
+            return jsonify({"error": "Status is required"}), 400
+        
+        circuit = Circuit.query.get(circuit_id)
+        if not circuit:
+            return jsonify({"error": "Circuit not found"}), 404
+        
+        # Only allow updates to manually overridden circuits
+        if not circuit.manual_override:
+            return jsonify({"error": "Circuit is not manually overridden"}), 403
+        
+        old_status = circuit.status
+        circuit.status = data['status']
+        circuit.date_record_updated = datetime.utcnow()
+        circuit.updated_at = datetime.utcnow()
+        
+        db.session.commit()
+        
+        print(f"✅ Updated circuit {circuit_id} status from '{old_status}' to '{data['status']}'")
+        
+        return jsonify({
+            "success": True,
+            "message": f"Circuit status updated successfully",
+            "circuit": {
+                "id": circuit.id,
+                "site_name": circuit.site_name,
+                "old_status": old_status,
+                "new_status": circuit.status
+            }
+        })
+        
+    except Exception as e:
+        db.session.rollback()
+        print(f"❌ Error updating circuit status: {e}")
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
+
+
+@new_stores_bp.route('/api/circuits/<int:circuit_id>/manual-override', methods=['DELETE'])
+def remove_manual_override(circuit_id):
+    """
+    Remove manual override protection from a circuit
+    This allows DSR pull to update the circuit again
+    
+    Args:
+        circuit_id: ID of the circuit
+        
+    Returns:
+        JSON response with success status
+    """
+    try:
+        circuit = Circuit.query.get(circuit_id)
+        if not circuit:
+            return jsonify({"error": "Circuit not found"}), 404
+        
+        if not circuit.manual_override:
+            return jsonify({"error": "Circuit does not have manual override"}), 400
+        
+        # Remove manual override
+        circuit.manual_override = False
+        circuit.manual_override_date = None
+        circuit.manual_override_by = None
+        circuit.updated_at = datetime.utcnow()
+        
+        db.session.commit()
+        
+        print(f"✅ Removed manual override from circuit {circuit_id} ({circuit.site_name})")
+        
+        return jsonify({
+            "success": True,
+            "message": f"Manual override removed. Circuit will now be updated by DSR pull.",
+            "circuit": {
+                "id": circuit.id,
+                "site_name": circuit.site_name,
+                "circuit_purpose": circuit.circuit_purpose,
+                "manual_override": False
+            }
+        })
+        
+    except Exception as e:
+        db.session.rollback()
+        print(f"❌ Error removing manual override: {e}")
+        traceback.print_exc()
+        return jsonify({"error": str(e)}), 500
